@@ -1,0 +1,526 @@
+{
+  "run": "vision-cars-20261020T213744Z",
+  "model": "thaitea/laya-vision",
+  "timestamp": "20261020T213744Z",
+  "summary": {
+    "total_images": 7,
+    "total_questions": 28,
+    "correct": 19,
+    "accuracy": 0.6786,
+    "mean_p_correct": 0.774,
+    "mean_latency_ms": 1336.1
+  },
+  "results": [
+    {
+      "filename": "black_car.jpg",
+      "latency_ms": 1304.8,
+      "questions": [
+        {
+          "question": "tem_carro",
+          "qtype": "noul",
+          "prediction": "true",
+          "expected": "True",
+          "correct": true,
+          "confidence": 0.7851,
+          "p_correct": 0.7851,
+          "probabilities": null
+        },
+        {
+          "question": "marca",
+          "qtype": "choice",
+          "prediction": "other",
+          "expected": "unknown",
+          "correct": false,
+          "confidence": 0.0929,
+          "p_correct": null,
+          "probabilities": {
+            "toyota": 0.0988,
+            "ford": 0.0843,
+            "honda": 0.0703,
+            "chevrolet": 0.0995,
+            "volkswagen": 0.0831,
+            "other": 0.3324,
+            "unknown": 0.2316
+          }
+        },
+        {
+          "question": "cor",
+          "qtype": "choice",
+          "prediction": "black",
+          "expected": "black",
+          "correct": true,
+          "confidence": 0.2312,
+          "p_correct": null,
+          "probabilities": {
+            "black": 0.4904,
+            "white": 0.0287,
+            "gray_silver": 0.0643,
+            "red": 0.0957,
+            "blue": 0.0944,
+            "green": 0.0225,
+            "yellow": 0.0967,
+            "other": 0.0298,
+            "unknown": 0.0776
+          }
+        },
+        {
+          "question": "tipo",
+          "qtype": "choice",
+          "prediction": "suv",
+          "expected": "suv",
+          "correct": true,
+          "confidence": 0.3104,
+          "p_correct": null,
+          "probabilities": {
+            "sedan": 0.0805,
+            "suv": 0.6127,
+            "hatch": 0.0492,
+            "truck": 0.0382,
+            "van": 0.0587,
+            "other": 0.0595,
+            "unknown": 0.1011
+          }
+        }
+      ],
+      "error": null
+    },
+    {
+      "filename": "ford_blue.jpg",
+      "latency_ms": 1299.0,
+      "questions": [
+        {
+          "question": "tem_carro",
+          "qtype": "noul",
+          "prediction": "true",
+          "expected": "True",
+          "correct": true,
+          "confidence": 0.9179,
+          "p_correct": 0.9179,
+          "probabilities": null
+        },
+        {
+          "question": "marca",
+          "qtype": "choice",
+          "prediction": "ford",
+          "expected": "ford",
+          "correct": true,
+          "confidence": 0.3948,
+          "p_correct": null,
+          "probabilities": {
+            "toyota": 0.0349,
+            "ford": 0.6833,
+            "honda": 0.0328,
+            "chevrolet": 0.0522,
+            "volkswagen": 0.0525,
+            "other": 0.0707,
+            "unknown": 0.0736
+          }
+        },
+        {
+          "question": "cor",
+          "qtype": "choice",
+          "prediction": "blue",
+          "expected": "blue",
+          "correct": true,
+          "confidence": 0.1807,
+          "p_correct": null,
+          "probabilities": {
+            "black": 0.0394,
+            "white": 0.0411,
+            "gray_silver": 0.0433,
+            "red": 0.1154,
+            "blue": 0.4062,
+            "green": 0.0326,
+            "yellow": 0.1735,
+            "other": 0.0457,
+            "unknown": 0.1028
+          }
+        },
+        {
+          "question": "tipo",
+          "qtype": "choice",
+          "prediction": "suv",
+          "expected": "hatch",
+          "correct": false,
+          "confidence": 0.1515,
+          "p_correct": null,
+          "probabilities": {
+            "sedan": 0.0958,
+            "suv": 0.4598,
+            "hatch": 0.0799,
+            "truck": 0.0722,
+            "van": 0.0862,
+            "other": 0.088,
+            "unknown": 0.118
+          }
+        }
+      ],
+      "error": null
+    },
+    {
+      "filename": "gray_car.jpg",
+      "latency_ms": 1300.1,
+      "questions": [
+        {
+          "question": "tem_carro",
+          "qtype": "noul",
+          "prediction": "false",
+          "expected": "True",
+          "correct": false,
+          "confidence": 0.7585,
+          "p_correct": 0.2415,
+          "probabilities": null
+        },
+        {
+          "question": "marca",
+          "qtype": "choice",
+          "prediction": "unknown",
+          "expected": "unknown",
+          "correct": true,
+          "confidence": 0.0615,
+          "p_correct": null,
+          "probabilities": {
+            "toyota": 0.1266,
+            "ford": 0.0556,
+            "honda": 0.0905,
+            "chevrolet": 0.1278,
+            "volkswagen": 0.124,
+            "other": 0.172,
+            "unknown": 0.3034
+          }
+        },
+        {
+          "question": "cor",
+          "qtype": "choice",
+          "prediction": "red",
+          "expected": "gray_silver",
+          "correct": false,
+          "confidence": 0.1079,
+          "p_correct": null,
+          "probabilities": {
+            "black": 0.0868,
+            "white": 0.0469,
+            "gray_silver": 0.1979,
+            "red": 0.291,
+            "blue": 0.0494,
+            "green": 0.0332,
+            "yellow": 0.1297,
+            "other": 0.0494,
+            "unknown": 0.1156
+          }
+        },
+        {
+          "question": "tipo",
+          "qtype": "choice",
+          "prediction": "suv",
+          "expected": "sedan",
+          "correct": false,
+          "confidence": 0.1718,
+          "p_correct": null,
+          "probabilities": {
+            "sedan": 0.0969,
+            "suv": 0.4757,
+            "hatch": 0.062,
+            "truck": 0.06,
+            "van": 0.1047,
+            "other": 0.0742,
+            "unknown": 0.1265
+          }
+        }
+      ],
+      "error": null
+    },
+    {
+      "filename": "honda_white.jpg",
+      "latency_ms": 1333.1,
+      "questions": [
+        {
+          "question": "tem_carro",
+          "qtype": "noul",
+          "prediction": "true",
+          "expected": "True",
+          "correct": true,
+          "confidence": 0.8813,
+          "p_correct": 0.8813,
+          "probabilities": null
+        },
+        {
+          "question": "marca",
+          "qtype": "choice",
+          "prediction": "honda",
+          "expected": "honda",
+          "correct": true,
+          "confidence": 0.428,
+          "p_correct": null,
+          "probabilities": {
+            "toyota": 0.044,
+            "ford": 0.0246,
+            "honda": 0.7031,
+            "chevrolet": 0.0434,
+            "volkswagen": 0.0362,
+            "other": 0.0535,
+            "unknown": 0.0951
+          }
+        },
+        {
+          "question": "cor",
+          "qtype": "choice",
+          "prediction": "white",
+          "expected": "white",
+          "correct": true,
+          "confidence": 0.1568,
+          "p_correct": null,
+          "probabilities": {
+            "black": 0.0342,
+            "white": 0.4071,
+            "gray_silver": 0.0676,
+            "red": 0.0866,
+            "blue": 0.0814,
+            "green": 0.0348,
+            "yellow": 0.1083,
+            "other": 0.0507,
+            "unknown": 0.1295
+          }
+        },
+        {
+          "question": "tipo",
+          "qtype": "choice",
+          "prediction": "suv",
+          "expected": "sedan",
+          "correct": false,
+          "confidence": 0.2077,
+          "p_correct": null,
+          "probabilities": {
+            "sedan": 0.0639,
+            "suv": 0.5166,
+            "hatch": 0.1116,
+            "truck": 0.0615,
+            "van": 0.0631,
+            "other": 0.0733,
+            "unknown": 0.1101
+          }
+        }
+      ],
+      "error": null
+    },
+    {
+      "filename": "no_car_field.jpg",
+      "latency_ms": 1415.0,
+      "questions": [
+        {
+          "question": "tem_carro",
+          "qtype": "noul",
+          "prediction": "false",
+          "expected": "False",
+          "correct": true,
+          "confidence": 0.9094,
+          "p_correct": 0.9094,
+          "probabilities": null
+        },
+        {
+          "question": "marca",
+          "qtype": "choice",
+          "prediction": "unknown",
+          "expected": "unknown",
+          "correct": true,
+          "confidence": 0.19,
+          "p_correct": null,
+          "probabilities": {
+            "toyota": 0.0654,
+            "ford": 0.0373,
+            "honda": 0.0459,
+            "chevrolet": 0.0614,
+            "volkswagen": 0.1025,
+            "other": 0.3011,
+            "unknown": 0.3863
+          }
+        },
+        {
+          "question": "cor",
+          "qtype": "choice",
+          "prediction": "green",
+          "expected": "unknown",
+          "correct": false,
+          "confidence": 0.1192,
+          "p_correct": null,
+          "probabilities": {
+            "black": 0.0401,
+            "white": 0.0421,
+            "gray_silver": 0.0446,
+            "red": 0.1969,
+            "blue": 0.0807,
+            "green": 0.3129,
+            "yellow": 0.14,
+            "other": 0.0537,
+            "unknown": 0.089
+          }
+        },
+        {
+          "question": "tipo",
+          "qtype": "choice",
+          "prediction": "unknown",
+          "expected": "unknown",
+          "correct": true,
+          "confidence": 0.1445,
+          "p_correct": null,
+          "probabilities": {
+            "sedan": 0.1483,
+            "suv": 0.0578,
+            "hatch": 0.0571,
+            "truck": 0.0617,
+            "van": 0.0532,
+            "other": 0.2928,
+            "unknown": 0.329
+          }
+        }
+      ],
+      "error": null
+    },
+    {
+      "filename": "no_car_landscape.jpg",
+      "latency_ms": 1337.2,
+      "questions": [
+        {
+          "question": "tem_carro",
+          "qtype": "noul",
+          "prediction": "false",
+          "expected": "False",
+          "correct": true,
+          "confidence": 0.9362,
+          "p_correct": 0.9362,
+          "probabilities": null
+        },
+        {
+          "question": "marca",
+          "qtype": "choice",
+          "prediction": "unknown",
+          "expected": "unknown",
+          "correct": true,
+          "confidence": 0.3097,
+          "p_correct": null,
+          "probabilities": {
+            "toyota": 0.0626,
+            "ford": 0.0336,
+            "honda": 0.0234,
+            "chevrolet": 0.0696,
+            "volkswagen": 0.177,
+            "other": 0.0549,
+            "unknown": 0.5788
+          }
+        },
+        {
+          "question": "cor",
+          "qtype": "choice",
+          "prediction": "blue",
+          "expected": "unknown",
+          "correct": false,
+          "confidence": 0.3703,
+          "p_correct": null,
+          "probabilities": {
+            "black": 0.0349,
+            "white": 0.038,
+            "gray_silver": 0.0368,
+            "red": 0.0178,
+            "blue": 0.6194,
+            "green": 0.0548,
+            "yellow": 0.0257,
+            "other": 0.0421,
+            "unknown": 0.1306
+          }
+        },
+        {
+          "question": "tipo",
+          "qtype": "choice",
+          "prediction": "unknown",
+          "expected": "unknown",
+          "correct": true,
+          "confidence": 0.2353,
+          "p_correct": null,
+          "probabilities": {
+            "sedan": 0.0815,
+            "suv": 0.065,
+            "hatch": 0.0331,
+            "truck": 0.1079,
+            "van": 0.0389,
+            "other": 0.1528,
+            "unknown": 0.5209
+          }
+        }
+      ],
+      "error": null
+    },
+    {
+      "filename": "toyota_red.jpg",
+      "latency_ms": 1363.6,
+      "questions": [
+        {
+          "question": "tem_carro",
+          "qtype": "noul",
+          "prediction": "true",
+          "expected": "True",
+          "correct": true,
+          "confidence": 0.7468,
+          "p_correct": 0.7468,
+          "probabilities": null
+        },
+        {
+          "question": "marca",
+          "qtype": "choice",
+          "prediction": "toyota",
+          "expected": "toyota",
+          "correct": true,
+          "confidence": 0.2671,
+          "p_correct": null,
+          "probabilities": {
+            "toyota": 0.5324,
+            "ford": 0.0323,
+            "honda": 0.0366,
+            "chevrolet": 0.0532,
+            "volkswagen": 0.0494,
+            "other": 0.1066,
+            "unknown": 0.1895
+          }
+        },
+        {
+          "question": "cor",
+          "qtype": "choice",
+          "prediction": "red",
+          "expected": "red",
+          "correct": true,
+          "confidence": 0.2128,
+          "p_correct": null,
+          "probabilities": {
+            "black": 0.0634,
+            "white": 0.0402,
+            "gray_silver": 0.0475,
+            "red": 0.4722,
+            "blue": 0.1289,
+            "green": 0.0328,
+            "yellow": 0.0612,
+            "other": 0.0434,
+            "unknown": 0.1105
+          }
+        },
+        {
+          "question": "tipo",
+          "qtype": "choice",
+          "prediction": "suv",
+          "expected": "sedan",
+          "correct": false,
+          "confidence": 0.1641,
+          "p_correct": null,
+          "probabilities": {
+            "sedan": 0.0867,
+            "suv": 0.4703,
+            "hatch": 0.0813,
+            "truck": 0.073,
+            "van": 0.0635,
+            "other": 0.0968,
+            "unknown": 0.1284
+          }
+        }
+      ],
+      "error": null
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "run": "vision-cars-20261020T213353Z",
+  "model": "thaitea/laya-vision",
+  "timestamp": "20261020T213353Z",
+  "summary": {
+    "total_images": 7,
+    "total_questions": 0,
+    "correct": 0,
+    "accuracy": null,
+    "mean_p_correct": null,
+    "mean_latency_ms": null
+  },
+  "results": [
+    {
+      "filename": "black_car.jpg",
+      "latency_ms": 0,
+      "questions": [],
+      "error": "'list' object has no attribute 'to'"
+    },
+    {
+      "filename": "ford_blue.jpg",
+      "latency_ms": 0,
+      "questions": [],
+      "error": "'list' object has no attribute 'to'"
+    },
+    {
+      "filename": "gray_car.jpg",
+      "latency_ms": 0,
+      "questions": [],
+      "error": "'list' object has no attribute 'to'"
+    },
+    {
+      "filename": "honda_white.jpg",
+      "latency_ms": 0,
+      "questions": [],
+      "error": "'list' object has no attribute 'to'"
+    },
+    {
+      "filename": "no_car_field.jpg",
+      "latency_ms": 0,
+      "questions": [],
+      "error": "'list' object has no attribute 'to'"
+    },
+    {
+      "filename": "no_car_landscape.jpg",
+      "latency_ms": 0,
+      "questions": [],
+      "error": "'list' object has no attribute 'to'"
+    },
+    {
+      "filename": "toyota_red.jpg",
+      "latency_ms": 0,
+      "questions": [],
+      "error": "'list' object has no attribute 'to'"
+    }
+  ]
+}

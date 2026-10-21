@@ -1,0 +1,892 @@
+{
+  "run": "laya-20261020T212328Z",
+  "model": "laya",
+  "dataset": "/home/roma/Documents/Repos/SystemOneTesting/eval/datasets/default.jsonl",
+  "timestamp": "20261020T212328Z",
+  "summary": {
+    "total_questions": 33,
+    "correct": 16,
+    "accuracy": 0.4848,
+    "errors": 0,
+    "mean_latency_ms": 1001.2,
+    "mean_p_correct": 0.4504,
+    "per_domain": {
+      "crédito": {
+        "accuracy": 0.5,
+        "total": 6,
+        "correct": 3
+      },
+      "saúde": {
+        "accuracy": 0.5,
+        "total": 6,
+        "correct": 3
+      },
+      "moderação": {
+        "accuracy": 0.5,
+        "total": 6,
+        "correct": 3
+      },
+      "suporte": {
+        "accuracy": 0.4444,
+        "total": 9,
+        "correct": 4
+      },
+      "vendas": {
+        "accuracy": 0.5,
+        "total": 6,
+        "correct": 3
+      }
+    }
+  },
+  "results": [
+    {
+      "id": "credito_001",
+      "domain": "crédito",
+      "latency_ms": 1070.68,
+      "input_tokens": 192,
+      "output_tokens": 0,
+      "questions": [
+        {
+          "question": "aprovar",
+          "type": "noul",
+          "prediction": "false",
+          "expected": "false",
+          "correct": true,
+          "confidence": null,
+          "probabilities": null,
+          "raw": {
+            "type": "noul",
+            "noul": 0.29582764494249003
+          },
+          "p_correct": 0.7042
+        },
+        {
+          "question": "risco",
+          "type": "choice",
+          "prediction": "medio",
+          "expected": "muito_alto",
+          "correct": false,
+          "confidence": 0.2716129501893956,
+          "probabilities": {
+            "baixo": 0.19082403622016691,
+            "medio": 0.4537097126420467,
+            "alto": 0.17532831437087182,
+            "muito_alto": 0.18013793676691478
+          },
+          "raw": {
+            "type": "choice",
+            "choice": "medio",
+            "probabilities": {
+              "baixo": 0.19082403622016691,
+              "medio": 0.4537097126420467,
+              "alto": 0.17532831437087182,
+              "muito_alto": 0.18013793676691478
+            },
+            "confidence": 0.2716129501893956
+          }
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "credito_002",
+      "domain": "crédito",
+      "latency_ms": 1263.06,
+      "input_tokens": 206,
+      "output_tokens": 0,
+      "questions": [
+        {
+          "question": "aprovar",
+          "type": "noul",
+          "prediction": "true",
+          "expected": "true",
+          "correct": true,
+          "confidence": null,
+          "probabilities": null,
+          "raw": {
+            "type": "noul",
+            "noul": 0.8335391890813889
+          },
+          "p_correct": 0.8335
+        },
+        {
+          "question": "risco",
+          "type": "choice",
+          "prediction": "medio",
+          "expected": "baixo",
+          "correct": false,
+          "confidence": 0.1328771401866405,
+          "probabilities": {
+            "baixo": 0.3107271506855613,
+            "medio": 0.3496578551399804,
+            "alto": 0.17169893370650008,
+            "muito_alto": 0.16791606046795818
+          },
+          "raw": {
+            "type": "choice",
+            "choice": "medio",
+            "probabilities": {
+              "baixo": 0.3107271506855613,
+              "medio": 0.3496578551399804,
+              "alto": 0.17169893370650008,
+              "muito_alto": 0.16791606046795818
+            },
+            "confidence": 0.1328771401866405
+          }
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "credito_003",
+      "domain": "crédito",
+      "latency_ms": 839.47,
+      "input_tokens": 213,
+      "output_tokens": 0,
+      "questions": [
+        {
+          "question": "aprovar",
+          "type": "noul",
+          "prediction": "false",
+          "expected": "true",
+          "correct": false,
+          "confidence": null,
+          "probabilities": null,
+          "raw": {
+            "type": "noul",
+            "noul": 0.12496759024877982
+          },
+          "p_correct": 0.125
+        },
+        {
+          "question": "risco",
+          "type": "choice",
+          "prediction": "medio",
+          "expected": "medio",
+          "correct": true,
+          "confidence": 0.16739436808159155,
+          "probabilities": {
+            "baixo": 0.3526072086972788,
+            "medio": 0.37554577606119366,
+            "alto": 0.13738705980293403,
+            "muito_alto": 0.13445995543859357
+          },
+          "raw": {
+            "type": "choice",
+            "choice": "medio",
+            "probabilities": {
+              "baixo": 0.3526072086972788,
+              "medio": 0.37554577606119366,
+              "alto": 0.13738705980293403,
+              "muito_alto": 0.13445995543859357
+            },
+            "confidence": 0.16739436808159155
+          }
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "saude_001",
+      "domain": "saúde",
+      "latency_ms": 838.73,
+      "input_tokens": 207,
+      "output_tokens": 0,
+      "questions": [
+        {
+          "question": "emergencia",
+          "type": "noul",
+          "prediction": "false",
+          "expected": "true",
+          "correct": false,
+          "confidence": null,
+          "probabilities": null,
+          "raw": {
+            "type": "noul",
+            "noul": 0.13555891452755822
+          },
+          "p_correct": 0.1356
+        },
+        {
+          "question": "prioridade",
+          "type": "choice",
+          "prediction": "azul",
+          "expected": "vermelho",
+          "correct": false,
+          "confidence": 0.17736751304906712,
+          "probabilities": {
+            "vermelho": 0.27217684898875155,
+            "laranja": 0.123860538584443,
+            "amarelo": 0.05398613272004765,
+            "verde": 0.208082469267504,
+            "azul": 0.3418940104392537
+          },
+          "raw": {
+            "type": "choice",
+            "choice": "azul",
+            "probabilities": {
+              "vermelho": 0.27217684898875155,
+              "laranja": 0.123860538584443,
+              "amarelo": 0.05398613272004765,
+              "verde": 0.208082469267504,
+              "azul": 0.3418940104392537
+            },
+            "confidence": 0.17736751304906712
+          }
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "saude_002",
+      "domain": "saúde",
+      "latency_ms": 915.2,
+      "input_tokens": 221,
+      "output_tokens": 0,
+      "questions": [
+        {
+          "question": "emergencia",
+          "type": "noul",
+          "prediction": "false",
+          "expected": "false",
+          "correct": true,
+          "confidence": null,
+          "probabilities": null,
+          "raw": {
+            "type": "noul",
+            "noul": 0.16116252292108482
+          },
+          "p_correct": 0.8388
+        },
+        {
+          "question": "prioridade",
+          "type": "choice",
+          "prediction": "azul",
+          "expected": "verde",
+          "correct": false,
+          "confidence": 0.2800474678386657,
+          "probabilities": {
+            "vermelho": 0.1271769719820905,
+            "laranja": 0.1875303175205965,
+            "amarelo": 0.0856595114225973,
+            "verde": 0.17559522480378298,
+            "azul": 0.4240379742709326
+          },
+          "raw": {
+            "type": "choice",
+            "choice": "azul",
+            "probabilities": {
+              "vermelho": 0.1271769719820905,
+              "laranja": 0.1875303175205965,
+              "amarelo": 0.0856595114225973,
+              "verde": 0.17559522480378298,
+              "azul": 0.4240379742709326
+            },
+            "confidence": 0.2800474678386657
+          }
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "saude_003",
+      "domain": "saúde",
+      "latency_ms": 823.47,
+      "input_tokens": 205,
+      "output_tokens": 0,
+      "questions": [
+        {
+          "question": "emergencia",
+          "type": "noul",
+          "prediction": "true",
+          "expected": "true",
+          "correct": true,
+          "confidence": null,
+          "probabilities": null,
+          "raw": {
+            "type": "noul",
+            "noul": 0.613368883496946
+          },
+          "p_correct": 0.6134
+        },
+        {
+          "question": "prioridade",
+          "type": "choice",
+          "prediction": "vermelho",
+          "expected": "vermelho",
+          "correct": true,
+          "confidence": 0.1997167217701142,
+          "probabilities": {
+            "vermelho": 0.3597733774160914,
+            "laranja": 0.19160646917380583,
+            "amarelo": 0.09316919702316662,
+            "verde": 0.11571167868082637,
+            "azul": 0.23973927770610967
+          },
+          "raw": {
+            "type": "choice",
+            "choice": "vermelho",
+            "probabilities": {
+              "vermelho": 0.3597733774160914,
+              "laranja": 0.19160646917380583,
+              "amarelo": 0.09316919702316662,
+              "verde": 0.11571167868082637,
+              "azul": 0.23973927770610967
+            },
+            "confidence": 0.1997167217701142
+          }
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "moderacao_001",
+      "domain": "moderação",
+      "latency_ms": 821.23,
+      "input_tokens": 198,
+      "output_tokens": 0,
+      "questions": [
+        {
+          "question": "remover",
+          "type": "noul",
+          "prediction": "false",
+          "expected": "true",
+          "correct": false,
+          "confidence": null,
+          "probabilities": null,
+          "raw": {
+            "type": "noul",
+            "noul": 0.37719397388728837
+          },
+          "p_correct": 0.3772
+        },
+        {
+          "question": "categoria",
+          "type": "choice",
+          "prediction": "ameaca",
+          "expected": "ameaca",
+          "correct": true,
+          "confidence": 0.5903748689603443,
+          "probabilities": {
+            "ameaca": 0.6722998951682755,
+            "assedio": 0.08685417404487897,
+            "odio": 0.03533477080212423,
+            "spam": 0.16274122275309286,
+            "nenhuma": 0.042769937231628447
+          },
+          "raw": {
+            "type": "choice",
+            "choice": "ameaca",
+            "probabilities": {
+              "ameaca": 0.6722998951682755,
+              "assedio": 0.08685417404487897,
+              "odio": 0.03533477080212423,
+              "spam": 0.16274122275309286,
+              "nenhuma": 0.042769937231628447
+            },
+            "confidence": 0.5903748689603443
+          }
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "moderacao_002",
+      "domain": "moderação",
+      "latency_ms": 867.84,
+      "input_tokens": 214,
+      "output_tokens": 0,
+      "questions": [
+        {
+          "question": "remover",
+          "type": "noul",
+          "prediction": "false",
+          "expected": "false",
+          "correct": true,
+          "confidence": null,
+          "probabilities": null,
+          "raw": {
+            "type": "noul",
+            "noul": 0.08166871736548045
+          },
+          "p_correct": 0.9183
+        },
+        {
+          "question": "categoria",
+          "type": "choice",
+          "prediction": "nenhuma",
+          "expected": "nenhuma",
+          "correct": true,
+          "confidence": 0.28329751408059894,
+          "probabilities": {
+            "ameaca": 0.062085263377523174,
+            "assedio": 0.14415919888027331,
+            "odio": 0.29320562759514435,
+            "spam": 0.07391189888257996,
+            "nenhuma": 0.4266380112644792
+          },
+          "raw": {
+            "type": "choice",
+            "choice": "nenhuma",
+            "probabilities": {
+              "ameaca": 0.062085263377523174,
+              "assedio": 0.14415919888027331,
+              "odio": 0.29320562759514435,
+              "spam": 0.07391189888257996,
+              "nenhuma": 0.4266380112644792
+            },
+            "confidence": 0.28329751408059894
+          }
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "moderacao_003",
+      "domain": "moderação",
+      "latency_ms": 931.57,
+      "input_tokens": 226,
+      "output_tokens": 0,
+      "questions": [
+        {
+          "question": "remover",
+          "type": "noul",
+          "prediction": "false",
+          "expected": "true",
+          "correct": false,
+          "confidence": null,
+          "probabilities": null,
+          "raw": {
+            "type": "noul",
+            "noul": 0.17775719216349456
+          },
+          "p_correct": 0.1778
+        },
+        {
+          "question": "categoria",
+          "type": "choice",
+          "prediction": "ameaca",
+          "expected": "spam",
+          "correct": false,
+          "confidence": 0.43775827079332685,
+          "probabilities": {
+            "ameaca": 0.5502066166346615,
+            "assedio": 0.06354764181666821,
+            "odio": 0.016938856317652583,
+            "spam": 0.22360883404630003,
+            "nenhuma": 0.14569805118471765
+          },
+          "raw": {
+            "type": "choice",
+            "choice": "ameaca",
+            "probabilities": {
+              "ameaca": 0.5502066166346615,
+              "assedio": 0.06354764181666821,
+              "odio": 0.016938856317652583,
+              "spam": 0.22360883404630003,
+              "nenhuma": 0.14569805118471765
+            },
+            "confidence": 0.43775827079332685
+          }
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "suporte_001",
+      "domain": "suporte",
+      "latency_ms": 1287.79,
+      "input_tokens": 311,
+      "output_tokens": 0,
+      "questions": [
+        {
+          "question": "escalar",
+          "type": "noul",
+          "prediction": "false",
+          "expected": "true",
+          "correct": false,
+          "confidence": null,
+          "probabilities": null,
+          "raw": {
+            "type": "noul",
+            "noul": 0.09280686469881008
+          },
+          "p_correct": 0.0928
+        },
+        {
+          "question": "departamento",
+          "type": "choice",
+          "prediction": "retencao",
+          "expected": "financeiro",
+          "correct": false,
+          "confidence": 0.3770836881543322,
+          "probabilities": {
+            "financeiro": 0.2957483982845373,
+            "tecnico": 0.12758280226368035,
+            "retencao": 0.5328127661157491,
+            "geral": 0.043856033336033155
+          },
+          "raw": {
+            "type": "choice",
+            "choice": "retencao",
+            "probabilities": {
+              "financeiro": 0.2957483982845373,
+              "tecnico": 0.12758280226368035,
+              "retencao": 0.5328127661157491,
+              "geral": 0.043856033336033155
+            },
+            "confidence": 0.3770836881543322
+          }
+        },
+        {
+          "question": "urgencia",
+          "type": "score",
+          "prediction": "4",
+          "expected": "4",
+          "correct": true,
+          "confidence": 0.12359848171769905,
+          "probabilities": {
+            "0": 0.0355080189019663,
+            "1": 0.07719151817058569,
+            "2": 0.31007643454364997,
+            "3": 0.05792232273183921,
+            "4": 0.5193017056519588
+          },
+          "raw": {
+            "type": "score",
+            "score": 2.948318178061238,
+            "legend": {
+              "0": "Mínima",
+              "1": "Baixa",
+              "2": "Moderada",
+              "3": "Alta",
+              "4": "Crítica"
+            },
+            "probabilities": {
+              "0": 0.0355080189019663,
+              "1": 0.07719151817058569,
+              "2": 0.31007643454364997,
+              "3": 0.05792232273183921,
+              "4": 0.5193017056519588
+            },
+            "confidence": 0.12359848171769905
+          }
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "suporte_002",
+      "domain": "suporte",
+      "latency_ms": 1172.26,
+      "input_tokens": 272,
+      "output_tokens": 0,
+      "questions": [
+        {
+          "question": "escalar",
+          "type": "noul",
+          "prediction": "false",
+          "expected": "false",
+          "correct": true,
+          "confidence": null,
+          "probabilities": null,
+          "raw": {
+            "type": "noul",
+            "noul": 0.03296525132632246
+          },
+          "p_correct": 0.967
+        },
+        {
+          "question": "departamento",
+          "type": "choice",
+          "prediction": "tecnico",
+          "expected": "geral",
+          "correct": false,
+          "confidence": 0.44913611754117105,
+          "probabilities": {
+            "financeiro": 0.2056643438873013,
+            "tecnico": 0.5868520881558783,
+            "retencao": 0.0959516573924498,
+            "geral": 0.11153191056437062
+          },
+          "raw": {
+            "type": "choice",
+            "choice": "tecnico",
+            "probabilities": {
+              "financeiro": 0.2056643438873013,
+              "tecnico": 0.5868520881558783,
+              "retencao": 0.0959516573924498,
+              "geral": 0.11153191056437062
+            },
+            "confidence": 0.44913611754117105
+          }
+        },
+        {
+          "question": "urgencia",
+          "type": "score",
+          "prediction": "1",
+          "expected": "0",
+          "correct": false,
+          "confidence": 0.378189505033094,
+          "probabilities": {
+            "0": 0.29972492754270885,
+            "1": 0.3693986751335973,
+            "2": 0.24218351833395957,
+            "3": 0.06181448888558372,
+            "4": 0.026878390104150485
+          },
+          "raw": {
+            "type": "score",
+            "score": 1.1467227388748698,
+            "legend": {
+              "0": "Mínima",
+              "1": "Baixa",
+              "2": "Moderada",
+              "3": "Alta",
+              "4": "Crítica"
+            },
+            "probabilities": {
+              "0": 0.29972492754270885,
+              "1": 0.3693986751335973,
+              "2": 0.24218351833395957,
+              "3": 0.06181448888558372,
+              "4": 0.026878390104150485
+            },
+            "confidence": 0.378189505033094
+          }
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "suporte_003",
+      "domain": "suporte",
+      "latency_ms": 1286.89,
+      "input_tokens": 308,
+      "output_tokens": 0,
+      "questions": [
+        {
+          "question": "escalar",
+          "type": "noul",
+          "prediction": "false",
+          "expected": "true",
+          "correct": false,
+          "confidence": null,
+          "probabilities": null,
+          "raw": {
+            "type": "noul",
+            "noul": 0.0005026606383467111
+          },
+          "p_correct": 0.0005
+        },
+        {
+          "question": "departamento",
+          "type": "choice",
+          "prediction": "tecnico",
+          "expected": "tecnico",
+          "correct": true,
+          "confidence": 0.5035971778823766,
+          "probabilities": {
+            "financeiro": 0.08787623779271016,
+            "tecnico": 0.6276978834117825,
+            "retencao": 0.23852294787212447,
+            "geral": 0.0459029309233829
+          },
+          "raw": {
+            "type": "choice",
+            "choice": "tecnico",
+            "probabilities": {
+              "financeiro": 0.08787623779271016,
+              "tecnico": 0.6276978834117825,
+              "retencao": 0.23852294787212447,
+              "geral": 0.0459029309233829
+            },
+            "confidence": 0.5035971778823766
+          }
+        },
+        {
+          "question": "urgencia",
+          "type": "score",
+          "prediction": "4",
+          "expected": "4",
+          "correct": true,
+          "confidence": 0.12283999039792293,
+          "probabilities": {
+            "0": 0.13241307376363184,
+            "1": 0.10732377510249477,
+            "2": 0.06715302669049525,
+            "3": 0.06666233777949052,
+            "4": 0.6264477866638876
+          },
+          "raw": {
+            "type": "score",
+            "score": 2.947407988477507,
+            "legend": {
+              "0": "Mínima",
+              "1": "Baixa",
+              "2": "Moderada",
+              "3": "Alta",
+              "4": "Crítica"
+            },
+            "probabilities": {
+              "0": 0.13241307376363184,
+              "1": 0.10732377510249477,
+              "2": 0.06715302669049525,
+              "3": 0.06666233777949052,
+              "4": 0.6264477866638876
+            },
+            "confidence": 0.12283999039792293
+          }
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "vendas_001",
+      "domain": "vendas",
+      "latency_ms": 994.19,
+      "input_tokens": 225,
+      "output_tokens": 0,
+      "questions": [
+        {
+          "question": "qualificado",
+          "type": "noul",
+          "prediction": "true",
+          "expected": "false",
+          "correct": false,
+          "confidence": null,
+          "probabilities": null,
+          "raw": {
+            "type": "noul",
+            "noul": 0.9999926920104105
+          },
+          "p_correct": 0.0
+        },
+        {
+          "question": "estagio",
+          "type": "choice",
+          "prediction": "decisao",
+          "expected": "nurturing",
+          "correct": false,
+          "confidence": 0.13185826994593305,
+          "probabilities": {
+            "conscientizacao": 0.21491020653015164,
+            "consideracao": 0.16735718700974406,
+            "decisao": 0.3488937024594498,
+            "nurturing": 0.26883890400065463
+          },
+          "raw": {
+            "type": "choice",
+            "choice": "decisao",
+            "probabilities": {
+              "conscientizacao": 0.21491020653015164,
+              "consideracao": 0.16735718700974406,
+              "decisao": 0.3488937024594498,
+              "nurturing": 0.26883890400065463
+            },
+            "confidence": 0.13185826994593305
+          }
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "vendas_002",
+      "domain": "vendas",
+      "latency_ms": 1007.65,
+      "input_tokens": 235,
+      "output_tokens": 0,
+      "questions": [
+        {
+          "question": "qualificado",
+          "type": "noul",
+          "prediction": "true",
+          "expected": "true",
+          "correct": true,
+          "confidence": null,
+          "probabilities": null,
+          "raw": {
+            "type": "noul",
+            "noul": 0.9719117900623309
+          },
+          "p_correct": 0.9719
+        },
+        {
+          "question": "estagio",
+          "type": "choice",
+          "prediction": "decisao",
+          "expected": "decisao",
+          "correct": true,
+          "confidence": 0.4019653839393548,
+          "probabilities": {
+            "conscientizacao": 0.21221363952202763,
+            "consideracao": 0.13416628540826656,
+            "decisao": 0.5514740379545161,
+            "nurturing": 0.10214603711518969
+          },
+          "raw": {
+            "type": "choice",
+            "choice": "decisao",
+            "probabilities": {
+              "conscientizacao": 0.21221363952202763,
+              "consideracao": 0.13416628540826656,
+              "decisao": 0.5514740379545161,
+              "nurturing": 0.10214603711518969
+            },
+            "confidence": 0.4019653839393548
+          }
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "vendas_003",
+      "domain": "vendas",
+      "latency_ms": 897.86,
+      "input_tokens": 209,
+      "output_tokens": 0,
+      "questions": [
+        {
+          "question": "qualificado",
+          "type": "noul",
+          "prediction": "true",
+          "expected": "false",
+          "correct": false,
+          "confidence": null,
+          "probabilities": null,
+          "raw": {
+            "type": "noul",
+            "noul": 0.9999935099162856
+          },
+          "p_correct": 0.0
+        },
+        {
+          "question": "estagio",
+          "type": "choice",
+          "prediction": "conscientizacao",
+          "expected": "conscientizacao",
+          "correct": true,
+          "confidence": 0.27900541290074626,
+          "probabilities": {
+            "conscientizacao": 0.4592540596755597,
+            "consideracao": 0.1140139682166894,
+            "decisao": 0.2883985760299159,
+            "nurturing": 0.1383333960778349
+          },
+          "raw": {
+            "type": "choice",
+            "choice": "conscientizacao",
+            "probabilities": {
+              "conscientizacao": 0.4592540596755597,
+              "consideracao": 0.1140139682166894,
+              "decisao": 0.2883985760299159,
+              "nurturing": 0.1383333960778349
+            },
+            "confidence": 0.27900541290074626
+          }
+        }
+      ],
+      "error": null
+    }
+  ]
+}

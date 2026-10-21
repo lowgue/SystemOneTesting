@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>System 1 Vision Playground</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @keyframes pulse-fast {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+    .animate-pulse-fast {
+      animation: pulse-fast 0.8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen antialiased flex flex-col font-sans">
+
+  <!-- Header -->
+  <header class="border-b border-slate-800 bg-slate-900/70 backdrop-blur sticky top-0 z-50 px-6 py-4">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-500 to-indigo-600 flex items-center justify-center font-bold text-white shadow-lg shadow-indigo-500/20 text-xl">
+          ⚡
+        </div>
+        <div>
+          <h1 class="text-xl font-bold tracking-tight text-white flex items-center gap-2">
+            Vision Playground
+            <span class="text-xs px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-medium">Tempo Real</span>
+          </h1>
+          <p class="text-xs text-slate-400">Classificação visual em tempo real pela System One API</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2">
+          <span class="text-xs px-3 py-1.5 rounded-lg bg-slate-800 border border-slate-700 text-slate-300 font-mono flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span id="model-name">Conectando…</span>
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="max-w-7xl mx-auto p-6 w-full flex-1 grid grid-cols-1 lg:grid-cols-12 gap-8">
+
+    <!-- Left Column: Input & Controls (5 cols) -->
+    <div class="lg:col-span-5 space-y-6">
+
+      <!-- Image Source Card -->
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-xl space-y-4">
+        <div class="flex items-center justify-between">
+          <h2 class="font-semibold text-slate-200 text-sm flex items-center gap-2">
+            <span>📷</span> 1. Escolha ou Envie uma Imagem
+          </h2>
+          <span class="text-xs text-slate-400" id="current-image-name">real_toyota_2.jpg</span>
+        </div>
+
+        <!-- Image Preview Frame -->
+        <div class="relative group rounded-xl overflow-hidden bg-slate-950 border border-slate-800 aspect-[16/10] flex items-center justify-center">
+          <img id="main-preview" src="/api/image/real_toyota_2.jpg" alt="Preview" class="w-full h-full object-contain">
+          
+          <div id="eval-overlay" class="hidden absolute inset-0 bg-slate-950/80 backdrop-blur-sm flex flex-col items-center justify-center gap-3">
+            <div class="w-10 h-10 border-4 border-indigo-500 border-t-transparent rounded-full animate-spin"></div>
+            <p id="loading-label" class="text-sm font-medium text-indigo-300 animate-pulse-fast">Consultando Laya Vision...</p>
+            <span class="text-xs text-slate-400 font-mono">1 único feedforward forward-pass</span>
+          </div>
+        </div>
+
+        <!-- Presets Carousel / Grid -->
+        <div>
+          <label class="block text-xs font-medium text-slate-400 mb-2">Imagens de Teste Rápidas:</label>
+          <div id="presets-container" class="grid grid-cols-4 gap-2">
+            <!-- Dynamically populated via JS -->
+          </div>
+        </div>
+
+        <!-- Custom Upload Dropzone -->
+        <div>
+          <label class="block text-xs font-medium text-slate-400 mb-1">Ou envie do seu computador:</label>
+          <label class="border-2 border-dashed border-slate-700 hover:border-indigo-500 rounded-xl p-3 flex flex-col items-center justify-center gap-1 cursor-pointer transition bg-slate-950/50 hover:bg-slate-800/50">
+            <input type="file" id="file-input" accept="image/*" class="hidden">
+            <span class="text-sm text-slate-300 font-medium">Clique ou arraste qualquer imagem</span>
+            <span class="text-xs text-slate-500">JPG, PNG, WebP (imagem otimizada para envio)</span>
+          </label>
+        </div>
+
+        <!-- Evaluate Button -->
+        <button id="btn-eval" onclick="runInference()" class="w-full py-3.5 px-4 rounded-xl font-bold bg-gradient-to-r from-indigo-600 via-indigo-500 to-blue-600 hover:from-indigo-500 hover:to-blue-500 text-white shadow-lg shadow-indigo-600/25 active:scale-[0.99] transition flex items-center justify-center gap-2 text-sm">
+          <span>⚡</span> Avaliar Decisão Agora
+        </button>
+        <p id="inference-error" class="hidden text-sm text-red-300 bg-red-950/50 border border-red-900 rounded-lg p-3"></p>
+      </div>
+
+      <!-- Didactic Concept Mini-Card -->
+      <div class="bg-slate-900/60 border border-slate-800/80 rounded-2xl p-5 text-xs text-slate-300 space-y-3">
+        <div class="flex items-center gap-2 text-indigo-400 font-semibold text-sm">
+          <span>💡</span> O que é um Modelo System 1?
+        </div>
+        <p class="leading-relaxed text-slate-400">
+          Inspirado na psicologia cognitiva (Daniel Kahneman):
+        </p>
+        <ul class="space-y-1.5 list-disc pl-4 text-slate-400">
+          <li><strong class="text-slate-200">System 2 (LLM tradicional):</strong> Gera texto palavra a palavra (token por token). Lento, alto custo, pode alucinar ou fugir do formato.</li>
+          <li><strong class="text-slate-200">Um modelo por vez:</strong> Laya Vision inicia rápido. O Clef-Flash roda em uma sessão separada e leva mais tempo neste computador.</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Right Column: Results & Probabilities (7 cols) -->
+    <div class="lg:col-span-7 space-y-6">
+
+      <!-- Performance Metrics Bar -->
+      <div class="grid grid-cols-3 gap-3">
+        <div class="bg-slate-900 border border-slate-800 rounded-xl p-3.5">
+          <span class="text-xs text-slate-400 block mb-1">⏱️ Latência</span>
+          <div class="text-xl font-bold text-white font-mono" id="metric-latency">--</div>
+          <span class="text-[10px] text-slate-500">CPU (4 threads)</span>
+        </div>
+        <div class="bg-slate-900 border border-slate-800 rounded-xl p-3.5">
+          <span class="text-xs text-slate-400 block mb-1">📝 Tokens de Saída</span>
+          <div class="text-xl font-bold text-emerald-400 font-mono" id="metric-tokens">0 tokens</div>
+          <span class="text-[10px] text-emerald-500/80">Sem autoregressão lenta</span>
+        </div>
+        <div class="bg-slate-900 border border-slate-800 rounded-xl p-3.5">
+          <span class="text-xs text-slate-400 block mb-1">🎯 Decisões Avaliadas</span>
+          <div class="text-xl font-bold text-indigo-400 font-mono" id="metric-questions">2 critérios</div>
+          <span class="text-[10px] text-slate-500">Avaliadas em paralelo</span>
+        </div>
+      </div>
+
+      <!-- Decision Results List -->
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-6">
+        <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+          <h2 class="font-bold text-slate-100 flex items-center gap-2">
+            <span>📊</span> Resultados e Probabilidades
+          </h2>
+          <span id="run-timestamp" class="text-xs text-slate-500 font-mono">Aguardando execução</span>
+        </div>
+
+        <!-- 1. Question: tem_carro (noul) -->
+        <div class="space-y-2 p-4 rounded-xl bg-slate-950/60 border border-slate-800">
+          <div class="flex items-center justify-between">
+            <div>
+              <span class="text-xs font-semibold px-2 py-0.5 rounded bg-amber-500/10 text-amber-400 border border-amber-500/20 mr-2">noul (Sim/Não)</span>
+              <span class="text-sm font-medium text-slate-200">Há pelo menos um carro visível?</span>
+            </div>
+            <div id="badge-tem-carro" class="text-xs px-2.5 py-1 rounded-full font-bold bg-slate-800 text-slate-400">
+              --
+            </div>
+          </div>
+          <!-- Bar -->
+          <div class="space-y-1 pt-1">
+            <div class="flex justify-between text-xs text-slate-400">
+              <span>Probabilidade (Sim):</span>
+              <span id="prob-tem-carro" class="font-mono font-semibold text-slate-200">--%</span>
+            </div>
+            <div class="h-3 w-full bg-slate-800 rounded-full overflow-hidden">
+              <div id="bar-tem-carro" class="h-full bg-emerald-500 transition-all duration-500 rounded-full" style="width: 0%"></div>
+            </div>
+            <div class="flex justify-between text-[11px] text-slate-500">
+              <span>0% (Não)</span>
+              <span>Limiar 50%</span>
+              <span>100% (Sim)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Question: marca (choice) -->
+        <div class="space-y-3 p-4 rounded-xl bg-slate-950/60 border border-slate-800">
+          <div class="flex items-center justify-between">
+            <div>
+              <span class="text-xs font-semibold px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 mr-2">choice (Multi-classe)</span>
+              <span class="text-sm font-medium text-slate-200">Marca do veículo</span>
+            </div>
+            <div id="badge-marca" class="text-xs px-2.5 py-1 rounded-full font-bold bg-slate-800 text-slate-400">
+              --
+            </div>
+          </div>
+          <div id="probs-marca" class="space-y-2 pt-1">
+            <p class="text-xs text-slate-500 italic">Execute a avaliação para ver a distribuição de probabilidades.</p>
+          </div>
+        </div>
+
+        <!-- Optional extra criterion, hidden for this two-question test -->
+        <div class="hidden space-y-3 p-4 rounded-xl bg-slate-950/60 border border-slate-800">
+          <div class="flex items-center justify-between">
+            <div>
+              <span class="text-xs font-semibold px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 mr-2">choice (Multi-classe)</span>
+              <span class="text-sm font-medium text-slate-200">Cor predominante</span>
+            </div>
+            <div id="badge-cor" class="text-xs px-2.5 py-1 rounded-full font-bold bg-slate-800 text-slate-400">
+              --
+            </div>
+          </div>
+          <div id="probs-cor" class="space-y-2 pt-1">
+            <p class="text-xs text-slate-500 italic">Execute a avaliação para ver a distribuição de probabilidades.</p>
+          </div>
+        </div>
+
+        <!-- Optional extra criterion, hidden for this two-question test -->
+        <div class="hidden space-y-3 p-4 rounded-xl bg-slate-950/60 border border-slate-800">
+          <div class="flex items-center justify-between">
+            <div>
+              <span class="text-xs font-semibold px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 mr-2">choice (Multi-classe)</span>
+              <span class="text-sm font-medium text-slate-200">Tipo de carroceria</span>
+            </div>
+            <div id="badge-tipo" class="text-xs px-2.5 py-1 rounded-full font-bold bg-slate-800 text-slate-400">
+              --
+            </div>
+          </div>
+          <div id="probs-tipo" class="space-y-2 pt-1">
+            <p class="text-xs text-slate-500 italic">Execute a avaliação para ver a distribuição de probabilidades.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Raw Provenance & Explanation accordion -->
+      <details class="bg-slate-900/60 border border-slate-800 rounded-xl p-4 text-xs text-slate-400">
+        <summary class="font-semibold text-slate-300 cursor-pointer hover:text-white flex items-center justify-between">
+          <span>🔍 Metadados Internos de Inferência (Provenance & Checkpoint)</span>
+          <span class="text-slate-500 text-[10px]">Clique para expandir</span>
+        </summary>
+        <pre id="raw-json" class="mt-3 p-3 bg-slate-950 rounded-lg overflow-x-auto text-slate-400 font-mono text-[11px] leading-tight max-h-56">Execute para visualizar os dados técnicos brutos.</pre>
+      </details>
+
+    </div>
+  </main>
+
+  <footer class="border-t border-slate-800/80 px-6 py-4 text-center text-xs text-slate-500">
+    SystemOneTesting – Vision Playground.
+  </footer>
+
+  <script>
+    let currentImage = { type: 'preset', filename: 'real_toyota_2.jpg' };
+
+    // Format criteria nicely
+    const LABELS = {
+      toyota: 'Toyota',
+      ford: 'Ford',
+      honda: 'Honda',
+      chevrolet: 'Chevrolet',
+      volkswagen: 'Volkswagen',
+      bmw: 'BMW',
+      audi: 'Audi',
+      dodge: 'Dodge',
+      jeep: 'Jeep',
+      hyundai: 'Hyundai',
+      other: 'Outra marca',
+      unknown: 'Desconhecido / Sem carro',
+      black: 'Preto',
+      white: 'Branco',
+      gray_silver: 'Cinza / Prata',
+      red: 'Vermelho',
+      blue: 'Azul',
+      green: 'Verde',
+      yellow: 'Amarelo',
+      sedan: 'Sedã (4 portas)',
+      suv: 'SUV / Crossover',
+      hatch: 'Hatchback',
+      truck: 'Picape / Cabine',
+      coupe: 'Cupê / Esportivo',
+      convertible: 'Conversível',
+      van: 'Van / Minivan'
+    };
+
+    const COLOR_HEX = {
+      black: '#1e293b',
+      white: '#f8fafc',
+      gray_silver: '#94a3b8',
+      red: '#ef4444',
+      blue: '#3b82f6',
+      green: '#22c55e',
+      yellow: '#eab308',
+      other: '#a855f7',
+      unknown: '#64748b'
+    };
+
+    // Load Presets
+    async function loadPresets() {
+      try {
+        const res = await fetch('/api/presets');
+        const presets = await res.json();
+        const container = document.getElementById('presets-container');
+        container.innerHTML = '';
+        presets.forEach((p, idx) => {
+          const btn = document.createElement('button');
+          btn.className = `p-1.5 rounded-lg border text-left transition flex flex-col items-center gap-1.5 ${
+            p.filename === currentImage.filename
+              ? 'border-indigo-500 bg-indigo-500/10'
+              : 'border-slate-800 hover:border-slate-700 bg-slate-950/60'
+          }`;
+          btn.onclick = () => selectPreset(p.filename, btn);
+          btn.innerHTML = `
+            <img src="${p.url}" class="w-full h-12 object-cover rounded pointer-events-none" />
+            <span class="text-[10px] text-slate-300 font-medium truncate w-full text-center">${p.title}</span>
+          `;
+          container.appendChild(btn);
+        });
+      } catch (err) {
+        console.error('Falha ao carregar presets:', err);
+      }
+    }
+
+    function selectPreset(filename, activeBtn = null) {
+      currentImage = { type: 'preset', filename: filename };
+      document.getElementById('current-image-name').textContent = filename;
+      document.getElementById('main-preview').src = `/api/image/${filename}`;
+      
+      // Update UI active state
+      if (activeBtn) {
+        document.querySelectorAll('#presets-container button').forEach(b => {
+          b.className = b.className.replace('border-indigo-500 bg-indigo-500/10', 'border-slate-800 bg-slate-950/60');
+        });
+        activeBtn.className = activeBtn.className.replace('border-slate-800 bg-slate-950/60', 'border-indigo-500 bg-indigo-500/10');
+      }
+
+      // Automatically evaluate on selection for a snappy experience
+      runInference();
+    }
+
+    // Handle File Upload
+    document.getElementById('file-input').addEventListener('change', function(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = function(evt) {
+        const base64 = evt.target.result;
+        currentImage = { type: 'upload', data: base64, filename: file.name };
+        document.getElementById('current-image-name').textContent = file.name;
+        document.getElementById('main-preview').src = base64;
+        
+        // Remove active class from presets
+        document.querySelectorAll('#presets-container button').forEach(b => {
+          b.className = b.className.replace('border-indigo-500 bg-indigo-500/10', 'border-slate-800 bg-slate-950/60');
+        });
+
+        runInference();
+      };
+      reader.readAsDataURL(file);
+    });
+
+    // Run Inference
+    async function runInference() {
+      const overlay = document.getElementById('eval-overlay');
+      const btn = document.getElementById('btn-eval');
+      overlay.classList.remove('hidden');
+      btn.disabled = true;
+
+      const payload = {};
+      const error = document.getElementById('inference-error');
+      error.classList.add('hidden');
+      document.getElementById('loading-label').textContent =
+        activeModel === 'clef' ? 'Consultando Clef-Flash...' : 'Consultando Laya Vision...';
+      if (currentImage.type === 'preset') {
+        payload.filename = currentImage.filename;
+      } else {
+        payload.image_data = currentImage.data;
+      }
+
+      const t0 = performance.now();
+
+      try {
+        const res = await fetch('/api/predict', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error || `Falha HTTP ${res.status}`);
+        renderResults(data);
+      } catch (err) {
+        error.textContent = `Não foi possível avaliar a imagem: ${err.message}`;
+        error.classList.remove('hidden');
+      } finally {
+        overlay.classList.add('hidden');
+        btn.disabled = false;
+      }
+    }
+
+    function renderResults(data) {
+      // Metrics
+      document.getElementById('metric-latency').textContent = `${data.latency_ms} ms`;
+      document.getElementById('metric-tokens').textContent = `${data.usage?.output_tokens || 0} tokens`;
+      document.getElementById('run-timestamp').textContent = new Date().toLocaleTimeString();
+
+      const ans = data.answers || {};
+
+      // 1. Tem Carro
+      if (ans.tem_carro) {
+        const p = ans.tem_carro.noul;
+        const pct = Math.round(p * 100);
+        const hasCar = p >= 0.5;
+        const badge = document.getElementById('badge-tem-carro');
+        badge.textContent = hasCar ? `SIM (${pct}%)` : `NÃO (${pct}%)`;
+        badge.className = `text-xs px-2.5 py-1 rounded-full font-bold ${
+          hasCar ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30' : 'bg-red-500/20 text-red-400 border border-red-500/30'
+        }`;
+        document.getElementById('prob-tem-carro').textContent = `${pct}%`;
+        const bar = document.getElementById('bar-tem-carro');
+        bar.style.width = `${pct}%`;
+        bar.className = `h-full transition-all duration-500 rounded-full ${hasCar ? 'bg-emerald-500' : 'bg-red-500'}`;
+      }
+
+      // 2. Marca
+      renderChoice('marca', ans.marca, document.getElementById('probs-marca'), document.getElementById('badge-marca'));
+
+      // 3. Cor
+      renderChoice('cor', ans.cor, document.getElementById('probs-cor'), document.getElementById('badge-cor'), true);
+
+      // 4. Tipo
+      renderChoice('tipo', ans.tipo, document.getElementById('probs-tipo'), document.getElementById('badge-tipo'));
+
+      // Technical raw JSON
+      document.getElementById('raw-json').textContent = JSON.stringify(data, null, 2);
+    }
+
+    function renderChoice(key, ans, container, badgeEl, isColor = false) {
+      if (!ans) return;
+      const winner = ans.choice;
+      const probs = ans.probabilities || {};
+      const sorted = Object.entries(probs).sort((a,b) => b[1] - a[1]);
+
+      const winnerLabel = LABELS[winner] || winner;
+      badgeEl.textContent = `${winnerLabel} (${Math.round((probs[winner]||0)*100)}%)`;
+      badgeEl.className = 'text-xs px-2.5 py-1 rounded-full font-bold bg-indigo-500/20 text-indigo-300 border border-indigo-500/30';
+
+      container.innerHTML = '';
+      sorted.forEach(([k, prob]) => {
+        const pct = Math.round(prob * 100);
+        const isWinner = k === winner;
+        const label = LABELS[k] || k;
+        const colorDot = isColor ? `<span class="inline-block w-2.5 h-2.5 rounded-full border border-slate-700" style="background-color: ${COLOR_HEX[k] || '#888'}"></span>` : '';
+
+        const row = document.createElement('div');
+        row.className = 'space-y-1';
+        row.innerHTML = `
+          <div class="flex justify-between items-center text-xs">
+            <span class="flex items-center gap-1.5 ${isWinner ? 'font-bold text-slate-100' : 'text-slate-400'}">
+              ${colorDot}
+              ${label}
+              ${isWinner ? '<span class="text-[10px] text-indigo-400 font-semibold px-1 py-0.2 rounded bg-indigo-500/10">Vencedor</span>' : ''}
+            </span>
+            <span class="font-mono ${isWinner ? 'text-indigo-400 font-bold' : 'text-slate-500'}">${pct}%</span>
+          </div>
+          <div class="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
+            <div class="h-full rounded-full transition-all duration-500 ${isWinner ? 'bg-indigo-500' : 'bg-slate-700'}" style="width: ${pct}%"></div>
+          </div>
+        `;
+        container.appendChild(row);
+      });
+    }
+
+    let activeModel = 'laya';
+
+    async function loadModelInfo() {
+      try {
+        const response = await fetch('/api/status');
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const status = await response.json();
+        activeModel = status.model;
+        document.getElementById('model-name').textContent = status.display_name;
+      } catch (err) {
+        document.getElementById('model-name').textContent = 'Servidor indisponível';
+      }
+    }
+
+    // Initialize without automatically launching an inference.
+    loadModelInfo();
+    loadPresets();
+  </script>
+</body>
+</html>

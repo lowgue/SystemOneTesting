@@ -1,0 +1,182 @@
+[
+  {
+    "filename": "real_audi_1.jpg",
+    "full_name": "Audi Tt Rs Coupe 2012",
+    "make": "audi",
+    "body_type": "coupe",
+    "caption": "a white car parked in front of a building",
+    "width": 600,
+    "height": 400
+  },
+  {
+    "filename": "real_dodge_1.jpg",
+    "full_name": "Dodge Dakota Club Cab 2007",
+    "make": "dodge",
+    "body_type": "truck",
+    "caption": "a red truck parked on a gravel road",
+    "width": 640,
+    "height": 480
+  },
+  {
+    "filename": "real_ford_1.jpg",
+    "full_name": "Ford F-450 Super Duty Crew Cab 2012",
+    "make": "ford",
+    "body_type": "truck",
+    "caption": "a white truck parked in a parking lot",
+    "width": 144,
+    "height": 108
+  },
+  {
+    "filename": "real_dodge_2.jpg",
+    "full_name": "Dodge Journey Suv 2012",
+    "make": "dodge",
+    "body_type": "suv",
+    "caption": "a blue dodge suv parked in a parking lot",
+    "width": 640,
+    "height": 480
+  },
+  {
+    "filename": "real_chevrolet_1.jpg",
+    "full_name": "Chevrolet Traverse Suv 2012",
+    "make": "chevrolet",
+    "body_type": "suv",
+    "caption": "the 2009 chevrolet raz suv",
+    "width": 640,
+    "height": 480
+  },
+  {
+    "filename": "real_toyota_1.jpg",
+    "full_name": "Toyota Sequoia Suv 2012",
+    "make": "toyota",
+    "body_type": "suv",
+    "caption": "a car parked in front of a building",
+    "width": 500,
+    "height": 315
+  },
+  {
+    "filename": "real_toyota_2.jpg",
+    "full_name": "Toyota Corolla Sedan 2012",
+    "make": "toyota",
+    "body_type": "sedan",
+    "caption": "a car on display at a car show",
+    "width": 500,
+    "height": 335
+  },
+  {
+    "filename": "real_audi_2.jpg",
+    "full_name": "Audi A5 Coupe 2012",
+    "make": "audi",
+    "body_type": "coupe",
+    "caption": "a car on display at a car show",
+    "width": 259,
+    "height": 194
+  },
+  {
+    "filename": "real_chevrolet_2.jpg",
+    "full_name": "Chevrolet Malibu Sedan 2007",
+    "make": "chevrolet",
+    "body_type": "sedan",
+    "caption": "a white car parked in a field",
+    "width": 200,
+    "height": 147
+  },
+  {
+    "filename": "real_volkswagen_1.jpg",
+    "full_name": "Volkswagen Beetle Hatchback 2012",
+    "make": "volkswagen",
+    "body_type": "hatch",
+    "caption": "a red car driving down the road",
+    "width": 1500,
+    "height": 938
+  },
+  {
+    "filename": "real_bmw_1.jpg",
+    "full_name": "Bmw M6 Convertible 2010",
+    "make": "bmw",
+    "body_type": "convertible",
+    "caption": "a black bmw z4 convertible",
+    "width": 2100,
+    "height": 1386
+  },
+  {
+    "filename": "real_hyundai_1.jpg",
+    "full_name": "Hyundai Sonata Hybrid Sedan 2012",
+    "make": "hyundai",
+    "body_type": "sedan",
+    "caption": "a silver car parked in a parking",
+    "width": 628,
+    "height": 417
+  },
+  {
+    "filename": "real_hyundai_2.jpg",
+    "full_name": "Hyundai Elantra Touring Hatchback 2012",
+    "make": "hyundai",
+    "body_type": "hatch",
+    "caption": "a blue car parked in front of a building",
+    "width": 500,
+    "height": 375
+  },
+  {
+    "filename": "real_ford_2.jpg",
+    "full_name": "Ford Expedition El Suv 2009",
+    "make": "ford",
+    "body_type": "suv",
+    "caption": "a car parked in a parking lot",
+    "width": 1258,
+    "height": 816
+  },
+  {
+    "filename": "real_bmw_2.jpg",
+    "full_name": "Bmw Z4 Convertible 2012",
+    "make": "bmw",
+    "body_type": "convertible",
+    "caption": "a black bmw sports car parked in front of a building",
+    "width": 640,
+    "height": 425
+  },
+  {
+    "filename": "real_volkswagen_2.jpg",
+    "full_name": "Volkswagen Golf Hatchback 1991",
+    "make": "volkswagen",
+    "body_type": "hatch",
+    "caption": "a car parked in a parking lot",
+    "width": 640,
+    "height": 452
+  },
+  {
+    "filename": "real_jeep_1.jpg",
+    "full_name": "Jeep Grand Cherokee Suv 2012",
+    "make": "jeep",
+    "body_type": "suv",
+    "caption": "a black jeep parked on the side of a road",
+    "width": 808,
+    "height": 424
+  },
+  {
+    "filename": "real_honda_1.jpg",
+    "full_name": "Honda Odyssey Minivan 2012",
+    "make": "honda",
+    "body_type": "van",
+    "caption": "a red honda odyssey parked in front of a city skyline",
+    "width": 643,
+    "height": 305
+  },
+  {
+    "filename": "real_jeep_2.jpg",
+    "full_name": "Jeep Liberty Suv 2012",
+    "make": "jeep",
+    "body_type": "suv",
+    "caption": "a white jeep parked in front of a mountain",
+    "width": 1500,
+    "height": 920
+  },
+  {
+    "filename": "real_honda_2.jpg",
+    "full_name": "Honda Accord Coupe 2012",
+    "make": "honda",
+    "body_type": "coupe",
+    "caption": "a red car in front of a city skyline",
+    "width": 300,
+    "height": 169
+  }
+]
