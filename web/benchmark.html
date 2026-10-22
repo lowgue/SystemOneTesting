@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Benchmark ao vivo · Laya x BLIP</title>
+  <style>
+    :root{color-scheme:dark;--bg:#080d19;--panel:#111a2b;--panel2:#0c1423;--line:#223149;--muted:#9cacbf;--text:#f4f7fb;--blue:#7c9cff;--green:#40d7a2;--amber:#ffc56c;--red:#ff7886}
+    *{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 20% -10%,#1b2c4c 0,transparent 45%),var(--bg);color:var(--text);font:15px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+    header{position:sticky;top:0;z-index:2;border-bottom:1px solid var(--line);background:#09101eeF;backdrop-filter:blur(12px);padding:16px 24px}.head{max-width:1440px;margin:auto;display:flex;justify-content:space-between;align-items:center;gap:16px}.brand{display:flex;align-items:center;gap:13px}.logo{width:42px;height:42px;border-radius:14px;background:linear-gradient(135deg,#547aff,#b580ff);display:grid;place-items:center;font-size:22px}.brand h1{margin:0;font-size:18px;letter-spacing:-.02em}.brand p{margin:2px 0 0;color:var(--muted);font-size:12px}.pill{border:1px solid #28415a;background:#102036;border-radius:999px;padding:6px 11px;font-size:12px;color:#b8c8df;white-space:nowrap}.dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--amber);margin-right:7px}.dot.live{background:var(--green);box-shadow:0 0 12px var(--green);animation:pulse 1s infinite}@keyframes pulse{50%{opacity:.45}}
+    main{max-width:1440px;margin:auto;padding:22px;display:grid;gap:16px}.panel{background:linear-gradient(150deg,#121c2e,#0d1524);border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:0 12px 32px #0003}.overview{display:grid;grid-template-columns:1.2fr .8fr;gap:16px}.title-row{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}.eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--blue);font-weight:700}.title-row h2{font-size:22px;line-height:1.2;margin:5px 0}.muted{color:var(--muted)}.small{font-size:12px}.progress-box{min-width:180px;text-align:right}.progress-box strong{font:600 20px ui-monospace,SFMono-Regular,monospace}.bar{height:10px;border-radius:10px;background:#202d40;overflow:hidden;margin:13px 0 8px}.bar>i{height:100%;display:block;width:0;background:linear-gradient(90deg,#6387ff,#36d6a1);border-radius:inherit;transition:width .35s ease}.meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:13px}.tag{font-size:11px;border:1px solid var(--line);padding:4px 8px;border-radius:8px;background:#0a1220;color:#afbed1}
+    .models{display:grid;grid-template-columns:1fr 1fr;gap:16px}.model-card{position:relative;overflow:hidden}.model-card.active:before{content:"";position:absolute;top:0;left:0;width:100%;height:3px;background:var(--green)}.model-card h3{margin:0 0 12px;font-size:15px}.model-stats{display:flex;gap:20px;align-items:end}.big{font:700 27px ui-monospace,SFMono-Regular,monospace}.mini{font:600 17px ui-monospace,SFMono-Regular,monospace}.model-stats span{display:block;color:var(--muted);font-size:11px}.metric-head{display:flex;justify-content:space-between;align-items:center;gap:8px}.metric-head .pill{font-size:10px}
+    .live-grid{display:grid;grid-template-columns:minmax(250px,.75fr) minmax(400px,1.25fr);gap:16px}.current-image{width:100%;aspect-ratio:16/10;object-fit:contain;background:#050910;border:1px solid var(--line);border-radius:12px}.image-title{font-weight:650;margin:10px 0 2px}.answer-grid{width:100%;border-collapse:collapse;font-size:12px}.answer-grid th{text-align:left;color:var(--muted);font-weight:550;padding:7px 5px;border-bottom:1px solid var(--line)}.answer-grid td{padding:8px 5px;border-bottom:1px solid #1b293b;vertical-align:top}.answer-grid tr:last-child td{border:0}.ok{color:var(--green)}.bad{color:var(--red)}.neutral{color:#d5dfed}.answer{font-weight:650}.subanswer{display:block;font-size:10px;color:var(--muted);max-width:170px;overflow-wrap:anywhere}.metrics-table{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:14px}.metric{padding:10px;border:1px solid var(--line);border-radius:10px;background:#0a1220}.metric b{display:block;font:650 15px ui-monospace,SFMono-Regular,monospace}.metric span{display:block;color:var(--muted);font-size:10px;margin-top:3px}.history-wrap{max-height:470px;overflow:auto;border:1px solid var(--line);border-radius:12px}.history{width:100%;border-collapse:collapse;font-size:12px}.history th{position:sticky;top:0;background:#111a2b;color:var(--muted);text-align:left;font-weight:600}.history th,.history td{padding:8px;border-bottom:1px solid #1e2a3d;white-space:nowrap}.history img{width:55px;height:38px;object-fit:cover;border-radius:5px;vertical-align:middle;margin-right:7px}.model-cell{display:inline-block;min-width:128px}.footer-note{padding:12px 14px;border-radius:10px;background:#181827;color:#c1c9da;font-size:12px}.btn{border:1px solid #4d67a2;border-radius:10px;background:#253a68;color:white;padding:9px 12px;font-weight:650;cursor:pointer}.btn:hover{background:#314d85}.btn:disabled{opacity:.5;cursor:not-allowed}.error{color:#ffd8dd;background:#3c1720;border:1px solid #6b2934;padding:11px;border-radius:10px;display:none}.empty{color:var(--muted);font-size:13px;padding:20px;text-align:center}
+    @media(max-width:900px){.overview,.live-grid{grid-template-columns:1fr}.progress-box{text-align:left}.title-row{flex-direction:column}.models{grid-template-columns:1fr 1fr}.metrics-table{grid-template-columns:1fr 1fr}}
+    @media(max-width:560px){header{padding:12px}.head{align-items:flex-start;flex-direction:column}main{padding:12px}.panel{padding:14px}.models{grid-template-columns:1fr}.big{font-size:23px}.answer-grid{font-size:11px}}
+  </style>
+</head>
+<body>
+  <header><div class="head"><div class="brand"><div class="logo">⚡</div><div><h1>Benchmark visual · Laya x BLIP</h1><p>Execução local automática · comparação atualizada ao vivo</p></div></div><div class="pill"><i class="dot" id="live-dot"></i><span id="state-label">Conectando ao teste…</span></div></div></header>
+  <main>
+    <section class="overview">
+      <div class="panel">
+        <div class="title-row"><div><div class="eyebrow">Amostra rotulada</div><h2>Os dois modelos estão avaliando as mesmas imagens</h2><div class="muted small" id="phase-label">Preparando os pesos de Laya Vision…</div></div><div class="progress-box"><strong id="progress-count">0 / 0</strong><div class="small muted" id="elapsed">0 s</div></div></div>
+        <div class="bar"><i id="progress-bar"></i></div>
+        <div class="small muted" id="progress-subtitle">O teste avança sozinho; esta página busca atualizações a cada segundo.</div>
+        <div class="meta"><span class="tag" id="dataset-count">Carregando amostra</span><span class="tag">modelos carregados um por vez</span><span class="tag">inferência em CPU</span></div>
+      </div>
+      <div class="panel">
+        <div class="title-row"><div><div class="eyebrow">Controle</div><h2 style="font-size:17px">Rodada automática</h2><div class="muted small">Reinicie depois que a rodada atual terminar.</div></div><button id="restart" class="btn" onclick="restartBenchmark()">Rodar novamente</button></div>
+        <div id="error" class="error" style="margin-top:14px"></div>
+        <p class="small muted" style="margin:14px 0 0">Os dois modelos recebem as mesmas quatro perguntas base e as mesmas alternativas. O conjunto inclui 330 carros rotulados, 30 por cada uma das 11 classes de cor.</p>
+      </div>
+    </section>
+
+    <section class="models">
+      <article class="panel model-card" id="card-laya"><div class="metric-head"><h3>Laya Vision</h3><span class="pill" id="laya-phase">Na fila</span></div><div class="model-stats"><div><div class="big" id="laya-accuracy">—</div><span id="laya-correct">Aguardando resultados</span></div><div><div class="mini" id="laya-latency">—</div><span>mediana / imagem</span></div></div></article>
+      <article class="panel model-card" id="card-blip"><div class="metric-head"><h3>BLIP VQA base</h3><span class="pill" id="blip-phase">Na fila</span></div><div class="model-stats"><div><div class="big" id="blip-accuracy">—</div><span id="blip-correct">Aguardando resultados</span></div><div><div class="mini" id="blip-latency">—</div><span>mediana / imagem</span></div></div></article>
+    </section>
+
+    <section class="live-grid">
+      <article class="panel"><div class="eyebrow">Imagem atual</div><h2 style="font-size:17px;margin:5px 0 12px" id="current-model">Aguardando início…</h2><img id="current-image" class="current-image" alt="Imagem em avaliação"><div class="image-title" id="current-title">—</div><div class="small muted" id="current-source">O teste iniciará automaticamente.</div><div class="metrics-table" id="question-metrics"></div></article>
+      <article class="panel"><div class="eyebrow">Avaliação desta imagem</div><h2 style="font-size:17px;margin:5px 0 12px">Gabarito e respostas dos modelos</h2><div id="current-answers" class="empty">Aguardando a primeira imagem…</div><div class="footer-note" style="margin-top:14px">Os dois modelos recebem as mesmas perguntas sobre presença, marca, cor e carroceria. Só respostas com gabarito disponível entram na acurácia.</div></article>
+    </section>
+
+    <section class="panel"><div class="title-row" style="align-items:center"><div><div class="eyebrow">Histórico ao vivo</div><h2 style="font-size:17px;margin:4px 0">Últimas imagens processadas</h2></div><span class="small muted" id="history-count">0 concluídas</span></div><div class="history-wrap" style="margin-top:12px"><table class="history"><thead><tr><th>Imagem</th><th>Gabarito</th><th>Laya</th><th>BLIP</th></tr></thead><tbody id="history-body"><tr><td class="empty" colspan="4">As imagens aparecerão aqui conforme forem avaliadas.</td></tr></tbody></table></div></section>
+  </main>
+  <script>
+    const pretty = {tem_carro:'Carro', marca:'Marca', cor:'Cor', tipo:'Carroceria', gray_silver:'Cinza/prata', hatch:'Hatchback', suv:'SUV', unknown:'Desconhecido', other:'Outra cor/marca/carroceria', true:'Sim', false:'Não', truck:'Pickup', black:'Preto', white:'Branco', red:'Vermelho', blue:'Azul', green:'Verde', yellow:'Amarelo', orange:'Laranja', brown:'Marrom', purple:'Roxo', pink:'Rosa'};
+    const escapeHtml = value => String(value ?? '—').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    const label = value => pretty[value] || String(value ?? '—').replaceAll('_',' ').replace(/\b\w/g, c=>c.toUpperCase());
+    const correct = (row,key) => row && row.predictions && row.expected && row.expected[key] !== undefined && row.predictions[key] === String(row.expected[key]).toLowerCase();
+    const answerCell = (row,key) => {
+      if (!row) return '<span class="muted">—</span>';
+      if (row.error) return `<span class="bad">Erro</span><span class="subanswer">${escapeHtml(row.error)}</span>`;
+      const v = row.predictions?.[key]; if (v === undefined) return '<span class="muted">—</span>';
+      return `<span class="answer ${correct(row,key)?'ok':'bad'}">${escapeHtml(label(v))} ${correct(row,key)?'✓':'✗'}</span><span class="subanswer">${escapeHtml(row.raw_answers?.[key] || '')}</span>`;
+    };
+    function renderAnswers(current, laya, blip) {
+      const expected = current?.expected || laya?.expected || blip?.expected;
+      if (!expected) { document.getElementById('current-answers').innerHTML='<div class="empty">Aguardando a primeira imagem…</div>'; return; }
+      const keys=Object.keys(expected);
+      document.getElementById('current-answers').innerHTML=`<table class="answer-grid"><thead><tr><th>Pergunta</th><th>Gabarito</th><th>Laya</th><th>BLIP</th></tr></thead><tbody>${keys.map(k=>`<tr><td>${escapeHtml(label(k))}</td><td>${escapeHtml(label(String(expected[k]).toLowerCase()))}</td><td>${answerCell(laya,k)}</td><td>${answerCell(blip,k)}</td></tr>`).join('')}</tbody></table>`;
+    }
+    function renderSummary(name, summary) {
+      const slug=name.toLowerCase();
+      document.getElementById(`${slug}-accuracy`).textContent=summary?.accuracy != null ? `${(summary.accuracy*100).toFixed(1)}%` : '—';
+      document.getElementById(`${slug}-correct`).textContent=summary?`${summary.correct} corretas de ${summary.total}`:'Aguardando resultados';
+      document.getElementById(`${slug}-latency`).textContent=summary?.median_latency_ms_per_image != null?`${(summary.median_latency_ms_per_image/1000).toFixed(2)} s`:'—';
+    }
+    function renderHistory(results) {
+      const laya=results?.laya||[], blip=results?.blip||[];
+      const order=[...laya.map(x=>x.filename),...blip.map(x=>x.filename)].reverse();
+      const names=[...new Set(order)].slice(0,12);
+      document.getElementById('history-count').textContent=`${laya.length+blip.length} avaliações de imagem concluídas`;
+      const byName=rows=>Object.fromEntries(rows.map(x=>[x.filename,x]));
+      const lm=byName(laya), bm=byName(blip);
+      document.getElementById('history-body').innerHTML=names.map(n=>{
+        const a=lm[n],b=bm[n],row=b||a,expected=row?.expected||{};
+        const gold=Object.entries(expected).map(([k,v])=>`${label(k)}: ${label(String(v).toLowerCase())}`).join(' · ');
+        return `<tr><td><img loading="lazy" src="/images/${encodeURIComponent(n)}">${escapeHtml(row?.title||n)}</td><td class="muted">${escapeHtml(gold)}</td><td><span class="model-cell">${a?`<span class="${a.error?'bad':Object.keys(expected).filter(k=>expected[k]!==undefined).every(k=>correct(a,k))?'ok':'neutral'}">${escapeHtml(Object.entries(a.predictions||{}).map(([k,v])=>`${label(k)}: ${label(v)}`).join(' · ')||'Erro')}</span>`:'—'}</span></td><td><span class="model-cell">${b?`<span class="${b.error?'bad':Object.keys(expected).filter(k=>expected[k]!==undefined).every(k=>correct(b,k))?'ok':'neutral'}">${escapeHtml(Object.entries(b.predictions||{}).map(([k,v])=>`${label(k)}: ${label(v)}`).join(' · ')||'Erro')}</span>`:'—'}</span></td></tr>`;
+      }).join('')||'<tr><td class="empty" colspan="4">As imagens aparecerão aqui conforme forem avaliadas.</td></tr>';
+    }
+    function renderMetrics(summaries) {
+      const laya=summaries?.[0]?.accuracy_by_question||{}, blip=summaries?.[1]?.accuracy_by_question||{};
+      const keys=['tem_carro','marca','cor','tipo'];
+      document.getElementById('question-metrics').innerHTML=keys.map(k=>{
+        const a=laya[k],b=blip[k];
+        const pct=v=>v?`${(v.accuracy*100).toFixed(0)}%`:'—';
+        return `<div class="metric"><b>${pct(a)} <span style="display:inline;font-size:10px">L / B</span> ${pct(b)}</b><span>${escapeHtml(label(k))}${a||b?` · L ${a?.correct||0}/${a?.total||0} · B ${b?.correct||0}/${b?.total||0}`:''}</span></div>`;
+      }).join('');
+    }
+    function renderStatus(data) {
+      const finished=data.state==='complete', failed=data.state==='failed', running=!finished&&!failed;
+      document.getElementById('state-label').textContent=finished?'Concluído':failed?'Falha':data.state==='starting'?'Iniciando':'Executando';
+      document.getElementById('live-dot').className=`dot ${running?'live':''}`;
+      const total=data.overall_total||((data.dataset_total||0)*2), done=data.overall_completed||0;
+      document.getElementById('progress-count').textContent=`${done} / ${total}`;
+      document.getElementById('progress-bar').style.width=`${total?Math.min(100,done/total*100):0}%`;
+      document.getElementById('elapsed').textContent=`${Math.floor(data.elapsed_seconds||0)} s decorridos`;
+      document.getElementById('dataset-count').textContent=`${data.dataset_total||0} imagens · ${data.dataset_total||0} por modelo`;
+      document.getElementById('phase-label').textContent=finished?'Comparação concluída':failed?'O benchmark encontrou um erro':`${data.phase_label||'Iniciando'} · imagem ${data.phase_completed||0} de ${data.phase_total||data.dataset_total||0}`;
+      document.getElementById('progress-subtitle').textContent=finished?'Resultados salvos em eval/results/laya-blip-car-color.json':`Etapa ${data.phase==='blip'?'2':'1'} de 2 · ${data.phase_label||'carregando modelo'} · o processamento segue sem interação`;
+      document.getElementById('card-laya').classList.toggle('active',data.phase==='laya'&&running);
+      document.getElementById('card-blip').classList.toggle('active',data.phase==='blip'&&running);
+      document.getElementById('laya-phase').textContent=data.phase==='laya'&&running?'Rodando':(data.summaries?.[0]?'Concluído':'Na fila');
+      document.getElementById('blip-phase').textContent=data.phase==='blip'&&running?'Rodando':(data.summaries?.[1]?'Concluído':'Na fila');
+      renderSummary('laya',data.summaries?.[0]); renderSummary('blip',data.summaries?.[1]); renderMetrics(data.summaries);
+      const current=data.current;
+      if(current){
+        document.getElementById('current-model').textContent=`${data.phase_label||''} · ${data.phase_completed}/${data.phase_total}`;
+        document.getElementById('current-image').src=`/images/${encodeURIComponent(current.filename)}`;
+        document.getElementById('current-title').textContent=current.title||current.filename;
+        document.getElementById('current-source').textContent=`${current.source||''} · ${current.latency_ms||0} ms`;
+        const l=(data.results?.laya||[]).find(x=>x.filename===current.filename);
+        const b=(data.results?.blip||[]).find(x=>x.filename===current.filename);
+        renderAnswers(current,l,b);
+      }
+      if(failed){const e=document.getElementById('error');e.style.display='block';e.textContent=data.error||'Veja eval/results/benchmark-live.log.';}
+      document.getElementById('restart').disabled=running;
+      renderHistory(data.results||{});
+    }
+    async function poll(){
+      try{const response=await fetch('/api/benchmark/status',{cache:'no-store'});const data=await response.json();if(!response.ok)throw new Error(data.error||response.status);renderStatus(data);if(data.state==='complete'||data.state==='failed')clearInterval(timer);}
+      catch(err){const e=document.getElementById('error');e.style.display='block';e.textContent=`Sem conexão com o servidor local: ${err.message}`;}
+    }
+    async function restartBenchmark(){
+      const button=document.getElementById('restart');button.disabled=true;
+      try{const response=await fetch('/api/benchmark/restart',{method:'POST',headers:{'Content-Type':'application/json'},body:'{}'});const data=await response.json();if(!response.ok)throw new Error(data.error);document.getElementById('error').style.display='none';await poll();}
+      catch(err){const e=document.getElementById('error');e.style.display='block';e.textContent=err.message;button.disabled=false;}
+    }
+    poll();const timer=setInterval(poll,900);
+  </script>
+</body>
+</html>
