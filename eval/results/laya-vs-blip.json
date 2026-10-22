@@ -1,0 +1,230 @@
+{
+  "dataset": "7 imagens anotadas de carros; 4 perguntas por imagem",
+  "device": "cpu",
+  "torch_threads": 8,
+  "questions": {
+    "tem_carro": "Is there a car in the image? Answer yes or no.",
+    "marca": "What is the make of the most prominent car?",
+    "cor": "What is the predominant color of the most prominent car?",
+    "tipo": "What body style is the most prominent vehicle?"
+  },
+  "summaries": [
+    {
+      "model": "thaitea/laya-vision",
+      "accuracy": 0.6071,
+      "correct": 17,
+      "total": 28,
+      "accuracy_by_question": {
+        "tem_carro": 1.0,
+        "marca": 0.5714,
+        "cor": 0.5714,
+        "tipo": 0.2857
+      },
+      "mean_latency_ms_per_image": 1493.1,
+      "median_latency_ms_per_image": 1416.3
+    },
+    {
+      "model": "Salesforce/blip-vqa-base",
+      "accuracy": 0.5714,
+      "correct": 16,
+      "total": 28,
+      "accuracy_by_question": {
+        "tem_carro": 1.0,
+        "marca": 0.1429,
+        "cor": 0.7143,
+        "tipo": 0.4286
+      },
+      "mean_latency_ms_per_image": 3249.8,
+      "median_latency_ms_per_image": 3016.9
+    }
+  ],
+  "results": {
+    "laya": [
+      {
+        "filename": "toyota_red.jpg",
+        "latency_ms": 1885.9,
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "toyota",
+          "cor": "red",
+          "tipo": "suv"
+        }
+      },
+      {
+        "filename": "ford_blue.jpg",
+        "latency_ms": 1413.6,
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "ford",
+          "cor": "blue",
+          "tipo": "suv"
+        }
+      },
+      {
+        "filename": "honda_white.jpg",
+        "latency_ms": 1403.7,
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "honda",
+          "cor": "white",
+          "tipo": "suv"
+        }
+      },
+      {
+        "filename": "gray_car.jpg",
+        "latency_ms": 1416.2,
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "other",
+          "cor": "red",
+          "tipo": "suv"
+        }
+      },
+      {
+        "filename": "black_car.jpg",
+        "latency_ms": 1416.3,
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "other",
+          "cor": "black",
+          "tipo": "suv"
+        }
+      },
+      {
+        "filename": "no_car_landscape.jpg",
+        "latency_ms": 1465.9,
+        "predictions": {
+          "tem_carro": "false",
+          "marca": "unknown",
+          "cor": "blue",
+          "tipo": "unknown"
+        }
+      },
+      {
+        "filename": "no_car_field.jpg",
+        "latency_ms": 1450.3,
+        "predictions": {
+          "tem_carro": "false",
+          "marca": "toyota",
+          "cor": "red",
+          "tipo": "other"
+        }
+      }
+    ],
+    "blip": [
+      {
+        "filename": "toyota_red.jpg",
+        "latency_ms": 2875.2,
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "ford",
+          "cor": "red",
+          "tipo": "hatch"
+        },
+        "raw_answers": {
+          "tem_carro": "yes",
+          "marca": "ford",
+          "cor": "red",
+          "tipo": "hatchback"
+        }
+      },
+      {
+        "filename": "ford_blue.jpg",
+        "latency_ms": 2968.9,
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "ford",
+          "cor": "blue",
+          "tipo": "hatch"
+        },
+        "raw_answers": {
+          "tem_carro": "yes",
+          "marca": "ford",
+          "cor": "blue",
+          "tipo": "hatchback"
+        }
+      },
+      {
+        "filename": "honda_white.jpg",
+        "latency_ms": 2976.6,
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "ford",
+          "cor": "white",
+          "tipo": "hatch"
+        },
+        "raw_answers": {
+          "tem_carro": "yes",
+          "marca": "ford",
+          "cor": "white",
+          "tipo": "hatchback"
+        }
+      },
+      {
+        "filename": "gray_car.jpg",
+        "latency_ms": 3081.3,
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "other",
+          "cor": "gray_silver",
+          "tipo": "hatch"
+        },
+        "raw_answers": {
+          "tem_carro": "yes",
+          "marca": "volkswagen",
+          "cor": "gray",
+          "tipo": "hatchback"
+        }
+      },
+      {
+        "filename": "black_car.jpg",
+        "latency_ms": 4456.5,
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "ford",
+          "cor": "black",
+          "tipo": "hatch"
+        },
+        "raw_answers": {
+          "tem_carro": "yes",
+          "marca": "ford",
+          "cor": "black",
+          "tipo": "hatchback"
+        }
+      },
+      {
+        "filename": "no_car_landscape.jpg",
+        "latency_ms": 3372.9,
+        "predictions": {
+          "tem_carro": "false",
+          "marca": "other",
+          "cor": "white",
+          "tipo": "unknown"
+        },
+        "raw_answers": {
+          "tem_carro": "no",
+          "marca": "volkswagen",
+          "cor": "white",
+          "tipo": "car"
+        }
+      },
+      {
+        "filename": "no_car_field.jpg",
+        "latency_ms": 3016.9,
+        "predictions": {
+          "tem_carro": "false",
+          "marca": "other",
+          "cor": "red",
+          "tipo": "unknown"
+        },
+        "raw_answers": {
+          "tem_carro": "no",
+          "marca": "volkswagen",
+          "cor": "red",
+          "tipo": "car"
+        }
+      }
+    ]
+  },
+  "note": "Laya escolhe entre opções tipadas; BLIP gera texto livre que é normalizado para as mesmas classes."
+}

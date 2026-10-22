@@ -1,0 +1,2595 @@
+{
+  "dataset": "Stanford Cars test sample + 18 local real cars + 7 curated images",
+  "dataset_total": 67,
+  "device": "cpu",
+  "torch_threads": 8,
+  "questions": {
+    "tem_carro": "Is there a car in the image? Answer yes or no.",
+    "marca": "What is the make of the most prominent car?",
+    "cor": "What is the predominant color of the most prominent car?",
+    "tipo": "What body style is the most prominent vehicle?"
+  },
+  "summaries": [
+    {
+      "model": "thaitea/laya-vision",
+      "correct": 116,
+      "total": 208,
+      "accuracy": 0.5577,
+      "accuracy_by_question": {
+        "tem_carro": {
+          "correct": 64,
+          "total": 67,
+          "accuracy": 0.9552
+        },
+        "marca": {
+          "correct": 16,
+          "total": 67,
+          "accuracy": 0.2388
+        },
+        "cor": {
+          "correct": 4,
+          "total": 7,
+          "accuracy": 0.5714
+        },
+        "tipo": {
+          "correct": 32,
+          "total": 67,
+          "accuracy": 0.4776
+        }
+      },
+      "mean_latency_ms_per_image": 2340.0,
+      "median_latency_ms_per_image": 2227.6
+    },
+    {
+      "model": "Salesforce/blip-vqa-base",
+      "correct": 140,
+      "total": 208,
+      "accuracy": 0.6731,
+      "accuracy_by_question": {
+        "tem_carro": {
+          "correct": 67,
+          "total": 67,
+          "accuracy": 1.0
+        },
+        "marca": {
+          "correct": 34,
+          "total": 67,
+          "accuracy": 0.5075
+        },
+        "cor": {
+          "correct": 5,
+          "total": 7,
+          "accuracy": 0.7143
+        },
+        "tipo": {
+          "correct": 34,
+          "total": 67,
+          "accuracy": 0.5075
+        }
+      },
+      "mean_latency_ms_per_image": 3036.2,
+      "median_latency_ms_per_image": 2759.2
+    }
+  ],
+  "results": {
+    "laya": [
+      {
+        "filename": "toyota_red.jpg",
+        "title": "toyota_red.jpg",
+        "source": "curated",
+        "expected": {
+          "tem_carro": true,
+          "marca": "toyota",
+          "cor": "red",
+          "tipo": "sedan"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "toyota",
+          "cor": "red",
+          "tipo": "suv"
+        },
+        "latency_ms": 2157.8
+      },
+      {
+        "filename": "ford_blue.jpg",
+        "title": "ford_blue.jpg",
+        "source": "curated",
+        "expected": {
+          "tem_carro": true,
+          "marca": "ford",
+          "cor": "blue",
+          "tipo": "hatch"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "infiniti",
+          "cor": "blue",
+          "tipo": "suv"
+        },
+        "latency_ms": 2113.1
+      },
+      {
+        "filename": "honda_white.jpg",
+        "title": "honda_white.jpg",
+        "source": "curated",
+        "expected": {
+          "tem_carro": true,
+          "marca": "honda",
+          "cor": "white",
+          "tipo": "sedan"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "infiniti",
+          "cor": "white",
+          "tipo": "hatch"
+        },
+        "latency_ms": 2177.6
+      },
+      {
+        "filename": "gray_car.jpg",
+        "title": "gray_car.jpg",
+        "source": "curated",
+        "expected": {
+          "tem_carro": true,
+          "marca": "unknown",
+          "cor": "gray_silver",
+          "tipo": "sedan"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "infiniti",
+          "cor": "red",
+          "tipo": "suv"
+        },
+        "latency_ms": 2246.0
+      },
+      {
+        "filename": "black_car.jpg",
+        "title": "black_car.jpg",
+        "source": "curated",
+        "expected": {
+          "tem_carro": true,
+          "marca": "unknown",
+          "cor": "black",
+          "tipo": "suv"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "infiniti",
+          "cor": "black",
+          "tipo": "suv"
+        },
+        "latency_ms": 2170.1
+      },
+      {
+        "filename": "no_car_landscape.jpg",
+        "title": "no_car_landscape.jpg",
+        "source": "curated",
+        "expected": {
+          "tem_carro": false,
+          "marca": "unknown",
+          "cor": "unknown",
+          "tipo": "unknown"
+        },
+        "predictions": {
+          "tem_carro": "false",
+          "marca": "infiniti",
+          "cor": "blue",
+          "tipo": "unknown"
+        },
+        "latency_ms": 2628.0
+      },
+      {
+        "filename": "no_car_field.jpg",
+        "title": "no_car_field.jpg",
+        "source": "curated",
+        "expected": {
+          "tem_carro": false,
+          "marca": "unknown",
+          "cor": "unknown",
+          "tipo": "unknown"
+        },
+        "predictions": {
+          "tem_carro": "false",
+          "marca": "jeep",
+          "cor": "red",
+          "tipo": "other"
+        },
+        "latency_ms": 3841.3
+      },
+      {
+        "filename": "real_audi_1.jpg",
+        "title": "Audi Tt Rs Coupe 2012",
+        "source": "stanford_existing",
+        "expected": {
+          "tem_carro": true,
+          "marca": "audi",
+          "tipo": "coupe"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "audi",
+          "tipo": "coupe"
+        },
+        "latency_ms": 2069.3
+      },
+      {
+        "filename": "real_dodge_1.jpg",
+        "title": "Dodge Dakota Club Cab 2007",
+        "source": "stanford_existing",
+        "expected": {
+          "tem_carro": true,
+          "marca": "dodge",
+          "tipo": "truck"
+        },
+        "predictions": {
+          "tem_carro": "false",
+          "marca": "tesla",
+          "tipo": "sedan"
+        },
+        "latency_ms": 2028.7
+      },
+      {
+        "filename": "real_ford_1.jpg",
+        "title": "Ford F-450 Super Duty Crew Cab 2012",
+        "source": "stanford_existing",
+        "expected": {
+          "tem_carro": true,
+          "marca": "ford",
+          "tipo": "truck"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "hummer",
+          "tipo": "truck"
+        },
+        "latency_ms": 2113.4
+      },
+      {
+        "filename": "real_dodge_2.jpg",
+        "title": "Dodge Journey Suv 2012",
+        "source": "stanford_existing",
+        "expected": {
+          "tem_carro": true,
+          "marca": "dodge",
+          "tipo": "suv"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "mercedes_benz",
+          "tipo": "suv"
+        },
+        "latency_ms": 2112.2
+      },
+      {
+        "filename": "real_chevrolet_1.jpg",
+        "title": "Chevrolet Traverse Suv 2012",
+        "source": "stanford_existing",
+        "expected": {
+          "tem_carro": true,
+          "marca": "chevrolet",
+          "tipo": "suv"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "fisker",
+          "tipo": "suv"
+        },
+        "latency_ms": 2115.3
+      },
+      {
+        "filename": "real_toyota_1.jpg",
+        "title": "Toyota Sequoia Suv 2012",
+        "source": "stanford_existing",
+        "expected": {
+          "tem_carro": true,
+          "marca": "toyota",
+          "tipo": "suv"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "suzuki",
+          "tipo": "suv"
+        },
+        "latency_ms": 2161.7
+      },
+      {
+        "filename": "real_toyota_2.jpg",
+        "title": "Toyota Corolla Sedan 2012",
+        "source": "stanford_existing",
+        "expected": {
+          "tem_carro": true,
+          "marca": "toyota",
+          "tipo": "sedan"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "hummer",
+          "tipo": "suv"
+        },
+        "latency_ms": 2108.5
+      },
+      {
+        "filename": "real_audi_2.jpg",
+        "title": "Audi A5 Coupe 2012",
+        "source": "stanford_existing",
+        "expected": {
+          "tem_carro": true,
+          "marca": "audi",
+          "tipo": "coupe"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "audi",
+          "tipo": "coupe"
+        },
+        "latency_ms": 2148.7
+      },
+      {
+        "filename": "real_chevrolet_2.jpg",
+        "title": "Chevrolet Malibu Sedan 2007",
+        "source": "stanford_existing",
+        "expected": {
+          "tem_carro": true,
+          "marca": "chevrolet",
+          "tipo": "sedan"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "hummer",
+          "tipo": "suv"
+        },
+        "latency_ms": 2098.3
+      },
+      {
+        "filename": "real_volkswagen_1.jpg",
+        "title": "Volkswagen Beetle Hatchback 2012",
+        "source": "stanford_existing",
+        "expected": {
+          "tem_carro": true,
+          "marca": "volkswagen",
+          "tipo": "hatch"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "porsche",
+          "tipo": "coupe"
+        },
+        "latency_ms": 2228.0
+      },
+      {
+        "filename": "real_bmw_1.jpg",
+        "title": "Bmw M6 Convertible 2010",
+        "source": "stanford_existing",
+        "expected": {
+          "tem_carro": true,
+          "marca": "bmw",
+          "tipo": "convertible"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "fisker",
+          "tipo": "other"
+        },
+        "latency_ms": 2188.8
+      },
+      {
+        "filename": "real_hyundai_1.jpg",
+        "title": "Hyundai Sonata Hybrid Sedan 2012",
+        "source": "stanford_existing",
+        "expected": {
+          "tem_carro": true,
+          "marca": "hyundai",
+          "tipo": "sedan"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "hyundai",
+          "tipo": "hatch"
+        },
+        "latency_ms": 2610.2
+      },
+      {
+        "filename": "real_hyundai_2.jpg",
+        "title": "Hyundai Elantra Touring Hatchback 2012",
+        "source": "stanford_existing",
+        "expected": {
+          "tem_carro": true,
+          "marca": "hyundai",
+          "tipo": "hatch"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "hyundai",
+          "tipo": "hatch"
+        },
+        "latency_ms": 2752.1
+      },
+      {
+        "filename": "real_ford_2.jpg",
+        "title": "Ford Expedition El Suv 2009",
+        "source": "stanford_existing",
+        "expected": {
+          "tem_carro": true,
+          "marca": "ford",
+          "tipo": "suv"
+        },
+        "predictions": {
+          "tem_carro": "false",
+          "marca": "jaguar",
+          "tipo": "suv"
+        },
+        "latency_ms": 2380.0
+      },
+      {
+        "filename": "real_bmw_2.jpg",
+        "title": "Bmw Z4 Convertible 2012",
+        "source": "stanford_existing",
+        "expected": {
+          "tem_carro": true,
+          "marca": "bmw",
+          "tipo": "convertible"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "bmw",
+          "tipo": "convertible"
+        },
+        "latency_ms": 2197.5
+      },
+      {
+        "filename": "real_volkswagen_2.jpg",
+        "title": "Volkswagen Golf Hatchback 1991",
+        "source": "stanford_existing",
+        "expected": {
+          "tem_carro": true,
+          "marca": "volkswagen",
+          "tipo": "hatch"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "tesla",
+          "tipo": "hatch"
+        },
+        "latency_ms": 2243.5
+      },
+      {
+        "filename": "real_jeep_1.jpg",
+        "title": "Jeep Grand Cherokee Suv 2012",
+        "source": "stanford_existing",
+        "expected": {
+          "tem_carro": true,
+          "marca": "jeep",
+          "tipo": "suv"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "jeep",
+          "tipo": "suv"
+        },
+        "latency_ms": 2201.7
+      },
+      {
+        "filename": "real_honda_1.jpg",
+        "title": "Honda Odyssey Minivan 2012",
+        "source": "stanford_existing",
+        "expected": {
+          "tem_carro": true,
+          "marca": "honda",
+          "tipo": "van"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "honda",
+          "tipo": "van"
+        },
+        "latency_ms": 2322.5
+      },
+      {
+        "filename": "real_jeep_2.jpg",
+        "title": "Jeep Liberty Suv 2012",
+        "source": "stanford_existing",
+        "expected": {
+          "tem_carro": true,
+          "marca": "jeep",
+          "tipo": "suv"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "jeep",
+          "tipo": "suv"
+        },
+        "latency_ms": 2229.4
+      },
+      {
+        "filename": "real_honda_2.jpg",
+        "title": "Honda Accord Coupe 2012",
+        "source": "stanford_existing",
+        "expected": {
+          "tem_carro": true,
+          "marca": "honda",
+          "tipo": "coupe"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "mercedes_benz",
+          "tipo": "coupe"
+        },
+        "latency_ms": 2213.9
+      },
+      {
+        "filename": "stanford_test_00223.jpg",
+        "title": "Dodge Magnum Wagon 2008",
+        "source": "stanford_test",
+        "expected": {
+          "tem_carro": true,
+          "marca": "dodge",
+          "tipo": "wagon"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "eagle",
+          "tipo": "other"
+        },
+        "latency_ms": 2183.8
+      },
+      {
+        "filename": "stanford_test_00500.jpg",
+        "title": "Dodge Challenger SRT8 2011",
+        "source": "stanford_test",
+        "expected": {
+          "tem_carro": true,
+          "marca": "dodge",
+          "tipo": "other"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "hummer",
+          "tipo": "suv"
+        },
+        "latency_ms": 2187.2
+      },
+      {
+        "filename": "stanford_test_00634.jpg",
+        "title": "Porsche Panamera Sedan 2012",
+        "source": "stanford_test",
+        "expected": {
+          "tem_carro": true,
+          "marca": "porsche",
+          "tipo": "sedan"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "porsche",
+          "tipo": "suv"
+        },
+        "latency_ms": 2202.3
+      },
+      {
+        "filename": "stanford_test_00690.jpg",
+        "title": "Chevrolet Avalanche Crew Cab 2012",
+        "source": "stanford_test",
+        "expected": {
+          "tem_carro": true,
+          "marca": "chevrolet",
+          "tipo": "truck"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "scion",
+          "tipo": "truck"
+        },
+        "latency_ms": 2155.9
+      },
+      {
+        "filename": "stanford_test_00177.jpg",
+        "title": "BMW 6 Series Convertible 2007",
+        "source": "stanford_test",
+        "expected": {
+          "tem_carro": true,
+          "marca": "bmw",
+          "tipo": "convertible"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "mazda",
+          "tipo": "convertible"
+        },
+        "latency_ms": 2742.6
+      },
+      {
+        "filename": "stanford_test_00590.jpg",
+        "title": "Acura TL Sedan 2012",
+        "source": "stanford_test",
+        "expected": {
+          "tem_carro": true,
+          "marca": "acura",
+          "tipo": "sedan"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "mclaren",
+          "tipo": "other"
+        },
+        "latency_ms": 3044.0
+      },
+      {
+        "filename": "stanford_test_00975.jpg",
+        "title": "Chevrolet Cobalt SS 2010",
+        "source": "stanford_test",
+        "expected": {
+          "tem_carro": true,
+          "marca": "chevrolet",
+          "tipo": "other"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "infiniti",
+          "tipo": "coupe"
+        },
+        "latency_ms": 2343.0
+      },
+      {
+        "filename": "stanford_test_00226.jpg",
+        "title": "Ford GT Coupe 2006",
+        "source": "stanford_test",
+        "expected": {
+          "tem_carro": true,
+          "marca": "ford",
+          "tipo": "coupe"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "cadillac",
+          "tipo": "convertible"
+        },
+        "latency_ms": 2239.3
+      },
+      {
+        "filename": "stanford_test_00012.jpg",
+        "title": "Ford E-Series Wagon Van 2012",
+        "source": "stanford_test",
+        "expected": {
+          "tem_carro": true,
+          "marca": "ford",
+          "tipo": "wagon"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "bentley",
+          "tipo": "van"
+        },
+        "latency_ms": 2226.6
+      },
+      {
+        "filename": "stanford_test_00683.jpg",
+        "title": "Ferrari California Convertible 2012",
+        "source": "stanford_test",
+        "expected": {
+          "tem_carro": true,
+          "marca": "ferrari",
+          "tipo": "convertible"
+        },
+        "predictions": {
+          "tem_carro": "false",
+          "marca": "mercedes_benz",
+          "tipo": "convertible"
+        },
+        "latency_ms": 2206.0
+      },
+      {
+        "filename": "stanford_test_00788.jpg",
+        "title": "BMW 3 Series Sedan 2012",
+        "source": "stanford_test",
+        "expected": {
+          "tem_carro": true,
+          "marca": "bmw",
+          "tipo": "sedan"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "mercedes_benz",
+          "tipo": "suv"
+        },
+        "latency_ms": 2202.3
+      },
+      {
+        "filename": "stanford_test_00274.jpg",
+        "title": "Hyundai Elantra Sedan 2007",
+        "source": "stanford_test",
+        "expected": {
+          "tem_carro": true,
+          "marca": "hyundai",
+          "tipo": "sedan"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "unknown",
+          "tipo": "hatch"
+        },
+        "latency_ms": 2209.4
+      },
+      {
+        "filename": "stanford_test_00415.jpg",
+        "title": "Jaguar XK XKR 2012",
+        "source": "stanford_test",
+        "expected": {
+          "tem_carro": true,
+          "marca": "jaguar",
+          "tipo": "other"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "porsche",
+          "tipo": "convertible"
+        },
+        "latency_ms": 2185.9
+      },
+      {
+        "filename": "stanford_test_00572.jpg",
+        "title": "Hyundai Azera Sedan 2012",
+        "source": "stanford_test",
+        "expected": {
+          "tem_carro": true,
+          "marca": "hyundai",
+          "tipo": "sedan"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "geo",
+          "tipo": "sedan"
+        },
+        "latency_ms": 2213.7
+      },
+      {
+        "filename": "stanford_test_00015.jpg",
+        "title": "Cadillac CTS-V Sedan 2012",
+        "source": "stanford_test",
+        "expected": {
+          "tem_carro": true,
+          "marca": "cadillac",
+          "tipo": "sedan"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "smart",
+          "tipo": "coupe"
+        },
+        "latency_ms": 2181.9
+      },
+      {
+        "filename": "stanford_test_00349.jpg",
+        "title": "Aston Martin V8 Vantage Convertible 2012",
+        "source": "stanford_test",
+        "expected": {
+          "tem_carro": true,
+          "marca": "aston_martin",
+          "tipo": "convertible"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "smart",
+          "tipo": "sedan"
+        },
+        "latency_ms": 2252.8
+      },
+      {
+        "filename": "stanford_test_00297.jpg",
+        "title": "Fisker Karma Sedan 2012",
+        "source": "stanford_test",
+        "expected": {
+          "tem_carro": true,
+          "marca": "fisker",
+          "tipo": "sedan"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "mazda",
+          "tipo": "other"
+        },
+        "latency_ms": 2242.2
+      },
+      {
+        "filename": "stanford_test_00112.jpg",
+        "title": "Mercedes-Benz E-Class Sedan 2012",
+        "source": "stanford_test",
+        "expected": {
+          "tem_carro": true,
+          "marca": "mercedes_benz",
+          "tipo": "sedan"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "mercedes_benz",
+          "tipo": "sedan"
+        },
+        "latency_ms": 2787.9
+      },
+      {
+        "filename": "stanford_test_00452.jpg",
+        "title": "GMC Terrain SUV 2012",
+        "source": "stanford_test",
+        "expected": {
+          "tem_carro": true,
+          "marca": "gmc",
+          "tipo": "suv"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "gmc",
+          "tipo": "truck"
+        },
+        "latency_ms": 3304.7
+      },
+      {
+        "filename": "stanford_test_00674.jpg",
+        "title": "Ferrari 458 Italia Coupe 2012",
+        "source": "stanford_test",
+        "expected": {
+          "tem_carro": true,
+          "marca": "ferrari",
+          "tipo": "coupe"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "ferrari",
+          "tipo": "coupe"
+        },
+        "latency_ms": 2450.8
+      },
+      {
+        "filename": "stanford_test_00592.jpg",
+        "title": "Volkswagen Golf Hatchback 2012",
+        "source": "stanford_test",
+        "expected": {
+          "tem_carro": true,
+          "marca": "volkswagen",
+          "tipo": "hatch"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "hummer",
+          "tipo": "van"
+        },
+        "latency_ms": 2447.5
+      },
+      {
+        "filename": "stanford_test_00908.jpg",
+        "title": "Infiniti G Coupe IPL 2012",
+        "source": "stanford_test",
+        "expected": {
+          "tem_carro": true,
+          "marca": "infiniti",
+          "tipo": "coupe"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "other",
+          "tipo": "other"
+        },
+        "latency_ms": 2171.4
+      },
+      {
+        "filename": "stanford_test_00987.jpg",
+        "title": "Audi TTS Coupe 2012",
+        "source": "stanford_test",
+        "expected": {
+          "tem_carro": true,
+          "marca": "audi",
+          "tipo": "coupe"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "audi",
+          "tipo": "coupe"
+        },
+        "latency_ms": 2215.5
+      },
+      {
+        "filename": "stanford_test_00729.jpg",
+        "title": "Suzuki Kizashi Sedan 2012",
+        "source": "stanford_test",
+        "expected": {
+          "tem_carro": true,
+          "marca": "suzuki",
+          "tipo": "sedan"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "smart",
+          "tipo": "sedan"
+        },
+        "latency_ms": 2247.4
+      },
+      {
+        "filename": "stanford_test_00807.jpg",
+        "title": "Geo Metro Convertible 1993",
+        "source": "stanford_test",
+        "expected": {
+          "tem_carro": true,
+          "marca": "geo",
+          "tipo": "convertible"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "other",
+          "tipo": "other"
+        },
+        "latency_ms": 2206.6
+      },
+      {
+        "filename": "stanford_test_00382.jpg",
+        "title": "Acura Integra Type R 2001",
+        "source": "stanford_test",
+        "expected": {
+          "tem_carro": true,
+          "marca": "acura",
+          "tipo": "other"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "toyota",
+          "tipo": "unknown"
+        },
+        "latency_ms": 2240.9
+      },
+      {
+        "filename": "stanford_test_00996.jpg",
+        "title": "Chrysler PT Cruiser Convertible 2008",
+        "source": "stanford_test",
+        "expected": {
+          "tem_carro": true,
+          "marca": "chrysler",
+          "tipo": "convertible"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "other",
+          "tipo": "convertible"
+        },
+        "latency_ms": 2218.4
+      },
+      {
+        "filename": "stanford_test_00083.jpg",
+        "title": "Volvo XC90 SUV 2007",
+        "source": "stanford_test",
+        "expected": {
+          "tem_carro": true,
+          "marca": "volvo",
+          "tipo": "suv"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "suzuki",
+          "tipo": "suv"
+        },
+        "latency_ms": 2280.2
+      },
+      {
+        "filename": "stanford_test_00899.jpg",
+        "title": "Chrysler Aspen SUV 2009",
+        "source": "stanford_test",
+        "expected": {
+          "tem_carro": true,
+          "marca": "chrysler",
+          "tipo": "suv"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "scion",
+          "tipo": "suv"
+        },
+        "latency_ms": 2223.5
+      },
+      {
+        "filename": "stanford_test_00661.jpg",
+        "title": "Mazda Tribute SUV 2011",
+        "source": "stanford_test",
+        "expected": {
+          "tem_carro": true,
+          "marca": "mazda",
+          "tipo": "suv"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "infiniti",
+          "tipo": "suv"
+        },
+        "latency_ms": 2398.9
+      },
+      {
+        "filename": "stanford_test_00185.jpg",
+        "title": "Buick Verano Sedan 2012",
+        "source": "stanford_test",
+        "expected": {
+          "tem_carro": true,
+          "marca": "buick",
+          "tipo": "sedan"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "infiniti",
+          "tipo": "sedan"
+        },
+        "latency_ms": 3442.6
+      },
+      {
+        "filename": "stanford_test_00647.jpg",
+        "title": "Audi S4 Sedan 2007",
+        "source": "stanford_test",
+        "expected": {
+          "tem_carro": true,
+          "marca": "audi",
+          "tipo": "sedan"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "audi",
+          "tipo": "coupe"
+        },
+        "latency_ms": 3007.0
+      },
+      {
+        "filename": "stanford_test_00330.jpg",
+        "title": "Mitsubishi Lancer Sedan 2012",
+        "source": "stanford_test",
+        "expected": {
+          "tem_carro": true,
+          "marca": "mitsubishi",
+          "tipo": "sedan"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "tesla",
+          "tipo": "suv"
+        },
+        "latency_ms": 2261.7
+      },
+      {
+        "filename": "stanford_test_00140.jpg",
+        "title": "HUMMER H3T Crew Cab 2010",
+        "source": "stanford_test",
+        "expected": {
+          "tem_carro": true,
+          "marca": "hummer",
+          "tipo": "truck"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "gmc",
+          "tipo": "truck"
+        },
+        "latency_ms": 2297.8
+      },
+      {
+        "filename": "stanford_test_00665.jpg",
+        "title": "Jeep Wrangler SUV 2012",
+        "source": "stanford_test",
+        "expected": {
+          "tem_carro": true,
+          "marca": "jeep",
+          "tipo": "suv"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "suzuki",
+          "tipo": "suv"
+        },
+        "latency_ms": 2325.7
+      },
+      {
+        "filename": "stanford_test_00092.jpg",
+        "title": "Toyota Camry Sedan 2012",
+        "source": "stanford_test",
+        "expected": {
+          "tem_carro": true,
+          "marca": "toyota",
+          "tipo": "sedan"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "cadillac",
+          "tipo": "suv"
+        },
+        "latency_ms": 2251.7
+      },
+      {
+        "filename": "stanford_test_00875.jpg",
+        "title": "Suzuki Aerio Sedan 2007",
+        "source": "stanford_test",
+        "expected": {
+          "tem_carro": true,
+          "marca": "suzuki",
+          "tipo": "sedan"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "suzuki",
+          "tipo": "suv"
+        },
+        "latency_ms": 2227.6
+      },
+      {
+        "filename": "stanford_test_00830.jpg",
+        "title": "Mercedes-Benz S-Class Sedan 2012",
+        "source": "stanford_test",
+        "expected": {
+          "tem_carro": true,
+          "marca": "mercedes_benz",
+          "tipo": "sedan"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "chrysler",
+          "tipo": "hatch"
+        },
+        "latency_ms": 2269.4
+      },
+      {
+        "filename": "stanford_test_00739.jpg",
+        "title": "Bentley Continental GT Coupe 2012",
+        "source": "stanford_test",
+        "expected": {
+          "tem_carro": true,
+          "marca": "bentley",
+          "tipo": "coupe"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "ford",
+          "tipo": "suv"
+        },
+        "latency_ms": 2245.8
+      },
+      {
+        "filename": "stanford_test_00533.jpg",
+        "title": "Lamborghini Reventon Coupe 2008",
+        "source": "stanford_test",
+        "expected": {
+          "tem_carro": true,
+          "marca": "lamborghini",
+          "tipo": "coupe"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "geo",
+          "tipo": "coupe"
+        },
+        "latency_ms": 2382.2
+      }
+    ],
+    "blip": [
+      {
+        "filename": "toyota_red.jpg",
+        "title": "toyota_red.jpg",
+        "source": "curated",
+        "expected": {
+          "tem_carro": true,
+          "marca": "toyota",
+          "cor": "red",
+          "tipo": "sedan"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "ford",
+          "cor": "red",
+          "tipo": "hatch"
+        },
+        "latency_ms": 5205.0,
+        "raw_answers": {
+          "tem_carro": "yes",
+          "marca": "ford",
+          "cor": "red",
+          "tipo": "hatchback"
+        }
+      },
+      {
+        "filename": "ford_blue.jpg",
+        "title": "ford_blue.jpg",
+        "source": "curated",
+        "expected": {
+          "tem_carro": true,
+          "marca": "ford",
+          "cor": "blue",
+          "tipo": "hatch"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "ford",
+          "cor": "blue",
+          "tipo": "hatch"
+        },
+        "latency_ms": 4117.3,
+        "raw_answers": {
+          "tem_carro": "yes",
+          "marca": "ford",
+          "cor": "blue",
+          "tipo": "hatchback"
+        }
+      },
+      {
+        "filename": "honda_white.jpg",
+        "title": "honda_white.jpg",
+        "source": "curated",
+        "expected": {
+          "tem_carro": true,
+          "marca": "honda",
+          "cor": "white",
+          "tipo": "sedan"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "ford",
+          "cor": "white",
+          "tipo": "hatch"
+        },
+        "latency_ms": 3569.7,
+        "raw_answers": {
+          "tem_carro": "yes",
+          "marca": "ford",
+          "cor": "white",
+          "tipo": "hatchback"
+        }
+      },
+      {
+        "filename": "gray_car.jpg",
+        "title": "gray_car.jpg",
+        "source": "curated",
+        "expected": {
+          "tem_carro": true,
+          "marca": "unknown",
+          "cor": "gray_silver",
+          "tipo": "sedan"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "volkswagen",
+          "cor": "gray_silver",
+          "tipo": "hatch"
+        },
+        "latency_ms": 3566.2,
+        "raw_answers": {
+          "tem_carro": "yes",
+          "marca": "volkswagen",
+          "cor": "gray",
+          "tipo": "hatchback"
+        }
+      },
+      {
+        "filename": "black_car.jpg",
+        "title": "black_car.jpg",
+        "source": "curated",
+        "expected": {
+          "tem_carro": true,
+          "marca": "unknown",
+          "cor": "black",
+          "tipo": "suv"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "ford",
+          "cor": "black",
+          "tipo": "hatch"
+        },
+        "latency_ms": 3404.1,
+        "raw_answers": {
+          "tem_carro": "yes",
+          "marca": "ford",
+          "cor": "black",
+          "tipo": "hatchback"
+        }
+      },
+      {
+        "filename": "no_car_landscape.jpg",
+        "title": "no_car_landscape.jpg",
+        "source": "curated",
+        "expected": {
+          "tem_carro": false,
+          "marca": "unknown",
+          "cor": "unknown",
+          "tipo": "unknown"
+        },
+        "predictions": {
+          "tem_carro": "false",
+          "marca": "volkswagen",
+          "cor": "white",
+          "tipo": "unknown"
+        },
+        "latency_ms": 3449.0,
+        "raw_answers": {
+          "tem_carro": "no",
+          "marca": "volkswagen",
+          "cor": "white",
+          "tipo": "car"
+        }
+      },
+      {
+        "filename": "no_car_field.jpg",
+        "title": "no_car_field.jpg",
+        "source": "curated",
+        "expected": {
+          "tem_carro": false,
+          "marca": "unknown",
+          "cor": "unknown",
+          "tipo": "unknown"
+        },
+        "predictions": {
+          "tem_carro": "false",
+          "marca": "volkswagen",
+          "cor": "red",
+          "tipo": "unknown"
+        },
+        "latency_ms": 3534.6,
+        "raw_answers": {
+          "tem_carro": "no",
+          "marca": "volkswagen",
+          "cor": "red",
+          "tipo": "car"
+        }
+      },
+      {
+        "filename": "real_audi_1.jpg",
+        "title": "Audi Tt Rs Coupe 2012",
+        "source": "stanford_existing",
+        "expected": {
+          "tem_carro": true,
+          "marca": "audi",
+          "tipo": "coupe"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "audi",
+          "tipo": "unknown"
+        },
+        "latency_ms": 2631.1,
+        "raw_answers": {
+          "tem_carro": "yes",
+          "marca": "audi",
+          "tipo": "audi"
+        }
+      },
+      {
+        "filename": "real_dodge_1.jpg",
+        "title": "Dodge Dakota Club Cab 2007",
+        "source": "stanford_existing",
+        "expected": {
+          "tem_carro": true,
+          "marca": "dodge",
+          "tipo": "truck"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "ford",
+          "tipo": "truck"
+        },
+        "latency_ms": 3137.7,
+        "raw_answers": {
+          "tem_carro": "yes",
+          "marca": "ford",
+          "tipo": "truck"
+        }
+      },
+      {
+        "filename": "real_ford_1.jpg",
+        "title": "Ford F-450 Super Duty Crew Cab 2012",
+        "source": "stanford_existing",
+        "expected": {
+          "tem_carro": true,
+          "marca": "ford",
+          "tipo": "truck"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "ford",
+          "tipo": "truck"
+        },
+        "latency_ms": 3710.1,
+        "raw_answers": {
+          "tem_carro": "yes",
+          "marca": "ford",
+          "tipo": "truck"
+        }
+      },
+      {
+        "filename": "real_dodge_2.jpg",
+        "title": "Dodge Journey Suv 2012",
+        "source": "stanford_existing",
+        "expected": {
+          "tem_carro": true,
+          "marca": "dodge",
+          "tipo": "suv"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "dodge",
+          "tipo": "suv"
+        },
+        "latency_ms": 3490.0,
+        "raw_answers": {
+          "tem_carro": "yes",
+          "marca": "dodge",
+          "tipo": "suv"
+        }
+      },
+      {
+        "filename": "real_chevrolet_1.jpg",
+        "title": "Chevrolet Traverse Suv 2012",
+        "source": "stanford_existing",
+        "expected": {
+          "tem_carro": true,
+          "marca": "chevrolet",
+          "tipo": "suv"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "chevrolet",
+          "tipo": "suv"
+        },
+        "latency_ms": 2673.8,
+        "raw_answers": {
+          "tem_carro": "yes",
+          "marca": "chevrolet",
+          "tipo": "suv"
+        }
+      },
+      {
+        "filename": "real_toyota_1.jpg",
+        "title": "Toyota Sequoia Suv 2012",
+        "source": "stanford_existing",
+        "expected": {
+          "tem_carro": true,
+          "marca": "toyota",
+          "tipo": "suv"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "toyota",
+          "tipo": "suv"
+        },
+        "latency_ms": 2915.6,
+        "raw_answers": {
+          "tem_carro": "yes",
+          "marca": "toyota",
+          "tipo": "suv"
+        }
+      },
+      {
+        "filename": "real_toyota_2.jpg",
+        "title": "Toyota Corolla Sedan 2012",
+        "source": "stanford_existing",
+        "expected": {
+          "tem_carro": true,
+          "marca": "toyota",
+          "tipo": "sedan"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "ford",
+          "tipo": "sedan"
+        },
+        "latency_ms": 2754.7,
+        "raw_answers": {
+          "tem_carro": "yes",
+          "marca": "ford",
+          "tipo": "sedan"
+        }
+      },
+      {
+        "filename": "real_audi_2.jpg",
+        "title": "Audi A5 Coupe 2012",
+        "source": "stanford_existing",
+        "expected": {
+          "tem_carro": true,
+          "marca": "audi",
+          "tipo": "coupe"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "audi",
+          "tipo": "sedan"
+        },
+        "latency_ms": 2766.1,
+        "raw_answers": {
+          "tem_carro": "yes",
+          "marca": "audi",
+          "tipo": "sedan"
+        }
+      },
+      {
+        "filename": "real_chevrolet_2.jpg",
+        "title": "Chevrolet Malibu Sedan 2007",
+        "source": "stanford_existing",
+        "expected": {
+          "tem_carro": true,
+          "marca": "chevrolet",
+          "tipo": "sedan"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "chevrolet",
+          "tipo": "sedan"
+        },
+        "latency_ms": 2698.9,
+        "raw_answers": {
+          "tem_carro": "yes",
+          "marca": "chevrolet",
+          "tipo": "sedan"
+        }
+      },
+      {
+        "filename": "real_volkswagen_1.jpg",
+        "title": "Volkswagen Beetle Hatchback 2012",
+        "source": "stanford_existing",
+        "expected": {
+          "tem_carro": true,
+          "marca": "volkswagen",
+          "tipo": "hatch"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "volkswagen",
+          "tipo": "convertible"
+        },
+        "latency_ms": 2694.9,
+        "raw_answers": {
+          "tem_carro": "yes",
+          "marca": "volkswagen",
+          "tipo": "convertible"
+        }
+      },
+      {
+        "filename": "real_bmw_1.jpg",
+        "title": "Bmw M6 Convertible 2010",
+        "source": "stanford_existing",
+        "expected": {
+          "tem_carro": true,
+          "marca": "bmw",
+          "tipo": "convertible"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "bmw",
+          "tipo": "convertible"
+        },
+        "latency_ms": 2621.3,
+        "raw_answers": {
+          "tem_carro": "yes",
+          "marca": "bmw",
+          "tipo": "convertible"
+        }
+      },
+      {
+        "filename": "real_hyundai_1.jpg",
+        "title": "Hyundai Sonata Hybrid Sedan 2012",
+        "source": "stanford_existing",
+        "expected": {
+          "tem_carro": true,
+          "marca": "hyundai",
+          "tipo": "sedan"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "hyundai",
+          "tipo": "sedan"
+        },
+        "latency_ms": 2660.8,
+        "raw_answers": {
+          "tem_carro": "yes",
+          "marca": "hyundai",
+          "tipo": "sedan"
+        }
+      },
+      {
+        "filename": "real_hyundai_2.jpg",
+        "title": "Hyundai Elantra Touring Hatchback 2012",
+        "source": "stanford_existing",
+        "expected": {
+          "tem_carro": true,
+          "marca": "hyundai",
+          "tipo": "hatch"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "toyota",
+          "tipo": "sedan"
+        },
+        "latency_ms": 3214.7,
+        "raw_answers": {
+          "tem_carro": "yes",
+          "marca": "toyota",
+          "tipo": "sedan"
+        }
+      },
+      {
+        "filename": "real_ford_2.jpg",
+        "title": "Ford Expedition El Suv 2009",
+        "source": "stanford_existing",
+        "expected": {
+          "tem_carro": true,
+          "marca": "ford",
+          "tipo": "suv"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "dodge",
+          "tipo": "truck"
+        },
+        "latency_ms": 3839.8,
+        "raw_answers": {
+          "tem_carro": "yes",
+          "marca": "dodge",
+          "tipo": "truck"
+        }
+      },
+      {
+        "filename": "real_bmw_2.jpg",
+        "title": "Bmw Z4 Convertible 2012",
+        "source": "stanford_existing",
+        "expected": {
+          "tem_carro": true,
+          "marca": "bmw",
+          "tipo": "convertible"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "bmw",
+          "tipo": "convertible"
+        },
+        "latency_ms": 2759.2,
+        "raw_answers": {
+          "tem_carro": "yes",
+          "marca": "bmw",
+          "tipo": "convertible"
+        }
+      },
+      {
+        "filename": "real_volkswagen_2.jpg",
+        "title": "Volkswagen Golf Hatchback 1991",
+        "source": "stanford_existing",
+        "expected": {
+          "tem_carro": true,
+          "marca": "volkswagen",
+          "tipo": "hatch"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "volkswagen",
+          "tipo": "sedan"
+        },
+        "latency_ms": 2530.3,
+        "raw_answers": {
+          "tem_carro": "yes",
+          "marca": "volkswagen",
+          "tipo": "sedan"
+        }
+      },
+      {
+        "filename": "real_jeep_1.jpg",
+        "title": "Jeep Grand Cherokee Suv 2012",
+        "source": "stanford_existing",
+        "expected": {
+          "tem_carro": true,
+          "marca": "jeep",
+          "tipo": "suv"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "jeep",
+          "tipo": "suv"
+        },
+        "latency_ms": 2545.7,
+        "raw_answers": {
+          "tem_carro": "yes",
+          "marca": "jeep",
+          "tipo": "suv"
+        }
+      },
+      {
+        "filename": "real_honda_1.jpg",
+        "title": "Honda Odyssey Minivan 2012",
+        "source": "stanford_existing",
+        "expected": {
+          "tem_carro": true,
+          "marca": "honda",
+          "tipo": "van"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "honda",
+          "tipo": "unknown"
+        },
+        "latency_ms": 2495.6,
+        "raw_answers": {
+          "tem_carro": "yes",
+          "marca": "honda",
+          "tipo": "passenger"
+        }
+      },
+      {
+        "filename": "real_jeep_2.jpg",
+        "title": "Jeep Liberty Suv 2012",
+        "source": "stanford_existing",
+        "expected": {
+          "tem_carro": true,
+          "marca": "jeep",
+          "tipo": "suv"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "jeep",
+          "tipo": "suv"
+        },
+        "latency_ms": 2610.9,
+        "raw_answers": {
+          "tem_carro": "yes",
+          "marca": "jeep",
+          "tipo": "suv"
+        }
+      },
+      {
+        "filename": "real_honda_2.jpg",
+        "title": "Honda Accord Coupe 2012",
+        "source": "stanford_existing",
+        "expected": {
+          "tem_carro": true,
+          "marca": "honda",
+          "tipo": "coupe"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "toyota",
+          "tipo": "sedan"
+        },
+        "latency_ms": 2773.1,
+        "raw_answers": {
+          "tem_carro": "yes",
+          "marca": "toyota",
+          "tipo": "sedan"
+        }
+      },
+      {
+        "filename": "stanford_test_00223.jpg",
+        "title": "Dodge Magnum Wagon 2008",
+        "source": "stanford_test",
+        "expected": {
+          "tem_carro": true,
+          "marca": "dodge",
+          "tipo": "wagon"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "dodge",
+          "tipo": "sedan"
+        },
+        "latency_ms": 2671.6,
+        "raw_answers": {
+          "tem_carro": "yes",
+          "marca": "dodge",
+          "tipo": "sedan"
+        }
+      },
+      {
+        "filename": "stanford_test_00500.jpg",
+        "title": "Dodge Challenger SRT8 2011",
+        "source": "stanford_test",
+        "expected": {
+          "tem_carro": true,
+          "marca": "dodge",
+          "tipo": "other"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "dodge",
+          "tipo": "unknown"
+        },
+        "latency_ms": 2603.0,
+        "raw_answers": {
+          "tem_carro": "yes",
+          "marca": "dodge",
+          "tipo": "sports car"
+        }
+      },
+      {
+        "filename": "stanford_test_00634.jpg",
+        "title": "Porsche Panamera Sedan 2012",
+        "source": "stanford_test",
+        "expected": {
+          "tem_carro": true,
+          "marca": "porsche",
+          "tipo": "sedan"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "porsche",
+          "tipo": "hatch"
+        },
+        "latency_ms": 2689.3,
+        "raw_answers": {
+          "tem_carro": "yes",
+          "marca": "porsche",
+          "tipo": "hatchback"
+        }
+      },
+      {
+        "filename": "stanford_test_00690.jpg",
+        "title": "Chevrolet Avalanche Crew Cab 2012",
+        "source": "stanford_test",
+        "expected": {
+          "tem_carro": true,
+          "marca": "chevrolet",
+          "tipo": "truck"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "chevrolet",
+          "tipo": "truck"
+        },
+        "latency_ms": 3811.0,
+        "raw_answers": {
+          "tem_carro": "yes",
+          "marca": "chevrolet",
+          "tipo": "truck"
+        }
+      },
+      {
+        "filename": "stanford_test_00177.jpg",
+        "title": "BMW 6 Series Convertible 2007",
+        "source": "stanford_test",
+        "expected": {
+          "tem_carro": true,
+          "marca": "bmw",
+          "tipo": "convertible"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "bmw",
+          "tipo": "unknown"
+        },
+        "latency_ms": 4383.6,
+        "raw_answers": {
+          "tem_carro": "yes",
+          "marca": "bmw",
+          "tipo": "sports car"
+        }
+      },
+      {
+        "filename": "stanford_test_00590.jpg",
+        "title": "Acura TL Sedan 2012",
+        "source": "stanford_test",
+        "expected": {
+          "tem_carro": true,
+          "marca": "acura",
+          "tipo": "sedan"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "honda",
+          "tipo": "sedan"
+        },
+        "latency_ms": 2610.2,
+        "raw_answers": {
+          "tem_carro": "yes",
+          "marca": "honda",
+          "tipo": "sedan"
+        }
+      },
+      {
+        "filename": "stanford_test_00975.jpg",
+        "title": "Chevrolet Cobalt SS 2010",
+        "source": "stanford_test",
+        "expected": {
+          "tem_carro": true,
+          "marca": "chevrolet",
+          "tipo": "other"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "chevrolet",
+          "tipo": "sedan"
+        },
+        "latency_ms": 2629.0,
+        "raw_answers": {
+          "tem_carro": "yes",
+          "marca": "chevrolet",
+          "tipo": "sedan"
+        }
+      },
+      {
+        "filename": "stanford_test_00226.jpg",
+        "title": "Ford GT Coupe 2006",
+        "source": "stanford_test",
+        "expected": {
+          "tem_carro": true,
+          "marca": "ford",
+          "tipo": "coupe"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "ferrari",
+          "tipo": "convertible"
+        },
+        "latency_ms": 2778.2,
+        "raw_answers": {
+          "tem_carro": "yes",
+          "marca": "ferrari",
+          "tipo": "convertible"
+        }
+      },
+      {
+        "filename": "stanford_test_00012.jpg",
+        "title": "Ford E-Series Wagon Van 2012",
+        "source": "stanford_test",
+        "expected": {
+          "tem_carro": true,
+          "marca": "ford",
+          "tipo": "wagon"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "other",
+          "tipo": "suv"
+        },
+        "latency_ms": 2637.0,
+        "raw_answers": {
+          "tem_carro": "yes",
+          "marca": "mercedes",
+          "tipo": "suv"
+        }
+      },
+      {
+        "filename": "stanford_test_00683.jpg",
+        "title": "Ferrari California Convertible 2012",
+        "source": "stanford_test",
+        "expected": {
+          "tem_carro": true,
+          "marca": "ferrari",
+          "tipo": "convertible"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "ferrari",
+          "tipo": "unknown"
+        },
+        "latency_ms": 2813.6,
+        "raw_answers": {
+          "tem_carro": "yes",
+          "marca": "ferrari",
+          "tipo": "sports car"
+        }
+      },
+      {
+        "filename": "stanford_test_00788.jpg",
+        "title": "BMW 3 Series Sedan 2012",
+        "source": "stanford_test",
+        "expected": {
+          "tem_carro": true,
+          "marca": "bmw",
+          "tipo": "sedan"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "bmw",
+          "tipo": "sedan"
+        },
+        "latency_ms": 2763.7,
+        "raw_answers": {
+          "tem_carro": "yes",
+          "marca": "bmw",
+          "tipo": "sedan"
+        }
+      },
+      {
+        "filename": "stanford_test_00274.jpg",
+        "title": "Hyundai Elantra Sedan 2007",
+        "source": "stanford_test",
+        "expected": {
+          "tem_carro": true,
+          "marca": "hyundai",
+          "tipo": "sedan"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "toyota",
+          "tipo": "sedan"
+        },
+        "latency_ms": 2531.3,
+        "raw_answers": {
+          "tem_carro": "yes",
+          "marca": "toyota",
+          "tipo": "sedan"
+        }
+      },
+      {
+        "filename": "stanford_test_00415.jpg",
+        "title": "Jaguar XK XKR 2012",
+        "source": "stanford_test",
+        "expected": {
+          "tem_carro": true,
+          "marca": "jaguar",
+          "tipo": "other"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "ford",
+          "tipo": "convertible"
+        },
+        "latency_ms": 2687.6,
+        "raw_answers": {
+          "tem_carro": "yes",
+          "marca": "ford",
+          "tipo": "convertible"
+        }
+      },
+      {
+        "filename": "stanford_test_00572.jpg",
+        "title": "Hyundai Azera Sedan 2012",
+        "source": "stanford_test",
+        "expected": {
+          "tem_carro": true,
+          "marca": "hyundai",
+          "tipo": "sedan"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "hyundai",
+          "tipo": "sedan"
+        },
+        "latency_ms": 2888.4,
+        "raw_answers": {
+          "tem_carro": "yes",
+          "marca": "hyundai",
+          "tipo": "sedan"
+        }
+      },
+      {
+        "filename": "stanford_test_00015.jpg",
+        "title": "Cadillac CTS-V Sedan 2012",
+        "source": "stanford_test",
+        "expected": {
+          "tem_carro": true,
+          "marca": "cadillac",
+          "tipo": "sedan"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "toyota",
+          "tipo": "sedan"
+        },
+        "latency_ms": 3735.9,
+        "raw_answers": {
+          "tem_carro": "yes",
+          "marca": "toyota",
+          "tipo": "sedan"
+        }
+      },
+      {
+        "filename": "stanford_test_00349.jpg",
+        "title": "Aston Martin V8 Vantage Convertible 2012",
+        "source": "stanford_test",
+        "expected": {
+          "tem_carro": true,
+          "marca": "aston_martin",
+          "tipo": "convertible"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "porsche",
+          "tipo": "convertible"
+        },
+        "latency_ms": 3464.2,
+        "raw_answers": {
+          "tem_carro": "yes",
+          "marca": "porsche",
+          "tipo": "convertible"
+        }
+      },
+      {
+        "filename": "stanford_test_00297.jpg",
+        "title": "Fisker Karma Sedan 2012",
+        "source": "stanford_test",
+        "expected": {
+          "tem_carro": true,
+          "marca": "fisker",
+          "tipo": "sedan"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "bmw",
+          "tipo": "unknown"
+        },
+        "latency_ms": 2684.0,
+        "raw_answers": {
+          "tem_carro": "yes",
+          "marca": "bmw",
+          "tipo": "sports car"
+        }
+      },
+      {
+        "filename": "stanford_test_00112.jpg",
+        "title": "Mercedes-Benz E-Class Sedan 2012",
+        "source": "stanford_test",
+        "expected": {
+          "tem_carro": true,
+          "marca": "mercedes_benz",
+          "tipo": "sedan"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "other",
+          "tipo": "sedan"
+        },
+        "latency_ms": 2731.9,
+        "raw_answers": {
+          "tem_carro": "yes",
+          "marca": "mercedes",
+          "tipo": "sedan"
+        }
+      },
+      {
+        "filename": "stanford_test_00452.jpg",
+        "title": "GMC Terrain SUV 2012",
+        "source": "stanford_test",
+        "expected": {
+          "tem_carro": true,
+          "marca": "gmc",
+          "tipo": "suv"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "jeep",
+          "tipo": "suv"
+        },
+        "latency_ms": 2614.8,
+        "raw_answers": {
+          "tem_carro": "yes",
+          "marca": "jeep",
+          "tipo": "suv"
+        }
+      },
+      {
+        "filename": "stanford_test_00674.jpg",
+        "title": "Ferrari 458 Italia Coupe 2012",
+        "source": "stanford_test",
+        "expected": {
+          "tem_carro": true,
+          "marca": "ferrari",
+          "tipo": "coupe"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "ferrari",
+          "tipo": "unknown"
+        },
+        "latency_ms": 2807.8,
+        "raw_answers": {
+          "tem_carro": "yes",
+          "marca": "ferrari",
+          "tipo": "sports car"
+        }
+      },
+      {
+        "filename": "stanford_test_00592.jpg",
+        "title": "Volkswagen Golf Hatchback 2012",
+        "source": "stanford_test",
+        "expected": {
+          "tem_carro": true,
+          "marca": "volkswagen",
+          "tipo": "hatch"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "volkswagen",
+          "tipo": "hatch"
+        },
+        "latency_ms": 2734.7,
+        "raw_answers": {
+          "tem_carro": "yes",
+          "marca": "volkswagen",
+          "tipo": "hatchback"
+        }
+      },
+      {
+        "filename": "stanford_test_00908.jpg",
+        "title": "Infiniti G Coupe IPL 2012",
+        "source": "stanford_test",
+        "expected": {
+          "tem_carro": true,
+          "marca": "infiniti",
+          "tipo": "coupe"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "other",
+          "tipo": "sedan"
+        },
+        "latency_ms": 2553.1,
+        "raw_answers": {
+          "tem_carro": "yes",
+          "marca": "lexus",
+          "tipo": "sedan"
+        }
+      },
+      {
+        "filename": "stanford_test_00987.jpg",
+        "title": "Audi TTS Coupe 2012",
+        "source": "stanford_test",
+        "expected": {
+          "tem_carro": true,
+          "marca": "audi",
+          "tipo": "coupe"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "audi",
+          "tipo": "unknown"
+        },
+        "latency_ms": 2785.1,
+        "raw_answers": {
+          "tem_carro": "yes",
+          "marca": "audi",
+          "tipo": "audi"
+        }
+      },
+      {
+        "filename": "stanford_test_00729.jpg",
+        "title": "Suzuki Kizashi Sedan 2012",
+        "source": "stanford_test",
+        "expected": {
+          "tem_carro": true,
+          "marca": "suzuki",
+          "tipo": "sedan"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "toyota",
+          "tipo": "sedan"
+        },
+        "latency_ms": 2728.0,
+        "raw_answers": {
+          "tem_carro": "yes",
+          "marca": "toyota",
+          "tipo": "sedan"
+        }
+      },
+      {
+        "filename": "stanford_test_00807.jpg",
+        "title": "Geo Metro Convertible 1993",
+        "source": "stanford_test",
+        "expected": {
+          "tem_carro": true,
+          "marca": "geo",
+          "tipo": "convertible"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "ford",
+          "tipo": "hatch"
+        },
+        "latency_ms": 3112.2,
+        "raw_answers": {
+          "tem_carro": "yes",
+          "marca": "ford",
+          "tipo": "hatchback"
+        }
+      },
+      {
+        "filename": "stanford_test_00382.jpg",
+        "title": "Acura Integra Type R 2001",
+        "source": "stanford_test",
+        "expected": {
+          "tem_carro": true,
+          "marca": "acura",
+          "tipo": "other"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "toyota",
+          "tipo": "sedan"
+        },
+        "latency_ms": 4255.4,
+        "raw_answers": {
+          "tem_carro": "yes",
+          "marca": "toyota",
+          "tipo": "sedan"
+        }
+      },
+      {
+        "filename": "stanford_test_00996.jpg",
+        "title": "Chrysler PT Cruiser Convertible 2008",
+        "source": "stanford_test",
+        "expected": {
+          "tem_carro": true,
+          "marca": "chrysler",
+          "tipo": "convertible"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "toyota",
+          "tipo": "hatch"
+        },
+        "latency_ms": 3013.9,
+        "raw_answers": {
+          "tem_carro": "yes",
+          "marca": "toyota",
+          "tipo": "hatchback"
+        }
+      },
+      {
+        "filename": "stanford_test_00083.jpg",
+        "title": "Volvo XC90 SUV 2007",
+        "source": "stanford_test",
+        "expected": {
+          "tem_carro": true,
+          "marca": "volvo",
+          "tipo": "suv"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "ford",
+          "tipo": "suv"
+        },
+        "latency_ms": 2688.6,
+        "raw_answers": {
+          "tem_carro": "yes",
+          "marca": "ford",
+          "tipo": "suv"
+        }
+      },
+      {
+        "filename": "stanford_test_00899.jpg",
+        "title": "Chrysler Aspen SUV 2009",
+        "source": "stanford_test",
+        "expected": {
+          "tem_carro": true,
+          "marca": "chrysler",
+          "tipo": "suv"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "ford",
+          "tipo": "suv"
+        },
+        "latency_ms": 2689.8,
+        "raw_answers": {
+          "tem_carro": "yes",
+          "marca": "ford",
+          "tipo": "suv"
+        }
+      },
+      {
+        "filename": "stanford_test_00661.jpg",
+        "title": "Mazda Tribute SUV 2011",
+        "source": "stanford_test",
+        "expected": {
+          "tem_carro": true,
+          "marca": "mazda",
+          "tipo": "suv"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "mazda",
+          "tipo": "suv"
+        },
+        "latency_ms": 2712.5,
+        "raw_answers": {
+          "tem_carro": "yes",
+          "marca": "mazda",
+          "tipo": "suv"
+        }
+      },
+      {
+        "filename": "stanford_test_00185.jpg",
+        "title": "Buick Verano Sedan 2012",
+        "source": "stanford_test",
+        "expected": {
+          "tem_carro": true,
+          "marca": "buick",
+          "tipo": "sedan"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "buick",
+          "tipo": "sedan"
+        },
+        "latency_ms": 2722.8,
+        "raw_answers": {
+          "tem_carro": "yes",
+          "marca": "buick",
+          "tipo": "sedan"
+        }
+      },
+      {
+        "filename": "stanford_test_00647.jpg",
+        "title": "Audi S4 Sedan 2007",
+        "source": "stanford_test",
+        "expected": {
+          "tem_carro": true,
+          "marca": "audi",
+          "tipo": "sedan"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "audi",
+          "tipo": "unknown"
+        },
+        "latency_ms": 2718.9,
+        "raw_answers": {
+          "tem_carro": "yes",
+          "marca": "audi",
+          "tipo": "audi"
+        }
+      },
+      {
+        "filename": "stanford_test_00330.jpg",
+        "title": "Mitsubishi Lancer Sedan 2012",
+        "source": "stanford_test",
+        "expected": {
+          "tem_carro": true,
+          "marca": "mitsubishi",
+          "tipo": "sedan"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "mitsubishi",
+          "tipo": "sedan"
+        },
+        "latency_ms": 2631.5,
+        "raw_answers": {
+          "tem_carro": "yes",
+          "marca": "mitsubishi",
+          "tipo": "sedan"
+        }
+      },
+      {
+        "filename": "stanford_test_00140.jpg",
+        "title": "HUMMER H3T Crew Cab 2010",
+        "source": "stanford_test",
+        "expected": {
+          "tem_carro": true,
+          "marca": "hummer",
+          "tipo": "truck"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "ford",
+          "tipo": "truck"
+        },
+        "latency_ms": 2669.4,
+        "raw_answers": {
+          "tem_carro": "yes",
+          "marca": "ford",
+          "tipo": "pickup"
+        }
+      },
+      {
+        "filename": "stanford_test_00665.jpg",
+        "title": "Jeep Wrangler SUV 2012",
+        "source": "stanford_test",
+        "expected": {
+          "tem_carro": true,
+          "marca": "jeep",
+          "tipo": "suv"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "jeep",
+          "tipo": "unknown"
+        },
+        "latency_ms": 2587.3,
+        "raw_answers": {
+          "tem_carro": "yes",
+          "marca": "jeep",
+          "tipo": "jeep"
+        }
+      },
+      {
+        "filename": "stanford_test_00092.jpg",
+        "title": "Toyota Camry Sedan 2012",
+        "source": "stanford_test",
+        "expected": {
+          "tem_carro": true,
+          "marca": "toyota",
+          "tipo": "sedan"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "toyota",
+          "tipo": "sedan"
+        },
+        "latency_ms": 3595.0,
+        "raw_answers": {
+          "tem_carro": "yes",
+          "marca": "toyota",
+          "tipo": "sedan"
+        }
+      },
+      {
+        "filename": "stanford_test_00875.jpg",
+        "title": "Suzuki Aerio Sedan 2007",
+        "source": "stanford_test",
+        "expected": {
+          "tem_carro": true,
+          "marca": "suzuki",
+          "tipo": "sedan"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "honda",
+          "tipo": "hatch"
+        },
+        "latency_ms": 4876.6,
+        "raw_answers": {
+          "tem_carro": "yes",
+          "marca": "honda",
+          "tipo": "hatchback"
+        }
+      },
+      {
+        "filename": "stanford_test_00830.jpg",
+        "title": "Mercedes-Benz S-Class Sedan 2012",
+        "source": "stanford_test",
+        "expected": {
+          "tem_carro": true,
+          "marca": "mercedes_benz",
+          "tipo": "sedan"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "other",
+          "tipo": "sedan"
+        },
+        "latency_ms": 3221.2,
+        "raw_answers": {
+          "tem_carro": "yes",
+          "marca": "mercedes",
+          "tipo": "sedan"
+        }
+      },
+      {
+        "filename": "stanford_test_00739.jpg",
+        "title": "Bentley Continental GT Coupe 2012",
+        "source": "stanford_test",
+        "expected": {
+          "tem_carro": true,
+          "marca": "bentley",
+          "tipo": "coupe"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "audi",
+          "tipo": "sedan"
+        },
+        "latency_ms": 3393.2,
+        "raw_answers": {
+          "tem_carro": "yes",
+          "marca": "audi",
+          "tipo": "sedan"
+        }
+      },
+      {
+        "filename": "stanford_test_00533.jpg",
+        "title": "Lamborghini Reventon Coupe 2008",
+        "source": "stanford_test",
+        "expected": {
+          "tem_carro": true,
+          "marca": "lamborghini",
+          "tipo": "coupe"
+        },
+        "predictions": {
+          "tem_carro": "true",
+          "marca": "porsche",
+          "tipo": "convertible"
+        },
+        "latency_ms": 2830.3,
+        "raw_answers": {
+          "tem_carro": "yes",
+          "marca": "porsche",
+          "tipo": "convertible"
+        }
+      }
+    ]
+  },
+  "note": "Only ground-truth fields present for an image are scored; Stanford Cars does not annotate color."
+}

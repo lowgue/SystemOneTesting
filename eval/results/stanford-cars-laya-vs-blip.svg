@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="720" viewBox="0 0 1120 720">
+<rect width="100%" height="100%" fill="#f7f9fc"/>
+<text x="48" y="54" font-family="Arial, sans-serif" font-size="28" fill="#142033" font-weight="700" text-anchor="start">Laya Vision x BLIP VQA</text>
+<text x="48" y="82" font-family="Arial, sans-serif" font-size="15" fill="#596579" font-weight="400" text-anchor="start">67 imagens · métricas do benchmark local · CPU</text>
+<rect x="765" y="37" width="14" height="14" rx="3" fill="#3478f6"/>
+<text x="787" y="50" font-family="Arial, sans-serif" font-size="14" fill="#263248" font-weight="600" text-anchor="start">Laya Vision</text>
+<rect x="925" y="37" width="14" height="14" rx="3" fill="#f28e2b"/>
+<text x="947" y="50" font-family="Arial, sans-serif" font-size="14" fill="#263248" font-weight="600" text-anchor="start">BLIP VQA</text>
+<rect x="48" y="118" width="490" height="250" rx="14" fill="white" stroke="#e2e8f0"/>
+<text x="70" y="152" font-family="Arial, sans-serif" font-size="18" fill="#142033" font-weight="700" text-anchor="start">Acurácia geral</text>
+<text x="70" y="175" font-family="Arial, sans-serif" font-size="13" fill="#64748b" font-weight="400" text-anchor="start">Acertos em todas as perguntas</text>
+<line x1="124.0" y1="200" x2="124.0" y2="325" stroke="#e8edf4"/>
+<text x="124.0" y="345" font-family="Arial, sans-serif" font-size="11" fill="#64748b" font-weight="400" text-anchor="middle">0%</text>
+<line x1="214.0" y1="200" x2="214.0" y2="325" stroke="#e8edf4"/>
+<text x="214.0" y="345" font-family="Arial, sans-serif" font-size="11" fill="#64748b" font-weight="400" text-anchor="middle">25%</text>
+<line x1="304.0" y1="200" x2="304.0" y2="325" stroke="#e8edf4"/>
+<text x="304.0" y="345" font-family="Arial, sans-serif" font-size="11" fill="#64748b" font-weight="400" text-anchor="middle">50%</text>
+<line x1="394.0" y1="200" x2="394.0" y2="325" stroke="#e8edf4"/>
+<text x="394.0" y="345" font-family="Arial, sans-serif" font-size="11" fill="#64748b" font-weight="400" text-anchor="middle">75%</text>
+<line x1="484.0" y1="200" x2="484.0" y2="325" stroke="#e8edf4"/>
+<text x="484.0" y="345" font-family="Arial, sans-serif" font-size="11" fill="#64748b" font-weight="400" text-anchor="middle">100%</text>
+<text x="112" y="239" font-family="Arial, sans-serif" font-size="13" fill="#334155" font-weight="600" text-anchor="end">Laya Vision</text>
+<rect x="124" y="222" width="200.8" height="26" rx="5" fill="#3478f6"/>
+<text x="332.77199999999993" y="240" font-family="Arial, sans-serif" font-size="12" fill="#263248" font-weight="600" text-anchor="start">55.8%  (116/208)</text>
+<text x="112" y="293" font-family="Arial, sans-serif" font-size="13" fill="#334155" font-weight="600" text-anchor="end">BLIP VQA</text>
+<rect x="124" y="276" width="242.3" height="26" rx="5" fill="#f28e2b"/>
+<text x="374.31600000000003" y="294" font-family="Arial, sans-serif" font-size="12" fill="#263248" font-weight="600" text-anchor="start">67.3%  (140/208)</text>
+<rect x="558" y="118" width="514" height="250" rx="14" fill="white" stroke="#e2e8f0"/>
+<text x="580" y="152" font-family="Arial, sans-serif" font-size="18" fill="#142033" font-weight="700" text-anchor="start">Acurácia por tarefa</text>
+<text x="580" y="175" font-family="Arial, sans-serif" font-size="13" fill="#64748b" font-weight="400" text-anchor="start">Percentual correto; n indica o total avaliado</text>
+<line x1="684.0" y1="196" x2="684.0" y2="345" stroke="#e8edf4"/>
+<text x="684.0" y="360" font-family="Arial, sans-serif" font-size="11" fill="#64748b" font-weight="400" text-anchor="middle">0%</text>
+<line x1="839.0" y1="196" x2="839.0" y2="345" stroke="#e8edf4"/>
+<text x="839.0" y="360" font-family="Arial, sans-serif" font-size="11" fill="#64748b" font-weight="400" text-anchor="middle">50%</text>
+<line x1="994.0" y1="196" x2="994.0" y2="345" stroke="#e8edf4"/>
+<text x="994.0" y="360" font-family="Arial, sans-serif" font-size="11" fill="#64748b" font-weight="400" text-anchor="middle">100%</text>
+<text x="672" y="220" font-family="Arial, sans-serif" font-size="12" fill="#334155" font-weight="600" text-anchor="end">Presença</text>
+<rect x="684" y="201" width="296.1" height="10" rx="3" fill="#3478f6"/>
+<text x="985.1120000000001" y="210" font-family="Arial, sans-serif" font-size="10" fill="#46546a" font-weight="400" text-anchor="start">96% (n=67)</text>
+<rect x="684" y="215" width="310.0" height="10" rx="3" fill="#f28e2b"/>
+<text x="999.0" y="224" font-family="Arial, sans-serif" font-size="10" fill="#46546a" font-weight="400" text-anchor="start">100% (n=67)</text>
+<text x="672" y="257" font-family="Arial, sans-serif" font-size="12" fill="#334155" font-weight="600" text-anchor="end">Marca</text>
+<rect x="684" y="238" width="74.0" height="10" rx="3" fill="#3478f6"/>
+<text x="763.028" y="247" font-family="Arial, sans-serif" font-size="10" fill="#46546a" font-weight="400" text-anchor="start">24% (n=67)</text>
+<rect x="684" y="252" width="157.3" height="10" rx="3" fill="#f28e2b"/>
+<text x="846.325" y="261" font-family="Arial, sans-serif" font-size="10" fill="#46546a" font-weight="400" text-anchor="start">51% (n=67)</text>
+<text x="672" y="294" font-family="Arial, sans-serif" font-size="12" fill="#334155" font-weight="600" text-anchor="end">Cor</text>
+<rect x="684" y="275" width="177.1" height="10" rx="3" fill="#3478f6"/>
+<text x="866.134" y="284" font-family="Arial, sans-serif" font-size="10" fill="#46546a" font-weight="400" text-anchor="start">57% (n=7)</text>
+<rect x="684" y="289" width="221.4" height="10" rx="3" fill="#f28e2b"/>
+<text x="910.433" y="298" font-family="Arial, sans-serif" font-size="10" fill="#46546a" font-weight="400" text-anchor="start">71% (n=7)</text>
+<text x="672" y="331" font-family="Arial, sans-serif" font-size="12" fill="#334155" font-weight="600" text-anchor="end">Carroceria</text>
+<rect x="684" y="312" width="148.1" height="10" rx="3" fill="#3478f6"/>
+<text x="837.056" y="321" font-family="Arial, sans-serif" font-size="10" fill="#46546a" font-weight="400" text-anchor="start">48% (n=67)</text>
+<rect x="684" y="326" width="157.3" height="10" rx="3" fill="#f28e2b"/>
+<text x="846.325" y="335" font-family="Arial, sans-serif" font-size="10" fill="#46546a" font-weight="400" text-anchor="start">51% (n=67)</text>
+<rect x="48" y="390" width="490" height="260" rx="14" fill="white" stroke="#e2e8f0"/>
+<text x="70" y="424" font-family="Arial, sans-serif" font-size="18" fill="#142033" font-weight="700" text-anchor="start">Latência mediana por imagem</text>
+<text x="70" y="447" font-family="Arial, sans-serif" font-size="13" fill="#64748b" font-weight="400" text-anchor="start">Menor é mais rápido · milissegundos</text>
+<line x1="173.0" y1="467" x2="173.0" y2="587" stroke="#e8edf4"/>
+<text x="173.0" y="607" font-family="Arial, sans-serif" font-size="11" fill="#64748b" font-weight="400" text-anchor="middle">0</text>
+<line x1="248.0" y1="467" x2="248.0" y2="587" stroke="#e8edf4"/>
+<text x="248.0" y="607" font-family="Arial, sans-serif" font-size="11" fill="#64748b" font-weight="400" text-anchor="middle">1000</text>
+<line x1="323.0" y1="467" x2="323.0" y2="587" stroke="#e8edf4"/>
+<text x="323.0" y="607" font-family="Arial, sans-serif" font-size="11" fill="#64748b" font-weight="400" text-anchor="middle">2000</text>
+<line x1="398.0" y1="467" x2="398.0" y2="587" stroke="#e8edf4"/>
+<text x="398.0" y="607" font-family="Arial, sans-serif" font-size="11" fill="#64748b" font-weight="400" text-anchor="middle">3000</text>
+<line x1="473.0" y1="467" x2="473.0" y2="587" stroke="#e8edf4"/>
+<text x="473.0" y="607" font-family="Arial, sans-serif" font-size="11" fill="#64748b" font-weight="400" text-anchor="middle">4000</text>
+<text x="161" y="509" font-family="Arial, sans-serif" font-size="13" fill="#334155" font-weight="600" text-anchor="end">Laya Vision</text>
+<rect x="173" y="492" width="167.1" height="26" rx="5" fill="#3478f6"/>
+<text x="348.07" y="510" font-family="Arial, sans-serif" font-size="12" fill="#263248" font-weight="600" text-anchor="start">2,228 ms</text>
+<text x="161" y="563" font-family="Arial, sans-serif" font-size="13" fill="#334155" font-weight="600" text-anchor="end">BLIP VQA</text>
+<rect x="173" y="546" width="206.9" height="26" rx="5" fill="#f28e2b"/>
+<text x="387.94" y="564" font-family="Arial, sans-serif" font-size="12" fill="#263248" font-weight="600" text-anchor="start">2,759 ms</text>
+<rect x="558" y="390" width="514" height="260" rx="14" fill="white" stroke="#e2e8f0"/>
+<text x="580" y="424" font-family="Arial, sans-serif" font-size="18" fill="#142033" font-weight="700" text-anchor="start">Resumo da comparação</text>
+<text x="580" y="470" font-family="Arial, sans-serif" font-size="17" fill="#142033" font-weight="700" text-anchor="start">BLIP: +11.5 pontos percentuais</text>
+<text x="580" y="496" font-family="Arial, sans-serif" font-size="14" fill="#596579" font-weight="400" text-anchor="start">de acurácia geral neste conjunto</text>
+<text x="580" y="541" font-family="Arial, sans-serif" font-size="17" fill="#142033" font-weight="700" text-anchor="start">BLIP: 23.9% mais lento na mediana</text>
+<text x="580" y="567" font-family="Arial, sans-serif" font-size="12" fill="#596579" font-weight="400" text-anchor="start">Amostra pequena e específica de carros; não generalizar para outros domínios.</text>
+<text x="580" y="594" font-family="Arial, sans-serif" font-size="12" fill="#596579" font-weight="400" text-anchor="start">Cor tem apenas 7 rótulos (n=7); demais tarefas têm 67.</text>
+<text x="580" y="623" font-family="Arial, sans-serif" font-size="12" fill="#596579" font-weight="400" text-anchor="start">Acurácia agregada soma todas as respostas avaliadas (208 por modelo).</text>
+</svg>
