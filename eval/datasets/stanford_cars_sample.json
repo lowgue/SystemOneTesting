@@ -1,0 +1,335 @@
+{
+  "dataset": "naufalso/stanford_cars",
+  "split": "test",
+  "seed": 20261022,
+  "image_count": 40,
+  "source_url": "https://huggingface.co/datasets/naufalso/stanford_cars",
+  "tasks_with_ground_truth": [
+    "car_presence (all yes)",
+    "make",
+    "body_type"
+  ],
+  "color_is_not_annotated": true,
+  "items": [
+    {
+      "filename": "stanford_test_00223.jpg",
+      "row_idx": 223,
+      "class_name": "Dodge Magnum Wagon 2008",
+      "make": "dodge",
+      "make_display": "Dodge",
+      "body_type": "wagon"
+    },
+    {
+      "filename": "stanford_test_00500.jpg",
+      "row_idx": 500,
+      "class_name": "Dodge Challenger SRT8 2011",
+      "make": "dodge",
+      "make_display": "Dodge",
+      "body_type": "other"
+    },
+    {
+      "filename": "stanford_test_00634.jpg",
+      "row_idx": 634,
+      "class_name": "Porsche Panamera Sedan 2012",
+      "make": "porsche",
+      "make_display": "Porsche",
+      "body_type": "sedan"
+    },
+    {
+      "filename": "stanford_test_00690.jpg",
+      "row_idx": 690,
+      "class_name": "Chevrolet Avalanche Crew Cab 2012",
+      "make": "chevrolet",
+      "make_display": "Chevrolet",
+      "body_type": "truck"
+    },
+    {
+      "filename": "stanford_test_00177.jpg",
+      "row_idx": 177,
+      "class_name": "BMW 6 Series Convertible 2007",
+      "make": "bmw",
+      "make_display": "BMW",
+      "body_type": "convertible"
+    },
+    {
+      "filename": "stanford_test_00590.jpg",
+      "row_idx": 590,
+      "class_name": "Acura TL Sedan 2012",
+      "make": "acura",
+      "make_display": "Acura",
+      "body_type": "sedan"
+    },
+    {
+      "filename": "stanford_test_00975.jpg",
+      "row_idx": 975,
+      "class_name": "Chevrolet Cobalt SS 2010",
+      "make": "chevrolet",
+      "make_display": "Chevrolet",
+      "body_type": "other"
+    },
+    {
+      "filename": "stanford_test_00226.jpg",
+      "row_idx": 226,
+      "class_name": "Ford GT Coupe 2006",
+      "make": "ford",
+      "make_display": "Ford",
+      "body_type": "coupe"
+    },
+    {
+      "filename": "stanford_test_00012.jpg",
+      "row_idx": 12,
+      "class_name": "Ford E-Series Wagon Van 2012",
+      "make": "ford",
+      "make_display": "Ford",
+      "body_type": "wagon"
+    },
+    {
+      "filename": "stanford_test_00683.jpg",
+      "row_idx": 683,
+      "class_name": "Ferrari California Convertible 2012",
+      "make": "ferrari",
+      "make_display": "Ferrari",
+      "body_type": "convertible"
+    },
+    {
+      "filename": "stanford_test_00788.jpg",
+      "row_idx": 788,
+      "class_name": "BMW 3 Series Sedan 2012",
+      "make": "bmw",
+      "make_display": "BMW",
+      "body_type": "sedan"
+    },
+    {
+      "filename": "stanford_test_00274.jpg",
+      "row_idx": 274,
+      "class_name": "Hyundai Elantra Sedan 2007",
+      "make": "hyundai",
+      "make_display": "Hyundai",
+      "body_type": "sedan"
+    },
+    {
+      "filename": "stanford_test_00415.jpg",
+      "row_idx": 415,
+      "class_name": "Jaguar XK XKR 2012",
+      "make": "jaguar",
+      "make_display": "Jaguar",
+      "body_type": "other"
+    },
+    {
+      "filename": "stanford_test_00572.jpg",
+      "row_idx": 572,
+      "class_name": "Hyundai Azera Sedan 2012",
+      "make": "hyundai",
+      "make_display": "Hyundai",
+      "body_type": "sedan"
+    },
+    {
+      "filename": "stanford_test_00015.jpg",
+      "row_idx": 15,
+      "class_name": "Cadillac CTS-V Sedan 2012",
+      "make": "cadillac",
+      "make_display": "Cadillac",
+      "body_type": "sedan"
+    },
+    {
+      "filename": "stanford_test_00349.jpg",
+      "row_idx": 349,
+      "class_name": "Aston Martin V8 Vantage Convertible 2012",
+      "make": "aston_martin",
+      "make_display": "Aston Martin",
+      "body_type": "convertible"
+    },
+    {
+      "filename": "stanford_test_00297.jpg",
+      "row_idx": 297,
+      "class_name": "Fisker Karma Sedan 2012",
+      "make": "fisker",
+      "make_display": "Fisker",
+      "body_type": "sedan"
+    },
+    {
+      "filename": "stanford_test_00112.jpg",
+      "row_idx": 112,
+      "class_name": "Mercedes-Benz E-Class Sedan 2012",
+      "make": "mercedes_benz",
+      "make_display": "Mercedes-Benz",
+      "body_type": "sedan"
+    },
+    {
+      "filename": "stanford_test_00452.jpg",
+      "row_idx": 452,
+      "class_name": "GMC Terrain SUV 2012",
+      "make": "gmc",
+      "make_display": "GMC",
+      "body_type": "suv"
+    },
+    {
+      "filename": "stanford_test_00674.jpg",
+      "row_idx": 674,
+      "class_name": "Ferrari 458 Italia Coupe 2012",
+      "make": "ferrari",
+      "make_display": "Ferrari",
+      "body_type": "coupe"
+    },
+    {
+      "filename": "stanford_test_00592.jpg",
+      "row_idx": 592,
+      "class_name": "Volkswagen Golf Hatchback 2012",
+      "make": "volkswagen",
+      "make_display": "Volkswagen",
+      "body_type": "hatch"
+    },
+    {
+      "filename": "stanford_test_00908.jpg",
+      "row_idx": 908,
+      "class_name": "Infiniti G Coupe IPL 2012",
+      "make": "infiniti",
+      "make_display": "Infiniti",
+      "body_type": "coupe"
+    },
+    {
+      "filename": "stanford_test_00987.jpg",
+      "row_idx": 987,
+      "class_name": "Audi TTS Coupe 2012",
+      "make": "audi",
+      "make_display": "Audi",
+      "body_type": "coupe"
+    },
+    {
+      "filename": "stanford_test_00729.jpg",
+      "row_idx": 729,
+      "class_name": "Suzuki Kizashi Sedan 2012",
+      "make": "suzuki",
+      "make_display": "Suzuki",
+      "body_type": "sedan"
+    },
+    {
+      "filename": "stanford_test_00807.jpg",
+      "row_idx": 807,
+      "class_name": "Geo Metro Convertible 1993",
+      "make": "geo",
+      "make_display": "Geo",
+      "body_type": "convertible"
+    },
+    {
+      "filename": "stanford_test_00382.jpg",
+      "row_idx": 382,
+      "class_name": "Acura Integra Type R 2001",
+      "make": "acura",
+      "make_display": "Acura",
+      "body_type": "other"
+    },
+    {
+      "filename": "stanford_test_00996.jpg",
+      "row_idx": 996,
+      "class_name": "Chrysler PT Cruiser Convertible 2008",
+      "make": "chrysler",
+      "make_display": "Chrysler",
+      "body_type": "convertible"
+    },
+    {
+      "filename": "stanford_test_00083.jpg",
+      "row_idx": 83,
+      "class_name": "Volvo XC90 SUV 2007",
+      "make": "volvo",
+      "make_display": "Volvo",
+      "body_type": "suv"
+    },
+    {
+      "filename": "stanford_test_00899.jpg",
+      "row_idx": 899,
+      "class_name": "Chrysler Aspen SUV 2009",
+      "make": "chrysler",
+      "make_display": "Chrysler",
+      "body_type": "suv"
+    },
+    {
+      "filename": "stanford_test_00661.jpg",
+      "row_idx": 661,
+      "class_name": "Mazda Tribute SUV 2011",
+      "make": "mazda",
+      "make_display": "Mazda",
+      "body_type": "suv"
+    },
+    {
+      "filename": "stanford_test_00185.jpg",
+      "row_idx": 185,
+      "class_name": "Buick Verano Sedan 2012",
+      "make": "buick",
+      "make_display": "Buick",
+      "body_type": "sedan"
+    },
+    {
+      "filename": "stanford_test_00647.jpg",
+      "row_idx": 647,
+      "class_name": "Audi S4 Sedan 2007",
+      "make": "audi",
+      "make_display": "Audi",
+      "body_type": "sedan"
+    },
+    {
+      "filename": "stanford_test_00330.jpg",
+      "row_idx": 330,
+      "class_name": "Mitsubishi Lancer Sedan 2012",
+      "make": "mitsubishi",
+      "make_display": "Mitsubishi",
+      "body_type": "sedan"
+    },
+    {
+      "filename": "stanford_test_00140.jpg",
+      "row_idx": 140,
+      "class_name": "HUMMER H3T Crew Cab 2010",
+      "make": "hummer",
+      "make_display": "HUMMER",
+      "body_type": "truck"
+    },
+    {
+      "filename": "stanford_test_00665.jpg",
+      "row_idx": 665,
+      "class_name": "Jeep Wrangler SUV 2012",
+      "make": "jeep",
+      "make_display": "Jeep",
+      "body_type": "suv"
+    },
+    {
+      "filename": "stanford_test_00092.jpg",
+      "row_idx": 92,
+      "class_name": "Toyota Camry Sedan 2012",
+      "make": "toyota",
+      "make_display": "Toyota",
+      "body_type": "sedan"
+    },
+    {
+      "filename": "stanford_test_00875.jpg",
+      "row_idx": 875,
+      "class_name": "Suzuki Aerio Sedan 2007",
+      "make": "suzuki",
+      "make_display": "Suzuki",
+      "body_type": "sedan"
+    },
+    {
+      "filename": "stanford_test_00830.jpg",
+      "row_idx": 830,
+      "class_name": "Mercedes-Benz S-Class Sedan 2012",
+      "make": "mercedes_benz",
+      "make_display": "Mercedes-Benz",
+      "body_type": "sedan"
+    },
+    {
+      "filename": "stanford_test_00739.jpg",
+      "row_idx": 739,
+      "class_name": "Bentley Continental GT Coupe 2012",
+      "make": "bentley",
+      "make_display": "Bentley",
+      "body_type": "coupe"
+    },
+    {
+      "filename": "stanford_test_00533.jpg",
+      "row_idx": 533,
+      "class_name": "Lamborghini Reventon Coupe 2008",
+      "make": "lamborghini",
+      "make_display": "Lamborghini",
+      "body_type": "coupe"
+    }
+  ]
+}
