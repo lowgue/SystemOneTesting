@@ -113,6 +113,63 @@ Os scripts abaixo avaliam a mesma imagem de Audi TT e fazem as mesmas duas pergu
 
 `test_clef_local.py` exige o servidor iniciado por `run_clef_local.sh`; `test_clef_real_image.py` usa a API hospedada da Cloudflare e exige `CLOUDFLARE_ACCOUNT_ID` e `CLOUDFLARE_API_TOKEN`. Os testes aceitam outra imagem como argumento posicional.
 
+## Comparação local: Laya Vision x BLIP VQA
+
+O benchmark usa um subconjunto diverso de 40 imagens do split de teste Stanford Cars, carros reais locais, controles sem carro e 330 carros com cor rotulada: 30 por classe para preto, branco, cinza/prata, vermelho, azul, marrom, verde, amarelo, laranja, rosa e roxo. As imagens coloridas vêm do dataset público de classificação de cor de veículos e são filtradas para carros com YOLO11n; os grupos esparsos são complementados por imagens de automóveis no Wikimedia Commons, com licença e origem anotadas no manifesto.
+
+Os dois modelos recebem as mesmas quatro perguntas base (presença, marca, cor e carroceria) para cada imagem. Nas perguntas de múltipla escolha, ambos recebem a mesma lista de opções, com 12 alternativas para marca, 13 para cor e 10 para carroceria; presença tem duas respostas. BLIP processa as quatro perguntas em lote por imagem. Só campos que têm rótulo confiável no conjunto são pontuados. Isso reduz a quantidade de opções de marca do Laya e torna a comparação mais consistente.
+
+Para recriar esse conjunto balanceado a partir da fonte, baixe e extraia o arquivo do Hugging Face, instale `unar` no sistema e `ultralytics` no ambiente virtual:
+
+```bash
+hf download WandererGuy/vehicle-color-classification-dataset --type dataset --include dataset.rar --local-dir /tmp/vehicle-colors
+mkdir -p /tmp/vehicle-color-extract
+sudo apt-get install unar
+unar -q -o /tmp/vehicle-color-extract /tmp/vehicle-colors/dataset.rar
+.venv/bin/python -m pip install ultralytics
+.venv/bin/python eval/prepare_car_color_test_set.py --source-dir /tmp/vehicle-color-extract/dataset
+```
+
+O manifesto fica em `eval/datasets/car_color_test.json`; as imagens locais ficam em `eval/images/color_test/` e são ignoradas pelo Git. A preparação filtra carros do dataset original e, quando necessário, busca fotos licenciadas no Wikimedia Commons; a origem e a licença de cada complemento ficam anotadas no manifesto. [Dataset de cores no Hugging Face](https://huggingface.co/datasets/WandererGuy/vehicle-color-classification-dataset) · [Categorias de automóveis por cor no Wikimedia Commons](https://commons.wikimedia.org/wiki/Category:Orange_automobiles).
+
+Se precisar recriar o ambiente local:
+
+```bash
+python3 -m venv .venv
+.venv/bin/python -m pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
+.venv/bin/python -m pip install transformers safetensors pillow
+.venv/bin/python -m pip install -e ./vendor/laya-vision
+```
+
+```bash
+.venv/bin/python eval/compare_laya_blip.py --threads 8
+```
+
+Baixe o subconjunto de imagens uma vez e inicie o dashboard para abrir o navegador e rodar a comparação automaticamente:
+
+```bash
+.venv/bin/python eval/download_stanford_cars_sample.py --count 40 --per-make 2
+.venv/bin/python web/benchmark_server.py
+```
+
+O dashboard mostra a imagem atual, as respostas dos dois modelos, acertos, latência e progresso de cada etapa. Encerre com `Ctrl+C`. O primeiro uso baixa os pesos de `Salesforce/blip-vqa-base` (~1,5 GB). O manifesto das imagens fica em `eval/datasets/stanford_cars_sample.json`; as imagens baixadas ficam localmente em `eval/images/stanford_cars/` e são ignoradas pelo Git. Fonte: [Stanford Cars no Hugging Face](https://huggingface.co/datasets/naufalso/stanford_cars). O relatório atual detalhado fica em `eval/results/laya-blip-car-color.json`; os resultados antigos de referência continuam em `eval/results/stanford-cars-laya-vs-blip.json`. Para testar o BLIP isoladamente numa imagem:
+
+```bash
+.venv/bin/python test_blip_vqa.py ./imagem.jpg --question "What color is the car?"
+```
+
+No Transformers 5, use a API direta do modelo; o pipeline genérico `visual-question-answering` foi descontinuado nessa versão. O comparador carrega um modelo por vez para caber melhor em máquinas sem GPU. A amostra pequena dá uma indicação para este domínio, não uma conclusão geral sobre os modelos.
+
+### Gráficos estatísticos
+
+O gráfico único compara acurácia geral, acurácia por pergunta (incluindo cor) e latência mediana. Para recriá-lo após uma nova avaliação:
+
+```bash
+.venv/bin/python eval/plot_laya_blip_results.py
+```
+
+![Gráficos estatísticos da comparação Laya Vision e BLIP VQA](eval/results/laya-blip-car-color.svg)
+
 ## Experimentos
 
 Registre, para cada caso, a entrada, as regras/opções, a resposta correta anotada, a resposta do modelo, as probabilidades, a latência e a versão do modelo. Separe os dados usados para ajustar limiares do conjunto final de avaliação. As probabilidades declaradas pelo modelo não garantem calibração no seu domínio.
