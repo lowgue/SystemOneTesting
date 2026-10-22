@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1060" height="690" viewBox="0 0 1060 690">
+<rect width="100%" height="100%" fill="#f7f9fc"/>
+<text x="40" y="42" font-family="Arial,sans-serif" font-size="25" fill="#142033" font-weight="700" text-anchor="start">Acurácia por cor do veículo</text>
+<text x="40" y="68" font-family="Arial,sans-serif" font-size="13" fill="#596579" font-weight="400" text-anchor="start">Somente exemplos com gabarito de cor · n=30 por classe · mesmas imagens para os dois modelos</text>
+<line x1="230.0" y1="100" x2="230.0" y2="618" stroke="#e5eaf1"/>
+<text x="230.0" y="636" font-family="Arial,sans-serif" font-size="11" fill="#64748b" font-weight="400" text-anchor="middle">0%</text>
+<line x1="392.5" y1="100" x2="392.5" y2="618" stroke="#e5eaf1"/>
+<text x="392.5" y="636" font-family="Arial,sans-serif" font-size="11" fill="#64748b" font-weight="400" text-anchor="middle">25%</text>
+<line x1="555.0" y1="100" x2="555.0" y2="618" stroke="#e5eaf1"/>
+<text x="555.0" y="636" font-family="Arial,sans-serif" font-size="11" fill="#64748b" font-weight="400" text-anchor="middle">50%</text>
+<line x1="717.5" y1="100" x2="717.5" y2="618" stroke="#e5eaf1"/>
+<text x="717.5" y="636" font-family="Arial,sans-serif" font-size="11" fill="#64748b" font-weight="400" text-anchor="middle">75%</text>
+<line x1="880.0" y1="100" x2="880.0" y2="618" stroke="#e5eaf1"/>
+<text x="880.0" y="636" font-family="Arial,sans-serif" font-size="11" fill="#64748b" font-weight="400" text-anchor="middle">100%</text>
+<text x="210" y="137" font-family="Arial,sans-serif" font-size="12" fill="#334155" font-weight="600" text-anchor="end">Black</text>
+<rect x="230" y="118" width="281.67" height="11" rx="3" fill="#3478f6"/>
+<text x="518.6666666666667" y="128" font-family="Arial,sans-serif" font-size="10" fill="#263248" font-weight="400" text-anchor="start">13/30 (43%)</text>
+<rect x="230" y="135" width="65.00" height="11" rx="3" fill="#f28e2b"/>
+<text x="302.0" y="145" font-family="Arial,sans-serif" font-size="10" fill="#263248" font-weight="400" text-anchor="start">3/30 (10%)</text>
+<text x="210" y="182" font-family="Arial,sans-serif" font-size="12" fill="#334155" font-weight="600" text-anchor="end">Blue</text>
+<rect x="230" y="163" width="476.67" height="11" rx="3" fill="#3478f6"/>
+<text x="713.6666666666666" y="173" font-family="Arial,sans-serif" font-size="10" fill="#263248" font-weight="400" text-anchor="start">22/30 (73%)</text>
+<rect x="230" y="180" width="541.67" height="11" rx="3" fill="#f28e2b"/>
+<text x="778.6666666666667" y="190" font-family="Arial,sans-serif" font-size="10" fill="#263248" font-weight="400" text-anchor="start">25/30 (83%)</text>
+<text x="210" y="227" font-family="Arial,sans-serif" font-size="12" fill="#334155" font-weight="600" text-anchor="end">Brown</text>
+<rect x="230" y="208" width="433.33" height="11" rx="3" fill="#3478f6"/>
+<text x="670.3333333333333" y="218" font-family="Arial,sans-serif" font-size="10" fill="#263248" font-weight="400" text-anchor="start">20/30 (67%)</text>
+<rect x="230" y="225" width="0.00" height="11" rx="3" fill="#f28e2b"/>
+<text x="237.0" y="235" font-family="Arial,sans-serif" font-size="10" fill="#263248" font-weight="400" text-anchor="start">0/30 (0%)</text>
+<text x="210" y="272" font-family="Arial,sans-serif" font-size="12" fill="#334155" font-weight="600" text-anchor="end">Gray / Silver</text>
+<rect x="230" y="253" width="498.33" height="11" rx="3" fill="#3478f6"/>
+<text x="735.3333333333334" y="263" font-family="Arial,sans-serif" font-size="10" fill="#263248" font-weight="400" text-anchor="start">23/30 (77%)</text>
+<rect x="230" y="270" width="411.67" height="11" rx="3" fill="#f28e2b"/>
+<text x="648.6666666666666" y="280" font-family="Arial,sans-serif" font-size="10" fill="#263248" font-weight="400" text-anchor="start">19/30 (63%)</text>
+<text x="210" y="317" font-family="Arial,sans-serif" font-size="12" fill="#334155" font-weight="600" text-anchor="end">Green</text>
+<rect x="230" y="298" width="520.00" height="11" rx="3" fill="#3478f6"/>
+<text x="757.0" y="308" font-family="Arial,sans-serif" font-size="10" fill="#263248" font-weight="400" text-anchor="start">24/30 (80%)</text>
+<rect x="230" y="315" width="541.67" height="11" rx="3" fill="#f28e2b"/>
+<text x="778.6666666666667" y="325" font-family="Arial,sans-serif" font-size="10" fill="#263248" font-weight="400" text-anchor="start">25/30 (83%)</text>
+<text x="210" y="362" font-family="Arial,sans-serif" font-size="12" fill="#334155" font-weight="600" text-anchor="end">Orange</text>
+<rect x="230" y="343" width="520.00" height="11" rx="3" fill="#3478f6"/>
+<text x="757.0" y="353" font-family="Arial,sans-serif" font-size="10" fill="#263248" font-weight="400" text-anchor="start">24/30 (80%)</text>
+<rect x="230" y="360" width="86.67" height="11" rx="3" fill="#f28e2b"/>
+<text x="323.6666666666667" y="370" font-family="Arial,sans-serif" font-size="10" fill="#263248" font-weight="400" text-anchor="start">4/30 (13%)</text>
+<text x="210" y="407" font-family="Arial,sans-serif" font-size="12" fill="#334155" font-weight="600" text-anchor="end">Pink</text>
+<rect x="230" y="388" width="498.33" height="11" rx="3" fill="#3478f6"/>
+<text x="735.3333333333334" y="398" font-family="Arial,sans-serif" font-size="10" fill="#263248" font-weight="400" text-anchor="start">23/30 (77%)</text>
+<rect x="230" y="405" width="151.67" height="11" rx="3" fill="#f28e2b"/>
+<text x="388.66666666666663" y="415" font-family="Arial,sans-serif" font-size="10" fill="#263248" font-weight="400" text-anchor="start">7/30 (23%)</text>
+<text x="210" y="452" font-family="Arial,sans-serif" font-size="12" fill="#334155" font-weight="600" text-anchor="end">Purple</text>
+<rect x="230" y="433" width="476.67" height="11" rx="3" fill="#3478f6"/>
+<text x="713.6666666666666" y="443" font-family="Arial,sans-serif" font-size="10" fill="#263248" font-weight="400" text-anchor="start">22/30 (73%)</text>
+<rect x="230" y="450" width="541.67" height="11" rx="3" fill="#f28e2b"/>
+<text x="778.6666666666667" y="460" font-family="Arial,sans-serif" font-size="10" fill="#263248" font-weight="400" text-anchor="start">25/30 (83%)</text>
+<text x="210" y="497" font-family="Arial,sans-serif" font-size="12" fill="#334155" font-weight="600" text-anchor="end">Red</text>
+<rect x="230" y="478" width="455.00" height="11" rx="3" fill="#3478f6"/>
+<text x="692.0" y="488" font-family="Arial,sans-serif" font-size="10" fill="#263248" font-weight="400" text-anchor="start">21/30 (70%)</text>
+<rect x="230" y="495" width="325.00" height="11" rx="3" fill="#f28e2b"/>
+<text x="562.0" y="505" font-family="Arial,sans-serif" font-size="10" fill="#263248" font-weight="400" text-anchor="start">15/30 (50%)</text>
+<text x="210" y="542" font-family="Arial,sans-serif" font-size="12" fill="#334155" font-weight="600" text-anchor="end">White</text>
+<rect x="230" y="523" width="390.00" height="11" rx="3" fill="#3478f6"/>
+<text x="627.0" y="533" font-family="Arial,sans-serif" font-size="10" fill="#263248" font-weight="400" text-anchor="start">18/30 (60%)</text>
+<rect x="230" y="540" width="325.00" height="11" rx="3" fill="#f28e2b"/>
+<text x="562.0" y="550" font-family="Arial,sans-serif" font-size="10" fill="#263248" font-weight="400" text-anchor="start">15/30 (50%)</text>
+<text x="210" y="587" font-family="Arial,sans-serif" font-size="12" fill="#334155" font-weight="600" text-anchor="end">Yellow</text>
+<rect x="230" y="568" width="606.67" height="11" rx="3" fill="#3478f6"/>
+<text x="843.6666666666666" y="578" font-family="Arial,sans-serif" font-size="10" fill="#263248" font-weight="400" text-anchor="start">28/30 (93%)</text>
+<rect x="230" y="585" width="563.33" height="11" rx="3" fill="#f28e2b"/>
+<text x="800.3333333333334" y="595" font-family="Arial,sans-serif" font-size="10" fill="#263248" font-weight="400" text-anchor="start">26/30 (87%)</text>
+</svg>

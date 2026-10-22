@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="430" viewBox="0 0 1000 430">
+<rect width="100%" height="100%" fill="#f7f9fc"/>
+<text x="40" y="42" font-family="Arial,sans-serif" font-size="25" fill="#142033" font-weight="700" text-anchor="start">Latência por imagem</text>
+<text x="40" y="68" font-family="Arial,sans-serif" font-size="13" fill="#596579" font-weight="400" text-anchor="start">CPU · 8 threads · inclui processamento das quatro perguntas em lote no BLIP · menor é mais rápido</text>
+<line x1="210.0" y1="115" x2="210.0" y2="335" stroke="#e5eaf1"/>
+<text x="210.0" y="357" font-family="Arial,sans-serif" font-size="11" fill="#64748b" font-weight="400" text-anchor="middle">0s</text>
+<line x1="338.0" y1="115" x2="338.0" y2="335" stroke="#e5eaf1"/>
+<text x="338.0" y="357" font-family="Arial,sans-serif" font-size="11" fill="#64748b" font-weight="400" text-anchor="middle">1s</text>
+<line x1="466.0" y1="115" x2="466.0" y2="335" stroke="#e5eaf1"/>
+<text x="466.0" y="357" font-family="Arial,sans-serif" font-size="11" fill="#64748b" font-weight="400" text-anchor="middle">2s</text>
+<line x1="594.0" y1="115" x2="594.0" y2="335" stroke="#e5eaf1"/>
+<text x="594.0" y="357" font-family="Arial,sans-serif" font-size="11" fill="#64748b" font-weight="400" text-anchor="middle">3s</text>
+<line x1="722.0" y1="115" x2="722.0" y2="335" stroke="#e5eaf1"/>
+<text x="722.0" y="357" font-family="Arial,sans-serif" font-size="11" fill="#64748b" font-weight="400" text-anchor="middle">4s</text>
+<line x1="850.0" y1="115" x2="850.0" y2="335" stroke="#e5eaf1"/>
+<text x="850.0" y="357" font-family="Arial,sans-serif" font-size="11" fill="#64748b" font-weight="400" text-anchor="middle">5s</text>
+<text x="195" y="158" font-family="Arial,sans-serif" font-size="14" fill="#334155" font-weight="600" text-anchor="end">Laya Vision</text>
+<rect x="210" y="168" width="242.15" height="10" rx="3" fill="#3478f6" opacity="1.00"/>
+<text x="459.1504" y="177" font-family="Arial,sans-serif" font-size="10" fill="#263248" font-weight="400" text-anchor="start">mediana: 1,892 ms</text>
+<rect x="210" y="182" width="252.93" height="10" rx="3" fill="#3478f6" opacity="0.88"/>
+<text x="469.928" y="191" font-family="Arial,sans-serif" font-size="10" fill="#263248" font-weight="400" text-anchor="start">média: 1,976 ms</text>
+<rect x="210" y="196" width="293.89" height="10" rx="3" fill="#3478f6" opacity="0.76"/>
+<text x="510.888" y="205" font-family="Arial,sans-serif" font-size="10" fill="#263248" font-weight="400" text-anchor="start">p90: 2,296 ms</text>
+<rect x="210" y="210" width="316.40" height="10" rx="3" fill="#3478f6" opacity="0.64"/>
+<text x="533.4032" y="219" font-family="Arial,sans-serif" font-size="10" fill="#263248" font-weight="400" text-anchor="start">p95: 2,472 ms</text>
+<text x="195" y="243" font-family="Arial,sans-serif" font-size="14" fill="#334155" font-weight="600" text-anchor="end">BLIP VQA</text>
+<rect x="210" y="253" width="492.16" height="10" rx="3" fill="#f28e2b" opacity="1.00"/>
+<text x="709.1600000000001" y="262" font-family="Arial,sans-serif" font-size="10" fill="#263248" font-weight="400" text-anchor="start">mediana: 3,845 ms</text>
+<rect x="210" y="267" width="509.40" height="10" rx="3" fill="#f28e2b" opacity="0.88"/>
+<text x="726.4015999999999" y="276" font-family="Arial,sans-serif" font-size="10" fill="#263248" font-weight="400" text-anchor="start">média: 3,980 ms</text>
+<rect x="210" y="281" width="575.17" height="10" rx="3" fill="#f28e2b" opacity="0.76"/>
+<text x="792.168" y="290" font-family="Arial,sans-serif" font-size="10" fill="#263248" font-weight="400" text-anchor="start">p90: 4,494 ms</text>
+<rect x="210" y="295" width="601.33" height="10" rx="3" fill="#f28e2b" opacity="0.64"/>
+<text x="818.3312" y="304" font-family="Arial,sans-serif" font-size="10" fill="#263248" font-weight="400" text-anchor="start">p95: 4,698 ms</text>
+<text x="40" y="405" font-family="Arial,sans-serif" font-size="12" fill="#596579" font-weight="400" text-anchor="start">Tempos medidos no hardware desta execução; não são garantias para outras máquinas.</text>
+</svg>
