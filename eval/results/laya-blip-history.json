@@ -1,0 +1,61 @@
+{
+  "note": "Resultados históricos persistidos no repositório. As rodadas variam em imagens, rótulos disponíveis, perguntas realmente executadas, alternativas e hardware/pipeline registrado. Comparações temporais são descritivas, não uma ablação controlada.",
+  "visual_comparisons": [
+    {
+      "id": "7_imagens_curadas",
+      "dataset_total": 7,
+      "scored_answers": 28,
+      "label_counts": {"tem_carro": 7, "marca": 7, "cor": 7, "tipo": 7},
+      "note": "Quatro perguntas por imagem; conjunto pequeno curado.",
+      "models": {
+        "laya": {"correct": 17, "total": 28, "accuracy": 0.6071, "accuracy_by_question": {"tem_carro": 1.0, "marca": 0.5714, "cor": 0.5714, "tipo": 0.2857}, "mean_latency_ms": 1493.1, "median_latency_ms": 1416.3},
+        "blip": {"correct": 16, "total": 28, "accuracy": 0.5714, "accuracy_by_question": {"tem_carro": 1.0, "marca": 0.1429, "cor": 0.7143, "tipo": 0.4286}, "mean_latency_ms": 3249.8, "median_latency_ms": 3016.9}
+      }
+    },
+    {
+      "id": "67_imagens_veiculos",
+      "dataset_total": 67,
+      "scored_answers": 208,
+      "label_counts": {"tem_carro": 67, "marca": 67, "cor": 7, "tipo": 67},
+      "note": "40 Stanford Cars, 20 fotos locais e 7 imagens curadas; Stanford Cars não fornece rótulos de cor.",
+      "models": {
+        "laya": {"correct": 116, "total": 208, "accuracy": 0.5577, "accuracy_by_question": {"tem_carro": 0.9552, "marca": 0.2388, "cor": 0.5714, "tipo": 0.4776}, "mean_latency_ms": 2340.0, "median_latency_ms": 2227.6},
+        "blip": {"correct": 140, "total": 208, "accuracy": 0.6731, "accuracy_by_question": {"tem_carro": 1.0, "marca": 0.5075, "cor": 0.7143, "tipo": 0.5075}, "mean_latency_ms": 3036.2, "median_latency_ms": 2759.2}
+      }
+    },
+    {
+      "id": "247_imagens_primeiro_colorido",
+      "dataset_total": 247,
+      "scored_answers": 388,
+      "label_counts": {"tem_carro": 67, "marca": 67, "cor": 187, "tipo": 67},
+      "note": "180 imagens de cor + 67 imagens base. Os registros antigos de car_color guardam apenas a resposta cor; nessa execução BLIP teve mediana geral 944,9 ms, mediana de 868,7 ms nas imagens car_color e 2.553,2 ms nas demais.",
+      "models": {
+        "laya": {"correct": 227, "total": 388, "accuracy": 0.5851, "accuracy_by_question": {"tem_carro": 0.9552, "marca": 0.2388, "cor": 0.6150, "tipo": 0.4776}, "mean_latency_ms": 1783.6, "median_latency_ms": 1516.9, "color_subset": {"correct": 115, "total": 187, "accuracy": 0.6150, "median_latency_ms": 1478.5}},
+        "blip": {"correct": 285, "total": 388, "accuracy": 0.7345, "accuracy_by_question": {"tem_carro": 1.0, "marca": 0.5075, "cor": 0.8021, "tipo": 0.5075}, "mean_latency_ms": 1420.7, "median_latency_ms": 944.9, "color_subset": {"correct": 150, "total": 187, "accuracy": 0.8021, "median_latency_ms": 868.7}}
+      }
+    },
+    {
+      "id": "397_imagens_quatro_perguntas",
+      "dataset_total": 397,
+      "scored_answers": 538,
+      "label_counts": {"tem_carro": 67, "marca": 67, "cor": 337, "tipo": 67},
+      "note": "330 imagens car_color (30 por classe em 11 cores), além das 67 imagens base; as quatro perguntas são executadas para cada imagem, mas só respostas com rótulo são pontuadas.",
+      "models": {
+        "laya": {"correct": 370, "total": 538, "accuracy": 0.6877, "accuracy_by_question": {"tem_carro": 0.9552, "marca": 0.4776, "cor": 0.7181, "tipo": 0.4776}, "mean_latency_ms": 1976.0, "median_latency_ms": 1891.8, "p90_latency_ms": 2296.0, "p95_latency_ms": 2471.9, "color_subset": {"correct": 238, "total": 330, "accuracy": 0.7212}},
+        "blip": {"correct": 254, "total": 538, "accuracy": 0.4721, "accuracy_by_question": {"tem_carro": 1.0, "marca": 0.0896, "cor": 0.4896, "tipo": 0.2388}, "mean_latency_ms": 3979.7, "median_latency_ms": 3845.0, "p90_latency_ms": 4493.5, "p95_latency_ms": 4697.9, "color_subset": {"correct": 164, "total": 330, "accuracy": 0.4970}}
+      }
+    }
+  ],
+  "matched_images_diagnostic_247_vs_397": {
+    "note": "Filename and reference-label intersection between the committed 247-image result and the current 397-image run. Same examples are present, but prompt and exact model revisions were not fully pinned across runs.",
+    "color": {"n": 154, "laya_old_correct": 112, "laya_new_correct": 101, "blip_old_correct": 125, "blip_new_correct": 78},
+    "other_tasks": {"n_scored_fields": 180, "laya_old_correct": 102, "laya_new_correct": 116, "blip_old_correct": 124, "blip_new_correct": 82}
+  },
+  "other_saved_experiments": {
+    "laya_only_stanford_20": {"images": 20, "brand_correct": "11/20", "body_correct": "11/20", "presence_threshold_0_5": "9/20", "presence_threshold_0_2": "19/20", "mean_latency_ms": 1439.4, "threads": 4, "note": "Arquivo histórico anterior; presença depende muito do limiar e as opções de carroceria eram diferentes."},
+    "laya_only_curated_7": {"images": 7, "answers": 28, "correct": 19, "accuracy": 0.6786, "per_question": {"tem_carro": "6/7", "marca": "6/7", "cor": "4/7", "tipo": "3/7"}, "mean_latency_ms": 1336.1, "note": "Resultado distinto do 7-image comparison; artefato/execução própria."},
+    "laya_text_decisions": {"cases": 33, "correct": 16, "accuracy": 0.4848, "mean_latency_ms": 1001.2, "note": "Benchmark textual em cinco domínios; não é comparável com os testes visuais."},
+    "failed_7_image_visual_run": {"images": 7, "scored_answers": 0, "note": "Falha de compatibilidade do processador ('list' object has no attribute 'to'); sem métrica de desempenho válida."},
+    "clef_flash": {"note": "O transcript registra inicialização/testes exploratórios do Clef-Flash, mas não há resultado completo de acurácia/latência por imagem salvo que permita comparação empírica com as rodadas acima."}
+  }
+}
