@@ -1,0 +1,2251 @@
+{
+  "dataset": "WandererGuy/vehicle-color-classification-dataset",
+  "source_url": "https://huggingface.co/datasets/WandererGuy/vehicle-color-classification-dataset",
+  "seed": 20261022,
+  "samples_per_color": 30,
+  "color_classes": [
+    "black",
+    "white",
+    "gray_silver",
+    "red",
+    "blue",
+    "brown",
+    "green",
+    "orange",
+    "pink",
+    "purple",
+    "yellow"
+  ],
+  "car_filter": "Ultralytics YOLO11n, COCO car class, confidence >= 0.25 and box >= 0.5% of image; near-duplicate average hash distance > 4",
+  "manual_non_car_exclusions": [
+    "007f1426-fea9-402d-9bcc-28062d319abd.jpg",
+    "03c0dc7b-b681-4db3-9250-f70401d002ad.jpg",
+    "06b28c66-1150-4df9-8d99-e5b33a8618b0.jpg",
+    "0d5123a7-4b3f-4b41-8328-f2c9083c9090.jpg",
+    "105.png",
+    "115.png",
+    "12b142b3-cfc6-49e4-bc89-58b0a169d936.jpg",
+    "136372ae-40ce-4a8b-b2db-c260e01652fe.jpg",
+    "14.png",
+    "23e46c2a-2b15-4e11-a8bf-58899a15123f.jpg",
+    "244b7abf-8841-4464-8221-7809c16d62b1.jpg",
+    "260d4d16-1e55-45f5-a9ea-8083131d4945.jpg",
+    "3d43edcc-fef6-4590-a638-c9c2ec286d34.jpg",
+    "4.png",
+    "41.png",
+    "4195777a-c38d-45da-8801-b88e228281c5.jpg",
+    "4571962c-cdd5-46b3-bead-ee6355d2e995.jpg",
+    "4ec6239f-50ee-4d65-9328-a761c489742f.jpg",
+    "50538043-92fe-4ac3-8f50-dc6321b753b3.jpg",
+    "51.png",
+    "59.png",
+    "5ec3b195-790e-4717-a998-4e60d988f46c.jpg",
+    "650c6d9c-3ac6-4d4c-b548-9d1b67d40b96.jpg",
+    "76.png",
+    "7a62649e-ef22-4989-93f2-6e656c608b0d.jpg",
+    "8516c4c1-ae5c-49d2-9ad4-eb6a137d8992.jpg",
+    "8b08e5cd-c10f-457b-bb64-9356271b53f0.jpg",
+    "98.png",
+    "a1dfc680-5cfd-4f2c-a7c0-722e4dede81d.jpg",
+    "b182ba59-f2b1-4dba-84db-e66ca7e9bbe0.jpg",
+    "c1963dd0-46b3-47da-9640-20c0111cb9e5.jpg",
+    "c9a8e94f-ca7e-43be-94fd-1f6031c89ad0.jpg",
+    "ce980c18-5fa0-4f20-ae85-ce08f63ee29b.jpg",
+    "d6fd7d15-4c61-4548-b085-f466d6364558.jpg"
+  ],
+  "items": [
+    {
+      "filename": "color_black_001.jpg",
+      "color": "black",
+      "source_color": "black",
+      "source_file": "0ab81ed9-ac7e-4ba6-9706-095734955109 - Copy.jpg"
+    },
+    {
+      "filename": "color_black_002.jpg",
+      "color": "black",
+      "source_color": "black",
+      "source_file": "cab31285-ab25-4d30-8e7a-402ff325691f.jpg"
+    },
+    {
+      "filename": "color_black_003.jpg",
+      "color": "black",
+      "source_color": "black",
+      "source_file": "9d92d54a-9f30-4309-a6a3-7336526db501.jpg"
+    },
+    {
+      "filename": "color_black_004.jpg",
+      "color": "black",
+      "source_color": "black",
+      "source_file": "55530723-c550-4968-89a8-a66c46073793.jpg"
+    },
+    {
+      "filename": "color_black_005.jpg",
+      "color": "black",
+      "source_color": "black",
+      "source_file": "8fa3d875-c1bd-4137-a65d-48cb16584921.jpg"
+    },
+    {
+      "filename": "color_black_006.jpg",
+      "color": "black",
+      "source_color": "black",
+      "source_file": "9217ab06-76e1-4be4-b1ac-511cefcdc302.jpg"
+    },
+    {
+      "filename": "color_black_007.jpg",
+      "color": "black",
+      "source_color": "black",
+      "source_file": "39116281-f123-41dc-9cb1-e3b564577332.jpg"
+    },
+    {
+      "filename": "color_black_008.jpg",
+      "color": "black",
+      "source_color": "black",
+      "source_file": "72ddf292-70c8-433c-8624-ded822f4b19a.jpg"
+    },
+    {
+      "filename": "color_black_009.jpg",
+      "color": "black",
+      "source_color": "black",
+      "source_file": "d1facf8f-e97f-4120-abc5-e9a5516546e3.jpg"
+    },
+    {
+      "filename": "color_black_010.jpg",
+      "color": "black",
+      "source_color": "black",
+      "source_file": "79486442-26af-4410-9b59-f55f57e09b2b.jpg"
+    },
+    {
+      "filename": "color_black_011.jpg",
+      "color": "black",
+      "source_color": "black",
+      "source_file": "94883a4e-a324-4a5a-928f-fcbab8104944.jpg"
+    },
+    {
+      "filename": "color_black_012.jpg",
+      "color": "black",
+      "source_color": "black",
+      "source_file": "9ae71715-2b11-427e-86a3-8e0ebbebf8d2.jpg"
+    },
+    {
+      "filename": "color_black_013.jpg",
+      "color": "black",
+      "source_color": "black",
+      "source_file": "9a0b6b30-0d3e-4126-84fc-baa094ff1db5.jpg"
+    },
+    {
+      "filename": "color_black_014.jpg",
+      "color": "black",
+      "source_color": "black",
+      "source_file": "ec9a858b-cc27-4b6a-9414-5491d779683b.jpg"
+    },
+    {
+      "filename": "color_black_015.jpg",
+      "color": "black",
+      "source_color": "black",
+      "source_file": "739c5edc-3abf-46d3-a8b3-9c23b036a8f0.jpg"
+    },
+    {
+      "filename": "color_black_016.jpg",
+      "color": "black",
+      "source_color": "black",
+      "source_file": "bc36ec5c-779f-42ea-86cf-69b44036f98c.jpg"
+    },
+    {
+      "filename": "color_black_017.jpg",
+      "color": "black",
+      "source_color": "black",
+      "source_file": "0a59cfbc-1139-4831-8cc2-595eff332157.jpg"
+    },
+    {
+      "filename": "color_black_018.jpg",
+      "color": "black",
+      "source_color": "black",
+      "source_file": "76decdaf-f402-4cae-93c1-449f556612c4 - Copy.jpg"
+    },
+    {
+      "filename": "color_black_019.jpg",
+      "color": "black",
+      "source_color": "black",
+      "source_file": "73382046-b3ff-4c88-b5c2-bf80408e97ea.jpg"
+    },
+    {
+      "filename": "color_black_020.jpg",
+      "color": "black",
+      "source_color": "black",
+      "source_file": "e3b8ac99-7571-4c60-8e46-b87a3498c4d0.jpg"
+    },
+    {
+      "filename": "color_black_021.jpg",
+      "color": "black",
+      "source_color": "black",
+      "source_file": "63de9af4-4fa5-47f5-bb7b-2de7d728b1d7.jpg"
+    },
+    {
+      "filename": "color_black_022.jpg",
+      "color": "black",
+      "source_color": "black",
+      "source_file": "d6bb85f5-acae-45cf-bbb8-a0bd70fc900b.jpg"
+    },
+    {
+      "filename": "color_black_023.jpg",
+      "color": "black",
+      "source_color": "black",
+      "source_file": "35f13dbc-5d1f-4b52-a450-ca7cb8d814c3.jpg"
+    },
+    {
+      "filename": "color_black_024.jpg",
+      "color": "black",
+      "source_color": "black",
+      "source_file": "2d36ea68-5fd1-45c5-a296-144c76d9b152.jpg"
+    },
+    {
+      "filename": "color_black_025.jpg",
+      "color": "black",
+      "source_color": "black",
+      "source_file": "fb7d706d-f2c6-4c00-b175-ba0df731e677.jpg"
+    },
+    {
+      "filename": "color_black_026.png",
+      "color": "black",
+      "source_color": "black",
+      "source_file": "132.png"
+    },
+    {
+      "filename": "color_black_027.jpg",
+      "color": "black",
+      "source_color": "black",
+      "source_file": "819a4215-6eb7-4bbb-bb82-65dd6a2be0f2.jpg"
+    },
+    {
+      "filename": "color_black_028.jpg",
+      "color": "black",
+      "source_color": "black",
+      "source_file": "9d6e911c-ef9e-461b-a735-652e59913942.jpg"
+    },
+    {
+      "filename": "color_black_029.jpg",
+      "color": "black",
+      "source_color": "black",
+      "source_file": "4a7a77de-23e2-4eae-83a9-48ea00f230cb.jpg"
+    },
+    {
+      "filename": "color_black_030.jpg",
+      "color": "black",
+      "source_color": "black",
+      "source_file": "957dd378-9085-4a7c-b778-6b24df322a94 - Copy.jpg"
+    },
+    {
+      "filename": "color_white_001.jpg",
+      "color": "white",
+      "source_color": "white",
+      "source_file": "63ec8089-a831-4f1b-a199-395457d88d56.jpg"
+    },
+    {
+      "filename": "color_white_002.jpg",
+      "color": "white",
+      "source_color": "white",
+      "source_file": "0ccac66d-01fa-4758-bff6-9bf7b31c4178.jpg"
+    },
+    {
+      "filename": "color_white_003.jpg",
+      "color": "white",
+      "source_color": "white",
+      "source_file": "ecb86831-4baa-47c4-84b5-f616ec60db72.jpg"
+    },
+    {
+      "filename": "color_white_004.jpg",
+      "color": "white",
+      "source_color": "white",
+      "source_file": "1dfe8194-6f36-453e-9446-ebb2a9eb7d27.jpg"
+    },
+    {
+      "filename": "color_white_005.jpg",
+      "color": "white",
+      "source_color": "white",
+      "source_file": "061f11dc-f9aa-40ce-9a52-de613f33cceb.jpg"
+    },
+    {
+      "filename": "color_white_006.jpg",
+      "color": "white",
+      "source_color": "white",
+      "source_file": "c62b14a7-4210-403c-a74d-2d84c95d1ec4.jpg"
+    },
+    {
+      "filename": "color_white_007.jpg",
+      "color": "white",
+      "source_color": "white",
+      "source_file": "0f89946d-181a-44aa-afdb-a84a9c876991.jpg"
+    },
+    {
+      "filename": "color_white_008.jpg",
+      "color": "white",
+      "source_color": "white",
+      "source_file": "0f2c16ef-4331-4363-878e-b38cf68451a9.jpg"
+    },
+    {
+      "filename": "color_white_009.jpg",
+      "color": "white",
+      "source_color": "white",
+      "source_file": "0dddb37b-0c2c-4ee0-b9e5-321cf687c544.jpg"
+    },
+    {
+      "filename": "color_white_010.jpg",
+      "color": "white",
+      "source_color": "white",
+      "source_file": "17d5e20d-26ab-4934-8f35-1cb160e317c0.jpg"
+    },
+    {
+      "filename": "color_white_011.jpg",
+      "color": "white",
+      "source_color": "white",
+      "source_file": "9dc6e5d4-5f3b-46c1-a623-bad29c6593b0.jpg"
+    },
+    {
+      "filename": "color_white_012.jpg",
+      "color": "white",
+      "source_color": "white",
+      "source_file": "0f8a0576-72fa-46eb-b124-2bcbf83a2657.jpg"
+    },
+    {
+      "filename": "color_white_013.jpg",
+      "color": "white",
+      "source_color": "white",
+      "source_file": "d1722a27-779e-46e6-b3e9-72febc2ebec4.jpg"
+    },
+    {
+      "filename": "color_white_014.jpg",
+      "color": "white",
+      "source_color": "white",
+      "source_file": "ba570ba1-2c68-424f-a4d6-db2dbee4ec33.jpg"
+    },
+    {
+      "filename": "color_white_015.jpg",
+      "color": "white",
+      "source_color": "white",
+      "source_file": "0c13199b-18d2-4a22-a25b-5441ac141c51.jpg"
+    },
+    {
+      "filename": "color_white_016.jpg",
+      "color": "white",
+      "source_color": "white",
+      "source_file": "320d2fc5-d4f0-4755-a7d5-a47aaa28eb49.jpg"
+    },
+    {
+      "filename": "color_white_017.jpg",
+      "color": "white",
+      "source_color": "white",
+      "source_file": "0c7fc7a5-16f2-471c-8bda-e7804d920e74.jpg"
+    },
+    {
+      "filename": "color_white_018.jpg",
+      "color": "white",
+      "source_color": "white",
+      "source_file": "3672cace-4b9f-407e-943c-fc0a39a113b6.jpg"
+    },
+    {
+      "filename": "color_white_019.jpg",
+      "color": "white",
+      "source_color": "white",
+      "source_file": "1a762b26-b992-4371-b589-d216598f4297.jpg"
+    },
+    {
+      "filename": "color_white_020.jpg",
+      "color": "white",
+      "source_color": "white",
+      "source_file": "5c263400-6d52-4a0d-8499-91e722ce6a7d.jpg"
+    },
+    {
+      "filename": "color_white_021.jpg",
+      "color": "white",
+      "source_color": "white",
+      "source_file": "0b043fd1-7e82-4c33-aed2-23c510b2498a.jpg"
+    },
+    {
+      "filename": "color_white_022.jpg",
+      "color": "white",
+      "source_color": "white",
+      "source_file": "71ec3a11-a888-4e2b-a64b-d41e9e63dbbe.jpg"
+    },
+    {
+      "filename": "color_white_023.jpg",
+      "color": "white",
+      "source_color": "white",
+      "source_file": "0dc915b7-cba5-4ebc-a9d8-46abb720f1fa.jpg"
+    },
+    {
+      "filename": "color_white_024.jpg",
+      "color": "white",
+      "source_color": "white",
+      "source_file": "0e3ec267-59de-4c65-be50-5fa93daecd3a.jpg"
+    },
+    {
+      "filename": "color_white_025.jpg",
+      "color": "white",
+      "source_color": "white",
+      "source_file": "247ee773-a9c1-4789-ac5b-00de3d13c8b8.jpg"
+    },
+    {
+      "filename": "color_white_026.jpg",
+      "color": "white",
+      "source_color": "white",
+      "source_file": "bb46689a-e93e-47a7-966c-edb9802a3ac9.jpg"
+    },
+    {
+      "filename": "color_white_027.jpg",
+      "color": "white",
+      "source_color": "white",
+      "source_file": "4f123c05-7804-41e0-ae47-006bf7ccaff3.jpg"
+    },
+    {
+      "filename": "color_white_028.jpg",
+      "color": "white",
+      "source_color": "white",
+      "source_file": "f726d972-aff3-4ae5-87cd-042c70f80aa3.jpg"
+    },
+    {
+      "filename": "color_white_029.jpg",
+      "color": "white",
+      "source_color": "white",
+      "source_file": "050548d7-830a-4057-9aac-996712163093.jpg"
+    },
+    {
+      "filename": "color_white_030.jpg",
+      "color": "white",
+      "source_color": "white",
+      "source_file": "5a804fc0-dccd-4240-80ff-22dae07e035d.jpg"
+    },
+    {
+      "filename": "color_gray_silver_001.jpg",
+      "color": "gray_silver",
+      "source_color": "grey",
+      "source_file": "0dd68773-470d-4195-aedf-ab3ff8e85ae0.jpg"
+    },
+    {
+      "filename": "color_gray_silver_002.jpg",
+      "color": "gray_silver",
+      "source_color": "grey",
+      "source_file": "08571372-8c5c-4809-9e5f-62651f3ffa88.jpg"
+    },
+    {
+      "filename": "color_gray_silver_003.jpg",
+      "color": "gray_silver",
+      "source_color": "grey",
+      "source_file": "2db90bd5-6a3b-4f56-aea6-03365da19847.jpg"
+    },
+    {
+      "filename": "color_gray_silver_004.jpg",
+      "color": "gray_silver",
+      "source_color": "grey",
+      "source_file": "3f60d394-bbff-437c-8913-fb62bd80a6c6.jpg"
+    },
+    {
+      "filename": "color_gray_silver_005.jpg",
+      "color": "gray_silver",
+      "source_color": "grey",
+      "source_file": "2e0819b3-6c62-4c21-a11a-6ec21e8c1a33.jpg"
+    },
+    {
+      "filename": "color_gray_silver_006.jpg",
+      "color": "gray_silver",
+      "source_color": "grey",
+      "source_file": "21141a4b-9ca1-4870-b7ad-6ba010710a12.jpg"
+    },
+    {
+      "filename": "color_gray_silver_007.jpg",
+      "color": "gray_silver",
+      "source_color": "grey",
+      "source_file": "667c2296-83ee-4d59-ad10-5d4d30e91c74.jpg"
+    },
+    {
+      "filename": "color_gray_silver_008.jpg",
+      "color": "gray_silver",
+      "source_color": "grey",
+      "source_file": "ab7055ea-e50d-410f-b0b9-c0c76234355c.jpg"
+    },
+    {
+      "filename": "color_gray_silver_009.jpg",
+      "color": "gray_silver",
+      "source_color": "grey",
+      "source_file": "7390fed8-2f82-425b-bc8e-2442f6ecac93.jpg"
+    },
+    {
+      "filename": "color_gray_silver_010.jpg",
+      "color": "gray_silver",
+      "source_color": "grey",
+      "source_file": "aa37ce5b-f546-4365-bf56-4e4549f2c6c6.jpg"
+    },
+    {
+      "filename": "color_gray_silver_011.jpg",
+      "color": "gray_silver",
+      "source_color": "grey",
+      "source_file": "0b21f606-3682-4358-9690-5d508b4dea89.jpg"
+    },
+    {
+      "filename": "color_gray_silver_012.jpg",
+      "color": "gray_silver",
+      "source_color": "grey",
+      "source_file": "2df79eee-12e1-4bba-a28b-5f2bf8d56bc6.jpg"
+    },
+    {
+      "filename": "color_gray_silver_013.jpg",
+      "color": "gray_silver",
+      "source_color": "grey",
+      "source_file": "e8423d33-4c86-48a0-adc6-c4ca75af647a.jpg"
+    },
+    {
+      "filename": "color_gray_silver_014.jpg",
+      "color": "gray_silver",
+      "source_color": "grey",
+      "source_file": "2fb17d1e-2b8b-4b3f-a680-b46bbc16db2a.jpg"
+    },
+    {
+      "filename": "color_gray_silver_015.jpg",
+      "color": "gray_silver",
+      "source_color": "grey",
+      "source_file": "64aad72f-ee3c-4ab7-a8e5-0f6e292c1029.jpg"
+    },
+    {
+      "filename": "color_gray_silver_016.jpg",
+      "color": "gray_silver",
+      "source_color": "grey",
+      "source_file": "b0ba8c4b-f30e-46fe-9a3a-b8052748f36a.jpg"
+    },
+    {
+      "filename": "color_gray_silver_017.jpg",
+      "color": "gray_silver",
+      "source_color": "grey",
+      "source_file": "7c7a97a6-9772-478b-ba45-40b5d744abda.jpg"
+    },
+    {
+      "filename": "color_gray_silver_018.jpg",
+      "color": "gray_silver",
+      "source_color": "grey",
+      "source_file": "27cc3831-eb1f-485a-944b-76bd7dc3029c.jpg"
+    },
+    {
+      "filename": "color_gray_silver_019.jpg",
+      "color": "gray_silver",
+      "source_color": "grey",
+      "source_file": "1054d5a7-7075-40c9-8069-40cd32efdf88.jpg"
+    },
+    {
+      "filename": "color_gray_silver_020.jpg",
+      "color": "gray_silver",
+      "source_color": "grey",
+      "source_file": "2df63e2c-97a7-4da0-88c5-0029e44c8a5a.jpg"
+    },
+    {
+      "filename": "color_gray_silver_021.jpg",
+      "color": "gray_silver",
+      "source_color": "grey",
+      "source_file": "0f56ed12-67f4-4f88-9e1d-214a642c6417.jpg"
+    },
+    {
+      "filename": "color_gray_silver_022.jpg",
+      "color": "gray_silver",
+      "source_color": "grey",
+      "source_file": "1af7f682-5b3d-4fb2-adca-3d992f9bb5fb.jpg"
+    },
+    {
+      "filename": "color_gray_silver_023.jpg",
+      "color": "gray_silver",
+      "source_color": "grey",
+      "source_file": "2b7d920c-492e-4b93-b26d-1c09fd33a22a.jpg"
+    },
+    {
+      "filename": "color_gray_silver_024.jpg",
+      "color": "gray_silver",
+      "source_color": "grey",
+      "source_file": "be8a8a1d-84c8-4438-a20c-bec01359dd67.jpg"
+    },
+    {
+      "filename": "color_gray_silver_025.jpg",
+      "color": "gray_silver",
+      "source_color": "grey",
+      "source_file": "859474f4-a765-4328-af25-6d620fd51d62.jpg"
+    },
+    {
+      "filename": "color_gray_silver_026.jpg",
+      "color": "gray_silver",
+      "source_color": "grey",
+      "source_file": "a0e65c88-0c5c-4a9a-a9c7-4a71d391014a.jpg"
+    },
+    {
+      "filename": "color_gray_silver_027.jpg",
+      "color": "gray_silver",
+      "source_color": "grey",
+      "source_file": "f1028d7a-f13d-4191-a46d-1d252773eff1.jpg"
+    },
+    {
+      "filename": "color_gray_silver_028.jpg",
+      "color": "gray_silver",
+      "source_color": "grey",
+      "source_file": "45abf7f6-c32e-4ae8-8d4f-c61c4620769f.jpg"
+    },
+    {
+      "filename": "color_gray_silver_029.jpg",
+      "color": "gray_silver",
+      "source_color": "grey",
+      "source_file": "c697ebc8-9f0d-44b7-b82d-99e4b4ef8a6c.jpg"
+    },
+    {
+      "filename": "color_gray_silver_030.jpg",
+      "color": "gray_silver",
+      "source_color": "grey",
+      "source_file": "f1400cb9-ff2f-4839-b4ca-2fba9bf9e6a9.jpg"
+    },
+    {
+      "filename": "color_red_001.jpg",
+      "color": "red",
+      "source_color": "red",
+      "source_file": "739bf94c-8993-484b-91ea-7a0e54a40726.jpg"
+    },
+    {
+      "filename": "color_red_002.jpg",
+      "color": "red",
+      "source_color": "red",
+      "source_file": "fb22d8bf-242a-4032-b9a8-e39849694aff.jpg"
+    },
+    {
+      "filename": "color_red_003.jpg",
+      "color": "red",
+      "source_color": "red",
+      "source_file": "c71605c7-5e18-4751-b858-6bc9b21495d8.jpg"
+    },
+    {
+      "filename": "color_red_004.jpg",
+      "color": "red",
+      "source_color": "red",
+      "source_file": "f7feb6c8-3aae-4da1-8796-029ef9239938.jpg"
+    },
+    {
+      "filename": "color_red_005.jpg",
+      "color": "red",
+      "source_color": "red",
+      "source_file": "ff56a0b4-42d7-4aa9-811b-986270a66609.jpg"
+    },
+    {
+      "filename": "color_red_006.jpg",
+      "color": "red",
+      "source_color": "red",
+      "source_file": "a2ab82e4-92d3-416a-a934-220d884fd712.jpg"
+    },
+    {
+      "filename": "color_red_007.jpg",
+      "color": "red",
+      "source_color": "red",
+      "source_file": "2993681a-9e40-4ebd-bf2d-0130c8735d50.jpg"
+    },
+    {
+      "filename": "color_red_008.jpg",
+      "color": "red",
+      "source_color": "red",
+      "source_file": "2ab73fc7-b3fc-4634-953f-ade7a08daa6e.jpg"
+    },
+    {
+      "filename": "color_red_009.jpg",
+      "color": "red",
+      "source_color": "red",
+      "source_file": "2e786ec4-15cd-4fc9-89f3-840d2f314d1b.jpg"
+    },
+    {
+      "filename": "color_red_010.jpg",
+      "color": "red",
+      "source_color": "red",
+      "source_file": "a6c6be54-cf60-4339-80cd-38bf40bd6030.jpg"
+    },
+    {
+      "filename": "color_red_011.jpg",
+      "color": "red",
+      "source_color": "red",
+      "source_file": "589bd002-ab99-4225-b9ee-d3ae7b7457a7.jpg"
+    },
+    {
+      "filename": "color_red_012.jpg",
+      "color": "red",
+      "source_color": "red",
+      "source_file": "c66a9b33-5632-443f-adb3-4f3621433652.jpg"
+    },
+    {
+      "filename": "color_red_013.jpg",
+      "color": "red",
+      "source_color": "red",
+      "source_file": "4e7567bf-b4b9-46c2-bea5-d7c765400438.jpg"
+    },
+    {
+      "filename": "color_red_014.jpg",
+      "color": "red",
+      "source_color": "red",
+      "source_file": "064ae585-3c1d-4e1d-995b-1aeb9d6e158b.jpg"
+    },
+    {
+      "filename": "color_red_015.jpg",
+      "color": "red",
+      "source_color": "red",
+      "source_file": "d5179fc9-798d-49ee-b7ec-3a3bb39fd6ca.jpg"
+    },
+    {
+      "filename": "color_red_016.jpg",
+      "color": "red",
+      "source_color": "red",
+      "source_file": "498063e6-c167-4feb-bd1f-0335d9a8e7ff.jpg"
+    },
+    {
+      "filename": "color_red_017.jpg",
+      "color": "red",
+      "source_color": "red",
+      "source_file": "4fbfb41f-94cc-45ea-a3a9-772329cf96db.jpg"
+    },
+    {
+      "filename": "color_red_018.jpg",
+      "color": "red",
+      "source_color": "red",
+      "source_file": "d6e4db2b-a169-456d-b7d1-66a6a99022d1.jpg"
+    },
+    {
+      "filename": "color_red_019.jpg",
+      "color": "red",
+      "source_color": "red",
+      "source_file": "2867681d-06c7-44b0-a6c4-da6a745be2e4.jpg"
+    },
+    {
+      "filename": "color_red_020.jpg",
+      "color": "red",
+      "source_color": "red",
+      "source_file": "3f9aa1c2-23fc-4765-b93f-50a0113b0567.jpg"
+    },
+    {
+      "filename": "color_red_021.jpg",
+      "color": "red",
+      "source_color": "red",
+      "source_file": "588e3760-3307-4c01-a8ac-649c62438632.jpg"
+    },
+    {
+      "filename": "color_red_022.jpg",
+      "color": "red",
+      "source_color": "red",
+      "source_file": "6910aa05-b538-4813-8467-b56b1d4faa1e.jpg"
+    },
+    {
+      "filename": "color_red_023.jpg",
+      "color": "red",
+      "source_color": "red",
+      "source_file": "b8f4cc61-2dc8-46f4-baf8-ce85853f5100.jpg"
+    },
+    {
+      "filename": "color_red_024.jpg",
+      "color": "red",
+      "source_color": "red",
+      "source_file": "85a306a1-9cf6-4422-b76c-74474ca03c34.jpg"
+    },
+    {
+      "filename": "color_red_025.jpg",
+      "color": "red",
+      "source_color": "red",
+      "source_file": "ef3833f5-dee4-4cb9-98a6-64535a47c035.jpg"
+    },
+    {
+      "filename": "color_red_026.jpg",
+      "color": "red",
+      "source_color": "red",
+      "source_file": "dae85b54-3401-4f3e-beea-44faf140c64f.jpg"
+    },
+    {
+      "filename": "color_red_027.jpg",
+      "color": "red",
+      "source_color": "red",
+      "source_file": "ffef5afd-1f36-425d-bd78-b10f9299a992.jpg"
+    },
+    {
+      "filename": "color_red_028.jpg",
+      "color": "red",
+      "source_color": "red",
+      "source_file": "0b996e2c-12a5-49a7-9cf6-f8e7296a0026.jpg"
+    },
+    {
+      "filename": "color_red_029.jpg",
+      "color": "red",
+      "source_color": "red",
+      "source_file": "8e967a91-f22c-4d4e-b52b-0e54cfdc25ab.jpg"
+    },
+    {
+      "filename": "color_red_030.jpg",
+      "color": "red",
+      "source_color": "red",
+      "source_file": "03bf1d0d-2848-40ed-a6cd-11ed10457208.jpg"
+    },
+    {
+      "filename": "color_blue_001.jpg",
+      "color": "blue",
+      "source_color": "blue",
+      "source_file": "dbf2029f-3486-4d57-9141-bfd25d47a5b0.jpg"
+    },
+    {
+      "filename": "color_blue_002.jpg",
+      "color": "blue",
+      "source_color": "blue",
+      "source_file": "88dca966-30fd-4746-993b-94dc9a76da45.jpg"
+    },
+    {
+      "filename": "color_blue_003.jpg",
+      "color": "blue",
+      "source_color": "blue",
+      "source_file": "1d0e9c48-ceeb-4856-9692-836c4cc816ae.jpg"
+    },
+    {
+      "filename": "color_blue_004.jpg",
+      "color": "blue",
+      "source_color": "blue",
+      "source_file": "3f42e44e-57be-4371-9b8b-7ab75abbd8a5.jpg"
+    },
+    {
+      "filename": "color_blue_005.jpg",
+      "color": "blue",
+      "source_color": "blue",
+      "source_file": "0e284e49-e5df-49f2-9701-c78c0894adae.jpg"
+    },
+    {
+      "filename": "color_blue_006.jpg",
+      "color": "blue",
+      "source_color": "blue",
+      "source_file": "0c6428e4-e63b-4142-b871-944ca8c0cf4e.jpg"
+    },
+    {
+      "filename": "color_blue_007.jpg",
+      "color": "blue",
+      "source_color": "blue",
+      "source_file": "a84e7aa3-845f-4422-b321-cf292f3e8e6d.jpg"
+    },
+    {
+      "filename": "color_blue_008.jpg",
+      "color": "blue",
+      "source_color": "blue",
+      "source_file": "2bf35c4c-5433-4c48-9454-29e7fd7faa9c.jpg"
+    },
+    {
+      "filename": "color_blue_009.jpg",
+      "color": "blue",
+      "source_color": "blue",
+      "source_file": "3e1297fc-6b72-4bb4-8017-49438e3fd719.jpg"
+    },
+    {
+      "filename": "color_blue_010.jpg",
+      "color": "blue",
+      "source_color": "blue",
+      "source_file": "1c5517eb-d924-451c-a21b-f1caa8196e35.jpg"
+    },
+    {
+      "filename": "color_blue_011.jpg",
+      "color": "blue",
+      "source_color": "blue",
+      "source_file": "0b137523-80b3-4c12-a49f-e36bbd0c5387.jpg"
+    },
+    {
+      "filename": "color_blue_012.jpg",
+      "color": "blue",
+      "source_color": "blue",
+      "source_file": "d9bd0dd0-ef14-4aab-a28a-41e042c4cf0f.jpg"
+    },
+    {
+      "filename": "color_blue_013.jpg",
+      "color": "blue",
+      "source_color": "blue",
+      "source_file": "37820ed8-19f2-4564-9d75-6fb1dd04fc7b.jpg"
+    },
+    {
+      "filename": "color_blue_014.jpg",
+      "color": "blue",
+      "source_color": "blue",
+      "source_file": "1ae032d6-24b6-45ed-bb4f-8aadfdd78059.jpg"
+    },
+    {
+      "filename": "color_blue_015.jpg",
+      "color": "blue",
+      "source_color": "blue",
+      "source_file": "0ce4c717-d1df-4566-b880-5ae32cde1ad7.jpg"
+    },
+    {
+      "filename": "color_blue_016.jpg",
+      "color": "blue",
+      "source_color": "blue",
+      "source_file": "106ad978-4834-4041-a1ee-f7466ffe0886.jpg"
+    },
+    {
+      "filename": "color_blue_017.jpg",
+      "color": "blue",
+      "source_color": "blue",
+      "source_file": "4a101e6c-b19b-46a5-ac97-b9de818475b8.jpg"
+    },
+    {
+      "filename": "color_blue_018.jpg",
+      "color": "blue",
+      "source_color": "blue",
+      "source_file": "1a3a2ca0-c789-4e1f-8713-0a30fd842e76.jpg"
+    },
+    {
+      "filename": "color_blue_019.jpg",
+      "color": "blue",
+      "source_color": "blue",
+      "source_file": "1ab89dd8-e352-42be-98e0-57053bcc0ae7.jpg"
+    },
+    {
+      "filename": "color_blue_020.jpg",
+      "color": "blue",
+      "source_color": "blue",
+      "source_file": "1b7951f1-06fd-4380-aecd-abc0d654cc1c.jpg"
+    },
+    {
+      "filename": "color_blue_021.jpg",
+      "color": "blue",
+      "source_color": "blue",
+      "source_file": "00a0eda0-e665-4545-b480-4f279ad2d2ad.jpg"
+    },
+    {
+      "filename": "color_blue_022.jpg",
+      "color": "blue",
+      "source_color": "blue",
+      "source_file": "4d764285-f6a9-49b0-936d-8816dde055f4.jpg"
+    },
+    {
+      "filename": "color_blue_023.jpg",
+      "color": "blue",
+      "source_color": "blue",
+      "source_file": "533ea467-6c49-407b-a5db-dbb8f24d4f30.jpg"
+    },
+    {
+      "filename": "color_blue_024.jpg",
+      "color": "blue",
+      "source_color": "blue",
+      "source_file": "1fab5702-ebd3-4d8c-845c-a14d9af98b92.jpg"
+    },
+    {
+      "filename": "color_blue_025.jpg",
+      "color": "blue",
+      "source_color": "blue",
+      "source_file": "11896457-7caf-4563-b610-9e7c8449b8a0.jpg"
+    },
+    {
+      "filename": "color_blue_026.jpg",
+      "color": "blue",
+      "source_color": "blue",
+      "source_file": "8c848bb6-afe6-4003-8055-6f0639d32a60.jpg"
+    },
+    {
+      "filename": "color_blue_027.jpg",
+      "color": "blue",
+      "source_color": "blue",
+      "source_file": "e3ff2617-83c2-4249-ab9d-73f9b2e8a661.jpg"
+    },
+    {
+      "filename": "color_blue_028.jpg",
+      "color": "blue",
+      "source_color": "blue",
+      "source_file": "c75b20c6-d857-4159-ac41-905e18805c89.jpg"
+    },
+    {
+      "filename": "color_blue_029.jpg",
+      "color": "blue",
+      "source_color": "blue",
+      "source_file": "26538b1a-f845-4665-9901-40ee075148b4.jpg"
+    },
+    {
+      "filename": "color_blue_030.jpg",
+      "color": "blue",
+      "source_color": "blue",
+      "source_file": "252c35a7-9ab4-46c9-9c79-afc76ad33fda.jpg"
+    },
+    {
+      "filename": "color_brown_001.jpeg",
+      "color": "brown",
+      "source_color": "brown",
+      "source_file": "pexels-photo-3626241.jpeg"
+    },
+    {
+      "filename": "color_brown_002.jpg",
+      "color": "brown",
+      "source_color": "brown",
+      "source_file": "7a4a8694-08b2-4124-8929-1da8559750db.jpg"
+    },
+    {
+      "filename": "color_brown_003.jpg",
+      "color": "brown",
+      "source_color": "brown",
+      "source_file": "1913_Westcott_-_15804047065.jpg.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:1913_Westcott_-_15804047065.jpg",
+      "license": "CC BY 2.0",
+      "author": "CapCase"
+    },
+    {
+      "filename": "color_brown_004.jpg",
+      "color": "brown",
+      "source_color": "brown",
+      "source_file": "Velorex_16-350.JPG.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Velorex_16-350.JPG",
+      "license": "Public domain",
+      "author": "Lukáš Malý"
+    },
+    {
+      "filename": "color_brown_005.jpg",
+      "color": "brown",
+      "source_color": "brown",
+      "source_file": "MG_TD_1952_-_9682979358.jpg.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:MG_TD_(1952)_-_9682979358.jpg",
+      "license": "CC BY 2.0",
+      "author": "SG2012"
+    },
+    {
+      "filename": "color_brown_006.png",
+      "color": "brown",
+      "source_color": "brown",
+      "source_file": "148.png"
+    },
+    {
+      "filename": "color_brown_007.jpg",
+      "color": "brown",
+      "source_color": "brown",
+      "source_file": "Velorex_350-16_Baujahr_1971.jpg.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Velorex_350-16_Baujahr_1971.jpg",
+      "license": "CC BY-SA 3.0",
+      "author": "Sven Leist"
+    },
+    {
+      "filename": "color_brown_008.jpeg",
+      "color": "brown",
+      "source_color": "brown",
+      "source_file": "free-photo-of-aerial-view-of-vintage-lamborghini-in-museum-setting.jpeg"
+    },
+    {
+      "filename": "color_brown_009.jpg",
+      "color": "brown",
+      "source_color": "brown",
+      "source_file": "Auto_GAZ-24_Moscow_Udaltsova_Street_888_199_2016-01_1452952083.JPG.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Auto_GAZ-24_Moscow_Udaltsova_Street_%D0%A0888%D0%A5%D0%A2199_2016-01_1452952083.JPG",
+      "license": "CC BY 4.0",
+      "author": "Artyom Svetlov"
+    },
+    {
+      "filename": "color_brown_010.jpg",
+      "color": "brown",
+      "source_color": "brown",
+      "source_file": "de131a64-5ff1-4253-98f8-de819bc6e83d.jpg"
+    },
+    {
+      "filename": "color_brown_011.png",
+      "color": "brown",
+      "source_color": "brown",
+      "source_file": "61.png"
+    },
+    {
+      "filename": "color_brown_012.jpg",
+      "color": "brown",
+      "source_color": "brown",
+      "source_file": "MG_TD_Midget_1953_-_14724074907.jpg.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:MG_TD_Midget_(1953)_-_14724074907.jpg",
+      "license": "CC BY 2.0",
+      "author": "SG2012"
+    },
+    {
+      "filename": "color_brown_013.jpg",
+      "color": "brown",
+      "source_color": "brown",
+      "source_file": "MG_TD_Midget_1953_-_14723954590.jpg.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:MG_TD_Midget_(1953)_-_14723954590.jpg",
+      "license": "CC BY 2.0",
+      "author": "SG2012"
+    },
+    {
+      "filename": "color_brown_014.jpg",
+      "color": "brown",
+      "source_color": "brown",
+      "source_file": "Flickr_-_Hugo90_-_American_Bantam.jpg.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Flickr_-_Hugo90_-_American_Bantam.jpg",
+      "license": "CC BY 2.0",
+      "author": "JOHN LLOYD from Concrete, Washington, United States"
+    },
+    {
+      "filename": "color_brown_015.jpg",
+      "color": "brown",
+      "source_color": "brown",
+      "source_file": "Velorex_Dreirrad_2.JPG.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Velorex_Dreirrad_2.JPG",
+      "license": "Public domain",
+      "author": "User ChiemseeMan on de.wikipedia"
+    },
+    {
+      "filename": "color_brown_016.jpg",
+      "color": "brown",
+      "source_color": "brown",
+      "source_file": "Rolls_Royce_Silver_Shadow_2-door_Convertible_1970_.jpg.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Rolls_Royce_Silver_Shadow_2-door_Convertible_(1970).jpg",
+      "license": "CC BY 2.0",
+      "author": "SG2012"
+    },
+    {
+      "filename": "color_brown_017.jpg",
+      "color": "brown",
+      "source_color": "brown",
+      "source_file": "Mobil_Soekarno_di_Monas.jpg.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Mobil_Soekarno_di_Monas.jpg",
+      "license": "CC BY-SA 3.0",
+      "author": "Denny eR Ge"
+    },
+    {
+      "filename": "color_brown_018.jpg",
+      "color": "brown",
+      "source_color": "brown",
+      "source_file": "Land_Rover_Series_1_1965_.jpg.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Land_Rover_Series_1_(1965).jpg",
+      "license": "CC BY 2.0",
+      "author": "SG2012"
+    },
+    {
+      "filename": "color_brown_019.png",
+      "color": "brown",
+      "source_color": "brown",
+      "source_file": "19.png"
+    },
+    {
+      "filename": "color_brown_020.jpg",
+      "color": "brown",
+      "source_color": "brown",
+      "source_file": "MG_TD_Midget_1953_-_14724026778.jpg.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:MG_TD_Midget_(1953)_-_14724026778.jpg",
+      "license": "CC BY 2.0",
+      "author": "SG2012"
+    },
+    {
+      "filename": "color_brown_021.jpeg",
+      "color": "brown",
+      "source_color": "brown",
+      "source_file": "pexels-photo-8096279.jpeg"
+    },
+    {
+      "filename": "color_brown_022.png",
+      "color": "brown",
+      "source_color": "brown",
+      "source_file": "44.png"
+    },
+    {
+      "filename": "color_brown_023.jpg",
+      "color": "brown",
+      "source_color": "brown",
+      "source_file": "b3233e7a-752b-4bf0-a2b0-08d90ad11776.jpg"
+    },
+    {
+      "filename": "color_brown_024.png",
+      "color": "brown",
+      "source_color": "brown",
+      "source_file": "62.png"
+    },
+    {
+      "filename": "color_brown_025.jpeg",
+      "color": "brown",
+      "source_color": "brown",
+      "source_file": "free-photo-of-brown-vintage-mercedes-on-a-street.jpeg"
+    },
+    {
+      "filename": "color_brown_026.jpg",
+      "color": "brown",
+      "source_color": "brown",
+      "source_file": "D_lmen_B_rgerfest_2013_--_2013_--_3129.jpg.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:D%C3%BClmen,_B%C3%BCrgerfest_2013_--_2013_--_3129.jpg",
+      "license": "CC BY-SA 4.0",
+      "author": "Dietmar Rabich"
+    },
+    {
+      "filename": "color_brown_027.jpg",
+      "color": "brown",
+      "source_color": "brown",
+      "source_file": "xe-ford-territory-titanium-mau-nau-moi.jpg"
+    },
+    {
+      "filename": "color_brown_028.png",
+      "color": "brown",
+      "source_color": "brown",
+      "source_file": "149.png"
+    },
+    {
+      "filename": "color_brown_029.jpeg",
+      "color": "brown",
+      "source_color": "brown",
+      "source_file": "free-photo-of-car-parked-next-to-sidewalk.jpeg"
+    },
+    {
+      "filename": "color_brown_030.jpg",
+      "color": "brown",
+      "source_color": "brown",
+      "source_file": "Ginetta_G26_2.jpg.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Ginetta_G26_2.jpg",
+      "license": "CC BY 2.0",
+      "author": "Brian Snelson from Hockley, Essex, Englandplate blurred by Mr.choppers"
+    },
+    {
+      "filename": "color_green_001.jpg",
+      "color": "green",
+      "source_color": "green",
+      "source_file": "4d7f87d5-2ef5-4a16-ac76-36adaa2e246d.jpg"
+    },
+    {
+      "filename": "color_green_002.jpg",
+      "color": "green",
+      "source_color": "green",
+      "source_file": "16485f15-c13c-4dd9-936f-cc8d31345e28.jpg"
+    },
+    {
+      "filename": "color_green_003.png",
+      "color": "green",
+      "source_color": "green",
+      "source_file": "78.png"
+    },
+    {
+      "filename": "color_green_004.jpg",
+      "color": "green",
+      "source_color": "green",
+      "source_file": "06d450be-3d46-4a9c-8759-e29d747c75a2.jpg"
+    },
+    {
+      "filename": "color_green_005.jpg",
+      "color": "green",
+      "source_color": "green",
+      "source_file": "d8de512b-0e7f-4b78-a437-bdee2ff899d5.jpg"
+    },
+    {
+      "filename": "color_green_006.jpg",
+      "color": "green",
+      "source_color": "green",
+      "source_file": "6a974790-b49a-4a7a-aa79-df5fbd40458c.jpg"
+    },
+    {
+      "filename": "color_green_007.png",
+      "color": "green",
+      "source_color": "green",
+      "source_file": "20.png"
+    },
+    {
+      "filename": "color_green_008.jpg",
+      "color": "green",
+      "source_color": "green",
+      "source_file": "0a61e08b-1b29-443b-b5af-bcda7a312ce9.jpg"
+    },
+    {
+      "filename": "color_green_009.jpg",
+      "color": "green",
+      "source_color": "green",
+      "source_file": "3146e58f-da99-4b11-b115-71a7269da07c.jpg"
+    },
+    {
+      "filename": "color_green_010.jpg",
+      "color": "green",
+      "source_color": "green",
+      "source_file": "53313f21-147e-44ae-823a-a86bacb6829c.jpg"
+    },
+    {
+      "filename": "color_green_011.jpg",
+      "color": "green",
+      "source_color": "green",
+      "source_file": "aada7947-f491-4364-9a8f-820fec8fd311.jpg"
+    },
+    {
+      "filename": "color_green_012.jpg",
+      "color": "green",
+      "source_color": "green",
+      "source_file": "0d8f3c62-d226-4d26-80b9-a66bbaf304b0.jpg"
+    },
+    {
+      "filename": "color_green_013.jpg",
+      "color": "green",
+      "source_color": "green",
+      "source_file": "9a271983-75e9-406f-8874-240eac1559d3.jpg"
+    },
+    {
+      "filename": "color_green_014.jpg",
+      "color": "green",
+      "source_color": "green",
+      "source_file": "d39e5414-95e7-45bb-8312-d103707319d8.jpg"
+    },
+    {
+      "filename": "color_green_015.jpg",
+      "color": "green",
+      "source_color": "green",
+      "source_file": "47ba5269-6674-467d-b740-725dec467b6a.jpg"
+    },
+    {
+      "filename": "color_green_016.jpg",
+      "color": "green",
+      "source_color": "green",
+      "source_file": "2fd7b3b3-6093-46a2-abe6-50137222f456.jpg"
+    },
+    {
+      "filename": "color_green_017.jpg",
+      "color": "green",
+      "source_color": "green",
+      "source_file": "987fea63-7c43-4f50-a98f-69fe271c478c.jpg"
+    },
+    {
+      "filename": "color_green_018.jpg",
+      "color": "green",
+      "source_color": "green",
+      "source_file": "39fb6f10-1b76-4bda-99b3-3f69cb798db2.jpg"
+    },
+    {
+      "filename": "color_green_019.png",
+      "color": "green",
+      "source_color": "green",
+      "source_file": "19.png"
+    },
+    {
+      "filename": "color_green_020.jpg",
+      "color": "green",
+      "source_color": "green",
+      "source_file": "c47ed22f-02a8-4ce2-a114-b4011fab1093.jpg"
+    },
+    {
+      "filename": "color_green_021.jpg",
+      "color": "green",
+      "source_color": "green",
+      "source_file": "e87bad70-b4a4-4b8a-8d00-a47ee2377561.jpg"
+    },
+    {
+      "filename": "color_green_022.jpg",
+      "color": "green",
+      "source_color": "green",
+      "source_file": "3d6fd4a8-91b3-4787-9766-52a248726c49.jpg"
+    },
+    {
+      "filename": "color_green_023.jpg",
+      "color": "green",
+      "source_color": "green",
+      "source_file": "d734a0ac-0471-48bb-8be4-30eb69181367.jpg"
+    },
+    {
+      "filename": "color_green_024.jpg",
+      "color": "green",
+      "source_color": "green",
+      "source_file": "f9be6a2e-84a7-4bc5-88bb-d55edc292475.jpg"
+    },
+    {
+      "filename": "color_green_025.png",
+      "color": "green",
+      "source_color": "green",
+      "source_file": "57.png"
+    },
+    {
+      "filename": "color_green_026.jpg",
+      "color": "green",
+      "source_color": "green",
+      "source_file": "8087695c-7976-4950-8f4b-84e92dd1fb1a.jpg"
+    },
+    {
+      "filename": "color_green_027.jpg",
+      "color": "green",
+      "source_color": "green",
+      "source_file": "df26e890-e70c-42e0-8f9c-fbe4954d6dca.jpg"
+    },
+    {
+      "filename": "color_green_028.jpg",
+      "color": "green",
+      "source_color": "green",
+      "source_file": "6d17c8a2-b817-4f02-80ea-4b6c63f1cc8f.jpg"
+    },
+    {
+      "filename": "color_green_029.jpg",
+      "color": "green",
+      "source_color": "green",
+      "source_file": "338b24c4-4ae5-4a56-948d-e77e9c8430d7.jpg"
+    },
+    {
+      "filename": "color_green_030.jpg",
+      "color": "green",
+      "source_color": "green",
+      "source_file": "b782b783-733a-4338-af9a-9baae5a36c67.jpg"
+    },
+    {
+      "filename": "color_orange_001.jpg",
+      "color": "orange",
+      "source_color": "orange",
+      "source_file": "Orange_Bugatti_Veyron_Grand_Sport_Vitesse_12570420484_.jpg.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Orange_Bugatti_Veyron_Grand_Sport_Vitesse_(12570420484).jpg",
+      "license": "CC BY 2.0",
+      "author": "Axion23"
+    },
+    {
+      "filename": "color_orange_002.jpg",
+      "color": "orange",
+      "source_color": "orange",
+      "source_file": "Bangkok_-_Tesla_car.jpg.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Bangkok_-_Tesla_car.jpg",
+      "license": "CC BY-SA 2.0",
+      "author": "Silver Blu3"
+    },
+    {
+      "filename": "color_orange_003.jpg",
+      "color": "orange",
+      "source_color": "orange",
+      "source_file": "Bond_Bug_vr_orange.jpg.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Bond_Bug_vr_orange.jpg",
+      "license": "CC BY-SA 3.0",
+      "author": ""
+    },
+    {
+      "filename": "color_orange_004.jpg",
+      "color": "orange",
+      "source_color": "orange",
+      "source_file": "fc300435-8570-417d-a4fb-44e73c0be37c - Copy.jpg"
+    },
+    {
+      "filename": "color_orange_005.jpg",
+      "color": "orange",
+      "source_color": "orange",
+      "source_file": "4a646592-023e-4dd2-bf7b-3ae80dc040e1.jpg"
+    },
+    {
+      "filename": "color_orange_006.jpg",
+      "color": "orange",
+      "source_color": "orange",
+      "source_file": "2026_BYD_Dolphin_G_DM-i_Comfort_rear_view.png.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:2026_BYD_Dolphin_G_DM-i_Comfort_rear_view.png",
+      "license": "CC BY 3.0",
+      "author": "AutoMotoVlog"
+    },
+    {
+      "filename": "color_orange_007.jpg",
+      "color": "orange",
+      "source_color": "orange",
+      "source_file": "Bond_Bug_1970_.jpg.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Bond_Bug_(1970).jpg",
+      "license": "CC BY 2.0",
+      "author": "SG2012"
+    },
+    {
+      "filename": "color_orange_008.jpg",
+      "color": "orange",
+      "source_color": "orange",
+      "source_file": "2015_01_10_Maastricht_140556.jpg.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:2015_01_10_Maastricht_140556.jpg",
+      "license": "CC BY-SA 2.0",
+      "author": "Norbert Schnitzler"
+    },
+    {
+      "filename": "color_orange_009.jpg",
+      "color": "orange",
+      "source_color": "orange",
+      "source_file": "Ginetta_G40_-_Flickr_-_exfordy.jpg.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Ginetta_G40_-_Flickr_-_exfordy.jpg",
+      "license": "CC BY 2.0",
+      "author": "Brian Snelson from Hockley, Essex, England"
+    },
+    {
+      "filename": "color_orange_010.jpg",
+      "color": "orange",
+      "source_color": "orange",
+      "source_file": "Bond_Bug_1970_-_29151177851.jpg.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Bond_Bug_(1970)_-_29151177851.jpg",
+      "license": "CC BY 2.0",
+      "author": "SG2012"
+    },
+    {
+      "filename": "color_orange_011.jpg",
+      "color": "orange",
+      "source_color": "orange",
+      "source_file": "Golczewo_-_Tour_de_Pologne_-_04.08.2026_13-40-046.jpg.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Golczewo_-_Tour_de_Pologne_-_04.08.2026_13-40-046.jpg",
+      "license": "CC BY-SA 4.0",
+      "author": "Photographs by Radosław Drożdżewski (User:Zwiadowca21)"
+    },
+    {
+      "filename": "color_orange_012.jpg",
+      "color": "orange",
+      "source_color": "orange",
+      "source_file": "McLaren_s_31845363641_.jpg.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:McLaren%27s_(31845363641).jpg",
+      "license": "CC BY 2.0",
+      "author": "Adam Court"
+    },
+    {
+      "filename": "color_orange_013.jpg",
+      "color": "orange",
+      "source_color": "orange",
+      "source_file": "2fae1cb3-537a-4207-be5d-241ab410d3fe.jpg"
+    },
+    {
+      "filename": "color_orange_014.jpg",
+      "color": "orange",
+      "source_color": "orange",
+      "source_file": "MG_B_GT_2012-07-15_14-57-29.JPG.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:MG_B_GT_2012-07-15_14-57-29.JPG",
+      "license": "CC BY-SA 3.0",
+      "author": "Berthold Werner"
+    },
+    {
+      "filename": "color_orange_015.jpg",
+      "color": "orange",
+      "source_color": "orange",
+      "source_file": "Autosalon_Brno_2011_063_.jpg.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Autosalon_Brno_2011_(063).jpg",
+      "license": "CC BY-SA 3.0",
+      "author": "I would appreciate being notified if you use my work outside Wikimedia.\nDo not copy this image illegally by ignoring the terms of the license below, as it is not in the public domain. If you would like special permission to use, license, or purchase the image please contact me to negotiate terms.\n\nMore of my work can be found in my personal gallery."
+    },
+    {
+      "filename": "color_orange_016.jpg",
+      "color": "orange",
+      "source_color": "orange",
+      "source_file": "Lotus_Evora.png.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Lotus_Evora.png",
+      "license": "CC BY 4.0",
+      "author": "Automóviles Argüelles"
+    },
+    {
+      "filename": "color_orange_017.jpg",
+      "color": "orange",
+      "source_color": "orange",
+      "source_file": "fbec7e6f-34ca-4657-ac27-775559eb6c0a - Copy.jpg"
+    },
+    {
+      "filename": "color_orange_018.jpg",
+      "color": "orange",
+      "source_color": "orange",
+      "source_file": "Castle_Combe_Circuit_MMB_C2_Castle_Combe_Saloon_Car_Championship.jpg.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Castle_Combe_Circuit_MMB_C2_Castle_Combe_Saloon_Car_Championship.jpg",
+      "license": "CC BY-SA 3.0",
+      "author": "mattbuck (category)"
+    },
+    {
+      "filename": "color_orange_019.jpg",
+      "color": "orange",
+      "source_color": "orange",
+      "source_file": "Auto_Moskvich-2150_Moscow_Bibip-Bibop_2026_2026-07_176.jpg.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Auto_Moskvich-2150_Moscow_Bibip-Bibop_2026_2026-07_176.jpg",
+      "license": "CC BY 4.0",
+      "author": "Artyom Svetlov"
+    },
+    {
+      "filename": "color_orange_020.jpg",
+      "color": "orange",
+      "source_color": "orange",
+      "source_file": "Auto_ZAZ-968M_Kolomna_Gagarina_street_504_50_2020-05_465.JPG.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Auto_ZAZ-968M_Kolomna_Gagarina_street_%D0%A0504%D0%A2%D0%A250_2020-05_465.JPG",
+      "license": "CC BY 4.0",
+      "author": "Artyom Svetlov"
+    },
+    {
+      "filename": "color_orange_021.jpg",
+      "color": "orange",
+      "source_color": "orange",
+      "source_file": "Bond_Bug_3_Wheeler_-_Flickr_-_mick_-_Lumix.jpg.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Bond_Bug_3_Wheeler_-_Flickr_-_mick_-_Lumix.jpg",
+      "license": "CC BY 2.0",
+      "author": "Mick from England"
+    },
+    {
+      "filename": "color_orange_022.jpg",
+      "color": "orange",
+      "source_color": "orange",
+      "source_file": "1976_Citicar_6HP.jpg.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:1976_Citicar_6HP.jpg",
+      "license": "CC BY-SA 2.0",
+      "author": "Klaus Nahr from Germany;cropped by uploader Mr.choppers"
+    },
+    {
+      "filename": "color_orange_023.jpg",
+      "color": "orange",
+      "source_color": "orange",
+      "source_file": "Auto_KamAZ-65115_Vidnoye_Sovetskaya_street_745_790_2024-11_1732364548.jpg.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Auto_KamAZ-65115_Vidnoye_Sovetskaya_street_%D0%9D745%D0%9C%D0%A3790_2024-11_1732364548.jpg",
+      "license": "CC BY 4.0",
+      "author": "Artyom Svetlov"
+    },
+    {
+      "filename": "color_orange_024.jpg",
+      "color": "orange",
+      "source_color": "orange",
+      "source_file": "04482eec-1edb-4107-980c-c4283a655112.jpg"
+    },
+    {
+      "filename": "color_orange_025.jpg",
+      "color": "orange",
+      "source_color": "orange",
+      "source_file": "5d78b848-6a19-4106-8e38-10301fb9af4e.jpg"
+    },
+    {
+      "filename": "color_orange_026.jpg",
+      "color": "orange",
+      "source_color": "orange",
+      "source_file": "Arcfox_Lite_01_China_2019-03-14.jpg.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Arcfox_Lite_01_China_2019-03-14.jpg",
+      "license": "CC BY-SA 4.0",
+      "author": "Navigator84"
+    },
+    {
+      "filename": "color_orange_027.jpg",
+      "color": "orange",
+      "source_color": "orange",
+      "source_file": "Bond_Bug_interior_-_Flickr_-_mick_-_Lumix.jpg.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Bond_Bug_(interior)_-_Flickr_-_mick_-_Lumix.jpg",
+      "license": "CC BY 2.0",
+      "author": "Mick from England"
+    },
+    {
+      "filename": "color_orange_028.jpg",
+      "color": "orange",
+      "source_color": "orange",
+      "source_file": "Automobile_presentation_02.jpg.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Automobile_presentation_02.jpg",
+      "license": "CC BY-SA 2.0",
+      "author": "Didier Rabaud"
+    },
+    {
+      "filename": "color_orange_029.jpg",
+      "color": "orange",
+      "source_color": "orange",
+      "source_file": "Auto_ZAZ-968_Molodogvardeyskaya_Street_34_Moscow_Molodogvardeyskaya_Street_34_Moscow_2013-03_1363536.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Auto_ZAZ-968_Molodogvardeyskaya_Street_34,_Moscow_Molodogvardeyskaya_Street_34,_Moscow_2013-03_1363536757.JPG",
+      "license": "CC BY 4.0",
+      "author": "Artyom Svetlov"
+    },
+    {
+      "filename": "color_orange_030.jpg",
+      "color": "orange",
+      "source_color": "orange",
+      "source_file": "BMW_1600-2_dutch_licence_registration_DM-42-39-.JPG.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:BMW_1600-2_dutch_licence_registration_DM-42-39-.JPG",
+      "license": "CC0",
+      "author": "AlfvanBeem"
+    },
+    {
+      "filename": "color_pink_001.jpg",
+      "color": "pink",
+      "source_color": "pink",
+      "source_file": "Purple_Car_14878654635_.jpg.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Purple_Car_(14878654635).jpg",
+      "license": "CC BY 2.0",
+      "author": "fabulousfabs"
+    },
+    {
+      "filename": "color_pink_002.jpeg",
+      "color": "pink",
+      "source_color": "pink",
+      "source_file": "free-photo-of-classic-chevrolet-impala-parked-at-grand-theater-of-havana.jpeg"
+    },
+    {
+      "filename": "color_pink_003.jpeg",
+      "color": "pink",
+      "source_color": "pink",
+      "source_file": "free-photo-of-vintage-pink-cabriolet-in-city.jpeg"
+    },
+    {
+      "filename": "color_pink_004.jpg",
+      "color": "pink",
+      "source_color": "pink",
+      "source_file": "Super_Jumbo_Car_20160925-01.jpg.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Super_Jumbo_Car_20160925-01.jpg",
+      "license": "CC BY-SA 4.0",
+      "author": "円周率３パーセント"
+    },
+    {
+      "filename": "color_pink_005.jpeg",
+      "color": "pink",
+      "source_color": "pink",
+      "source_file": "pexels-photo-4226025.jpeg"
+    },
+    {
+      "filename": "color_pink_006.jpg",
+      "color": "pink",
+      "source_color": "pink",
+      "source_file": "In_case_you_finished_knitting_your_sweater._13290219903_.jpg.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:In_case_you_finished_knitting_your_sweater._(13290219903).jpg",
+      "license": "CC BY 2.0",
+      "author": "Paul van de Velde from Netherlands"
+    },
+    {
+      "filename": "color_pink_007.jpg",
+      "color": "pink",
+      "source_color": "pink",
+      "source_file": "Golczewo_-_Tour_de_Pologne_-_04.08.2026_13-28-47.jpg.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Golczewo_-_Tour_de_Pologne_-_04.08.2026_13-28-47.jpg",
+      "license": "CC BY-SA 4.0",
+      "author": "Photographs by Radosław Drożdżewski (User:Zwiadowca21)"
+    },
+    {
+      "filename": "color_pink_008.jpg",
+      "color": "pink",
+      "source_color": "pink",
+      "source_file": "Pink_Bentley_Continental_Flying_Spur_8434906104_.jpg.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Pink_Bentley_Continental_Flying_Spur_(8434906104).jpg",
+      "license": "CC BY 2.0",
+      "author": "German Medeot"
+    },
+    {
+      "filename": "color_pink_009.jpeg",
+      "color": "pink",
+      "source_color": "pink",
+      "source_file": "pexels-photo-1009873.jpeg"
+    },
+    {
+      "filename": "color_pink_010.jpg",
+      "color": "pink",
+      "source_color": "pink",
+      "source_file": "Szentendre_Retro_Design_Center_88.jpg.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Szentendre,_Retro_Design_Center_88.jpg",
+      "license": "CC BY-SA 4.0",
+      "author": "Christo"
+    },
+    {
+      "filename": "color_pink_011.jpg",
+      "color": "pink",
+      "source_color": "pink",
+      "source_file": "DSC00094_16090849000_.jpg.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:DSC00094_(16090849000).jpg",
+      "license": "CC BY-SA 2.0",
+      "author": "Heribert Bechen, 5 million visits - many thanks!"
+    },
+    {
+      "filename": "color_pink_012.jpg",
+      "color": "pink",
+      "source_color": "pink",
+      "source_file": "Varkala_2016-01-27.jpg.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Varkala_2016-01-27.jpg",
+      "license": "CC BY-SA 4.0",
+      "author": "Alexey Komarov"
+    },
+    {
+      "filename": "color_pink_013.jpg",
+      "color": "pink",
+      "source_color": "pink",
+      "source_file": "Ligier_ambra_CLS_rear_view.jpg.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Ligier_ambra_CLS_rear_view.jpg",
+      "license": "Public domain",
+      "author": "Alessandro Antonelli"
+    },
+    {
+      "filename": "color_pink_014.png",
+      "color": "pink",
+      "source_color": "pink",
+      "source_file": "104.png"
+    },
+    {
+      "filename": "color_pink_015.jpg",
+      "color": "pink",
+      "source_color": "pink",
+      "source_file": "Pink_Mini_-_Flickr_-_mick_-_Lumix.jpg.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Pink_Mini_-_Flickr_-_mick_-_Lumix.jpg",
+      "license": "CC BY 2.0",
+      "author": "Mick from Northamptonshire, England"
+    },
+    {
+      "filename": "color_pink_016.jpg",
+      "color": "pink",
+      "source_color": "pink",
+      "source_file": "Szentendre_Retro_Design_Center_89.jpg.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Szentendre,_Retro_Design_Center_89.jpg",
+      "license": "CC BY-SA 4.0",
+      "author": "Christo"
+    },
+    {
+      "filename": "color_pink_017.jpeg",
+      "color": "pink",
+      "source_color": "pink",
+      "source_file": "pexels-photo-12399868.jpeg"
+    },
+    {
+      "filename": "color_pink_018.jpg",
+      "color": "pink",
+      "source_color": "pink",
+      "source_file": "The_pink_one_-_Flickr_-_GeorgeTan_1.jpg.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:The_pink_one_-_Flickr_-_GeorgeTan%5E1.jpg",
+      "license": "CC0",
+      "author": "Walk around the RED DOT from Singapore"
+    },
+    {
+      "filename": "color_pink_019.jpg",
+      "color": "pink",
+      "source_color": "pink",
+      "source_file": "1958_Edsel_Citation.jpg.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:1958_Edsel_Citation.jpg",
+      "license": "CC BY 2.0",
+      "author": "Greg Gjerdingen"
+    },
+    {
+      "filename": "color_pink_020.jpeg",
+      "color": "pink",
+      "source_color": "pink",
+      "source_file": "pexels-photo-12194751.jpeg"
+    },
+    {
+      "filename": "color_pink_021.jpg",
+      "color": "pink",
+      "source_color": "pink",
+      "source_file": "_-401_1_.jpg.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:%D0%9F%D0%B0%D0%BD%D1%84%D0%B8%D0%BB%D0%BE%D0%B2%D0%BE,_%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B8%D1%87-401_(1).jpg",
+      "license": "CC BY-SA 4.0",
+      "author": "Nikolai Bulykin"
+    },
+    {
+      "filename": "color_pink_022.png",
+      "color": "pink",
+      "source_color": "pink",
+      "source_file": "67.png"
+    },
+    {
+      "filename": "color_pink_023.jpeg",
+      "color": "pink",
+      "source_color": "pink",
+      "source_file": "free-photo-of-a-pink-chevrolet-bel-air-on-a-parking-lot-in-havana-cuba.jpeg"
+    },
+    {
+      "filename": "color_pink_024.jpeg",
+      "color": "pink",
+      "source_color": "pink",
+      "source_file": "pexels-photo-11021326.jpeg"
+    },
+    {
+      "filename": "color_pink_025.jpg",
+      "color": "pink",
+      "source_color": "pink",
+      "source_file": "Ev_Kirchentag_2011_in_Dresden_136.jpg.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Ev_Kirchentag_2011_in_Dresden_136.jpg",
+      "license": "CC BY-SA 2.1 jp",
+      "author": "Ykaphrykoi"
+    },
+    {
+      "filename": "color_pink_026.jpeg",
+      "color": "pink",
+      "source_color": "pink",
+      "source_file": "free-photo-of-pink-car-on-street.jpeg"
+    },
+    {
+      "filename": "color_pink_027.jpg",
+      "color": "pink",
+      "source_color": "pink",
+      "source_file": "EdselRanger.jpg.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:EdselRanger.jpg",
+      "license": "CC BY 2.0",
+      "author": "Brian Snelson"
+    },
+    {
+      "filename": "color_pink_028.jpeg",
+      "color": "pink",
+      "source_color": "pink",
+      "source_file": "pexels-photo-12495411.jpeg"
+    },
+    {
+      "filename": "color_pink_029.jpeg",
+      "color": "pink",
+      "source_color": "pink",
+      "source_file": "pexels-photo-12399878.jpeg"
+    },
+    {
+      "filename": "color_pink_030.jpeg",
+      "color": "pink",
+      "source_color": "pink",
+      "source_file": "free-photo-of-sleek-modified-sedan-at-night.jpeg"
+    },
+    {
+      "filename": "color_purple_001.jpg",
+      "color": "purple",
+      "source_color": "purple",
+      "source_file": "1958_Edsel_Ranger_15118284258_.jpg.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:1958_Edsel_Ranger_(15118284258).jpg",
+      "license": "CC BY 2.0",
+      "author": "Greg Gjerdingen from Willmar, USA"
+    },
+    {
+      "filename": "color_purple_002.png",
+      "color": "purple",
+      "source_color": "purple",
+      "source_file": "96.png"
+    },
+    {
+      "filename": "color_purple_003.jpg",
+      "color": "purple",
+      "source_color": "purple",
+      "source_file": "Dan-Doi-Mau-Xe-Mercedes-C300-Tim.jpg"
+    },
+    {
+      "filename": "color_purple_004.jpg",
+      "color": "purple",
+      "source_color": "purple",
+      "source_file": "images (2).jpg"
+    },
+    {
+      "filename": "color_purple_005.jpg",
+      "color": "purple",
+      "source_color": "purple",
+      "source_file": "2008_Mitsubishi_Toppo_01.JPG.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:2008_Mitsubishi_Toppo_01.JPG",
+      "license": "Public domain",
+      "author": "Hatsukari715"
+    },
+    {
+      "filename": "color_purple_006.jpg",
+      "color": "purple",
+      "source_color": "purple",
+      "source_file": "1a2a98be-fa46-41a5-9a67-096e1fa4fe37.jpg"
+    },
+    {
+      "filename": "color_purple_007.jpg",
+      "color": "purple",
+      "source_color": "purple",
+      "source_file": "2025_MG4_EV_China_front_view.png.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:2025_MG4_EV_(China)_front_view.png",
+      "license": "CC BY 3.0",
+      "author": "AutoLab"
+    },
+    {
+      "filename": "color_purple_008.jpg",
+      "color": "purple",
+      "source_color": "purple",
+      "source_file": "2005-03-04_Motorshow_Geneva_157.JPG.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:2005-03-04_Motorshow_Geneva_157.JPG",
+      "license": "CC BY 3.0",
+      "author": "Norbert Aepli, Switzerland (User:Noebu)"
+    },
+    {
+      "filename": "color_purple_009.jpg",
+      "color": "purple",
+      "source_color": "purple",
+      "source_file": "Dan-Doi-Mau-Xe-Mercedes-C300-Tim-3.jpg"
+    },
+    {
+      "filename": "color_purple_010.jpg",
+      "color": "purple",
+      "source_color": "purple",
+      "source_file": "purple-car-outdoors-2BFP22C.jpg"
+    },
+    {
+      "filename": "color_purple_011.jpg",
+      "color": "purple",
+      "source_color": "purple",
+      "source_file": "Renault_Paris_Motor_Show_2018_Paris_1Y7A1675_.jpg.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Renault,_Paris_Motor_Show_2018,_Paris_(1Y7A1675).jpg",
+      "license": "CC BY-SA 4.0",
+      "author": "Matti Blume"
+    },
+    {
+      "filename": "color_purple_012.jpg",
+      "color": "purple",
+      "source_color": "purple",
+      "source_file": "Fialov_automobil.jpg.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Fialov%C3%BD_automobil.jpg",
+      "license": "CC BY 4.0",
+      "author": "V0lkanic"
+    },
+    {
+      "filename": "color_purple_013.jpg",
+      "color": "purple",
+      "source_color": "purple",
+      "source_file": "Heinkel_Bubble_Car_1_54125942548_.jpg.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Heinkel_Bubble_Car_1_(54125942548).jpg",
+      "license": "CC BY 2.0",
+      "author": "Tony Hisgett from Birmingham, UK"
+    },
+    {
+      "filename": "color_purple_014.jpg",
+      "color": "purple",
+      "source_color": "purple",
+      "source_file": "Wuppertal_Schwarzbach_2015_011.jpg.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Wuppertal_Schwarzbach_2015_011.jpg",
+      "license": "CC BY-SA 4.0",
+      "author": "Atamari"
+    },
+    {
+      "filename": "color_purple_015.jpg",
+      "color": "purple",
+      "source_color": "purple",
+      "source_file": "cb290224640c628146413a844009b121.jpg"
+    },
+    {
+      "filename": "color_purple_016.jpg",
+      "color": "purple",
+      "source_color": "purple",
+      "source_file": "Mermaid_Parade_2016_27480200040_.jpg.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Mermaid_Parade_2016_(27480200040).jpg",
+      "license": "CC BY-SA 2.0",
+      "author": "Peter  T from Brooklyn, NY, USA"
+    },
+    {
+      "filename": "color_purple_017.png",
+      "color": "purple",
+      "source_color": "purple",
+      "source_file": "84.png"
+    },
+    {
+      "filename": "color_purple_018.jpg",
+      "color": "purple",
+      "source_color": "purple",
+      "source_file": "La_Creme_Astana_P1190672_.jpg.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:La_Creme,_Astana_(P1190672).jpg",
+      "license": "CC BY-SA 4.0",
+      "author": "Matti Blume"
+    },
+    {
+      "filename": "color_purple_019.jpg",
+      "color": "purple",
+      "source_color": "purple",
+      "source_file": "_12_-_ITALY_-_Fiat_Panda_wine_dealership_03.JPG.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:%22_12_-_ITALY_-_Fiat_Panda_wine_dealership_03.JPG",
+      "license": "CC BY-SA 3.0 it",
+      "author": "Pava"
+    },
+    {
+      "filename": "color_purple_020.jpg",
+      "color": "purple",
+      "source_color": "purple",
+      "source_file": "1971_Ford_Capri_Mk1_3000_GT_15789379935_.jpg.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:1971_Ford_Capri_Mk1_3000_GT_(15789379935).jpg",
+      "license": "CC BY 2.0",
+      "author": "Sicnag"
+    },
+    {
+      "filename": "color_purple_021.jpg",
+      "color": "purple",
+      "source_color": "purple",
+      "source_file": "8tprvstzbin81.jpg"
+    },
+    {
+      "filename": "color_purple_022.jpg",
+      "color": "purple",
+      "source_color": "purple",
+      "source_file": "chiem-nguong-sieu-xe-mau-tim-doc-nhat-viet-nam-gia-hon-10-ty-dong-1947556.jpg"
+    },
+    {
+      "filename": "color_purple_023.jpg",
+      "color": "purple",
+      "source_color": "purple",
+      "source_file": "images (3).jpg"
+    },
+    {
+      "filename": "color_purple_024.jpg",
+      "color": "purple",
+      "source_color": "purple",
+      "source_file": "Fiat_Topolino.jpg.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Fiat_Topolino.jpg",
+      "license": "CC BY-SA 3.0",
+      "author": "Massimilianogalardi"
+    },
+    {
+      "filename": "color_purple_025.jpg",
+      "color": "purple",
+      "source_color": "purple",
+      "source_file": "Ferrari_SF90_Spider_Assetto_Fiorano_54928056030_.jpg.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Ferrari_SF90_Spider_Assetto_Fiorano_(54928056030).jpg",
+      "license": "CC BY-SA 4.0",
+      "author": "Alexandre Prevot from Nancy, France"
+    },
+    {
+      "filename": "color_purple_026.jpg",
+      "color": "purple",
+      "source_color": "purple",
+      "source_file": "bmw-i8-1_WGIT.jpg"
+    },
+    {
+      "filename": "color_purple_027.png",
+      "color": "purple",
+      "source_color": "purple",
+      "source_file": "147.png"
+    },
+    {
+      "filename": "color_purple_028.jpg",
+      "color": "purple",
+      "source_color": "purple",
+      "source_file": "Sky-mobile_7761694308_.jpg.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Sky-mobile_(7761694308).jpg",
+      "license": "CC BY 2.0",
+      "author": "psyberartist"
+    },
+    {
+      "filename": "color_purple_029.jpg",
+      "color": "purple",
+      "source_color": "purple",
+      "source_file": "images (1).jpg"
+    },
+    {
+      "filename": "color_purple_030.jpg",
+      "color": "purple",
+      "source_color": "purple",
+      "source_file": "La_Creme_Astana_LRM_20240815_164309_.jpg.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:La_Creme,_Astana_(LRM_20240815_164309).jpg",
+      "license": "CC BY-SA 4.0",
+      "author": "Matti Blume"
+    },
+    {
+      "filename": "color_yellow_001.jpg",
+      "color": "yellow",
+      "source_color": "yellow",
+      "source_file": "97b738a3-4d83-4210-ac4f-9675b751139c.jpg"
+    },
+    {
+      "filename": "color_yellow_002.jpg",
+      "color": "yellow",
+      "source_color": "yellow",
+      "source_file": "65e88eae-4f49-41c2-abfb-d92aad1de2de.jpg"
+    },
+    {
+      "filename": "color_yellow_003.jpg",
+      "color": "yellow",
+      "source_color": "yellow",
+      "source_file": "1ceefcae-da96-4fb0-a027-d9a1890410f6.jpg"
+    },
+    {
+      "filename": "color_yellow_004.jpg",
+      "color": "yellow",
+      "source_color": "yellow",
+      "source_file": "f73f8ca3-15f0-4fcd-880e-8970fbd35759.jpg"
+    },
+    {
+      "filename": "color_yellow_005.jpg",
+      "color": "yellow",
+      "source_color": "yellow",
+      "source_file": "04928f4f-3130-4305-9801-7d62af26f022.jpg"
+    },
+    {
+      "filename": "color_yellow_006.jpg",
+      "color": "yellow",
+      "source_color": "yellow",
+      "source_file": "dan-doi-mau-vang-mo-bong-vinfast-luxa2.0-3.jpg"
+    },
+    {
+      "filename": "color_yellow_007.jpg",
+      "color": "yellow",
+      "source_color": "yellow",
+      "source_file": "386123cb-88db-4c30-92b3-72f5b62638eb.jpg"
+    },
+    {
+      "filename": "color_yellow_008.jpg",
+      "color": "yellow",
+      "source_color": "yellow",
+      "source_file": "istockphoto-1362982828-612x612.jpg"
+    },
+    {
+      "filename": "color_yellow_009.jpg",
+      "color": "yellow",
+      "source_color": "yellow",
+      "source_file": "bang-mau-xe-vinfast-vf3-mau-vang.jpg"
+    },
+    {
+      "filename": "color_yellow_010.jpg",
+      "color": "yellow",
+      "source_color": "yellow",
+      "source_file": "44b9f636-d421-4308-8240-763a633fe247.jpg"
+    },
+    {
+      "filename": "color_yellow_011.jpg",
+      "color": "yellow",
+      "source_color": "yellow",
+      "source_file": "z5775187961528_d98b5e0673f305a5aefbf93d5200e47a.jpg"
+    },
+    {
+      "filename": "color_yellow_012.jpg",
+      "color": "yellow",
+      "source_color": "yellow",
+      "source_file": "f026da18-c835-43e9-a4f6-cea374accc96.jpg"
+    },
+    {
+      "filename": "color_yellow_013.jpg",
+      "color": "yellow",
+      "source_color": "yellow",
+      "source_file": "d8dc900c-f8cd-4b9f-b5c9-d8832efcf123.jpg"
+    },
+    {
+      "filename": "color_yellow_014.jpg",
+      "color": "yellow",
+      "source_color": "yellow",
+      "source_file": "e8c8d44d-176d-48e9-9471-ab7141e62112.jpg"
+    },
+    {
+      "filename": "color_yellow_015.jpg",
+      "color": "yellow",
+      "source_color": "yellow",
+      "source_file": "55c1c00c-8563-4863-a809-0ef9456e7801.jpg"
+    },
+    {
+      "filename": "color_yellow_016.jpg",
+      "color": "yellow",
+      "source_color": "yellow",
+      "source_file": "e9500035-277f-4f47-95e9-a16d010813b3.jpg"
+    },
+    {
+      "filename": "color_yellow_017.jpg",
+      "color": "yellow",
+      "source_color": "yellow",
+      "source_file": "istockphoto-820863404-612x612.jpg"
+    },
+    {
+      "filename": "color_yellow_018.jpg",
+      "color": "yellow",
+      "source_color": "yellow",
+      "source_file": "56115fe7-03e2-4c9f-b3f9-e005a4d9dfe4.jpg"
+    },
+    {
+      "filename": "color_yellow_019.jpg",
+      "color": "yellow",
+      "source_color": "yellow",
+      "source_file": "istockphoto-1400248326-612x612.jpg"
+    },
+    {
+      "filename": "color_yellow_020.jpg",
+      "color": "yellow",
+      "source_color": "yellow",
+      "source_file": "661b61b8-20c2-43dc-b877-83bc081b3a87.jpg"
+    },
+    {
+      "filename": "color_yellow_021.png",
+      "color": "yellow",
+      "source_color": "yellow",
+      "source_file": "53.png"
+    },
+    {
+      "filename": "color_yellow_022.jpg",
+      "color": "yellow",
+      "source_color": "yellow",
+      "source_file": "a9c3f7d0-e317-4164-861c-43f058dc5b6f.jpg"
+    },
+    {
+      "filename": "color_yellow_023.jpg",
+      "color": "yellow",
+      "source_color": "yellow",
+      "source_file": "d538e840-7d83-4c8b-bf59-1f264e5d48b5.jpg"
+    },
+    {
+      "filename": "color_yellow_024.jpg",
+      "color": "yellow",
+      "source_color": "yellow",
+      "source_file": "ff111987-fd7f-4de5-af40-ac6de3f3fad1.jpg"
+    },
+    {
+      "filename": "color_yellow_025.jpg",
+      "color": "yellow",
+      "source_color": "yellow",
+      "source_file": "b8d408f1-c395-47de-a172-7dea4a85f67b.jpg"
+    },
+    {
+      "filename": "color_yellow_026.jpg",
+      "color": "yellow",
+      "source_color": "yellow",
+      "source_file": "fd49de3e-872f-4b8b-9740-6387d2fc51d2.jpg"
+    },
+    {
+      "filename": "color_yellow_027.jpg",
+      "color": "yellow",
+      "source_color": "yellow",
+      "source_file": "d9a3e421-247f-4f76-a6c0-83c57f7a968a.jpg"
+    },
+    {
+      "filename": "color_yellow_028.jpg",
+      "color": "yellow",
+      "source_color": "yellow",
+      "source_file": "istockphoto-820863394-612x612.jpg"
+    },
+    {
+      "filename": "color_yellow_029.png",
+      "color": "yellow",
+      "source_color": "yellow",
+      "source_file": "12.png"
+    },
+    {
+      "filename": "color_yellow_030.jpg",
+      "color": "yellow",
+      "source_color": "yellow",
+      "source_file": "6de6ba12-a611-423d-8f91-dc2f3e3346bc.jpg"
+    }
+  ]
+}
