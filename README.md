@@ -117,7 +117,7 @@ Os scripts abaixo avaliam a mesma imagem de Audi TT e fazem as mesmas duas pergu
 
 O benchmark usa um subconjunto diverso de 40 imagens do split de teste Stanford Cars, carros reais locais, controles sem carro e 330 carros com cor rotulada: 30 por classe para preto, branco, cinza/prata, vermelho, azul, marrom, verde, amarelo, laranja, rosa e roxo. As imagens coloridas vêm do dataset público de classificação de cor de veículos e são filtradas para carros com YOLO11n; os grupos esparsos são complementados por imagens de automóveis no Wikimedia Commons, com licença e origem anotadas no manifesto.
 
-Os dois modelos recebem as mesmas quatro perguntas base (presença, marca, cor e carroceria) para cada imagem. Nas perguntas de múltipla escolha, ambos recebem a mesma lista de opções, com 12 alternativas para marca, 13 para cor e 10 para carroceria; presença tem duas respostas. BLIP processa as quatro perguntas em lote por imagem. Só campos que têm rótulo confiável no conjunto são pontuados. Isso reduz a quantidade de opções de marca do Laya e torna a comparação mais consistente.
+Os dois modelos recebem as mesmas quatro perguntas base (presença, marca, cor e carroceria) para cada imagem. Nas perguntas de múltipla escolha, ambos recebem a mesma lista nominal de opções, com 12 alternativas para marca, 13 para cor e 10 para carroceria; presença tem duas respostas. Só campos com rótulo de referência são pontuados. A interface, porém, não é equivalente: Laya recebe uma escolha tipada, enquanto o BLIP recebe um prompt textual com as alternativas e gera texto livre. A lista longa demonstrou reduzir a aderência do BLIP às instruções; portanto, os resultados medem o pipeline e o prompt usados nesta rodada, não uma comparação definitiva da capacidade máxima dos modelos.
 
 Para recriar esse conjunto balanceado a partir da fonte, baixe e extraia o arquivo do Hugging Face, instale `unar` no sistema e `ultralytics` no ambiente virtual:
 
@@ -152,7 +152,7 @@ Baixe o subconjunto de imagens uma vez e inicie o dashboard para abrir o navegad
 .venv/bin/python web/benchmark_server.py
 ```
 
-O dashboard mostra a imagem atual, as respostas dos dois modelos, acertos, latência e progresso de cada etapa. Encerre com `Ctrl+C`. O primeiro uso baixa os pesos de `Salesforce/blip-vqa-base` (~1,5 GB). O manifesto das imagens fica em `eval/datasets/stanford_cars_sample.json`; as imagens baixadas ficam localmente em `eval/images/stanford_cars/` e são ignoradas pelo Git. Fonte: [Stanford Cars no Hugging Face](https://huggingface.co/datasets/naufalso/stanford_cars). O relatório atual detalhado fica em `eval/results/laya-blip-car-color.json`; os resultados antigos de referência continuam em `eval/results/stanford-cars-laya-vs-blip.json`. Para testar o BLIP isoladamente numa imagem:
+O dashboard mostra a imagem atual, as respostas dos dois modelos, acertos, latência e progresso de cada etapa. Encerre com `Ctrl+C`. O primeiro uso baixa os pesos de `Salesforce/blip-vqa-base` (~1,5 GB). O manifesto das imagens fica em `eval/datasets/stanford_cars_sample.json`; as imagens baixadas ficam localmente em `eval/images/stanford_cars/` e são ignoradas pelo Git. Fonte: [Stanford Cars no Hugging Face](https://huggingface.co/datasets/naufalso/stanford_cars). Os resultados completos por imagem/modelo ficam em `eval/results/laya-blip-car-color.json`; a análise desta rodada fica em `eval/results/laya-blip-empirical-report.md`. Os resultados antigos de referência continuam em `eval/results/stanford-cars-laya-vs-blip.json`. Para testar o BLIP isoladamente numa imagem:
 
 ```bash
 .venv/bin/python test_blip_vqa.py ./imagem.jpg --question "What color is the car?"
@@ -160,15 +160,35 @@ O dashboard mostra a imagem atual, as respostas dos dois modelos, acertos, latê
 
 No Transformers 5, use a API direta do modelo; o pipeline genérico `visual-question-answering` foi descontinuado nessa versão. O comparador carrega um modelo por vez para caber melhor em máquinas sem GPU. A amostra pequena dá uma indicação para este domínio, não uma conclusão geral sobre os modelos.
 
-### Gráficos estatísticos
+### Resultados empíricos e gráficos estatísticos
 
-O gráfico único compara acurácia geral, acurácia por pergunta (incluindo cor) e latência mediana. Para recriá-lo após uma nova avaliação:
+A rodada atual avaliou 397 imagens e 538 campos com gabarito. A acurácia agregada foi 370/538 (68,77%) para Laya e 254/538 (47,21%) para BLIP. A mediana por imagem foi 1.892 ms para Laya e 3.845 ms para BLIP (aproximadamente 2,03x mais tempo para BLIP). Estes números são de CPU, 8 threads, e do prompt descrito no [relatório empírico](eval/results/laya-blip-empirical-report.md). O BLIP foi perfeito na detecção de presença, mas teve baixa aderência ao formato de alternativas em marca e carroceria; isso afeta a leitura da diferença de acurácia. A acurácia agregada pesa cada resposta anotada, então a tarefa de cor (337 de 538 campos) tem maior peso. O subconjunto balanceado de cor contém 330 fotos, 30 para cada uma de 11 classes.
+
+O histórico também inclui comparações anteriores com 7, 67 e 247 imagens. Os dados e resultados de cada etapa estão em [`laya-blip-history.json`](eval/results/laya-blip-history.json), com o gráfico longitudinal em SVG abaixo. Essas rodadas mudaram o conjunto, o número de perguntas realmente executadas em imagens de cor e o prompt; não são uma sequência controlada de evolução do modelo. O relatório apresenta cada etapa e os experimentos anteriores apenas com Laya, incluindo os testes textuais, em uma seção separada.
+
+Para recriar os três SVGs após uma nova avaliação:
 
 ```bash
 .venv/bin/python eval/plot_laya_blip_results.py
 ```
 
-![Gráficos estatísticos da comparação Laya Vision e BLIP VQA](eval/results/laya-blip-car-color.svg)
+**Acurácia geral e por pergunta**
+
+![Acurácia e intervalos Wilson de 95%](eval/results/laya-blip-accuracy.svg)
+
+**Latência por imagem**
+
+![Mediana, média, p90 e p95 da latência](eval/results/laya-blip-latency.svg)
+
+**Acurácia nas 11 classes do conjunto balanceado (30 imagens por classe)**
+
+![Acurácia de cor por classe](eval/results/laya-blip-color-classes.svg)
+
+**Histórico das quatro rodadas comparativas**
+
+![Acurácia e latência nas rodadas de 7, 67, 247 e 397 imagens](eval/results/laya-blip-history.svg)
+
+Os intervalos de confiança são descritivos, e as imagens não constituem amostra aleatória de todos os veículos. Veja no relatório a metodologia, limitações, análise de aderência do prompt e fatores técnicos de velocidade e acurácia.
 
 ## Experimentos
 
