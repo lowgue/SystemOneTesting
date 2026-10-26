@@ -1,52 +1,231 @@
 <!doctype html>
 <html lang="pt-BR">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>System One | Laboratório visual</title><link rel="stylesheet" href="/style.css"><script src="/app.js" defer></script></head>
-<body>
-<a class="skip" href="#workspace">Ir para o conteúdo</a>
-<aside>
-  <a class="brand" href="#live"><span class="brand-mark" aria-hidden="true">◈</span><span>System One<small>Laboratório visual</small></span></a>
-  <nav aria-label="Áreas do laboratório">
-    <a href="#live" data-view="live" aria-current="page">Teste de imagem</a>
-    <a href="#benchmark" data-view="benchmark">Benchmark</a>
-    <a href="#results" data-view="results">Resultados</a>
-    <a href="#diagnostics" data-view="diagnostics">Diagnóstico</a>
-  </nav>
-  <div class="aside-note"><strong>Execução local</strong><p>Uma tarefa por vez. Os modelos são avaliados em sequência.</p><span id="connection">Conectando ao painel…</span></div>
-</aside>
-<main id="workspace">
-  <header><div><h1 id="page-title">Teste de imagem</h1><p id="page-subtitle">Inspecione uma imagem e compare as respostas dos modelos.</p></div><span class="badge">Ambiente local</span></header>
-  <div id="global-error" class="error" role="alert" hidden></div>
-  <section id="configuration" class="configuration" aria-label="Configuração compartilhada">
-    <div><label for="config">Fonte dos modelos</label><select id="config"></select></div>
-    <div><label for="contract">Contrato de perguntas</label><select id="contract"></select></div>
-    <div><label for="device">Dispositivo dos modelos Python</label><select id="device"><option value="cpu">CPU</option><option value="cuda">CUDA / GPU</option></select></div>
-    <div><label for="threads">Threads dos modelos Python</label><input id="threads" type="number" min="1" max="256" value="8"></div>
-    <fieldset id="models"><legend>Modelos que serão avaliados</legend></fieldset>
-    <p class="hint">Ollama usa sua própria configuração de hardware. BLIP e Laya precisam das dependências e pesos Python; veja o guia de instalação.</p>
-  </section>
-  <section id="view-live" class="view">
-    <div class="workbench">
-      <div class="image-panel">
-        <div class="section-heading"><h2>Imagem de entrada</h2><label for="domain" class="sr-only">Tipo de cena</label><select id="domain"><option value="vehicle">Veículo</option><option value="person">Pessoa</option></select></div>
-        <label class="image-stage" for="image"><span id="image-placeholder"><strong>Escolha uma imagem</strong><span>JPEG, PNG ou WebP. Clique para selecionar.</span></span><img id="preview" alt="Imagem selecionada para avaliação" hidden></label>
-        <input id="image" type="file" accept="image/jpeg,image/png,image/webp">
-        <p id="image-name" class="hint">Nenhuma imagem selecionada.</p>
-        <div class="actions"><button id="run-live" class="primary">Avaliar imagem</button><button class="cancel" hidden>Cancelar tarefa</button></div>
-        <p class="hint">A imagem é salva localmente em <code>.artifacts/studio/</code>. Nenhuma avaliação começa sem clicar no botão.</p>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>System One | Laboratório visual</title>
+    <link rel="stylesheet" href="/style.css" />
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip" href="#workspace">Ir para o conteúdo</a>
+    <aside>
+      <a class="brand" href="#live"
+        ><span class="brand-mark" aria-hidden="true">◈</span
+        ><span>System One<small>Laboratório visual</small></span></a
+      >
+      <nav aria-label="Áreas do laboratório">
+        <a href="#live" data-view="live" aria-current="page">Teste de imagem</a>
+        <a href="#benchmark" data-view="benchmark">Benchmark</a>
+        <a href="#results" data-view="results">Resultados</a>
+        <a href="#diagnostics" data-view="diagnostics">Diagnóstico</a>
+      </nav>
+      <div class="aside-note">
+        <strong>Execução local</strong>
+        <p>Uma tarefa por vez. Os modelos são avaliados em sequência.</p>
+        <span id="connection">Conectando ao painel…</span>
       </div>
-      <div class="answers-panel"><div class="section-heading"><h2>Respostas</h2><button id="download" class="quiet" disabled>Baixar JSON</button></div><p class="hint">Tempo de carregamento separado. A primeira inferência pode incluir o carregamento interno do Ollama.</p><p id="live-state" role="status" aria-live="polite">Selecione uma imagem e pelo menos um modelo.</p><div id="answers"><div class="empty">As respostas aparecerão aqui conforme cada modelo terminar.</div></div></div>
-    </div>
-    <details class="method"><summary>O que este teste permite concluir?</summary><p>O teste mostra as respostas à mesma imagem, usando as mesmas perguntas e alternativas. Não tem gabarito, aquecimento ou amostragem controlada. Use o benchmark para medir desempenho com repetições. A descrição é montada a partir dos atributos previstos; não é uma legenda livre.</p></details>
-  </section>
-  <section id="view-benchmark" class="view" hidden>
-    <div class="benchmark-layout"><div><h2>Nova rodada</h2><p>Execute o runner reproduzível e gere os gráficos ao terminar.</p><label for="dataset">Dataset</label><select id="dataset"></select><label for="repetitions">Repetições</label><input id="repetitions" type="number" min="1" max="100" value="3"><label for="limit">Limite de imagens (0 = todas)</label><input id="limit" type="number" min="0" value="0"><div class="actions"><button id="run-benchmark" class="primary">Iniciar benchmark</button><button class="cancel" hidden>Cancelar tarefa</button></div><p class="hint">Inclui aquecimento, alternância de modelos e configuração congelada. Os gabaritos disponíveis são exploratórios, sem adjudicação humana.</p></div><div><h2>Andamento</h2><p id="benchmark-state" role="status" aria-live="polite">Nenhuma rodada iniciada.</p><progress id="progress" value="0" max="1" aria-label="Progresso da rodada"></progress><pre id="job-log">O registro aparecerá aqui.</pre><a href="#results">Consultar resultados e gráficos</a></div></div>
-  </section>
-  <section id="view-results" class="view" hidden>
-    <div class="section-heading"><h2>Arquivos e gráficos</h2><button id="refresh-results">Atualizar lista</button></div><p>Os relatórios mantêm cada computador e cada execução separados. O atlas histórico fica disponível nesta mesma lista.</p><label for="artifact-filter">Filtrar arquivos</label><input id="artifact-filter" type="search" placeholder="Nome da execução, .png, .csv…"><div id="artifacts" class="artifacts"></div>
-  </section>
-  <section id="view-diagnostics" class="view" hidden>
-    <div class="section-heading"><h2>Estado do computador e do Ollama</h2><button id="refresh-diagnostics">Verificar novamente</button></div><p>A verificação consulta o serviço e os modelos instalados. Não carrega pesos nem executa inferência.</p><div id="diagnostics" role="status" aria-live="polite">Verificando…</div><div class="help"><h3>Se a avaliação falhar</h3><p>O serviço online e o modelo instalado não garantem que a inferência funcionará. Use o teste de imagem para verificar o carregamento. Uma lista vazia de modelos carregados (<code>ollama ps</code>) não informa a causa da falha.</p><p>Se a porta 11434 já estiver ocupada, verifique o serviço existente antes de iniciar outro <code>ollama serve</code>. Para investigar um erro 500, baixe o JSON da tarefa ou consulte o registro abaixo.</p></div><details><summary>Registro da última tarefa</summary><pre id="diagnostic-log">Nenhuma tarefa nesta sessão.</pre></details>
-  </section>
-  <footer>System One Testing <span>Testes interativos e avaliação reproduzível</span></footer>
-</main>
-</body></html>
+    </aside>
+    <main id="workspace">
+      <header>
+        <div>
+          <h1 id="page-title">Teste de imagem</h1>
+          <p id="page-subtitle">
+            Inspecione uma imagem e compare as respostas dos modelos.
+          </p>
+        </div>
+        <span class="badge">Ambiente local</span>
+      </header>
+      <div id="global-error" class="error" role="alert" hidden></div>
+      <section
+        id="configuration"
+        class="configuration"
+        aria-label="Configuração compartilhada"
+      >
+        <div>
+          <label for="config">Fonte dos modelos</label
+          ><select id="config"></select>
+        </div>
+        <div>
+          <label for="contract">Contrato de perguntas</label
+          ><select id="contract"></select>
+        </div>
+        <div>
+          <label for="device">Dispositivo dos modelos Python</label
+          ><select id="device">
+            <option value="cpu">CPU</option>
+            <option value="cuda">CUDA / GPU</option>
+          </select>
+        </div>
+        <div>
+          <label for="threads">Threads dos modelos Python</label
+          ><input id="threads" type="number" min="1" max="256" value="8" />
+        </div>
+        <fieldset id="models">
+          <legend>Modelos que serão avaliados</legend>
+        </fieldset>
+        <p class="hint">
+          Ollama usa sua própria configuração de hardware. BLIP e Laya precisam
+          das dependências e pesos Python; veja o guia de instalação.
+        </p>
+      </section>
+      <section id="view-live" class="view">
+        <div class="workbench">
+          <div class="image-panel">
+            <div class="section-heading">
+              <h2>Imagem de entrada</h2>
+              <label for="domain" class="sr-only">Tipo de cena</label
+              ><select id="domain">
+                <option value="vehicle">Veículo</option>
+                <option value="person">Pessoa</option>
+              </select>
+            </div>
+            <label class="image-stage" for="image"
+              ><span id="image-placeholder"
+                ><strong>Escolha uma imagem</strong
+                ><span>JPEG, PNG ou WebP. Clique para selecionar.</span></span
+              ><img id="preview" alt="Imagem selecionada para avaliação" hidden
+            /></label>
+            <input
+              id="image"
+              type="file"
+              accept="image/jpeg,image/png,image/webp"
+            />
+            <p id="image-name" class="hint">Nenhuma imagem selecionada.</p>
+            <div class="actions">
+              <button id="run-live" class="primary">Avaliar imagem</button
+              ><button class="cancel" hidden>Cancelar tarefa</button>
+            </div>
+            <p class="hint">
+              A imagem é salva localmente em <code>.artifacts/studio/</code>.
+              Nenhuma avaliação começa sem clicar no botão.
+            </p>
+          </div>
+          <div class="answers-panel">
+            <div class="section-heading">
+              <h2>Respostas</h2>
+              <button id="download" class="quiet" disabled>Baixar JSON</button>
+            </div>
+            <p class="hint">
+              Tempo de carregamento separado. A primeira inferência pode incluir
+              o carregamento interno do Ollama.
+            </p>
+            <p id="live-state" role="status" aria-live="polite">
+              Selecione uma imagem e pelo menos um modelo.
+            </p>
+            <div id="answers">
+              <div class="empty">
+                As respostas aparecerão aqui conforme cada modelo terminar.
+              </div>
+            </div>
+          </div>
+        </div>
+        <details class="method">
+          <summary>O que este teste permite concluir?</summary>
+          <p>
+            O teste mostra as respostas à mesma imagem, usando as mesmas
+            perguntas e alternativas. Não tem gabarito, aquecimento ou
+            amostragem controlada. Use o benchmark para medir desempenho com
+            repetições. A descrição é montada a partir dos atributos previstos;
+            não é uma legenda livre.
+          </p>
+        </details>
+      </section>
+      <section id="view-benchmark" class="view" hidden>
+        <div class="benchmark-layout">
+          <div>
+            <h2>Nova rodada</h2>
+            <p>Execute o runner reproduzível e gere os gráficos ao terminar.</p>
+            <label for="dataset">Dataset</label
+            ><select id="dataset"></select
+            ><label for="repetitions">Repetições</label
+            ><input
+              id="repetitions"
+              type="number"
+              min="1"
+              max="100"
+              value="3"
+            /><label for="limit">Limite de imagens (0 = todas)</label
+            ><input id="limit" type="number" min="0" value="0" />
+            <div class="actions">
+              <button id="run-benchmark" class="primary">
+                Iniciar benchmark</button
+              ><button class="cancel" hidden>Cancelar tarefa</button>
+            </div>
+            <p class="hint">
+              Inclui aquecimento, alternância de modelos e configuração
+              congelada. Os gabaritos disponíveis são exploratórios, sem
+              adjudicação humana.
+            </p>
+          </div>
+          <div>
+            <h2>Andamento</h2>
+            <p id="benchmark-state" role="status" aria-live="polite">
+              Nenhuma rodada iniciada.
+            </p>
+            <progress
+              id="progress"
+              value="0"
+              max="1"
+              aria-label="Progresso da rodada"
+            ></progress>
+            <pre id="job-log">O registro aparecerá aqui.</pre>
+            <a href="#results">Consultar resultados e gráficos</a>
+          </div>
+        </div>
+      </section>
+      <section id="view-results" class="view" hidden>
+        <div class="section-heading">
+          <h2>Arquivos e gráficos</h2>
+          <button id="refresh-results">Atualizar lista</button>
+        </div>
+        <p>
+          Os relatórios mantêm cada computador e cada execução separados. O
+          atlas histórico fica disponível nesta mesma lista.
+        </p>
+        <label for="artifact-filter">Filtrar arquivos</label
+        ><input
+          id="artifact-filter"
+          type="search"
+          placeholder="Nome da execução, .png, .csv…"
+        />
+        <div id="artifacts" class="artifacts"></div>
+      </section>
+      <section id="view-diagnostics" class="view" hidden>
+        <div class="section-heading">
+          <h2>Estado do computador e do Ollama</h2>
+          <button id="refresh-diagnostics">Verificar novamente</button>
+        </div>
+        <p>
+          A verificação consulta o serviço e os modelos instalados. Não carrega
+          pesos nem executa inferência.
+        </p>
+        <div id="diagnostics" role="status" aria-live="polite">
+          Verificando…
+        </div>
+        <div class="help">
+          <h3>Se a avaliação falhar</h3>
+          <p>
+            O serviço online e o modelo instalado não garantem que a inferência
+            funcionará. Use o teste de imagem para verificar o carregamento. Uma
+            lista vazia de modelos carregados (<code>ollama ps</code>) não
+            informa a causa da falha.
+          </p>
+          <p>
+            Se a porta 11434 já estiver ocupada, verifique o serviço existente
+            antes de iniciar outro <code>ollama serve</code>. Para investigar um
+            erro 500, baixe o JSON da tarefa ou consulte o registro abaixo.
+          </p>
+        </div>
+        <details>
+          <summary>Registro da última tarefa</summary>
+          <pre id="diagnostic-log">Nenhuma tarefa nesta sessão.</pre>
+        </details>
+      </section>
+      <footer>
+        System One Testing
+        <span>Testes interativos e avaliação reproduzível</span>
+      </footer>
+    </main>
+  </body>
+</html>
