@@ -113,6 +113,40 @@ Sem `CLEF_SERVER_METADATA`, o teste HTTP funciona, mas registra `client_only`: C
 
 Não altere servidor, pesos, quantização ou flags durante uma execução. O setup não faz download automático de llama.cpp nem escolhe driver/GPU pelo usuário.
 
+## 3b. Clef-Flash pelo Ollama
+
+Instale/atualize o [Ollama](https://ollama.com/download). O [modelo oficial Clef-Flash](https://ollama.com/library/clef-flash) exige Ollama 0.35.1 ou superior. No outro computador:
+
+```bash
+ollama --version
+ollama pull clef-flash:9b
+ollama list
+```
+
+Se o serviço não estiver ativo, execute `ollama serve` em um terminal e mantenha-o aberto. A API local padrão é `http://127.0.0.1:11434/v1/systemone`.
+
+Na pasta do projeto atualizado, instale apenas o cliente HTTP e faça o smoke:
+
+```bash
+git pull
+python3.12 scripts/setup_benchmark.py --backend http
+.venv/bin/python -m vision_bench run \
+  --config benchmarks/configs/ollama.json \
+  --contract benchmarks/contracts/description_ollama_v1.json \
+  --models clef-flash-ollama --limit 2 --repetitions 1 \
+  --output .artifacts/runs/clef-ollama-smoke
+```
+
+No Windows, use `py -3.12` no setup e `.venv\Scripts\python.exe` nos comandos do runner. Para a rodada completa, retire `--limit 2`, use `--repetitions 5` e outro diretório de saída. Gere o relatório com `python -m vision_bench report <diretorio-do-run> --output <diretorio-novo>`.
+
+Diferenças de protocolo documentadas pelo Ollama: `model` é obrigatório; as imagens são Base64 puro, sem prefixo de data URL; perguntas `choice` aceitam até 26 opções. A configuração `ollama.json` já aplica essas regras. O contrato original de 49 opções de marca é recusado no preflight, antes da inferência.
+
+O contrato alternativo tem 24 marcas nomeadas + `other` + `unknown`, mantendo os quatro campos por domínio. É uma taxonomia exploratória fixa; não exclui opções com base na imagem. Para comparar com BLIP e Laya, use esse mesmo arquivo de contrato para todos os modelos de `ollama.json`. Os resultados não são diretamente equivalentes aos históricos com 49 opções. Se um manifesto próprio contiver outra marca no gabarito, produza uma cópia explicitamente remapeada para `other`; não altere o gabarito histórico original nem trate resposta não interpretável como `other`.
+
+Ollama gerencia os pesos, a quantização e o processo de inferência; o launcher `clef-server` não é usado nesse caminho. Registre `ollama --version` e o digest do modelo (`ollama list` ou `/api/tags`) com a rodada, pois a tag `:9b` pode mudar. O escopo de recursos neste perfil é `client_only`: CPU/RAM do daemon e GPU não são medidos pelo processo Python. Para liberar o modelo entre sessões, use `ollama stop clef-flash:9b`.
+
+Referências: [System One no Ollama](https://docs.ollama.com/api/systemone) e [catálogo Clef-Flash](https://ollama.com/library/clef-flash). O protocolo foi verificado por teste HTTP local simulado; este preparo não baixou nem executou o Clef real no Ollama.
+
 ## 4. Rodada comparativa
 
 Validar arquivos e dependências, sem carregar pesos nem enviar inferência:

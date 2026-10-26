@@ -13,6 +13,8 @@ python3.12 scripts/setup_benchmark.py --backend http  # Clef/API, sem torch
 
 Para BLIP/Laya em CPU, use `--backend cpu` no setup. Há uma amostra de 22 eventos de veículos disponível no clone; pessoas e o Teste 7 completo são transferidos por `pack-data`/`unpack-data`. Os resultados novos ficam em `.artifacts/`, separados dos experimentos históricos.
 
+Para Clef pelo Ollama, siga a [seção específica do guia](docs/COMPARISON_SETUP.md#3b-clef-flash-pelo-ollama): use `benchmarks/configs/ollama.json` com o contrato compartilhado `benchmarks/contracts/description_ollama_v1.json`, que respeita o limite de opções dessa API.
+
 
 Experimentos para avaliar modelos de decisão System 1 (Laya) em tarefas reais de classificação, roteamento e inspeção visual.
 

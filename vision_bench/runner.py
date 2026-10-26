@@ -45,6 +45,7 @@ def validate_config(config,selected=None):
             if key in spec:raise ValueError('Use token_env, never literal credentials in the configuration')
         if adapter in {'blip','laya'} and not re.fullmatch(r'[a-f0-9]{40}',spec.get('revision','')):raise ValueError('Pin local Hub models to a full commit SHA')
         if spec.get('token_env') and not re.fullmatch(r'[A-Z_][A-Z0-9_]*',spec['token_env']):raise ValueError('token_env must name an environment variable')
+        if spec.get('image_encoding','data_url') not in {'data_url','base64'}:raise ValueError('image_encoding must be data_url or base64')
     return specs
 
 def preflight(config,manifest,contract,data_root,selected=None,require_dependencies=True):
@@ -52,6 +53,12 @@ def preflight(config,manifest,contract,data_root,selected=None,require_dependenc
     env=environment()
     for spec in specs:
         adapter=spec['adapter']
+        limit=spec.get('max_choices')
+        if limit:
+            for domain in contract['domains'].values():
+                for key,question in domain['questions'].items():
+                    if question['type']=='choice' and len(question['criteria'])>limit:
+                        issues.append(f'{spec["id"]}: {key} exceeds {limit} choices; use the shared description_ollama_v1.json contract for all compared models')
         if adapter in {'blip','laya'}:
             if require_dependencies:
                 for p in ['torch','torchvision','transformers','huggingface-hub']:

@@ -3,6 +3,7 @@ from contextlib import redirect_stdout,redirect_stderr
 from http.server import BaseHTTPRequestHandler,ThreadingHTTPServer
 from io import StringIO
 import json
+import base64
 import os
 from pathlib import Path
 import subprocess
@@ -20,7 +21,7 @@ sys.path.insert(0,str(ROOT))
 from vision_bench.adapters import SystemOneHTTP,endpoint
 from vision_bench.cli import main
 from vision_bench.core import DEFAULT_CONTRACT,load_json,sha256,validate_manifest,pack_dataset,unpack_dataset,finalize,normalize_text
-from vision_bench.runner import validate_config
+from vision_bench.runner import validate_config,preflight
 
 
 class PortableTests(unittest.TestCase):
@@ -90,6 +91,14 @@ class PortableTests(unittest.TestCase):
         self.assertEqual(normalize_text(self.contract,'person','helmet','no helmet'),'no')
         result=finalize(self.contract,'vehicle',dict(presence='yes',make='unknown',color='parse_error',body='suv'))
         self.assertFalse(result['valid']);self.assertEqual(result['facts'],{'body':'suv'})
+    def test_ollama_contract_enforces_choice_limit(self):
+        spec=dict(id='ollama',adapter='systemone_http',url='http://127.0.0.1:11434/v1/systemone',max_choices=26)
+        _,_,issues=preflight(dict(models=[spec]),self.manifest,self.contract,self.root)
+        self.assertTrue(any('exceeds 26' in issue for issue in issues))
+        contract=load_json(ROOT/'benchmarks/contracts/description_ollama_v1.json')
+        _,_,issues=preflight(dict(models=[spec]),self.manifest,contract,self.root)
+        self.assertEqual(issues,[])
+        validate_manifest(ROOT/'benchmarks/datasets/portable_vehicles.json',ROOT,contract)
     def test_cli_errors_have_nonzero_exit(self):
         code,_,_=self.invoke(['run',*self.common(),'--output',str(self.root/'run'),'--limit','0']);self.assertEqual(code,2)
     def test_http_transport_and_wrapped_response(self):
@@ -110,6 +119,11 @@ class PortableTests(unittest.TestCase):
             self.assertEqual(set(answers),set(contract['domains']['vehicle']['questions']))
             self.assertTrue(observed['images'][0].startswith('data:image/png;base64,'))
             self.assertEqual(len(observed['questions']),4);self.assertEqual(raw['usage']['input_tokens'],12)
+            ollama=SystemOneHTTP({**spec,'image_encoding':'base64','request_model':'clef-flash:9b'},contract)
+            ollama.predict(Image.new('RGB',(16,16)),'vehicle')
+            self.assertEqual(observed['model'],'clef-flash:9b')
+            self.assertTrue(base64.b64decode(observed['images'][0],validate=True).startswith(b'\x89PNG'))
+            self.assertNotIn('data:',observed['images'][0])
             self.config.write_text(json.dumps(dict(models=[spec])))
             code,_,error=self.invoke(['run',*self.common(),'--output',str(self.root/'http-run'),'--repetitions','1'])
             self.assertEqual(code,0,error)

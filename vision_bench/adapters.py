@@ -42,7 +42,9 @@ class SystemOneHTTP(MockAdapter):
         if env and not self.token:raise ValueError(f'Set {env} for this backend')
     def predict(self,image,domain):
         buffer=BytesIO();image.save(buffer,format='PNG')
-        payload=dict(state='Describe only the visible attributes of the target in this image.',images=['data:image/png;base64,'+base64.b64encode(buffer.getvalue()).decode('ascii')],questions=self.contract['domains'][domain]['questions'])
+        encoded=base64.b64encode(buffer.getvalue()).decode('ascii')
+        image_value=encoded if self.spec.get('image_encoding')=='base64' else 'data:image/png;base64,'+encoded
+        payload=dict(state='Describe only the visible attributes of the target in this image.',images=[image_value],questions=self.contract['domains'][domain]['questions'])
         if self.spec.get('request_model'):payload['model']=self.spec['request_model']
         headers={'Content-Type':'application/json'}
         if self.token:headers['Authorization']='Bearer '+self.token
