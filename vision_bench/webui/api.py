@@ -1,0 +1,168 @@
+"""FastAPI application: REST API, live events and compiled React frontend."""
+from __future__ import annotations
+
+import asyncio
+from contextlib import asynccontextmanager
+import json
+import os
+from pathlib import Path
+from urllib.parse import urlsplit
+
+from fastapi import FastAPI, Request
+from fastapi.responses import FileResponse, JSONResponse, StreamingResponse
+from fastapi.staticfiles import StaticFiles
+from starlette.concurrency import run_in_threadpool
+
+from ..core import ROOT, load_json, resolve_image
+from .services import Studio
+
+
+MODEL = 'clef-flash:9b'
+
+
+def ollama_origin():
+    value = os.environ.get('OLLAMA_SYSTEMONE_URL', 'http://127.0.0.1:11434/v1/systemone')
+    parsed = urlsplit(value)
+    if parsed.scheme != 'http' or parsed.hostname not in {'localhost','127.0.0.1','::1','ollama','host.docker.internal'} or parsed.username or parsed.password:
+        raise ValueError('Configure um endpoint HTTP do Ollama local ou do serviço Docker.')
+    return f'{parsed.scheme}://{parsed.netloc}'
+
+
+def create_app(studio=None, frontend=None):
+    studio = studio or Studio()
+    frontend = Path(frontend or os.environ.get('VISION_FRONTEND_DIR', ROOT/'frontend/dist'))
+
+    @asynccontextmanager
+    async def lifespan(app):
+        yield
+        await run_in_threadpool(studio.jobs.close)
+
+    app = FastAPI(title='System One Testing', version='0.2.0', lifespan=lifespan)
+    app.state.studio = studio
+
+    @app.middleware('http')
+    async def boundaries(request, call_next):
+        if request.method in {'POST','PUT','DELETE'}:
+            origin = request.headers.get('origin')
+            if origin and urlsplit(origin).netloc != request.headers.get('host'):
+                return JSONResponse({'error':'Origem não permitida.'},status_code=403)
+            # Consume streaming bodies with an enforced cap, including chunked requests.
+            chunks = bytearray()
+            async for chunk in request.stream():
+                chunks.extend(chunk)
+                if len(chunks) > 24*1024*1024:
+                    return JSONResponse({'error':'Limite de 24 MiB excedido.'},status_code=413)
+            request._body = bytes(chunks)
+        response = await call_next(request)
+        response.headers['X-Content-Type-Options'] = 'nosniff'
+        return response
+
+    @app.exception_handler(ValueError)
+    async def invalid(request, exc):
+        return JSONResponse({'error':str(exc)},status_code=400)
+
+    @app.exception_handler(RuntimeError)
+    async def conflict(request, exc):
+        return JSONResponse({'error':str(exc)},status_code=409)
+
+    @app.get('/api/health')
+    def health():
+        return {'status':'ok','app':'vision-studio','frontend_built':(frontend/'index.html').is_file()}
+
+    @app.get('/api/catalog')
+    def catalog():
+        return studio.catalog()
+
+    @app.get('/api/diagnostics')
+    def diagnostics():
+        return studio.diagnostics()
+
+    @app.get('/api/jobs')
+    def history():
+        studio.jobs.refresh()
+        results=[]
+        for path in sorted(studio.jobs.root.glob('*/status.json'),key=lambda p:p.stat().st_mtime,reverse=True)[:100]:
+            value=load_json(path)
+            results.append({key:value.get(key) for key in ['id','kind','state','errors','started_utc','phase']})
+        return results
+
+    @app.post('/api/jobs',status_code=202)
+    async def start(request: Request):
+        try:
+            body=await request.json()
+        except (ValueError, UnicodeDecodeError):
+            raise ValueError('Envie JSON válido.')
+        prepared,image=await run_in_threadpool(studio.prepare,body)
+        return await run_in_threadpool(studio.jobs.start,prepared,image)
+
+    @app.post('/api/ollama/pull',status_code=202)
+    def pull():
+        return studio.jobs.start({'kind':'ollama-pull','origin':ollama_origin(),'model':MODEL})
+
+    @app.get('/api/jobs/{job_id}')
+    def status(job_id: str):
+        return studio.jobs.status(job_id)
+
+    @app.post('/api/jobs/{job_id}/cancel')
+    def cancel(job_id: str):
+        return studio.jobs.cancel(job_id)
+
+    @app.get('/api/jobs/{job_id}/events')
+    async def events(job_id: str,request: Request):
+        studio.jobs.folder(job_id)
+        async def stream():
+            while not await request.is_disconnected():
+                state=await run_in_threadpool(studio.jobs.status,job_id)
+                yield 'data: '+json.dumps(state,ensure_ascii=False)+'\n\n'
+                if state['state'] not in {'queued','running'}:
+                    break
+                await asyncio.sleep(.6)
+        return StreamingResponse(stream(),media_type='text/event-stream',headers={'Cache-Control':'no-cache','X-Accel-Buffering':'no'})
+
+    @app.get('/api/artifacts')
+    def artifacts():
+        return studio.artifacts()
+
+    @app.get('/files/{source}/{relative:path}')
+    def file(source: str,relative: str):
+        url=f'/files/{source}/{relative}'
+        if not any(item['url']==url for item in studio.artifacts()):
+            return JSONResponse({'error':'Arquivo não disponível.'},status_code=404)
+        target=resolve_image(studio.sources[source],relative)
+        return FileResponse(target)
+
+    if (frontend/'assets').is_dir():
+        app.mount('/assets',StaticFiles(directory=frontend/'assets'),name='assets')
+
+    @app.get('/')
+    def index():
+        if not (frontend/'index.html').is_file():
+            return JSONResponse({'error':'Frontend não compilado. Use Docker Compose ou execute npm ci e npm run build na pasta frontend.'},status_code=503)
+        return FileResponse(frontend/'index.html')
+
+    return app
+
+
+app = create_app()
+
+
+def serve(port=7860, open_browser=False):
+    import uvicorn
+    if open_browser:
+        import threading
+        import webbrowser
+        threading.Timer(1,lambda:webbrowser.open(f'http://127.0.0.1:{port}')).start()
+    uvicorn.run(app,host='127.0.0.1',port=port,workers=1,timeout_graceful_shutdown=5)
+
+
+def main():
+    import argparse
+    parser=argparse.ArgumentParser(description='System One web application (FastAPI + React)')
+    parser.add_argument('--port',type=int,default=7860)
+    parser.add_argument('--open',action='store_true')
+    args=parser.parse_args()
+    serve(args.port,args.open)
+
+
+if __name__=='__main__':
+    main()

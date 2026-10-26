@@ -1,51 +1,45 @@
-# Painel local
+# Aplicação web
 
-O painel está em `vision_bench/webui/`. Abra com o iniciador Clef da raiz ou, no ambiente já instalado:
+A aplicação atual usa React/Vite no frontend e FastAPI/Uvicorn na API. A execução recomendada é `docker compose up -d --build`, seguida de acesso a **http://localhost:7860**. Nenhum script `.sh` faz parte desse fluxo.
 
-```bash
-python -m vision_bench studio --open
-```
+## Preparar o modelo pela interface
 
-O servidor escuta apenas em `127.0.0.1`. Não há etapa de build, dependência de Node, CDN ou serviço remoto para abrir a interface. Consultas a backends hospedados dependem da configuração escolhida e das credenciais do terminal.
+Abra **Ambiente e modelos**, verifique se o Ollama responde e clique em **Baixar ou atualizar Clef-Flash 9B**. O progresso chega à página por Server-Sent Events. O download usa `/api/pull` do Ollama, não comandos shell. É possível cancelar o worker; o servidor Ollama pode continuar processando uma requisição já recebida.
 
-## Testar uma imagem
+O Compose executa um Ollama separado, sem publicar a porta 11434. Pesos já instalados no sistema não aparecem automaticamente nessa instância. O volume `ollama-models` preserva o download entre reinicializações. O modelo precisa de vários GB de disco e memória; consulte erros de alocação reais em vez de deduzir a causa somente da RAM total.
 
-1. Escolha a fonte dos modelos. `ollama` inclui Clef 9B, BLIP e Laya; `local` usa Clef via llama-server. `smoke_mock` é apenas simulação.
-2. Use o contrato compartilhado Ollama quando comparar com Clef no Ollama. O contrato original tem 49 alternativas de marca e não cabe no limite de 26.
-3. Marque os modelos. CPU/CUDA e threads afetam apenas os modelos Python; Ollama gerencia o próprio hardware.
-4. Selecione veículo ou pessoa, envie uma imagem e clique em **Avaliar imagem**.
-5. Acompanhe cada resultado. Baixe o JSON para guardar respostas, erros e tempos.
+## Testar imagens e comparar
 
-A imagem enviada fica salva em `.artifacts/studio/<id>/input.png`. A aplicação padroniza RGB e tamanho máximo de 1024 px para inferência. Uma única tarefa roda por vez; os modelos são avaliados sequencialmente e liberados ao terminar. É possível cancelar a tarefa sem fechar o painel. Isso encerra o worker local; uma requisição já recebida pelo Ollama ou outro servidor pode continuar lá.
+Selecione a fonte de modelos, o contrato e os modelos desejados. Use o contrato compartilhado Ollama ao comparar com Clef. Escolha veículo ou pessoa, envie a imagem e clique em **Avaliar imagem**. Não há inferência automática ao selecionar um arquivo.
 
-O tempo de preparação é separado da chamada de inferência. Não há aquecimento no modo interativo; o primeiro pedido HTTP pode incluir o carregamento interno do servidor. Não compare esses números diretamente com os tempos aquecidos do benchmark. Sem gabarito, o painel avalia validade do formato, não acurácia.
+A aplicação mostra os estados de preparação/inferência, cada resposta e cada erro. O botão **Baixar JSON** exporta a tarefa. As imagens são guardadas localmente no volume de avaliações; não envie esse volume a terceiros se contiver imagens privadas.
 
-## Benchmark
+As chamadas usam a mesma imagem RGB com até 1024 px e as mesmas perguntas para cada modelo. Os modelos são avaliados sequencialmente. A primeira inferência HTTP pode incluir carregamento do modelo; este modo não tem aquecimento nem gabarito e não estima acurácia.
 
-O dataset portátil inclui 22 eventos com imagens versionadas. Escolha repetições e limite; zero usa todas as imagens. O worker chama o runner existente e o gerador de relatórios. Há aquecimento e alternância da ordem dos modelos conforme as regras do runner.
+O container padrão é voltado aos adapters HTTP. Para usar BLIP/Laya, instale o ambiente CPU/GPU e os pesos no desenvolvimento local, conforme o guia de comparação. CUDA e threads da interface afetam os modelos Python, não a configuração do Ollama.
 
-O painel mostra o registro enquanto os pesos carregam e o progresso conforme as previsões terminam. Ao concluir, **Resultados** lista PNG/PDF, CSV/JSON e o relatório Markdown. Arquivos de uma rodada cancelada permanecem em disco; não são apresentados como avaliação completa. Uma falha antes da primeira previsão aparece no registro.
+## Benchmark e resultados
 
-O dataset portátil serve para validar o fluxo. Não é um conjunto confirmatório de qualidade. Para datasets externos e novos modelos, use o CLI documentado no [guia de comparação](COMPARISON_SETUP.md); o painel usa somente os datasets explicitamente cadastrados em `Studio.manifests`.
+O benchmark usa o runner existente, incluindo aquecimento, alternância e configuração congelada. O dataset portátil tem 22 eventos e rótulos exploratórios. Ao terminar, gera gráficos e métricas. Em **Resultados**, abra os arquivos ou selecione uma tarefa anterior para consultar o estado e as respostas.
 
-## Diagnóstico de erros
+O histórico e as avaliações ficam em `/app/.artifacts` no volume `evaluations`. A aplicação usa um processo Uvicorn e um worker de inferência por vez. Não aumente `--workers`: o gerenciador de tarefas é local ao processo.
 
-- **Serviço indisponível:** verifique `ollama list`. Se necessário, abra o aplicativo Ollama ou o serviço do sistema.
-- **Endereço em uso:** pode já haver um Ollama em execução. Não inicie uma segunda instância sem verificar.
-- **Modelo ausente:** execute `ollama pull clef-flash:9b`.
-- **`ollama ps` vazio:** nenhum modelo está carregado. Não prova falta de RAM ou erro de instalação.
-- **HTTP 500:** veja o erro individual do modelo e o registro. No backend HTTP local sem token, o painel mostra os detalhes devolvidos pelo servidor. Erros remotos continuam sanitizados.
-- **Memória insuficiente:** identifique a mensagem de alocação do servidor. RAM total, RAM disponível, VRAM e configuração do runtime influenciam o carregamento; um erro em outra máquina não diagnostica a sua.
-- **BLIP/Laya não carregam:** instale o backend CPU/GPU e confira os pesos e o submódulo. O painel não instala pesos de modelos Python automaticamente.
+`docker compose restart` reinicia os serviços. Um encerramento normal cancela o worker da API; os arquivos parciais ficam preservados. Não há retomada automática após encerramento forçado. O CLI de benchmark continua disponível para `--resume` com os mesmos dados e configurações.
 
-O diagnóstico consulta `/api/version`, `/api/tags` e `/api/ps` do Ollama local. Não faz inferência e informa isso explicitamente. Para compartilhar um problema, baixe o JSON do teste e copie a mensagem do modelo. Não é necessário reiniciar o Ollama repetidamente.
+## Investigar problemas
 
-## Arquivos e retomada
+1. Abra **Ambiente e modelos** e confira a versão do Ollama, instalação do Clef e memória disponível.
+2. Execute uma avaliação e leia o erro individual do modelo. O JSON preserva essa mensagem.
+3. Consulte `docker compose logs -f web ollama` para os registros do servidor.
 
-Cada tarefa recebe uma pasta nova em `.artifacts/studio/`, fora do Git. Contém pedido, estado, registro e imagem enviada (modo interativo), ou execução congelada e relatório (benchmark). Não publique imagens privadas junto com os registros.
+`ollama ps` no terminal do sistema consulta o Ollama do sistema, não necessariamente o serviço da aplicação. Para consultar a instância do Compose, use `docker compose exec ollama ollama ps`.
 
-Recarregar a página mantém o acompanhamento da última tarefa pelo identificador salvo no navegador. Um fechamento normal do servidor cancela o worker que ele iniciou. Não há retomada automática de workers após encerramento forçado do servidor/sistema; para retomar uma avaliação parcial, use o CLI com `--resume` e as mesmas configurações, conforme o guia de comparação.
+O endpoint `/api/health` verifica a aplicação; não carrega modelos. `/api/diagnostics` consulta o Ollama, mas não prova que a inferência funcionará. Se o erro for de memória, confira os recursos disponibilizados ao Docker Desktop e o uso de GPU. Ter 40 GB no computador não garante que todos estejam disponíveis ao runtime.
 
-## Interfaces anteriores
+## Desenvolvimento e API
 
-`web/server.py` e `web/benchmark_server.py` continuam disponíveis como referência e compatibilidade. O ponto de entrada atual é `python -m vision_bench studio`. O iniciador `iniciar_clef_ollama` já abre o painel atual.
+Os comandos completos estão no README. Use Vite em desenvolvimento e Uvicorn no backend. Em produção local, o FastAPI serve o build React. Documentação REST em `/docs`; schema em `/openapi.json`.
+
+Endpoints principais: `/api/catalog`, `/api/jobs`, `/api/jobs/{id}`, `/api/jobs/{id}/events`, `/api/jobs/{id}/cancel`, `/api/ollama/pull`, `/api/diagnostics` e `/api/artifacts`.
+
+Referências oficiais: [FastAPI em Docker](https://fastapi.tiangolo.com/deployment/docker/), [Ollama em Docker](https://docs.ollama.com/docker) e [API de download do Ollama](https://docs.ollama.com/api/pull).

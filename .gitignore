@@ -19,3 +19,5 @@ eval/figures/scientific_20261026/
 *.egg-info/
 build/
 dist/
+frontend/node_modules/
+frontend/dist/

@@ -1,0 +1,4 @@
+# Optional NVIDIA GPU access; requires Docker GPU support on the host.
+services:
+  ollama:
+    gpus: all

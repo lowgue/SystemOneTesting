@@ -1,3 +1,7 @@
+# Referência histórica: os iniciadores antigos foram substituídos por Docker Compose
+
+Os comandos deste documento descrevem versões anteriores e podem não funcionar na aplicação atual. Use o [README](../README.md) para iniciar a aplicação.
+
 # Guia anterior e exemplos históricos
 
 Este documento preserva os comandos anteriores. Execute-os na raiz do repositório. Para o fluxo atual, use o [README](../README.md) e o [guia do painel](STUDIO.md).

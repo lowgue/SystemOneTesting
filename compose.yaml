@@ -1,0 +1,34 @@
+name: systemone
+services:
+  web:
+    build: .
+    ports:
+      - "127.0.0.1:${VISION_PORT:-7860}:7860"
+    environment:
+      OLLAMA_SYSTEMONE_URL: http://ollama:11434/v1/systemone
+    volumes:
+      - evaluations:/app/.artifacts
+    depends_on:
+      ollama:
+        condition: service_healthy
+    restart: unless-stopped
+    init: true
+    stop_grace_period: 30s
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:7860/api/health',timeout=3)"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+  ollama:
+    image: ollama/ollama:0.40.6
+    volumes:
+      - ollama-models:/root/.ollama
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "ollama", "list"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+volumes:
+  evaluations:
+  ollama-models:

@@ -55,7 +55,7 @@ class SystemOneHTTP(MockAdapter):
         except urllib.error.HTTPError as exc:
             # Detailed local diagnostics are opt-in for the studio. Remote errors
             # stay sanitized; hosted error bodies may contain credentials.
-            if self.diagnostics and urllib.parse.urlsplit(self.url).hostname in {'127.0.0.1','localhost','::1'} and not self.token:
+            if self.diagnostics and urllib.parse.urlsplit(self.url).hostname in {'127.0.0.1','localhost','::1','ollama','host.docker.internal'} and not self.token:
                 detail=exc.read(16384).decode('utf-8',errors='replace')
                 try:detail=str(json.loads(detail).get('error',detail))
                 except (ValueError,AttributeError):pass

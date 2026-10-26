@@ -1,20 +1,23 @@
-# Validação da reorganização
+# Validação da aplicação web
 
-Verificação em 26/10/2026, Linux e Python 3.12. O ambiente Windows não foi executado nesta máquina.
+Verificação em 26/10/2026, Linux, Python 3.12 e Node 24. Windows/macOS não foram executados nesta máquina.
 
 | Verificação | Resultado |
 |---|---|
-| `python -m unittest discover -s tests` | 6 testes passaram |
+| `python -m unittest discover -s tests` | 10 testes passaram, incluindo API FastAPI |
 | `python -m unittest discover -s eval/tests` | 25 testes passaram |
-| `python -m tests.browser_studio` | Chromium headless: passou, sem erros JavaScript |
-| Iniciador Ollama/painel | Abriu o painel, catálogo e diagnóstico responderam |
-| Encerramento com benchmark ativo | Worker cancelado e estado persistido como `cancelled` |
-| Empacotamento Python | Wheel gerado com HTML, CSS e JavaScript |
-| Links locais da documentação | Verificados, sem destinos ausentes |
-| Evidências em `eval/` | Nenhum arquivo histórico modificado nesta reorganização |
+| `npm --prefix frontend run build` | Build React/Vite gerado |
+| `python -m tests.browser_web` | Chromium headless passou, sem erros JavaScript |
+| `docker compose config --quiet` | Configuração válida |
+| `docker compose build web` | Imagem gerada com frontend compilado e API Uvicorn |
+| `docker compose up -d --wait` | Aplicação e Ollama saudáveis; API confirmou Ollama 0.40.6 |
+| Navegador na instalação Docker | Teste simulado e diagnóstico real entre containers passaram |
+| Benchmark no container web | Rodada simulada concluída e gráfico salvo no volume persistente |
+| Links locais | Sem destinos ausentes |
+| Evidências históricas em `eval/` | Não modificadas |
 
-A suíte atual cobre inferência com dois adapters simulados, a continuidade após falha de dependência de um modelo, benchmark com relatório, entrada inválida, concorrência, cancelamento e restrição de arquivos. O navegador verifica upload, comparação, download JSON, benchmark, arquivos, diagnóstico, apresentação do erro 500 e layout de 390 px sem rolagem horizontal.
+O navegador verifica upload, dois modelos simulados, eventos SSE, exportação JSON, benchmark, gráficos, histórico, download do modelo via servidor simulado, diagnóstico, detalhes de erro 500, recuperação da tarefa ao recarregar a página e layout de 390 px sem overflow.
 
-As capturas locais estão em `.artifacts/validation/studio/`: `desktop.png`, `mobile.png`, `results.png` e `error.png`. São evidências de teste da interface com modelos simulados, não resultados científicos de modelos reais.
+As capturas locais ficam em `.artifacts/validation/react-web/`. Os testes não comprovam a qualidade dos modelos reais. O download do modelo foi validado com um servidor HTTP simulado, sem transferir novos pesos Clef nesta etapa.
 
-Não foi comprovada a inferência real do Clef nesta máquina: a tentativa anterior falhou por memória insuficiente. Essa falha não diagnostica outro computador. O diagnóstico do painel não carrega modelos; o teste de imagem é necessário para verificar a inferência no hardware de destino.
+A tentativa anterior de inferência real no host de 7,5 GiB falhou por falta de memória. Isso não diagnostica outro computador. Para verificar a inferência no destino, use a aplicação e consulte os detalhes de erro do serviço Ollama.

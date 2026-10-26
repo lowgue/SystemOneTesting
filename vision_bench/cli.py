@@ -31,7 +31,7 @@ def main(argv=None):
     args=parser.parse_args(argv)
     try:
         if args.command=='studio':
-            from .webui.server import serve
+            from .webui.api import serve
             serve(args.port,args.open);return 0
         if args.command=='doctor':
             from .runner import preflight,environment

@@ -19,7 +19,19 @@ def run(folder):
     status.update(state='running', started_utc=datetime.now(timezone.utc).isoformat())
     write_json(folder / 'status.json', status)
     try:
-        if request['kind'] == 'benchmark':
+        if request['kind'] == 'ollama-pull':
+            import json
+            import urllib.request
+            payload=json.dumps({'model':request['model'],'stream':True}).encode()
+            call=urllib.request.Request(request['origin']+'/api/pull',data=payload,headers={'Content-Type':'application/json'})
+            with urllib.request.urlopen(call,timeout=600) as response:
+                for line in response:
+                    event=json.loads(line)
+                    if event.get('error'):
+                        raise RuntimeError(event['error'])
+                    status.update(phase=event.get('status','Baixando modelo'),download=event)
+                    write_json(folder/'status.json',status)
+        elif request['kind'] == 'benchmark':
             from ..cli import main
             run_path = folder / 'run'
             arguments = ['run', '--config', request['config'], '--contract', request['contract'],

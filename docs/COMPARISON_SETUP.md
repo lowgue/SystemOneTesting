@@ -1,6 +1,6 @@
 # Painel web atual
 
-Para testes interativos, benchmarks com progresso, gráficos e diagnóstico, use `python -m vision_bench studio --open`. O iniciador `iniciar_clef_ollama` também abre esse painel. Veja [STUDIO.md](STUDIO.md) para os fluxos da interface. Os comandos abaixo continuam sendo a referência de comparação por CLI.
+Para testes interativos, benchmarks com progresso, gráficos e diagnóstico, execute `docker compose up -d --build` e abra `http://localhost:7860`. Veja [STUDIO.md](STUDIO.md) para os fluxos da interface. Os comandos abaixo continuam sendo a referência de comparação por CLI.
 
 # Comparação portátil de modelos visuais
 

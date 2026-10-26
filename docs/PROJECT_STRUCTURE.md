@@ -1,55 +1,41 @@
-# Mapa do projeto
-
-## Responsabilidades
-
-| Diretório | Responsabilidade |
-|---|---|
-| `vision_bench/core.py` | Contrato, parser, validação e empacotamento de dados |
-| `vision_bench/adapters.py` | Integração lazy com modelos Python, HTTP e simulação |
-| `vision_bench/runner.py` | Execução reproduzível, aquecimento, recursos e proveniência |
-| `vision_bench/report.py` | Estatísticas, tabelas e gráficos por execução/máquina |
-| `vision_bench/cli.py` | Comandos públicos, incluindo `studio` |
-| `vision_bench/webui/server.py` | HTTP local, catálogo, validação de pedidos e diagnóstico |
-| `vision_bench/webui/jobs.py` | Exclusão mútua, processos, registros e cancelamento |
-| `vision_bench/webui/worker.py` | Inferência isolada e chamada do benchmark/relatório |
-| `vision_bench/webui/static/` | Interface em português, CSS e JavaScript separados |
-| `benchmarks/` | Configuração declarativa e dados portáteis |
-| `scripts/` | Preparação do ambiente e inicialização do Ollama/painel |
-| `tests/` | Integração e navegador da aplicação atual |
-| `eval/` | Pesquisa histórica; scripts e evidências preservados |
-| `web/` | Interfaces anteriores; não é o ponto de entrada atual |
-| `docs/` | Documentação atual e guia anterior |
-| `examples/` | Exemplos manuais de modelos |
-
-Os `test_*.py` da raiz são experimentos manuais anteriores, não a suíte de integração. Não foram movidos nesta reorganização para evitar quebrar comandos e referências antigas. As novas implementações entram no pacote `vision_bench`, e os novos testes da aplicação em `tests/`.
-
-## Fluxo do painel
+# Arquitetura da aplicação
 
 ```mermaid
 flowchart LR
-  UI[Interface no navegador] --> HTTP[Servidor local]
-  HTTP --> Validate[Validação do pedido]
-  Validate --> Jobs[Uma tarefa ativa]
-  Jobs --> Worker[Worker em outro processo]
-  Worker --> Adapters[Adapters compartilhados]
-  Worker --> Runner[Runner de benchmark]
-  Runner --> Report[Relatórios e gráficos]
-  Worker --> Artifacts[.artifacts/studio]
-  HTTP --> Artifacts
-  HTTP --> Ollama[Diagnóstico do Ollama local]
+  React[React / Vite] --> REST[FastAPI / Uvicorn]
+  REST --> SSE[Eventos ao vivo]
+  SSE --> React
+  REST --> Jobs[Gerenciador de tarefas]
+  Jobs --> Worker[Worker isolado]
+  Worker --> Models[Adapters de modelos]
+  Models --> Ollama[Serviço Ollama]
+  Worker --> Runner[Runner e relatórios]
+  Worker --> Data[Volume de avaliações]
+  Ollama --> Weights[Volume de pesos]
 ```
 
-Abrir a página não importa torch/transformers nem inicia inferência. O processo de trabalho carrega apenas os adapters selecionados. O worker usa o parser e o contrato do motor, evitando outra implementação de normalização na interface.
+| Componente | Responsabilidade |
+|---|---|
+| `frontend/src/App.jsx` e `components/` | Navegação, componentes de cada tela e acompanhamento via eventos |
+| `frontend/src/api.js` | Cliente HTTP e exportação JSON |
+| `frontend/vite.config.js` | Build e proxy de desenvolvimento |
+| `vision_bench/webui/api.py` | Aplicação ASGI, REST, eventos, lifecycle e frontend compilado |
+| `vision_bench/webui/services.py` | Catálogo, validação dos pedidos, diagnóstico e artefatos |
+| `vision_bench/webui/jobs.py` | Uma tarefa ativa, processos, estados e cancelamento |
+| `vision_bench/webui/worker.py` | Inferência, benchmark e download do modelo via API Ollama |
+| `vision_bench/adapters.py` | Integrações compartilhadas de modelos |
+| `vision_bench/runner.py` | Avaliação reproduzível e proveniência |
+| `vision_bench/report.py` | Métricas e gráficos |
+| `Dockerfile` | Build Node + runtime Python, sem entrypoint shell |
+| `compose.yaml` | Aplicação, Ollama, healthchecks e volumes |
+| `compose.gpu.yaml` | Acesso opcional à GPU NVIDIA |
+| `tests/` | API ASGI, integração e navegador |
+| `eval/` | Experimentos e evidências científicas anteriores |
 
-O painel usa polling de estado para atualizar resultados a cada modelo e o progresso a cada evento do benchmark. Não há streaming de tokens: os modelos System One retornam decisões estruturadas.
+O processo web não carrega pesos nem roda inferência durante a inicialização. Trabalhos são executados em subprocesso; a API transmite os estados por Server-Sent Events. O banco de tarefas é o conjunto de documentos JSON atômicos no volume persistente. Não é necessário Redis/Postgres para uma instalação local com uma tarefa por vez.
 
-## Extensão
+A aplicação deve usar **um worker Uvicorn**. Escalar o servidor para vários processos exigiria substituir o gerenciador por uma fila e coordenação persistente entre processos; aumentar `--workers` isoladamente não implementa isso.
 
-- Novo modelo: acrescente um ID em um JSON de `benchmarks/configs/`, utilizando um adapter existente ou o protocolo `python:module:Class`. O catálogo do painel lê as configurações válidas.
-- Novo domínio/perguntas: crie contrato versionado e registre em `Studio.contracts`; mudanças de taxonomia são outra tarefa experimental.
-- Novo dataset no painel: manifeste imagens e hashes, depois cadastre em `Studio.manifests`. No CLI, use `--manifest` e `--data-root`.
-- Nova tela: assets ficam em `webui/static/`; operações de inferência continuam no worker.
+As interfaces antigas em `web/` e `vision_bench/webui/static/` são mantidas apenas para referência e testes de compatibilidade. O frontend ativo está em `frontend/`. Os iniciadores `iniciar_clef_ollama.sh`, `.bat` e o script Python associado foram removidos; Docker Compose é o ponto de entrada operacional.
 
-## Evidências
-
-Esta reorganização não move nem recalcula os resultados em `eval/experiments`, `eval/results` e `eval/figures`. Preserva a proveniência das rodadas anteriores. Novas rodadas têm pastas próprias em `.artifacts`, com os arquivos congelados do runner.
+Modelos novos entram em `benchmarks/configs/`. Novos contratos/datasets precisam ser registrados nos serviços. Nenhuma evidência em `eval/experiments`, `eval/results` ou `eval/figures` é movida ou recalculada ao desenvolver a aplicação.
