@@ -47,10 +47,11 @@ def main():
     python = ROOT / '.venv' / ('Scripts/python.exe' if os.name == 'nt' else 'bin/python')
     if not python.exists():
         venv.EnvBuilder(with_pip=True).create(ROOT / '.venv')
-    if subprocess.run([str(python), '-c', 'from PIL import Image'], capture_output=True).returncode:
-        subprocess.run([str(python), '-m', 'pip', 'install', 'Pillow==12.3.0'], check=True)
+    if subprocess.run([str(python), '-c', 'from PIL import Image; import psutil, numpy, matplotlib'], capture_output=True).returncode:
+        subprocess.run([str(python), '-m', 'pip', 'install', '-r', str(ROOT / 'requirements/base.txt')], check=True)
     server = None
     web = None
+    url = None
     try:
         try:
             version = get_json(API + '/api/version')
@@ -74,17 +75,26 @@ def main():
         else:
             raise RuntimeError(f'Porta {args.port} ocupada; use --port com outra porta.')
         env.update(OLLAMA_MODEL=MODEL, OLLAMA_SYSTEMONE_URL=API + '/v1/systemone')
-        web = subprocess.Popen([str(python), str(ROOT / 'web/server.py'), '--model',
-                                'clef-ollama', '--host', '127.0.0.1', '--port', str(args.port)],
+        web = subprocess.Popen([str(python), '-m', 'vision_bench.webui.server', '--port', str(args.port)],
                                cwd=ROOT, env=env)
         status = wait_ready(url + '/api/status', web)
-        if status.get('model') != 'clef-ollama':
+        if status.get('app') != 'vision-studio':
             raise RuntimeError('A porta está sendo usada por outro serviço.')
         print(f'Pronto: {url} — envie uma imagem. Ctrl+C para encerrar.', flush=True)
         if not args.no_browser:
             webbrowser.open(url)
         web.wait()
     finally:
+        # Ask the studio to cancel its owned worker before stopping the process.
+        if web is not None and web.poll() is None and url:
+            try:
+                stop = urllib.request.Request(url + '/api/shutdown', data=b'{}',
+                                              headers={'Content-Type':'application/json'})
+                with urllib.request.urlopen(stop, timeout=3):
+                    pass
+                web.wait(timeout=10)
+            except (OSError, subprocess.TimeoutExpired):
+                pass
         for process in (web, server):
             if process is not None and process.poll() is None:
                 process.terminate()

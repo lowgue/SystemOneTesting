@@ -121,7 +121,7 @@ def run(args):
                     domains=sorted({it['domain'] for it in items}),note='No weights loaded and no HTTP inference sent. Runtime protocol support is checked by an actual smoke run.')
     if args.offline:os.environ['HF_HUB_OFFLINE']='1';os.environ['TRANSFORMERS_OFFLINE']='1'
     os.environ.setdefault('TOKENIZERS_PARALLELISM','false')
-    env=environment();machine=args.machine_id or env['hostname'];code={str(p.relative_to(ROOT)):sha256(p) for p in sorted((ROOT/'vision_bench').glob('*.py'))}
+    env=environment();machine=args.machine_id or env['hostname'];code={str(p.relative_to(ROOT)):sha256(p) for p in sorted((ROOT/'vision_bench').rglob('*.py'))}
     if args.device.startswith('cuda') and any(s['adapter'] in {'blip','laya'} for s in specs):
         import torch
         env['cuda']=dict(torch_runtime=torch.version.cuda,devices=[torch.cuda.get_device_name(i) for i in range(torch.cuda.device_count())])

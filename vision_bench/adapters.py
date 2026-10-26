@@ -38,6 +38,7 @@ class MockAdapter:
 class SystemOneHTTP(MockAdapter):
     def __init__(self,spec,contract,**kwargs):
         self.spec=spec;self.contract=contract;self.url=endpoint(spec)
+        self.diagnostics=kwargs.get('diagnostics',False)
         env=spec.get('token_env');self.token=os.environ.get(env,'') if env else ''
         if env and not self.token:raise ValueError(f'Set {env} for this backend')
     def predict(self,image,domain):
@@ -51,7 +52,20 @@ class SystemOneHTTP(MockAdapter):
         request=urllib.request.Request(self.url,data=json.dumps(payload).encode(),headers=headers,method='POST')
         try:
             with urllib.request.urlopen(request,timeout=self.spec.get('timeout_s',300)) as response:raw=json.load(response)
-        except urllib.error.HTTPError as exc:raise RuntimeError(f'HTTP {exc.code}; verify System One route, model capability and context budget') from None
+        except urllib.error.HTTPError as exc:
+            # Detailed local diagnostics are opt-in for the studio. Remote errors
+            # stay sanitized; hosted error bodies may contain credentials.
+            if self.diagnostics and urllib.parse.urlsplit(self.url).hostname in {'127.0.0.1','localhost','::1'} and not self.token:
+                detail=exc.read(16384).decode('utf-8',errors='replace')
+                try:detail=str(json.loads(detail).get('error',detail))
+                except (ValueError,AttributeError):pass
+                detail=detail[:2000]
+                if any(t in detail.lower() for t in ['insufficient memory','out of memory','not enough memory']):
+                    detail='Memória insuficiente ao carregar o modelo. Detalhes do servidor: '+detail
+                raise RuntimeError(f'HTTP {exc.code}: {detail}') from None
+            raise RuntimeError(f'HTTP {exc.code}; verify System One route, model capability and context budget') from None
+        except urllib.error.URLError as exc:
+            raise RuntimeError('Não foi possível conectar ao servidor. Verifique o serviço Ollama/llama-server e a configuração do endpoint.') from None
         if not isinstance(raw,dict) or raw.get('success') is False:raise RuntimeError('System One backend reported failure')
         raw=raw.get('result',raw)
         if not isinstance(raw,dict) or not isinstance(raw.get('answers'),dict):raise ValueError('Backend returned no answers map')

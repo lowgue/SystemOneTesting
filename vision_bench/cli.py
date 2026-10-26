@@ -26,8 +26,13 @@ def main(argv=None):
     serve=sub.add_parser('clef-server',help='Download pinned weights with hf CLI and start a Clef-capable llama-server')
     serve.add_argument('--weights',type=Path,default=ROOT/'benchmarks/configs/clef_weights.json');serve.add_argument('--llama-server');serve.add_argument('--host',default='127.0.0.1');serve.add_argument('--port',type=int,default=11437)
     serve.add_argument('--context',type=int,default=4096);serve.add_argument('--threads',type=int,default=8);serve.add_argument('--gpu-layers',type=int,default=0);serve.add_argument('--metadata',type=Path,default=ROOT/'.artifacts/clef-server.json');serve.add_argument('--dry-run',action='store_true')
+    studio=sub.add_parser('studio',help='Open the local web studio for images, benchmarks, results and diagnostics')
+    studio.add_argument('--port',type=int,default=7860);studio.add_argument('--open',action='store_true')
     args=parser.parse_args(argv)
     try:
+        if args.command=='studio':
+            from .webui.server import serve
+            serve(args.port,args.open);return 0
         if args.command=='doctor':
             from .runner import preflight,environment
             specs,doc,issues=preflight(load_json(args.config),args.manifest,load_json(args.contract),args.data_root,args.models)

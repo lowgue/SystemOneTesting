@@ -1,3 +1,7 @@
+# Painel web atual
+
+Para testes interativos, benchmarks com progresso, gráficos e diagnóstico, use `python -m vision_bench studio --open`. O iniciador `iniciar_clef_ollama` também abre esse painel. Veja [STUDIO.md](STUDIO.md) para os fluxos da interface. Os comandos abaixo continuam sendo a referência de comparação por CLI.
+
 # Comparação portátil de modelos visuais
 
 Este é o ponto de entrada para novos testes. Os scripts em `eval/run_test_*` e os resultados existentes são evidência histórica; não precisam ser movidos ou editados para adicionar modelos.

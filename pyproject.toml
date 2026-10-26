@@ -14,3 +14,6 @@ vision-bench = "vision_bench.cli:main"
 
 [tool.setuptools.packages.find]
 include = ["vision_bench*"]
+
+[tool.setuptools.package-data]
+"vision_bench.webui" = ["static/*.html", "static/*.css", "static/*.js"]
