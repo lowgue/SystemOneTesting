@@ -1,0 +1,857 @@
+{
+  "status": "passed",
+  "rows": [
+    {
+      "id": "real_audi_1.jpg",
+      "domain": "vehicle",
+      "sha256": "a7202789cca67d07693b7ac4388aac7db979a803576f3b7e53dac984a3f7f0a1",
+      "width": 600,
+      "height": 400,
+      "dhash": "e88a9b3f1d8e96b7"
+    },
+    {
+      "id": "real_dodge_1.jpg",
+      "domain": "vehicle",
+      "sha256": "6acbbcd51594dcedec392eb8d4f210d1ed91e948a38f54a446cf9e669e226915",
+      "width": 640,
+      "height": 480,
+      "dhash": "2b38f8c4878d918c"
+    },
+    {
+      "id": "real_ford_1.jpg",
+      "domain": "vehicle",
+      "sha256": "59c82ea0b41db4c9ef70c63016cebcbed387e12f7b1d037e24b32975cec692f7",
+      "width": 144,
+      "height": 108,
+      "dhash": "3cfcd7076637cfdf"
+    },
+    {
+      "id": "real_dodge_2.jpg",
+      "domain": "vehicle",
+      "sha256": "3e0d2f521365210c0161495b74bbe78882c96f0e2de283032f53ecc34bfcee8a",
+      "width": 640,
+      "height": 480,
+      "dhash": "1b70e4cc8c1f8f99"
+    },
+    {
+      "id": "real_chevrolet_1.jpg",
+      "domain": "vehicle",
+      "sha256": "419fddba2a109bbf7ac13caf6dcfcfd3ce32252810208c1958db76122077ab7d",
+      "width": 640,
+      "height": 480,
+      "dhash": "c1f8e69b82c06000"
+    },
+    {
+      "id": "real_toyota_1.jpg",
+      "domain": "vehicle",
+      "sha256": "dff1bfbc9d829a03411d9efe58cb56e7ac2e4d79889af7a613ba377f05817ad3",
+      "width": 500,
+      "height": 315,
+      "dhash": "f8ae92126f1fd6e6"
+    },
+    {
+      "id": "real_toyota_2.jpg",
+      "domain": "vehicle",
+      "sha256": "e07a571d4d94516daa703ce217f1b7a686ce4fca855768629779a72505739b84",
+      "width": 500,
+      "height": 335,
+      "dhash": "f4c7cf8b03331398"
+    },
+    {
+      "id": "real_audi_2.jpg",
+      "domain": "vehicle",
+      "sha256": "77c5bdbbea8d6d3794813a6f3093216b83d6dcf5246f7b68419cf8d258981a04",
+      "width": 259,
+      "height": 194,
+      "dhash": "ca3f9b9b379d800c"
+    },
+    {
+      "id": "real_chevrolet_2.jpg",
+      "domain": "vehicle",
+      "sha256": "0317d7261c094867660eb8af76edbf2f229ea4be7c2d17eb910632f30973e6e4",
+      "width": 200,
+      "height": 147,
+      "dhash": "2c4f8d17036734a2"
+    },
+    {
+      "id": "real_volkswagen_1.jpg",
+      "domain": "vehicle",
+      "sha256": "b8488005fcf0306f5a18a7aa264f00c13ab559e00ced4b25b2fb0bc4c15ddaff",
+      "width": 1500,
+      "height": 938,
+      "dhash": "2fd1900b0f194b8f"
+    },
+    {
+      "id": "real_bmw_1.jpg",
+      "domain": "vehicle",
+      "sha256": "b8f0059ea53a2d469b3835176d9c41ea602ccba24a3d62a0dd3fc7c0e06d7803",
+      "width": 2100,
+      "height": 1386,
+      "dhash": "00c0d0fcf0100000"
+    },
+    {
+      "id": "real_hyundai_1.jpg",
+      "domain": "vehicle",
+      "sha256": "1046b0abcb0658b92d12c6bdb4ac0b62df3adaf807b9d5d755ed70912324f65d",
+      "width": 628,
+      "height": 417,
+      "dhash": "d0963717490f0707"
+    },
+    {
+      "id": "real_hyundai_2.jpg",
+      "domain": "vehicle",
+      "sha256": "2f63df46dd12a000e93ea9203f524a069df2a67ebd0a808ec673d0623d747259",
+      "width": 500,
+      "height": 375,
+      "dhash": "7064e4cd99830703"
+    },
+    {
+      "id": "real_ford_2.jpg",
+      "domain": "vehicle",
+      "sha256": "15451268e9118c3033f0767fd6fc24879a0cefceee5cdabf5eba62f1784f3aa3",
+      "width": 1258,
+      "height": 816,
+      "dhash": "03e0ccc80e787822"
+    },
+    {
+      "id": "real_bmw_2.jpg",
+      "domain": "vehicle",
+      "sha256": "4f0bcaf030c1b7ec71bbb999a84debce8eee8c3ba0b850ce94e99bdf1e0046dc",
+      "width": 640,
+      "height": 425,
+      "dhash": "000ef6e69ce52c0e"
+    },
+    {
+      "id": "real_volkswagen_2.jpg",
+      "domain": "vehicle",
+      "sha256": "781c3ad4e9a72e2da5040d84ce8cbb86f976ad8c4f5dcbfe08faec6f38c696a1",
+      "width": 640,
+      "height": 452,
+      "dhash": "21e0c42cbc5d0e0e"
+    },
+    {
+      "id": "real_jeep_1.jpg",
+      "domain": "vehicle",
+      "sha256": "45b6992d545a65e77a00f4deb625c641163423ecec8493e1c6ddf6d55943087b",
+      "width": 808,
+      "height": 424,
+      "dhash": "5ce4e6d0c953764c"
+    },
+    {
+      "id": "real_honda_1.jpg",
+      "domain": "vehicle",
+      "sha256": "eadf42393d23a10b395b17009cdbab58769318d3205fb8b2635ad1348cc899e0",
+      "width": 643,
+      "height": 305,
+      "dhash": "bacece367c717224"
+    },
+    {
+      "id": "real_jeep_2.jpg",
+      "domain": "vehicle",
+      "sha256": "62d8080b4fad81ee751f487d2fd693099d04a559215e6f474a98fd635e5f658b",
+      "width": 1500,
+      "height": 920,
+      "dhash": "c887271db060c190"
+    },
+    {
+      "id": "real_honda_2.jpg",
+      "domain": "vehicle",
+      "sha256": "489b8d3a343ae4d98b762ffb7ce3c12432fe2843480cb3b626632fa15111c0c6",
+      "width": 300,
+      "height": 169,
+      "dhash": "0739210f0ec7ffff"
+    },
+    {
+      "id": "vehicle_no_car_landscape.jpg",
+      "domain": "vehicle",
+      "sha256": "483cbf0e5f28194105303c04b8acfefc7bb557450c288c66e6233ea42a1ca23c",
+      "width": 640,
+      "height": 400,
+      "dhash": "0000043270603010"
+    },
+    {
+      "id": "vehicle_no_car_field.jpg",
+      "domain": "vehicle",
+      "sha256": "c4e870d358d64ce677e958c156d0e3fba466993d8e915fc81c5dc64937a9b696",
+      "width": 800,
+      "height": 600,
+      "dhash": "1233b393ebd3f3f3"
+    },
+    {
+      "id": "person_009",
+      "domain": "person",
+      "sha256": "61e6bafea83446d50e6a04a7d8d905f9d950a1463f08967e73e96ae7b1307748",
+      "width": 960,
+      "height": 640,
+      "dhash": "c113949494f4cdcd"
+    },
+    {
+      "id": "person_010",
+      "domain": "person",
+      "sha256": "620fd35a4422f186a9e129917444e4359a5952d4f70911ebb82069e114cfb256",
+      "width": 960,
+      "height": 720,
+      "dhash": "0f0f0f0f2f0e1634"
+    },
+    {
+      "id": "person_013",
+      "domain": "person",
+      "sha256": "55cd33965d4f44cd0ab7876f32de7469e3573c232c2cd27203d781c256d77342",
+      "width": 960,
+      "height": 1663,
+      "dhash": "5ddfcc44234b3f1e"
+    },
+    {
+      "id": "person_017",
+      "domain": "person",
+      "sha256": "c5c6fa343aaff52483633f66ef23d1ff9e46ef2d77804d6835d08d80062038d8",
+      "width": 960,
+      "height": 1346,
+      "dhash": "fcd9dbb0d9e56464"
+    },
+    {
+      "id": "person_018",
+      "domain": "person",
+      "sha256": "15a8e0e94b612a11149bb6c79b2762fbb9f0e5e3bc9fe5591834536a69c0c056",
+      "width": 960,
+      "height": 1472,
+      "dhash": "0fb2c68682b29205"
+    },
+    {
+      "id": "person_021",
+      "domain": "person",
+      "sha256": "909485df51de0e2537be366d17f321cd35308f268de42b06b99c850914b6b164",
+      "width": 960,
+      "height": 1280,
+      "dhash": "3b1fcf6f86eded18"
+    },
+    {
+      "id": "person_023",
+      "domain": "person",
+      "sha256": "d76d6a920d97c8f76f3de4fa4454f8914acce5d233762f1a6006d6e1a27fb18a",
+      "width": 960,
+      "height": 1440,
+      "dhash": "31302c7071793232"
+    },
+    {
+      "id": "person_026",
+      "domain": "person",
+      "sha256": "6aab4cf46b164741f390af38be77804c9572237c6db3c2abba47af61497156ae",
+      "width": 960,
+      "height": 1280,
+      "dhash": "61e0c8c8cccd3cc1"
+    },
+    {
+      "id": "person_028",
+      "domain": "person",
+      "sha256": "f0971d1ce494de535ee708d35ef993e5c9acb4e3dd4f9a2be340afc2ee7f6d43",
+      "width": 960,
+      "height": 673,
+      "dhash": "7776c3c343430b12"
+    },
+    {
+      "id": "person_029",
+      "domain": "person",
+      "sha256": "8670f12b3055716c0aefc39f75dc6818da46edc7b0efaa0f19e4f9297952e7f8",
+      "width": 960,
+      "height": 720,
+      "dhash": "383b3be3e6a70f9c"
+    },
+    {
+      "id": "person_048",
+      "domain": "person",
+      "sha256": "ce36ba42baa92c64bfa114e7237245262fd3a8bdc79c0ce9efa5281c6b5b2d18",
+      "width": 960,
+      "height": 639,
+      "dhash": "1d1da764775c7c18"
+    },
+    {
+      "id": "person_050",
+      "domain": "person",
+      "sha256": "83863d145851cc488adc1f1b054cb38920ffa94dedf7d4dc9d25a1d8714a3fff",
+      "width": 960,
+      "height": 720,
+      "dhash": "8909342d679d77df"
+    },
+    {
+      "id": "person_051",
+      "domain": "person",
+      "sha256": "38b4efc34f71a810ae31ce5e870c636cefee6c8d1f7fa87b2f8cb7c4b21c409c",
+      "width": 960,
+      "height": 640,
+      "dhash": "1f1f1f1f1f1f1f0f"
+    },
+    {
+      "id": "person_052",
+      "domain": "person",
+      "sha256": "57137cd742da0c85521567bd14bb113191a55437387384c38dacf5e9babb6c21",
+      "width": 960,
+      "height": 576,
+      "dhash": "0f0f4c97d29cb4e6"
+    },
+    {
+      "id": "person_054",
+      "domain": "person",
+      "sha256": "9ff4d9b345f61316961d4b8ced71b5f3329ff682dcce7a6673029fc605ee3dc1",
+      "width": 960,
+      "height": 540,
+      "dhash": "1d17154d0e3d0f0f"
+    },
+    {
+      "id": "person_055",
+      "domain": "person",
+      "sha256": "79094b5020561ee379ead06d2f81f1d5d89880c4fc5ce15ebadbf5debb7f2658",
+      "width": 960,
+      "height": 540,
+      "dhash": "aa8f0a0f0f0f1713"
+    },
+    {
+      "id": "person_056",
+      "domain": "person",
+      "sha256": "cf19d3efcc82b325335886bdc9ab4d352d6079afe0c87fe2e3392e9855e3d1ac",
+      "width": 960,
+      "height": 540,
+      "dhash": "10038b179e1f0782"
+    },
+    {
+      "id": "person_059",
+      "domain": "person",
+      "sha256": "c4e870d358d64ce677e958c156d0e3fba466993d8e915fc81c5dc64937a9b696",
+      "width": 800,
+      "height": 600,
+      "dhash": "1233b393ebd3f3f3"
+    },
+    {
+      "id": "person_060",
+      "domain": "person",
+      "sha256": "483cbf0e5f28194105303c04b8acfefc7bb557450c288c66e6233ea42a1ca23c",
+      "width": 640,
+      "height": 400,
+      "dhash": "0000043270603010"
+    }
+  ],
+  "duplicate_groups": [
+    [
+      "vehicle_no_car_landscape.jpg",
+      "person_060"
+    ],
+    [
+      "vehicle_no_car_field.jpg",
+      "person_059"
+    ]
+  ],
+  "near_duplicates_for_review": [
+    {
+      "a": "vehicle_no_car_landscape.jpg",
+      "b": "person_060",
+      "hamming": 0
+    },
+    {
+      "a": "vehicle_no_car_field.jpg",
+      "b": "person_059",
+      "hamming": 0
+    }
+  ],
+  "overlap_with_historical_manifests": {
+    "real_audi_1.jpg": [
+      {
+        "manifest": "test_2_vehicle_type_manifest.json",
+        "id": "type_coupe_01"
+      },
+      {
+        "manifest": "test_7_complete_tags_manifest.json",
+        "id": "real_audi_1.jpg"
+      }
+    ],
+    "real_dodge_1.jpg": [
+      {
+        "manifest": "test_2_vehicle_type_manifest.json",
+        "id": "type_truck_01"
+      },
+      {
+        "manifest": "test_7_complete_tags_manifest.json",
+        "id": "real_dodge_1.jpg"
+      }
+    ],
+    "real_ford_1.jpg": [
+      {
+        "manifest": "test_2_vehicle_type_manifest.json",
+        "id": "type_truck_02"
+      },
+      {
+        "manifest": "test_7_complete_tags_manifest.json",
+        "id": "real_ford_1.jpg"
+      }
+    ],
+    "real_dodge_2.jpg": [
+      {
+        "manifest": "test_2_vehicle_type_manifest.json",
+        "id": "type_suv_01"
+      },
+      {
+        "manifest": "test_7_complete_tags_manifest.json",
+        "id": "real_dodge_2.jpg"
+      }
+    ],
+    "real_chevrolet_1.jpg": [
+      {
+        "manifest": "test_2_vehicle_type_manifest.json",
+        "id": "type_suv_02"
+      },
+      {
+        "manifest": "test_7_complete_tags_manifest.json",
+        "id": "real_chevrolet_1.jpg"
+      }
+    ],
+    "real_toyota_1.jpg": [
+      {
+        "manifest": "test_2_vehicle_type_manifest.json",
+        "id": "type_suv_03"
+      },
+      {
+        "manifest": "test_7_complete_tags_manifest.json",
+        "id": "real_toyota_1.jpg"
+      }
+    ],
+    "real_toyota_2.jpg": [
+      {
+        "manifest": "test_2_vehicle_type_manifest.json",
+        "id": "type_sedan_01"
+      },
+      {
+        "manifest": "test_7_complete_tags_manifest.json",
+        "id": "real_toyota_2.jpg"
+      }
+    ],
+    "real_audi_2.jpg": [
+      {
+        "manifest": "test_2_vehicle_type_manifest.json",
+        "id": "type_coupe_02"
+      },
+      {
+        "manifest": "test_7_complete_tags_manifest.json",
+        "id": "real_audi_2.jpg"
+      }
+    ],
+    "real_chevrolet_2.jpg": [
+      {
+        "manifest": "test_2_vehicle_type_manifest.json",
+        "id": "type_sedan_02"
+      },
+      {
+        "manifest": "test_7_complete_tags_manifest.json",
+        "id": "real_chevrolet_2.jpg"
+      }
+    ],
+    "real_volkswagen_1.jpg": [
+      {
+        "manifest": "test_2_vehicle_type_manifest.json",
+        "id": "type_hatchback_01"
+      },
+      {
+        "manifest": "test_7_complete_tags_manifest.json",
+        "id": "real_volkswagen_1.jpg"
+      }
+    ],
+    "real_bmw_1.jpg": [
+      {
+        "manifest": "test_2_vehicle_type_manifest.json",
+        "id": "type_convertible_01"
+      },
+      {
+        "manifest": "test_7_complete_tags_manifest.json",
+        "id": "real_bmw_1.jpg"
+      }
+    ],
+    "real_hyundai_1.jpg": [
+      {
+        "manifest": "test_2_vehicle_type_manifest.json",
+        "id": "type_sedan_03"
+      },
+      {
+        "manifest": "test_7_complete_tags_manifest.json",
+        "id": "real_hyundai_1.jpg"
+      }
+    ],
+    "real_hyundai_2.jpg": [
+      {
+        "manifest": "test_2_vehicle_type_manifest.json",
+        "id": "type_hatchback_02"
+      },
+      {
+        "manifest": "test_7_complete_tags_manifest.json",
+        "id": "real_hyundai_2.jpg"
+      }
+    ],
+    "real_ford_2.jpg": [
+      {
+        "manifest": "test_2_vehicle_type_manifest.json",
+        "id": "type_suv_04"
+      },
+      {
+        "manifest": "test_7_complete_tags_manifest.json",
+        "id": "real_ford_2.jpg"
+      }
+    ],
+    "real_bmw_2.jpg": [
+      {
+        "manifest": "test_2_vehicle_type_manifest.json",
+        "id": "type_convertible_02"
+      },
+      {
+        "manifest": "test_7_complete_tags_manifest.json",
+        "id": "real_bmw_2.jpg"
+      }
+    ],
+    "real_volkswagen_2.jpg": [
+      {
+        "manifest": "test_2_vehicle_type_manifest.json",
+        "id": "type_hatchback_03"
+      },
+      {
+        "manifest": "test_7_complete_tags_manifest.json",
+        "id": "real_volkswagen_2.jpg"
+      }
+    ],
+    "real_jeep_1.jpg": [
+      {
+        "manifest": "test_2_vehicle_type_manifest.json",
+        "id": "type_suv_05"
+      },
+      {
+        "manifest": "test_7_complete_tags_manifest.json",
+        "id": "real_jeep_1.jpg"
+      }
+    ],
+    "real_honda_1.jpg": [
+      {
+        "manifest": "test_2_vehicle_type_manifest.json",
+        "id": "type_van_01"
+      },
+      {
+        "manifest": "test_7_complete_tags_manifest.json",
+        "id": "real_honda_1.jpg"
+      }
+    ],
+    "real_jeep_2.jpg": [
+      {
+        "manifest": "test_2_vehicle_type_manifest.json",
+        "id": "type_suv_06"
+      },
+      {
+        "manifest": "test_7_complete_tags_manifest.json",
+        "id": "real_jeep_2.jpg"
+      }
+    ],
+    "real_honda_2.jpg": [
+      {
+        "manifest": "test_2_vehicle_type_manifest.json",
+        "id": "type_coupe_03"
+      },
+      {
+        "manifest": "test_7_complete_tags_manifest.json",
+        "id": "real_honda_2.jpg"
+      }
+    ],
+    "vehicle_no_car_landscape.jpg": [
+      {
+        "manifest": "test_1_vehicle_color_manifest.json",
+        "id": "control_unknown_010"
+      },
+      {
+        "manifest": "test_2_vehicle_type_manifest.json",
+        "id": "type_unknown_10"
+      },
+      {
+        "manifest": "test_3_person_attributes_manifest.json",
+        "id": "person_060"
+      },
+      {
+        "manifest": "test_7_complete_tags_manifest.json",
+        "id": "vehicle_no_car_landscape.jpg"
+      },
+      {
+        "manifest": "test_7_complete_tags_manifest.json",
+        "id": "person_060"
+      }
+    ],
+    "vehicle_no_car_field.jpg": [
+      {
+        "manifest": "test_1_vehicle_color_manifest.json",
+        "id": "control_unknown_009"
+      },
+      {
+        "manifest": "test_2_vehicle_type_manifest.json",
+        "id": "type_unknown_09"
+      },
+      {
+        "manifest": "test_3_person_attributes_manifest.json",
+        "id": "person_059"
+      },
+      {
+        "manifest": "test_7_complete_tags_manifest.json",
+        "id": "vehicle_no_car_field.jpg"
+      },
+      {
+        "manifest": "test_7_complete_tags_manifest.json",
+        "id": "person_059"
+      }
+    ],
+    "person_009": [
+      {
+        "manifest": "test_3_person_attributes_manifest.json",
+        "id": "person_009"
+      },
+      {
+        "manifest": "test_7_complete_tags_manifest.json",
+        "id": "person_009"
+      }
+    ],
+    "person_010": [
+      {
+        "manifest": "test_3_person_attributes_manifest.json",
+        "id": "person_010"
+      },
+      {
+        "manifest": "test_7_complete_tags_manifest.json",
+        "id": "person_010"
+      }
+    ],
+    "person_013": [
+      {
+        "manifest": "test_3_person_attributes_manifest.json",
+        "id": "person_013"
+      },
+      {
+        "manifest": "test_7_complete_tags_manifest.json",
+        "id": "person_013"
+      }
+    ],
+    "person_017": [
+      {
+        "manifest": "test_3_person_attributes_manifest.json",
+        "id": "person_017"
+      },
+      {
+        "manifest": "test_7_complete_tags_manifest.json",
+        "id": "person_017"
+      }
+    ],
+    "person_018": [
+      {
+        "manifest": "test_3_person_attributes_manifest.json",
+        "id": "person_018"
+      },
+      {
+        "manifest": "test_7_complete_tags_manifest.json",
+        "id": "person_018"
+      }
+    ],
+    "person_021": [
+      {
+        "manifest": "test_3_person_attributes_manifest.json",
+        "id": "person_021"
+      },
+      {
+        "manifest": "test_7_complete_tags_manifest.json",
+        "id": "person_021"
+      }
+    ],
+    "person_023": [
+      {
+        "manifest": "test_3_person_attributes_manifest.json",
+        "id": "person_023"
+      },
+      {
+        "manifest": "test_7_complete_tags_manifest.json",
+        "id": "person_023"
+      }
+    ],
+    "person_026": [
+      {
+        "manifest": "test_3_person_attributes_manifest.json",
+        "id": "person_026"
+      },
+      {
+        "manifest": "test_7_complete_tags_manifest.json",
+        "id": "person_026"
+      }
+    ],
+    "person_028": [
+      {
+        "manifest": "test_3_person_attributes_manifest.json",
+        "id": "person_028"
+      },
+      {
+        "manifest": "test_7_complete_tags_manifest.json",
+        "id": "person_028"
+      }
+    ],
+    "person_029": [
+      {
+        "manifest": "test_3_person_attributes_manifest.json",
+        "id": "person_029"
+      },
+      {
+        "manifest": "test_7_complete_tags_manifest.json",
+        "id": "person_029"
+      }
+    ],
+    "person_048": [
+      {
+        "manifest": "test_3_person_attributes_manifest.json",
+        "id": "person_048"
+      },
+      {
+        "manifest": "test_7_complete_tags_manifest.json",
+        "id": "person_048"
+      }
+    ],
+    "person_050": [
+      {
+        "manifest": "test_3_person_attributes_manifest.json",
+        "id": "person_050"
+      },
+      {
+        "manifest": "test_7_complete_tags_manifest.json",
+        "id": "person_050"
+      }
+    ],
+    "person_051": [
+      {
+        "manifest": "test_1_vehicle_color_manifest.json",
+        "id": "control_unknown_001"
+      },
+      {
+        "manifest": "test_2_vehicle_type_manifest.json",
+        "id": "type_unknown_01"
+      },
+      {
+        "manifest": "test_3_person_attributes_manifest.json",
+        "id": "person_051"
+      },
+      {
+        "manifest": "test_7_complete_tags_manifest.json",
+        "id": "person_051"
+      }
+    ],
+    "person_052": [
+      {
+        "manifest": "test_1_vehicle_color_manifest.json",
+        "id": "control_unknown_002"
+      },
+      {
+        "manifest": "test_2_vehicle_type_manifest.json",
+        "id": "type_unknown_02"
+      },
+      {
+        "manifest": "test_3_person_attributes_manifest.json",
+        "id": "person_052"
+      },
+      {
+        "manifest": "test_7_complete_tags_manifest.json",
+        "id": "person_052"
+      }
+    ],
+    "person_054": [
+      {
+        "manifest": "test_1_vehicle_color_manifest.json",
+        "id": "control_unknown_004"
+      },
+      {
+        "manifest": "test_2_vehicle_type_manifest.json",
+        "id": "type_unknown_04"
+      },
+      {
+        "manifest": "test_3_person_attributes_manifest.json",
+        "id": "person_054"
+      },
+      {
+        "manifest": "test_7_complete_tags_manifest.json",
+        "id": "person_054"
+      }
+    ],
+    "person_055": [
+      {
+        "manifest": "test_1_vehicle_color_manifest.json",
+        "id": "control_unknown_005"
+      },
+      {
+        "manifest": "test_2_vehicle_type_manifest.json",
+        "id": "type_unknown_05"
+      },
+      {
+        "manifest": "test_3_person_attributes_manifest.json",
+        "id": "person_055"
+      },
+      {
+        "manifest": "test_7_complete_tags_manifest.json",
+        "id": "person_055"
+      }
+    ],
+    "person_056": [
+      {
+        "manifest": "test_1_vehicle_color_manifest.json",
+        "id": "control_unknown_006"
+      },
+      {
+        "manifest": "test_2_vehicle_type_manifest.json",
+        "id": "type_unknown_06"
+      },
+      {
+        "manifest": "test_3_person_attributes_manifest.json",
+        "id": "person_056"
+      },
+      {
+        "manifest": "test_7_complete_tags_manifest.json",
+        "id": "person_056"
+      }
+    ],
+    "person_059": [
+      {
+        "manifest": "test_1_vehicle_color_manifest.json",
+        "id": "control_unknown_009"
+      },
+      {
+        "manifest": "test_2_vehicle_type_manifest.json",
+        "id": "type_unknown_09"
+      },
+      {
+        "manifest": "test_3_person_attributes_manifest.json",
+        "id": "person_059"
+      },
+      {
+        "manifest": "test_7_complete_tags_manifest.json",
+        "id": "vehicle_no_car_field.jpg"
+      },
+      {
+        "manifest": "test_7_complete_tags_manifest.json",
+        "id": "person_059"
+      }
+    ],
+    "person_060": [
+      {
+        "manifest": "test_1_vehicle_color_manifest.json",
+        "id": "control_unknown_010"
+      },
+      {
+        "manifest": "test_2_vehicle_type_manifest.json",
+        "id": "type_unknown_10"
+      },
+      {
+        "manifest": "test_3_person_attributes_manifest.json",
+        "id": "person_060"
+      },
+      {
+        "manifest": "test_7_complete_tags_manifest.json",
+        "id": "vehicle_no_car_landscape.jpg"
+      },
+      {
+        "manifest": "test_7_complete_tags_manifest.json",
+        "id": "person_060"
+      }
+    ]
+  },
+  "historical_missing_files": [],
+  "labels": "Historical agent-reviewed labels, not human-confirmed. No new labels inferred."
+}

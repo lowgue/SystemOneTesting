@@ -1,0 +1,695 @@
+{
+  "performance": {
+    "vehicle": {
+      "laya": {
+        "requests": 40,
+        "errors": 0,
+        "p50_ms": 2252.0231044991306,
+        "p90_ms": 2544.7267436007683,
+        "p95_ms": 2736.3651260492584,
+        "mean_ms": 2300.589383999886,
+        "mean_cpu_s": 18.03816494409996,
+        "process_rss_end_max_mib": 1583.26171875,
+        "valid": 40
+      },
+      "blip": {
+        "requests": 40,
+        "errors": 0,
+        "p50_ms": 3086.0465160003514,
+        "p90_ms": 3558.8408530993547,
+        "p95_ms": 3736.0182556499235,
+        "mean_ms": 3152.9818789000274,
+        "mean_cpu_s": 24.22397077840001,
+        "process_rss_end_max_mib": 2837.5078125,
+        "valid": 35
+      }
+    },
+    "person": {
+      "laya": {
+        "requests": 40,
+        "errors": 0,
+        "p50_ms": 1628.4098030000678,
+        "p90_ms": 1897.2893643003772,
+        "p95_ms": 2082.9913404490067,
+        "mean_ms": 1670.134922924808,
+        "mean_cpu_s": 12.997876301524999,
+        "process_rss_end_max_mib": 1583.18359375,
+        "valid": 40
+      },
+      "blip": {
+        "requests": 40,
+        "errors": 0,
+        "p50_ms": 3111.5830420003476,
+        "p90_ms": 3680.3896768000413,
+        "p95_ms": 3824.392020649793,
+        "mean_ms": 3215.8798478748395,
+        "mean_cpu_s": 24.589164399000012,
+        "process_rss_end_max_mib": 2837.5078125,
+        "valid": 25
+      }
+    },
+    "all": {
+      "laya": {
+        "requests": 80,
+        "errors": 0,
+        "p50_ms": 2067.768327999147,
+        "p90_ms": 2332.935035599076,
+        "p95_ms": 2534.720424800798,
+        "mean_ms": 1985.3621534623471,
+        "mean_cpu_s": 15.51802062281248,
+        "process_rss_end_max_mib": 1583.26171875,
+        "valid": 80
+      },
+      "blip": {
+        "requests": 80,
+        "errors": 0,
+        "p50_ms": 3098.339309000039,
+        "p90_ms": 3609.143474298799,
+        "p95_ms": 3823.6932017997788,
+        "mean_ms": 3184.4308633874334,
+        "mean_cpu_s": 24.40656758870001,
+        "process_rss_end_max_mib": 2837.5078125,
+        "valid": 60
+      }
+    }
+  },
+  "prompts": {
+    "laya": {
+      "descriptive_joint": {
+        "requests": 12,
+        "errors": 0,
+        "p50_ms": 2023.9068675000453,
+        "p90_ms": 2688.359681201109,
+        "p95_ms": 2803.5544916009712,
+        "mean_ms": 2072.910161250244,
+        "mean_cpu_s": 16.183588633833285,
+        "process_rss_end_max_mib": 1708.62890625,
+        "valid": 12,
+        "mean_questions": 4,
+        "truncated_events": 6,
+        "exploratory_positive_exact": 3,
+        "exploratory_positive_n": 8
+      },
+      "descriptive_gated": {
+        "requests": 12,
+        "errors": 0,
+        "p50_ms": 2913.931146500545,
+        "p90_ms": 3704.910793101226,
+        "p95_ms": 3917.9452048008893,
+        "mean_ms": 2689.9745508332367,
+        "mean_cpu_s": 20.996430121333372,
+        "process_rss_end_max_mib": 1711.56640625,
+        "valid": 12,
+        "mean_questions": 3,
+        "truncated_events": 4,
+        "exploratory_positive_exact": 3,
+        "exploratory_positive_n": 8
+      },
+      "short_joint": {
+        "requests": 12,
+        "errors": 0,
+        "p50_ms": 2350.167769500331,
+        "p90_ms": 3080.323199899067,
+        "p95_ms": 3234.5345282998096,
+        "mean_ms": 2326.8046983333384,
+        "mean_cpu_s": 17.610082101833388,
+        "process_rss_end_max_mib": 1711.56640625,
+        "valid": 12,
+        "mean_questions": 4,
+        "truncated_events": 6,
+        "exploratory_positive_exact": 4,
+        "exploratory_positive_n": 8
+      },
+      "short_gated": {
+        "requests": 12,
+        "errors": 0,
+        "p50_ms": 3050.2671674994417,
+        "p90_ms": 4616.164466798909,
+        "p95_ms": 4879.760857649217,
+        "mean_ms": 2910.9522944998694,
+        "mean_cpu_s": 22.225116673666815,
+        "process_rss_end_max_mib": 1550.44921875,
+        "valid": 12,
+        "mean_questions": 3,
+        "truncated_events": 4,
+        "exploratory_positive_exact": 4,
+        "exploratory_positive_n": 8
+      },
+      "visible_joint": {
+        "requests": 12,
+        "errors": 0,
+        "p50_ms": 2047.7172210003118,
+        "p90_ms": 3437.465087400415,
+        "p95_ms": 3646.2893357008397,
+        "mean_ms": 2305.0633519169423,
+        "mean_cpu_s": 17.655813816083537,
+        "process_rss_end_max_mib": 1553.55078125,
+        "valid": 12,
+        "mean_questions": 4,
+        "truncated_events": 6,
+        "exploratory_positive_exact": 2,
+        "exploratory_positive_n": 8
+      },
+      "visible_gated": {
+        "requests": 12,
+        "errors": 0,
+        "p50_ms": 3088.9817999986917,
+        "p90_ms": 4057.443392600544,
+        "p95_ms": 4525.057746100628,
+        "mean_ms": 2834.7171764993013,
+        "mean_cpu_s": 21.962088497916586,
+        "process_rss_end_max_mib": 1553.59375,
+        "valid": 12,
+        "mean_questions": 3,
+        "truncated_events": 4,
+        "exploratory_positive_exact": 2,
+        "exploratory_positive_n": 8
+      }
+    },
+    "blip": {
+      "direct_joint": {
+        "requests": 12,
+        "errors": 0,
+        "p50_ms": 3415.968641999825,
+        "p90_ms": 3874.946357000408,
+        "p95_ms": 4059.653376600181,
+        "mean_ms": 3512.6210340004036,
+        "mean_cpu_s": 27.031443741416524,
+        "process_rss_end_max_mib": 2896.1796875,
+        "valid": 9,
+        "mean_questions": 4,
+        "truncated_events": 0,
+        "exploratory_positive_exact": 2,
+        "exploratory_positive_n": 8
+      },
+      "direct_gated": {
+        "requests": 12,
+        "errors": 0,
+        "p50_ms": 3340.790723500504,
+        "p90_ms": 3562.4493157007237,
+        "p95_ms": 4060.991848300636,
+        "mean_ms": 2682.6176817501923,
+        "mean_cpu_s": 20.893283632833345,
+        "process_rss_end_max_mib": 2833.94921875,
+        "valid": 9,
+        "mean_questions": 3,
+        "truncated_events": 0,
+        "exploratory_positive_exact": 2,
+        "exploratory_positive_n": 8
+      },
+      "specific_joint": {
+        "requests": 12,
+        "errors": 0,
+        "p50_ms": 3401.30467850031,
+        "p90_ms": 4334.004965600252,
+        "p95_ms": 4429.453183700116,
+        "mean_ms": 3591.4477244168665,
+        "mean_cpu_s": 27.351141733999913,
+        "process_rss_end_max_mib": 2781.53515625,
+        "valid": 11,
+        "mean_questions": 4,
+        "truncated_events": 0,
+        "exploratory_positive_exact": 2,
+        "exploratory_positive_n": 8
+      },
+      "specific_gated": {
+        "requests": 12,
+        "errors": 0,
+        "p50_ms": 3316.394269999364,
+        "p90_ms": 3681.5597941993474,
+        "p95_ms": 3981.1255591995173,
+        "mean_ms": 2662.017092749617,
+        "mean_cpu_s": 20.754377895750093,
+        "process_rss_end_max_mib": 2789.79296875,
+        "valid": 11,
+        "mean_questions": 3,
+        "truncated_events": 0,
+        "exploratory_positive_exact": 2,
+        "exploratory_positive_n": 8
+      },
+      "uncertain_joint": {
+        "requests": 12,
+        "errors": 0,
+        "p50_ms": 3530.3317845000493,
+        "p90_ms": 4388.723717598441,
+        "p95_ms": 5093.226995249096,
+        "mean_ms": 3860.3377480831114,
+        "mean_cpu_s": 28.864456342999876,
+        "process_rss_end_max_mib": 2738.5546875,
+        "valid": 8,
+        "mean_questions": 4,
+        "truncated_events": 0,
+        "exploratory_positive_exact": 3,
+        "exploratory_positive_n": 8
+      },
+      "uncertain_gated": {
+        "requests": 12,
+        "errors": 0,
+        "p50_ms": 3339.0760675010824,
+        "p90_ms": 3564.1812822001157,
+        "p95_ms": 4281.595556650244,
+        "mean_ms": 2722.177077916816,
+        "mean_cpu_s": 21.108429864666732,
+        "process_rss_end_max_mib": 2777.09765625,
+        "valid": 8,
+        "mean_questions": 3,
+        "truncated_events": 0,
+        "exploratory_positive_exact": 3,
+        "exploratory_positive_n": 8
+      }
+    }
+  },
+  "robustness": {
+    "laya": {
+      "resize64": {
+        "images": 12,
+        "changed_bundles": 6,
+        "changed_fields": 9,
+        "valid": 12
+      },
+      "jpeg20": {
+        "images": 12,
+        "changed_bundles": 2,
+        "changed_fields": 2,
+        "valid": 12
+      },
+      "dark50": {
+        "images": 12,
+        "changed_bundles": 5,
+        "changed_fields": 5,
+        "valid": 12
+      },
+      "blur2": {
+        "images": 12,
+        "changed_bundles": 5,
+        "changed_fields": 6,
+        "valid": 12
+      }
+    },
+    "blip": {
+      "resize64": {
+        "images": 12,
+        "changed_bundles": 5,
+        "changed_fields": 6,
+        "valid": 8
+      },
+      "jpeg20": {
+        "images": 12,
+        "changed_bundles": 4,
+        "changed_fields": 5,
+        "valid": 9
+      },
+      "dark50": {
+        "images": 12,
+        "changed_bundles": 1,
+        "changed_fields": 1,
+        "valid": 10
+      },
+      "blur2": {
+        "images": 12,
+        "changed_bundles": 3,
+        "changed_fields": 3,
+        "valid": 9
+      }
+    }
+  },
+  "synthetic": {
+    "laya": {
+      "cases": 8,
+      "false_yes": 4,
+      "invalid": 0
+    },
+    "blip": {
+      "cases": 8,
+      "false_yes": 0,
+      "invalid": 0
+    }
+  },
+  "integrity": {
+    "records": 452,
+    "unique_request_keys": 452,
+    "errors": 0,
+    "render_violations": [],
+    "queue_prediction_mismatches": [],
+    "laya_typed_answers": 868,
+    "probability_violations": []
+  },
+  "paired_latency": {
+    "method": "3000 paired resamples of image IDs within domain and measurement blocks; convenience sample, no population generalization.",
+    "blip_minus_laya_median_ms": 1030.570981000892,
+    "difference_ci95_ms": [
+      858.7708903489329,
+      1211.340911137745
+    ],
+    "blip_over_laya_median_ratio": 1.498397701060695,
+    "ratio_ci95": [
+      1.3934002763708515,
+      1.6337363157364981
+    ]
+  },
+  "loads": {
+    "laya": {
+      "observations": 6,
+      "median_load_s": 2.166755078499591,
+      "median_warmup_s": 3.8867235835004976
+    },
+    "blip": {
+      "observations": 6,
+      "median_load_s": 0.3623189435002132,
+      "median_warmup_s": 7.177586836500268
+    }
+  },
+  "stability": {
+    "laya": {
+      "images": 16,
+      "stable": 16
+    },
+    "blip": {
+      "images": 16,
+      "stable": 16
+    }
+  },
+  "truncation": {
+    "occurrences_by_field": {
+      "make": 107
+    },
+    "instruction_cut_by_field": {
+      "make": 107
+    },
+    "examples": [
+      {
+        "request_key": "performance/0/laya/real_toyota_1.jpg",
+        "field": "make",
+        "truncation": {
+          "options": [
+            "mercedes_benz",
+            "aston_martin",
+            "rolls_royce",
+            "lamborghini",
+            "am_general",
+            "land_rover",
+            "mitsubishi",
+            "volkswagen",
+            "chevrolet",
+            "cadillac",
+            "chrysler",
+            "infiniti",
+            "plymouth",
+            "bentley",
+            "bugatti",
+            "ferrari",
+            "hyundai",
+            "lincoln",
+            "maybach",
+            "mclaren",
+            "porsche",
+            "daewoo",
+            "fisker",
+            "hummer",
+            "jaguar",
+            "nissan",
+            "spyker",
+            "suzuki",
+            "toyota",
+            "acura",
+            "buick",
+            "dodge",
+            "honda",
+            "isuzu",
+            "mazda",
+            "scion",
+            "tesla",
+            "volvo",
+            "audi",
+            "fiat",
+            "ford",
+            "jeep",
+            "bmw",
+            "gmc",
+            "unknown"
+          ],
+          "indistinguishable": [],
+          "instructions": true,
+          "instructions_tokens_dropped": 7,
+          "state_tokens_dropped": 0
+        }
+      },
+      {
+        "request_key": "performance/0/laya/real_chevrolet_1.jpg",
+        "field": "make",
+        "truncation": {
+          "options": [
+            "mercedes_benz",
+            "aston_martin",
+            "rolls_royce",
+            "lamborghini",
+            "am_general",
+            "land_rover",
+            "mitsubishi",
+            "volkswagen",
+            "chevrolet",
+            "cadillac",
+            "chrysler",
+            "infiniti",
+            "plymouth",
+            "bentley",
+            "bugatti",
+            "ferrari",
+            "hyundai",
+            "lincoln",
+            "maybach",
+            "mclaren",
+            "porsche",
+            "daewoo",
+            "fisker",
+            "hummer",
+            "jaguar",
+            "nissan",
+            "spyker",
+            "suzuki",
+            "toyota",
+            "acura",
+            "buick",
+            "dodge",
+            "honda",
+            "isuzu",
+            "mazda",
+            "scion",
+            "tesla",
+            "volvo",
+            "audi",
+            "fiat",
+            "ford",
+            "jeep",
+            "bmw",
+            "gmc",
+            "unknown"
+          ],
+          "indistinguishable": [],
+          "instructions": true,
+          "instructions_tokens_dropped": 7,
+          "state_tokens_dropped": 0
+        }
+      },
+      {
+        "request_key": "performance/0/laya/real_audi_1.jpg",
+        "field": "make",
+        "truncation": {
+          "options": [
+            "mercedes_benz",
+            "aston_martin",
+            "rolls_royce",
+            "lamborghini",
+            "am_general",
+            "land_rover",
+            "mitsubishi",
+            "volkswagen",
+            "chevrolet",
+            "cadillac",
+            "chrysler",
+            "infiniti",
+            "plymouth",
+            "bentley",
+            "bugatti",
+            "ferrari",
+            "hyundai",
+            "lincoln",
+            "maybach",
+            "mclaren",
+            "porsche",
+            "daewoo",
+            "fisker",
+            "hummer",
+            "jaguar",
+            "nissan",
+            "spyker",
+            "suzuki",
+            "toyota",
+            "acura",
+            "buick",
+            "dodge",
+            "honda",
+            "isuzu",
+            "mazda",
+            "scion",
+            "tesla",
+            "volvo",
+            "audi",
+            "fiat",
+            "ford",
+            "jeep",
+            "bmw",
+            "gmc",
+            "unknown"
+          ],
+          "indistinguishable": [],
+          "instructions": true,
+          "instructions_tokens_dropped": 7,
+          "state_tokens_dropped": 0
+        }
+      }
+    ]
+  },
+  "queue": [
+    {
+      "model": "laya",
+      "concurrency": 1,
+      "requests": 6,
+      "elapsed_s": 13.32537178199891,
+      "cpu_s": 66.16703428099936,
+      "throughput_per_s": 0.45026886289997026,
+      "partial_resume": false
+    },
+    {
+      "model": "laya",
+      "concurrency": 2,
+      "requests": 6,
+      "elapsed_s": 11.784811923000234,
+      "cpu_s": 62.62191685800008,
+      "throughput_per_s": 0.5091298901673512,
+      "partial_resume": false
+    },
+    {
+      "model": "laya",
+      "concurrency": 4,
+      "requests": 6,
+      "elapsed_s": 11.795339246000367,
+      "cpu_s": 61.76417804999983,
+      "throughput_per_s": 0.5086754924861119,
+      "partial_resume": false
+    },
+    {
+      "model": "blip",
+      "concurrency": 1,
+      "requests": 6,
+      "elapsed_s": 20.16557472200111,
+      "cpu_s": 105.78136968099898,
+      "throughput_per_s": 0.29753677158796077,
+      "partial_resume": false
+    },
+    {
+      "model": "blip",
+      "concurrency": 2,
+      "requests": 6,
+      "elapsed_s": 19.942082413999742,
+      "cpu_s": 106.51834719699946,
+      "throughput_per_s": 0.30087128693179405,
+      "partial_resume": false
+    },
+    {
+      "model": "blip",
+      "concurrency": 4,
+      "requests": 6,
+      "elapsed_s": 18.62838736499907,
+      "cpu_s": 103.15061065000009,
+      "throughput_per_s": 0.32208907204031073,
+      "partial_resume": false
+    }
+  ],
+  "parser_historical_differences": [
+    {
+      "id": "real_audi_1.jpg",
+      "field": "body",
+      "raw": "audi",
+      "old": "unknown",
+      "new": "parse_error"
+    },
+    {
+      "id": "real_ford_2.jpg",
+      "field": "body",
+      "raw": "pick up",
+      "old": "unknown",
+      "new": "parse_error"
+    },
+    {
+      "id": "person_009",
+      "field": "carrying",
+      "raw": "helmet",
+      "old": "invalid",
+      "new": "parse_error"
+    },
+    {
+      "id": "person_017",
+      "field": "carrying",
+      "raw": "child",
+      "old": "invalid",
+      "new": "parse_error"
+    },
+    {
+      "id": "person_018",
+      "field": "carrying",
+      "raw": "umbrella",
+      "old": "invalid",
+      "new": "parse_error"
+    },
+    {
+      "id": "person_023",
+      "field": "clothing",
+      "raw": "backpack",
+      "old": "invalid",
+      "new": "parse_error"
+    },
+    {
+      "id": "person_029",
+      "field": "carrying",
+      "raw": "garbage",
+      "old": "invalid",
+      "new": "parse_error"
+    },
+    {
+      "id": "person_050",
+      "field": "carrying",
+      "raw": "frisbee",
+      "old": "invalid",
+      "new": "parse_error"
+    },
+    {
+      "id": "person_052",
+      "field": "carrying",
+      "raw": "basket",
+      "old": "invalid",
+      "new": "parse_error"
+    },
+    {
+      "id": "person_055",
+      "field": "clothing",
+      "raw": "nothing",
+      "old": "invalid",
+      "new": "parse_error"
+    },
+    {
+      "id": "person_056",
+      "field": "clothing",
+      "raw": "no person",
+      "old": "invalid",
+      "new": "parse_error"
+    },
+    {
+      "id": "person_060",
+      "field": "carrying",
+      "raw": "surfboard",
+      "old": "invalid",
+      "new": "parse_error"
+    }
+  ]
+}

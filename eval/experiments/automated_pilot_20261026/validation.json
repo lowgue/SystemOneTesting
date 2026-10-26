@@ -1,0 +1,19 @@
+{
+  "status": "passed",
+  "main_records": 452,
+  "budget_records": 12,
+  "total_model_events": 464,
+  "power_scenarios": 48,
+  "simulations": 960000,
+  "stage_counts": {
+    "performance": 160,
+    "prompts": 144,
+    "robustness": 96,
+    "synthetic": 16,
+    "queue": 36
+  },
+  "frozen_source_hashes_match": true,
+  "report_links_valid": true,
+  "svg_valid": true,
+  "unit_tests_passed": 8
+}

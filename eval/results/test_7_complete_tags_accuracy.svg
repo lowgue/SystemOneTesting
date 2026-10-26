@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="340" viewBox="0 0 800 340">
+<rect width="800" height="340" fill="white"/>
+<text x="24" y="30" font-family="sans-serif" font-size="20">Quatro atributos corretos por imagem (1ª repetição)</text>
+<text x="20" y="77" font-family="sans-serif" font-size="14">vehicle / laya</text>
+<rect x="160" y="60" width="159.0909090909091" height="23" fill="#2563eb"/>
+<text x="329.0909090909091" y="77" font-family="sans-serif" font-size="14">31.8% (7/22)</text>
+<text x="20" y="107" font-family="sans-serif" font-size="14">vehicle / blip</text>
+<rect x="160" y="90" width="204.54545454545453" height="23" fill="#d97706"/>
+<text x="374.5454545454545" y="107" font-family="sans-serif" font-size="14">40.9% (9/22)</text>
+<text x="20" y="162" font-family="sans-serif" font-size="14">person / laya</text>
+<rect x="160" y="145" width="236.84210526315792" height="23" fill="#2563eb"/>
+<text x="406.8421052631579" y="162" font-family="sans-serif" font-size="14">47.4% (9/19)</text>
+<text x="20" y="192" font-family="sans-serif" font-size="14">person / blip</text>
+<rect x="160" y="175" width="236.84210526315792" height="23" fill="#d97706"/>
+<text x="406.8421052631579" y="192" font-family="sans-serif" font-size="14">47.4% (9/19)</text>
+<text x="20" y="247" font-family="sans-serif" font-size="14">all / laya</text>
+<rect x="160" y="230" width="195.1219512195122" height="23" fill="#2563eb"/>
+<text x="365.1219512195122" y="247" font-family="sans-serif" font-size="14">39.0% (16/41)</text>
+<text x="20" y="277" font-family="sans-serif" font-size="14">all / blip</text>
+<rect x="160" y="260" width="219.51219512195124" height="23" fill="#d97706"/>
+<text x="389.5121951219512" y="277" font-family="sans-serif" font-size="14">43.9% (18/41)</text>
+</svg>

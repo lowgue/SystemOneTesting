@@ -1,0 +1,62 @@
+{
+  "vehicle": {
+    "laya": {
+      "images": 22,
+      "exact": 7,
+      "positive_images": 20,
+      "positive_exact": 5,
+      "fields_correct": 66,
+      "median_ms": 2361.0000624994427,
+      "p90_ms": 2553.982025500318
+    },
+    "blip": {
+      "images": 22,
+      "exact": 9,
+      "positive_images": 20,
+      "positive_exact": 7,
+      "fields_correct": 70,
+      "median_ms": 3193.36746900035,
+      "p90_ms": 3817.538300999786
+    }
+  },
+  "person": {
+    "laya": {
+      "images": 19,
+      "exact": 9,
+      "positive_images": 12,
+      "positive_exact": 2,
+      "fields_correct": 58,
+      "median_ms": 1657.9960630006099,
+      "p90_ms": 2161.1677892000444
+    },
+    "blip": {
+      "images": 19,
+      "exact": 9,
+      "positive_images": 12,
+      "positive_exact": 2,
+      "fields_correct": 61,
+      "median_ms": 3209.081766000054,
+      "p90_ms": 3914.4879508003214
+    }
+  },
+  "all": {
+    "laya": {
+      "images": 41,
+      "exact": 16,
+      "positive_images": 32,
+      "positive_exact": 7,
+      "fields_correct": 124,
+      "median_ms": 2299.3037500000355,
+      "p90_ms": 2445.7554985996467
+    },
+    "blip": {
+      "images": 41,
+      "exact": 18,
+      "positive_images": 32,
+      "positive_exact": 9,
+      "fields_correct": 131,
+      "median_ms": 3198.95462400018,
+      "p90_ms": 3877.245650199984
+    }
+  }
+}

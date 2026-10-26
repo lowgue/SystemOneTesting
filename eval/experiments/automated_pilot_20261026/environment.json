@@ -1,0 +1,63 @@
+{
+  "started_utc": "2026-10-26T14:42:57.211331+00:00",
+  "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39",
+  "cpu": "x86_64",
+  "cpu_model": "12th Gen Intel(R) Core(TM) i5-12450H",
+  "logical_cpus": 12,
+  "physical_cpus": 8,
+  "ram_bytes": 8010829824,
+  "available_at_start_bytes": 3710033920,
+  "packages": {
+    "torch": "2.14.1+cpu",
+    "transformers": "5.20.2",
+    "pillow": "12.3.0",
+    "numpy": "2.5.2",
+    "psutil": "7.2.2",
+    "huggingface-hub": "2.2.0"
+  },
+  "energy_sensors": [],
+  "energy_measured": false,
+  "timing": "Decode, transform, processor, inference, parser, absence gate and render included; model loading, warm-up and JSON writes excluded.",
+  "concurrent_processes": [
+    {
+      "name": "brave",
+      "rss": 288407552
+    },
+    {
+      "name": "brave",
+      "rss": 230592512
+    },
+    {
+      "name": "brave",
+      "rss": 403472384
+    },
+    {
+      "name": "brave",
+      "rss": 523751424
+    },
+    {
+      "name": "brave",
+      "rss": 227315712
+    },
+    {
+      "name": "orca-ide",
+      "rss": 240607232
+    },
+    {
+      "name": "orca-ide",
+      "rss": 265908224
+    },
+    {
+      "name": "codex",
+      "rss": 210481152
+    },
+    {
+      "name": "agy",
+      "rss": 251236352
+    },
+    {
+      "name": "python",
+      "rss": 246796288
+    }
+  ]
+}

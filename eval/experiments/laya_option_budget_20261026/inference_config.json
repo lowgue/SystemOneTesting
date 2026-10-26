@@ -1,0 +1,124 @@
+{
+  "model_revision": "f2fe3c12cb6d04c59d8a190250bf3fb40fc828dc",
+  "budgets": [
+    256,
+    512
+  ],
+  "ids": [
+    "real_audi_1.jpg",
+    "real_dodge_1.jpg",
+    "real_ford_1.jpg",
+    "real_dodge_2.jpg",
+    "vehicle_no_car_landscape.jpg",
+    "vehicle_no_car_field.jpg"
+  ],
+  "configuration": [
+    {
+      "presence": {
+        "type": "choice",
+        "instructions": "Is there a vehicle in the image?",
+        "criteria": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      },
+      "make": {
+        "type": "choice",
+        "instructions": "What brand is the vehicle?",
+        "criteria": {
+          "mercedes_benz": "Mercedes-Benz",
+          "aston_martin": "Aston Martin",
+          "rolls_royce": "Rolls-Royce",
+          "lamborghini": "Lamborghini",
+          "am_general": "AM General",
+          "land_rover": "Land Rover",
+          "mitsubishi": "Mitsubishi",
+          "volkswagen": "Volkswagen",
+          "chevrolet": "Chevrolet",
+          "cadillac": "Cadillac",
+          "chrysler": "Chrysler",
+          "infiniti": "Infiniti",
+          "plymouth": "Plymouth",
+          "bentley": "Bentley",
+          "bugatti": "Bugatti",
+          "ferrari": "Ferrari",
+          "hyundai": "Hyundai",
+          "lincoln": "Lincoln",
+          "maybach": "Maybach",
+          "mclaren": "McLaren",
+          "porsche": "Porsche",
+          "daewoo": "Daewoo",
+          "fisker": "Fisker",
+          "hummer": "HUMMER",
+          "jaguar": "Jaguar",
+          "nissan": "Nissan",
+          "spyker": "Spyker",
+          "suzuki": "Suzuki",
+          "toyota": "Toyota",
+          "acura": "Acura",
+          "buick": "Buick",
+          "dodge": "Dodge",
+          "eagle": "Eagle",
+          "honda": "Honda",
+          "isuzu": "Isuzu",
+          "mazda": "Mazda",
+          "scion": "Scion",
+          "smart": "smart",
+          "tesla": "Tesla",
+          "volvo": "Volvo",
+          "audi": "Audi",
+          "fiat": "FIAT",
+          "ford": "Ford",
+          "jeep": "Jeep",
+          "bmw": "BMW",
+          "gmc": "GMC",
+          "geo": "Geo",
+          "ram": "Ram",
+          "unknown": "Unknown or no car"
+        }
+      },
+      "color": {
+        "type": "choice",
+        "instructions": "What is the predominant color of this vehicle?",
+        "criteria": {
+          "black": "Black",
+          "white": "White",
+          "gray_silver": "Gray or silver",
+          "red": "Red",
+          "blue": "Blue",
+          "green": "Green",
+          "yellow": "Yellow",
+          "orange": "Orange",
+          "brown": "Brown",
+          "purple": "Purple",
+          "pink": "Pink",
+          "unknown": "No car or color not identifiable / not visible"
+        }
+      },
+      "body": {
+        "type": "choice",
+        "instructions": "What body style is the vehicle?",
+        "criteria": {
+          "sedan": "Sedan",
+          "suv": "SUV",
+          "hatch": "Hatchback",
+          "truck": "Pickup truck",
+          "van": "Van or minivan",
+          "coupe": "Coupe",
+          "convertible": "Convertible",
+          "wagon": "Wagon",
+          "other": "Another body style",
+          "unknown": "No car or not identifiable"
+        }
+      }
+    },
+    {
+      "presence": "Is there a vehicle in the image?",
+      "make": "What brand is the vehicle?",
+      "color": "What is the predominant color of this vehicle?",
+      "body": "What body style is the vehicle?"
+    },
+    "joint"
+  ],
+  "purpose": "Input integrity, latency and answer changes only; no semantic correctness scoring."
+}

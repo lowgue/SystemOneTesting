@@ -1,0 +1,6 @@
+{"model": "laya", "concurrency": 1, "requests": 6, "elapsed_s": 13.32537178199891, "cpu_s": 66.16703428099936, "throughput_per_s": 0.45026886289997026, "partial_resume": false}
+{"model": "laya", "concurrency": 2, "requests": 6, "elapsed_s": 11.784811923000234, "cpu_s": 62.62191685800008, "throughput_per_s": 0.5091298901673512, "partial_resume": false}
+{"model": "laya", "concurrency": 4, "requests": 6, "elapsed_s": 11.795339246000367, "cpu_s": 61.76417804999983, "throughput_per_s": 0.5086754924861119, "partial_resume": false}
+{"model": "blip", "concurrency": 1, "requests": 6, "elapsed_s": 20.16557472200111, "cpu_s": 105.78136968099898, "throughput_per_s": 0.29753677158796077, "partial_resume": false}
+{"model": "blip", "concurrency": 2, "requests": 6, "elapsed_s": 19.942082413999742, "cpu_s": 106.51834719699946, "throughput_per_s": 0.30087128693179405, "partial_resume": false}
+{"model": "blip", "concurrency": 4, "requests": 6, "elapsed_s": 18.62838736499907, "cpu_s": 103.15061065000009, "throughput_per_s": 0.32208907204031073, "partial_resume": false}
