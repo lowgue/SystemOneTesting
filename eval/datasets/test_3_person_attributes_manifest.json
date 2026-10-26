@@ -1,0 +1,1021 @@
+{
+  "benchmark": "Test 3: Visible Person Attributes (Atributos Visíveis de Pessoas)",
+  "attributes": {
+    "helmet": {
+      "question_pt": "A pessoa principal está usando capacete?",
+      "question_en": "Is the prominent person wearing a helmet or hard hat?",
+      "taxonomy": [
+        "yes",
+        "no",
+        "not_visible"
+      ]
+    },
+    "carrying": {
+      "question_pt": "A pessoa principal está carregando algum objeto visível?",
+      "question_en": "Is the prominent person carrying a bag, backpack, or visible object?",
+      "taxonomy": [
+        "backpack",
+        "bag_or_box",
+        "none",
+        "not_visible"
+      ]
+    },
+    "clothing": {
+      "question_pt": "Qual tipo de vestimenta externa superior está visível na pessoa principal?",
+      "question_en": "What upper-body clothing is the prominent person wearing?",
+      "taxonomy": [
+        "safety_vest",
+        "jacket_coat",
+        "shirt_tshirt",
+        "not_visible"
+      ]
+    }
+  },
+  "eval_count": 60,
+  "items": [
+    {
+      "id": "person_001",
+      "filename": "helmet_yes_01.jpg",
+      "rel_path": "eval/images/person_attributes/helmet_yes_01.jpg",
+      "split": "eval",
+      "source": "wikimedia_commons",
+      "title": "File:1961 Cooper T53 Donington Park 2023 01.jpg",
+      "expected": {
+        "helmet": "yes",
+        "carrying": "none",
+        "clothing": "jacket_coat"
+      },
+      "difficult": true,
+      "difficulty_tags": [
+        "partial_or_close_crop"
+      ]
+    },
+    {
+      "id": "person_002",
+      "filename": "helmet_yes_02.jpg",
+      "rel_path": "eval/images/person_attributes/helmet_yes_02.jpg",
+      "split": "eval",
+      "source": "wikimedia_commons",
+      "title": "File:Agile Spirit 19- Close quarter battle range (5642844).jpg",
+      "expected": {
+        "helmet": "yes",
+        "carrying": "none",
+        "clothing": "jacket_coat"
+      },
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_people"
+      ]
+    },
+    {
+      "id": "person_003",
+      "filename": "helmet_yes_03.jpg",
+      "rel_path": "eval/images/person_attributes/helmet_yes_03.jpg",
+      "split": "eval",
+      "source": "wikimedia_commons",
+      "title": "File:Brest2012 - Pompier.jpg",
+      "expected": {
+        "helmet": "yes",
+        "carrying": "none",
+        "clothing": "jacket_coat"
+      },
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_people"
+      ]
+    },
+    {
+      "id": "person_004",
+      "filename": "helmet_yes_04.jpg",
+      "rel_path": "eval/images/person_attributes/helmet_yes_04.jpg",
+      "split": "eval",
+      "source": "wikimedia_commons",
+      "title": "File:Children on scooters.jpg",
+      "expected": {
+        "helmet": "yes",
+        "carrying": "none",
+        "clothing": "jacket_coat"
+      },
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_people"
+      ]
+    },
+    {
+      "id": "person_005",
+      "filename": "helmet_yes_05.jpg",
+      "rel_path": "eval/images/person_attributes/helmet_yes_05.jpg",
+      "split": "eval",
+      "source": "wikimedia_commons",
+      "title": "File:CIMON Co limited Factory.jpg",
+      "expected": {
+        "helmet": "yes",
+        "carrying": "none",
+        "clothing": "jacket_coat"
+      },
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_people"
+      ]
+    },
+    {
+      "id": "person_006",
+      "filename": "helmet_yes_06.jpg",
+      "rel_path": "eval/images/person_attributes/helmet_yes_06.jpg",
+      "split": "eval",
+      "source": "wikimedia_commons",
+      "title": "File:Developers in the mine.jpg",
+      "expected": {
+        "helmet": "yes",
+        "carrying": "none",
+        "clothing": "jacket_coat"
+      },
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_people"
+      ]
+    },
+    {
+      "id": "person_007",
+      "filename": "helmet_yes_07.jpg",
+      "rel_path": "eval/images/person_attributes/helmet_yes_07.jpg",
+      "split": "eval",
+      "source": "wikimedia_commons",
+      "title": "File:Fotothek df roe-neg 0006453 014 Junge beim Rollerrennen.jpg",
+      "expected": {
+        "helmet": "yes",
+        "carrying": "none",
+        "clothing": "jacket_coat"
+      },
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_people"
+      ]
+    },
+    {
+      "id": "person_008",
+      "filename": "helmet_yes_08.jpg",
+      "rel_path": "eval/images/person_attributes/helmet_yes_08.jpg",
+      "split": "eval",
+      "source": "wikimedia_commons",
+      "title": "File:Helmen, Bestanddeelnr 050-0509.jpg",
+      "expected": {
+        "helmet": "yes",
+        "carrying": "none",
+        "clothing": "jacket_coat"
+      },
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_people"
+      ]
+    },
+    {
+      "id": "person_009",
+      "filename": "helmet_yes_09.jpg",
+      "rel_path": "eval/images/person_attributes/helmet_yes_09.jpg",
+      "split": "eval",
+      "source": "wikimedia_commons",
+      "title": "File:Il guerriero.jpg",
+      "expected": {
+        "helmet": "yes",
+        "carrying": "none",
+        "clothing": "jacket_coat"
+      },
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_people"
+      ]
+    },
+    {
+      "id": "person_010",
+      "filename": "helmet_yes_10.jpg",
+      "rel_path": "eval/images/person_attributes/helmet_yes_10.jpg",
+      "split": "eval",
+      "source": "wikimedia_commons",
+      "title": "File:Joshuacheney.jpg",
+      "expected": {
+        "helmet": "yes",
+        "carrying": "none",
+        "clothing": "jacket_coat"
+      },
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "person_011",
+      "filename": "hardhat_01.jpg",
+      "rel_path": "eval/images/person_attributes/hardhat_01.jpg",
+      "split": "eval",
+      "source": "wikimedia_commons",
+      "title": "File:20260425 Ore shed Völklingen Ironworks 03.jpg",
+      "expected": {
+        "helmet": "yes",
+        "carrying": "none",
+        "clothing": "safety_vest"
+      },
+      "difficult": true,
+      "difficulty_tags": [
+        "partial_or_close_crop"
+      ]
+    },
+    {
+      "id": "person_012",
+      "filename": "hardhat_02.jpg",
+      "rel_path": "eval/images/person_attributes/hardhat_02.jpg",
+      "split": "eval",
+      "source": "wikimedia_commons",
+      "title": "File:3-2-Area-tecnica.jpg",
+      "expected": {
+        "helmet": "yes",
+        "carrying": "none",
+        "clothing": "safety_vest"
+      },
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_people"
+      ]
+    },
+    {
+      "id": "person_013",
+      "filename": "hardhat_03.jpg",
+      "rel_path": "eval/images/person_attributes/hardhat_03.jpg",
+      "split": "eval",
+      "source": "wikimedia_commons",
+      "title": "File:Arq Daniel Bello.jpg",
+      "expected": {
+        "helmet": "yes",
+        "carrying": "none",
+        "clothing": "safety_vest"
+      },
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "person_014",
+      "filename": "hardhat_04.jpg",
+      "rel_path": "eval/images/person_attributes/hardhat_04.jpg",
+      "split": "eval",
+      "source": "wikimedia_commons",
+      "title": "File:Casco.png",
+      "expected": {
+        "helmet": "yes",
+        "carrying": "none",
+        "clothing": "safety_vest"
+      },
+      "difficult": true,
+      "difficulty_tags": [
+        "partial_or_close_crop"
+      ]
+    },
+    {
+      "id": "person_015",
+      "filename": "hardhat_05.jpg",
+      "rel_path": "eval/images/person_attributes/hardhat_05.jpg",
+      "split": "eval",
+      "source": "wikimedia_commons",
+      "title": "File:CoolCapColors.jpg",
+      "expected": {
+        "helmet": "yes",
+        "carrying": "none",
+        "clothing": "safety_vest"
+      },
+      "difficult": true,
+      "difficulty_tags": [
+        "partial_or_close_crop"
+      ]
+    },
+    {
+      "id": "person_016",
+      "filename": "backpack_01.jpg",
+      "rel_path": "eval/images/person_attributes/backpack_01.jpg",
+      "split": "eval",
+      "source": "wikimedia_commons",
+      "title": "File:010 Malaga Airport train station - Estación de Aeropuerto (Cercanías Málaga).jpg",
+      "expected": {
+        "helmet": "no",
+        "carrying": "backpack",
+        "clothing": "jacket_coat"
+      },
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_people"
+      ]
+    },
+    {
+      "id": "person_017",
+      "filename": "backpack_02.jpg",
+      "rel_path": "eval/images/person_attributes/backpack_02.jpg",
+      "split": "eval",
+      "source": "wikimedia_commons",
+      "title": "File:12. desember - December 12 (6475926683).jpg",
+      "expected": {
+        "helmet": "no",
+        "carrying": "backpack",
+        "clothing": "jacket_coat"
+      },
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "person_018",
+      "filename": "backpack_03.jpg",
+      "rel_path": "eval/images/person_attributes/backpack_03.jpg",
+      "split": "eval",
+      "source": "wikimedia_commons",
+      "title": "File:Portrett av uidentifisert kvinne - Portrait of unidentified woman (22414164369).jpg",
+      "expected": {
+        "helmet": "no",
+        "carrying": "backpack",
+        "clothing": "jacket_coat"
+      },
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "person_019",
+      "filename": "backpack_04.jpg",
+      "rel_path": "eval/images/person_attributes/backpack_04.jpg",
+      "split": "eval",
+      "source": "wikimedia_commons",
+      "title": "File:19th century knowledge hiking and camping duluth pack sack.jpg",
+      "expected": {
+        "helmet": "no",
+        "carrying": "backpack",
+        "clothing": "jacket_coat"
+      },
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "person_020",
+      "filename": "backpack_05.jpg",
+      "rel_path": "eval/images/person_attributes/backpack_05.jpg",
+      "split": "eval",
+      "source": "wikimedia_commons",
+      "title": "File:2008년 중앙119구조단 중국 쓰촨성 대지진 국제 출동(四川省 大地震, 사천성 대지진) DSC09999.JPG",
+      "expected": {
+        "helmet": "no",
+        "carrying": "backpack",
+        "clothing": "jacket_coat"
+      },
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_people"
+      ]
+    },
+    {
+      "id": "person_021",
+      "filename": "backpack_06.jpg",
+      "rel_path": "eval/images/person_attributes/backpack_06.jpg",
+      "split": "eval",
+      "source": "wikimedia_commons",
+      "title": "File:A masters student of Mathematics shows off her Wikipedia backpack in Bandung, Indonesia. May 5, 2017.jpg",
+      "expected": {
+        "helmet": "no",
+        "carrying": "backpack",
+        "clothing": "jacket_coat"
+      },
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_people"
+      ]
+    },
+    {
+      "id": "person_022",
+      "filename": "backpack_07.jpg",
+      "rel_path": "eval/images/person_attributes/backpack_07.jpg",
+      "split": "eval",
+      "source": "wikimedia_commons",
+      "title": "File:Afghan National Army Provides School Supplies in Said Karam Village DVIDS298321.jpg",
+      "expected": {
+        "helmet": "no",
+        "carrying": "backpack",
+        "clothing": "jacket_coat"
+      },
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_people"
+      ]
+    },
+    {
+      "id": "person_023",
+      "filename": "backpack_08.jpg",
+      "rel_path": "eval/images/person_attributes/backpack_08.jpg",
+      "split": "eval",
+      "source": "wikimedia_commons",
+      "title": "File:Aflimba Bags.jpg",
+      "expected": {
+        "helmet": "no",
+        "carrying": "backpack",
+        "clothing": "jacket_coat"
+      },
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "person_024",
+      "filename": "backpack_09.jpg",
+      "rel_path": "eval/images/person_attributes/backpack_09.jpg",
+      "split": "eval",
+      "source": "wikimedia_commons",
+      "title": "File:Agile Spirit 19- Simulated CASEVAC (5640644).jpg",
+      "expected": {
+        "helmet": "no",
+        "carrying": "backpack",
+        "clothing": "jacket_coat"
+      },
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_people"
+      ]
+    },
+    {
+      "id": "person_025",
+      "filename": "backpack_10.jpg",
+      "rel_path": "eval/images/person_attributes/backpack_10.jpg",
+      "split": "eval",
+      "source": "wikimedia_commons",
+      "title": "File:An Afghan man, left, passes a backpack to a boy in Ananzai village, Kandahar province, Afghanistan, Dec. 26, 2011 111226-A-VB845-143.jpg",
+      "expected": {
+        "helmet": "no",
+        "carrying": "backpack",
+        "clothing": "jacket_coat"
+      },
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_people"
+      ]
+    },
+    {
+      "id": "person_026",
+      "filename": "safety_vest_01.jpg",
+      "rel_path": "eval/images/person_attributes/safety_vest_01.jpg",
+      "split": "eval",
+      "source": "wikimedia_commons",
+      "title": "File:'Davids Chair'.jpg",
+      "expected": {
+        "helmet": "no",
+        "carrying": "none",
+        "clothing": "safety_vest"
+      },
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "person_027",
+      "filename": "safety_vest_02.jpg",
+      "rel_path": "eval/images/person_attributes/safety_vest_02.jpg",
+      "split": "eval",
+      "source": "wikimedia_commons",
+      "title": "File:'Let get the road open conference' Jan31 2020 (49499059996).jpg",
+      "expected": {
+        "helmet": "no",
+        "carrying": "none",
+        "clothing": "safety_vest"
+      },
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_people"
+      ]
+    },
+    {
+      "id": "person_028",
+      "filename": "safety_vest_03.jpg",
+      "rel_path": "eval/images/person_attributes/safety_vest_03.jpg",
+      "split": "eval",
+      "source": "wikimedia_commons",
+      "title": "File:02018 0165 Straßenarbeiter.jpg",
+      "expected": {
+        "helmet": "no",
+        "carrying": "none",
+        "clothing": "safety_vest"
+      },
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "person_029",
+      "filename": "safety_vest_04.jpg",
+      "rel_path": "eval/images/person_attributes/safety_vest_04.jpg",
+      "split": "eval",
+      "source": "wikimedia_commons",
+      "title": "File:10-01-10 Agencia de Control-Decomiso de mercadería (4266565125).jpg",
+      "expected": {
+        "helmet": "no",
+        "carrying": "none",
+        "clothing": "safety_vest"
+      },
+      "difficult": true,
+      "difficulty_tags": [
+        "distant_small_person"
+      ]
+    },
+    {
+      "id": "person_030",
+      "filename": "safety_vest_05.jpg",
+      "rel_path": "eval/images/person_attributes/safety_vest_05.jpg",
+      "split": "eval",
+      "source": "wikimedia_commons",
+      "title": "File:10-01-10 Agencia de Control-Decomiso de mercadería (4267310918).jpg",
+      "expected": {
+        "helmet": "no",
+        "carrying": "none",
+        "clothing": "safety_vest"
+      },
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_people"
+      ]
+    },
+    {
+      "id": "person_031",
+      "filename": "safety_vest_06.jpg",
+      "rel_path": "eval/images/person_attributes/safety_vest_06.jpg",
+      "split": "eval",
+      "source": "wikimedia_commons",
+      "title": "File:10-01-19 Mauricio Macri- Recorrido por obra de av. Patricios (4291254782).jpg",
+      "expected": {
+        "helmet": "no",
+        "carrying": "none",
+        "clothing": "safety_vest"
+      },
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_people"
+      ]
+    },
+    {
+      "id": "person_032",
+      "filename": "safety_vest_07.jpg",
+      "rel_path": "eval/images/person_attributes/safety_vest_07.jpg",
+      "split": "eval",
+      "source": "wikimedia_commons",
+      "title": "File:10-02-15 Rodriguez Larreta - Obras en el Boulevard de los Italianos (4362047649).jpg",
+      "expected": {
+        "helmet": "no",
+        "carrying": "none",
+        "clothing": "safety_vest"
+      },
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_people"
+      ]
+    },
+    {
+      "id": "person_033",
+      "filename": "safety_vest_08.jpg",
+      "rel_path": "eval/images/person_attributes/safety_vest_08.jpg",
+      "split": "eval",
+      "source": "wikimedia_commons",
+      "title": "File:10-02-15 Rodriguez Larreta - Obras en el Boulevard de los Italianos (4362048173).jpg",
+      "expected": {
+        "helmet": "no",
+        "carrying": "none",
+        "clothing": "safety_vest"
+      },
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_people"
+      ]
+    },
+    {
+      "id": "person_034",
+      "filename": "safety_vest_09.jpg",
+      "rel_path": "eval/images/person_attributes/safety_vest_09.jpg",
+      "split": "eval",
+      "source": "wikimedia_commons",
+      "title": "File:10-02-15 Rodriguez Larreta - Obras en el Boulevard de los Italianos (4362789874).jpg",
+      "expected": {
+        "helmet": "no",
+        "carrying": "none",
+        "clothing": "safety_vest"
+      },
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_people"
+      ]
+    },
+    {
+      "id": "person_035",
+      "filename": "safety_vest_10.jpg",
+      "rel_path": "eval/images/person_attributes/safety_vest_10.jpg",
+      "split": "eval",
+      "source": "wikimedia_commons",
+      "title": "File:10-02-15 Rodriguez Larreta - Obras en el Boulevard de los Italianos (4362790730).jpg",
+      "expected": {
+        "helmet": "no",
+        "carrying": "none",
+        "clothing": "safety_vest"
+      },
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_people"
+      ]
+    },
+    {
+      "id": "person_036",
+      "filename": "pedestrian_01.jpg",
+      "rel_path": "eval/images/person_attributes/pedestrian_01.jpg",
+      "split": "eval",
+      "source": "wikimedia_commons",
+      "title": "File:(Recueil.) Danemark, Norvège, Suède, Allemagne - btv1b8451492c (26 of 31) (cropped, Berliner Schloss).jpg",
+      "expected": {
+        "helmet": "no",
+        "carrying": "none",
+        "clothing": "shirt_tshirt"
+      },
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_people"
+      ]
+    },
+    {
+      "id": "person_037",
+      "filename": "pedestrian_02.jpg",
+      "rel_path": "eval/images/person_attributes/pedestrian_02.jpg",
+      "split": "eval",
+      "source": "wikimedia_commons",
+      "title": "File:(Recueil.) Danemark, Norvège, Suède, Allemagne - btv1b8451492c (26 of 31) (cropped, Reiterstandbild, Unter den Linden, Berlin).jpg",
+      "expected": {
+        "helmet": "no",
+        "carrying": "none",
+        "clothing": "shirt_tshirt"
+      },
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_people"
+      ]
+    },
+    {
+      "id": "person_038",
+      "filename": "pedestrian_03.jpg",
+      "rel_path": "eval/images/person_attributes/pedestrian_03.jpg",
+      "split": "eval",
+      "source": "wikimedia_commons",
+      "title": "File:2022-10-22 Abends vor den Schaufenstern von Schuh-Neumann in der Seilwinderstraße.jpg",
+      "expected": {
+        "helmet": "no",
+        "carrying": "none",
+        "clothing": "shirt_tshirt"
+      },
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_people"
+      ]
+    },
+    {
+      "id": "person_039",
+      "filename": "pedestrian_04.jpg",
+      "rel_path": "eval/images/person_attributes/pedestrian_04.jpg",
+      "split": "eval",
+      "source": "wikimedia_commons",
+      "title": "File:2022-10-22 Blick von der Osterstraße durch die Große Packhofstraße in Hannover.jpg",
+      "expected": {
+        "helmet": "no",
+        "carrying": "none",
+        "clothing": "shirt_tshirt"
+      },
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_people"
+      ]
+    },
+    {
+      "id": "person_040",
+      "filename": "pedestrian_05.jpg",
+      "rel_path": "eval/images/person_attributes/pedestrian_05.jpg",
+      "split": "eval",
+      "source": "wikimedia_commons",
+      "title": "File:2025BrandenburgerPotsdam.jpg",
+      "expected": {
+        "helmet": "no",
+        "carrying": "none",
+        "clothing": "shirt_tshirt"
+      },
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_people"
+      ]
+    },
+    {
+      "id": "person_041",
+      "filename": "pedestrian_06.jpg",
+      "rel_path": "eval/images/person_attributes/pedestrian_06.jpg",
+      "split": "eval",
+      "source": "wikimedia_commons",
+      "title": "File:Aachen, Brunnen -Fischpüddelchen- -- 2016 -- 2740.jpg",
+      "expected": {
+        "helmet": "no",
+        "carrying": "none",
+        "clothing": "shirt_tshirt"
+      },
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_people"
+      ]
+    },
+    {
+      "id": "person_042",
+      "filename": "pedestrian_07.jpg",
+      "rel_path": "eval/images/person_attributes/pedestrian_07.jpg",
+      "split": "eval",
+      "source": "wikimedia_commons",
+      "title": "File:Aachen, Rathaus -- 2016 -- 2772.jpg",
+      "expected": {
+        "helmet": "no",
+        "carrying": "none",
+        "clothing": "shirt_tshirt"
+      },
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_people"
+      ]
+    },
+    {
+      "id": "person_043",
+      "filename": "pedestrian_08.jpg",
+      "rel_path": "eval/images/person_attributes/pedestrian_08.jpg",
+      "split": "eval",
+      "source": "wikimedia_commons",
+      "title": "File:AachenMuensterplatz 1649a.jpg",
+      "expected": {
+        "helmet": "no",
+        "carrying": "none",
+        "clothing": "shirt_tshirt"
+      },
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_people"
+      ]
+    },
+    {
+      "id": "person_044",
+      "filename": "pedestrian_09.jpg",
+      "rel_path": "eval/images/person_attributes/pedestrian_09.jpg",
+      "split": "eval",
+      "source": "wikimedia_commons",
+      "title": "File:AachenMuensterplatz 1650a.jpg",
+      "expected": {
+        "helmet": "no",
+        "carrying": "none",
+        "clothing": "shirt_tshirt"
+      },
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_people"
+      ]
+    },
+    {
+      "id": "person_045",
+      "filename": "pedestrian_10.jpg",
+      "rel_path": "eval/images/person_attributes/pedestrian_10.jpg",
+      "split": "eval",
+      "source": "wikimedia_commons",
+      "title": "File:Alexanderplatz Elevated Tracks (15186240560).jpg",
+      "expected": {
+        "helmet": "no",
+        "carrying": "none",
+        "clothing": "shirt_tshirt"
+      },
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_people"
+      ]
+    },
+    {
+      "id": "person_046",
+      "filename": "pedestrian_11.jpg",
+      "rel_path": "eval/images/person_attributes/pedestrian_11.jpg",
+      "split": "eval",
+      "source": "wikimedia_commons",
+      "title": "File:Am Strom.jpg",
+      "expected": {
+        "helmet": "no",
+        "carrying": "none",
+        "clothing": "shirt_tshirt"
+      },
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_people"
+      ]
+    },
+    {
+      "id": "person_047",
+      "filename": "pedestrian_12.jpg",
+      "rel_path": "eval/images/person_attributes/pedestrian_12.jpg",
+      "split": "eval",
+      "source": "wikimedia_commons",
+      "title": "File:Ansteigender Weg.jpg",
+      "expected": {
+        "helmet": "no",
+        "carrying": "none",
+        "clothing": "shirt_tshirt"
+      },
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_people"
+      ]
+    },
+    {
+      "id": "person_048",
+      "filename": "pedestrian_13.jpg",
+      "rel_path": "eval/images/person_attributes/pedestrian_13.jpg",
+      "split": "eval",
+      "source": "wikimedia_commons",
+      "title": "File:Bad Dürrenberg -- 1980 -- 18.jpg",
+      "expected": {
+        "helmet": "no",
+        "carrying": "none",
+        "clothing": "shirt_tshirt"
+      },
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_people"
+      ]
+    },
+    {
+      "id": "person_049",
+      "filename": "pedestrian_14.jpg",
+      "rel_path": "eval/images/person_attributes/pedestrian_14.jpg",
+      "split": "eval",
+      "source": "wikimedia_commons",
+      "title": "File:Bahnhof Karow Berlin.jpg",
+      "expected": {
+        "helmet": "no",
+        "carrying": "none",
+        "clothing": "shirt_tshirt"
+      },
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_people"
+      ]
+    },
+    {
+      "id": "person_050",
+      "filename": "pedestrian_15.jpg",
+      "rel_path": "eval/images/person_attributes/pedestrian_15.jpg",
+      "split": "eval",
+      "source": "wikimedia_commons",
+      "title": "File:Beach of Dahme (Holstein), Baltic Sea, Germany 05.jpg",
+      "expected": {
+        "helmet": "no",
+        "carrying": "none",
+        "clothing": "shirt_tshirt"
+      },
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_people"
+      ]
+    },
+    {
+      "id": "person_051",
+      "filename": "no_car_03.jpg",
+      "rel_path": "eval/images/unknown_controls/no_car_03.jpg",
+      "split": "eval",
+      "source": "curated_negative_controls",
+      "title": "No person control: no_car_03.jpg",
+      "expected": {
+        "helmet": "not_visible",
+        "carrying": "not_visible",
+        "clothing": "not_visible"
+      },
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "person_052",
+      "filename": "no_car_04.jpg",
+      "rel_path": "eval/images/unknown_controls/no_car_04.jpg",
+      "split": "eval",
+      "source": "curated_negative_controls",
+      "title": "No person control: no_car_04.jpg",
+      "expected": {
+        "helmet": "not_visible",
+        "carrying": "not_visible",
+        "clothing": "not_visible"
+      },
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "person_053",
+      "filename": "no_car_05.jpg",
+      "rel_path": "eval/images/unknown_controls/no_car_05.jpg",
+      "split": "eval",
+      "source": "curated_negative_controls",
+      "title": "No person control: no_car_05.jpg",
+      "expected": {
+        "helmet": "not_visible",
+        "carrying": "not_visible",
+        "clothing": "not_visible"
+      },
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "person_054",
+      "filename": "no_car_06.jpg",
+      "rel_path": "eval/images/unknown_controls/no_car_06.jpg",
+      "split": "eval",
+      "source": "curated_negative_controls",
+      "title": "No person control: no_car_06.jpg",
+      "expected": {
+        "helmet": "not_visible",
+        "carrying": "not_visible",
+        "clothing": "not_visible"
+      },
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "person_055",
+      "filename": "no_car_07.jpg",
+      "rel_path": "eval/images/unknown_controls/no_car_07.jpg",
+      "split": "eval",
+      "source": "curated_negative_controls",
+      "title": "No person control: no_car_07.jpg",
+      "expected": {
+        "helmet": "not_visible",
+        "carrying": "not_visible",
+        "clothing": "not_visible"
+      },
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "person_056",
+      "filename": "no_car_08.jpg",
+      "rel_path": "eval/images/unknown_controls/no_car_08.jpg",
+      "split": "eval",
+      "source": "curated_negative_controls",
+      "title": "No person control: no_car_08.jpg",
+      "expected": {
+        "helmet": "not_visible",
+        "carrying": "not_visible",
+        "clothing": "not_visible"
+      },
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "person_057",
+      "filename": "no_car_09.jpg",
+      "rel_path": "eval/images/unknown_controls/no_car_09.jpg",
+      "split": "eval",
+      "source": "curated_negative_controls",
+      "title": "No person control: no_car_09.jpg",
+      "expected": {
+        "helmet": "not_visible",
+        "carrying": "not_visible",
+        "clothing": "not_visible"
+      },
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "person_058",
+      "filename": "no_car_10.jpg",
+      "rel_path": "eval/images/unknown_controls/no_car_10.jpg",
+      "split": "eval",
+      "source": "curated_negative_controls",
+      "title": "No person control: no_car_10.jpg",
+      "expected": {
+        "helmet": "not_visible",
+        "carrying": "not_visible",
+        "clothing": "not_visible"
+      },
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "person_059",
+      "filename": "no_car_field.jpg",
+      "rel_path": "eval/images/unknown_controls/no_car_field.jpg",
+      "split": "eval",
+      "source": "curated_negative_controls",
+      "title": "No person control: no_car_field.jpg",
+      "expected": {
+        "helmet": "not_visible",
+        "carrying": "not_visible",
+        "clothing": "not_visible"
+      },
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "person_060",
+      "filename": "no_car_landscape.jpg",
+      "rel_path": "eval/images/unknown_controls/no_car_landscape.jpg",
+      "split": "eval",
+      "source": "curated_negative_controls",
+      "title": "No person control: no_car_landscape.jpg",
+      "expected": {
+        "helmet": "not_visible",
+        "carrying": "not_visible",
+        "clothing": "not_visible"
+      },
+      "difficult": false,
+      "difficulty_tags": []
+    }
+  ]
+}

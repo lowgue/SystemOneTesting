@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="480" viewBox="0 0 980 480">
+<rect width="100%" height="100%" fill="#ffffff" rx="8"/>
+<rect width="100%" height="100%" fill="none" stroke="#e2e8f0" stroke-width="1" rx="8"/>
+<text x="36" y="38" font-family="system-ui,-apple-system,sans-serif" font-size="20" fill="#0f172a" font-weight="700" text-anchor="start">Teste 4: Acurácia por Estrato de Degradação</text>
+<text x="36" y="60" font-family="system-ui,-apple-system,sans-serif" font-size="12" fill="#64748b" font-weight="400" text-anchor="start">Acurácia (%) vs baseline original · Laya Vision vs BLIP VQA</text>
+<line x1="200.0" y1="90" x2="200.0" y2="436" stroke="#f1f5f9" stroke-width="1"/>
+<text x="200.0" y="454" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#94a3b8" font-weight="400" text-anchor="middle">0%</text>
+<line x1="332.0" y1="90" x2="332.0" y2="436" stroke="#f1f5f9" stroke-width="1"/>
+<text x="332.0" y="454" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#94a3b8" font-weight="400" text-anchor="middle">20%</text>
+<line x1="464.0" y1="90" x2="464.0" y2="436" stroke="#f1f5f9" stroke-width="1"/>
+<text x="464.0" y="454" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#94a3b8" font-weight="400" text-anchor="middle">40%</text>
+<line x1="596.0" y1="90" x2="596.0" y2="436" stroke="#f1f5f9" stroke-width="1"/>
+<text x="596.0" y="454" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#94a3b8" font-weight="400" text-anchor="middle">60%</text>
+<line x1="728.0" y1="90" x2="728.0" y2="436" stroke="#f1f5f9" stroke-width="1"/>
+<text x="728.0" y="454" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#94a3b8" font-weight="400" text-anchor="middle">80%</text>
+<line x1="860.0" y1="90" x2="860.0" y2="436" stroke="#f1f5f9" stroke-width="1"/>
+<text x="860.0" y="454" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#94a3b8" font-weight="400" text-anchor="middle">100%</text>
+<text x="186" y="118" font-family="system-ui,-apple-system,sans-serif" font-size="12" fill="#334155" font-weight="600" text-anchor="end">Original (baseline)</text>
+<rect x="200" y="100" width="271.8" height="14" fill="#2563eb" rx="3"/>
+<text x="477.788" y="112" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#2563eb" font-weight="600" text-anchor="start">41.2%</text>
+<rect x="200" y="118" width="297.7" height="14" fill="#ea580c" rx="3"/>
+<text x="503.66" y="130" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#ea580c" font-weight="600" text-anchor="start">45.1%</text>
+<text x="186" y="174" font-family="system-ui,-apple-system,sans-serif" font-size="12" fill="#334155" font-weight="600" text-anchor="end">Baixa Luminosidade</text>
+<rect x="200" y="156" width="258.9" height="14" fill="#2563eb" rx="3"/>
+<text x="464.852" y="168" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#2563eb" font-weight="600" text-anchor="start">39.2%</text>
+<rect x="200" y="174" width="271.8" height="14" fill="#ea580c" rx="3"/>
+<text x="477.788" y="186" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#ea580c" font-weight="600" text-anchor="start">41.2%</text>
+<text x="890" y="168" font-family="system-ui,-apple-system,sans-serif" font-size="10" fill="#dc2626" font-weight="500" text-anchor="start">Δ-2.0pp</text>
+<text x="890" y="186" font-family="system-ui,-apple-system,sans-serif" font-size="10" fill="#dc2626" font-weight="500" text-anchor="start">Δ-3.9pp</text>
+<text x="186" y="230" font-family="system-ui,-apple-system,sans-serif" font-size="12" fill="#334155" font-weight="600" text-anchor="end">Borrão Gaussiano</text>
+<rect x="200" y="212" width="297.7" height="14" fill="#2563eb" rx="3"/>
+<text x="503.66" y="224" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#2563eb" font-weight="600" text-anchor="start">45.1%</text>
+<rect x="200" y="230" width="271.8" height="14" fill="#ea580c" rx="3"/>
+<text x="477.788" y="242" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#ea580c" font-weight="600" text-anchor="start">41.2%</text>
+<text x="890" y="224" font-family="system-ui,-apple-system,sans-serif" font-size="10" fill="#16a34a" font-weight="500" text-anchor="start">Δ+3.9pp</text>
+<text x="890" y="242" font-family="system-ui,-apple-system,sans-serif" font-size="10" fill="#dc2626" font-weight="500" text-anchor="start">Δ-3.9pp</text>
+<text x="186" y="286" font-family="system-ui,-apple-system,sans-serif" font-size="12" fill="#334155" font-weight="600" text-anchor="end">Baixa Resolução</text>
+<rect x="200" y="268" width="232.9" height="14" fill="#2563eb" rx="3"/>
+<text x="438.914" y="280" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#2563eb" font-weight="600" text-anchor="start">35.3%</text>
+<rect x="200" y="286" width="284.7" height="14" fill="#ea580c" rx="3"/>
+<text x="490.724" y="298" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#ea580c" font-weight="600" text-anchor="start">43.1%</text>
+<text x="890" y="280" font-family="system-ui,-apple-system,sans-serif" font-size="10" fill="#dc2626" font-weight="500" text-anchor="start">Δ-5.9pp</text>
+<text x="890" y="298" font-family="system-ui,-apple-system,sans-serif" font-size="10" fill="#dc2626" font-weight="500" text-anchor="start">Δ-2.0pp</text>
+<text x="186" y="342" font-family="system-ui,-apple-system,sans-serif" font-size="12" fill="#334155" font-weight="600" text-anchor="end">Compressão JPEG</text>
+<rect x="200" y="324" width="310.6" height="14" fill="#2563eb" rx="3"/>
+<text x="516.596" y="336" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#2563eb" font-weight="600" text-anchor="start">47.1%</text>
+<rect x="200" y="342" width="258.9" height="14" fill="#ea580c" rx="3"/>
+<text x="464.852" y="354" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#ea580c" font-weight="600" text-anchor="start">39.2%</text>
+<text x="890" y="336" font-family="system-ui,-apple-system,sans-serif" font-size="10" fill="#16a34a" font-weight="500" text-anchor="start">Δ+5.9pp</text>
+<text x="890" y="354" font-family="system-ui,-apple-system,sans-serif" font-size="10" fill="#dc2626" font-weight="500" text-anchor="start">Δ-5.9pp</text>
+<text x="186" y="398" font-family="system-ui,-apple-system,sans-serif" font-size="12" fill="#334155" font-weight="600" text-anchor="end">Oclusão Parcial</text>
+<rect x="200" y="380" width="284.7" height="14" fill="#2563eb" rx="3"/>
+<text x="490.724" y="392" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#2563eb" font-weight="600" text-anchor="start">43.1%</text>
+<rect x="200" y="398" width="245.8" height="14" fill="#ea580c" rx="3"/>
+<text x="451.85" y="410" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#ea580c" font-weight="600" text-anchor="start">37.2%</text>
+<text x="890" y="392" font-family="system-ui,-apple-system,sans-serif" font-size="10" fill="#16a34a" font-weight="500" text-anchor="start">Δ+2.0pp</text>
+<text x="890" y="410" font-family="system-ui,-apple-system,sans-serif" font-size="10" fill="#dc2626" font-weight="500" text-anchor="start">Δ-7.8pp</text>
+<rect x="640" y="440" width="14" height="14" fill="#2563eb" rx="2"/>
+<text x="660" y="452" font-family="system-ui,-apple-system,sans-serif" font-size="12" fill="#1e293b" font-weight="600" text-anchor="start">Laya Vision</text>
+<rect x="770" y="440" width="14" height="14" fill="#ea580c" rx="2"/>
+<text x="790" y="452" font-family="system-ui,-apple-system,sans-serif" font-size="12" fill="#1e293b" font-weight="600" text-anchor="start">BLIP VQA</text>
+</svg>

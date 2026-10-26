@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="480" viewBox="0 0 980 480">
+<rect width="100%" height="100%" fill="#ffffff" rx="8"/>
+<rect width="100%" height="100%" fill="none" stroke="#e2e8f0" stroke-width="1" rx="8"/>
+<text x="36" y="38" font-family="system-ui,-apple-system,sans-serif" font-size="20" fill="#0f172a" font-weight="700" text-anchor="start">Teste 5: Comparação de Acurácia — Recorte Isolado vs Imagem Completa Destacada</text>
+<text x="36" y="60" font-family="system-ui,-apple-system,sans-serif" font-size="12" fill="#64748b" font-weight="400" text-anchor="start">Impacto de fornecer o recorte do detector (crop) vs quadro inteiro com caixa vermelha (visual grounding)</text>
+<line x1="360.0" y1="100" x2="360.0" y2="350" stroke="#f1f5f9" stroke-width="1"/>
+<text x="360.0" y="368" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#94a3b8" font-weight="400" text-anchor="middle">0%</text>
+<line x1="464.0" y1="100" x2="464.0" y2="350" stroke="#f1f5f9" stroke-width="1"/>
+<text x="464.0" y="368" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#94a3b8" font-weight="400" text-anchor="middle">20%</text>
+<line x1="568.0" y1="100" x2="568.0" y2="350" stroke="#f1f5f9" stroke-width="1"/>
+<text x="568.0" y="368" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#94a3b8" font-weight="400" text-anchor="middle">40%</text>
+<line x1="672.0" y1="100" x2="672.0" y2="350" stroke="#f1f5f9" stroke-width="1"/>
+<text x="672.0" y="368" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#94a3b8" font-weight="400" text-anchor="middle">60%</text>
+<line x1="776.0" y1="100" x2="776.0" y2="350" stroke="#f1f5f9" stroke-width="1"/>
+<text x="776.0" y="368" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#94a3b8" font-weight="400" text-anchor="middle">80%</text>
+<line x1="880.0" y1="100" x2="880.0" y2="350" stroke="#f1f5f9" stroke-width="1"/>
+<text x="880.0" y="368" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#94a3b8" font-weight="400" text-anchor="middle">100%</text>
+<text x="344" y="134" font-family="system-ui,-apple-system,sans-serif" font-size="12" fill="#1e293b" font-weight="600" text-anchor="end">Acurácia no Recorte Isolado (Detector Crop)</text>
+<rect x="360" y="110" width="173.3" height="18" fill="#2563eb" rx="3"/>
+<text x="541.316" y="124" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#2563eb" font-weight="700" text-anchor="start">33.3%</text>
+<rect x="360" y="134" width="156.0" height="18" fill="#ea580c" rx="3"/>
+<text x="524.0" y="148" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#ea580c" font-weight="700" text-anchor="start">30.0%</text>
+<text x="344" y="214" font-family="system-ui,-apple-system,sans-serif" font-size="12" fill="#1e293b" font-weight="600" text-anchor="end">Acurácia na Imagem Completa (Full Highlighted)</text>
+<rect x="360" y="190" width="156.0" height="18" fill="#2563eb" rx="3"/>
+<text x="524.0" y="204" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#2563eb" font-weight="700" text-anchor="start">30.0%</text>
+<rect x="360" y="214" width="34.7" height="18" fill="#ea580c" rx="3"/>
+<text x="402.68399999999997" y="228" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#ea580c" font-weight="700" text-anchor="start">6.7%</text>
+<text x="344" y="294" font-family="system-ui,-apple-system,sans-serif" font-size="12" fill="#1e293b" font-weight="600" text-anchor="end">Taxa de Erro de Associação (Alucinação do Distrator)</text>
+<rect x="360" y="270" width="173.3" height="18" fill="#2563eb" rx="3"/>
+<text x="541.316" y="284" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#2563eb" font-weight="700" text-anchor="start">33.3%</text>
+<rect x="360" y="294" width="190.7" height="18" fill="#ea580c" rx="3"/>
+<text x="558.684" y="308" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#ea580c" font-weight="700" text-anchor="start">36.7%</text>
+<rect x="660" y="445" width="14" height="14" fill="#2563eb" rx="2"/>
+<text x="680" y="457" font-family="system-ui,-apple-system,sans-serif" font-size="12" fill="#1e293b" font-weight="600" text-anchor="start">Laya Vision</text>
+<rect x="800" y="445" width="14" height="14" fill="#ea580c" rx="2"/>
+<text x="820" y="457" font-family="system-ui,-apple-system,sans-serif" font-size="12" fill="#1e293b" font-weight="600" text-anchor="start">BLIP VQA</text>
+</svg>

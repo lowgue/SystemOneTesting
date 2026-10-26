@@ -1,0 +1,364 @@
+{
+  "benchmark": "Test 6: Prompt and Output Format Comparison",
+  "description": "Compares prompt variations (short open, short options, long descriptions, structured JSON) for generative models vs native typed choice for decision models.",
+  "image_count": 44,
+  "taxonomy": [
+    "black",
+    "white",
+    "gray_silver",
+    "red",
+    "blue",
+    "green",
+    "yellow",
+    "orange",
+    "brown",
+    "purple",
+    "pink"
+  ],
+  "blip_prompts": {
+    "short_open": "What is the predominant color of this vehicle?",
+    "short_options": "Is this vehicle black, white, gray, red, blue, green, yellow, orange, brown, purple, or pink?",
+    "long_descriptions": "Choose the predominant body color from the following options: black (deep dark tone), white (pure bright), gray or silver (metallic gray), red (crimson or cherry), blue (navy or light blue), green (forest or lime), yellow (bright yellow), orange (amber), brown (earth tone), purple (violet), or pink. What is the color?",
+    "structured_json": "Answer with a JSON object in the format {\"color\": \"<color_name>\", \"confidence\": \"<high|medium|low>\"}. What is the predominant vehicle color?"
+  },
+  "laya_criteria": {
+    "native_short": {
+      "black": "Black",
+      "white": "White",
+      "gray_silver": "Gray or silver",
+      "red": "Red",
+      "blue": "Blue",
+      "green": "Green",
+      "yellow": "Yellow",
+      "orange": "Orange",
+      "brown": "Brown",
+      "purple": "Purple",
+      "pink": "Pink",
+      "unknown": "Color not identifiable / not visible"
+    },
+    "native_descriptive": {
+      "black": "Black or deep dark tone",
+      "white": "White or off-white bright tone",
+      "gray_silver": "Gray or silver metallic tone",
+      "red": "Red, crimson, or cherry tone",
+      "blue": "Blue, navy, or sky blue tone",
+      "green": "Green, forest, or lime tone",
+      "yellow": "Yellow or bright golden tone",
+      "orange": "Orange or amber tone",
+      "brown": "Brown, bronze, or earth tone",
+      "purple": "Purple, violet, or magenta tone",
+      "pink": "Pink or rose tone",
+      "unknown": "Color not identifiable / not visible"
+    }
+  },
+  "images": [
+    {
+      "id": "prompt_eval_color_black_001",
+      "source_id": "color_black_001",
+      "rel_path": "eval/images/color_test/color_black_001.jpg",
+      "expected_color": "black",
+      "difficult": false
+    },
+    {
+      "id": "prompt_eval_color_black_002",
+      "source_id": "color_black_002",
+      "rel_path": "eval/images/color_test/color_black_002.jpg",
+      "expected_color": "black",
+      "difficult": false
+    },
+    {
+      "id": "prompt_eval_color_black_003",
+      "source_id": "color_black_003",
+      "rel_path": "eval/images/color_test/color_black_003.jpg",
+      "expected_color": "black",
+      "difficult": true
+    },
+    {
+      "id": "prompt_eval_color_black_004",
+      "source_id": "color_black_004",
+      "rel_path": "eval/images/color_test/color_black_004.jpg",
+      "expected_color": "black",
+      "difficult": false
+    },
+    {
+      "id": "prompt_eval_color_white_001",
+      "source_id": "color_white_001",
+      "rel_path": "eval/images/color_test/color_white_001.jpg",
+      "expected_color": "white",
+      "difficult": true
+    },
+    {
+      "id": "prompt_eval_color_white_002",
+      "source_id": "color_white_002",
+      "rel_path": "eval/images/color_test/color_white_002.jpg",
+      "expected_color": "white",
+      "difficult": false
+    },
+    {
+      "id": "prompt_eval_color_white_003",
+      "source_id": "color_white_003",
+      "rel_path": "eval/images/color_test/color_white_003.jpg",
+      "expected_color": "white",
+      "difficult": true
+    },
+    {
+      "id": "prompt_eval_color_white_004",
+      "source_id": "color_white_004",
+      "rel_path": "eval/images/color_test/color_white_004.jpg",
+      "expected_color": "white",
+      "difficult": true
+    },
+    {
+      "id": "prompt_eval_color_gray_silver_001",
+      "source_id": "color_gray_silver_001",
+      "rel_path": "eval/images/color_test/color_gray_silver_001.jpg",
+      "expected_color": "gray_silver",
+      "difficult": true
+    },
+    {
+      "id": "prompt_eval_color_gray_silver_002",
+      "source_id": "color_gray_silver_002",
+      "rel_path": "eval/images/color_test/color_gray_silver_002.jpg",
+      "expected_color": "gray_silver",
+      "difficult": false
+    },
+    {
+      "id": "prompt_eval_color_gray_silver_003",
+      "source_id": "color_gray_silver_003",
+      "rel_path": "eval/images/color_test/color_gray_silver_003.jpg",
+      "expected_color": "gray_silver",
+      "difficult": false
+    },
+    {
+      "id": "prompt_eval_color_gray_silver_004",
+      "source_id": "color_gray_silver_004",
+      "rel_path": "eval/images/color_test/color_gray_silver_004.jpg",
+      "expected_color": "gray_silver",
+      "difficult": true
+    },
+    {
+      "id": "prompt_eval_color_red_001",
+      "source_id": "color_red_001",
+      "rel_path": "eval/images/color_test/color_red_001.jpg",
+      "expected_color": "red",
+      "difficult": false
+    },
+    {
+      "id": "prompt_eval_color_red_002",
+      "source_id": "color_red_002",
+      "rel_path": "eval/images/color_test/color_red_002.jpg",
+      "expected_color": "red",
+      "difficult": true
+    },
+    {
+      "id": "prompt_eval_color_red_003",
+      "source_id": "color_red_003",
+      "rel_path": "eval/images/color_test/color_red_003.jpg",
+      "expected_color": "red",
+      "difficult": true
+    },
+    {
+      "id": "prompt_eval_color_red_004",
+      "source_id": "color_red_004",
+      "rel_path": "eval/images/color_test/color_red_004.jpg",
+      "expected_color": "red",
+      "difficult": false
+    },
+    {
+      "id": "prompt_eval_color_blue_001",
+      "source_id": "color_blue_001",
+      "rel_path": "eval/images/color_test/color_blue_001.jpg",
+      "expected_color": "blue",
+      "difficult": false
+    },
+    {
+      "id": "prompt_eval_color_blue_002",
+      "source_id": "color_blue_002",
+      "rel_path": "eval/images/color_test/color_blue_002.jpg",
+      "expected_color": "blue",
+      "difficult": true
+    },
+    {
+      "id": "prompt_eval_color_blue_003",
+      "source_id": "color_blue_003",
+      "rel_path": "eval/images/color_test/color_blue_003.jpg",
+      "expected_color": "blue",
+      "difficult": false
+    },
+    {
+      "id": "prompt_eval_color_blue_004",
+      "source_id": "color_blue_004",
+      "rel_path": "eval/images/color_test/color_blue_004.jpg",
+      "expected_color": "blue",
+      "difficult": false
+    },
+    {
+      "id": "prompt_eval_color_green_001",
+      "source_id": "color_green_001",
+      "rel_path": "eval/images/color_test/color_green_001.jpg",
+      "expected_color": "green",
+      "difficult": true
+    },
+    {
+      "id": "prompt_eval_color_green_002",
+      "source_id": "color_green_002",
+      "rel_path": "eval/images/color_test/color_green_002.jpg",
+      "expected_color": "green",
+      "difficult": true
+    },
+    {
+      "id": "prompt_eval_color_green_003",
+      "source_id": "color_green_003",
+      "rel_path": "eval/images/color_test/color_green_003.png",
+      "expected_color": "green",
+      "difficult": true
+    },
+    {
+      "id": "prompt_eval_color_green_004",
+      "source_id": "color_green_004",
+      "rel_path": "eval/images/color_test/color_green_004.jpg",
+      "expected_color": "green",
+      "difficult": false
+    },
+    {
+      "id": "prompt_eval_color_yellow_001",
+      "source_id": "color_yellow_001",
+      "rel_path": "eval/images/color_test/color_yellow_001.jpg",
+      "expected_color": "yellow",
+      "difficult": false
+    },
+    {
+      "id": "prompt_eval_color_yellow_002",
+      "source_id": "color_yellow_002",
+      "rel_path": "eval/images/color_test/color_yellow_002.jpg",
+      "expected_color": "yellow",
+      "difficult": false
+    },
+    {
+      "id": "prompt_eval_color_yellow_003",
+      "source_id": "color_yellow_003",
+      "rel_path": "eval/images/color_test/color_yellow_003.jpg",
+      "expected_color": "yellow",
+      "difficult": false
+    },
+    {
+      "id": "prompt_eval_color_yellow_004",
+      "source_id": "color_yellow_004",
+      "rel_path": "eval/images/color_test/color_yellow_004.jpg",
+      "expected_color": "yellow",
+      "difficult": false
+    },
+    {
+      "id": "prompt_eval_color_orange_001",
+      "source_id": "color_orange_001",
+      "rel_path": "eval/images/color_test/color_orange_001.jpg",
+      "expected_color": "orange",
+      "difficult": true
+    },
+    {
+      "id": "prompt_eval_color_orange_002",
+      "source_id": "color_orange_002",
+      "rel_path": "eval/images/color_test/color_orange_002.jpg",
+      "expected_color": "orange",
+      "difficult": false
+    },
+    {
+      "id": "prompt_eval_color_orange_003",
+      "source_id": "color_orange_003",
+      "rel_path": "eval/images/color_test/color_orange_003.jpg",
+      "expected_color": "orange",
+      "difficult": false
+    },
+    {
+      "id": "prompt_eval_color_orange_004",
+      "source_id": "color_orange_004",
+      "rel_path": "eval/images/color_test/color_orange_004.jpg",
+      "expected_color": "orange",
+      "difficult": false
+    },
+    {
+      "id": "prompt_eval_color_brown_001",
+      "source_id": "color_brown_001",
+      "rel_path": "eval/images/color_test/color_brown_001.jpeg",
+      "expected_color": "brown",
+      "difficult": true
+    },
+    {
+      "id": "prompt_eval_color_brown_002",
+      "source_id": "color_brown_002",
+      "rel_path": "eval/images/color_test/color_brown_002.jpg",
+      "expected_color": "brown",
+      "difficult": true
+    },
+    {
+      "id": "prompt_eval_color_brown_003",
+      "source_id": "color_brown_003",
+      "rel_path": "eval/images/color_test/color_brown_003.jpg",
+      "expected_color": "brown",
+      "difficult": true
+    },
+    {
+      "id": "prompt_eval_color_brown_004",
+      "source_id": "color_brown_004",
+      "rel_path": "eval/images/color_test/color_brown_004.jpg",
+      "expected_color": "brown",
+      "difficult": true
+    },
+    {
+      "id": "prompt_eval_color_purple_001",
+      "source_id": "color_purple_001",
+      "rel_path": "eval/images/color_test/color_purple_001.jpg",
+      "expected_color": "purple",
+      "difficult": true
+    },
+    {
+      "id": "prompt_eval_color_purple_002",
+      "source_id": "color_purple_002",
+      "rel_path": "eval/images/color_test/color_purple_002.png",
+      "expected_color": "purple",
+      "difficult": true
+    },
+    {
+      "id": "prompt_eval_color_purple_003",
+      "source_id": "color_purple_003",
+      "rel_path": "eval/images/color_test/color_purple_003.jpg",
+      "expected_color": "purple",
+      "difficult": true
+    },
+    {
+      "id": "prompt_eval_color_purple_004",
+      "source_id": "color_purple_004",
+      "rel_path": "eval/images/color_test/color_purple_004.jpg",
+      "expected_color": "purple",
+      "difficult": false
+    },
+    {
+      "id": "prompt_eval_color_pink_001",
+      "source_id": "color_pink_001",
+      "rel_path": "eval/images/color_test/color_pink_001.jpg",
+      "expected_color": "pink",
+      "difficult": true
+    },
+    {
+      "id": "prompt_eval_color_pink_002",
+      "source_id": "color_pink_002",
+      "rel_path": "eval/images/color_test/color_pink_002.jpeg",
+      "expected_color": "pink",
+      "difficult": false
+    },
+    {
+      "id": "prompt_eval_color_pink_003",
+      "source_id": "color_pink_003",
+      "rel_path": "eval/images/color_test/color_pink_003.jpeg",
+      "expected_color": "pink",
+      "difficult": true
+    },
+    {
+      "id": "prompt_eval_color_pink_004",
+      "source_id": "color_pink_004",
+      "rel_path": "eval/images/color_test/color_pink_004.jpg",
+      "expected_color": "pink",
+      "difficult": true
+    }
+  ]
+}

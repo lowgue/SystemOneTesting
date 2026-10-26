@@ -1,0 +1,6801 @@
+{
+  "test": "Test 6: Prompt and Output Format Comparison",
+  "image_count": 44,
+  "taxonomy": [
+    "black",
+    "white",
+    "gray_silver",
+    "red",
+    "blue",
+    "green",
+    "yellow",
+    "orange",
+    "brown",
+    "purple",
+    "pink"
+  ],
+  "threads": 8,
+  "repetitions": 3,
+  "formats_tested": {
+    "blip": [
+      "short_open",
+      "short_options",
+      "long_descriptions",
+      "structured_json"
+    ],
+    "laya": [
+      "native_short",
+      "native_descriptive"
+    ]
+  },
+  "models": {
+    "blip": {
+      "name": "BLIP VQA",
+      "model_id": "Salesforce/blip-vqa-base",
+      "type": "generative_vqa",
+      "load_time_s": 3.04,
+      "formats": {
+        "short_open": {
+          "prompt": "What is the predominant color of this vehicle?",
+          "accuracy": 0.8182,
+          "wilson_ci_95": [
+            0.6804,
+            0.9049
+          ],
+          "correct_images": 36,
+          "total_images": 44,
+          "adherence_rate": 1.0,
+          "ambiguous_rate": 0.0,
+          "invalid_rate": 0.0,
+          "latency_ms": {
+            "median": 737.7,
+            "p90": 842.2,
+            "p95": 906.4
+          }
+        },
+        "short_options": {
+          "prompt": "Is this vehicle black, white, gray, red, blue, green, yellow, orange, brown, purple, or pink?",
+          "accuracy": 0.6591,
+          "wilson_ci_95": [
+            0.5114,
+            0.7812
+          ],
+          "correct_images": 29,
+          "total_images": 44,
+          "adherence_rate": 0.9773,
+          "ambiguous_rate": 0.0227,
+          "invalid_rate": 0.0,
+          "latency_ms": {
+            "median": 782.6,
+            "p90": 932.4,
+            "p95": 1067.8
+          }
+        },
+        "long_descriptions": {
+          "prompt": "Choose the predominant body color from the following options: black (deep dark tone), white (pure bright), gray or silver (metallic gray), red (crimson or cherry), blue (navy or light blue), green (forest or lime), yellow (bright yellow), orange (amber), brown (earth tone), purple (violet), or pink. What is the color?",
+          "accuracy": 0.2273,
+          "wilson_ci_95": [
+            0.1284,
+            0.3699
+          ],
+          "correct_images": 10,
+          "total_images": 44,
+          "adherence_rate": 1.0,
+          "ambiguous_rate": 0.0,
+          "invalid_rate": 0.0,
+          "latency_ms": {
+            "median": 882.1,
+            "p90": 1018.7,
+            "p95": 1106.2
+          }
+        },
+        "structured_json": {
+          "prompt": "Answer with a JSON object in the format {\"color\": \"<color_name>\", \"confidence\": \"<high|medium|low>\"}. What is the predominant vehicle color?",
+          "accuracy": 0.1364,
+          "wilson_ci_95": [
+            0.064,
+            0.2671
+          ],
+          "correct_images": 6,
+          "total_images": 44,
+          "adherence_rate": 0.0,
+          "ambiguous_rate": 0.0,
+          "invalid_rate": 1.0,
+          "latency_ms": {
+            "median": 855.8,
+            "p90": 950.3,
+            "p95": 1072.7
+          }
+        }
+      }
+    },
+    "laya": {
+      "name": "Laya Vision",
+      "model_id": "thaitea/laya-vision",
+      "type": "decision_model",
+      "load_time_s": 2.67,
+      "formats": {
+        "native_short": {
+          "accuracy": 0.6818,
+          "wilson_ci_95": [
+            0.5344,
+            0.8
+          ],
+          "correct_images": 30,
+          "total_images": 44,
+          "adherence_rate": 1.0,
+          "ambiguous_rate": 0.0,
+          "invalid_rate": 0.0,
+          "latency_ms": {
+            "median": 1315.3,
+            "p90": 1504.5,
+            "p95": 1630.3
+          }
+        },
+        "native_descriptive": {
+          "accuracy": 0.6591,
+          "wilson_ci_95": [
+            0.5114,
+            0.7812
+          ],
+          "correct_images": 29,
+          "total_images": 44,
+          "adherence_rate": 1.0,
+          "ambiguous_rate": 0.0,
+          "invalid_rate": 0.0,
+          "latency_ms": {
+            "median": 1384.8,
+            "p90": 1706.6,
+            "p95": 1747.7
+          }
+        }
+      }
+    }
+  },
+  "per_image_results": [
+    {
+      "id": "prompt_eval_color_black_001",
+      "source_id": "color_black_001",
+      "rel_path": "eval/images/color_test/color_black_001.jpg",
+      "expected_color": "black",
+      "difficult": false,
+      "blip_formats": {
+        "short_open": {
+          "raw_answers": [
+            "black",
+            "black",
+            "black"
+          ],
+          "normalized": [
+            "black",
+            "black",
+            "black"
+          ],
+          "consensus": "black",
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            639.6,
+            640.2,
+            671.4
+          ],
+          "latency_median_ms": 640.2
+        },
+        "short_options": {
+          "raw_answers": [
+            "black",
+            "black",
+            "black"
+          ],
+          "normalized": [
+            "black",
+            "black",
+            "black"
+          ],
+          "consensus": "black",
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            778.9,
+            761.1,
+            783.2
+          ],
+          "latency_median_ms": 778.9
+        },
+        "long_descriptions": {
+          "raw_answers": [
+            "red",
+            "red",
+            "red"
+          ],
+          "normalized": [
+            "red",
+            "red",
+            "red"
+          ],
+          "consensus": "red",
+          "is_correct": false,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            845.1,
+            835.1,
+            846.7
+          ],
+          "latency_median_ms": 845.1
+        },
+        "structured_json": {
+          "raw_answers": [
+            "yes",
+            "yes",
+            "yes"
+          ],
+          "normalized": [
+            "other",
+            "other",
+            "other"
+          ],
+          "consensus": "other",
+          "is_correct": false,
+          "is_adherent": false,
+          "is_ambiguous": false,
+          "is_valid_json": false,
+          "latencies_ms": [
+            834.3,
+            799.2,
+            791.3
+          ],
+          "latency_median_ms": 799.2
+        }
+      },
+      "laya_formats": {
+        "native_short": {
+          "raw_answers": [
+            "blue",
+            "blue",
+            "blue"
+          ],
+          "normalized": [
+            "blue",
+            "blue",
+            "blue"
+          ],
+          "consensus": "blue",
+          "confidence_avg": 0.3579,
+          "is_correct": false,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            1285.2,
+            1286.1,
+            1280.2
+          ],
+          "latency_median_ms": 1285.2
+        },
+        "native_descriptive": {
+          "raw_answers": [
+            "blue",
+            "blue",
+            "blue"
+          ],
+          "normalized": [
+            "blue",
+            "blue",
+            "blue"
+          ],
+          "consensus": "blue",
+          "confidence_avg": 0.1922,
+          "is_correct": false,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            1339.8,
+            1450.5,
+            1492.3
+          ],
+          "latency_median_ms": 1450.5
+        }
+      }
+    },
+    {
+      "id": "prompt_eval_color_black_002",
+      "source_id": "color_black_002",
+      "rel_path": "eval/images/color_test/color_black_002.jpg",
+      "expected_color": "black",
+      "difficult": false,
+      "blip_formats": {
+        "short_open": {
+          "raw_answers": [
+            "black",
+            "black",
+            "black"
+          ],
+          "normalized": [
+            "black",
+            "black",
+            "black"
+          ],
+          "consensus": "black",
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            639.3,
+            661.3,
+            645.9
+          ],
+          "latency_median_ms": 645.9
+        },
+        "short_options": {
+          "raw_answers": [
+            "black",
+            "black",
+            "black"
+          ],
+          "normalized": [
+            "black",
+            "black",
+            "black"
+          ],
+          "consensus": "black",
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            828.6,
+            1199.1,
+            871.3
+          ],
+          "latency_median_ms": 871.3
+        },
+        "long_descriptions": {
+          "raw_answers": [
+            "silver",
+            "silver",
+            "silver"
+          ],
+          "normalized": [
+            "gray_silver",
+            "gray_silver",
+            "gray_silver"
+          ],
+          "consensus": "gray_silver",
+          "is_correct": false,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            807.3,
+            835.5,
+            836.6
+          ],
+          "latency_median_ms": 835.5
+        },
+        "structured_json": {
+          "raw_answers": [
+            "yes",
+            "yes",
+            "yes"
+          ],
+          "normalized": [
+            "other",
+            "other",
+            "other"
+          ],
+          "consensus": "other",
+          "is_correct": false,
+          "is_adherent": false,
+          "is_ambiguous": false,
+          "is_valid_json": false,
+          "latencies_ms": [
+            770.8,
+            795.1,
+            794.8
+          ],
+          "latency_median_ms": 794.8
+        }
+      },
+      "laya_formats": {
+        "native_short": {
+          "raw_answers": [
+            "gray_silver",
+            "gray_silver",
+            "gray_silver"
+          ],
+          "normalized": [
+            "gray_silver",
+            "gray_silver",
+            "gray_silver"
+          ],
+          "consensus": "gray_silver",
+          "confidence_avg": 0.087,
+          "is_correct": false,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            1285.0,
+            1284.0,
+            1486.4
+          ],
+          "latency_median_ms": 1285.0
+        },
+        "native_descriptive": {
+          "raw_answers": [
+            "black",
+            "black",
+            "black"
+          ],
+          "normalized": [
+            "black",
+            "black",
+            "black"
+          ],
+          "consensus": "black",
+          "confidence_avg": 0.0961,
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            1739.1,
+            1677.7,
+            1402.4
+          ],
+          "latency_median_ms": 1677.7
+        }
+      }
+    },
+    {
+      "id": "prompt_eval_color_black_003",
+      "source_id": "color_black_003",
+      "rel_path": "eval/images/color_test/color_black_003.jpg",
+      "expected_color": "black",
+      "difficult": true,
+      "blip_formats": {
+        "short_open": {
+          "raw_answers": [
+            "black",
+            "black",
+            "black"
+          ],
+          "normalized": [
+            "black",
+            "black",
+            "black"
+          ],
+          "consensus": "black",
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            665.4,
+            723.4,
+            648.3
+          ],
+          "latency_median_ms": 665.4
+        },
+        "short_options": {
+          "raw_answers": [
+            "black",
+            "black",
+            "black"
+          ],
+          "normalized": [
+            "black",
+            "black",
+            "black"
+          ],
+          "consensus": "black",
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            1108.1,
+            974.4,
+            767.9
+          ],
+          "latency_median_ms": 974.4
+        },
+        "long_descriptions": {
+          "raw_answers": [
+            "green",
+            "green",
+            "green"
+          ],
+          "normalized": [
+            "green",
+            "green",
+            "green"
+          ],
+          "consensus": "green",
+          "is_correct": false,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            840.6,
+            834.7,
+            833.8
+          ],
+          "latency_median_ms": 834.7
+        },
+        "structured_json": {
+          "raw_answers": [
+            "yes",
+            "yes",
+            "yes"
+          ],
+          "normalized": [
+            "other",
+            "other",
+            "other"
+          ],
+          "consensus": "other",
+          "is_correct": false,
+          "is_adherent": false,
+          "is_ambiguous": false,
+          "is_valid_json": false,
+          "latencies_ms": [
+            794.1,
+            798.5,
+            795.1
+          ],
+          "latency_median_ms": 795.1
+        }
+      },
+      "laya_formats": {
+        "native_short": {
+          "raw_answers": [
+            "gray_silver",
+            "gray_silver",
+            "gray_silver"
+          ],
+          "normalized": [
+            "gray_silver",
+            "gray_silver",
+            "gray_silver"
+          ],
+          "consensus": "gray_silver",
+          "confidence_avg": 0.3743,
+          "is_correct": false,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            1485.8,
+            1413.2,
+            1390.4
+          ],
+          "latency_median_ms": 1413.2
+        },
+        "native_descriptive": {
+          "raw_answers": [
+            "gray_silver",
+            "gray_silver",
+            "gray_silver"
+          ],
+          "normalized": [
+            "gray_silver",
+            "gray_silver",
+            "gray_silver"
+          ],
+          "consensus": "gray_silver",
+          "confidence_avg": 0.1866,
+          "is_correct": false,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            1373.4,
+            1347.3,
+            1363.4
+          ],
+          "latency_median_ms": 1363.4
+        }
+      }
+    },
+    {
+      "id": "prompt_eval_color_black_004",
+      "source_id": "color_black_004",
+      "rel_path": "eval/images/color_test/color_black_004.jpg",
+      "expected_color": "black",
+      "difficult": false,
+      "blip_formats": {
+        "short_open": {
+          "raw_answers": [
+            "black",
+            "black",
+            "black"
+          ],
+          "normalized": [
+            "black",
+            "black",
+            "black"
+          ],
+          "consensus": "black",
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            644.8,
+            625.3,
+            643.4
+          ],
+          "latency_median_ms": 643.4
+        },
+        "short_options": {
+          "raw_answers": [
+            "black",
+            "black",
+            "black"
+          ],
+          "normalized": [
+            "black",
+            "black",
+            "black"
+          ],
+          "consensus": "black",
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            766.9,
+            767.7,
+            768.8
+          ],
+          "latency_median_ms": 767.7
+        },
+        "long_descriptions": {
+          "raw_answers": [
+            "red",
+            "red",
+            "red"
+          ],
+          "normalized": [
+            "red",
+            "red",
+            "red"
+          ],
+          "consensus": "red",
+          "is_correct": false,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            831.6,
+            840.0,
+            865.6
+          ],
+          "latency_median_ms": 840.0
+        },
+        "structured_json": {
+          "raw_answers": [
+            "yes",
+            "yes",
+            "yes"
+          ],
+          "normalized": [
+            "other",
+            "other",
+            "other"
+          ],
+          "consensus": "other",
+          "is_correct": false,
+          "is_adherent": false,
+          "is_ambiguous": false,
+          "is_valid_json": false,
+          "latencies_ms": [
+            856.7,
+            919.2,
+            1085.4
+          ],
+          "latency_median_ms": 919.2
+        }
+      },
+      "laya_formats": {
+        "native_short": {
+          "raw_answers": [
+            "gray_silver",
+            "gray_silver",
+            "gray_silver"
+          ],
+          "normalized": [
+            "gray_silver",
+            "gray_silver",
+            "gray_silver"
+          ],
+          "consensus": "gray_silver",
+          "confidence_avg": 0.1504,
+          "is_correct": false,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            1302.1,
+            1300.5,
+            1324.7
+          ],
+          "latency_median_ms": 1302.1
+        },
+        "native_descriptive": {
+          "raw_answers": [
+            "black",
+            "black",
+            "black"
+          ],
+          "normalized": [
+            "black",
+            "black",
+            "black"
+          ],
+          "consensus": "black",
+          "confidence_avg": 0.1155,
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            1355.7,
+            1358.0,
+            1360.0
+          ],
+          "latency_median_ms": 1358.0
+        }
+      }
+    },
+    {
+      "id": "prompt_eval_color_white_001",
+      "source_id": "color_white_001",
+      "rel_path": "eval/images/color_test/color_white_001.jpg",
+      "expected_color": "white",
+      "difficult": true,
+      "blip_formats": {
+        "short_open": {
+          "raw_answers": [
+            "white",
+            "white",
+            "white"
+          ],
+          "normalized": [
+            "white",
+            "white",
+            "white"
+          ],
+          "consensus": "white",
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            642.0,
+            616.0,
+            631.3
+          ],
+          "latency_median_ms": 631.3
+        },
+        "short_options": {
+          "raw_answers": [
+            "black",
+            "black",
+            "black"
+          ],
+          "normalized": [
+            "black",
+            "black",
+            "black"
+          ],
+          "consensus": "black",
+          "is_correct": false,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            767.3,
+            770.0,
+            770.6
+          ],
+          "latency_median_ms": 770.0
+        },
+        "long_descriptions": {
+          "raw_answers": [
+            "red",
+            "red",
+            "red"
+          ],
+          "normalized": [
+            "red",
+            "red",
+            "red"
+          ],
+          "consensus": "red",
+          "is_correct": false,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            868.9,
+            1009.9,
+            1037.7
+          ],
+          "latency_median_ms": 1009.9
+        },
+        "structured_json": {
+          "raw_answers": [
+            "yes",
+            "yes",
+            "yes"
+          ],
+          "normalized": [
+            "other",
+            "other",
+            "other"
+          ],
+          "consensus": "other",
+          "is_correct": false,
+          "is_adherent": false,
+          "is_ambiguous": false,
+          "is_valid_json": false,
+          "latencies_ms": [
+            1000.5,
+            1038.8,
+            1107.9
+          ],
+          "latency_median_ms": 1038.8
+        }
+      },
+      "laya_formats": {
+        "native_short": {
+          "raw_answers": [
+            "gray_silver",
+            "gray_silver",
+            "gray_silver"
+          ],
+          "normalized": [
+            "gray_silver",
+            "gray_silver",
+            "gray_silver"
+          ],
+          "consensus": "gray_silver",
+          "confidence_avg": 0.1333,
+          "is_correct": false,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            1306.0,
+            1333.2,
+            1329.9
+          ],
+          "latency_median_ms": 1329.9
+        },
+        "native_descriptive": {
+          "raw_answers": [
+            "white",
+            "white",
+            "white"
+          ],
+          "normalized": [
+            "white",
+            "white",
+            "white"
+          ],
+          "consensus": "white",
+          "confidence_avg": 0.0586,
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            1368.9,
+            1380.6,
+            1389.5
+          ],
+          "latency_median_ms": 1380.6
+        }
+      }
+    },
+    {
+      "id": "prompt_eval_color_white_002",
+      "source_id": "color_white_002",
+      "rel_path": "eval/images/color_test/color_white_002.jpg",
+      "expected_color": "white",
+      "difficult": false,
+      "blip_formats": {
+        "short_open": {
+          "raw_answers": [
+            "white",
+            "white",
+            "white"
+          ],
+          "normalized": [
+            "white",
+            "white",
+            "white"
+          ],
+          "consensus": "white",
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            671.0,
+            682.6,
+            653.7
+          ],
+          "latency_median_ms": 671.0
+        },
+        "short_options": {
+          "raw_answers": [
+            "white",
+            "white",
+            "white"
+          ],
+          "normalized": [
+            "white",
+            "white",
+            "white"
+          ],
+          "consensus": "white",
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            737.3,
+            781.2,
+            774.3
+          ],
+          "latency_median_ms": 774.3
+        },
+        "long_descriptions": {
+          "raw_answers": [
+            "red",
+            "red",
+            "red"
+          ],
+          "normalized": [
+            "red",
+            "red",
+            "red"
+          ],
+          "consensus": "red",
+          "is_correct": false,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            1111.2,
+            1006.7,
+            1171.2
+          ],
+          "latency_median_ms": 1111.2
+        },
+        "structured_json": {
+          "raw_answers": [
+            "yes",
+            "yes",
+            "yes"
+          ],
+          "normalized": [
+            "other",
+            "other",
+            "other"
+          ],
+          "consensus": "other",
+          "is_correct": false,
+          "is_adherent": false,
+          "is_ambiguous": false,
+          "is_valid_json": false,
+          "latencies_ms": [
+            837.9,
+            850.6,
+            836.5
+          ],
+          "latency_median_ms": 837.9
+        }
+      },
+      "laya_formats": {
+        "native_short": {
+          "raw_answers": [
+            "white",
+            "white",
+            "white"
+          ],
+          "normalized": [
+            "white",
+            "white",
+            "white"
+          ],
+          "consensus": "white",
+          "confidence_avg": 0.3742,
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            1286.8,
+            1300.2,
+            1303.8
+          ],
+          "latency_median_ms": 1300.2
+        },
+        "native_descriptive": {
+          "raw_answers": [
+            "white",
+            "white",
+            "white"
+          ],
+          "normalized": [
+            "white",
+            "white",
+            "white"
+          ],
+          "consensus": "white",
+          "confidence_avg": 0.2769,
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            1360.2,
+            1388.3,
+            1358.2
+          ],
+          "latency_median_ms": 1360.2
+        }
+      }
+    },
+    {
+      "id": "prompt_eval_color_white_003",
+      "source_id": "color_white_003",
+      "rel_path": "eval/images/color_test/color_white_003.jpg",
+      "expected_color": "white",
+      "difficult": true,
+      "blip_formats": {
+        "short_open": {
+          "raw_answers": [
+            "white",
+            "white",
+            "white"
+          ],
+          "normalized": [
+            "white",
+            "white",
+            "white"
+          ],
+          "consensus": "white",
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            732.7,
+            678.1,
+            705.0
+          ],
+          "latency_median_ms": 705.0
+        },
+        "short_options": {
+          "raw_answers": [
+            "black",
+            "black",
+            "black"
+          ],
+          "normalized": [
+            "black",
+            "black",
+            "black"
+          ],
+          "consensus": "black",
+          "is_correct": false,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            803.7,
+            810.0,
+            810.8
+          ],
+          "latency_median_ms": 810.0
+        },
+        "long_descriptions": {
+          "raw_answers": [
+            "red",
+            "red",
+            "red"
+          ],
+          "normalized": [
+            "red",
+            "red",
+            "red"
+          ],
+          "consensus": "red",
+          "is_correct": false,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            882.9,
+            881.8,
+            886.1
+          ],
+          "latency_median_ms": 882.9
+        },
+        "structured_json": {
+          "raw_answers": [
+            "yes",
+            "yes",
+            "yes"
+          ],
+          "normalized": [
+            "other",
+            "other",
+            "other"
+          ],
+          "consensus": "other",
+          "is_correct": false,
+          "is_adherent": false,
+          "is_ambiguous": false,
+          "is_valid_json": false,
+          "latencies_ms": [
+            861.6,
+            863.9,
+            865.6
+          ],
+          "latency_median_ms": 863.9
+        }
+      },
+      "laya_formats": {
+        "native_short": {
+          "raw_answers": [
+            "gray_silver",
+            "gray_silver",
+            "gray_silver"
+          ],
+          "normalized": [
+            "gray_silver",
+            "gray_silver",
+            "gray_silver"
+          ],
+          "consensus": "gray_silver",
+          "confidence_avg": 0.2317,
+          "is_correct": false,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            1287.4,
+            1295.6,
+            1290.7
+          ],
+          "latency_median_ms": 1290.7
+        },
+        "native_descriptive": {
+          "raw_answers": [
+            "gray_silver",
+            "gray_silver",
+            "gray_silver"
+          ],
+          "normalized": [
+            "gray_silver",
+            "gray_silver",
+            "gray_silver"
+          ],
+          "consensus": "gray_silver",
+          "confidence_avg": 0.0941,
+          "is_correct": false,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            1356.1,
+            1358.2,
+            1355.3
+          ],
+          "latency_median_ms": 1356.1
+        }
+      }
+    },
+    {
+      "id": "prompt_eval_color_white_004",
+      "source_id": "color_white_004",
+      "rel_path": "eval/images/color_test/color_white_004.jpg",
+      "expected_color": "white",
+      "difficult": true,
+      "blip_formats": {
+        "short_open": {
+          "raw_answers": [
+            "white",
+            "white",
+            "white"
+          ],
+          "normalized": [
+            "white",
+            "white",
+            "white"
+          ],
+          "consensus": "white",
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            828.7,
+            843.7,
+            913.2
+          ],
+          "latency_median_ms": 843.7
+        },
+        "short_options": {
+          "raw_answers": [
+            "black",
+            "black",
+            "black"
+          ],
+          "normalized": [
+            "black",
+            "black",
+            "black"
+          ],
+          "consensus": "black",
+          "is_correct": false,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            746.4,
+            777.2,
+            768.0
+          ],
+          "latency_median_ms": 768.0
+        },
+        "long_descriptions": {
+          "raw_answers": [
+            "red",
+            "red",
+            "red"
+          ],
+          "normalized": [
+            "red",
+            "red",
+            "red"
+          ],
+          "consensus": "red",
+          "is_correct": false,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            949.0,
+            836.9,
+            897.7
+          ],
+          "latency_median_ms": 897.7
+        },
+        "structured_json": {
+          "raw_answers": [
+            "yes",
+            "yes",
+            "yes"
+          ],
+          "normalized": [
+            "other",
+            "other",
+            "other"
+          ],
+          "consensus": "other",
+          "is_correct": false,
+          "is_adherent": false,
+          "is_ambiguous": false,
+          "is_valid_json": false,
+          "latencies_ms": [
+            860.1,
+            819.6,
+            818.7
+          ],
+          "latency_median_ms": 819.6
+        }
+      },
+      "laya_formats": {
+        "native_short": {
+          "raw_answers": [
+            "white",
+            "white",
+            "white"
+          ],
+          "normalized": [
+            "white",
+            "white",
+            "white"
+          ],
+          "consensus": "white",
+          "confidence_avg": 0.1861,
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            1316.1,
+            1300.4,
+            1304.4
+          ],
+          "latency_median_ms": 1304.4
+        },
+        "native_descriptive": {
+          "raw_answers": [
+            "black",
+            "black",
+            "black"
+          ],
+          "normalized": [
+            "black",
+            "black",
+            "black"
+          ],
+          "consensus": "black",
+          "confidence_avg": 0.1217,
+          "is_correct": false,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            1382.7,
+            1429.2,
+            1741.7
+          ],
+          "latency_median_ms": 1429.2
+        }
+      }
+    },
+    {
+      "id": "prompt_eval_color_gray_silver_001",
+      "source_id": "color_gray_silver_001",
+      "rel_path": "eval/images/color_test/color_gray_silver_001.jpg",
+      "expected_color": "gray_silver",
+      "difficult": true,
+      "blip_formats": {
+        "short_open": {
+          "raw_answers": [
+            "silver",
+            "silver",
+            "silver"
+          ],
+          "normalized": [
+            "gray_silver",
+            "gray_silver",
+            "gray_silver"
+          ],
+          "consensus": "gray_silver",
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            1030.4,
+            1375.6,
+            953.1
+          ],
+          "latency_median_ms": 1030.4
+        },
+        "short_options": {
+          "raw_answers": [
+            "gray",
+            "gray",
+            "gray"
+          ],
+          "normalized": [
+            "gray_silver",
+            "gray_silver",
+            "gray_silver"
+          ],
+          "consensus": "gray_silver",
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            787.5,
+            785.4,
+            786.6
+          ],
+          "latency_median_ms": 786.6
+        },
+        "long_descriptions": {
+          "raw_answers": [
+            "red",
+            "red",
+            "red"
+          ],
+          "normalized": [
+            "red",
+            "red",
+            "red"
+          ],
+          "consensus": "red",
+          "is_correct": false,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            901.1,
+            907.6,
+            901.1
+          ],
+          "latency_median_ms": 901.1
+        },
+        "structured_json": {
+          "raw_answers": [
+            "yes",
+            "yes",
+            "yes"
+          ],
+          "normalized": [
+            "other",
+            "other",
+            "other"
+          ],
+          "consensus": "other",
+          "is_correct": false,
+          "is_adherent": false,
+          "is_ambiguous": false,
+          "is_valid_json": false,
+          "latencies_ms": [
+            830.8,
+            829.7,
+            845.1
+          ],
+          "latency_median_ms": 830.8
+        }
+      },
+      "laya_formats": {
+        "native_short": {
+          "raw_answers": [
+            "gray_silver",
+            "gray_silver",
+            "gray_silver"
+          ],
+          "normalized": [
+            "gray_silver",
+            "gray_silver",
+            "gray_silver"
+          ],
+          "consensus": "gray_silver",
+          "confidence_avg": 0.493,
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            1300.1,
+            1300.1,
+            1295.3
+          ],
+          "latency_median_ms": 1300.1
+        },
+        "native_descriptive": {
+          "raw_answers": [
+            "gray_silver",
+            "gray_silver",
+            "gray_silver"
+          ],
+          "normalized": [
+            "gray_silver",
+            "gray_silver",
+            "gray_silver"
+          ],
+          "consensus": "gray_silver",
+          "confidence_avg": 0.4201,
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            1666.8,
+            1753.0,
+            1433.1
+          ],
+          "latency_median_ms": 1666.8
+        }
+      }
+    },
+    {
+      "id": "prompt_eval_color_gray_silver_002",
+      "source_id": "color_gray_silver_002",
+      "rel_path": "eval/images/color_test/color_gray_silver_002.jpg",
+      "expected_color": "gray_silver",
+      "difficult": false,
+      "blip_formats": {
+        "short_open": {
+          "raw_answers": [
+            "gray",
+            "gray",
+            "gray"
+          ],
+          "normalized": [
+            "gray_silver",
+            "gray_silver",
+            "gray_silver"
+          ],
+          "consensus": "gray_silver",
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            787.6,
+            827.7,
+            697.4
+          ],
+          "latency_median_ms": 787.6
+        },
+        "short_options": {
+          "raw_answers": [
+            "black",
+            "black",
+            "black"
+          ],
+          "normalized": [
+            "black",
+            "black",
+            "black"
+          ],
+          "consensus": "black",
+          "is_correct": false,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            814.8,
+            815.0,
+            834.7
+          ],
+          "latency_median_ms": 815.0
+        },
+        "long_descriptions": {
+          "raw_answers": [
+            "red",
+            "red",
+            "red"
+          ],
+          "normalized": [
+            "red",
+            "red",
+            "red"
+          ],
+          "consensus": "red",
+          "is_correct": false,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            900.4,
+            901.7,
+            898.8
+          ],
+          "latency_median_ms": 900.4
+        },
+        "structured_json": {
+          "raw_answers": [
+            "yes",
+            "yes",
+            "yes"
+          ],
+          "normalized": [
+            "other",
+            "other",
+            "other"
+          ],
+          "consensus": "other",
+          "is_correct": false,
+          "is_adherent": false,
+          "is_ambiguous": false,
+          "is_valid_json": false,
+          "latencies_ms": [
+            861.6,
+            855.9,
+            861.4
+          ],
+          "latency_median_ms": 861.4
+        }
+      },
+      "laya_formats": {
+        "native_short": {
+          "raw_answers": [
+            "gray_silver",
+            "gray_silver",
+            "gray_silver"
+          ],
+          "normalized": [
+            "gray_silver",
+            "gray_silver",
+            "gray_silver"
+          ],
+          "consensus": "gray_silver",
+          "confidence_avg": 0.1788,
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            1431.7,
+            1506.5,
+            1450.1
+          ],
+          "latency_median_ms": 1450.1
+        },
+        "native_descriptive": {
+          "raw_answers": [
+            "black",
+            "black",
+            "black"
+          ],
+          "normalized": [
+            "black",
+            "black",
+            "black"
+          ],
+          "consensus": "black",
+          "confidence_avg": 0.0728,
+          "is_correct": false,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            1344.6,
+            1358.4,
+            1390.6
+          ],
+          "latency_median_ms": 1358.4
+        }
+      }
+    },
+    {
+      "id": "prompt_eval_color_gray_silver_003",
+      "source_id": "color_gray_silver_003",
+      "rel_path": "eval/images/color_test/color_gray_silver_003.jpg",
+      "expected_color": "gray_silver",
+      "difficult": false,
+      "blip_formats": {
+        "short_open": {
+          "raw_answers": [
+            "white",
+            "white",
+            "white"
+          ],
+          "normalized": [
+            "white",
+            "white",
+            "white"
+          ],
+          "consensus": "white",
+          "is_correct": false,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            667.4,
+            668.1,
+            671.8
+          ],
+          "latency_median_ms": 668.1
+        },
+        "short_options": {
+          "raw_answers": [
+            "white",
+            "white",
+            "white"
+          ],
+          "normalized": [
+            "white",
+            "white",
+            "white"
+          ],
+          "consensus": "white",
+          "is_correct": false,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            821.4,
+            815.1,
+            815.3
+          ],
+          "latency_median_ms": 815.3
+        },
+        "long_descriptions": {
+          "raw_answers": [
+            "purple",
+            "purple",
+            "purple"
+          ],
+          "normalized": [
+            "purple",
+            "purple",
+            "purple"
+          ],
+          "consensus": "purple",
+          "is_correct": false,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            901.7,
+            901.4,
+            902.2
+          ],
+          "latency_median_ms": 901.7
+        },
+        "structured_json": {
+          "raw_answers": [
+            "yes",
+            "yes",
+            "yes"
+          ],
+          "normalized": [
+            "other",
+            "other",
+            "other"
+          ],
+          "consensus": "other",
+          "is_correct": false,
+          "is_adherent": false,
+          "is_ambiguous": false,
+          "is_valid_json": false,
+          "latencies_ms": [
+            858.5,
+            871.3,
+            866.3
+          ],
+          "latency_median_ms": 866.3
+        }
+      },
+      "laya_formats": {
+        "native_short": {
+          "raw_answers": [
+            "gray_silver",
+            "gray_silver",
+            "gray_silver"
+          ],
+          "normalized": [
+            "gray_silver",
+            "gray_silver",
+            "gray_silver"
+          ],
+          "consensus": "gray_silver",
+          "confidence_avg": 0.1781,
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            1512.7,
+            1302.8,
+            1282.5
+          ],
+          "latency_median_ms": 1302.8
+        },
+        "native_descriptive": {
+          "raw_answers": [
+            "gray_silver",
+            "gray_silver",
+            "gray_silver"
+          ],
+          "normalized": [
+            "gray_silver",
+            "gray_silver",
+            "gray_silver"
+          ],
+          "consensus": "gray_silver",
+          "confidence_avg": 0.0616,
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            1410.7,
+            1370.7,
+            1360.2
+          ],
+          "latency_median_ms": 1370.7
+        }
+      }
+    },
+    {
+      "id": "prompt_eval_color_gray_silver_004",
+      "source_id": "color_gray_silver_004",
+      "rel_path": "eval/images/color_test/color_gray_silver_004.jpg",
+      "expected_color": "gray_silver",
+      "difficult": true,
+      "blip_formats": {
+        "short_open": {
+          "raw_answers": [
+            "silver",
+            "silver",
+            "silver"
+          ],
+          "normalized": [
+            "gray_silver",
+            "gray_silver",
+            "gray_silver"
+          ],
+          "consensus": "gray_silver",
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            709.3,
+            700.3,
+            703.4
+          ],
+          "latency_median_ms": 703.4
+        },
+        "short_options": {
+          "raw_answers": [
+            "gray",
+            "gray",
+            "gray"
+          ],
+          "normalized": [
+            "gray_silver",
+            "gray_silver",
+            "gray_silver"
+          ],
+          "consensus": "gray_silver",
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            744.1,
+            792.1,
+            745.1
+          ],
+          "latency_median_ms": 745.1
+        },
+        "long_descriptions": {
+          "raw_answers": [
+            "red",
+            "red",
+            "red"
+          ],
+          "normalized": [
+            "red",
+            "red",
+            "red"
+          ],
+          "consensus": "red",
+          "is_correct": false,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            871.9,
+            905.3,
+            904.0
+          ],
+          "latency_median_ms": 904.0
+        },
+        "structured_json": {
+          "raw_answers": [
+            "yes",
+            "yes",
+            "yes"
+          ],
+          "normalized": [
+            "other",
+            "other",
+            "other"
+          ],
+          "consensus": "other",
+          "is_correct": false,
+          "is_adherent": false,
+          "is_ambiguous": false,
+          "is_valid_json": false,
+          "latencies_ms": [
+            852.9,
+            835.6,
+            834.6
+          ],
+          "latency_median_ms": 835.6
+        }
+      },
+      "laya_formats": {
+        "native_short": {
+          "raw_answers": [
+            "gray_silver",
+            "gray_silver",
+            "gray_silver"
+          ],
+          "normalized": [
+            "gray_silver",
+            "gray_silver",
+            "gray_silver"
+          ],
+          "consensus": "gray_silver",
+          "confidence_avg": 0.4215,
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            1278.3,
+            1283.9,
+            1319.1
+          ],
+          "latency_median_ms": 1283.9
+        },
+        "native_descriptive": {
+          "raw_answers": [
+            "gray_silver",
+            "gray_silver",
+            "gray_silver"
+          ],
+          "normalized": [
+            "gray_silver",
+            "gray_silver",
+            "gray_silver"
+          ],
+          "consensus": "gray_silver",
+          "confidence_avg": 0.312,
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            1363.0,
+            1365.3,
+            1369.4
+          ],
+          "latency_median_ms": 1365.3
+        }
+      }
+    },
+    {
+      "id": "prompt_eval_color_red_001",
+      "source_id": "color_red_001",
+      "rel_path": "eval/images/color_test/color_red_001.jpg",
+      "expected_color": "red",
+      "difficult": false,
+      "blip_formats": {
+        "short_open": {
+          "raw_answers": [
+            "red",
+            "red",
+            "red"
+          ],
+          "normalized": [
+            "red",
+            "red",
+            "red"
+          ],
+          "consensus": "red",
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            737.4,
+            737.1,
+            742.6
+          ],
+          "latency_median_ms": 737.4
+        },
+        "short_options": {
+          "raw_answers": [
+            "red",
+            "red",
+            "red"
+          ],
+          "normalized": [
+            "red",
+            "red",
+            "red"
+          ],
+          "consensus": "red",
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            812.9,
+            824.1,
+            1221.9
+          ],
+          "latency_median_ms": 824.1
+        },
+        "long_descriptions": {
+          "raw_answers": [
+            "red",
+            "red",
+            "red"
+          ],
+          "normalized": [
+            "red",
+            "red",
+            "red"
+          ],
+          "consensus": "red",
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            903.9,
+            907.7,
+            902.9
+          ],
+          "latency_median_ms": 903.9
+        },
+        "structured_json": {
+          "raw_answers": [
+            "red",
+            "red",
+            "red"
+          ],
+          "normalized": [
+            "red",
+            "red",
+            "red"
+          ],
+          "consensus": "red",
+          "is_correct": true,
+          "is_adherent": false,
+          "is_ambiguous": false,
+          "is_valid_json": false,
+          "latencies_ms": [
+            853.9,
+            860.6,
+            878.7
+          ],
+          "latency_median_ms": 860.6
+        }
+      },
+      "laya_formats": {
+        "native_short": {
+          "raw_answers": [
+            "red",
+            "red",
+            "red"
+          ],
+          "normalized": [
+            "red",
+            "red",
+            "red"
+          ],
+          "consensus": "red",
+          "confidence_avg": 0.287,
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            1327.5,
+            1332.7,
+            1321.2
+          ],
+          "latency_median_ms": 1327.5
+        },
+        "native_descriptive": {
+          "raw_answers": [
+            "black",
+            "black",
+            "black"
+          ],
+          "normalized": [
+            "black",
+            "black",
+            "black"
+          ],
+          "consensus": "black",
+          "confidence_avg": 0.2474,
+          "is_correct": false,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            1358.8,
+            1377.1,
+            1377.7
+          ],
+          "latency_median_ms": 1377.1
+        }
+      }
+    },
+    {
+      "id": "prompt_eval_color_red_002",
+      "source_id": "color_red_002",
+      "rel_path": "eval/images/color_test/color_red_002.jpg",
+      "expected_color": "red",
+      "difficult": true,
+      "blip_formats": {
+        "short_open": {
+          "raw_answers": [
+            "black",
+            "black",
+            "black"
+          ],
+          "normalized": [
+            "black",
+            "black",
+            "black"
+          ],
+          "consensus": "black",
+          "is_correct": false,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            671.9,
+            672.5,
+            674.3
+          ],
+          "latency_median_ms": 672.5
+        },
+        "short_options": {
+          "raw_answers": [
+            "black",
+            "black",
+            "black"
+          ],
+          "normalized": [
+            "black",
+            "black",
+            "black"
+          ],
+          "consensus": "black",
+          "is_correct": false,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            920.1,
+            867.4,
+            1164.5
+          ],
+          "latency_median_ms": 920.1
+        },
+        "long_descriptions": {
+          "raw_answers": [
+            "red",
+            "red",
+            "red"
+          ],
+          "normalized": [
+            "red",
+            "red",
+            "red"
+          ],
+          "consensus": "red",
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            869.2,
+            893.3,
+            867.5
+          ],
+          "latency_median_ms": 869.2
+        },
+        "structured_json": {
+          "raw_answers": [
+            "yes",
+            "yes",
+            "yes"
+          ],
+          "normalized": [
+            "other",
+            "other",
+            "other"
+          ],
+          "consensus": "other",
+          "is_correct": false,
+          "is_adherent": false,
+          "is_ambiguous": false,
+          "is_valid_json": false,
+          "latencies_ms": [
+            861.5,
+            869.6,
+            862.3
+          ],
+          "latency_median_ms": 862.3
+        }
+      },
+      "laya_formats": {
+        "native_short": {
+          "raw_answers": [
+            "gray_silver",
+            "gray_silver",
+            "gray_silver"
+          ],
+          "normalized": [
+            "gray_silver",
+            "gray_silver",
+            "gray_silver"
+          ],
+          "consensus": "gray_silver",
+          "confidence_avg": 0.4263,
+          "is_correct": false,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            1306.8,
+            1304.1,
+            1297.4
+          ],
+          "latency_median_ms": 1304.1
+        },
+        "native_descriptive": {
+          "raw_answers": [
+            "gray_silver",
+            "gray_silver",
+            "gray_silver"
+          ],
+          "normalized": [
+            "gray_silver",
+            "gray_silver",
+            "gray_silver"
+          ],
+          "consensus": "gray_silver",
+          "confidence_avg": 0.3093,
+          "is_correct": false,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            1353.7,
+            1349.5,
+            1352.2
+          ],
+          "latency_median_ms": 1352.2
+        }
+      }
+    },
+    {
+      "id": "prompt_eval_color_red_003",
+      "source_id": "color_red_003",
+      "rel_path": "eval/images/color_test/color_red_003.jpg",
+      "expected_color": "red",
+      "difficult": true,
+      "blip_formats": {
+        "short_open": {
+          "raw_answers": [
+            "black",
+            "black",
+            "black"
+          ],
+          "normalized": [
+            "black",
+            "black",
+            "black"
+          ],
+          "consensus": "black",
+          "is_correct": false,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            679.5,
+            697.8,
+            677.6
+          ],
+          "latency_median_ms": 679.5
+        },
+        "short_options": {
+          "raw_answers": [
+            "black",
+            "black",
+            "black"
+          ],
+          "normalized": [
+            "black",
+            "black",
+            "black"
+          ],
+          "consensus": "black",
+          "is_correct": false,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            1034.9,
+            748.2,
+            755.3
+          ],
+          "latency_median_ms": 755.3
+        },
+        "long_descriptions": {
+          "raw_answers": [
+            "red",
+            "red",
+            "red"
+          ],
+          "normalized": [
+            "red",
+            "red",
+            "red"
+          ],
+          "consensus": "red",
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            864.2,
+            868.8,
+            919.9
+          ],
+          "latency_median_ms": 868.8
+        },
+        "structured_json": {
+          "raw_answers": [
+            "yes",
+            "yes",
+            "yes"
+          ],
+          "normalized": [
+            "other",
+            "other",
+            "other"
+          ],
+          "consensus": "other",
+          "is_correct": false,
+          "is_adherent": false,
+          "is_ambiguous": false,
+          "is_valid_json": false,
+          "latencies_ms": [
+            825.3,
+            939.2,
+            901.5
+          ],
+          "latency_median_ms": 901.5
+        }
+      },
+      "laya_formats": {
+        "native_short": {
+          "raw_answers": [
+            "gray_silver",
+            "gray_silver",
+            "gray_silver"
+          ],
+          "normalized": [
+            "gray_silver",
+            "gray_silver",
+            "gray_silver"
+          ],
+          "consensus": "gray_silver",
+          "confidence_avg": 0.1803,
+          "is_correct": false,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            1321.1,
+            1305.2,
+            1326.2
+          ],
+          "latency_median_ms": 1321.1
+        },
+        "native_descriptive": {
+          "raw_answers": [
+            "black",
+            "black",
+            "black"
+          ],
+          "normalized": [
+            "black",
+            "black",
+            "black"
+          ],
+          "consensus": "black",
+          "confidence_avg": 0.0899,
+          "is_correct": false,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            1353.9,
+            1444.3,
+            1713.3
+          ],
+          "latency_median_ms": 1444.3
+        }
+      }
+    },
+    {
+      "id": "prompt_eval_color_red_004",
+      "source_id": "color_red_004",
+      "rel_path": "eval/images/color_test/color_red_004.jpg",
+      "expected_color": "red",
+      "difficult": false,
+      "blip_formats": {
+        "short_open": {
+          "raw_answers": [
+            "red",
+            "red",
+            "red"
+          ],
+          "normalized": [
+            "red",
+            "red",
+            "red"
+          ],
+          "consensus": "red",
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            678.8,
+            677.6,
+            683.5
+          ],
+          "latency_median_ms": 678.8
+        },
+        "short_options": {
+          "raw_answers": [
+            "red",
+            "red",
+            "red"
+          ],
+          "normalized": [
+            "red",
+            "red",
+            "red"
+          ],
+          "consensus": "red",
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            751.5,
+            752.0,
+            751.8
+          ],
+          "latency_median_ms": 751.8
+        },
+        "long_descriptions": {
+          "raw_answers": [
+            "red",
+            "red",
+            "red"
+          ],
+          "normalized": [
+            "red",
+            "red",
+            "red"
+          ],
+          "consensus": "red",
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            1019.7,
+            969.9,
+            1147.2
+          ],
+          "latency_median_ms": 1019.7
+        },
+        "structured_json": {
+          "raw_answers": [
+            "yes",
+            "yes",
+            "yes"
+          ],
+          "normalized": [
+            "other",
+            "other",
+            "other"
+          ],
+          "consensus": "other",
+          "is_correct": false,
+          "is_adherent": false,
+          "is_ambiguous": false,
+          "is_valid_json": false,
+          "latencies_ms": [
+            1084.5,
+            936.6,
+            1365.7
+          ],
+          "latency_median_ms": 1084.5
+        }
+      },
+      "laya_formats": {
+        "native_short": {
+          "raw_answers": [
+            "red",
+            "red",
+            "red"
+          ],
+          "normalized": [
+            "red",
+            "red",
+            "red"
+          ],
+          "consensus": "red",
+          "confidence_avg": 0.3402,
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            1319.3,
+            2350.1,
+            1339.1
+          ],
+          "latency_median_ms": 1339.1
+        },
+        "native_descriptive": {
+          "raw_answers": [
+            "red",
+            "red",
+            "red"
+          ],
+          "normalized": [
+            "red",
+            "red",
+            "red"
+          ],
+          "consensus": "red",
+          "confidence_avg": 0.0869,
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            1592.8,
+            1837.3,
+            1396.7
+          ],
+          "latency_median_ms": 1592.8
+        }
+      }
+    },
+    {
+      "id": "prompt_eval_color_blue_001",
+      "source_id": "color_blue_001",
+      "rel_path": "eval/images/color_test/color_blue_001.jpg",
+      "expected_color": "blue",
+      "difficult": false,
+      "blip_formats": {
+        "short_open": {
+          "raw_answers": [
+            "blue",
+            "blue",
+            "blue"
+          ],
+          "normalized": [
+            "blue",
+            "blue",
+            "blue"
+          ],
+          "consensus": "blue",
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            683.5,
+            682.6,
+            681.1
+          ],
+          "latency_median_ms": 682.6
+        },
+        "short_options": {
+          "raw_answers": [
+            "blue",
+            "blue",
+            "blue"
+          ],
+          "normalized": [
+            "blue",
+            "blue",
+            "blue"
+          ],
+          "consensus": "blue",
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            752.7,
+            751.6,
+            753.8
+          ],
+          "latency_median_ms": 752.7
+        },
+        "long_descriptions": {
+          "raw_answers": [
+            "red",
+            "red",
+            "red"
+          ],
+          "normalized": [
+            "red",
+            "red",
+            "red"
+          ],
+          "consensus": "red",
+          "is_correct": false,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            1146.5,
+            1088.2,
+            868.6
+          ],
+          "latency_median_ms": 1088.2
+        },
+        "structured_json": {
+          "raw_answers": [
+            "yes",
+            "yes",
+            "yes"
+          ],
+          "normalized": [
+            "other",
+            "other",
+            "other"
+          ],
+          "consensus": "other",
+          "is_correct": false,
+          "is_adherent": false,
+          "is_ambiguous": false,
+          "is_valid_json": false,
+          "latencies_ms": [
+            950.9,
+            831.1,
+            795.7
+          ],
+          "latency_median_ms": 831.1
+        }
+      },
+      "laya_formats": {
+        "native_short": {
+          "raw_answers": [
+            "blue",
+            "blue",
+            "blue"
+          ],
+          "normalized": [
+            "blue",
+            "blue",
+            "blue"
+          ],
+          "consensus": "blue",
+          "confidence_avg": 0.2779,
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            1428.5,
+            1577.3,
+            1875.9
+          ],
+          "latency_median_ms": 1577.3
+        },
+        "native_descriptive": {
+          "raw_answers": [
+            "blue",
+            "blue",
+            "blue"
+          ],
+          "normalized": [
+            "blue",
+            "blue",
+            "blue"
+          ],
+          "consensus": "blue",
+          "confidence_avg": 0.1734,
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            1372.0,
+            1364.7,
+            1369.6
+          ],
+          "latency_median_ms": 1369.6
+        }
+      }
+    },
+    {
+      "id": "prompt_eval_color_blue_002",
+      "source_id": "color_blue_002",
+      "rel_path": "eval/images/color_test/color_blue_002.jpg",
+      "expected_color": "blue",
+      "difficult": true,
+      "blip_formats": {
+        "short_open": {
+          "raw_answers": [
+            "green",
+            "green",
+            "green"
+          ],
+          "normalized": [
+            "green",
+            "green",
+            "green"
+          ],
+          "consensus": "green",
+          "is_correct": false,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            682.1,
+            683.7,
+            686.4
+          ],
+          "latency_median_ms": 683.7
+        },
+        "short_options": {
+          "raw_answers": [
+            "black",
+            "black",
+            "black"
+          ],
+          "normalized": [
+            "black",
+            "black",
+            "black"
+          ],
+          "consensus": "black",
+          "is_correct": false,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            750.9,
+            754.7,
+            752.4
+          ],
+          "latency_median_ms": 752.4
+        },
+        "long_descriptions": {
+          "raw_answers": [
+            "silver",
+            "silver",
+            "silver"
+          ],
+          "normalized": [
+            "gray_silver",
+            "gray_silver",
+            "gray_silver"
+          ],
+          "consensus": "gray_silver",
+          "is_correct": false,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            874.8,
+            859.3,
+            872.2
+          ],
+          "latency_median_ms": 872.2
+        },
+        "structured_json": {
+          "raw_answers": [
+            "yes",
+            "yes",
+            "yes"
+          ],
+          "normalized": [
+            "other",
+            "other",
+            "other"
+          ],
+          "consensus": "other",
+          "is_correct": false,
+          "is_adherent": false,
+          "is_ambiguous": false,
+          "is_valid_json": false,
+          "latencies_ms": [
+            799.9,
+            795.5,
+            796.5
+          ],
+          "latency_median_ms": 796.5
+        }
+      },
+      "laya_formats": {
+        "native_short": {
+          "raw_answers": [
+            "green",
+            "green",
+            "green"
+          ],
+          "normalized": [
+            "green",
+            "green",
+            "green"
+          ],
+          "consensus": "green",
+          "confidence_avg": 0.1132,
+          "is_correct": false,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            1648.6,
+            1320.6,
+            1307.6
+          ],
+          "latency_median_ms": 1320.6
+        },
+        "native_descriptive": {
+          "raw_answers": [
+            "blue",
+            "blue",
+            "blue"
+          ],
+          "normalized": [
+            "blue",
+            "blue",
+            "blue"
+          ],
+          "consensus": "blue",
+          "confidence_avg": 0.0505,
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            1341.5,
+            1401.6,
+            1375.7
+          ],
+          "latency_median_ms": 1375.7
+        }
+      }
+    },
+    {
+      "id": "prompt_eval_color_blue_003",
+      "source_id": "color_blue_003",
+      "rel_path": "eval/images/color_test/color_blue_003.jpg",
+      "expected_color": "blue",
+      "difficult": false,
+      "blip_formats": {
+        "short_open": {
+          "raw_answers": [
+            "blue",
+            "blue",
+            "blue"
+          ],
+          "normalized": [
+            "blue",
+            "blue",
+            "blue"
+          ],
+          "consensus": "blue",
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            713.8,
+            716.2,
+            719.1
+          ],
+          "latency_median_ms": 716.2
+        },
+        "short_options": {
+          "raw_answers": [
+            "blue",
+            "blue",
+            "blue"
+          ],
+          "normalized": [
+            "blue",
+            "blue",
+            "blue"
+          ],
+          "consensus": "blue",
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            731.4,
+            758.7,
+            746.1
+          ],
+          "latency_median_ms": 746.1
+        },
+        "long_descriptions": {
+          "raw_answers": [
+            "purple",
+            "purple",
+            "purple"
+          ],
+          "normalized": [
+            "purple",
+            "purple",
+            "purple"
+          ],
+          "consensus": "purple",
+          "is_correct": false,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            877.6,
+            897.4,
+            879.7
+          ],
+          "latency_median_ms": 879.7
+        },
+        "structured_json": {
+          "raw_answers": [
+            "blue",
+            "blue",
+            "blue"
+          ],
+          "normalized": [
+            "blue",
+            "blue",
+            "blue"
+          ],
+          "consensus": "blue",
+          "is_correct": true,
+          "is_adherent": false,
+          "is_ambiguous": false,
+          "is_valid_json": false,
+          "latencies_ms": [
+            834.0,
+            825.5,
+            809.7
+          ],
+          "latency_median_ms": 825.5
+        }
+      },
+      "laya_formats": {
+        "native_short": {
+          "raw_answers": [
+            "blue",
+            "blue",
+            "blue"
+          ],
+          "normalized": [
+            "blue",
+            "blue",
+            "blue"
+          ],
+          "consensus": "blue",
+          "confidence_avg": 0.3577,
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            1312.9,
+            1325.2,
+            1292.4
+          ],
+          "latency_median_ms": 1312.9
+        },
+        "native_descriptive": {
+          "raw_answers": [
+            "blue",
+            "blue",
+            "blue"
+          ],
+          "normalized": [
+            "blue",
+            "blue",
+            "blue"
+          ],
+          "consensus": "blue",
+          "confidence_avg": 0.2084,
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            1376.5,
+            1374.8,
+            1356.2
+          ],
+          "latency_median_ms": 1374.8
+        }
+      }
+    },
+    {
+      "id": "prompt_eval_color_blue_004",
+      "source_id": "color_blue_004",
+      "rel_path": "eval/images/color_test/color_blue_004.jpg",
+      "expected_color": "blue",
+      "difficult": false,
+      "blip_formats": {
+        "short_open": {
+          "raw_answers": [
+            "green",
+            "green",
+            "green"
+          ],
+          "normalized": [
+            "green",
+            "green",
+            "green"
+          ],
+          "consensus": "green",
+          "is_correct": false,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            719.2,
+            721.1,
+            727.0
+          ],
+          "latency_median_ms": 721.1
+        },
+        "short_options": {
+          "raw_answers": [
+            "green",
+            "green",
+            "green"
+          ],
+          "normalized": [
+            "green",
+            "green",
+            "green"
+          ],
+          "consensus": "green",
+          "is_correct": false,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            764.6,
+            763.3,
+            759.3
+          ],
+          "latency_median_ms": 763.3
+        },
+        "long_descriptions": {
+          "raw_answers": [
+            "purple",
+            "purple",
+            "purple"
+          ],
+          "normalized": [
+            "purple",
+            "purple",
+            "purple"
+          ],
+          "consensus": "purple",
+          "is_correct": false,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            886.0,
+            884.2,
+            884.1
+          ],
+          "latency_median_ms": 884.2
+        },
+        "structured_json": {
+          "raw_answers": [
+            "yes",
+            "yes",
+            "yes"
+          ],
+          "normalized": [
+            "other",
+            "other",
+            "other"
+          ],
+          "consensus": "other",
+          "is_correct": false,
+          "is_adherent": false,
+          "is_ambiguous": false,
+          "is_valid_json": false,
+          "latencies_ms": [
+            815.4,
+            814.4,
+            811.5
+          ],
+          "latency_median_ms": 814.4
+        }
+      },
+      "laya_formats": {
+        "native_short": {
+          "raw_answers": [
+            "gray_silver",
+            "gray_silver",
+            "gray_silver"
+          ],
+          "normalized": [
+            "gray_silver",
+            "gray_silver",
+            "gray_silver"
+          ],
+          "consensus": "gray_silver",
+          "confidence_avg": 0.135,
+          "is_correct": false,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            1328.3,
+            1325.8,
+            1331.1
+          ],
+          "latency_median_ms": 1328.3
+        },
+        "native_descriptive": {
+          "raw_answers": [
+            "white",
+            "white",
+            "white"
+          ],
+          "normalized": [
+            "white",
+            "white",
+            "white"
+          ],
+          "consensus": "white",
+          "confidence_avg": 0.1391,
+          "is_correct": false,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            1365.1,
+            1361.8,
+            1382.2
+          ],
+          "latency_median_ms": 1365.1
+        }
+      }
+    },
+    {
+      "id": "prompt_eval_color_green_001",
+      "source_id": "color_green_001",
+      "rel_path": "eval/images/color_test/color_green_001.jpg",
+      "expected_color": "green",
+      "difficult": true,
+      "blip_formats": {
+        "short_open": {
+          "raw_answers": [
+            "green",
+            "green",
+            "green"
+          ],
+          "normalized": [
+            "green",
+            "green",
+            "green"
+          ],
+          "consensus": "green",
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            790.7,
+            786.0,
+            885.1
+          ],
+          "latency_median_ms": 790.7
+        },
+        "short_options": {
+          "raw_answers": [
+            "green",
+            "green",
+            "green"
+          ],
+          "normalized": [
+            "green",
+            "green",
+            "green"
+          ],
+          "consensus": "green",
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            750.6,
+            751.8,
+            752.6
+          ],
+          "latency_median_ms": 751.8
+        },
+        "long_descriptions": {
+          "raw_answers": [
+            "green",
+            "green",
+            "green"
+          ],
+          "normalized": [
+            "green",
+            "green",
+            "green"
+          ],
+          "consensus": "green",
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            873.2,
+            914.3,
+            865.7
+          ],
+          "latency_median_ms": 873.2
+        },
+        "structured_json": {
+          "raw_answers": [
+            "yes",
+            "yes",
+            "yes"
+          ],
+          "normalized": [
+            "other",
+            "other",
+            "other"
+          ],
+          "consensus": "other",
+          "is_correct": false,
+          "is_adherent": false,
+          "is_ambiguous": false,
+          "is_valid_json": false,
+          "latencies_ms": [
+            799.1,
+            813.8,
+            820.9
+          ],
+          "latency_median_ms": 813.8
+        }
+      },
+      "laya_formats": {
+        "native_short": {
+          "raw_answers": [
+            "green",
+            "green",
+            "green"
+          ],
+          "normalized": [
+            "green",
+            "green",
+            "green"
+          ],
+          "consensus": "green",
+          "confidence_avg": 0.3618,
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            1327.3,
+            1326.3,
+            1317.5
+          ],
+          "latency_median_ms": 1326.3
+        },
+        "native_descriptive": {
+          "raw_answers": [
+            "green",
+            "green",
+            "green"
+          ],
+          "normalized": [
+            "green",
+            "green",
+            "green"
+          ],
+          "consensus": "green",
+          "confidence_avg": 0.0901,
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            1388.7,
+            1374.7,
+            1406.1
+          ],
+          "latency_median_ms": 1388.7
+        }
+      }
+    },
+    {
+      "id": "prompt_eval_color_green_002",
+      "source_id": "color_green_002",
+      "rel_path": "eval/images/color_test/color_green_002.jpg",
+      "expected_color": "green",
+      "difficult": true,
+      "blip_formats": {
+        "short_open": {
+          "raw_answers": [
+            "green",
+            "green",
+            "green"
+          ],
+          "normalized": [
+            "green",
+            "green",
+            "green"
+          ],
+          "consensus": "green",
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            1033.9,
+            871.6,
+            861.0
+          ],
+          "latency_median_ms": 871.6
+        },
+        "short_options": {
+          "raw_answers": [
+            "green",
+            "green",
+            "green"
+          ],
+          "normalized": [
+            "green",
+            "green",
+            "green"
+          ],
+          "consensus": "green",
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            766.2,
+            764.3,
+            768.3
+          ],
+          "latency_median_ms": 766.2
+        },
+        "long_descriptions": {
+          "raw_answers": [
+            "red",
+            "red",
+            "red"
+          ],
+          "normalized": [
+            "red",
+            "red",
+            "red"
+          ],
+          "consensus": "red",
+          "is_correct": false,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            883.6,
+            881.7,
+            882.3
+          ],
+          "latency_median_ms": 882.3
+        },
+        "structured_json": {
+          "raw_answers": [
+            "yes",
+            "yes",
+            "yes"
+          ],
+          "normalized": [
+            "other",
+            "other",
+            "other"
+          ],
+          "consensus": "other",
+          "is_correct": false,
+          "is_adherent": false,
+          "is_ambiguous": false,
+          "is_valid_json": false,
+          "latencies_ms": [
+            815.5,
+            813.0,
+            813.8
+          ],
+          "latency_median_ms": 813.8
+        }
+      },
+      "laya_formats": {
+        "native_short": {
+          "raw_answers": [
+            "green",
+            "green",
+            "green"
+          ],
+          "normalized": [
+            "green",
+            "green",
+            "green"
+          ],
+          "consensus": "green",
+          "confidence_avg": 0.3315,
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            1313.6,
+            1312.6,
+            1296.4
+          ],
+          "latency_median_ms": 1312.6
+        },
+        "native_descriptive": {
+          "raw_answers": [
+            "green",
+            "green",
+            "green"
+          ],
+          "normalized": [
+            "green",
+            "green",
+            "green"
+          ],
+          "consensus": "green",
+          "confidence_avg": 0.0602,
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            1359.7,
+            1490.7,
+            1720.5
+          ],
+          "latency_median_ms": 1490.7
+        }
+      }
+    },
+    {
+      "id": "prompt_eval_color_green_003",
+      "source_id": "color_green_003",
+      "rel_path": "eval/images/color_test/color_green_003.png",
+      "expected_color": "green",
+      "difficult": true,
+      "blip_formats": {
+        "short_open": {
+          "raw_answers": [
+            "white",
+            "white",
+            "white"
+          ],
+          "normalized": [
+            "white",
+            "white",
+            "white"
+          ],
+          "consensus": "white",
+          "is_correct": false,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            746.4,
+            733.8,
+            705.6
+          ],
+          "latency_median_ms": 733.8
+        },
+        "short_options": {
+          "raw_answers": [
+            "white",
+            "white",
+            "white"
+          ],
+          "normalized": [
+            "white",
+            "white",
+            "white"
+          ],
+          "consensus": "white",
+          "is_correct": false,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            752.7,
+            755.7,
+            770.4
+          ],
+          "latency_median_ms": 755.7
+        },
+        "long_descriptions": {
+          "raw_answers": [
+            "red",
+            "red",
+            "red"
+          ],
+          "normalized": [
+            "red",
+            "red",
+            "red"
+          ],
+          "consensus": "red",
+          "is_correct": false,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            872.6,
+            902.0,
+            869.8
+          ],
+          "latency_median_ms": 872.6
+        },
+        "structured_json": {
+          "raw_answers": [
+            "yes",
+            "yes",
+            "yes"
+          ],
+          "normalized": [
+            "other",
+            "other",
+            "other"
+          ],
+          "consensus": "other",
+          "is_correct": false,
+          "is_adherent": false,
+          "is_ambiguous": false,
+          "is_valid_json": false,
+          "latencies_ms": [
+            804.6,
+            800.6,
+            799.4
+          ],
+          "latency_median_ms": 800.6
+        }
+      },
+      "laya_formats": {
+        "native_short": {
+          "raw_answers": [
+            "brown",
+            "brown",
+            "brown"
+          ],
+          "normalized": [
+            "brown",
+            "brown",
+            "brown"
+          ],
+          "consensus": "brown",
+          "confidence_avg": 0.3632,
+          "is_correct": false,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            1306.7,
+            1305.7,
+            1319.0
+          ],
+          "latency_median_ms": 1306.7
+        },
+        "native_descriptive": {
+          "raw_answers": [
+            "red",
+            "red",
+            "red"
+          ],
+          "normalized": [
+            "red",
+            "red",
+            "red"
+          ],
+          "consensus": "red",
+          "confidence_avg": 0.108,
+          "is_correct": false,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            1642.4,
+            1587.8,
+            1360.0
+          ],
+          "latency_median_ms": 1587.8
+        }
+      }
+    },
+    {
+      "id": "prompt_eval_color_green_004",
+      "source_id": "color_green_004",
+      "rel_path": "eval/images/color_test/color_green_004.jpg",
+      "expected_color": "green",
+      "difficult": false,
+      "blip_formats": {
+        "short_open": {
+          "raw_answers": [
+            "green",
+            "green",
+            "green"
+          ],
+          "normalized": [
+            "green",
+            "green",
+            "green"
+          ],
+          "consensus": "green",
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            747.3,
+            709.2,
+            754.9
+          ],
+          "latency_median_ms": 747.3
+        },
+        "short_options": {
+          "raw_answers": [
+            "green",
+            "green",
+            "green"
+          ],
+          "normalized": [
+            "green",
+            "green",
+            "green"
+          ],
+          "consensus": "green",
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            754.7,
+            753.2,
+            755.7
+          ],
+          "latency_median_ms": 754.7
+        },
+        "long_descriptions": {
+          "raw_answers": [
+            "red",
+            "red",
+            "red"
+          ],
+          "normalized": [
+            "red",
+            "red",
+            "red"
+          ],
+          "consensus": "red",
+          "is_correct": false,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            870.9,
+            872.5,
+            874.2
+          ],
+          "latency_median_ms": 872.5
+        },
+        "structured_json": {
+          "raw_answers": [
+            "yes",
+            "yes",
+            "yes"
+          ],
+          "normalized": [
+            "other",
+            "other",
+            "other"
+          ],
+          "consensus": "other",
+          "is_correct": false,
+          "is_adherent": false,
+          "is_ambiguous": false,
+          "is_valid_json": false,
+          "latencies_ms": [
+            796.9,
+            797.9,
+            794.8
+          ],
+          "latency_median_ms": 796.9
+        }
+      },
+      "laya_formats": {
+        "native_short": {
+          "raw_answers": [
+            "green",
+            "green",
+            "green"
+          ],
+          "normalized": [
+            "green",
+            "green",
+            "green"
+          ],
+          "consensus": "green",
+          "confidence_avg": 0.5337,
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            1310.3,
+            1462.7,
+            1618.4
+          ],
+          "latency_median_ms": 1462.7
+        },
+        "native_descriptive": {
+          "raw_answers": [
+            "gray_silver",
+            "gray_silver",
+            "gray_silver"
+          ],
+          "normalized": [
+            "gray_silver",
+            "gray_silver",
+            "gray_silver"
+          ],
+          "consensus": "gray_silver",
+          "confidence_avg": 0.1955,
+          "is_correct": false,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            1347.7,
+            1342.7,
+            1419.9
+          ],
+          "latency_median_ms": 1347.7
+        }
+      }
+    },
+    {
+      "id": "prompt_eval_color_yellow_001",
+      "source_id": "color_yellow_001",
+      "rel_path": "eval/images/color_test/color_yellow_001.jpg",
+      "expected_color": "yellow",
+      "difficult": false,
+      "blip_formats": {
+        "short_open": {
+          "raw_answers": [
+            "yellow",
+            "yellow",
+            "yellow"
+          ],
+          "normalized": [
+            "yellow",
+            "yellow",
+            "yellow"
+          ],
+          "consensus": "yellow",
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            772.5,
+            771.7,
+            772.7
+          ],
+          "latency_median_ms": 772.5
+        },
+        "short_options": {
+          "raw_answers": [
+            "yellow",
+            "yellow",
+            "yellow"
+          ],
+          "normalized": [
+            "yellow",
+            "yellow",
+            "yellow"
+          ],
+          "consensus": "yellow",
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            761.4,
+            726.8,
+            818.7
+          ],
+          "latency_median_ms": 761.4
+        },
+        "long_descriptions": {
+          "raw_answers": [
+            "red",
+            "red",
+            "red"
+          ],
+          "normalized": [
+            "red",
+            "red",
+            "red"
+          ],
+          "consensus": "red",
+          "is_correct": false,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            886.5,
+            837.8,
+            913.7
+          ],
+          "latency_median_ms": 886.5
+        },
+        "structured_json": {
+          "raw_answers": [
+            "yes",
+            "yes",
+            "yes"
+          ],
+          "normalized": [
+            "other",
+            "other",
+            "other"
+          ],
+          "consensus": "other",
+          "is_correct": false,
+          "is_adherent": false,
+          "is_ambiguous": false,
+          "is_valid_json": false,
+          "latencies_ms": [
+            848.2,
+            828.1,
+            830.2
+          ],
+          "latency_median_ms": 830.2
+        }
+      },
+      "laya_formats": {
+        "native_short": {
+          "raw_answers": [
+            "yellow",
+            "yellow",
+            "yellow"
+          ],
+          "normalized": [
+            "yellow",
+            "yellow",
+            "yellow"
+          ],
+          "consensus": "yellow",
+          "confidence_avg": 0.5042,
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            1662.4,
+            1473.1,
+            1298.1
+          ],
+          "latency_median_ms": 1473.1
+        },
+        "native_descriptive": {
+          "raw_answers": [
+            "yellow",
+            "yellow",
+            "yellow"
+          ],
+          "normalized": [
+            "yellow",
+            "yellow",
+            "yellow"
+          ],
+          "consensus": "yellow",
+          "confidence_avg": 0.2148,
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            1372.7,
+            1397.8,
+            1422.6
+          ],
+          "latency_median_ms": 1397.8
+        }
+      }
+    },
+    {
+      "id": "prompt_eval_color_yellow_002",
+      "source_id": "color_yellow_002",
+      "rel_path": "eval/images/color_test/color_yellow_002.jpg",
+      "expected_color": "yellow",
+      "difficult": false,
+      "blip_formats": {
+        "short_open": {
+          "raw_answers": [
+            "yellow",
+            "yellow",
+            "yellow"
+          ],
+          "normalized": [
+            "yellow",
+            "yellow",
+            "yellow"
+          ],
+          "consensus": "yellow",
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            775.6,
+            773.2,
+            774.0
+          ],
+          "latency_median_ms": 774.0
+        },
+        "short_options": {
+          "raw_answers": [
+            "yellow",
+            "yellow",
+            "yellow"
+          ],
+          "normalized": [
+            "yellow",
+            "yellow",
+            "yellow"
+          ],
+          "consensus": "yellow",
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            933.8,
+            1113.3,
+            944.4
+          ],
+          "latency_median_ms": 944.4
+        },
+        "long_descriptions": {
+          "raw_answers": [
+            "yellow",
+            "yellow",
+            "yellow"
+          ],
+          "normalized": [
+            "yellow",
+            "yellow",
+            "yellow"
+          ],
+          "consensus": "yellow",
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            909.1,
+            920.9,
+            1023.4
+          ],
+          "latency_median_ms": 920.9
+        },
+        "structured_json": {
+          "raw_answers": [
+            "yes",
+            "yes",
+            "yes"
+          ],
+          "normalized": [
+            "other",
+            "other",
+            "other"
+          ],
+          "consensus": "other",
+          "is_correct": false,
+          "is_adherent": false,
+          "is_ambiguous": false,
+          "is_valid_json": false,
+          "latencies_ms": [
+            861.2,
+            831.1,
+            885.3
+          ],
+          "latency_median_ms": 861.2
+        }
+      },
+      "laya_formats": {
+        "native_short": {
+          "raw_answers": [
+            "yellow",
+            "yellow",
+            "yellow"
+          ],
+          "normalized": [
+            "yellow",
+            "yellow",
+            "yellow"
+          ],
+          "consensus": "yellow",
+          "confidence_avg": 0.2752,
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            1308.8,
+            1316.4,
+            1302.8
+          ],
+          "latency_median_ms": 1308.8
+        },
+        "native_descriptive": {
+          "raw_answers": [
+            "yellow",
+            "yellow",
+            "yellow"
+          ],
+          "normalized": [
+            "yellow",
+            "yellow",
+            "yellow"
+          ],
+          "consensus": "yellow",
+          "confidence_avg": 0.1525,
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            1400.2,
+            1421.1,
+            1387.9
+          ],
+          "latency_median_ms": 1400.2
+        }
+      }
+    },
+    {
+      "id": "prompt_eval_color_yellow_003",
+      "source_id": "color_yellow_003",
+      "rel_path": "eval/images/color_test/color_yellow_003.jpg",
+      "expected_color": "yellow",
+      "difficult": false,
+      "blip_formats": {
+        "short_open": {
+          "raw_answers": [
+            "yellow",
+            "yellow",
+            "yellow"
+          ],
+          "normalized": [
+            "yellow",
+            "yellow",
+            "yellow"
+          ],
+          "consensus": "yellow",
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            753.6,
+            766.6,
+            752.0
+          ],
+          "latency_median_ms": 753.6
+        },
+        "short_options": {
+          "raw_answers": [
+            "yellow",
+            "yellow",
+            "yellow"
+          ],
+          "normalized": [
+            "yellow",
+            "yellow",
+            "yellow"
+          ],
+          "consensus": "yellow",
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            904.6,
+            1016.6,
+            857.0
+          ],
+          "latency_median_ms": 904.6
+        },
+        "long_descriptions": {
+          "raw_answers": [
+            "red",
+            "red",
+            "red"
+          ],
+          "normalized": [
+            "red",
+            "red",
+            "red"
+          ],
+          "consensus": "red",
+          "is_correct": false,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            991.8,
+            1423.1,
+            1021.1
+          ],
+          "latency_median_ms": 1021.1
+        },
+        "structured_json": {
+          "raw_answers": [
+            "yes",
+            "yes",
+            "yes"
+          ],
+          "normalized": [
+            "other",
+            "other",
+            "other"
+          ],
+          "consensus": "other",
+          "is_correct": false,
+          "is_adherent": false,
+          "is_ambiguous": false,
+          "is_valid_json": false,
+          "latencies_ms": [
+            934.1,
+            916.8,
+            1152.2
+          ],
+          "latency_median_ms": 934.1
+        }
+      },
+      "laya_formats": {
+        "native_short": {
+          "raw_answers": [
+            "yellow",
+            "yellow",
+            "yellow"
+          ],
+          "normalized": [
+            "yellow",
+            "yellow",
+            "yellow"
+          ],
+          "consensus": "yellow",
+          "confidence_avg": 0.455,
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            1286.4,
+            1314.4,
+            1298.0
+          ],
+          "latency_median_ms": 1298.0
+        },
+        "native_descriptive": {
+          "raw_answers": [
+            "yellow",
+            "yellow",
+            "yellow"
+          ],
+          "normalized": [
+            "yellow",
+            "yellow",
+            "yellow"
+          ],
+          "consensus": "yellow",
+          "confidence_avg": 0.2569,
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            1369.5,
+            1393.0,
+            1430.1
+          ],
+          "latency_median_ms": 1393.0
+        }
+      }
+    },
+    {
+      "id": "prompt_eval_color_yellow_004",
+      "source_id": "color_yellow_004",
+      "rel_path": "eval/images/color_test/color_yellow_004.jpg",
+      "expected_color": "yellow",
+      "difficult": false,
+      "blip_formats": {
+        "short_open": {
+          "raw_answers": [
+            "green",
+            "green",
+            "green"
+          ],
+          "normalized": [
+            "green",
+            "green",
+            "green"
+          ],
+          "consensus": "green",
+          "is_correct": false,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            751.6,
+            752.5,
+            752.6
+          ],
+          "latency_median_ms": 752.5
+        },
+        "short_options": {
+          "raw_answers": [
+            "green",
+            "green",
+            "green"
+          ],
+          "normalized": [
+            "green",
+            "green",
+            "green"
+          ],
+          "consensus": "green",
+          "is_correct": false,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            749.6,
+            758.9,
+            780.8
+          ],
+          "latency_median_ms": 758.9
+        },
+        "long_descriptions": {
+          "raw_answers": [
+            "red",
+            "red",
+            "red"
+          ],
+          "normalized": [
+            "red",
+            "red",
+            "red"
+          ],
+          "consensus": "red",
+          "is_correct": false,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            1046.3,
+            889.1,
+            847.0
+          ],
+          "latency_median_ms": 889.1
+        },
+        "structured_json": {
+          "raw_answers": [
+            "yes",
+            "yes",
+            "yes"
+          ],
+          "normalized": [
+            "other",
+            "other",
+            "other"
+          ],
+          "consensus": "other",
+          "is_correct": false,
+          "is_adherent": false,
+          "is_ambiguous": false,
+          "is_valid_json": false,
+          "latencies_ms": [
+            898.3,
+            1005.0,
+            1035.7
+          ],
+          "latency_median_ms": 1005.0
+        }
+      },
+      "laya_formats": {
+        "native_short": {
+          "raw_answers": [
+            "green",
+            "green",
+            "green"
+          ],
+          "normalized": [
+            "green",
+            "green",
+            "green"
+          ],
+          "consensus": "green",
+          "confidence_avg": 0.4551,
+          "is_correct": false,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            1364.4,
+            1300.1,
+            1307.8
+          ],
+          "latency_median_ms": 1307.8
+        },
+        "native_descriptive": {
+          "raw_answers": [
+            "yellow",
+            "yellow",
+            "yellow"
+          ],
+          "normalized": [
+            "yellow",
+            "yellow",
+            "yellow"
+          ],
+          "consensus": "yellow",
+          "confidence_avg": 0.2719,
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            1454.3,
+            1386.2,
+            1407.2
+          ],
+          "latency_median_ms": 1407.2
+        }
+      }
+    },
+    {
+      "id": "prompt_eval_color_orange_001",
+      "source_id": "color_orange_001",
+      "rel_path": "eval/images/color_test/color_orange_001.jpg",
+      "expected_color": "orange",
+      "difficult": true,
+      "blip_formats": {
+        "short_open": {
+          "raw_answers": [
+            "orange",
+            "orange",
+            "orange"
+          ],
+          "normalized": [
+            "orange",
+            "orange",
+            "orange"
+          ],
+          "consensus": "orange",
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            804.0,
+            782.3,
+            780.8
+          ],
+          "latency_median_ms": 782.3
+        },
+        "short_options": {
+          "raw_answers": [
+            "green",
+            "green",
+            "green"
+          ],
+          "normalized": [
+            "green",
+            "green",
+            "green"
+          ],
+          "consensus": "green",
+          "is_correct": false,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            778.4,
+            777.1,
+            779.2
+          ],
+          "latency_median_ms": 778.4
+        },
+        "long_descriptions": {
+          "raw_answers": [
+            "purple",
+            "purple",
+            "purple"
+          ],
+          "normalized": [
+            "purple",
+            "purple",
+            "purple"
+          ],
+          "consensus": "purple",
+          "is_correct": false,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            877.9,
+            876.4,
+            891.3
+          ],
+          "latency_median_ms": 877.9
+        },
+        "structured_json": {
+          "raw_answers": [
+            "orange",
+            "orange",
+            "orange"
+          ],
+          "normalized": [
+            "orange",
+            "orange",
+            "orange"
+          ],
+          "consensus": "orange",
+          "is_correct": true,
+          "is_adherent": false,
+          "is_ambiguous": false,
+          "is_valid_json": false,
+          "latencies_ms": [
+            856.8,
+            854.9,
+            882.8
+          ],
+          "latency_median_ms": 856.8
+        }
+      },
+      "laya_formats": {
+        "native_short": {
+          "raw_answers": [
+            "orange",
+            "orange",
+            "orange"
+          ],
+          "normalized": [
+            "orange",
+            "orange",
+            "orange"
+          ],
+          "consensus": "orange",
+          "confidence_avg": 0.2789,
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            1305.6,
+            1297.1,
+            1315.0
+          ],
+          "latency_median_ms": 1305.6
+        },
+        "native_descriptive": {
+          "raw_answers": [
+            "orange",
+            "orange",
+            "orange"
+          ],
+          "normalized": [
+            "orange",
+            "orange",
+            "orange"
+          ],
+          "consensus": "orange",
+          "confidence_avg": 0.1363,
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            1409.9,
+            1743.3,
+            1775.4
+          ],
+          "latency_median_ms": 1743.3
+        }
+      }
+    },
+    {
+      "id": "prompt_eval_color_orange_002",
+      "source_id": "color_orange_002",
+      "rel_path": "eval/images/color_test/color_orange_002.jpg",
+      "expected_color": "orange",
+      "difficult": false,
+      "blip_formats": {
+        "short_open": {
+          "raw_answers": [
+            "orange",
+            "orange",
+            "orange"
+          ],
+          "normalized": [
+            "orange",
+            "orange",
+            "orange"
+          ],
+          "consensus": "orange",
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            741.5,
+            742.5,
+            743.7
+          ],
+          "latency_median_ms": 742.5
+        },
+        "short_options": {
+          "raw_answers": [
+            "black",
+            "black",
+            "black"
+          ],
+          "normalized": [
+            "black",
+            "black",
+            "black"
+          ],
+          "consensus": "black",
+          "is_correct": false,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            779.2,
+            795.9,
+            785.2
+          ],
+          "latency_median_ms": 785.2
+        },
+        "long_descriptions": {
+          "raw_answers": [
+            "red",
+            "red",
+            "red"
+          ],
+          "normalized": [
+            "red",
+            "red",
+            "red"
+          ],
+          "consensus": "red",
+          "is_correct": false,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            888.4,
+            874.6,
+            907.0
+          ],
+          "latency_median_ms": 888.4
+        },
+        "structured_json": {
+          "raw_answers": [
+            "yes",
+            "yes",
+            "yes"
+          ],
+          "normalized": [
+            "other",
+            "other",
+            "other"
+          ],
+          "consensus": "other",
+          "is_correct": false,
+          "is_adherent": false,
+          "is_ambiguous": false,
+          "is_valid_json": false,
+          "latencies_ms": [
+            855.8,
+            856.0,
+            859.8
+          ],
+          "latency_median_ms": 856.0
+        }
+      },
+      "laya_formats": {
+        "native_short": {
+          "raw_answers": [
+            "orange",
+            "orange",
+            "orange"
+          ],
+          "normalized": [
+            "orange",
+            "orange",
+            "orange"
+          ],
+          "consensus": "orange",
+          "confidence_avg": 0.4545,
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            1312.4,
+            1308.0,
+            1315.7
+          ],
+          "latency_median_ms": 1312.4
+        },
+        "native_descriptive": {
+          "raw_answers": [
+            "orange",
+            "orange",
+            "orange"
+          ],
+          "normalized": [
+            "orange",
+            "orange",
+            "orange"
+          ],
+          "consensus": "orange",
+          "confidence_avg": 0.0892,
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            1888.4,
+            1859.2,
+            1392.3
+          ],
+          "latency_median_ms": 1859.2
+        }
+      }
+    },
+    {
+      "id": "prompt_eval_color_orange_003",
+      "source_id": "color_orange_003",
+      "rel_path": "eval/images/color_test/color_orange_003.jpg",
+      "expected_color": "orange",
+      "difficult": false,
+      "blip_formats": {
+        "short_open": {
+          "raw_answers": [
+            "orange",
+            "orange",
+            "orange"
+          ],
+          "normalized": [
+            "orange",
+            "orange",
+            "orange"
+          ],
+          "consensus": "orange",
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            740.6,
+            737.5,
+            737.3
+          ],
+          "latency_median_ms": 737.5
+        },
+        "short_options": {
+          "raw_answers": [
+            "black",
+            "black",
+            "black"
+          ],
+          "normalized": [
+            "black",
+            "black",
+            "black"
+          ],
+          "consensus": "black",
+          "is_correct": false,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            778.9,
+            788.0,
+            783.2
+          ],
+          "latency_median_ms": 783.2
+        },
+        "long_descriptions": {
+          "raw_answers": [
+            "red",
+            "red",
+            "red"
+          ],
+          "normalized": [
+            "red",
+            "red",
+            "red"
+          ],
+          "consensus": "red",
+          "is_correct": false,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            884.4,
+            879.5,
+            882.6
+          ],
+          "latency_median_ms": 882.6
+        },
+        "structured_json": {
+          "raw_answers": [
+            "orange",
+            "orange",
+            "orange"
+          ],
+          "normalized": [
+            "orange",
+            "orange",
+            "orange"
+          ],
+          "consensus": "orange",
+          "is_correct": true,
+          "is_adherent": false,
+          "is_ambiguous": false,
+          "is_valid_json": false,
+          "latencies_ms": [
+            862.5,
+            855.6,
+            859.2
+          ],
+          "latency_median_ms": 859.2
+        }
+      },
+      "laya_formats": {
+        "native_short": {
+          "raw_answers": [
+            "orange",
+            "orange",
+            "orange"
+          ],
+          "normalized": [
+            "orange",
+            "orange",
+            "orange"
+          ],
+          "consensus": "orange",
+          "confidence_avg": 0.3172,
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            1309.9,
+            1337.4,
+            1616.6
+          ],
+          "latency_median_ms": 1337.4
+        },
+        "native_descriptive": {
+          "raw_answers": [
+            "orange",
+            "orange",
+            "orange"
+          ],
+          "normalized": [
+            "orange",
+            "orange",
+            "orange"
+          ],
+          "consensus": "orange",
+          "confidence_avg": 0.0704,
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            1421.2,
+            1401.6,
+            1388.1
+          ],
+          "latency_median_ms": 1401.6
+        }
+      }
+    },
+    {
+      "id": "prompt_eval_color_orange_004",
+      "source_id": "color_orange_004",
+      "rel_path": "eval/images/color_test/color_orange_004.jpg",
+      "expected_color": "orange",
+      "difficult": false,
+      "blip_formats": {
+        "short_open": {
+          "raw_answers": [
+            "orange",
+            "orange",
+            "orange"
+          ],
+          "normalized": [
+            "orange",
+            "orange",
+            "orange"
+          ],
+          "consensus": "orange",
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            720.0,
+            719.4,
+            729.0
+          ],
+          "latency_median_ms": 720.0
+        },
+        "short_options": {
+          "raw_answers": [
+            "orange",
+            "orange",
+            "orange"
+          ],
+          "normalized": [
+            "orange",
+            "orange",
+            "orange"
+          ],
+          "consensus": "orange",
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            770.3,
+            768.4,
+            761.1
+          ],
+          "latency_median_ms": 768.4
+        },
+        "long_descriptions": {
+          "raw_answers": [
+            "purple",
+            "purple",
+            "purple"
+          ],
+          "normalized": [
+            "purple",
+            "purple",
+            "purple"
+          ],
+          "consensus": "purple",
+          "is_correct": false,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            858.3,
+            859.6,
+            880.5
+          ],
+          "latency_median_ms": 859.6
+        },
+        "structured_json": {
+          "raw_answers": [
+            "yes",
+            "yes",
+            "yes"
+          ],
+          "normalized": [
+            "other",
+            "other",
+            "other"
+          ],
+          "consensus": "other",
+          "is_correct": false,
+          "is_adherent": false,
+          "is_ambiguous": false,
+          "is_valid_json": false,
+          "latencies_ms": [
+            856.9,
+            836.1,
+            859.0
+          ],
+          "latency_median_ms": 856.9
+        }
+      },
+      "laya_formats": {
+        "native_short": {
+          "raw_answers": [
+            "orange",
+            "orange",
+            "orange"
+          ],
+          "normalized": [
+            "orange",
+            "orange",
+            "orange"
+          ],
+          "consensus": "orange",
+          "confidence_avg": 0.4419,
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            1518.6,
+            1841.1,
+            1485.3
+          ],
+          "latency_median_ms": 1518.6
+        },
+        "native_descriptive": {
+          "raw_answers": [
+            "orange",
+            "orange",
+            "orange"
+          ],
+          "normalized": [
+            "orange",
+            "orange",
+            "orange"
+          ],
+          "consensus": "orange",
+          "confidence_avg": 0.237,
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            1401.8,
+            1384.3,
+            1445.6
+          ],
+          "latency_median_ms": 1401.8
+        }
+      }
+    },
+    {
+      "id": "prompt_eval_color_brown_001",
+      "source_id": "color_brown_001",
+      "rel_path": "eval/images/color_test/color_brown_001.jpeg",
+      "expected_color": "brown",
+      "difficult": true,
+      "blip_formats": {
+        "short_open": {
+          "raw_answers": [
+            "brown",
+            "brown",
+            "brown"
+          ],
+          "normalized": [
+            "brown",
+            "brown",
+            "brown"
+          ],
+          "consensus": "brown",
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            754.1,
+            794.7,
+            900.8
+          ],
+          "latency_median_ms": 794.7
+        },
+        "short_options": {
+          "raw_answers": [
+            "brown",
+            "brown",
+            "brown"
+          ],
+          "normalized": [
+            "brown",
+            "brown",
+            "brown"
+          ],
+          "consensus": "brown",
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            778.8,
+            782.0,
+            783.3
+          ],
+          "latency_median_ms": 782.0
+        },
+        "long_descriptions": {
+          "raw_answers": [
+            "red",
+            "red",
+            "red"
+          ],
+          "normalized": [
+            "red",
+            "red",
+            "red"
+          ],
+          "consensus": "red",
+          "is_correct": false,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            879.1,
+            878.6,
+            878.0
+          ],
+          "latency_median_ms": 878.6
+        },
+        "structured_json": {
+          "raw_answers": [
+            "yes",
+            "yes",
+            "yes"
+          ],
+          "normalized": [
+            "other",
+            "other",
+            "other"
+          ],
+          "consensus": "other",
+          "is_correct": false,
+          "is_adherent": false,
+          "is_ambiguous": false,
+          "is_valid_json": false,
+          "latencies_ms": [
+            857.5,
+            857.2,
+            887.8
+          ],
+          "latency_median_ms": 857.5
+        }
+      },
+      "laya_formats": {
+        "native_short": {
+          "raw_answers": [
+            "brown",
+            "brown",
+            "brown"
+          ],
+          "normalized": [
+            "brown",
+            "brown",
+            "brown"
+          ],
+          "consensus": "brown",
+          "confidence_avg": 0.2763,
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            1360.3,
+            1305.7,
+            1290.0
+          ],
+          "latency_median_ms": 1305.7
+        },
+        "native_descriptive": {
+          "raw_answers": [
+            "brown",
+            "brown",
+            "brown"
+          ],
+          "normalized": [
+            "brown",
+            "brown",
+            "brown"
+          ],
+          "consensus": "brown",
+          "confidence_avg": 0.1539,
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            1470.8,
+            1513.0,
+            1427.9
+          ],
+          "latency_median_ms": 1470.8
+        }
+      }
+    },
+    {
+      "id": "prompt_eval_color_brown_002",
+      "source_id": "color_brown_002",
+      "rel_path": "eval/images/color_test/color_brown_002.jpg",
+      "expected_color": "brown",
+      "difficult": true,
+      "blip_formats": {
+        "short_open": {
+          "raw_answers": [
+            "brown",
+            "brown",
+            "brown"
+          ],
+          "normalized": [
+            "brown",
+            "brown",
+            "brown"
+          ],
+          "consensus": "brown",
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            1012.9,
+            898.1,
+            896.7
+          ],
+          "latency_median_ms": 898.1
+        },
+        "short_options": {
+          "raw_answers": [
+            "brown",
+            "brown",
+            "brown"
+          ],
+          "normalized": [
+            "brown",
+            "brown",
+            "brown"
+          ],
+          "consensus": "brown",
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            784.3,
+            782.4,
+            789.0
+          ],
+          "latency_median_ms": 784.3
+        },
+        "long_descriptions": {
+          "raw_answers": [
+            "red",
+            "red",
+            "red"
+          ],
+          "normalized": [
+            "red",
+            "red",
+            "red"
+          ],
+          "consensus": "red",
+          "is_correct": false,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            884.5,
+            883.4,
+            911.8
+          ],
+          "latency_median_ms": 884.5
+        },
+        "structured_json": {
+          "raw_answers": [
+            "yes",
+            "yes",
+            "yes"
+          ],
+          "normalized": [
+            "other",
+            "other",
+            "other"
+          ],
+          "consensus": "other",
+          "is_correct": false,
+          "is_adherent": false,
+          "is_ambiguous": false,
+          "is_valid_json": false,
+          "latencies_ms": [
+            858.1,
+            857.7,
+            856.4
+          ],
+          "latency_median_ms": 857.7
+        }
+      },
+      "laya_formats": {
+        "native_short": {
+          "raw_answers": [
+            "orange",
+            "orange",
+            "orange"
+          ],
+          "normalized": [
+            "orange",
+            "orange",
+            "orange"
+          ],
+          "consensus": "orange",
+          "confidence_avg": 0.411,
+          "is_correct": false,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            1319.3,
+            1312.2,
+            1374.1
+          ],
+          "latency_median_ms": 1319.3
+        },
+        "native_descriptive": {
+          "raw_answers": [
+            "brown",
+            "brown",
+            "brown"
+          ],
+          "normalized": [
+            "brown",
+            "brown",
+            "brown"
+          ],
+          "consensus": "brown",
+          "confidence_avg": 0.1049,
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            1440.4,
+            1438.0,
+            1429.4
+          ],
+          "latency_median_ms": 1438.0
+        }
+      }
+    },
+    {
+      "id": "prompt_eval_color_brown_003",
+      "source_id": "color_brown_003",
+      "rel_path": "eval/images/color_test/color_brown_003.jpg",
+      "expected_color": "brown",
+      "difficult": true,
+      "blip_formats": {
+        "short_open": {
+          "raw_answers": [
+            "silver",
+            "silver",
+            "silver"
+          ],
+          "normalized": [
+            "gray_silver",
+            "gray_silver",
+            "gray_silver"
+          ],
+          "consensus": "gray_silver",
+          "is_correct": false,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            1267.3,
+            823.4,
+            750.7
+          ],
+          "latency_median_ms": 823.4
+        },
+        "short_options": {
+          "raw_answers": [
+            "black and white",
+            "black and white",
+            "black and white"
+          ],
+          "normalized": [
+            "black",
+            "black",
+            "black"
+          ],
+          "consensus": "black",
+          "is_correct": false,
+          "is_adherent": false,
+          "is_ambiguous": true,
+          "is_valid_json": true,
+          "latencies_ms": [
+            827.1,
+            824.0,
+            824.6
+          ],
+          "latency_median_ms": 824.6
+        },
+        "long_descriptions": {
+          "raw_answers": [
+            "purple",
+            "purple",
+            "purple"
+          ],
+          "normalized": [
+            "purple",
+            "purple",
+            "purple"
+          ],
+          "consensus": "purple",
+          "is_correct": false,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            876.0,
+            887.4,
+            879.1
+          ],
+          "latency_median_ms": 879.1
+        },
+        "structured_json": {
+          "raw_answers": [
+            "yes",
+            "yes",
+            "yes"
+          ],
+          "normalized": [
+            "other",
+            "other",
+            "other"
+          ],
+          "consensus": "other",
+          "is_correct": false,
+          "is_adherent": false,
+          "is_ambiguous": false,
+          "is_valid_json": false,
+          "latencies_ms": [
+            856.4,
+            858.3,
+            854.3
+          ],
+          "latency_median_ms": 856.4
+        }
+      },
+      "laya_formats": {
+        "native_short": {
+          "raw_answers": [
+            "gray_silver",
+            "gray_silver",
+            "gray_silver"
+          ],
+          "normalized": [
+            "gray_silver",
+            "gray_silver",
+            "gray_silver"
+          ],
+          "consensus": "gray_silver",
+          "confidence_avg": 0.3041,
+          "is_correct": false,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            1308.2,
+            1285.8,
+            1324.0
+          ],
+          "latency_median_ms": 1308.2
+        },
+        "native_descriptive": {
+          "raw_answers": [
+            "gray_silver",
+            "gray_silver",
+            "gray_silver"
+          ],
+          "normalized": [
+            "gray_silver",
+            "gray_silver",
+            "gray_silver"
+          ],
+          "consensus": "gray_silver",
+          "confidence_avg": 0.2596,
+          "is_correct": false,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            1397.0,
+            1369.6,
+            1422.4
+          ],
+          "latency_median_ms": 1397.0
+        }
+      }
+    },
+    {
+      "id": "prompt_eval_color_brown_004",
+      "source_id": "color_brown_004",
+      "rel_path": "eval/images/color_test/color_brown_004.jpg",
+      "expected_color": "brown",
+      "difficult": true,
+      "blip_formats": {
+        "short_open": {
+          "raw_answers": [
+            "brown",
+            "brown",
+            "brown"
+          ],
+          "normalized": [
+            "brown",
+            "brown",
+            "brown"
+          ],
+          "consensus": "brown",
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            752.2,
+            751.6,
+            752.9
+          ],
+          "latency_median_ms": 752.2
+        },
+        "short_options": {
+          "raw_answers": [
+            "brown",
+            "brown",
+            "brown"
+          ],
+          "normalized": [
+            "brown",
+            "brown",
+            "brown"
+          ],
+          "consensus": "brown",
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            782.9,
+            791.1,
+            796.0
+          ],
+          "latency_median_ms": 791.1
+        },
+        "long_descriptions": {
+          "raw_answers": [
+            "red",
+            "red",
+            "red"
+          ],
+          "normalized": [
+            "red",
+            "red",
+            "red"
+          ],
+          "consensus": "red",
+          "is_correct": false,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            876.1,
+            873.5,
+            876.1
+          ],
+          "latency_median_ms": 876.1
+        },
+        "structured_json": {
+          "raw_answers": [
+            "yes",
+            "yes",
+            "yes"
+          ],
+          "normalized": [
+            "other",
+            "other",
+            "other"
+          ],
+          "consensus": "other",
+          "is_correct": false,
+          "is_adherent": false,
+          "is_ambiguous": false,
+          "is_valid_json": false,
+          "latencies_ms": [
+            857.8,
+            870.3,
+            856.8
+          ],
+          "latency_median_ms": 857.8
+        }
+      },
+      "laya_formats": {
+        "native_short": {
+          "raw_answers": [
+            "brown",
+            "brown",
+            "brown"
+          ],
+          "normalized": [
+            "brown",
+            "brown",
+            "brown"
+          ],
+          "consensus": "brown",
+          "confidence_avg": 0.1606,
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            1295.9,
+            1311.8,
+            1332.9
+          ],
+          "latency_median_ms": 1311.8
+        },
+        "native_descriptive": {
+          "raw_answers": [
+            "brown",
+            "brown",
+            "brown"
+          ],
+          "normalized": [
+            "brown",
+            "brown",
+            "brown"
+          ],
+          "consensus": "brown",
+          "confidence_avg": 0.1158,
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            1638.2,
+            1645.9,
+            1757.6
+          ],
+          "latency_median_ms": 1645.9
+        }
+      }
+    },
+    {
+      "id": "prompt_eval_color_purple_001",
+      "source_id": "color_purple_001",
+      "rel_path": "eval/images/color_test/color_purple_001.jpg",
+      "expected_color": "purple",
+      "difficult": true,
+      "blip_formats": {
+        "short_open": {
+          "raw_answers": [
+            "purple",
+            "purple",
+            "purple"
+          ],
+          "normalized": [
+            "purple",
+            "purple",
+            "purple"
+          ],
+          "consensus": "purple",
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            745.4,
+            751.6,
+            759.1
+          ],
+          "latency_median_ms": 751.6
+        },
+        "short_options": {
+          "raw_answers": [
+            "purple",
+            "purple",
+            "purple"
+          ],
+          "normalized": [
+            "purple",
+            "purple",
+            "purple"
+          ],
+          "consensus": "purple",
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            780.9,
+            783.8,
+            828.4
+          ],
+          "latency_median_ms": 783.8
+        },
+        "long_descriptions": {
+          "raw_answers": [
+            "purple",
+            "purple",
+            "purple"
+          ],
+          "normalized": [
+            "purple",
+            "purple",
+            "purple"
+          ],
+          "consensus": "purple",
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            878.1,
+            964.5,
+            1008.6
+          ],
+          "latency_median_ms": 964.5
+        },
+        "structured_json": {
+          "raw_answers": [
+            "yes",
+            "yes",
+            "yes"
+          ],
+          "normalized": [
+            "other",
+            "other",
+            "other"
+          ],
+          "consensus": "other",
+          "is_correct": false,
+          "is_adherent": false,
+          "is_ambiguous": false,
+          "is_valid_json": false,
+          "latencies_ms": [
+            855.4,
+            858.3,
+            886.7
+          ],
+          "latency_median_ms": 858.3
+        }
+      },
+      "laya_formats": {
+        "native_short": {
+          "raw_answers": [
+            "purple",
+            "purple",
+            "purple"
+          ],
+          "normalized": [
+            "purple",
+            "purple",
+            "purple"
+          ],
+          "consensus": "purple",
+          "confidence_avg": 0.2938,
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            1324.3,
+            1330.7,
+            1307.9
+          ],
+          "latency_median_ms": 1324.3
+        },
+        "native_descriptive": {
+          "raw_answers": [
+            "purple",
+            "purple",
+            "purple"
+          ],
+          "normalized": [
+            "purple",
+            "purple",
+            "purple"
+          ],
+          "consensus": "purple",
+          "confidence_avg": 0.2,
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            2014.3,
+            1372.2,
+            1368.4
+          ],
+          "latency_median_ms": 1372.2
+        }
+      }
+    },
+    {
+      "id": "prompt_eval_color_purple_002",
+      "source_id": "color_purple_002",
+      "rel_path": "eval/images/color_test/color_purple_002.png",
+      "expected_color": "purple",
+      "difficult": true,
+      "blip_formats": {
+        "short_open": {
+          "raw_answers": [
+            "purple",
+            "purple",
+            "purple"
+          ],
+          "normalized": [
+            "purple",
+            "purple",
+            "purple"
+          ],
+          "consensus": "purple",
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            722.6,
+            728.0,
+            723.7
+          ],
+          "latency_median_ms": 723.7
+        },
+        "short_options": {
+          "raw_answers": [
+            "purple",
+            "purple",
+            "purple"
+          ],
+          "normalized": [
+            "purple",
+            "purple",
+            "purple"
+          ],
+          "consensus": "purple",
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            1131.9,
+            890.8,
+            897.1
+          ],
+          "latency_median_ms": 897.1
+        },
+        "long_descriptions": {
+          "raw_answers": [
+            "purple",
+            "purple",
+            "purple"
+          ],
+          "normalized": [
+            "purple",
+            "purple",
+            "purple"
+          ],
+          "consensus": "purple",
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            1184.5,
+            1485.8,
+            1102.2
+          ],
+          "latency_median_ms": 1184.5
+        },
+        "structured_json": {
+          "raw_answers": [
+            "yes",
+            "yes",
+            "yes"
+          ],
+          "normalized": [
+            "other",
+            "other",
+            "other"
+          ],
+          "consensus": "other",
+          "is_correct": false,
+          "is_adherent": false,
+          "is_ambiguous": false,
+          "is_valid_json": false,
+          "latencies_ms": [
+            884.1,
+            1074.5,
+            1071.2
+          ],
+          "latency_median_ms": 1071.2
+        }
+      },
+      "laya_formats": {
+        "native_short": {
+          "raw_answers": [
+            "purple",
+            "purple",
+            "purple"
+          ],
+          "normalized": [
+            "purple",
+            "purple",
+            "purple"
+          ],
+          "consensus": "purple",
+          "confidence_avg": 0.4032,
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            1298.9,
+            1321.3,
+            1421.6
+          ],
+          "latency_median_ms": 1321.3
+        },
+        "native_descriptive": {
+          "raw_answers": [
+            "purple",
+            "purple",
+            "purple"
+          ],
+          "normalized": [
+            "purple",
+            "purple",
+            "purple"
+          ],
+          "consensus": "purple",
+          "confidence_avg": 0.2582,
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            1341.9,
+            1361.4,
+            1365.9
+          ],
+          "latency_median_ms": 1361.4
+        }
+      }
+    },
+    {
+      "id": "prompt_eval_color_purple_003",
+      "source_id": "color_purple_003",
+      "rel_path": "eval/images/color_test/color_purple_003.jpg",
+      "expected_color": "purple",
+      "difficult": true,
+      "blip_formats": {
+        "short_open": {
+          "raw_answers": [
+            "purple",
+            "purple",
+            "purple"
+          ],
+          "normalized": [
+            "purple",
+            "purple",
+            "purple"
+          ],
+          "consensus": "purple",
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            758.8,
+            770.2,
+            760.6
+          ],
+          "latency_median_ms": 760.6
+        },
+        "short_options": {
+          "raw_answers": [
+            "purple",
+            "purple",
+            "purple"
+          ],
+          "normalized": [
+            "purple",
+            "purple",
+            "purple"
+          ],
+          "consensus": "purple",
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            985.1,
+            1154.9,
+            824.4
+          ],
+          "latency_median_ms": 985.1
+        },
+        "long_descriptions": {
+          "raw_answers": [
+            "purple",
+            "purple",
+            "purple"
+          ],
+          "normalized": [
+            "purple",
+            "purple",
+            "purple"
+          ],
+          "consensus": "purple",
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            884.3,
+            876.3,
+            876.1
+          ],
+          "latency_median_ms": 876.3
+        },
+        "structured_json": {
+          "raw_answers": [
+            "purple",
+            "purple",
+            "purple"
+          ],
+          "normalized": [
+            "purple",
+            "purple",
+            "purple"
+          ],
+          "consensus": "purple",
+          "is_correct": true,
+          "is_adherent": false,
+          "is_ambiguous": false,
+          "is_valid_json": false,
+          "latencies_ms": [
+            1239.1,
+            1038.3,
+            945.5
+          ],
+          "latency_median_ms": 1038.3
+        }
+      },
+      "laya_formats": {
+        "native_short": {
+          "raw_answers": [
+            "purple",
+            "purple",
+            "purple"
+          ],
+          "normalized": [
+            "purple",
+            "purple",
+            "purple"
+          ],
+          "consensus": "purple",
+          "confidence_avg": 0.4971,
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            1591.2,
+            1644.9,
+            1667.4
+          ],
+          "latency_median_ms": 1644.9
+        },
+        "native_descriptive": {
+          "raw_answers": [
+            "purple",
+            "purple",
+            "purple"
+          ],
+          "normalized": [
+            "purple",
+            "purple",
+            "purple"
+          ],
+          "consensus": "purple",
+          "confidence_avg": 0.2074,
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            1344.5,
+            1350.4,
+            1385.3
+          ],
+          "latency_median_ms": 1350.4
+        }
+      }
+    },
+    {
+      "id": "prompt_eval_color_purple_004",
+      "source_id": "color_purple_004",
+      "rel_path": "eval/images/color_test/color_purple_004.jpg",
+      "expected_color": "purple",
+      "difficult": false,
+      "blip_formats": {
+        "short_open": {
+          "raw_answers": [
+            "purple",
+            "purple",
+            "purple"
+          ],
+          "normalized": [
+            "purple",
+            "purple",
+            "purple"
+          ],
+          "consensus": "purple",
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            754.0,
+            731.0,
+            697.9
+          ],
+          "latency_median_ms": 731.0
+        },
+        "short_options": {
+          "raw_answers": [
+            "purple",
+            "purple",
+            "purple"
+          ],
+          "normalized": [
+            "purple",
+            "purple",
+            "purple"
+          ],
+          "consensus": "purple",
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            944.5,
+            833.4,
+            789.2
+          ],
+          "latency_median_ms": 833.4
+        },
+        "long_descriptions": {
+          "raw_answers": [
+            "purple",
+            "purple",
+            "purple"
+          ],
+          "normalized": [
+            "purple",
+            "purple",
+            "purple"
+          ],
+          "consensus": "purple",
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            933.2,
+            897.2,
+            874.5
+          ],
+          "latency_median_ms": 897.2
+        },
+        "structured_json": {
+          "raw_answers": [
+            "purple",
+            "purple",
+            "purple"
+          ],
+          "normalized": [
+            "purple",
+            "purple",
+            "purple"
+          ],
+          "consensus": "purple",
+          "is_correct": true,
+          "is_adherent": false,
+          "is_ambiguous": false,
+          "is_valid_json": false,
+          "latencies_ms": [
+            814.4,
+            816.5,
+            820.3
+          ],
+          "latency_median_ms": 816.5
+        }
+      },
+      "laya_formats": {
+        "native_short": {
+          "raw_answers": [
+            "purple",
+            "purple",
+            "purple"
+          ],
+          "normalized": [
+            "purple",
+            "purple",
+            "purple"
+          ],
+          "consensus": "purple",
+          "confidence_avg": 0.5268,
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            1316.9,
+            1330.8,
+            1319.3
+          ],
+          "latency_median_ms": 1319.3
+        },
+        "native_descriptive": {
+          "raw_answers": [
+            "purple",
+            "purple",
+            "purple"
+          ],
+          "normalized": [
+            "purple",
+            "purple",
+            "purple"
+          ],
+          "consensus": "purple",
+          "confidence_avg": 0.401,
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            1333.5,
+            1349.5,
+            1382.1
+          ],
+          "latency_median_ms": 1349.5
+        }
+      }
+    },
+    {
+      "id": "prompt_eval_color_pink_001",
+      "source_id": "color_pink_001",
+      "rel_path": "eval/images/color_test/color_pink_001.jpg",
+      "expected_color": "pink",
+      "difficult": true,
+      "blip_formats": {
+        "short_open": {
+          "raw_answers": [
+            "pink",
+            "pink",
+            "pink"
+          ],
+          "normalized": [
+            "pink",
+            "pink",
+            "pink"
+          ],
+          "consensus": "pink",
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            757.2,
+            763.1,
+            760.6
+          ],
+          "latency_median_ms": 760.6
+        },
+        "short_options": {
+          "raw_answers": [
+            "pink",
+            "pink",
+            "pink"
+          ],
+          "normalized": [
+            "pink",
+            "pink",
+            "pink"
+          ],
+          "consensus": "pink",
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            789.1,
+            786.6,
+            789.7
+          ],
+          "latency_median_ms": 789.1
+        },
+        "long_descriptions": {
+          "raw_answers": [
+            "purple",
+            "purple",
+            "purple"
+          ],
+          "normalized": [
+            "purple",
+            "purple",
+            "purple"
+          ],
+          "consensus": "purple",
+          "is_correct": false,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            875.3,
+            873.4,
+            875.4
+          ],
+          "latency_median_ms": 875.3
+        },
+        "structured_json": {
+          "raw_answers": [
+            "yes",
+            "yes",
+            "yes"
+          ],
+          "normalized": [
+            "other",
+            "other",
+            "other"
+          ],
+          "consensus": "other",
+          "is_correct": false,
+          "is_adherent": false,
+          "is_ambiguous": false,
+          "is_valid_json": false,
+          "latencies_ms": [
+            855.3,
+            887.6,
+            866.0
+          ],
+          "latency_median_ms": 866.0
+        }
+      },
+      "laya_formats": {
+        "native_short": {
+          "raw_answers": [
+            "pink",
+            "pink",
+            "pink"
+          ],
+          "normalized": [
+            "pink",
+            "pink",
+            "pink"
+          ],
+          "consensus": "pink",
+          "confidence_avg": 0.0929,
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            1303.3,
+            1300.1,
+            1306.9
+          ],
+          "latency_median_ms": 1303.3
+        },
+        "native_descriptive": {
+          "raw_answers": [
+            "purple",
+            "purple",
+            "purple"
+          ],
+          "normalized": [
+            "purple",
+            "purple",
+            "purple"
+          ],
+          "consensus": "purple",
+          "confidence_avg": 0.1003,
+          "is_correct": false,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            1368.4,
+            1382.8,
+            1366.0
+          ],
+          "latency_median_ms": 1368.4
+        }
+      }
+    },
+    {
+      "id": "prompt_eval_color_pink_002",
+      "source_id": "color_pink_002",
+      "rel_path": "eval/images/color_test/color_pink_002.jpeg",
+      "expected_color": "pink",
+      "difficult": false,
+      "blip_formats": {
+        "short_open": {
+          "raw_answers": [
+            "pink",
+            "pink",
+            "pink"
+          ],
+          "normalized": [
+            "pink",
+            "pink",
+            "pink"
+          ],
+          "consensus": "pink",
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            737.9,
+            712.6,
+            739.5
+          ],
+          "latency_median_ms": 737.9
+        },
+        "short_options": {
+          "raw_answers": [
+            "pink",
+            "pink",
+            "pink"
+          ],
+          "normalized": [
+            "pink",
+            "pink",
+            "pink"
+          ],
+          "consensus": "pink",
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            789.2,
+            790.4,
+            788.8
+          ],
+          "latency_median_ms": 789.2
+        },
+        "long_descriptions": {
+          "raw_answers": [
+            "red",
+            "red",
+            "red"
+          ],
+          "normalized": [
+            "red",
+            "red",
+            "red"
+          ],
+          "consensus": "red",
+          "is_correct": false,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            880.0,
+            859.5,
+            863.3
+          ],
+          "latency_median_ms": 863.3
+        },
+        "structured_json": {
+          "raw_answers": [
+            "yes",
+            "yes",
+            "yes"
+          ],
+          "normalized": [
+            "other",
+            "other",
+            "other"
+          ],
+          "consensus": "other",
+          "is_correct": false,
+          "is_adherent": false,
+          "is_ambiguous": false,
+          "is_valid_json": false,
+          "latencies_ms": [
+            831.5,
+            867.0,
+            832.9
+          ],
+          "latency_median_ms": 832.9
+        }
+      },
+      "laya_formats": {
+        "native_short": {
+          "raw_answers": [
+            "pink",
+            "pink",
+            "pink"
+          ],
+          "normalized": [
+            "pink",
+            "pink",
+            "pink"
+          ],
+          "consensus": "pink",
+          "confidence_avg": 0.2577,
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            1329.7,
+            1326.0,
+            1335.2
+          ],
+          "latency_median_ms": 1329.7
+        },
+        "native_descriptive": {
+          "raw_answers": [
+            "red",
+            "red",
+            "red"
+          ],
+          "normalized": [
+            "red",
+            "red",
+            "red"
+          ],
+          "consensus": "red",
+          "confidence_avg": 0.2667,
+          "is_correct": false,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            1362.3,
+            1366.9,
+            1361.6
+          ],
+          "latency_median_ms": 1362.3
+        }
+      }
+    },
+    {
+      "id": "prompt_eval_color_pink_003",
+      "source_id": "color_pink_003",
+      "rel_path": "eval/images/color_test/color_pink_003.jpeg",
+      "expected_color": "pink",
+      "difficult": true,
+      "blip_formats": {
+        "short_open": {
+          "raw_answers": [
+            "pink",
+            "pink",
+            "pink"
+          ],
+          "normalized": [
+            "pink",
+            "pink",
+            "pink"
+          ],
+          "consensus": "pink",
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            736.6,
+            739.6,
+            743.2
+          ],
+          "latency_median_ms": 739.6
+        },
+        "short_options": {
+          "raw_answers": [
+            "pink",
+            "pink",
+            "pink"
+          ],
+          "normalized": [
+            "pink",
+            "pink",
+            "pink"
+          ],
+          "consensus": "pink",
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            781.6,
+            752.9,
+            754.6
+          ],
+          "latency_median_ms": 754.6
+        },
+        "long_descriptions": {
+          "raw_answers": [
+            "red",
+            "red",
+            "red"
+          ],
+          "normalized": [
+            "red",
+            "red",
+            "red"
+          ],
+          "consensus": "red",
+          "is_correct": false,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            858.0,
+            859.6,
+            858.8
+          ],
+          "latency_median_ms": 858.8
+        },
+        "structured_json": {
+          "raw_answers": [
+            "yes",
+            "yes",
+            "yes"
+          ],
+          "normalized": [
+            "other",
+            "other",
+            "other"
+          ],
+          "consensus": "other",
+          "is_correct": false,
+          "is_adherent": false,
+          "is_ambiguous": false,
+          "is_valid_json": false,
+          "latencies_ms": [
+            837.0,
+            850.1,
+            830.0
+          ],
+          "latency_median_ms": 837.0
+        }
+      },
+      "laya_formats": {
+        "native_short": {
+          "raw_answers": [
+            "pink",
+            "pink",
+            "pink"
+          ],
+          "normalized": [
+            "pink",
+            "pink",
+            "pink"
+          ],
+          "consensus": "pink",
+          "confidence_avg": 0.1716,
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            1342.2,
+            1350.3,
+            1313.6
+          ],
+          "latency_median_ms": 1342.2
+        },
+        "native_descriptive": {
+          "raw_answers": [
+            "pink",
+            "pink",
+            "pink"
+          ],
+          "normalized": [
+            "pink",
+            "pink",
+            "pink"
+          ],
+          "consensus": "pink",
+          "confidence_avg": 0.1041,
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            1455.7,
+            1734.8,
+            1709.8
+          ],
+          "latency_median_ms": 1709.8
+        }
+      }
+    },
+    {
+      "id": "prompt_eval_color_pink_004",
+      "source_id": "color_pink_004",
+      "rel_path": "eval/images/color_test/color_pink_004.jpg",
+      "expected_color": "pink",
+      "difficult": true,
+      "blip_formats": {
+        "short_open": {
+          "raw_answers": [
+            "pink",
+            "pink",
+            "pink"
+          ],
+          "normalized": [
+            "pink",
+            "pink",
+            "pink"
+          ],
+          "consensus": "pink",
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            766.1,
+            766.4,
+            768.2
+          ],
+          "latency_median_ms": 766.4
+        },
+        "short_options": {
+          "raw_answers": [
+            "pink",
+            "pink",
+            "pink"
+          ],
+          "normalized": [
+            "pink",
+            "pink",
+            "pink"
+          ],
+          "consensus": "pink",
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            783.8,
+            784.9,
+            824.4
+          ],
+          "latency_median_ms": 784.9
+        },
+        "long_descriptions": {
+          "raw_answers": [
+            "purple",
+            "purple",
+            "purple"
+          ],
+          "normalized": [
+            "purple",
+            "purple",
+            "purple"
+          ],
+          "consensus": "purple",
+          "is_correct": false,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_json": true,
+          "latencies_ms": [
+            883.8,
+            881.7,
+            881.3
+          ],
+          "latency_median_ms": 881.7
+        },
+        "structured_json": {
+          "raw_answers": [
+            "yes",
+            "yes",
+            "yes"
+          ],
+          "normalized": [
+            "other",
+            "other",
+            "other"
+          ],
+          "consensus": "other",
+          "is_correct": false,
+          "is_adherent": false,
+          "is_ambiguous": false,
+          "is_valid_json": false,
+          "latencies_ms": [
+            856.7,
+            855.7,
+            851.8
+          ],
+          "latency_median_ms": 855.7
+        }
+      },
+      "laya_formats": {
+        "native_short": {
+          "raw_answers": [
+            "pink",
+            "pink",
+            "pink"
+          ],
+          "normalized": [
+            "pink",
+            "pink",
+            "pink"
+          ],
+          "consensus": "pink",
+          "confidence_avg": 0.0866,
+          "is_correct": true,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            1304.1,
+            1303.5,
+            1305.8
+          ],
+          "latency_median_ms": 1304.1
+        },
+        "native_descriptive": {
+          "raw_answers": [
+            "red",
+            "red",
+            "red"
+          ],
+          "normalized": [
+            "red",
+            "red",
+            "red"
+          ],
+          "consensus": "red",
+          "confidence_avg": 0.063,
+          "is_correct": false,
+          "is_adherent": true,
+          "is_ambiguous": false,
+          "is_valid_schema": true,
+          "latencies_ms": [
+            1633.8,
+            1397.2,
+            1353.7
+          ],
+          "latency_median_ms": 1397.2
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="420" viewBox="0 0 980 420">
+<rect width="100%" height="100%" fill="#ffffff" rx="8"/>
+<rect width="100%" height="100%" fill="none" stroke="#e2e8f0" stroke-width="1" rx="8"/>
+<text x="36" y="38" font-family="system-ui,-apple-system,sans-serif" font-size="20" fill="#0f172a" font-weight="700" text-anchor="start">Teste 5: Distribuição de Desfechos na Imagem Completa Destacada</text>
+<text x="36" y="60" font-family="system-ui,-apple-system,sans-serif" font-size="12" fill="#64748b" font-weight="400" text-anchor="start">Decomposição das respostas na imagem completa: Acerto vs Erro de Associação vs Outro Erro</text>
+<text x="164" y="144" font-family="system-ui,-apple-system,sans-serif" font-size="13" fill="#0f172a" font-weight="700" text-anchor="end">Laya Vision</text>
+<rect x="180.0" y="120" width="204.0" height="36" fill="#16a34a"/>
+<text x="282.0" y="143" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#ffffff" font-weight="700" text-anchor="middle">30%</text>
+<rect x="384.0" y="120" width="226.7" height="36" fill="#dc2626"/>
+<text x="497.3333333333333" y="143" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#ffffff" font-weight="700" text-anchor="middle">33%</text>
+<rect x="610.7" y="120" width="226.7" height="36" fill="#f59e0b"/>
+<text x="724.0" y="143" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#ffffff" font-weight="700" text-anchor="middle">33%</text>
+<rect x="837.3" y="120" width="22.7" height="36" fill="#94a3b8"/>
+<text x="164" y="224" font-family="system-ui,-apple-system,sans-serif" font-size="13" fill="#0f172a" font-weight="700" text-anchor="end">BLIP VQA</text>
+<rect x="180.0" y="200" width="45.3" height="36" fill="#16a34a"/>
+<text x="202.66666666666666" y="223" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#ffffff" font-weight="700" text-anchor="middle">7%</text>
+<rect x="225.3" y="200" width="249.3" height="36" fill="#dc2626"/>
+<text x="350.0" y="223" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#ffffff" font-weight="700" text-anchor="middle">37%</text>
+<rect x="474.7" y="200" width="385.3" height="36" fill="#f59e0b"/>
+<text x="667.3333333333333" y="223" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#ffffff" font-weight="700" text-anchor="middle">57%</text>
+<rect x="80" y="290" width="16" height="16" fill="#16a34a" rx="3"/>
+<text x="104" y="303" font-family="system-ui,-apple-system,sans-serif" font-size="12" fill="#334155" font-weight="500" text-anchor="start">Acerto (Objeto Alvo)</text>
+<rect x="300" y="290" width="16" height="16" fill="#dc2626" rx="3"/>
+<text x="324" y="303" font-family="system-ui,-apple-system,sans-serif" font-size="12" fill="#334155" font-weight="500" text-anchor="start">Erro de Associação (Objeto Distrator)</text>
+<rect x="520" y="290" width="16" height="16" fill="#f59e0b" rx="3"/>
+<text x="544" y="303" font-family="system-ui,-apple-system,sans-serif" font-size="12" fill="#334155" font-weight="500" text-anchor="start">Erro de Classificação Geral</text>
+<rect x="740" y="290" width="16" height="16" fill="#94a3b8" rx="3"/>
+<text x="764" y="303" font-family="system-ui,-apple-system,sans-serif" font-size="12" fill="#334155" font-weight="500" text-anchor="start">Recusa / Desconhecido</text>
+</svg>

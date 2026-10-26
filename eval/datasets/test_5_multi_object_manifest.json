@@ -1,0 +1,1393 @@
+{
+  "benchmark": "Test 5: Multiple Objects and Response Association",
+  "description": "Evaluates response association and distractor intrusion when comparing detector crops vs full scene with visual highlight.",
+  "scene_count": 30,
+  "total_items": 60,
+  "tasks_breakdown": {
+    "color": 16,
+    "vehicle_type": 10,
+    "person_attributes": 4
+  },
+  "items": [
+    {
+      "id": "scene_col_01_crop",
+      "scene_id": "scene_col_01",
+      "presentation": "crop",
+      "task": "color",
+      "rel_path": "eval/images/multi_object/scene_col_01_crop.jpg",
+      "target_label": "white",
+      "distractor_label": "orange",
+      "question_en": "What is the predominant color of this vehicle?",
+      "description": "White car on right (target) vs prominent orange car in center (distractor)",
+      "target_bbox": [
+        560,
+        235,
+        959,
+        526
+      ],
+      "distractor_bbox": [
+        244,
+        227,
+        759,
+        573
+      ]
+    },
+    {
+      "id": "scene_col_01_full_highlighted",
+      "scene_id": "scene_col_01",
+      "presentation": "full_highlighted",
+      "task": "color",
+      "rel_path": "eval/images/multi_object/scene_col_01_full_highlighted.jpg",
+      "target_label": "white",
+      "distractor_label": "orange",
+      "question_en": "In the highlighted object inside the red box, what is the predominant color of the vehicle?",
+      "description": "White car on right (target) vs prominent orange car in center (distractor)",
+      "target_bbox": [
+        560,
+        235,
+        959,
+        526
+      ],
+      "distractor_bbox": [
+        244,
+        227,
+        759,
+        573
+      ]
+    },
+    {
+      "id": "scene_col_02_crop",
+      "scene_id": "scene_col_02",
+      "presentation": "crop",
+      "task": "color",
+      "rel_path": "eval/images/multi_object/scene_col_02_crop.jpg",
+      "target_label": "gray_silver",
+      "distractor_label": "orange",
+      "question_en": "What is the predominant color of this vehicle?",
+      "description": "Silver/gray car in upper background (target) vs orange car in foreground (distractor)",
+      "target_bbox": [
+        442,
+        64,
+        958,
+        254
+      ],
+      "distractor_bbox": [
+        72,
+        114,
+        862,
+        515
+      ]
+    },
+    {
+      "id": "scene_col_02_full_highlighted",
+      "scene_id": "scene_col_02",
+      "presentation": "full_highlighted",
+      "task": "color",
+      "rel_path": "eval/images/multi_object/scene_col_02_full_highlighted.jpg",
+      "target_label": "gray_silver",
+      "distractor_label": "orange",
+      "question_en": "In the highlighted object inside the red box, what is the predominant color of the vehicle?",
+      "description": "Silver/gray car in upper background (target) vs orange car in foreground (distractor)",
+      "target_bbox": [
+        442,
+        64,
+        958,
+        254
+      ],
+      "distractor_bbox": [
+        72,
+        114,
+        862,
+        515
+      ]
+    },
+    {
+      "id": "scene_col_03_crop",
+      "scene_id": "scene_col_03",
+      "presentation": "crop",
+      "task": "color",
+      "rel_path": "eval/images/multi_object/scene_col_03_crop.jpg",
+      "target_label": "blue",
+      "distractor_label": "pink",
+      "question_en": "What is the predominant color of this vehicle?",
+      "description": "Blue car in upper left (target) vs large pink car in center (distractor)",
+      "target_bbox": [
+        100,
+        2,
+        291,
+        200
+      ],
+      "distractor_bbox": [
+        164,
+        55,
+        900,
+        458
+      ]
+    },
+    {
+      "id": "scene_col_03_full_highlighted",
+      "scene_id": "scene_col_03",
+      "presentation": "full_highlighted",
+      "task": "color",
+      "rel_path": "eval/images/multi_object/scene_col_03_full_highlighted.jpg",
+      "target_label": "blue",
+      "distractor_label": "pink",
+      "question_en": "In the highlighted object inside the red box, what is the predominant color of the vehicle?",
+      "description": "Blue car in upper left (target) vs large pink car in center (distractor)",
+      "target_bbox": [
+        100,
+        2,
+        291,
+        200
+      ],
+      "distractor_bbox": [
+        164,
+        55,
+        900,
+        458
+      ]
+    },
+    {
+      "id": "scene_col_04_crop",
+      "scene_id": "scene_col_04",
+      "presentation": "crop",
+      "task": "color",
+      "rel_path": "eval/images/multi_object/scene_col_04_crop.jpg",
+      "target_label": "black",
+      "distractor_label": "purple",
+      "question_en": "What is the predominant color of this vehicle?",
+      "description": "Black car in background (target) vs purple car in foreground (distractor)",
+      "target_bbox": [
+        558,
+        640,
+        2108,
+        1310
+      ],
+      "distractor_bbox": [
+        221,
+        1174,
+        2644,
+        2905
+      ]
+    },
+    {
+      "id": "scene_col_04_full_highlighted",
+      "scene_id": "scene_col_04",
+      "presentation": "full_highlighted",
+      "task": "color",
+      "rel_path": "eval/images/multi_object/scene_col_04_full_highlighted.jpg",
+      "target_label": "black",
+      "distractor_label": "purple",
+      "question_en": "In the highlighted object inside the red box, what is the predominant color of the vehicle?",
+      "description": "Black car in background (target) vs purple car in foreground (distractor)",
+      "target_bbox": [
+        558,
+        640,
+        2108,
+        1310
+      ],
+      "distractor_bbox": [
+        221,
+        1174,
+        2644,
+        2905
+      ]
+    },
+    {
+      "id": "scene_col_05_crop",
+      "scene_id": "scene_col_05",
+      "presentation": "crop",
+      "task": "color",
+      "rel_path": "eval/images/multi_object/scene_col_05_crop.jpg",
+      "target_label": "white",
+      "distractor_label": "brown",
+      "question_en": "What is the predominant color of this vehicle?",
+      "description": "White vehicle on left (target) vs large brown car in center (distractor)",
+      "target_bbox": [
+        0,
+        38,
+        311,
+        266
+      ],
+      "distractor_bbox": [
+        114,
+        38,
+        642,
+        427
+      ]
+    },
+    {
+      "id": "scene_col_05_full_highlighted",
+      "scene_id": "scene_col_05",
+      "presentation": "full_highlighted",
+      "task": "color",
+      "rel_path": "eval/images/multi_object/scene_col_05_full_highlighted.jpg",
+      "target_label": "white",
+      "distractor_label": "brown",
+      "question_en": "In the highlighted object inside the red box, what is the predominant color of the vehicle?",
+      "description": "White vehicle on left (target) vs large brown car in center (distractor)",
+      "target_bbox": [
+        0,
+        38,
+        311,
+        266
+      ],
+      "distractor_bbox": [
+        114,
+        38,
+        642,
+        427
+      ]
+    },
+    {
+      "id": "scene_col_06_crop",
+      "scene_id": "scene_col_06",
+      "presentation": "crop",
+      "task": "color",
+      "rel_path": "eval/images/multi_object/scene_col_06_crop.jpg",
+      "target_label": "black",
+      "distractor_label": "orange",
+      "question_en": "What is the predominant color of this vehicle?",
+      "description": "Black car in middle (target) vs orange car on right (distractor)",
+      "target_bbox": [
+        250,
+        209,
+        672,
+        376
+      ],
+      "distractor_bbox": [
+        438,
+        227,
+        959,
+        495
+      ]
+    },
+    {
+      "id": "scene_col_06_full_highlighted",
+      "scene_id": "scene_col_06",
+      "presentation": "full_highlighted",
+      "task": "color",
+      "rel_path": "eval/images/multi_object/scene_col_06_full_highlighted.jpg",
+      "target_label": "black",
+      "distractor_label": "orange",
+      "question_en": "In the highlighted object inside the red box, what is the predominant color of the vehicle?",
+      "description": "Black car in middle (target) vs orange car on right (distractor)",
+      "target_bbox": [
+        250,
+        209,
+        672,
+        376
+      ],
+      "distractor_bbox": [
+        438,
+        227,
+        959,
+        495
+      ]
+    },
+    {
+      "id": "scene_col_07_crop",
+      "scene_id": "scene_col_07",
+      "presentation": "crop",
+      "task": "color",
+      "rel_path": "eval/images/multi_object/scene_col_07_crop.jpg",
+      "target_label": "white",
+      "distractor_label": "pink",
+      "question_en": "What is the predominant color of this vehicle?",
+      "description": "White car on right (target) vs pink car on left (distractor)",
+      "target_bbox": [
+        624,
+        491,
+        957,
+        920
+      ],
+      "distractor_bbox": [
+        44,
+        480,
+        856,
+        1138
+      ]
+    },
+    {
+      "id": "scene_col_07_full_highlighted",
+      "scene_id": "scene_col_07",
+      "presentation": "full_highlighted",
+      "task": "color",
+      "rel_path": "eval/images/multi_object/scene_col_07_full_highlighted.jpg",
+      "target_label": "white",
+      "distractor_label": "pink",
+      "question_en": "In the highlighted object inside the red box, what is the predominant color of the vehicle?",
+      "description": "White car on right (target) vs pink car on left (distractor)",
+      "target_bbox": [
+        624,
+        491,
+        957,
+        920
+      ],
+      "distractor_bbox": [
+        44,
+        480,
+        856,
+        1138
+      ]
+    },
+    {
+      "id": "scene_col_08_crop",
+      "scene_id": "scene_col_08",
+      "presentation": "crop",
+      "task": "color",
+      "rel_path": "eval/images/multi_object/scene_col_08_crop.jpg",
+      "target_label": "blue",
+      "distractor_label": "orange",
+      "question_en": "What is the predominant color of this vehicle?",
+      "description": "Blue car in background (target) vs large orange car in foreground (distractor)",
+      "target_bbox": [
+        514,
+        14,
+        908,
+        291
+      ],
+      "distractor_bbox": [
+        96,
+        101,
+        891,
+        555
+      ]
+    },
+    {
+      "id": "scene_col_08_full_highlighted",
+      "scene_id": "scene_col_08",
+      "presentation": "full_highlighted",
+      "task": "color",
+      "rel_path": "eval/images/multi_object/scene_col_08_full_highlighted.jpg",
+      "target_label": "blue",
+      "distractor_label": "orange",
+      "question_en": "In the highlighted object inside the red box, what is the predominant color of the vehicle?",
+      "description": "Blue car in background (target) vs large orange car in foreground (distractor)",
+      "target_bbox": [
+        514,
+        14,
+        908,
+        291
+      ],
+      "distractor_bbox": [
+        96,
+        101,
+        891,
+        555
+      ]
+    },
+    {
+      "id": "scene_col_09_crop",
+      "scene_id": "scene_col_09",
+      "presentation": "crop",
+      "task": "color",
+      "rel_path": "eval/images/multi_object/scene_col_09_crop.jpg",
+      "target_label": "white",
+      "distractor_label": "pink",
+      "question_en": "What is the predominant color of this vehicle?",
+      "description": "White vehicle on left (target) vs pink truck in center (distractor)",
+      "target_bbox": [
+        0,
+        98,
+        253,
+        340
+      ],
+      "distractor_bbox": [
+        98,
+        181,
+        959,
+        695
+      ]
+    },
+    {
+      "id": "scene_col_09_full_highlighted",
+      "scene_id": "scene_col_09",
+      "presentation": "full_highlighted",
+      "task": "color",
+      "rel_path": "eval/images/multi_object/scene_col_09_full_highlighted.jpg",
+      "target_label": "white",
+      "distractor_label": "pink",
+      "question_en": "In the highlighted object inside the red box, what is the predominant color of the vehicle?",
+      "description": "White vehicle on left (target) vs pink truck in center (distractor)",
+      "target_bbox": [
+        0,
+        98,
+        253,
+        340
+      ],
+      "distractor_bbox": [
+        98,
+        181,
+        959,
+        695
+      ]
+    },
+    {
+      "id": "scene_col_10_crop",
+      "scene_id": "scene_col_10",
+      "presentation": "crop",
+      "task": "color",
+      "rel_path": "eval/images/multi_object/scene_col_10_crop.jpg",
+      "target_label": "white",
+      "distractor_label": "purple",
+      "question_en": "What is the predominant color of this vehicle?",
+      "description": "White car in background (target) vs purple car in foreground (distractor)",
+      "target_bbox": [
+        233,
+        46,
+        368,
+        100
+      ],
+      "distractor_bbox": [
+        40,
+        62,
+        447,
+        238
+      ]
+    },
+    {
+      "id": "scene_col_10_full_highlighted",
+      "scene_id": "scene_col_10",
+      "presentation": "full_highlighted",
+      "task": "color",
+      "rel_path": "eval/images/multi_object/scene_col_10_full_highlighted.jpg",
+      "target_label": "white",
+      "distractor_label": "purple",
+      "question_en": "In the highlighted object inside the red box, what is the predominant color of the vehicle?",
+      "description": "White car in background (target) vs purple car in foreground (distractor)",
+      "target_bbox": [
+        233,
+        46,
+        368,
+        100
+      ],
+      "distractor_bbox": [
+        40,
+        62,
+        447,
+        238
+      ]
+    },
+    {
+      "id": "scene_col_11_crop",
+      "scene_id": "scene_col_11",
+      "presentation": "crop",
+      "task": "color",
+      "rel_path": "eval/images/multi_object/scene_col_11_crop.jpg",
+      "target_label": "white",
+      "distractor_label": "brown",
+      "question_en": "What is the predominant color of this vehicle?",
+      "description": "White vehicle on left (target) vs brown vehicle in center (distractor)",
+      "target_bbox": [
+        0,
+        100,
+        280,
+        300
+      ],
+      "distractor_bbox": [
+        150,
+        50,
+        900,
+        550
+      ]
+    },
+    {
+      "id": "scene_col_11_full_highlighted",
+      "scene_id": "scene_col_11",
+      "presentation": "full_highlighted",
+      "task": "color",
+      "rel_path": "eval/images/multi_object/scene_col_11_full_highlighted.jpg",
+      "target_label": "white",
+      "distractor_label": "brown",
+      "question_en": "In the highlighted object inside the red box, what is the predominant color of the vehicle?",
+      "description": "White vehicle on left (target) vs brown vehicle in center (distractor)",
+      "target_bbox": [
+        0,
+        100,
+        280,
+        300
+      ],
+      "distractor_bbox": [
+        150,
+        50,
+        900,
+        550
+      ]
+    },
+    {
+      "id": "scene_col_12_crop",
+      "scene_id": "scene_col_12",
+      "presentation": "crop",
+      "task": "color",
+      "rel_path": "eval/images/multi_object/scene_col_12_crop.jpg",
+      "target_label": "blue",
+      "distractor_label": "orange",
+      "question_en": "What is the predominant color of this vehicle?",
+      "description": "Blue car on left (target) vs orange car in foreground (distractor)",
+      "target_bbox": [
+        0,
+        124,
+        219,
+        292
+      ],
+      "distractor_bbox": [
+        35,
+        183,
+        925,
+        519
+      ]
+    },
+    {
+      "id": "scene_col_12_full_highlighted",
+      "scene_id": "scene_col_12",
+      "presentation": "full_highlighted",
+      "task": "color",
+      "rel_path": "eval/images/multi_object/scene_col_12_full_highlighted.jpg",
+      "target_label": "blue",
+      "distractor_label": "orange",
+      "question_en": "In the highlighted object inside the red box, what is the predominant color of the vehicle?",
+      "description": "Blue car on left (target) vs orange car in foreground (distractor)",
+      "target_bbox": [
+        0,
+        124,
+        219,
+        292
+      ],
+      "distractor_bbox": [
+        35,
+        183,
+        925,
+        519
+      ]
+    },
+    {
+      "id": "scene_col_13_crop",
+      "scene_id": "scene_col_13",
+      "presentation": "crop",
+      "task": "color",
+      "rel_path": "eval/images/multi_object/scene_col_13_crop.jpg",
+      "target_label": "red",
+      "distractor_label": "purple",
+      "question_en": "What is the predominant color of this vehicle?",
+      "description": "Red car in background (target) vs purple truck in foreground (distractor)",
+      "target_bbox": [
+        0,
+        129,
+        188,
+        292
+      ],
+      "distractor_bbox": [
+        49,
+        68,
+        907,
+        540
+      ]
+    },
+    {
+      "id": "scene_col_13_full_highlighted",
+      "scene_id": "scene_col_13",
+      "presentation": "full_highlighted",
+      "task": "color",
+      "rel_path": "eval/images/multi_object/scene_col_13_full_highlighted.jpg",
+      "target_label": "red",
+      "distractor_label": "purple",
+      "question_en": "In the highlighted object inside the red box, what is the predominant color of the vehicle?",
+      "description": "Red car in background (target) vs purple truck in foreground (distractor)",
+      "target_bbox": [
+        0,
+        129,
+        188,
+        292
+      ],
+      "distractor_bbox": [
+        49,
+        68,
+        907,
+        540
+      ]
+    },
+    {
+      "id": "scene_col_14_crop",
+      "scene_id": "scene_col_14",
+      "presentation": "crop",
+      "task": "color",
+      "rel_path": "eval/images/multi_object/scene_col_14_crop.jpg",
+      "target_label": "black",
+      "distractor_label": "pink",
+      "question_en": "What is the predominant color of this vehicle?",
+      "description": "Black car on left (target) vs pink vehicle in center (distractor)",
+      "target_bbox": [
+        0,
+        136,
+        282,
+        379
+      ],
+      "distractor_bbox": [
+        200,
+        50,
+        900,
+        500
+      ]
+    },
+    {
+      "id": "scene_col_14_full_highlighted",
+      "scene_id": "scene_col_14",
+      "presentation": "full_highlighted",
+      "task": "color",
+      "rel_path": "eval/images/multi_object/scene_col_14_full_highlighted.jpg",
+      "target_label": "black",
+      "distractor_label": "pink",
+      "question_en": "In the highlighted object inside the red box, what is the predominant color of the vehicle?",
+      "description": "Black car on left (target) vs pink vehicle in center (distractor)",
+      "target_bbox": [
+        0,
+        136,
+        282,
+        379
+      ],
+      "distractor_bbox": [
+        200,
+        50,
+        900,
+        500
+      ]
+    },
+    {
+      "id": "scene_col_15_crop",
+      "scene_id": "scene_col_15",
+      "presentation": "crop",
+      "task": "color",
+      "rel_path": "eval/images/multi_object/scene_col_15_crop.jpg",
+      "target_label": "blue",
+      "distractor_label": "white",
+      "question_en": "What is the predominant color of this vehicle?",
+      "description": "Blue car on right (target) vs white truck on left (distractor)",
+      "target_bbox": [
+        372,
+        91,
+        639,
+        267
+      ],
+      "distractor_bbox": [
+        28,
+        58,
+        626,
+        373
+      ]
+    },
+    {
+      "id": "scene_col_15_full_highlighted",
+      "scene_id": "scene_col_15",
+      "presentation": "full_highlighted",
+      "task": "color",
+      "rel_path": "eval/images/multi_object/scene_col_15_full_highlighted.jpg",
+      "target_label": "blue",
+      "distractor_label": "white",
+      "question_en": "In the highlighted object inside the red box, what is the predominant color of the vehicle?",
+      "description": "Blue car on right (target) vs white truck on left (distractor)",
+      "target_bbox": [
+        372,
+        91,
+        639,
+        267
+      ],
+      "distractor_bbox": [
+        28,
+        58,
+        626,
+        373
+      ]
+    },
+    {
+      "id": "scene_typ_01_crop",
+      "scene_id": "scene_typ_01",
+      "presentation": "crop",
+      "task": "vehicle_type",
+      "rel_path": "eval/images/multi_object/scene_typ_01_crop.jpg",
+      "target_label": "bus",
+      "distractor_label": "sedan",
+      "question_en": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?",
+      "description": "Bus on left (target) vs sedan in center (distractor)",
+      "target_bbox": [
+        0,
+        1,
+        397,
+        320
+      ],
+      "distractor_bbox": [
+        59,
+        118,
+        839,
+        771
+      ]
+    },
+    {
+      "id": "scene_typ_01_full_highlighted",
+      "scene_id": "scene_typ_01",
+      "presentation": "full_highlighted",
+      "task": "vehicle_type",
+      "rel_path": "eval/images/multi_object/scene_typ_01_full_highlighted.jpg",
+      "target_label": "bus",
+      "distractor_label": "sedan",
+      "question_en": "In the highlighted object inside the red box, what body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?",
+      "description": "Bus on left (target) vs sedan in center (distractor)",
+      "target_bbox": [
+        0,
+        1,
+        397,
+        320
+      ],
+      "distractor_bbox": [
+        59,
+        118,
+        839,
+        771
+      ]
+    },
+    {
+      "id": "scene_typ_02_crop",
+      "scene_id": "scene_typ_02",
+      "presentation": "crop",
+      "task": "vehicle_type",
+      "rel_path": "eval/images/multi_object/scene_typ_02_crop.jpg",
+      "target_label": "sedan",
+      "distractor_label": "truck",
+      "question_en": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?",
+      "description": "Sedan car on right (target) vs large truck on left (distractor)",
+      "target_bbox": [
+        372,
+        91,
+        639,
+        267
+      ],
+      "distractor_bbox": [
+        28,
+        58,
+        626,
+        373
+      ]
+    },
+    {
+      "id": "scene_typ_02_full_highlighted",
+      "scene_id": "scene_typ_02",
+      "presentation": "full_highlighted",
+      "task": "vehicle_type",
+      "rel_path": "eval/images/multi_object/scene_typ_02_full_highlighted.jpg",
+      "target_label": "sedan",
+      "distractor_label": "truck",
+      "question_en": "In the highlighted object inside the red box, what body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?",
+      "description": "Sedan car on right (target) vs large truck on left (distractor)",
+      "target_bbox": [
+        372,
+        91,
+        639,
+        267
+      ],
+      "distractor_bbox": [
+        28,
+        58,
+        626,
+        373
+      ]
+    },
+    {
+      "id": "scene_typ_03_crop",
+      "scene_id": "scene_typ_03",
+      "presentation": "crop",
+      "task": "vehicle_type",
+      "rel_path": "eval/images/multi_object/scene_typ_03_crop.jpg",
+      "target_label": "sedan",
+      "distractor_label": "bus",
+      "question_en": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?",
+      "description": "Small sedan on right (target) vs large bus in center (distractor)",
+      "target_bbox": [
+        880,
+        433,
+        924,
+        469
+      ],
+      "distractor_bbox": [
+        232,
+        307,
+        529,
+        556
+      ]
+    },
+    {
+      "id": "scene_typ_03_full_highlighted",
+      "scene_id": "scene_typ_03",
+      "presentation": "full_highlighted",
+      "task": "vehicle_type",
+      "rel_path": "eval/images/multi_object/scene_typ_03_full_highlighted.jpg",
+      "target_label": "sedan",
+      "distractor_label": "bus",
+      "question_en": "In the highlighted object inside the red box, what body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?",
+      "description": "Small sedan on right (target) vs large bus in center (distractor)",
+      "target_bbox": [
+        880,
+        433,
+        924,
+        469
+      ],
+      "distractor_bbox": [
+        232,
+        307,
+        529,
+        556
+      ]
+    },
+    {
+      "id": "scene_typ_04_crop",
+      "scene_id": "scene_typ_04",
+      "presentation": "crop",
+      "task": "vehicle_type",
+      "rel_path": "eval/images/multi_object/scene_typ_04_crop.jpg",
+      "target_label": "sedan",
+      "distractor_label": "truck",
+      "question_en": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?",
+      "description": "Sedan car on left (target) vs large truck in center (distractor)",
+      "target_bbox": [
+        0,
+        98,
+        253,
+        340
+      ],
+      "distractor_bbox": [
+        98,
+        181,
+        959,
+        695
+      ]
+    },
+    {
+      "id": "scene_typ_04_full_highlighted",
+      "scene_id": "scene_typ_04",
+      "presentation": "full_highlighted",
+      "task": "vehicle_type",
+      "rel_path": "eval/images/multi_object/scene_typ_04_full_highlighted.jpg",
+      "target_label": "sedan",
+      "distractor_label": "truck",
+      "question_en": "In the highlighted object inside the red box, what body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?",
+      "description": "Sedan car on left (target) vs large truck in center (distractor)",
+      "target_bbox": [
+        0,
+        98,
+        253,
+        340
+      ],
+      "distractor_bbox": [
+        98,
+        181,
+        959,
+        695
+      ]
+    },
+    {
+      "id": "scene_typ_05_crop",
+      "scene_id": "scene_typ_05",
+      "presentation": "crop",
+      "task": "vehicle_type",
+      "rel_path": "eval/images/multi_object/scene_typ_05_crop.jpg",
+      "target_label": "sedan",
+      "distractor_label": "truck",
+      "question_en": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?",
+      "description": "Sedan on left (target) vs truck in foreground (distractor)",
+      "target_bbox": [
+        0,
+        129,
+        188,
+        292
+      ],
+      "distractor_bbox": [
+        49,
+        68,
+        907,
+        540
+      ]
+    },
+    {
+      "id": "scene_typ_05_full_highlighted",
+      "scene_id": "scene_typ_05",
+      "presentation": "full_highlighted",
+      "task": "vehicle_type",
+      "rel_path": "eval/images/multi_object/scene_typ_05_full_highlighted.jpg",
+      "target_label": "sedan",
+      "distractor_label": "truck",
+      "question_en": "In the highlighted object inside the red box, what body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?",
+      "description": "Sedan on left (target) vs truck in foreground (distractor)",
+      "target_bbox": [
+        0,
+        129,
+        188,
+        292
+      ],
+      "distractor_bbox": [
+        49,
+        68,
+        907,
+        540
+      ]
+    },
+    {
+      "id": "scene_typ_06_crop",
+      "scene_id": "scene_typ_06",
+      "presentation": "crop",
+      "task": "vehicle_type",
+      "rel_path": "eval/images/multi_object/scene_typ_06_crop.jpg",
+      "target_label": "sedan",
+      "distractor_label": "truck",
+      "question_en": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?",
+      "description": "Audi sedan in center (target) vs white truck behind it (distractor)",
+      "target_bbox": [
+        42,
+        55,
+        231,
+        147
+      ],
+      "distractor_bbox": [
+        201,
+        27,
+        258,
+        155
+      ]
+    },
+    {
+      "id": "scene_typ_06_full_highlighted",
+      "scene_id": "scene_typ_06",
+      "presentation": "full_highlighted",
+      "task": "vehicle_type",
+      "rel_path": "eval/images/multi_object/scene_typ_06_full_highlighted.jpg",
+      "target_label": "sedan",
+      "distractor_label": "truck",
+      "question_en": "In the highlighted object inside the red box, what body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?",
+      "description": "Audi sedan in center (target) vs white truck behind it (distractor)",
+      "target_bbox": [
+        42,
+        55,
+        231,
+        147
+      ],
+      "distractor_bbox": [
+        201,
+        27,
+        258,
+        155
+      ]
+    },
+    {
+      "id": "scene_typ_07_crop",
+      "scene_id": "scene_typ_07",
+      "presentation": "crop",
+      "task": "vehicle_type",
+      "rel_path": "eval/images/multi_object/scene_typ_07_crop.jpg",
+      "target_label": "sedan",
+      "distractor_label": "bus",
+      "question_en": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?",
+      "description": "Car on far left edge (target) vs large bus dominating scene (distractor)",
+      "target_bbox": [
+        0,
+        315,
+        42,
+        403
+      ],
+      "distractor_bbox": [
+        45,
+        61,
+        871,
+        571
+      ]
+    },
+    {
+      "id": "scene_typ_07_full_highlighted",
+      "scene_id": "scene_typ_07",
+      "presentation": "full_highlighted",
+      "task": "vehicle_type",
+      "rel_path": "eval/images/multi_object/scene_typ_07_full_highlighted.jpg",
+      "target_label": "sedan",
+      "distractor_label": "bus",
+      "question_en": "In the highlighted object inside the red box, what body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?",
+      "description": "Car on far left edge (target) vs large bus dominating scene (distractor)",
+      "target_bbox": [
+        0,
+        315,
+        42,
+        403
+      ],
+      "distractor_bbox": [
+        45,
+        61,
+        871,
+        571
+      ]
+    },
+    {
+      "id": "scene_typ_08_crop",
+      "scene_id": "scene_typ_08",
+      "presentation": "crop",
+      "task": "vehicle_type",
+      "rel_path": "eval/images/multi_object/scene_typ_08_crop.jpg",
+      "target_label": "truck",
+      "distractor_label": "sedan",
+      "question_en": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?",
+      "description": "White truck on left (target) vs brown sedan in center (distractor)",
+      "target_bbox": [
+        0,
+        38,
+        311,
+        266
+      ],
+      "distractor_bbox": [
+        114,
+        38,
+        642,
+        427
+      ]
+    },
+    {
+      "id": "scene_typ_08_full_highlighted",
+      "scene_id": "scene_typ_08",
+      "presentation": "full_highlighted",
+      "task": "vehicle_type",
+      "rel_path": "eval/images/multi_object/scene_typ_08_full_highlighted.jpg",
+      "target_label": "truck",
+      "distractor_label": "sedan",
+      "question_en": "In the highlighted object inside the red box, what body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?",
+      "description": "White truck on left (target) vs brown sedan in center (distractor)",
+      "target_bbox": [
+        0,
+        38,
+        311,
+        266
+      ],
+      "distractor_bbox": [
+        114,
+        38,
+        642,
+        427
+      ]
+    },
+    {
+      "id": "scene_typ_09_crop",
+      "scene_id": "scene_typ_09",
+      "presentation": "crop",
+      "task": "vehicle_type",
+      "rel_path": "eval/images/multi_object/scene_typ_09_crop.jpg",
+      "target_label": "sedan",
+      "distractor_label": "bus",
+      "question_en": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?",
+      "description": "Car adjacent to bus (target) vs main bus (distractor)",
+      "target_bbox": [
+        750,
+        350,
+        850,
+        450
+      ],
+      "distractor_bbox": [
+        50,
+        50,
+        750,
+        550
+      ]
+    },
+    {
+      "id": "scene_typ_09_full_highlighted",
+      "scene_id": "scene_typ_09",
+      "presentation": "full_highlighted",
+      "task": "vehicle_type",
+      "rel_path": "eval/images/multi_object/scene_typ_09_full_highlighted.jpg",
+      "target_label": "sedan",
+      "distractor_label": "bus",
+      "question_en": "In the highlighted object inside the red box, what body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?",
+      "description": "Car adjacent to bus (target) vs main bus (distractor)",
+      "target_bbox": [
+        750,
+        350,
+        850,
+        450
+      ],
+      "distractor_bbox": [
+        50,
+        50,
+        750,
+        550
+      ]
+    },
+    {
+      "id": "scene_typ_10_crop",
+      "scene_id": "scene_typ_10",
+      "presentation": "crop",
+      "task": "vehicle_type",
+      "rel_path": "eval/images/multi_object/scene_typ_10_crop.jpg",
+      "target_label": "sedan",
+      "distractor_label": "truck",
+      "question_en": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?",
+      "description": "Sedan car on right (target) vs truck in center (distractor)",
+      "target_bbox": [
+        704,
+        414,
+        956,
+        519
+      ],
+      "distractor_bbox": [
+        245,
+        315,
+        548,
+        542
+      ]
+    },
+    {
+      "id": "scene_typ_10_full_highlighted",
+      "scene_id": "scene_typ_10",
+      "presentation": "full_highlighted",
+      "task": "vehicle_type",
+      "rel_path": "eval/images/multi_object/scene_typ_10_full_highlighted.jpg",
+      "target_label": "sedan",
+      "distractor_label": "truck",
+      "question_en": "In the highlighted object inside the red box, what body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?",
+      "description": "Sedan car on right (target) vs truck in center (distractor)",
+      "target_bbox": [
+        704,
+        414,
+        956,
+        519
+      ],
+      "distractor_bbox": [
+        245,
+        315,
+        548,
+        542
+      ]
+    },
+    {
+      "id": "scene_per_01_crop",
+      "scene_id": "scene_per_01",
+      "presentation": "crop",
+      "task": "helmet",
+      "rel_path": "eval/images/multi_object/scene_per_01_crop.jpg",
+      "target_label": "yes",
+      "distractor_label": "no",
+      "question_en": "Is the person wearing a helmet or hard hat?",
+      "description": "Person on left wearing helmet (target) vs person on right with bare head (distractor)",
+      "target_bbox": [
+        58,
+        23,
+        227,
+        415
+      ],
+      "distractor_bbox": [
+        361,
+        48,
+        588,
+        452
+      ]
+    },
+    {
+      "id": "scene_per_01_full_highlighted",
+      "scene_id": "scene_per_01",
+      "presentation": "full_highlighted",
+      "task": "helmet",
+      "rel_path": "eval/images/multi_object/scene_per_01_full_highlighted.jpg",
+      "target_label": "yes",
+      "distractor_label": "no",
+      "question_en": "In the highlighted object inside the red box, is the person wearing a helmet or hard hat?",
+      "description": "Person on left wearing helmet (target) vs person on right with bare head (distractor)",
+      "target_bbox": [
+        58,
+        23,
+        227,
+        415
+      ],
+      "distractor_bbox": [
+        361,
+        48,
+        588,
+        452
+      ]
+    },
+    {
+      "id": "scene_per_02_crop",
+      "scene_id": "scene_per_02",
+      "presentation": "crop",
+      "task": "carrying",
+      "rel_path": "eval/images/multi_object/scene_per_02_crop.jpg",
+      "target_label": "backpack",
+      "distractor_label": "none",
+      "question_en": "Is the person carrying a backpack, bag, box, or nothing?",
+      "description": "Person on right carrying backpack (target) vs person on left with no bag (distractor)",
+      "target_bbox": [
+        552,
+        633,
+        807,
+        1341
+      ],
+      "distractor_bbox": [
+        324,
+        643,
+        594,
+        1270
+      ]
+    },
+    {
+      "id": "scene_per_02_full_highlighted",
+      "scene_id": "scene_per_02",
+      "presentation": "full_highlighted",
+      "task": "carrying",
+      "rel_path": "eval/images/multi_object/scene_per_02_full_highlighted.jpg",
+      "target_label": "backpack",
+      "distractor_label": "none",
+      "question_en": "In the highlighted object inside the red box, is the person carrying a backpack, bag, box, or nothing?",
+      "description": "Person on right carrying backpack (target) vs person on left with no bag (distractor)",
+      "target_bbox": [
+        552,
+        633,
+        807,
+        1341
+      ],
+      "distractor_bbox": [
+        324,
+        643,
+        594,
+        1270
+      ]
+    },
+    {
+      "id": "scene_per_03_crop",
+      "scene_id": "scene_per_03",
+      "presentation": "crop",
+      "task": "clothing",
+      "rel_path": "eval/images/multi_object/scene_per_03_crop.jpg",
+      "target_label": "safety_vest",
+      "distractor_label": "jacket_coat",
+      "question_en": "What upper-body clothing is the person wearing: safety_vest, jacket_coat, shirt_tshirt, or not_visible?",
+      "description": "Person wearing safety vest in foreground (target) vs background cars/objects (distractor)",
+      "target_bbox": [
+        98,
+        248,
+        892,
+        1176
+      ],
+      "distractor_bbox": [
+        0,
+        141,
+        285,
+        358
+      ]
+    },
+    {
+      "id": "scene_per_03_full_highlighted",
+      "scene_id": "scene_per_03",
+      "presentation": "full_highlighted",
+      "task": "clothing",
+      "rel_path": "eval/images/multi_object/scene_per_03_full_highlighted.jpg",
+      "target_label": "safety_vest",
+      "distractor_label": "jacket_coat",
+      "question_en": "In the highlighted object inside the red box, what upper-body clothing is the person wearing?",
+      "description": "Person wearing safety vest in foreground (target) vs background cars/objects (distractor)",
+      "target_bbox": [
+        98,
+        248,
+        892,
+        1176
+      ],
+      "distractor_bbox": [
+        0,
+        141,
+        285,
+        358
+      ]
+    },
+    {
+      "id": "scene_per_04_crop",
+      "scene_id": "scene_per_04",
+      "presentation": "crop",
+      "task": "helmet",
+      "rel_path": "eval/images/multi_object/scene_per_04_crop.jpg",
+      "target_label": "no",
+      "distractor_label": "no",
+      "question_en": "Is the person wearing a helmet or hard hat?",
+      "description": "Pedestrian on left without helmet (target) vs pedestrian on right (distractor)",
+      "target_bbox": [
+        504,
+        850,
+        558,
+        1011
+      ],
+      "distractor_bbox": [
+        564,
+        856,
+        616,
+        1011
+      ]
+    },
+    {
+      "id": "scene_per_04_full_highlighted",
+      "scene_id": "scene_per_04",
+      "presentation": "full_highlighted",
+      "task": "helmet",
+      "rel_path": "eval/images/multi_object/scene_per_04_full_highlighted.jpg",
+      "target_label": "no",
+      "distractor_label": "no",
+      "question_en": "In the highlighted object inside the red box, is the person wearing a helmet or hard hat?",
+      "description": "Pedestrian on left without helmet (target) vs pedestrian on right (distractor)",
+      "target_bbox": [
+        504,
+        850,
+        558,
+        1011
+      ],
+      "distractor_bbox": [
+        564,
+        856,
+        616,
+        1011
+      ]
+    },
+    {
+      "id": "scene_per_05_crop",
+      "scene_id": "scene_per_05",
+      "presentation": "crop",
+      "task": "color",
+      "rel_path": "eval/images/multi_object/scene_per_05_crop.jpg",
+      "target_label": "white",
+      "distractor_label": "blue",
+      "question_en": "What is the predominant color of this vehicle?",
+      "description": "White car (target) vs person in blue shirt standing next to car (distractor)",
+      "target_bbox": [
+        22,
+        31,
+        417,
+        305
+      ],
+      "distractor_bbox": [
+        56,
+        2,
+        153,
+        134
+      ]
+    },
+    {
+      "id": "scene_per_05_full_highlighted",
+      "scene_id": "scene_per_05",
+      "presentation": "full_highlighted",
+      "task": "color",
+      "rel_path": "eval/images/multi_object/scene_per_05_full_highlighted.jpg",
+      "target_label": "white",
+      "distractor_label": "blue",
+      "question_en": "In the highlighted object inside the red box, what is the predominant color of the vehicle?",
+      "description": "White car (target) vs person in blue shirt standing next to car (distractor)",
+      "target_bbox": [
+        22,
+        31,
+        417,
+        305
+      ],
+      "distractor_bbox": [
+        56,
+        2,
+        153,
+        134
+      ]
+    }
+  ]
+}

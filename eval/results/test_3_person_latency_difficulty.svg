@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="440" viewBox="0 0 980 440">
+<rect width="100%" height="100%" fill="#ffffff" rx="8"/>
+<rect width="100%" height="100%" fill="none" stroke="#e2e8f0" stroke-width="1" rx="8"/>
+<text x="36" y="38" font-family="system-ui,-apple-system,sans-serif" font-size="20" fill="#0f172a" font-weight="700" text-anchor="start">Teste 3: Robustez a Condições Adversas e Latência Multitarefa</text>
+<text x="36" y="60" font-family="system-ui,-apple-system,sans-serif" font-size="12" fill="#64748b" font-weight="400" text-anchor="start">Impacto de múltiplos pedestres e distância · Tempo por imagem avaliando 3 perguntas simultâneas</text>
+<text x="50" y="110" font-family="system-ui,-apple-system,sans-serif" font-size="15" fill="#0f172a" font-weight="700" text-anchor="start">Acurácia por Condição Visual</text>
+<text x="50" y="159" font-family="system-ui,-apple-system,sans-serif" font-size="12" fill="#334155" font-weight="500" text-anchor="start">Imagens Padrão (1 Pessoa Clara)</text>
+<rect x="230" y="145" width="139.6" height="11" fill="#2563eb" rx="3"/>
+<text x="375.62" y="155" font-family="system-ui,-apple-system,sans-serif" font-size="10" fill="#2563eb" font-weight="600" text-anchor="start">53.7%</text>
+<rect x="230" y="159" width="101.1" height="11" fill="#ea580c" rx="3"/>
+<text x="337.11400000000003" y="169" font-family="system-ui,-apple-system,sans-serif" font-size="10" fill="#ea580c" font-weight="600" text-anchor="start">38.9%</text>
+<text x="50" y="203" font-family="system-ui,-apple-system,sans-serif" font-size="12" fill="#334155" font-weight="500" text-anchor="start">Imagens Difíceis (Multidões/Distantes)</text>
+<rect x="230" y="189" width="88.7" height="11" fill="#2563eb" rx="3"/>
+<text x="324.738" y="199" font-family="system-ui,-apple-system,sans-serif" font-size="10" fill="#2563eb" font-weight="600" text-anchor="start">34.1%</text>
+<rect x="230" y="203" width="152.7" height="11" fill="#ea580c" rx="3"/>
+<text x="388.698" y="213" font-family="system-ui,-apple-system,sans-serif" font-size="10" fill="#ea580c" font-weight="600" text-anchor="start">58.7%</text>
+<text x="560" y="110" font-family="system-ui,-apple-system,sans-serif" font-size="15" fill="#0f172a" font-weight="700" text-anchor="start">Perfil de Latência (ms/imagem, 3 perguntas)</text>
+<text x="560" y="159" font-family="system-ui,-apple-system,sans-serif" font-size="12" fill="#334155" font-weight="500" text-anchor="start">Mediana (3 Qs)</text>
+<rect x="710" y="145" width="128.6" height="11" fill="#2563eb" rx="3"/>
+<text x="844.6479999999999" y="155" font-family="system-ui,-apple-system,sans-serif" font-size="10" fill="#2563eb" font-weight="600" text-anchor="start">1608ms</text>
+<rect x="710" y="159" width="206.2" height="11" fill="#ea580c" rx="3"/>
+<text x="922.168" y="169" font-family="system-ui,-apple-system,sans-serif" font-size="10" fill="#ea580c" font-weight="600" text-anchor="start">2577ms</text>
+<text x="560" y="203" font-family="system-ui,-apple-system,sans-serif" font-size="12" fill="#334155" font-weight="500" text-anchor="start">Percentil 90 (p90)</text>
+<rect x="710" y="189" width="148.0" height="11" fill="#2563eb" rx="3"/>
+<text x="863.952" y="199" font-family="system-ui,-apple-system,sans-serif" font-size="10" fill="#2563eb" font-weight="600" text-anchor="start">1849ms</text>
+<rect x="710" y="203" width="237.0" height="11" fill="#ea580c" rx="3"/>
+<text x="953.048" y="213" font-family="system-ui,-apple-system,sans-serif" font-size="10" fill="#ea580c" font-weight="600" text-anchor="start">2963ms</text>
+<text x="560" y="247" font-family="system-ui,-apple-system,sans-serif" font-size="12" fill="#334155" font-weight="500" text-anchor="start">Tempo Carga Modelo</text>
+<rect x="710" y="233" width="240.0" height="11" fill="#2563eb" rx="3"/>
+<text x="956" y="243" font-family="system-ui,-apple-system,sans-serif" font-size="10" fill="#2563eb" font-weight="600" text-anchor="start">4.68s</text>
+<rect x="710" y="247" width="122.4" height="11" fill="#ea580c" rx="3"/>
+<text x="838.4" y="257" font-family="system-ui,-apple-system,sans-serif" font-size="10" fill="#ea580c" font-weight="600" text-anchor="start">1.53s</text>
+</svg>

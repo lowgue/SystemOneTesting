@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="440" viewBox="0 0 980 440">
+<rect width="100%" height="100%" fill="#ffffff" rx="8"/>
+<rect width="100%" height="100%" fill="none" stroke="#e2e8f0" stroke-width="1" rx="8"/>
+<text x="36" y="38" font-family="system-ui,-apple-system,sans-serif" font-size="20" fill="#0f172a" font-weight="700" text-anchor="start">Teste 1: Robustez a Condições Difíceis e Latência Operacional</text>
+<text x="36" y="60" font-family="system-ui,-apple-system,sans-serif" font-size="12" fill="#64748b" font-weight="400" text-anchor="start">Impacto de oclusão, múltiplos carros, reflexos e sombras na precisão de cor</text>
+<text x="50" y="110" font-family="system-ui,-apple-system,sans-serif" font-size="15" fill="#0f172a" font-weight="700" text-anchor="start">Acurácia por Condição Visual</text>
+<text x="50" y="159" font-family="system-ui,-apple-system,sans-serif" font-size="12" fill="#334155" font-weight="500" text-anchor="start">Imagens Padrão</text>
+<rect x="220" y="145" width="180.0" height="10" fill="#2563eb" rx="3"/>
+<text x="405.99800000000005" y="154" font-family="system-ui,-apple-system,sans-serif" font-size="10" fill="#2563eb" font-weight="600" text-anchor="start">69%</text>
+<rect x="220" y="158" width="175.0" height="10" fill="#ea580c" rx="3"/>
+<text x="401.006" y="167" font-family="system-ui,-apple-system,sans-serif" font-size="10" fill="#ea580c" font-weight="600" text-anchor="start">67%</text>
+<text x="50" y="195" font-family="system-ui,-apple-system,sans-serif" font-size="12" fill="#334155" font-weight="500" text-anchor="start">Imagens Difíceis (Geral)</text>
+<rect x="220" y="181" width="156.8" height="10" fill="#2563eb" rx="3"/>
+<text x="382.754" y="190" font-family="system-ui,-apple-system,sans-serif" font-size="10" fill="#2563eb" font-weight="600" text-anchor="start">60%</text>
+<rect x="220" y="194" width="187.4" height="10" fill="#ea580c" rx="3"/>
+<text x="413.356" y="203" font-family="system-ui,-apple-system,sans-serif" font-size="10" fill="#ea580c" font-weight="600" text-anchor="start">72%</text>
+<text x="50" y="231" font-family="system-ui,-apple-system,sans-serif" font-size="12" fill="#334155" font-weight="500" text-anchor="start">Tag: Unclear Vehicle Crop</text>
+<rect x="220" y="217" width="117.0" height="10" fill="#2563eb" rx="3"/>
+<text x="343.0" y="226" font-family="system-ui,-apple-system,sans-serif" font-size="10" fill="#2563eb" font-weight="600" text-anchor="start">45%</text>
+<rect x="220" y="230" width="169.0" height="10" fill="#ea580c" rx="3"/>
+<text x="395.0" y="239" font-family="system-ui,-apple-system,sans-serif" font-size="10" fill="#ea580c" font-weight="600" text-anchor="start">65%</text>
+<text x="50" y="267" font-family="system-ui,-apple-system,sans-serif" font-size="12" fill="#334155" font-weight="500" text-anchor="start">Tag: Heavy Shadow</text>
+<rect x="220" y="253" width="185.7" height="10" fill="#2563eb" rx="3"/>
+<text x="411.718" y="262" font-family="system-ui,-apple-system,sans-serif" font-size="10" fill="#2563eb" font-weight="600" text-anchor="start">71%</text>
+<rect x="220" y="266" width="222.8" height="10" fill="#ea580c" rx="3"/>
+<text x="448.846" y="275" font-family="system-ui,-apple-system,sans-serif" font-size="10" fill="#ea580c" font-weight="600" text-anchor="start">86%</text>
+<text x="50" y="303" font-family="system-ui,-apple-system,sans-serif" font-size="12" fill="#334155" font-weight="500" text-anchor="start">Tag: Multiple Vehicles</text>
+<rect x="220" y="289" width="182.0" height="10" fill="#2563eb" rx="3"/>
+<text x="408.0" y="298" font-family="system-ui,-apple-system,sans-serif" font-size="10" fill="#2563eb" font-weight="600" text-anchor="start">70%</text>
+<rect x="220" y="302" width="195.0" height="10" fill="#ea580c" rx="3"/>
+<text x="421.0" y="311" font-family="system-ui,-apple-system,sans-serif" font-size="10" fill="#ea580c" font-weight="600" text-anchor="start">75%</text>
+<text x="50" y="339" font-family="system-ui,-apple-system,sans-serif" font-size="12" fill="#334155" font-weight="500" text-anchor="start">Tag: High Reflection</text>
+<rect x="220" y="325" width="118.2" height="10" fill="#2563eb" rx="3"/>
+<text x="344.17" y="334" font-family="system-ui,-apple-system,sans-serif" font-size="10" fill="#2563eb" font-weight="600" text-anchor="start">45%</text>
+<rect x="220" y="338" width="236.4" height="10" fill="#ea580c" rx="3"/>
+<text x="462.366" y="347" font-family="system-ui,-apple-system,sans-serif" font-size="10" fill="#ea580c" font-weight="600" text-anchor="start">91%</text>
+<text x="50" y="375" font-family="system-ui,-apple-system,sans-serif" font-size="12" fill="#334155" font-weight="500" text-anchor="start">Tag: Small Vehicle</text>
+<rect x="220" y="361" width="260.0" height="10" fill="#2563eb" rx="3"/>
+<text x="486.0" y="370" font-family="system-ui,-apple-system,sans-serif" font-size="10" fill="#2563eb" font-weight="600" text-anchor="start">100%</text>
+<rect x="220" y="374" width="260.0" height="10" fill="#ea580c" rx="3"/>
+<text x="486.0" y="383" font-family="system-ui,-apple-system,sans-serif" font-size="10" fill="#ea580c" font-weight="600" text-anchor="start">100%</text>
+<text x="560" y="110" font-family="system-ui,-apple-system,sans-serif" font-size="15" fill="#0f172a" font-weight="700" text-anchor="start">Perfil de Latência por Imagem (ms em CPU)</text>
+<text x="560" y="159" font-family="system-ui,-apple-system,sans-serif" font-size="12" fill="#334155" font-weight="500" text-anchor="start">Mediana</text>
+<rect x="710" y="145" width="140.2" height="11" fill="#2563eb" rx="3"/>
+<text x="856.1792" y="155" font-family="system-ui,-apple-system,sans-serif" font-size="10" fill="#2563eb" font-weight="600" text-anchor="start">1460ms</text>
+<rect x="710" y="159" width="79.5" height="11" fill="#ea580c" rx="3"/>
+<text x="795.488" y="169" font-family="system-ui,-apple-system,sans-serif" font-size="10" fill="#ea580c" font-weight="600" text-anchor="start">828ms</text>
+<text x="560" y="203" font-family="system-ui,-apple-system,sans-serif" font-size="12" fill="#334155" font-weight="500" text-anchor="start">Percentil 90 (p90)</text>
+<rect x="710" y="189" width="163.6" height="11" fill="#2563eb" rx="3"/>
+<text x="879.5552" y="199" font-family="system-ui,-apple-system,sans-serif" font-size="10" fill="#2563eb" font-weight="600" text-anchor="start">1704ms</text>
+<rect x="710" y="203" width="91.7" height="11" fill="#ea580c" rx="3"/>
+<text x="807.6512" y="213" font-family="system-ui,-apple-system,sans-serif" font-size="10" fill="#ea580c" font-weight="600" text-anchor="start">955ms</text>
+<text x="560" y="247" font-family="system-ui,-apple-system,sans-serif" font-size="12" fill="#334155" font-weight="500" text-anchor="start">Percentil 95 (p95)</text>
+<rect x="710" y="233" width="173.7" height="11" fill="#2563eb" rx="3"/>
+<text x="889.7408" y="243" font-family="system-ui,-apple-system,sans-serif" font-size="10" fill="#2563eb" font-weight="600" text-anchor="start">1810ms</text>
+<rect x="710" y="247" width="100.7" height="11" fill="#ea580c" rx="3"/>
+<text x="816.704" y="257" font-family="system-ui,-apple-system,sans-serif" font-size="10" fill="#ea580c" font-weight="600" text-anchor="start">1049ms</text>
+<text x="560" y="291" font-family="system-ui,-apple-system,sans-serif" font-size="12" fill="#334155" font-weight="500" text-anchor="start">Tempo Carga Modelo</text>
+<rect x="710" y="277" width="240.0" height="11" fill="#2563eb" rx="3"/>
+<text x="956" y="287" font-family="system-ui,-apple-system,sans-serif" font-size="10" fill="#2563eb" font-weight="600" text-anchor="start">3.86s</text>
+<rect x="710" y="291" width="138.2" height="11" fill="#ea580c" rx="3"/>
+<text x="854.24" y="301" font-family="system-ui,-apple-system,sans-serif" font-size="10" fill="#ea580c" font-weight="600" text-anchor="start">1.44s</text>
+</svg>

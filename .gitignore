@@ -3,6 +3,13 @@ __pycache__/
 **/__pycache__/
 eval/images/stanford_cars/
 eval/images/color_test/
+eval/images/vehicle_type/
+eval/images/person_attributes/
+eval/images/unknown_controls/
+eval/images/robustness/
+eval/images/multi_object/
 yolo11n.pt
 eval/results/benchmark-live-progress.json
 eval/results/benchmark-live.log
+# Local pre-review render; the reviewed scientific atlas is versioned separately.
+eval/figures/scientific_20261026/

@@ -1,0 +1,3916 @@
+{
+  "benchmark": "Test 1: Vehicle Color (Cor do Veículo)",
+  "question": "Qual é a cor predominante da carroceria do veículo principal?",
+  "question_en": "What is the predominant color of the most prominent car?",
+  "taxonomy": [
+    "black",
+    "white",
+    "gray_silver",
+    "red",
+    "blue",
+    "green",
+    "yellow",
+    "orange",
+    "brown",
+    "purple",
+    "pink",
+    "unknown"
+  ],
+  "eval_count": 120,
+  "dev_count": 220,
+  "total_count": 340,
+  "items": [
+    {
+      "id": "color_black_001",
+      "filename": "color_black_001.jpg",
+      "rel_path": "eval/images/color_test/color_black_001.jpg",
+      "color": "black",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_black_002",
+      "filename": "color_black_002.jpg",
+      "rel_path": "eval/images/color_test/color_black_002.jpg",
+      "color": "black",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_black_003",
+      "filename": "color_black_003.jpg",
+      "rel_path": "eval/images/color_test/color_black_003.jpg",
+      "color": "black",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "unclear_vehicle_crop"
+      ]
+    },
+    {
+      "id": "color_black_004",
+      "filename": "color_black_004.jpg",
+      "rel_path": "eval/images/color_test/color_black_004.jpg",
+      "color": "black",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_black_005",
+      "filename": "color_black_005.jpg",
+      "rel_path": "eval/images/color_test/color_black_005.jpg",
+      "color": "black",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "unclear_vehicle_crop"
+      ]
+    },
+    {
+      "id": "color_black_006",
+      "filename": "color_black_006.jpg",
+      "rel_path": "eval/images/color_test/color_black_006.jpg",
+      "color": "black",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "heavy_shadow",
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_black_007",
+      "filename": "color_black_007.jpg",
+      "rel_path": "eval/images/color_test/color_black_007.jpg",
+      "color": "black",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "unclear_vehicle_crop"
+      ]
+    },
+    {
+      "id": "color_black_008",
+      "filename": "color_black_008.jpg",
+      "rel_path": "eval/images/color_test/color_black_008.jpg",
+      "color": "black",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_black_009",
+      "filename": "color_black_009.jpg",
+      "rel_path": "eval/images/color_test/color_black_009.jpg",
+      "color": "black",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "unclear_vehicle_crop"
+      ]
+    },
+    {
+      "id": "color_black_010",
+      "filename": "color_black_010.jpg",
+      "rel_path": "eval/images/color_test/color_black_010.jpg",
+      "color": "black",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_black_011",
+      "filename": "color_black_011.jpg",
+      "rel_path": "eval/images/color_test/color_black_011.jpg",
+      "color": "black",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "unclear_vehicle_crop"
+      ]
+    },
+    {
+      "id": "color_black_012",
+      "filename": "color_black_012.jpg",
+      "rel_path": "eval/images/color_test/color_black_012.jpg",
+      "color": "black",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_black_013",
+      "filename": "color_black_013.jpg",
+      "rel_path": "eval/images/color_test/color_black_013.jpg",
+      "color": "black",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_black_014",
+      "filename": "color_black_014.jpg",
+      "rel_path": "eval/images/color_test/color_black_014.jpg",
+      "color": "black",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "heavy_shadow",
+        "high_reflection"
+      ]
+    },
+    {
+      "id": "color_black_015",
+      "filename": "color_black_015.jpg",
+      "rel_path": "eval/images/color_test/color_black_015.jpg",
+      "color": "black",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "heavy_shadow",
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_black_016",
+      "filename": "color_black_016.jpg",
+      "rel_path": "eval/images/color_test/color_black_016.jpg",
+      "color": "black",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "unclear_vehicle_crop"
+      ]
+    },
+    {
+      "id": "color_black_017",
+      "filename": "color_black_017.jpg",
+      "rel_path": "eval/images/color_test/color_black_017.jpg",
+      "color": "black",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "unclear_vehicle_crop"
+      ]
+    },
+    {
+      "id": "color_black_018",
+      "filename": "color_black_018.jpg",
+      "rel_path": "eval/images/color_test/color_black_018.jpg",
+      "color": "black",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_black_019",
+      "filename": "color_black_019.jpg",
+      "rel_path": "eval/images/color_test/color_black_019.jpg",
+      "color": "black",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "unclear_vehicle_crop"
+      ]
+    },
+    {
+      "id": "color_black_020",
+      "filename": "color_black_020.jpg",
+      "rel_path": "eval/images/color_test/color_black_020.jpg",
+      "color": "black",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "unclear_vehicle_crop"
+      ]
+    },
+    {
+      "id": "color_black_021",
+      "filename": "color_black_021.jpg",
+      "rel_path": "eval/images/color_test/color_black_021.jpg",
+      "color": "black",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_black_022",
+      "filename": "color_black_022.jpg",
+      "rel_path": "eval/images/color_test/color_black_022.jpg",
+      "color": "black",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "unclear_vehicle_crop"
+      ]
+    },
+    {
+      "id": "color_black_023",
+      "filename": "color_black_023.jpg",
+      "rel_path": "eval/images/color_test/color_black_023.jpg",
+      "color": "black",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "unclear_vehicle_crop"
+      ]
+    },
+    {
+      "id": "color_black_024",
+      "filename": "color_black_024.jpg",
+      "rel_path": "eval/images/color_test/color_black_024.jpg",
+      "color": "black",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_black_025",
+      "filename": "color_black_025.jpg",
+      "rel_path": "eval/images/color_test/color_black_025.jpg",
+      "color": "black",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_black_026",
+      "filename": "color_black_026.png",
+      "rel_path": "eval/images/color_test/color_black_026.png",
+      "color": "black",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_black_027",
+      "filename": "color_black_027.jpg",
+      "rel_path": "eval/images/color_test/color_black_027.jpg",
+      "color": "black",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "unclear_vehicle_crop"
+      ]
+    },
+    {
+      "id": "color_black_028",
+      "filename": "color_black_028.jpg",
+      "rel_path": "eval/images/color_test/color_black_028.jpg",
+      "color": "black",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_black_029",
+      "filename": "color_black_029.jpg",
+      "rel_path": "eval/images/color_test/color_black_029.jpg",
+      "color": "black",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_black_030",
+      "filename": "color_black_030.jpg",
+      "rel_path": "eval/images/color_test/color_black_030.jpg",
+      "color": "black",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "heavy_shadow"
+      ]
+    },
+    {
+      "id": "color_white_001",
+      "filename": "color_white_001.jpg",
+      "rel_path": "eval/images/color_test/color_white_001.jpg",
+      "color": "white",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "high_reflection"
+      ]
+    },
+    {
+      "id": "color_white_002",
+      "filename": "color_white_002.jpg",
+      "rel_path": "eval/images/color_test/color_white_002.jpg",
+      "color": "white",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_white_003",
+      "filename": "color_white_003.jpg",
+      "rel_path": "eval/images/color_test/color_white_003.jpg",
+      "color": "white",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_white_004",
+      "filename": "color_white_004.jpg",
+      "rel_path": "eval/images/color_test/color_white_004.jpg",
+      "color": "white",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "high_reflection"
+      ]
+    },
+    {
+      "id": "color_white_005",
+      "filename": "color_white_005.jpg",
+      "rel_path": "eval/images/color_test/color_white_005.jpg",
+      "color": "white",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "high_reflection",
+        "unclear_vehicle_crop"
+      ]
+    },
+    {
+      "id": "color_white_006",
+      "filename": "color_white_006.jpg",
+      "rel_path": "eval/images/color_test/color_white_006.jpg",
+      "color": "white",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "heavy_shadow",
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_white_007",
+      "filename": "color_white_007.jpg",
+      "rel_path": "eval/images/color_test/color_white_007.jpg",
+      "color": "white",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "heavy_shadow",
+        "high_reflection",
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_white_008",
+      "filename": "color_white_008.jpg",
+      "rel_path": "eval/images/color_test/color_white_008.jpg",
+      "color": "white",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "high_reflection",
+        "unclear_vehicle_crop"
+      ]
+    },
+    {
+      "id": "color_white_009",
+      "filename": "color_white_009.jpg",
+      "rel_path": "eval/images/color_test/color_white_009.jpg",
+      "color": "white",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "unclear_vehicle_crop"
+      ]
+    },
+    {
+      "id": "color_white_010",
+      "filename": "color_white_010.jpg",
+      "rel_path": "eval/images/color_test/color_white_010.jpg",
+      "color": "white",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "high_reflection"
+      ]
+    },
+    {
+      "id": "color_white_011",
+      "filename": "color_white_011.jpg",
+      "rel_path": "eval/images/color_test/color_white_011.jpg",
+      "color": "white",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "heavy_shadow"
+      ]
+    },
+    {
+      "id": "color_white_012",
+      "filename": "color_white_012.jpg",
+      "rel_path": "eval/images/color_test/color_white_012.jpg",
+      "color": "white",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "unclear_vehicle_crop"
+      ]
+    },
+    {
+      "id": "color_white_013",
+      "filename": "color_white_013.jpg",
+      "rel_path": "eval/images/color_test/color_white_013.jpg",
+      "color": "white",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "heavy_shadow",
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_white_014",
+      "filename": "color_white_014.jpg",
+      "rel_path": "eval/images/color_test/color_white_014.jpg",
+      "color": "white",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "heavy_shadow",
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_white_015",
+      "filename": "color_white_015.jpg",
+      "rel_path": "eval/images/color_test/color_white_015.jpg",
+      "color": "white",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "unclear_vehicle_crop"
+      ]
+    },
+    {
+      "id": "color_white_016",
+      "filename": "color_white_016.jpg",
+      "rel_path": "eval/images/color_test/color_white_016.jpg",
+      "color": "white",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "heavy_shadow"
+      ]
+    },
+    {
+      "id": "color_white_017",
+      "filename": "color_white_017.jpg",
+      "rel_path": "eval/images/color_test/color_white_017.jpg",
+      "color": "white",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_white_018",
+      "filename": "color_white_018.jpg",
+      "rel_path": "eval/images/color_test/color_white_018.jpg",
+      "color": "white",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "high_reflection"
+      ]
+    },
+    {
+      "id": "color_white_019",
+      "filename": "color_white_019.jpg",
+      "rel_path": "eval/images/color_test/color_white_019.jpg",
+      "color": "white",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_white_020",
+      "filename": "color_white_020.jpg",
+      "rel_path": "eval/images/color_test/color_white_020.jpg",
+      "color": "white",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "heavy_shadow"
+      ]
+    },
+    {
+      "id": "color_white_021",
+      "filename": "color_white_021.jpg",
+      "rel_path": "eval/images/color_test/color_white_021.jpg",
+      "color": "white",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "small_vehicle"
+      ]
+    },
+    {
+      "id": "color_white_022",
+      "filename": "color_white_022.jpg",
+      "rel_path": "eval/images/color_test/color_white_022.jpg",
+      "color": "white",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "high_reflection",
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_white_023",
+      "filename": "color_white_023.jpg",
+      "rel_path": "eval/images/color_test/color_white_023.jpg",
+      "color": "white",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "heavy_shadow"
+      ]
+    },
+    {
+      "id": "color_white_024",
+      "filename": "color_white_024.jpg",
+      "rel_path": "eval/images/color_test/color_white_024.jpg",
+      "color": "white",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_white_025",
+      "filename": "color_white_025.jpg",
+      "rel_path": "eval/images/color_test/color_white_025.jpg",
+      "color": "white",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_white_026",
+      "filename": "color_white_026.jpg",
+      "rel_path": "eval/images/color_test/color_white_026.jpg",
+      "color": "white",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "heavy_shadow",
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_white_027",
+      "filename": "color_white_027.jpg",
+      "rel_path": "eval/images/color_test/color_white_027.jpg",
+      "color": "white",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "heavy_shadow",
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_white_028",
+      "filename": "color_white_028.jpg",
+      "rel_path": "eval/images/color_test/color_white_028.jpg",
+      "color": "white",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "high_reflection",
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_white_029",
+      "filename": "color_white_029.jpg",
+      "rel_path": "eval/images/color_test/color_white_029.jpg",
+      "color": "white",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "heavy_shadow",
+        "high_reflection"
+      ]
+    },
+    {
+      "id": "color_white_030",
+      "filename": "color_white_030.jpg",
+      "rel_path": "eval/images/color_test/color_white_030.jpg",
+      "color": "white",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "heavy_shadow"
+      ]
+    },
+    {
+      "id": "color_gray_silver_001",
+      "filename": "color_gray_silver_001.jpg",
+      "rel_path": "eval/images/color_test/color_gray_silver_001.jpg",
+      "color": "gray_silver",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_gray_silver_002",
+      "filename": "color_gray_silver_002.jpg",
+      "rel_path": "eval/images/color_test/color_gray_silver_002.jpg",
+      "color": "gray_silver",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_gray_silver_003",
+      "filename": "color_gray_silver_003.jpg",
+      "rel_path": "eval/images/color_test/color_gray_silver_003.jpg",
+      "color": "gray_silver",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_gray_silver_004",
+      "filename": "color_gray_silver_004.jpg",
+      "rel_path": "eval/images/color_test/color_gray_silver_004.jpg",
+      "color": "gray_silver",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_gray_silver_005",
+      "filename": "color_gray_silver_005.jpg",
+      "rel_path": "eval/images/color_test/color_gray_silver_005.jpg",
+      "color": "gray_silver",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_gray_silver_006",
+      "filename": "color_gray_silver_006.jpg",
+      "rel_path": "eval/images/color_test/color_gray_silver_006.jpg",
+      "color": "gray_silver",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_gray_silver_007",
+      "filename": "color_gray_silver_007.jpg",
+      "rel_path": "eval/images/color_test/color_gray_silver_007.jpg",
+      "color": "gray_silver",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "unclear_vehicle_crop"
+      ]
+    },
+    {
+      "id": "color_gray_silver_008",
+      "filename": "color_gray_silver_008.jpg",
+      "rel_path": "eval/images/color_test/color_gray_silver_008.jpg",
+      "color": "gray_silver",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_gray_silver_009",
+      "filename": "color_gray_silver_009.jpg",
+      "rel_path": "eval/images/color_test/color_gray_silver_009.jpg",
+      "color": "gray_silver",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_gray_silver_010",
+      "filename": "color_gray_silver_010.jpg",
+      "rel_path": "eval/images/color_test/color_gray_silver_010.jpg",
+      "color": "gray_silver",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "unclear_vehicle_crop"
+      ]
+    },
+    {
+      "id": "color_gray_silver_011",
+      "filename": "color_gray_silver_011.jpg",
+      "rel_path": "eval/images/color_test/color_gray_silver_011.jpg",
+      "color": "gray_silver",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_gray_silver_012",
+      "filename": "color_gray_silver_012.jpg",
+      "rel_path": "eval/images/color_test/color_gray_silver_012.jpg",
+      "color": "gray_silver",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_gray_silver_013",
+      "filename": "color_gray_silver_013.jpg",
+      "rel_path": "eval/images/color_test/color_gray_silver_013.jpg",
+      "color": "gray_silver",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "heavy_shadow"
+      ]
+    },
+    {
+      "id": "color_gray_silver_014",
+      "filename": "color_gray_silver_014.jpg",
+      "rel_path": "eval/images/color_test/color_gray_silver_014.jpg",
+      "color": "gray_silver",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_gray_silver_015",
+      "filename": "color_gray_silver_015.jpg",
+      "rel_path": "eval/images/color_test/color_gray_silver_015.jpg",
+      "color": "gray_silver",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "unclear_vehicle_crop"
+      ]
+    },
+    {
+      "id": "color_gray_silver_016",
+      "filename": "color_gray_silver_016.jpg",
+      "rel_path": "eval/images/color_test/color_gray_silver_016.jpg",
+      "color": "gray_silver",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_gray_silver_017",
+      "filename": "color_gray_silver_017.jpg",
+      "rel_path": "eval/images/color_test/color_gray_silver_017.jpg",
+      "color": "gray_silver",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_gray_silver_018",
+      "filename": "color_gray_silver_018.jpg",
+      "rel_path": "eval/images/color_test/color_gray_silver_018.jpg",
+      "color": "gray_silver",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "unclear_vehicle_crop"
+      ]
+    },
+    {
+      "id": "color_gray_silver_019",
+      "filename": "color_gray_silver_019.jpg",
+      "rel_path": "eval/images/color_test/color_gray_silver_019.jpg",
+      "color": "gray_silver",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "unclear_vehicle_crop"
+      ]
+    },
+    {
+      "id": "color_gray_silver_020",
+      "filename": "color_gray_silver_020.jpg",
+      "rel_path": "eval/images/color_test/color_gray_silver_020.jpg",
+      "color": "gray_silver",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_gray_silver_021",
+      "filename": "color_gray_silver_021.jpg",
+      "rel_path": "eval/images/color_test/color_gray_silver_021.jpg",
+      "color": "gray_silver",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_gray_silver_022",
+      "filename": "color_gray_silver_022.jpg",
+      "rel_path": "eval/images/color_test/color_gray_silver_022.jpg",
+      "color": "gray_silver",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_gray_silver_023",
+      "filename": "color_gray_silver_023.jpg",
+      "rel_path": "eval/images/color_test/color_gray_silver_023.jpg",
+      "color": "gray_silver",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_gray_silver_024",
+      "filename": "color_gray_silver_024.jpg",
+      "rel_path": "eval/images/color_test/color_gray_silver_024.jpg",
+      "color": "gray_silver",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_gray_silver_025",
+      "filename": "color_gray_silver_025.jpg",
+      "rel_path": "eval/images/color_test/color_gray_silver_025.jpg",
+      "color": "gray_silver",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "unclear_vehicle_crop"
+      ]
+    },
+    {
+      "id": "color_gray_silver_026",
+      "filename": "color_gray_silver_026.jpg",
+      "rel_path": "eval/images/color_test/color_gray_silver_026.jpg",
+      "color": "gray_silver",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "heavy_shadow"
+      ]
+    },
+    {
+      "id": "color_gray_silver_027",
+      "filename": "color_gray_silver_027.jpg",
+      "rel_path": "eval/images/color_test/color_gray_silver_027.jpg",
+      "color": "gray_silver",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "heavy_shadow"
+      ]
+    },
+    {
+      "id": "color_gray_silver_028",
+      "filename": "color_gray_silver_028.jpg",
+      "rel_path": "eval/images/color_test/color_gray_silver_028.jpg",
+      "color": "gray_silver",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_gray_silver_029",
+      "filename": "color_gray_silver_029.jpg",
+      "rel_path": "eval/images/color_test/color_gray_silver_029.jpg",
+      "color": "gray_silver",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_gray_silver_030",
+      "filename": "color_gray_silver_030.jpg",
+      "rel_path": "eval/images/color_test/color_gray_silver_030.jpg",
+      "color": "gray_silver",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "unclear_vehicle_crop"
+      ]
+    },
+    {
+      "id": "color_red_001",
+      "filename": "color_red_001.jpg",
+      "rel_path": "eval/images/color_test/color_red_001.jpg",
+      "color": "red",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_red_002",
+      "filename": "color_red_002.jpg",
+      "rel_path": "eval/images/color_test/color_red_002.jpg",
+      "color": "red",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "unclear_vehicle_crop"
+      ]
+    },
+    {
+      "id": "color_red_003",
+      "filename": "color_red_003.jpg",
+      "rel_path": "eval/images/color_test/color_red_003.jpg",
+      "color": "red",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "unclear_vehicle_crop"
+      ]
+    },
+    {
+      "id": "color_red_004",
+      "filename": "color_red_004.jpg",
+      "rel_path": "eval/images/color_test/color_red_004.jpg",
+      "color": "red",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_red_005",
+      "filename": "color_red_005.jpg",
+      "rel_path": "eval/images/color_test/color_red_005.jpg",
+      "color": "red",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_red_006",
+      "filename": "color_red_006.jpg",
+      "rel_path": "eval/images/color_test/color_red_006.jpg",
+      "color": "red",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "unclear_vehicle_crop"
+      ]
+    },
+    {
+      "id": "color_red_007",
+      "filename": "color_red_007.jpg",
+      "rel_path": "eval/images/color_test/color_red_007.jpg",
+      "color": "red",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "unclear_vehicle_crop"
+      ]
+    },
+    {
+      "id": "color_red_008",
+      "filename": "color_red_008.jpg",
+      "rel_path": "eval/images/color_test/color_red_008.jpg",
+      "color": "red",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "unclear_vehicle_crop"
+      ]
+    },
+    {
+      "id": "color_red_009",
+      "filename": "color_red_009.jpg",
+      "rel_path": "eval/images/color_test/color_red_009.jpg",
+      "color": "red",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_red_010",
+      "filename": "color_red_010.jpg",
+      "rel_path": "eval/images/color_test/color_red_010.jpg",
+      "color": "red",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "unclear_vehicle_crop"
+      ]
+    },
+    {
+      "id": "color_red_011",
+      "filename": "color_red_011.jpg",
+      "rel_path": "eval/images/color_test/color_red_011.jpg",
+      "color": "red",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_red_012",
+      "filename": "color_red_012.jpg",
+      "rel_path": "eval/images/color_test/color_red_012.jpg",
+      "color": "red",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_red_013",
+      "filename": "color_red_013.jpg",
+      "rel_path": "eval/images/color_test/color_red_013.jpg",
+      "color": "red",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_red_014",
+      "filename": "color_red_014.jpg",
+      "rel_path": "eval/images/color_test/color_red_014.jpg",
+      "color": "red",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "heavy_shadow"
+      ]
+    },
+    {
+      "id": "color_red_015",
+      "filename": "color_red_015.jpg",
+      "rel_path": "eval/images/color_test/color_red_015.jpg",
+      "color": "red",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "unclear_vehicle_crop"
+      ]
+    },
+    {
+      "id": "color_red_016",
+      "filename": "color_red_016.jpg",
+      "rel_path": "eval/images/color_test/color_red_016.jpg",
+      "color": "red",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "high_reflection",
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_red_017",
+      "filename": "color_red_017.jpg",
+      "rel_path": "eval/images/color_test/color_red_017.jpg",
+      "color": "red",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_red_018",
+      "filename": "color_red_018.jpg",
+      "rel_path": "eval/images/color_test/color_red_018.jpg",
+      "color": "red",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_red_019",
+      "filename": "color_red_019.jpg",
+      "rel_path": "eval/images/color_test/color_red_019.jpg",
+      "color": "red",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "heavy_shadow",
+        "high_reflection",
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_red_020",
+      "filename": "color_red_020.jpg",
+      "rel_path": "eval/images/color_test/color_red_020.jpg",
+      "color": "red",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "unclear_vehicle_crop"
+      ]
+    },
+    {
+      "id": "color_red_021",
+      "filename": "color_red_021.jpg",
+      "rel_path": "eval/images/color_test/color_red_021.jpg",
+      "color": "red",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_red_022",
+      "filename": "color_red_022.jpg",
+      "rel_path": "eval/images/color_test/color_red_022.jpg",
+      "color": "red",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "unclear_vehicle_crop"
+      ]
+    },
+    {
+      "id": "color_red_023",
+      "filename": "color_red_023.jpg",
+      "rel_path": "eval/images/color_test/color_red_023.jpg",
+      "color": "red",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "unclear_vehicle_crop"
+      ]
+    },
+    {
+      "id": "color_red_024",
+      "filename": "color_red_024.jpg",
+      "rel_path": "eval/images/color_test/color_red_024.jpg",
+      "color": "red",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_red_025",
+      "filename": "color_red_025.jpg",
+      "rel_path": "eval/images/color_test/color_red_025.jpg",
+      "color": "red",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_red_026",
+      "filename": "color_red_026.jpg",
+      "rel_path": "eval/images/color_test/color_red_026.jpg",
+      "color": "red",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_red_027",
+      "filename": "color_red_027.jpg",
+      "rel_path": "eval/images/color_test/color_red_027.jpg",
+      "color": "red",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "unclear_vehicle_crop"
+      ]
+    },
+    {
+      "id": "color_red_028",
+      "filename": "color_red_028.jpg",
+      "rel_path": "eval/images/color_test/color_red_028.jpg",
+      "color": "red",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "unclear_vehicle_crop"
+      ]
+    },
+    {
+      "id": "color_red_029",
+      "filename": "color_red_029.jpg",
+      "rel_path": "eval/images/color_test/color_red_029.jpg",
+      "color": "red",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "high_reflection"
+      ]
+    },
+    {
+      "id": "color_red_030",
+      "filename": "color_red_030.jpg",
+      "rel_path": "eval/images/color_test/color_red_030.jpg",
+      "color": "red",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_blue_001",
+      "filename": "color_blue_001.jpg",
+      "rel_path": "eval/images/color_test/color_blue_001.jpg",
+      "color": "blue",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_blue_002",
+      "filename": "color_blue_002.jpg",
+      "rel_path": "eval/images/color_test/color_blue_002.jpg",
+      "color": "blue",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "unclear_vehicle_crop"
+      ]
+    },
+    {
+      "id": "color_blue_003",
+      "filename": "color_blue_003.jpg",
+      "rel_path": "eval/images/color_test/color_blue_003.jpg",
+      "color": "blue",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_blue_004",
+      "filename": "color_blue_004.jpg",
+      "rel_path": "eval/images/color_test/color_blue_004.jpg",
+      "color": "blue",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_blue_005",
+      "filename": "color_blue_005.jpg",
+      "rel_path": "eval/images/color_test/color_blue_005.jpg",
+      "color": "blue",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_blue_006",
+      "filename": "color_blue_006.jpg",
+      "rel_path": "eval/images/color_test/color_blue_006.jpg",
+      "color": "blue",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_blue_007",
+      "filename": "color_blue_007.jpg",
+      "rel_path": "eval/images/color_test/color_blue_007.jpg",
+      "color": "blue",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_blue_008",
+      "filename": "color_blue_008.jpg",
+      "rel_path": "eval/images/color_test/color_blue_008.jpg",
+      "color": "blue",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_blue_009",
+      "filename": "color_blue_009.jpg",
+      "rel_path": "eval/images/color_test/color_blue_009.jpg",
+      "color": "blue",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "unclear_vehicle_crop"
+      ]
+    },
+    {
+      "id": "color_blue_010",
+      "filename": "color_blue_010.jpg",
+      "rel_path": "eval/images/color_test/color_blue_010.jpg",
+      "color": "blue",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_blue_011",
+      "filename": "color_blue_011.jpg",
+      "rel_path": "eval/images/color_test/color_blue_011.jpg",
+      "color": "blue",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_blue_012",
+      "filename": "color_blue_012.jpg",
+      "rel_path": "eval/images/color_test/color_blue_012.jpg",
+      "color": "blue",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_blue_013",
+      "filename": "color_blue_013.jpg",
+      "rel_path": "eval/images/color_test/color_blue_013.jpg",
+      "color": "blue",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "unclear_vehicle_crop"
+      ]
+    },
+    {
+      "id": "color_blue_014",
+      "filename": "color_blue_014.jpg",
+      "rel_path": "eval/images/color_test/color_blue_014.jpg",
+      "color": "blue",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "high_reflection"
+      ]
+    },
+    {
+      "id": "color_blue_015",
+      "filename": "color_blue_015.jpg",
+      "rel_path": "eval/images/color_test/color_blue_015.jpg",
+      "color": "blue",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_blue_016",
+      "filename": "color_blue_016.jpg",
+      "rel_path": "eval/images/color_test/color_blue_016.jpg",
+      "color": "blue",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_blue_017",
+      "filename": "color_blue_017.jpg",
+      "rel_path": "eval/images/color_test/color_blue_017.jpg",
+      "color": "blue",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "high_reflection",
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_blue_018",
+      "filename": "color_blue_018.jpg",
+      "rel_path": "eval/images/color_test/color_blue_018.jpg",
+      "color": "blue",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_blue_019",
+      "filename": "color_blue_019.jpg",
+      "rel_path": "eval/images/color_test/color_blue_019.jpg",
+      "color": "blue",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_blue_020",
+      "filename": "color_blue_020.jpg",
+      "rel_path": "eval/images/color_test/color_blue_020.jpg",
+      "color": "blue",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_blue_021",
+      "filename": "color_blue_021.jpg",
+      "rel_path": "eval/images/color_test/color_blue_021.jpg",
+      "color": "blue",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_blue_022",
+      "filename": "color_blue_022.jpg",
+      "rel_path": "eval/images/color_test/color_blue_022.jpg",
+      "color": "blue",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_blue_023",
+      "filename": "color_blue_023.jpg",
+      "rel_path": "eval/images/color_test/color_blue_023.jpg",
+      "color": "blue",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "unclear_vehicle_crop"
+      ]
+    },
+    {
+      "id": "color_blue_024",
+      "filename": "color_blue_024.jpg",
+      "rel_path": "eval/images/color_test/color_blue_024.jpg",
+      "color": "blue",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_blue_025",
+      "filename": "color_blue_025.jpg",
+      "rel_path": "eval/images/color_test/color_blue_025.jpg",
+      "color": "blue",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_blue_026",
+      "filename": "color_blue_026.jpg",
+      "rel_path": "eval/images/color_test/color_blue_026.jpg",
+      "color": "blue",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_blue_027",
+      "filename": "color_blue_027.jpg",
+      "rel_path": "eval/images/color_test/color_blue_027.jpg",
+      "color": "blue",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "unclear_vehicle_crop"
+      ]
+    },
+    {
+      "id": "color_blue_028",
+      "filename": "color_blue_028.jpg",
+      "rel_path": "eval/images/color_test/color_blue_028.jpg",
+      "color": "blue",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "heavy_shadow"
+      ]
+    },
+    {
+      "id": "color_blue_029",
+      "filename": "color_blue_029.jpg",
+      "rel_path": "eval/images/color_test/color_blue_029.jpg",
+      "color": "blue",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_blue_030",
+      "filename": "color_blue_030.jpg",
+      "rel_path": "eval/images/color_test/color_blue_030.jpg",
+      "color": "blue",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "unclear_vehicle_crop"
+      ]
+    },
+    {
+      "id": "color_green_001",
+      "filename": "color_green_001.jpg",
+      "rel_path": "eval/images/color_test/color_green_001.jpg",
+      "color": "green",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_green_002",
+      "filename": "color_green_002.jpg",
+      "rel_path": "eval/images/color_test/color_green_002.jpg",
+      "color": "green",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_green_003",
+      "filename": "color_green_003.png",
+      "rel_path": "eval/images/color_test/color_green_003.png",
+      "color": "green",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_green_004",
+      "filename": "color_green_004.jpg",
+      "rel_path": "eval/images/color_test/color_green_004.jpg",
+      "color": "green",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_green_005",
+      "filename": "color_green_005.jpg",
+      "rel_path": "eval/images/color_test/color_green_005.jpg",
+      "color": "green",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_green_006",
+      "filename": "color_green_006.jpg",
+      "rel_path": "eval/images/color_test/color_green_006.jpg",
+      "color": "green",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_green_007",
+      "filename": "color_green_007.png",
+      "rel_path": "eval/images/color_test/color_green_007.png",
+      "color": "green",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_green_008",
+      "filename": "color_green_008.jpg",
+      "rel_path": "eval/images/color_test/color_green_008.jpg",
+      "color": "green",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_green_009",
+      "filename": "color_green_009.jpg",
+      "rel_path": "eval/images/color_test/color_green_009.jpg",
+      "color": "green",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "unclear_vehicle_crop"
+      ]
+    },
+    {
+      "id": "color_green_010",
+      "filename": "color_green_010.jpg",
+      "rel_path": "eval/images/color_test/color_green_010.jpg",
+      "color": "green",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_green_011",
+      "filename": "color_green_011.jpg",
+      "rel_path": "eval/images/color_test/color_green_011.jpg",
+      "color": "green",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "small_vehicle"
+      ]
+    },
+    {
+      "id": "color_green_012",
+      "filename": "color_green_012.jpg",
+      "rel_path": "eval/images/color_test/color_green_012.jpg",
+      "color": "green",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_green_013",
+      "filename": "color_green_013.jpg",
+      "rel_path": "eval/images/color_test/color_green_013.jpg",
+      "color": "green",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_green_014",
+      "filename": "color_green_014.jpg",
+      "rel_path": "eval/images/color_test/color_green_014.jpg",
+      "color": "green",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_green_015",
+      "filename": "color_green_015.jpg",
+      "rel_path": "eval/images/color_test/color_green_015.jpg",
+      "color": "green",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_green_016",
+      "filename": "color_green_016.jpg",
+      "rel_path": "eval/images/color_test/color_green_016.jpg",
+      "color": "green",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_green_017",
+      "filename": "color_green_017.jpg",
+      "rel_path": "eval/images/color_test/color_green_017.jpg",
+      "color": "green",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "unclear_vehicle_crop"
+      ]
+    },
+    {
+      "id": "color_green_018",
+      "filename": "color_green_018.jpg",
+      "rel_path": "eval/images/color_test/color_green_018.jpg",
+      "color": "green",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_green_019",
+      "filename": "color_green_019.png",
+      "rel_path": "eval/images/color_test/color_green_019.png",
+      "color": "green",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "heavy_shadow",
+        "high_reflection"
+      ]
+    },
+    {
+      "id": "color_green_020",
+      "filename": "color_green_020.jpg",
+      "rel_path": "eval/images/color_test/color_green_020.jpg",
+      "color": "green",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "unclear_vehicle_crop"
+      ]
+    },
+    {
+      "id": "color_green_021",
+      "filename": "color_green_021.jpg",
+      "rel_path": "eval/images/color_test/color_green_021.jpg",
+      "color": "green",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_green_022",
+      "filename": "color_green_022.jpg",
+      "rel_path": "eval/images/color_test/color_green_022.jpg",
+      "color": "green",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "unclear_vehicle_crop"
+      ]
+    },
+    {
+      "id": "color_green_023",
+      "filename": "color_green_023.jpg",
+      "rel_path": "eval/images/color_test/color_green_023.jpg",
+      "color": "green",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_green_024",
+      "filename": "color_green_024.jpg",
+      "rel_path": "eval/images/color_test/color_green_024.jpg",
+      "color": "green",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "unclear_vehicle_crop"
+      ]
+    },
+    {
+      "id": "color_green_025",
+      "filename": "color_green_025.png",
+      "rel_path": "eval/images/color_test/color_green_025.png",
+      "color": "green",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_green_026",
+      "filename": "color_green_026.jpg",
+      "rel_path": "eval/images/color_test/color_green_026.jpg",
+      "color": "green",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_green_027",
+      "filename": "color_green_027.jpg",
+      "rel_path": "eval/images/color_test/color_green_027.jpg",
+      "color": "green",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "unclear_vehicle_crop"
+      ]
+    },
+    {
+      "id": "color_green_028",
+      "filename": "color_green_028.jpg",
+      "rel_path": "eval/images/color_test/color_green_028.jpg",
+      "color": "green",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_green_029",
+      "filename": "color_green_029.jpg",
+      "rel_path": "eval/images/color_test/color_green_029.jpg",
+      "color": "green",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_green_030",
+      "filename": "color_green_030.jpg",
+      "rel_path": "eval/images/color_test/color_green_030.jpg",
+      "color": "green",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_yellow_001",
+      "filename": "color_yellow_001.jpg",
+      "rel_path": "eval/images/color_test/color_yellow_001.jpg",
+      "color": "yellow",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_yellow_002",
+      "filename": "color_yellow_002.jpg",
+      "rel_path": "eval/images/color_test/color_yellow_002.jpg",
+      "color": "yellow",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_yellow_003",
+      "filename": "color_yellow_003.jpg",
+      "rel_path": "eval/images/color_test/color_yellow_003.jpg",
+      "color": "yellow",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_yellow_004",
+      "filename": "color_yellow_004.jpg",
+      "rel_path": "eval/images/color_test/color_yellow_004.jpg",
+      "color": "yellow",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_yellow_005",
+      "filename": "color_yellow_005.jpg",
+      "rel_path": "eval/images/color_test/color_yellow_005.jpg",
+      "color": "yellow",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_yellow_006",
+      "filename": "color_yellow_006.jpg",
+      "rel_path": "eval/images/color_test/color_yellow_006.jpg",
+      "color": "yellow",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_yellow_007",
+      "filename": "color_yellow_007.jpg",
+      "rel_path": "eval/images/color_test/color_yellow_007.jpg",
+      "color": "yellow",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_yellow_008",
+      "filename": "color_yellow_008.jpg",
+      "rel_path": "eval/images/color_test/color_yellow_008.jpg",
+      "color": "yellow",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_yellow_009",
+      "filename": "color_yellow_009.jpg",
+      "rel_path": "eval/images/color_test/color_yellow_009.jpg",
+      "color": "yellow",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_yellow_010",
+      "filename": "color_yellow_010.jpg",
+      "rel_path": "eval/images/color_test/color_yellow_010.jpg",
+      "color": "yellow",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_yellow_011",
+      "filename": "color_yellow_011.jpg",
+      "rel_path": "eval/images/color_test/color_yellow_011.jpg",
+      "color": "yellow",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_yellow_012",
+      "filename": "color_yellow_012.jpg",
+      "rel_path": "eval/images/color_test/color_yellow_012.jpg",
+      "color": "yellow",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_yellow_013",
+      "filename": "color_yellow_013.jpg",
+      "rel_path": "eval/images/color_test/color_yellow_013.jpg",
+      "color": "yellow",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "unclear_vehicle_crop"
+      ]
+    },
+    {
+      "id": "color_yellow_014",
+      "filename": "color_yellow_014.jpg",
+      "rel_path": "eval/images/color_test/color_yellow_014.jpg",
+      "color": "yellow",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_yellow_015",
+      "filename": "color_yellow_015.jpg",
+      "rel_path": "eval/images/color_test/color_yellow_015.jpg",
+      "color": "yellow",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_yellow_016",
+      "filename": "color_yellow_016.jpg",
+      "rel_path": "eval/images/color_test/color_yellow_016.jpg",
+      "color": "yellow",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_yellow_017",
+      "filename": "color_yellow_017.jpg",
+      "rel_path": "eval/images/color_test/color_yellow_017.jpg",
+      "color": "yellow",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_yellow_018",
+      "filename": "color_yellow_018.jpg",
+      "rel_path": "eval/images/color_test/color_yellow_018.jpg",
+      "color": "yellow",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_yellow_019",
+      "filename": "color_yellow_019.jpg",
+      "rel_path": "eval/images/color_test/color_yellow_019.jpg",
+      "color": "yellow",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "low_light",
+        "small_vehicle"
+      ]
+    },
+    {
+      "id": "color_yellow_020",
+      "filename": "color_yellow_020.jpg",
+      "rel_path": "eval/images/color_test/color_yellow_020.jpg",
+      "color": "yellow",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "heavy_shadow"
+      ]
+    },
+    {
+      "id": "color_yellow_021",
+      "filename": "color_yellow_021.png",
+      "rel_path": "eval/images/color_test/color_yellow_021.png",
+      "color": "yellow",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_yellow_022",
+      "filename": "color_yellow_022.jpg",
+      "rel_path": "eval/images/color_test/color_yellow_022.jpg",
+      "color": "yellow",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_yellow_023",
+      "filename": "color_yellow_023.jpg",
+      "rel_path": "eval/images/color_test/color_yellow_023.jpg",
+      "color": "yellow",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_yellow_024",
+      "filename": "color_yellow_024.jpg",
+      "rel_path": "eval/images/color_test/color_yellow_024.jpg",
+      "color": "yellow",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_yellow_025",
+      "filename": "color_yellow_025.jpg",
+      "rel_path": "eval/images/color_test/color_yellow_025.jpg",
+      "color": "yellow",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_yellow_026",
+      "filename": "color_yellow_026.jpg",
+      "rel_path": "eval/images/color_test/color_yellow_026.jpg",
+      "color": "yellow",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_yellow_027",
+      "filename": "color_yellow_027.jpg",
+      "rel_path": "eval/images/color_test/color_yellow_027.jpg",
+      "color": "yellow",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "high_reflection"
+      ]
+    },
+    {
+      "id": "color_yellow_028",
+      "filename": "color_yellow_028.jpg",
+      "rel_path": "eval/images/color_test/color_yellow_028.jpg",
+      "color": "yellow",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_yellow_029",
+      "filename": "color_yellow_029.png",
+      "rel_path": "eval/images/color_test/color_yellow_029.png",
+      "color": "yellow",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_yellow_030",
+      "filename": "color_yellow_030.jpg",
+      "rel_path": "eval/images/color_test/color_yellow_030.jpg",
+      "color": "yellow",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_orange_001",
+      "filename": "color_orange_001.jpg",
+      "rel_path": "eval/images/color_test/color_orange_001.jpg",
+      "color": "orange",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_orange_002",
+      "filename": "color_orange_002.jpg",
+      "rel_path": "eval/images/color_test/color_orange_002.jpg",
+      "color": "orange",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_orange_003",
+      "filename": "color_orange_003.jpg",
+      "rel_path": "eval/images/color_test/color_orange_003.jpg",
+      "color": "orange",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_orange_004",
+      "filename": "color_orange_004.jpg",
+      "rel_path": "eval/images/color_test/color_orange_004.jpg",
+      "color": "orange",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_orange_005",
+      "filename": "color_orange_005.jpg",
+      "rel_path": "eval/images/color_test/color_orange_005.jpg",
+      "color": "orange",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_orange_006",
+      "filename": "color_orange_006.jpg",
+      "rel_path": "eval/images/color_test/color_orange_006.jpg",
+      "color": "orange",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_orange_007",
+      "filename": "color_orange_007.jpg",
+      "rel_path": "eval/images/color_test/color_orange_007.jpg",
+      "color": "orange",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_orange_008",
+      "filename": "color_orange_008.jpg",
+      "rel_path": "eval/images/color_test/color_orange_008.jpg",
+      "color": "orange",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_orange_009",
+      "filename": "color_orange_009.jpg",
+      "rel_path": "eval/images/color_test/color_orange_009.jpg",
+      "color": "orange",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_orange_010",
+      "filename": "color_orange_010.jpg",
+      "rel_path": "eval/images/color_test/color_orange_010.jpg",
+      "color": "orange",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_orange_011",
+      "filename": "color_orange_011.jpg",
+      "rel_path": "eval/images/color_test/color_orange_011.jpg",
+      "color": "orange",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_orange_012",
+      "filename": "color_orange_012.jpg",
+      "rel_path": "eval/images/color_test/color_orange_012.jpg",
+      "color": "orange",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_orange_013",
+      "filename": "color_orange_013.jpg",
+      "rel_path": "eval/images/color_test/color_orange_013.jpg",
+      "color": "orange",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_orange_014",
+      "filename": "color_orange_014.jpg",
+      "rel_path": "eval/images/color_test/color_orange_014.jpg",
+      "color": "orange",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_orange_015",
+      "filename": "color_orange_015.jpg",
+      "rel_path": "eval/images/color_test/color_orange_015.jpg",
+      "color": "orange",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_orange_016",
+      "filename": "color_orange_016.jpg",
+      "rel_path": "eval/images/color_test/color_orange_016.jpg",
+      "color": "orange",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_orange_017",
+      "filename": "color_orange_017.jpg",
+      "rel_path": "eval/images/color_test/color_orange_017.jpg",
+      "color": "orange",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_orange_018",
+      "filename": "color_orange_018.jpg",
+      "rel_path": "eval/images/color_test/color_orange_018.jpg",
+      "color": "orange",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_orange_019",
+      "filename": "color_orange_019.jpg",
+      "rel_path": "eval/images/color_test/color_orange_019.jpg",
+      "color": "orange",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "heavy_shadow",
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_orange_020",
+      "filename": "color_orange_020.jpg",
+      "rel_path": "eval/images/color_test/color_orange_020.jpg",
+      "color": "orange",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "high_reflection",
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_orange_021",
+      "filename": "color_orange_021.jpg",
+      "rel_path": "eval/images/color_test/color_orange_021.jpg",
+      "color": "orange",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_orange_022",
+      "filename": "color_orange_022.jpg",
+      "rel_path": "eval/images/color_test/color_orange_022.jpg",
+      "color": "orange",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_orange_023",
+      "filename": "color_orange_023.jpg",
+      "rel_path": "eval/images/color_test/color_orange_023.jpg",
+      "color": "orange",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_orange_024",
+      "filename": "color_orange_024.jpg",
+      "rel_path": "eval/images/color_test/color_orange_024.jpg",
+      "color": "orange",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_orange_025",
+      "filename": "color_orange_025.jpg",
+      "rel_path": "eval/images/color_test/color_orange_025.jpg",
+      "color": "orange",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_orange_026",
+      "filename": "color_orange_026.jpg",
+      "rel_path": "eval/images/color_test/color_orange_026.jpg",
+      "color": "orange",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_orange_027",
+      "filename": "color_orange_027.jpg",
+      "rel_path": "eval/images/color_test/color_orange_027.jpg",
+      "color": "orange",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_orange_028",
+      "filename": "color_orange_028.jpg",
+      "rel_path": "eval/images/color_test/color_orange_028.jpg",
+      "color": "orange",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_orange_029",
+      "filename": "color_orange_029.jpg",
+      "rel_path": "eval/images/color_test/color_orange_029.jpg",
+      "color": "orange",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_orange_030",
+      "filename": "color_orange_030.jpg",
+      "rel_path": "eval/images/color_test/color_orange_030.jpg",
+      "color": "orange",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_brown_001",
+      "filename": "color_brown_001.jpeg",
+      "rel_path": "eval/images/color_test/color_brown_001.jpeg",
+      "color": "brown",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_brown_002",
+      "filename": "color_brown_002.jpg",
+      "rel_path": "eval/images/color_test/color_brown_002.jpg",
+      "color": "brown",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "heavy_shadow",
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_brown_003",
+      "filename": "color_brown_003.jpg",
+      "rel_path": "eval/images/color_test/color_brown_003.jpg",
+      "color": "brown",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "unclear_vehicle_crop"
+      ]
+    },
+    {
+      "id": "color_brown_004",
+      "filename": "color_brown_004.jpg",
+      "rel_path": "eval/images/color_test/color_brown_004.jpg",
+      "color": "brown",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "high_reflection",
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_brown_005",
+      "filename": "color_brown_005.jpg",
+      "rel_path": "eval/images/color_test/color_brown_005.jpg",
+      "color": "brown",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "heavy_shadow",
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_brown_006",
+      "filename": "color_brown_006.png",
+      "rel_path": "eval/images/color_test/color_brown_006.png",
+      "color": "brown",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_brown_007",
+      "filename": "color_brown_007.jpg",
+      "rel_path": "eval/images/color_test/color_brown_007.jpg",
+      "color": "brown",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_brown_008",
+      "filename": "color_brown_008.jpeg",
+      "rel_path": "eval/images/color_test/color_brown_008.jpeg",
+      "color": "brown",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "small_vehicle"
+      ]
+    },
+    {
+      "id": "color_brown_009",
+      "filename": "color_brown_009.jpg",
+      "rel_path": "eval/images/color_test/color_brown_009.jpg",
+      "color": "brown",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_brown_010",
+      "filename": "color_brown_010.jpg",
+      "rel_path": "eval/images/color_test/color_brown_010.jpg",
+      "color": "brown",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "heavy_shadow"
+      ]
+    },
+    {
+      "id": "color_brown_011",
+      "filename": "color_brown_011.png",
+      "rel_path": "eval/images/color_test/color_brown_011.png",
+      "color": "brown",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "heavy_shadow",
+        "high_reflection"
+      ]
+    },
+    {
+      "id": "color_brown_012",
+      "filename": "color_brown_012.jpg",
+      "rel_path": "eval/images/color_test/color_brown_012.jpg",
+      "color": "brown",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_brown_013",
+      "filename": "color_brown_013.jpg",
+      "rel_path": "eval/images/color_test/color_brown_013.jpg",
+      "color": "brown",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_brown_014",
+      "filename": "color_brown_014.jpg",
+      "rel_path": "eval/images/color_test/color_brown_014.jpg",
+      "color": "brown",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "high_reflection",
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_brown_015",
+      "filename": "color_brown_015.jpg",
+      "rel_path": "eval/images/color_test/color_brown_015.jpg",
+      "color": "brown",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "high_reflection",
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_brown_016",
+      "filename": "color_brown_016.jpg",
+      "rel_path": "eval/images/color_test/color_brown_016.jpg",
+      "color": "brown",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_brown_017",
+      "filename": "color_brown_017.jpg",
+      "rel_path": "eval/images/color_test/color_brown_017.jpg",
+      "color": "brown",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_brown_018",
+      "filename": "color_brown_018.jpg",
+      "rel_path": "eval/images/color_test/color_brown_018.jpg",
+      "color": "brown",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "heavy_shadow",
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_brown_019",
+      "filename": "color_brown_019.png",
+      "rel_path": "eval/images/color_test/color_brown_019.png",
+      "color": "brown",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "high_reflection",
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_brown_020",
+      "filename": "color_brown_020.jpg",
+      "rel_path": "eval/images/color_test/color_brown_020.jpg",
+      "color": "brown",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_brown_021",
+      "filename": "color_brown_021.jpeg",
+      "rel_path": "eval/images/color_test/color_brown_021.jpeg",
+      "color": "brown",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_brown_022",
+      "filename": "color_brown_022.png",
+      "rel_path": "eval/images/color_test/color_brown_022.png",
+      "color": "brown",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "high_reflection",
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_brown_023",
+      "filename": "color_brown_023.jpg",
+      "rel_path": "eval/images/color_test/color_brown_023.jpg",
+      "color": "brown",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_brown_024",
+      "filename": "color_brown_024.png",
+      "rel_path": "eval/images/color_test/color_brown_024.png",
+      "color": "brown",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_brown_025",
+      "filename": "color_brown_025.jpeg",
+      "rel_path": "eval/images/color_test/color_brown_025.jpeg",
+      "color": "brown",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "small_vehicle"
+      ]
+    },
+    {
+      "id": "color_brown_026",
+      "filename": "color_brown_026.jpg",
+      "rel_path": "eval/images/color_test/color_brown_026.jpg",
+      "color": "brown",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_brown_027",
+      "filename": "color_brown_027.jpg",
+      "rel_path": "eval/images/color_test/color_brown_027.jpg",
+      "color": "brown",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_brown_028",
+      "filename": "color_brown_028.png",
+      "rel_path": "eval/images/color_test/color_brown_028.png",
+      "color": "brown",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_brown_029",
+      "filename": "color_brown_029.jpeg",
+      "rel_path": "eval/images/color_test/color_brown_029.jpeg",
+      "color": "brown",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_brown_030",
+      "filename": "color_brown_030.jpg",
+      "rel_path": "eval/images/color_test/color_brown_030.jpg",
+      "color": "brown",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_purple_001",
+      "filename": "color_purple_001.jpg",
+      "rel_path": "eval/images/color_test/color_purple_001.jpg",
+      "color": "purple",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_purple_002",
+      "filename": "color_purple_002.png",
+      "rel_path": "eval/images/color_test/color_purple_002.png",
+      "color": "purple",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_purple_003",
+      "filename": "color_purple_003.jpg",
+      "rel_path": "eval/images/color_test/color_purple_003.jpg",
+      "color": "purple",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "heavy_shadow",
+        "high_reflection",
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_purple_004",
+      "filename": "color_purple_004.jpg",
+      "rel_path": "eval/images/color_test/color_purple_004.jpg",
+      "color": "purple",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_purple_005",
+      "filename": "color_purple_005.jpg",
+      "rel_path": "eval/images/color_test/color_purple_005.jpg",
+      "color": "purple",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_purple_006",
+      "filename": "color_purple_006.jpg",
+      "rel_path": "eval/images/color_test/color_purple_006.jpg",
+      "color": "purple",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_purple_007",
+      "filename": "color_purple_007.jpg",
+      "rel_path": "eval/images/color_test/color_purple_007.jpg",
+      "color": "purple",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_purple_008",
+      "filename": "color_purple_008.jpg",
+      "rel_path": "eval/images/color_test/color_purple_008.jpg",
+      "color": "purple",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "high_reflection"
+      ]
+    },
+    {
+      "id": "color_purple_009",
+      "filename": "color_purple_009.jpg",
+      "rel_path": "eval/images/color_test/color_purple_009.jpg",
+      "color": "purple",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "high_reflection"
+      ]
+    },
+    {
+      "id": "color_purple_010",
+      "filename": "color_purple_010.jpg",
+      "rel_path": "eval/images/color_test/color_purple_010.jpg",
+      "color": "purple",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_purple_011",
+      "filename": "color_purple_011.jpg",
+      "rel_path": "eval/images/color_test/color_purple_011.jpg",
+      "color": "purple",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_purple_012",
+      "filename": "color_purple_012.jpg",
+      "rel_path": "eval/images/color_test/color_purple_012.jpg",
+      "color": "purple",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_purple_013",
+      "filename": "color_purple_013.jpg",
+      "rel_path": "eval/images/color_test/color_purple_013.jpg",
+      "color": "purple",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_purple_014",
+      "filename": "color_purple_014.jpg",
+      "rel_path": "eval/images/color_test/color_purple_014.jpg",
+      "color": "purple",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_purple_015",
+      "filename": "color_purple_015.jpg",
+      "rel_path": "eval/images/color_test/color_purple_015.jpg",
+      "color": "purple",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_purple_016",
+      "filename": "color_purple_016.jpg",
+      "rel_path": "eval/images/color_test/color_purple_016.jpg",
+      "color": "purple",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_purple_017",
+      "filename": "color_purple_017.png",
+      "rel_path": "eval/images/color_test/color_purple_017.png",
+      "color": "purple",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_purple_018",
+      "filename": "color_purple_018.jpg",
+      "rel_path": "eval/images/color_test/color_purple_018.jpg",
+      "color": "purple",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_purple_019",
+      "filename": "color_purple_019.jpg",
+      "rel_path": "eval/images/color_test/color_purple_019.jpg",
+      "color": "purple",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "high_reflection"
+      ]
+    },
+    {
+      "id": "color_purple_020",
+      "filename": "color_purple_020.jpg",
+      "rel_path": "eval/images/color_test/color_purple_020.jpg",
+      "color": "purple",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_purple_021",
+      "filename": "color_purple_021.jpg",
+      "rel_path": "eval/images/color_test/color_purple_021.jpg",
+      "color": "purple",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_purple_022",
+      "filename": "color_purple_022.jpg",
+      "rel_path": "eval/images/color_test/color_purple_022.jpg",
+      "color": "purple",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_purple_023",
+      "filename": "color_purple_023.jpg",
+      "rel_path": "eval/images/color_test/color_purple_023.jpg",
+      "color": "purple",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_purple_024",
+      "filename": "color_purple_024.jpg",
+      "rel_path": "eval/images/color_test/color_purple_024.jpg",
+      "color": "purple",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "high_reflection",
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_purple_025",
+      "filename": "color_purple_025.jpg",
+      "rel_path": "eval/images/color_test/color_purple_025.jpg",
+      "color": "purple",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_purple_026",
+      "filename": "color_purple_026.jpg",
+      "rel_path": "eval/images/color_test/color_purple_026.jpg",
+      "color": "purple",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_purple_027",
+      "filename": "color_purple_027.png",
+      "rel_path": "eval/images/color_test/color_purple_027.png",
+      "color": "purple",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "high_reflection",
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_purple_028",
+      "filename": "color_purple_028.jpg",
+      "rel_path": "eval/images/color_test/color_purple_028.jpg",
+      "color": "purple",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_purple_029",
+      "filename": "color_purple_029.jpg",
+      "rel_path": "eval/images/color_test/color_purple_029.jpg",
+      "color": "purple",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_purple_030",
+      "filename": "color_purple_030.jpg",
+      "rel_path": "eval/images/color_test/color_purple_030.jpg",
+      "color": "purple",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_pink_001",
+      "filename": "color_pink_001.jpg",
+      "rel_path": "eval/images/color_test/color_pink_001.jpg",
+      "color": "pink",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "unclear_vehicle_crop"
+      ]
+    },
+    {
+      "id": "color_pink_002",
+      "filename": "color_pink_002.jpeg",
+      "rel_path": "eval/images/color_test/color_pink_002.jpeg",
+      "color": "pink",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_pink_003",
+      "filename": "color_pink_003.jpeg",
+      "rel_path": "eval/images/color_test/color_pink_003.jpeg",
+      "color": "pink",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_pink_004",
+      "filename": "color_pink_004.jpg",
+      "rel_path": "eval/images/color_test/color_pink_004.jpg",
+      "color": "pink",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_pink_005",
+      "filename": "color_pink_005.jpeg",
+      "rel_path": "eval/images/color_test/color_pink_005.jpeg",
+      "color": "pink",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_pink_006",
+      "filename": "color_pink_006.jpg",
+      "rel_path": "eval/images/color_test/color_pink_006.jpg",
+      "color": "pink",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_pink_007",
+      "filename": "color_pink_007.jpg",
+      "rel_path": "eval/images/color_test/color_pink_007.jpg",
+      "color": "pink",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "small_vehicle"
+      ]
+    },
+    {
+      "id": "color_pink_008",
+      "filename": "color_pink_008.jpg",
+      "rel_path": "eval/images/color_test/color_pink_008.jpg",
+      "color": "pink",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_pink_009",
+      "filename": "color_pink_009.jpeg",
+      "rel_path": "eval/images/color_test/color_pink_009.jpeg",
+      "color": "pink",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_pink_010",
+      "filename": "color_pink_010.jpg",
+      "rel_path": "eval/images/color_test/color_pink_010.jpg",
+      "color": "pink",
+      "split": "eval",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "high_reflection",
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_pink_011",
+      "filename": "color_pink_011.jpg",
+      "rel_path": "eval/images/color_test/color_pink_011.jpg",
+      "color": "pink",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_pink_012",
+      "filename": "color_pink_012.jpg",
+      "rel_path": "eval/images/color_test/color_pink_012.jpg",
+      "color": "pink",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_pink_013",
+      "filename": "color_pink_013.jpg",
+      "rel_path": "eval/images/color_test/color_pink_013.jpg",
+      "color": "pink",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_pink_014",
+      "filename": "color_pink_014.png",
+      "rel_path": "eval/images/color_test/color_pink_014.png",
+      "color": "pink",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_pink_015",
+      "filename": "color_pink_015.jpg",
+      "rel_path": "eval/images/color_test/color_pink_015.jpg",
+      "color": "pink",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_pink_016",
+      "filename": "color_pink_016.jpg",
+      "rel_path": "eval/images/color_test/color_pink_016.jpg",
+      "color": "pink",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "heavy_shadow",
+        "high_reflection",
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_pink_017",
+      "filename": "color_pink_017.jpeg",
+      "rel_path": "eval/images/color_test/color_pink_017.jpeg",
+      "color": "pink",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "heavy_shadow",
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_pink_018",
+      "filename": "color_pink_018.jpg",
+      "rel_path": "eval/images/color_test/color_pink_018.jpg",
+      "color": "pink",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_pink_019",
+      "filename": "color_pink_019.jpg",
+      "rel_path": "eval/images/color_test/color_pink_019.jpg",
+      "color": "pink",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "color_pink_020",
+      "filename": "color_pink_020.jpeg",
+      "rel_path": "eval/images/color_test/color_pink_020.jpeg",
+      "color": "pink",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_pink_021",
+      "filename": "color_pink_021.jpg",
+      "rel_path": "eval/images/color_test/color_pink_021.jpg",
+      "color": "pink",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_pink_022",
+      "filename": "color_pink_022.png",
+      "rel_path": "eval/images/color_test/color_pink_022.png",
+      "color": "pink",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_pink_023",
+      "filename": "color_pink_023.jpeg",
+      "rel_path": "eval/images/color_test/color_pink_023.jpeg",
+      "color": "pink",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_pink_024",
+      "filename": "color_pink_024.jpeg",
+      "rel_path": "eval/images/color_test/color_pink_024.jpeg",
+      "color": "pink",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "small_vehicle"
+      ]
+    },
+    {
+      "id": "color_pink_025",
+      "filename": "color_pink_025.jpg",
+      "rel_path": "eval/images/color_test/color_pink_025.jpg",
+      "color": "pink",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_pink_026",
+      "filename": "color_pink_026.jpeg",
+      "rel_path": "eval/images/color_test/color_pink_026.jpeg",
+      "color": "pink",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_pink_027",
+      "filename": "color_pink_027.jpg",
+      "rel_path": "eval/images/color_test/color_pink_027.jpg",
+      "color": "pink",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_pink_028",
+      "filename": "color_pink_028.jpeg",
+      "rel_path": "eval/images/color_test/color_pink_028.jpeg",
+      "color": "pink",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "small_vehicle"
+      ]
+    },
+    {
+      "id": "color_pink_029",
+      "filename": "color_pink_029.jpeg",
+      "rel_path": "eval/images/color_test/color_pink_029.jpeg",
+      "color": "pink",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "color_pink_030",
+      "filename": "color_pink_030.jpeg",
+      "rel_path": "eval/images/color_test/color_pink_030.jpeg",
+      "color": "pink",
+      "split": "dev",
+      "source": "vehicle-colors-dataset",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "control_unknown_001",
+      "filename": "no_car_03.jpg",
+      "rel_path": "eval/images/unknown_controls/no_car_03.jpg",
+      "color": "unknown",
+      "split": "eval",
+      "source": "curated-negative-control",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "control_unknown_002",
+      "filename": "no_car_04.jpg",
+      "rel_path": "eval/images/unknown_controls/no_car_04.jpg",
+      "color": "unknown",
+      "split": "eval",
+      "source": "curated-negative-control",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "control_unknown_003",
+      "filename": "no_car_05.jpg",
+      "rel_path": "eval/images/unknown_controls/no_car_05.jpg",
+      "color": "unknown",
+      "split": "eval",
+      "source": "curated-negative-control",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "control_unknown_004",
+      "filename": "no_car_06.jpg",
+      "rel_path": "eval/images/unknown_controls/no_car_06.jpg",
+      "color": "unknown",
+      "split": "eval",
+      "source": "curated-negative-control",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "control_unknown_005",
+      "filename": "no_car_07.jpg",
+      "rel_path": "eval/images/unknown_controls/no_car_07.jpg",
+      "color": "unknown",
+      "split": "eval",
+      "source": "curated-negative-control",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "control_unknown_006",
+      "filename": "no_car_08.jpg",
+      "rel_path": "eval/images/unknown_controls/no_car_08.jpg",
+      "color": "unknown",
+      "split": "eval",
+      "source": "curated-negative-control",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "control_unknown_007",
+      "filename": "no_car_09.jpg",
+      "rel_path": "eval/images/unknown_controls/no_car_09.jpg",
+      "color": "unknown",
+      "split": "eval",
+      "source": "curated-negative-control",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "control_unknown_008",
+      "filename": "no_car_10.jpg",
+      "rel_path": "eval/images/unknown_controls/no_car_10.jpg",
+      "color": "unknown",
+      "split": "eval",
+      "source": "curated-negative-control",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "control_unknown_009",
+      "filename": "no_car_field.jpg",
+      "rel_path": "eval/images/unknown_controls/no_car_field.jpg",
+      "color": "unknown",
+      "split": "eval",
+      "source": "curated-negative-control",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "control_unknown_010",
+      "filename": "no_car_landscape.jpg",
+      "rel_path": "eval/images/unknown_controls/no_car_landscape.jpg",
+      "color": "unknown",
+      "split": "eval",
+      "source": "curated-negative-control",
+      "difficult": false,
+      "difficulty_tags": []
+    }
+  ]
+}

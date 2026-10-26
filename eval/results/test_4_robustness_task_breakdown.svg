@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="520" viewBox="0 0 980 520">
+<rect width="100%" height="100%" fill="#ffffff" rx="8"/>
+<rect width="100%" height="100%" fill="none" stroke="#e2e8f0" stroke-width="1" rx="8"/>
+<text x="36" y="38" font-family="system-ui,-apple-system,sans-serif" font-size="20" fill="#0f172a" font-weight="700" text-anchor="start">Teste 4: Acurácia por Tarefa × Estrato de Degradação</text>
+<text x="36" y="60" font-family="system-ui,-apple-system,sans-serif" font-size="12" fill="#64748b" font-weight="400" text-anchor="start">Degradação da acurácia por tipo de pergunta visual · Laya (L) vs BLIP (B)</text>
+<text x="260" y="92" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#334155" font-weight="700" text-anchor="middle">Orig.</text>
+<text x="380" y="92" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#334155" font-weight="700" text-anchor="middle">Low</text>
+<text x="380" y="106" font-family="system-ui,-apple-system,sans-serif" font-size="10" fill="#64748b" font-weight="400" text-anchor="middle">Light</text>
+<text x="500" y="92" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#334155" font-weight="700" text-anchor="middle">Blur</text>
+<text x="620" y="92" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#334155" font-weight="700" text-anchor="middle">Low</text>
+<text x="620" y="106" font-family="system-ui,-apple-system,sans-serif" font-size="10" fill="#64748b" font-weight="400" text-anchor="middle">Res</text>
+<text x="740" y="92" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#334155" font-weight="700" text-anchor="middle">JPEG</text>
+<text x="860" y="92" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#334155" font-weight="700" text-anchor="middle">Occl.</text>
+<text x="186" y="158" font-family="system-ui,-apple-system,sans-serif" font-size="12" fill="#334155" font-weight="600" text-anchor="end">Cor do Veículo</text>
+<rect x="202" y="132" width="116" height="52" fill="#dcfce7" rx="4" stroke="#e2e8f0"/>
+<text x="210" y="150" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#2563eb" font-weight="600" text-anchor="start">L: 55%</text>
+<text x="210" y="168" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#ea580c" font-weight="600" text-anchor="start">B: 73%</text>
+<rect x="322" y="132" width="116" height="52" fill="#fef9c3" rx="4" stroke="#e2e8f0"/>
+<text x="330" y="150" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#2563eb" font-weight="600" text-anchor="start">L: 45%</text>
+<text x="330" y="168" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#ea580c" font-weight="600" text-anchor="start">B: 55%</text>
+<rect x="442" y="132" width="116" height="52" fill="#dcfce7" rx="4" stroke="#e2e8f0"/>
+<text x="450" y="150" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#2563eb" font-weight="600" text-anchor="start">L: 55%</text>
+<text x="450" y="168" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#ea580c" font-weight="600" text-anchor="start">B: 73%</text>
+<rect x="562" y="132" width="116" height="52" fill="#dcfce7" rx="4" stroke="#e2e8f0"/>
+<text x="570" y="150" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#2563eb" font-weight="600" text-anchor="start">L: 55%</text>
+<text x="570" y="168" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#ea580c" font-weight="600" text-anchor="start">B: 82%</text>
+<rect x="682" y="132" width="116" height="52" fill="#fef9c3" rx="4" stroke="#e2e8f0"/>
+<text x="690" y="150" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#2563eb" font-weight="600" text-anchor="start">L: 45%</text>
+<text x="690" y="168" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#ea580c" font-weight="600" text-anchor="start">B: 36%</text>
+<rect x="802" y="132" width="116" height="52" fill="#dcfce7" rx="4" stroke="#e2e8f0"/>
+<text x="810" y="150" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#2563eb" font-weight="600" text-anchor="start">L: 64%</text>
+<text x="810" y="168" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#ea580c" font-weight="600" text-anchor="start">B: 64%</text>
+<text x="186" y="214" font-family="system-ui,-apple-system,sans-serif" font-size="12" fill="#334155" font-weight="600" text-anchor="end">Tipo do Veículo</text>
+<rect x="202" y="188" width="116" height="52" fill="#fef9c3" rx="4" stroke="#e2e8f0"/>
+<text x="210" y="206" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#2563eb" font-weight="600" text-anchor="start">L: 40%</text>
+<text x="210" y="224" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#ea580c" font-weight="600" text-anchor="start">B: 45%</text>
+<rect x="322" y="188" width="116" height="52" fill="#fef9c3" rx="4" stroke="#e2e8f0"/>
+<text x="330" y="206" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#2563eb" font-weight="600" text-anchor="start">L: 50%</text>
+<text x="330" y="224" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#ea580c" font-weight="600" text-anchor="start">B: 45%</text>
+<rect x="442" y="188" width="116" height="52" fill="#fef9c3" rx="4" stroke="#e2e8f0"/>
+<text x="450" y="206" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#2563eb" font-weight="600" text-anchor="start">L: 45%</text>
+<text x="450" y="224" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#ea580c" font-weight="600" text-anchor="start">B: 35%</text>
+<rect x="562" y="188" width="116" height="52" fill="#fef9c3" rx="4" stroke="#e2e8f0"/>
+<text x="570" y="206" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#2563eb" font-weight="600" text-anchor="start">L: 25%</text>
+<text x="570" y="224" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#ea580c" font-weight="600" text-anchor="start">B: 35%</text>
+<rect x="682" y="188" width="116" height="52" fill="#fef9c3" rx="4" stroke="#e2e8f0"/>
+<text x="690" y="206" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#2563eb" font-weight="600" text-anchor="start">L: 55%</text>
+<text x="690" y="224" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#ea580c" font-weight="600" text-anchor="start">B: 50%</text>
+<rect x="802" y="188" width="116" height="52" fill="#fef9c3" rx="4" stroke="#e2e8f0"/>
+<text x="810" y="206" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#2563eb" font-weight="600" text-anchor="start">L: 30%</text>
+<text x="810" y="224" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#ea580c" font-weight="600" text-anchor="start">B: 35%</text>
+<text x="186" y="270" font-family="system-ui,-apple-system,sans-serif" font-size="12" fill="#334155" font-weight="600" text-anchor="end">Capacete (Pessoa)</text>
+<rect x="202" y="244" width="116" height="52" fill="#fef9c3" rx="4" stroke="#e2e8f0"/>
+<text x="210" y="262" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#2563eb" font-weight="600" text-anchor="start">L: 35%</text>
+<text x="210" y="280" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#ea580c" font-weight="600" text-anchor="start">B: 30%</text>
+<rect x="322" y="244" width="116" height="52" fill="#fee2e2" rx="4" stroke="#e2e8f0"/>
+<text x="330" y="262" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#2563eb" font-weight="600" text-anchor="start">L: 25%</text>
+<text x="330" y="280" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#ea580c" font-weight="600" text-anchor="start">B: 30%</text>
+<rect x="442" y="244" width="116" height="52" fill="#fef9c3" rx="4" stroke="#e2e8f0"/>
+<text x="450" y="262" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#2563eb" font-weight="600" text-anchor="start">L: 40%</text>
+<text x="450" y="280" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#ea580c" font-weight="600" text-anchor="start">B: 30%</text>
+<rect x="562" y="244" width="116" height="52" fill="#fef9c3" rx="4" stroke="#e2e8f0"/>
+<text x="570" y="262" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#2563eb" font-weight="600" text-anchor="start">L: 35%</text>
+<text x="570" y="280" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#ea580c" font-weight="600" text-anchor="start">B: 30%</text>
+<rect x="682" y="244" width="116" height="52" fill="#fef9c3" rx="4" stroke="#e2e8f0"/>
+<text x="690" y="262" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#2563eb" font-weight="600" text-anchor="start">L: 40%</text>
+<text x="690" y="280" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#ea580c" font-weight="600" text-anchor="start">B: 30%</text>
+<rect x="802" y="244" width="116" height="52" fill="#fef9c3" rx="4" stroke="#e2e8f0"/>
+<text x="810" y="262" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#2563eb" font-weight="600" text-anchor="start">L: 45%</text>
+<text x="810" y="280" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#ea580c" font-weight="600" text-anchor="start">B: 25%</text>
+</svg>

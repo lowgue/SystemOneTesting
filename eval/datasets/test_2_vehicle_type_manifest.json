@@ -1,0 +1,1412 @@
+{
+  "benchmark": "Test 2: Vehicle Type (Tipo de Veículo)",
+  "question_pt": "Qual é o tipo do veículo principal visível?",
+  "question_en": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?",
+  "taxonomy": [
+    "sedan",
+    "hatchback",
+    "suv",
+    "pickup",
+    "van",
+    "coupe",
+    "convertible",
+    "truck",
+    "bus",
+    "motorcycle",
+    "unknown"
+  ],
+  "eval_count": 110,
+  "items": [
+    {
+      "id": "type_bus_01",
+      "filename": "type_bus_01.jpg",
+      "rel_path": "eval/images/vehicle_type/type_bus_01.jpg",
+      "expected_type": "bus",
+      "split": "eval",
+      "source": "wikimedia_commons",
+      "title": "type_bus_01.jpg",
+      "difficult": true,
+      "difficulty_tags": [
+        "heavy_shadow",
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "type_bus_02",
+      "filename": "type_bus_02.jpg",
+      "rel_path": "eval/images/vehicle_type/type_bus_02.jpg",
+      "expected_type": "bus",
+      "split": "eval",
+      "source": "wikimedia_commons",
+      "title": "type_bus_02.jpg",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "type_bus_03",
+      "filename": "type_bus_03.jpg",
+      "rel_path": "eval/images/vehicle_type/type_bus_03.jpg",
+      "expected_type": "bus",
+      "split": "eval",
+      "source": "wikimedia_commons",
+      "title": "type_bus_03.jpg",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "type_bus_04",
+      "filename": "type_bus_04.jpg",
+      "rel_path": "eval/images/vehicle_type/type_bus_04.jpg",
+      "expected_type": "bus",
+      "split": "eval",
+      "source": "wikimedia_commons",
+      "title": "type_bus_04.jpg",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "type_bus_05",
+      "filename": "type_bus_05.jpg",
+      "rel_path": "eval/images/vehicle_type/type_bus_05.jpg",
+      "expected_type": "bus",
+      "split": "eval",
+      "source": "wikimedia_commons",
+      "title": "type_bus_05.jpg",
+      "difficult": true,
+      "difficulty_tags": [
+        "heavy_shadow"
+      ]
+    },
+    {
+      "id": "type_bus_06",
+      "filename": "type_bus_06.jpg",
+      "rel_path": "eval/images/vehicle_type/type_bus_06.jpg",
+      "expected_type": "bus",
+      "split": "eval",
+      "source": "wikimedia_commons",
+      "title": "type_bus_06.jpg",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "type_bus_07",
+      "filename": "type_bus_07.jpg",
+      "rel_path": "eval/images/vehicle_type/type_bus_07.jpg",
+      "expected_type": "bus",
+      "split": "eval",
+      "source": "wikimedia_commons",
+      "title": "type_bus_07.jpg",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "type_bus_08",
+      "filename": "type_bus_08.jpg",
+      "rel_path": "eval/images/vehicle_type/type_bus_08.jpg",
+      "expected_type": "bus",
+      "split": "eval",
+      "source": "wikimedia_commons",
+      "title": "type_bus_08.jpg",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "type_bus_09",
+      "filename": "type_bus_09.jpg",
+      "rel_path": "eval/images/vehicle_type/type_bus_09.jpg",
+      "expected_type": "bus",
+      "split": "eval",
+      "source": "wikimedia_commons",
+      "title": "type_bus_09.jpg",
+      "difficult": true,
+      "difficulty_tags": [
+        "small_or_distant"
+      ]
+    },
+    {
+      "id": "type_bus_10",
+      "filename": "type_bus_10.jpg",
+      "rel_path": "eval/images/vehicle_type/type_bus_10.jpg",
+      "expected_type": "bus",
+      "split": "eval",
+      "source": "wikimedia_commons",
+      "title": "type_bus_10.jpg",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "type_convertible_01",
+      "filename": "real_bmw_1.jpg",
+      "rel_path": "eval/images/cars/real_bmw_1.jpg",
+      "expected_type": "convertible",
+      "split": "eval",
+      "source": "real_cars_metadata",
+      "title": "Bmw M6 Convertible 2010",
+      "difficult": true,
+      "difficulty_tags": [
+        "heavy_shadow",
+        "high_reflection"
+      ]
+    },
+    {
+      "id": "type_convertible_02",
+      "filename": "real_bmw_2.jpg",
+      "rel_path": "eval/images/cars/real_bmw_2.jpg",
+      "expected_type": "convertible",
+      "split": "eval",
+      "source": "real_cars_metadata",
+      "title": "Bmw Z4 Convertible 2012",
+      "difficult": true,
+      "difficulty_tags": [
+        "heavy_shadow"
+      ]
+    },
+    {
+      "id": "type_convertible_03",
+      "filename": "stanford_test_00177.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00177.jpg",
+      "expected_type": "convertible",
+      "split": "eval",
+      "source": "stanford_cars_sample",
+      "title": "BMW 6 Series Convertible 2007",
+      "difficult": true,
+      "difficulty_tags": [
+        "high_reflection"
+      ]
+    },
+    {
+      "id": "type_convertible_04",
+      "filename": "stanford_test_00683.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00683.jpg",
+      "expected_type": "convertible",
+      "split": "eval",
+      "source": "stanford_cars_sample",
+      "title": "Ferrari California Convertible 2012",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "type_convertible_05",
+      "filename": "stanford_test_00349.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00349.jpg",
+      "expected_type": "convertible",
+      "split": "eval",
+      "source": "stanford_cars_sample",
+      "title": "Aston Martin V8 Vantage Convertible 2012",
+      "difficult": true,
+      "difficulty_tags": [
+        "partial_or_atypical_view"
+      ]
+    },
+    {
+      "id": "type_convertible_06",
+      "filename": "stanford_test_00807.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00807.jpg",
+      "expected_type": "convertible",
+      "split": "eval",
+      "source": "stanford_cars_sample",
+      "title": "Geo Metro Convertible 1993",
+      "difficult": true,
+      "difficulty_tags": [
+        "heavy_shadow",
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "type_convertible_07",
+      "filename": "stanford_test_00996.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00996.jpg",
+      "expected_type": "convertible",
+      "split": "eval",
+      "source": "stanford_cars_sample",
+      "title": "Chrysler PT Cruiser Convertible 2008",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "type_convertible_08",
+      "filename": "convertible_stanford_08.jpg",
+      "rel_path": "eval/images/vehicle_type/convertible_stanford_08.jpg",
+      "expected_type": "convertible",
+      "split": "eval",
+      "source": "stanford_cars_api",
+      "title": "Ferrari 458 Italia Convertible 2012",
+      "difficult": true,
+      "difficulty_tags": [
+        "high_reflection"
+      ]
+    },
+    {
+      "id": "type_convertible_09",
+      "filename": "convertible_stanford_09.jpg",
+      "rel_path": "eval/images/vehicle_type/convertible_stanford_09.jpg",
+      "expected_type": "convertible",
+      "split": "eval",
+      "source": "stanford_cars_api",
+      "title": "Chrysler PT Cruiser Convertible 2008",
+      "difficult": true,
+      "difficulty_tags": [
+        "heavy_shadow",
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "type_convertible_10",
+      "filename": "convertible_stanford_10.jpg",
+      "rel_path": "eval/images/vehicle_type/convertible_stanford_10.jpg",
+      "expected_type": "convertible",
+      "split": "eval",
+      "source": "stanford_cars_api",
+      "title": "Ford Mustang Convertible 2007",
+      "difficult": true,
+      "difficulty_tags": [
+        "heavy_shadow",
+        "high_reflection"
+      ]
+    },
+    {
+      "id": "type_coupe_01",
+      "filename": "real_audi_1.jpg",
+      "rel_path": "eval/images/cars/real_audi_1.jpg",
+      "expected_type": "coupe",
+      "split": "eval",
+      "source": "real_cars_metadata",
+      "title": "Audi Tt Rs Coupe 2012",
+      "difficult": true,
+      "difficulty_tags": [
+        "high_reflection",
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "type_coupe_02",
+      "filename": "real_audi_2.jpg",
+      "rel_path": "eval/images/cars/real_audi_2.jpg",
+      "expected_type": "coupe",
+      "split": "eval",
+      "source": "real_cars_metadata",
+      "title": "Audi A5 Coupe 2012",
+      "difficult": true,
+      "difficulty_tags": [
+        "heavy_shadow",
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "type_coupe_03",
+      "filename": "real_honda_2.jpg",
+      "rel_path": "eval/images/cars/real_honda_2.jpg",
+      "expected_type": "coupe",
+      "split": "eval",
+      "source": "real_cars_metadata",
+      "title": "Honda Accord Coupe 2012",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "type_coupe_04",
+      "filename": "stanford_test_00226.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00226.jpg",
+      "expected_type": "coupe",
+      "split": "eval",
+      "source": "stanford_cars_sample",
+      "title": "Ford GT Coupe 2006",
+      "difficult": true,
+      "difficulty_tags": [
+        "high_reflection"
+      ]
+    },
+    {
+      "id": "type_coupe_05",
+      "filename": "stanford_test_00674.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00674.jpg",
+      "expected_type": "coupe",
+      "split": "eval",
+      "source": "stanford_cars_sample",
+      "title": "Ferrari 458 Italia Coupe 2012",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "type_coupe_06",
+      "filename": "stanford_test_00908.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00908.jpg",
+      "expected_type": "coupe",
+      "split": "eval",
+      "source": "stanford_cars_sample",
+      "title": "Infiniti G Coupe IPL 2012",
+      "difficult": true,
+      "difficulty_tags": [
+        "heavy_shadow"
+      ]
+    },
+    {
+      "id": "type_coupe_07",
+      "filename": "stanford_test_00987.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00987.jpg",
+      "expected_type": "coupe",
+      "split": "eval",
+      "source": "stanford_cars_sample",
+      "title": "Audi TTS Coupe 2012",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "type_coupe_08",
+      "filename": "stanford_test_00739.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00739.jpg",
+      "expected_type": "coupe",
+      "split": "eval",
+      "source": "stanford_cars_sample",
+      "title": "Bentley Continental GT Coupe 2012",
+      "difficult": true,
+      "difficulty_tags": [
+        "heavy_shadow"
+      ]
+    },
+    {
+      "id": "type_coupe_09",
+      "filename": "stanford_test_00533.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00533.jpg",
+      "expected_type": "coupe",
+      "split": "eval",
+      "source": "stanford_cars_sample",
+      "title": "Lamborghini Reventon Coupe 2008",
+      "difficult": true,
+      "difficulty_tags": [
+        "high_reflection"
+      ]
+    },
+    {
+      "id": "type_coupe_10",
+      "filename": "coupe_stanford_10.jpg",
+      "rel_path": "eval/images/vehicle_type/coupe_stanford_10.jpg",
+      "expected_type": "coupe",
+      "split": "eval",
+      "source": "stanford_cars_api",
+      "title": "Audi S5 Coupe 2012",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "type_hatchback_01",
+      "filename": "real_volkswagen_1.jpg",
+      "rel_path": "eval/images/cars/real_volkswagen_1.jpg",
+      "expected_type": "hatchback",
+      "split": "eval",
+      "source": "real_cars_metadata",
+      "title": "Volkswagen Beetle Hatchback 2012",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "type_hatchback_02",
+      "filename": "real_hyundai_2.jpg",
+      "rel_path": "eval/images/cars/real_hyundai_2.jpg",
+      "expected_type": "hatchback",
+      "split": "eval",
+      "source": "real_cars_metadata",
+      "title": "Hyundai Elantra Touring Hatchback 2012",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "type_hatchback_03",
+      "filename": "real_volkswagen_2.jpg",
+      "rel_path": "eval/images/cars/real_volkswagen_2.jpg",
+      "expected_type": "hatchback",
+      "split": "eval",
+      "source": "real_cars_metadata",
+      "title": "Volkswagen Golf Hatchback 1991",
+      "difficult": true,
+      "difficulty_tags": [
+        "high_reflection",
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "type_hatchback_04",
+      "filename": "stanford_test_00592.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00592.jpg",
+      "expected_type": "hatchback",
+      "split": "eval",
+      "source": "stanford_cars_sample",
+      "title": "Volkswagen Golf Hatchback 2012",
+      "difficult": true,
+      "difficulty_tags": [
+        "heavy_shadow",
+        "high_reflection"
+      ]
+    },
+    {
+      "id": "type_hatchback_05",
+      "filename": "hatchback_stanford_05.jpg",
+      "rel_path": "eval/images/vehicle_type/hatchback_stanford_05.jpg",
+      "expected_type": "hatchback",
+      "split": "eval",
+      "source": "stanford_cars_api",
+      "title": "Volkswagen Golf Hatchback 1991",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "type_hatchback_06",
+      "filename": "hatchback_stanford_06.jpg",
+      "rel_path": "eval/images/vehicle_type/hatchback_stanford_06.jpg",
+      "expected_type": "hatchback",
+      "split": "eval",
+      "source": "stanford_cars_api",
+      "title": "Nissan Juke Hatchback 2012",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "type_hatchback_07",
+      "filename": "hatchback_stanford_07.jpg",
+      "rel_path": "eval/images/vehicle_type/hatchback_stanford_07.jpg",
+      "expected_type": "hatchback",
+      "split": "eval",
+      "source": "stanford_cars_api",
+      "title": "Acura ZDX Hatchback 2012",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "type_hatchback_08",
+      "filename": "hatchback_stanford_08.jpg",
+      "rel_path": "eval/images/vehicle_type/hatchback_stanford_08.jpg",
+      "expected_type": "hatchback",
+      "split": "eval",
+      "source": "stanford_cars_api",
+      "title": "Volkswagen Golf Hatchback 1991",
+      "difficult": true,
+      "difficulty_tags": [
+        "high_reflection"
+      ]
+    },
+    {
+      "id": "type_hatchback_09",
+      "filename": "hatchback_stanford_09.jpg",
+      "rel_path": "eval/images/vehicle_type/hatchback_stanford_09.jpg",
+      "expected_type": "hatchback",
+      "split": "eval",
+      "source": "stanford_cars_api",
+      "title": "Nissan Leaf Hatchback 2012",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "type_hatchback_10",
+      "filename": "hatchback_stanford_10.jpg",
+      "rel_path": "eval/images/vehicle_type/hatchback_stanford_10.jpg",
+      "expected_type": "hatchback",
+      "split": "eval",
+      "source": "stanford_cars_api",
+      "title": "Volkswagen Golf Hatchback 1991",
+      "difficult": true,
+      "difficulty_tags": [
+        "heavy_shadow"
+      ]
+    },
+    {
+      "id": "type_motorcycle_01",
+      "filename": "type_motorcycle_01.jpg",
+      "rel_path": "eval/images/vehicle_type/type_motorcycle_01.jpg",
+      "expected_type": "motorcycle",
+      "split": "eval",
+      "source": "wikimedia_commons",
+      "title": "type_motorcycle_01.jpg",
+      "difficult": true,
+      "difficulty_tags": [
+        "low_light",
+        "heavy_shadow",
+        "high_reflection",
+        "partial_or_atypical_view"
+      ]
+    },
+    {
+      "id": "type_motorcycle_02",
+      "filename": "type_motorcycle_02.jpg",
+      "rel_path": "eval/images/vehicle_type/type_motorcycle_02.jpg",
+      "expected_type": "motorcycle",
+      "split": "eval",
+      "source": "wikimedia_commons",
+      "title": "type_motorcycle_02.jpg",
+      "difficult": true,
+      "difficulty_tags": [
+        "partial_or_atypical_view"
+      ]
+    },
+    {
+      "id": "type_motorcycle_03",
+      "filename": "type_motorcycle_03.jpg",
+      "rel_path": "eval/images/vehicle_type/type_motorcycle_03.jpg",
+      "expected_type": "motorcycle",
+      "split": "eval",
+      "source": "wikimedia_commons",
+      "title": "Motorcycle sample 3",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "type_motorcycle_04",
+      "filename": "type_motorcycle_04.jpg",
+      "rel_path": "eval/images/vehicle_type/type_motorcycle_04.jpg",
+      "expected_type": "motorcycle",
+      "split": "eval",
+      "source": "wikimedia_commons",
+      "title": "Motorcycle sample 4",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "type_motorcycle_05",
+      "filename": "type_motorcycle_05.jpg",
+      "rel_path": "eval/images/vehicle_type/type_motorcycle_05.jpg",
+      "expected_type": "motorcycle",
+      "split": "eval",
+      "source": "wikimedia_commons",
+      "title": "Motorcycle sample 5",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "type_motorcycle_06",
+      "filename": "type_motorcycle_06.jpg",
+      "rel_path": "eval/images/vehicle_type/type_motorcycle_06.jpg",
+      "expected_type": "motorcycle",
+      "split": "eval",
+      "source": "wikimedia_commons",
+      "title": "Motorcycle sample 6",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "type_motorcycle_07",
+      "filename": "type_motorcycle_07.jpg",
+      "rel_path": "eval/images/vehicle_type/type_motorcycle_07.jpg",
+      "expected_type": "motorcycle",
+      "split": "eval",
+      "source": "wikimedia_commons",
+      "title": "Motorcycle sample 7",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "type_motorcycle_08",
+      "filename": "type_motorcycle_08.jpg",
+      "rel_path": "eval/images/vehicle_type/type_motorcycle_08.jpg",
+      "expected_type": "motorcycle",
+      "split": "eval",
+      "source": "wikimedia_commons",
+      "title": "Motorcycle sample 8",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "type_motorcycle_09",
+      "filename": "type_motorcycle_09.jpg",
+      "rel_path": "eval/images/vehicle_type/type_motorcycle_09.jpg",
+      "expected_type": "motorcycle",
+      "split": "eval",
+      "source": "wikimedia_commons",
+      "title": "Motorcycle sample 9",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "type_motorcycle_10",
+      "filename": "type_motorcycle_10.jpg",
+      "rel_path": "eval/images/vehicle_type/type_motorcycle_10.jpg",
+      "expected_type": "motorcycle",
+      "split": "eval",
+      "source": "wikimedia_commons",
+      "title": "Motorcycle sample 10",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "type_pickup_01",
+      "filename": "pickup_stanford_01.jpg",
+      "rel_path": "eval/images/vehicle_type/pickup_stanford_01.jpg",
+      "expected_type": "pickup",
+      "split": "eval",
+      "source": "stanford_cars_api",
+      "title": "Dodge Dakota Club Cab 2007",
+      "difficult": true,
+      "difficulty_tags": [
+        "high_reflection"
+      ]
+    },
+    {
+      "id": "type_pickup_02",
+      "filename": "pickup_stanford_02.jpg",
+      "rel_path": "eval/images/vehicle_type/pickup_stanford_02.jpg",
+      "expected_type": "pickup",
+      "split": "eval",
+      "source": "stanford_cars_api",
+      "title": "Ford F-450 Super Duty Crew Cab 2012",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "type_pickup_03",
+      "filename": "pickup_stanford_03.jpg",
+      "rel_path": "eval/images/vehicle_type/pickup_stanford_03.jpg",
+      "expected_type": "pickup",
+      "split": "eval",
+      "source": "stanford_cars_api",
+      "title": "Chevrolet Avalanche Crew Cab 2012",
+      "difficult": true,
+      "difficulty_tags": [
+        "high_reflection",
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "type_pickup_04",
+      "filename": "pickup_stanford_04.jpg",
+      "rel_path": "eval/images/vehicle_type/pickup_stanford_04.jpg",
+      "expected_type": "pickup",
+      "split": "eval",
+      "source": "stanford_cars_api",
+      "title": "Chevrolet Silverado 1500 Regular Cab 2012",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "type_pickup_05",
+      "filename": "pickup_stanford_05.jpg",
+      "rel_path": "eval/images/vehicle_type/pickup_stanford_05.jpg",
+      "expected_type": "pickup",
+      "split": "eval",
+      "source": "stanford_cars_api",
+      "title": "Chevrolet Silverado 1500 Regular Cab 2012",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "type_pickup_06",
+      "filename": "pickup_stanford_06.jpg",
+      "rel_path": "eval/images/vehicle_type/pickup_stanford_06.jpg",
+      "expected_type": "pickup",
+      "split": "eval",
+      "source": "stanford_cars_api",
+      "title": "Ford F-150 Regular Cab 2012",
+      "difficult": true,
+      "difficulty_tags": [
+        "heavy_shadow",
+        "high_reflection",
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "type_pickup_07",
+      "filename": "pickup_stanford_07.jpg",
+      "rel_path": "eval/images/vehicle_type/pickup_stanford_07.jpg",
+      "expected_type": "pickup",
+      "split": "eval",
+      "source": "stanford_cars_api",
+      "title": "Dodge Ram Pickup 3500 Quad Cab 2009",
+      "difficult": true,
+      "difficulty_tags": [
+        "high_reflection",
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "type_pickup_08",
+      "filename": "pickup_stanford_08.jpg",
+      "rel_path": "eval/images/vehicle_type/pickup_stanford_08.jpg",
+      "expected_type": "pickup",
+      "split": "eval",
+      "source": "stanford_cars_api",
+      "title": "Chevrolet Silverado 1500 Regular Cab 2012",
+      "difficult": true,
+      "difficulty_tags": [
+        "high_reflection",
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "type_pickup_09",
+      "filename": "pickup_stanford_09.jpg",
+      "rel_path": "eval/images/vehicle_type/pickup_stanford_09.jpg",
+      "expected_type": "pickup",
+      "split": "eval",
+      "source": "stanford_cars_api",
+      "title": "Dodge Ram Pickup 3500 Crew Cab 2010",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "type_pickup_10",
+      "filename": "pickup_stanford_10.jpg",
+      "rel_path": "eval/images/vehicle_type/pickup_stanford_10.jpg",
+      "expected_type": "pickup",
+      "split": "eval",
+      "source": "stanford_cars_api",
+      "title": "Chevrolet Silverado 2500HD Regular Cab 2012",
+      "difficult": true,
+      "difficulty_tags": [
+        "high_reflection"
+      ]
+    },
+    {
+      "id": "type_sedan_01",
+      "filename": "real_toyota_2.jpg",
+      "rel_path": "eval/images/cars/real_toyota_2.jpg",
+      "expected_type": "sedan",
+      "split": "eval",
+      "source": "real_cars_metadata",
+      "title": "Toyota Corolla Sedan 2012",
+      "difficult": true,
+      "difficulty_tags": [
+        "heavy_shadow",
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "type_sedan_02",
+      "filename": "real_chevrolet_2.jpg",
+      "rel_path": "eval/images/cars/real_chevrolet_2.jpg",
+      "expected_type": "sedan",
+      "split": "eval",
+      "source": "real_cars_metadata",
+      "title": "Chevrolet Malibu Sedan 2007",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "type_sedan_03",
+      "filename": "real_hyundai_1.jpg",
+      "rel_path": "eval/images/cars/real_hyundai_1.jpg",
+      "expected_type": "sedan",
+      "split": "eval",
+      "source": "real_cars_metadata",
+      "title": "Hyundai Sonata Hybrid Sedan 2012",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "type_sedan_04",
+      "filename": "stanford_test_00634.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00634.jpg",
+      "expected_type": "sedan",
+      "split": "eval",
+      "source": "stanford_cars_sample",
+      "title": "Porsche Panamera Sedan 2012",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "type_sedan_05",
+      "filename": "stanford_test_00590.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00590.jpg",
+      "expected_type": "sedan",
+      "split": "eval",
+      "source": "stanford_cars_sample",
+      "title": "Acura TL Sedan 2012",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "type_sedan_06",
+      "filename": "stanford_test_00788.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00788.jpg",
+      "expected_type": "sedan",
+      "split": "eval",
+      "source": "stanford_cars_sample",
+      "title": "BMW 3 Series Sedan 2012",
+      "difficult": true,
+      "difficulty_tags": [
+        "high_reflection"
+      ]
+    },
+    {
+      "id": "type_sedan_07",
+      "filename": "stanford_test_00274.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00274.jpg",
+      "expected_type": "sedan",
+      "split": "eval",
+      "source": "stanford_cars_sample",
+      "title": "Hyundai Elantra Sedan 2007",
+      "difficult": true,
+      "difficulty_tags": [
+        "heavy_shadow",
+        "high_reflection",
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "type_sedan_08",
+      "filename": "stanford_test_00572.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00572.jpg",
+      "expected_type": "sedan",
+      "split": "eval",
+      "source": "stanford_cars_sample",
+      "title": "Hyundai Azera Sedan 2012",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "type_sedan_09",
+      "filename": "stanford_test_00015.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00015.jpg",
+      "expected_type": "sedan",
+      "split": "eval",
+      "source": "stanford_cars_sample",
+      "title": "Cadillac CTS-V Sedan 2012",
+      "difficult": true,
+      "difficulty_tags": [
+        "high_reflection"
+      ]
+    },
+    {
+      "id": "type_sedan_10",
+      "filename": "stanford_test_00297.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00297.jpg",
+      "expected_type": "sedan",
+      "split": "eval",
+      "source": "stanford_cars_sample",
+      "title": "Fisker Karma Sedan 2012",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "type_suv_01",
+      "filename": "real_dodge_2.jpg",
+      "rel_path": "eval/images/cars/real_dodge_2.jpg",
+      "expected_type": "suv",
+      "split": "eval",
+      "source": "real_cars_metadata",
+      "title": "Dodge Journey Suv 2012",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "type_suv_02",
+      "filename": "real_chevrolet_1.jpg",
+      "rel_path": "eval/images/cars/real_chevrolet_1.jpg",
+      "expected_type": "suv",
+      "split": "eval",
+      "source": "real_cars_metadata",
+      "title": "Chevrolet Traverse Suv 2012",
+      "difficult": true,
+      "difficulty_tags": [
+        "heavy_shadow",
+        "high_reflection"
+      ]
+    },
+    {
+      "id": "type_suv_03",
+      "filename": "real_toyota_1.jpg",
+      "rel_path": "eval/images/cars/real_toyota_1.jpg",
+      "expected_type": "suv",
+      "split": "eval",
+      "source": "real_cars_metadata",
+      "title": "Toyota Sequoia Suv 2012",
+      "difficult": true,
+      "difficulty_tags": [
+        "heavy_shadow"
+      ]
+    },
+    {
+      "id": "type_suv_04",
+      "filename": "real_ford_2.jpg",
+      "rel_path": "eval/images/cars/real_ford_2.jpg",
+      "expected_type": "suv",
+      "split": "eval",
+      "source": "real_cars_metadata",
+      "title": "Ford Expedition El Suv 2009",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "type_suv_05",
+      "filename": "real_jeep_1.jpg",
+      "rel_path": "eval/images/cars/real_jeep_1.jpg",
+      "expected_type": "suv",
+      "split": "eval",
+      "source": "real_cars_metadata",
+      "title": "Jeep Grand Cherokee Suv 2012",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "type_suv_06",
+      "filename": "real_jeep_2.jpg",
+      "rel_path": "eval/images/cars/real_jeep_2.jpg",
+      "expected_type": "suv",
+      "split": "eval",
+      "source": "real_cars_metadata",
+      "title": "Jeep Liberty Suv 2012",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "type_suv_07",
+      "filename": "stanford_test_00452.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00452.jpg",
+      "expected_type": "suv",
+      "split": "eval",
+      "source": "stanford_cars_sample",
+      "title": "GMC Terrain SUV 2012",
+      "difficult": true,
+      "difficulty_tags": [
+        "high_reflection",
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "type_suv_08",
+      "filename": "stanford_test_00083.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00083.jpg",
+      "expected_type": "suv",
+      "split": "eval",
+      "source": "stanford_cars_sample",
+      "title": "Volvo XC90 SUV 2007",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "type_suv_09",
+      "filename": "stanford_test_00899.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00899.jpg",
+      "expected_type": "suv",
+      "split": "eval",
+      "source": "stanford_cars_sample",
+      "title": "Chrysler Aspen SUV 2009",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "type_suv_10",
+      "filename": "stanford_test_00661.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00661.jpg",
+      "expected_type": "suv",
+      "split": "eval",
+      "source": "stanford_cars_sample",
+      "title": "Mazda Tribute SUV 2011",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "type_truck_01",
+      "filename": "real_dodge_1.jpg",
+      "rel_path": "eval/images/cars/real_dodge_1.jpg",
+      "expected_type": "truck",
+      "split": "eval",
+      "source": "real_cars_metadata",
+      "title": "Dodge Dakota Club Cab 2007",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "type_truck_02",
+      "filename": "real_ford_1.jpg",
+      "rel_path": "eval/images/cars/real_ford_1.jpg",
+      "expected_type": "truck",
+      "split": "eval",
+      "source": "real_cars_metadata",
+      "title": "Ford F-450 Super Duty Crew Cab 2012",
+      "difficult": true,
+      "difficulty_tags": [
+        "heavy_shadow",
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "type_truck_03",
+      "filename": "stanford_test_00690.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00690.jpg",
+      "expected_type": "truck",
+      "split": "eval",
+      "source": "stanford_cars_sample",
+      "title": "Chevrolet Avalanche Crew Cab 2012",
+      "difficult": true,
+      "difficulty_tags": [
+        "heavy_shadow"
+      ]
+    },
+    {
+      "id": "type_truck_04",
+      "filename": "stanford_test_00140.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00140.jpg",
+      "expected_type": "truck",
+      "split": "eval",
+      "source": "stanford_cars_sample",
+      "title": "HUMMER H3T Crew Cab 2010",
+      "difficult": true,
+      "difficulty_tags": [
+        "high_reflection"
+      ]
+    },
+    {
+      "id": "type_truck_05",
+      "filename": "type_truck_01.jpg",
+      "rel_path": "eval/images/vehicle_type/type_truck_01.jpg",
+      "expected_type": "truck",
+      "split": "eval",
+      "source": "wikimedia_commons",
+      "title": "type_truck_01.jpg",
+      "difficult": true,
+      "difficulty_tags": [
+        "heavy_shadow",
+        "high_reflection",
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "type_truck_06",
+      "filename": "type_truck_02.jpg",
+      "rel_path": "eval/images/vehicle_type/type_truck_02.jpg",
+      "expected_type": "truck",
+      "split": "eval",
+      "source": "wikimedia_commons",
+      "title": "type_truck_02.jpg",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "type_truck_07",
+      "filename": "type_truck_03.jpg",
+      "rel_path": "eval/images/vehicle_type/type_truck_03.jpg",
+      "expected_type": "truck",
+      "split": "eval",
+      "source": "wikimedia_commons",
+      "title": "type_truck_03.jpg",
+      "difficult": true,
+      "difficulty_tags": [
+        "partial_or_atypical_view"
+      ]
+    },
+    {
+      "id": "type_truck_08",
+      "filename": "type_truck_04.jpg",
+      "rel_path": "eval/images/vehicle_type/type_truck_04.jpg",
+      "expected_type": "truck",
+      "split": "eval",
+      "source": "wikimedia_commons",
+      "title": "type_truck_04.jpg",
+      "difficult": true,
+      "difficulty_tags": [
+        "high_reflection",
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "type_truck_09",
+      "filename": "type_truck_05.jpg",
+      "rel_path": "eval/images/vehicle_type/type_truck_05.jpg",
+      "expected_type": "truck",
+      "split": "eval",
+      "source": "wikimedia_commons",
+      "title": "type_truck_05.jpg",
+      "difficult": true,
+      "difficulty_tags": [
+        "high_reflection",
+        "partial_or_atypical_view"
+      ]
+    },
+    {
+      "id": "type_truck_10",
+      "filename": "type_truck_06.jpg",
+      "rel_path": "eval/images/vehicle_type/type_truck_06.jpg",
+      "expected_type": "truck",
+      "split": "eval",
+      "source": "wikimedia_commons",
+      "title": "type_truck_06.jpg",
+      "difficult": true,
+      "difficulty_tags": [
+        "heavy_shadow",
+        "high_reflection",
+        "partial_or_atypical_view"
+      ]
+    },
+    {
+      "id": "type_unknown_01",
+      "filename": "no_car_03.jpg",
+      "rel_path": "eval/images/unknown_controls/no_car_03.jpg",
+      "expected_type": "unknown",
+      "split": "eval",
+      "source": "curated_negative_controls",
+      "title": "No vehicle control: no_car_03.jpg",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "type_unknown_02",
+      "filename": "no_car_04.jpg",
+      "rel_path": "eval/images/unknown_controls/no_car_04.jpg",
+      "expected_type": "unknown",
+      "split": "eval",
+      "source": "curated_negative_controls",
+      "title": "No vehicle control: no_car_04.jpg",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "type_unknown_03",
+      "filename": "no_car_05.jpg",
+      "rel_path": "eval/images/unknown_controls/no_car_05.jpg",
+      "expected_type": "unknown",
+      "split": "eval",
+      "source": "curated_negative_controls",
+      "title": "No vehicle control: no_car_05.jpg",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "type_unknown_04",
+      "filename": "no_car_06.jpg",
+      "rel_path": "eval/images/unknown_controls/no_car_06.jpg",
+      "expected_type": "unknown",
+      "split": "eval",
+      "source": "curated_negative_controls",
+      "title": "No vehicle control: no_car_06.jpg",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "type_unknown_05",
+      "filename": "no_car_07.jpg",
+      "rel_path": "eval/images/unknown_controls/no_car_07.jpg",
+      "expected_type": "unknown",
+      "split": "eval",
+      "source": "curated_negative_controls",
+      "title": "No vehicle control: no_car_07.jpg",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "type_unknown_06",
+      "filename": "no_car_08.jpg",
+      "rel_path": "eval/images/unknown_controls/no_car_08.jpg",
+      "expected_type": "unknown",
+      "split": "eval",
+      "source": "curated_negative_controls",
+      "title": "No vehicle control: no_car_08.jpg",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "type_unknown_07",
+      "filename": "no_car_09.jpg",
+      "rel_path": "eval/images/unknown_controls/no_car_09.jpg",
+      "expected_type": "unknown",
+      "split": "eval",
+      "source": "curated_negative_controls",
+      "title": "No vehicle control: no_car_09.jpg",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "type_unknown_08",
+      "filename": "no_car_10.jpg",
+      "rel_path": "eval/images/unknown_controls/no_car_10.jpg",
+      "expected_type": "unknown",
+      "split": "eval",
+      "source": "curated_negative_controls",
+      "title": "No vehicle control: no_car_10.jpg",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "type_unknown_09",
+      "filename": "no_car_field.jpg",
+      "rel_path": "eval/images/unknown_controls/no_car_field.jpg",
+      "expected_type": "unknown",
+      "split": "eval",
+      "source": "curated_negative_controls",
+      "title": "No vehicle control: no_car_field.jpg",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "type_unknown_10",
+      "filename": "no_car_landscape.jpg",
+      "rel_path": "eval/images/unknown_controls/no_car_landscape.jpg",
+      "expected_type": "unknown",
+      "split": "eval",
+      "source": "curated_negative_controls",
+      "title": "No vehicle control: no_car_landscape.jpg",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "type_van_01",
+      "filename": "real_honda_1.jpg",
+      "rel_path": "eval/images/cars/real_honda_1.jpg",
+      "expected_type": "van",
+      "split": "eval",
+      "source": "real_cars_metadata",
+      "title": "Honda Odyssey Minivan 2012",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "type_van_02",
+      "filename": "van_stanford_02.jpg",
+      "rel_path": "eval/images/vehicle_type/van_stanford_02.jpg",
+      "expected_type": "van",
+      "split": "eval",
+      "source": "stanford_cars_api",
+      "title": "Chrysler Town and Country Minivan 2012",
+      "difficult": true,
+      "difficulty_tags": [
+        "high_reflection"
+      ]
+    },
+    {
+      "id": "type_van_03",
+      "filename": "van_stanford_03.jpg",
+      "rel_path": "eval/images/vehicle_type/van_stanford_03.jpg",
+      "expected_type": "van",
+      "split": "eval",
+      "source": "stanford_cars_api",
+      "title": "Ford Freestar Minivan 2007",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "type_van_04",
+      "filename": "van_stanford_04.jpg",
+      "rel_path": "eval/images/vehicle_type/van_stanford_04.jpg",
+      "expected_type": "van",
+      "split": "eval",
+      "source": "stanford_cars_api",
+      "title": "Ford E-Series Wagon Van 2012",
+      "difficult": true,
+      "difficulty_tags": [
+        "high_reflection",
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "type_van_05",
+      "filename": "van_stanford_05.jpg",
+      "rel_path": "eval/images/vehicle_type/van_stanford_05.jpg",
+      "expected_type": "van",
+      "split": "eval",
+      "source": "stanford_cars_api",
+      "title": "Mercedes-Benz Sprinter Van 2012",
+      "difficult": true,
+      "difficulty_tags": [
+        "high_reflection",
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "type_van_06",
+      "filename": "van_stanford_06.jpg",
+      "rel_path": "eval/images/vehicle_type/van_stanford_06.jpg",
+      "expected_type": "van",
+      "split": "eval",
+      "source": "stanford_cars_api",
+      "title": "Dodge Caravan Minivan 1997",
+      "difficult": true,
+      "difficulty_tags": [
+        "heavy_shadow",
+        "high_reflection",
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "type_van_07",
+      "filename": "van_stanford_07.jpg",
+      "rel_path": "eval/images/vehicle_type/van_stanford_07.jpg",
+      "expected_type": "van",
+      "split": "eval",
+      "source": "stanford_cars_api",
+      "title": "Chevrolet Express Cargo Van 2007",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "type_van_08",
+      "filename": "van_stanford_08.jpg",
+      "rel_path": "eval/images/vehicle_type/van_stanford_08.jpg",
+      "expected_type": "van",
+      "split": "eval",
+      "source": "stanford_cars_api",
+      "title": "Ford Freestar Minivan 2007",
+      "difficult": true,
+      "difficulty_tags": [
+        "high_reflection",
+        "multiple_vehicles"
+      ]
+    },
+    {
+      "id": "type_van_09",
+      "filename": "van_stanford_09.jpg",
+      "rel_path": "eval/images/vehicle_type/van_stanford_09.jpg",
+      "expected_type": "van",
+      "split": "eval",
+      "source": "stanford_cars_api",
+      "title": "Honda Odyssey Minivan 2012",
+      "difficult": false,
+      "difficulty_tags": []
+    },
+    {
+      "id": "type_van_10",
+      "filename": "van_stanford_10.jpg",
+      "rel_path": "eval/images/vehicle_type/van_stanford_10.jpg",
+      "expected_type": "van",
+      "split": "eval",
+      "source": "stanford_cars_api",
+      "title": "Chevrolet Express Van 2007",
+      "difficult": true,
+      "difficulty_tags": [
+        "heavy_shadow",
+        "high_reflection"
+      ]
+    }
+  ]
+}

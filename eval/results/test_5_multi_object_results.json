@@ -1,0 +1,5254 @@
+{
+  "test": "Test 5: Multiple Objects and Response Association (Múltiplos Objetos e Associação da Resposta)",
+  "scene_count": 30,
+  "total_items": 60,
+  "tasks_breakdown": {
+    "color": 16,
+    "vehicle_type": 10,
+    "person_attributes": 4
+  },
+  "device": "cpu",
+  "precision": "float32",
+  "threads": 8,
+  "repetitions": 3,
+  "models": {
+    "laya": {
+      "metadata": {
+        "name": "Laya Vision",
+        "model_id": "thaitea/laya-vision",
+        "load_time_s": 5.55,
+        "errors": 0
+      },
+      "scene_count": 30,
+      "crop_accuracy": {
+        "correct": 10,
+        "total": 30,
+        "accuracy": 0.3333,
+        "wilson_ci_95": [
+          0.1923,
+          0.5122
+        ]
+      },
+      "highlighted_accuracy": {
+        "correct": 9,
+        "total": 30,
+        "accuracy": 0.3,
+        "wilson_ci_95": [
+          0.1666,
+          0.4788
+        ]
+      },
+      "error_breakdown_highlighted": {
+        "association_errors": 10,
+        "association_error_rate": 0.3333,
+        "classification_errors": 10,
+        "classification_error_rate": 0.3333,
+        "unknown_errors": 1,
+        "unknown_error_rate": 0.0333
+      },
+      "context_penalty": {
+        "delta_accuracy_pp": 3.33,
+        "crop_vs_highlighted_ratio": 1.11
+      },
+      "per_task": {
+        "color": {
+          "scenes": 16,
+          "crop_accuracy": 0.125,
+          "highlighted_accuracy": 0.0625,
+          "association_error_rate": 0.4375,
+          "classification_error_rate": 0.5
+        },
+        "helmet": {
+          "scenes": 2,
+          "crop_accuracy": 0.5,
+          "highlighted_accuracy": 0.5,
+          "association_error_rate": 0.0,
+          "classification_error_rate": 0.5
+        },
+        "carrying": {
+          "scenes": 1,
+          "crop_accuracy": 0.0,
+          "highlighted_accuracy": 0.0,
+          "association_error_rate": 0.0,
+          "classification_error_rate": 1.0
+        },
+        "clothing": {
+          "scenes": 1,
+          "crop_accuracy": 0.0,
+          "highlighted_accuracy": 0.0,
+          "association_error_rate": 1.0,
+          "classification_error_rate": 0.0
+        },
+        "vehicle_type": {
+          "scenes": 10,
+          "crop_accuracy": 0.7,
+          "highlighted_accuracy": 0.7,
+          "association_error_rate": 0.2,
+          "classification_error_rate": 0.0
+        }
+      },
+      "latency_ms": {
+        "crop_median": 1252.2,
+        "crop_p90": 1416.0,
+        "highlighted_median": 1258.7,
+        "highlighted_p90": 1517.2
+      }
+    },
+    "blip": {
+      "metadata": {
+        "name": "BLIP VQA",
+        "model_id": "Salesforce/blip-vqa-base",
+        "load_time_s": 1.61,
+        "errors": 0
+      },
+      "scene_count": 30,
+      "crop_accuracy": {
+        "correct": 9,
+        "total": 30,
+        "accuracy": 0.3,
+        "wilson_ci_95": [
+          0.1666,
+          0.4788
+        ]
+      },
+      "highlighted_accuracy": {
+        "correct": 2,
+        "total": 30,
+        "accuracy": 0.0667,
+        "wilson_ci_95": [
+          0.0185,
+          0.2132
+        ]
+      },
+      "error_breakdown_highlighted": {
+        "association_errors": 11,
+        "association_error_rate": 0.3667,
+        "classification_errors": 17,
+        "classification_error_rate": 0.5667,
+        "unknown_errors": 0,
+        "unknown_error_rate": 0.0
+      },
+      "context_penalty": {
+        "delta_accuracy_pp": 23.33,
+        "crop_vs_highlighted_ratio": 4.5
+      },
+      "per_task": {
+        "color": {
+          "scenes": 16,
+          "crop_accuracy": 0.3125,
+          "highlighted_accuracy": 0.0625,
+          "association_error_rate": 0.625,
+          "classification_error_rate": 0.3125
+        },
+        "helmet": {
+          "scenes": 2,
+          "crop_accuracy": 0.5,
+          "highlighted_accuracy": 0.5,
+          "association_error_rate": 0.0,
+          "classification_error_rate": 0.5
+        },
+        "carrying": {
+          "scenes": 1,
+          "crop_accuracy": 0.0,
+          "highlighted_accuracy": 0.0,
+          "association_error_rate": 0.0,
+          "classification_error_rate": 1.0
+        },
+        "clothing": {
+          "scenes": 1,
+          "crop_accuracy": 0.0,
+          "highlighted_accuracy": 0.0,
+          "association_error_rate": 1.0,
+          "classification_error_rate": 0.0
+        },
+        "vehicle_type": {
+          "scenes": 10,
+          "crop_accuracy": 0.3,
+          "highlighted_accuracy": 0.0,
+          "association_error_rate": 0.0,
+          "classification_error_rate": 1.0
+        }
+      },
+      "latency_ms": {
+        "crop_median": 726.5,
+        "crop_p90": 836.5,
+        "highlighted_median": 738.3,
+        "highlighted_p90": 815.6
+      }
+    }
+  },
+  "per_item_results": [
+    {
+      "id": "scene_col_01_crop",
+      "scene_id": "scene_col_01",
+      "presentation": "crop",
+      "task": "color",
+      "rel_path": "eval/images/multi_object/scene_col_01_crop.jpg",
+      "target_label": "white",
+      "distractor_label": "orange",
+      "question_en": "What is the predominant color of this vehicle?",
+      "description": "White car on right (target) vs prominent orange car in center (distractor)",
+      "target_bbox": [
+        560,
+        235,
+        959,
+        526
+      ],
+      "distractor_bbox": [
+        244,
+        227,
+        759,
+        573
+      ],
+      "models": {
+        "laya": {
+          "raw_answers": [
+            "white",
+            "white",
+            "white"
+          ],
+          "normalized": [
+            "white",
+            "white",
+            "white"
+          ],
+          "probabilities": {
+            "black": 0.0263,
+            "white": 0.3241,
+            "gray_silver": 0.0324,
+            "red": 0.0284,
+            "blue": 0.0215,
+            "green": 0.0237,
+            "yellow": 0.3075,
+            "orange": 0.0285,
+            "brown": 0.1228,
+            "purple": 0.0223,
+            "pink": 0.0236,
+            "unknown": 0.0389
+          },
+          "confidence": 0.2492,
+          "latencies_ms": [
+            1579.75,
+            1206.75,
+            1250.28
+          ],
+          "errors": [],
+          "pred_consensus": "white",
+          "latency_median_ms": 1250.3,
+          "is_correct": true,
+          "is_association_error": false
+        },
+        "blip": {
+          "raw_answers": [
+            "yellow",
+            "yellow",
+            "yellow"
+          ],
+          "normalized": [
+            "yellow",
+            "yellow",
+            "yellow"
+          ],
+          "probabilities": null,
+          "confidence": null,
+          "latencies_ms": [
+            705.63,
+            713.03,
+            751.86
+          ],
+          "errors": [],
+          "pred_consensus": "yellow",
+          "latency_median_ms": 713.0,
+          "is_correct": false,
+          "is_association_error": false
+        }
+      }
+    },
+    {
+      "id": "scene_col_01_full_highlighted",
+      "scene_id": "scene_col_01",
+      "presentation": "full_highlighted",
+      "task": "color",
+      "rel_path": "eval/images/multi_object/scene_col_01_full_highlighted.jpg",
+      "target_label": "white",
+      "distractor_label": "orange",
+      "question_en": "In the highlighted object inside the red box, what is the predominant color of the vehicle?",
+      "description": "White car on right (target) vs prominent orange car in center (distractor)",
+      "target_bbox": [
+        560,
+        235,
+        959,
+        526
+      ],
+      "distractor_bbox": [
+        244,
+        227,
+        759,
+        573
+      ],
+      "models": {
+        "laya": {
+          "raw_answers": [
+            "yellow",
+            "yellow",
+            "yellow"
+          ],
+          "normalized": [
+            "yellow",
+            "yellow",
+            "yellow"
+          ],
+          "probabilities": {
+            "black": 0.0357,
+            "white": 0.0339,
+            "gray_silver": 0.0672,
+            "red": 0.0811,
+            "blue": 0.034,
+            "green": 0.0313,
+            "yellow": 0.5267,
+            "orange": 0.0338,
+            "brown": 0.045,
+            "purple": 0.0338,
+            "pink": 0.0399,
+            "unknown": 0.0377
+          },
+          "confidence": 0.2754,
+          "latencies_ms": [
+            1349.02,
+            1197.99,
+            1233.71
+          ],
+          "errors": [],
+          "pred_consensus": "yellow",
+          "latency_median_ms": 1233.7,
+          "is_correct": false,
+          "is_association_error": false
+        },
+        "blip": {
+          "raw_answers": [
+            "yellow",
+            "yellow",
+            "yellow"
+          ],
+          "normalized": [
+            "yellow",
+            "yellow",
+            "yellow"
+          ],
+          "probabilities": null,
+          "confidence": null,
+          "latencies_ms": [
+            728.94,
+            726.29,
+            735.11
+          ],
+          "errors": [],
+          "pred_consensus": "yellow",
+          "latency_median_ms": 728.9,
+          "is_correct": false,
+          "is_association_error": false
+        }
+      }
+    },
+    {
+      "id": "scene_col_02_crop",
+      "scene_id": "scene_col_02",
+      "presentation": "crop",
+      "task": "color",
+      "rel_path": "eval/images/multi_object/scene_col_02_crop.jpg",
+      "target_label": "gray_silver",
+      "distractor_label": "orange",
+      "question_en": "What is the predominant color of this vehicle?",
+      "description": "Silver/gray car in upper background (target) vs orange car in foreground (distractor)",
+      "target_bbox": [
+        442,
+        64,
+        958,
+        254
+      ],
+      "distractor_bbox": [
+        72,
+        114,
+        862,
+        515
+      ],
+      "models": {
+        "laya": {
+          "raw_answers": [
+            "gray_silver",
+            "gray_silver",
+            "gray_silver"
+          ],
+          "normalized": [
+            "gray_silver",
+            "gray_silver",
+            "gray_silver"
+          ],
+          "probabilities": {
+            "black": 0.041,
+            "white": 0.0299,
+            "gray_silver": 0.4843,
+            "red": 0.0302,
+            "blue": 0.031,
+            "green": 0.0303,
+            "yellow": 0.0323,
+            "orange": 0.1807,
+            "brown": 0.0356,
+            "purple": 0.0288,
+            "pink": 0.0316,
+            "unknown": 0.0443
+          },
+          "confidence": 0.2778,
+          "latencies_ms": [
+            1192.28,
+            1198.8,
+            1239.74
+          ],
+          "errors": [],
+          "pred_consensus": "gray_silver",
+          "latency_median_ms": 1198.8,
+          "is_correct": true,
+          "is_association_error": false
+        },
+        "blip": {
+          "raw_answers": [
+            "orange",
+            "orange",
+            "orange"
+          ],
+          "normalized": [
+            "orange",
+            "orange",
+            "orange"
+          ],
+          "probabilities": null,
+          "confidence": null,
+          "latencies_ms": [
+            698.06,
+            717.91,
+            724.67
+          ],
+          "errors": [],
+          "pred_consensus": "orange",
+          "latency_median_ms": 717.9,
+          "is_correct": false,
+          "is_association_error": true
+        }
+      }
+    },
+    {
+      "id": "scene_col_02_full_highlighted",
+      "scene_id": "scene_col_02",
+      "presentation": "full_highlighted",
+      "task": "color",
+      "rel_path": "eval/images/multi_object/scene_col_02_full_highlighted.jpg",
+      "target_label": "gray_silver",
+      "distractor_label": "orange",
+      "question_en": "In the highlighted object inside the red box, what is the predominant color of the vehicle?",
+      "description": "Silver/gray car in upper background (target) vs orange car in foreground (distractor)",
+      "target_bbox": [
+        442,
+        64,
+        958,
+        254
+      ],
+      "distractor_bbox": [
+        72,
+        114,
+        862,
+        515
+      ],
+      "models": {
+        "laya": {
+          "raw_answers": [
+            "red",
+            "red",
+            "red"
+          ],
+          "normalized": [
+            "red",
+            "red",
+            "red"
+          ],
+          "probabilities": {
+            "black": 0.0421,
+            "white": 0.0391,
+            "gray_silver": 0.1179,
+            "red": 0.2482,
+            "blue": 0.0619,
+            "green": 0.0432,
+            "yellow": 0.0443,
+            "orange": 0.2349,
+            "brown": 0.0419,
+            "purple": 0.0417,
+            "pink": 0.0417,
+            "unknown": 0.0432
+          },
+          "confidence": 0.1236,
+          "latencies_ms": [
+            1052.82,
+            1197.11,
+            1247.23
+          ],
+          "errors": [],
+          "pred_consensus": "red",
+          "latency_median_ms": 1197.1,
+          "is_correct": false,
+          "is_association_error": false
+        },
+        "blip": {
+          "raw_answers": [
+            "orange",
+            "orange",
+            "orange"
+          ],
+          "normalized": [
+            "orange",
+            "orange",
+            "orange"
+          ],
+          "probabilities": null,
+          "confidence": null,
+          "latencies_ms": [
+            732.23,
+            710.72,
+            738.27
+          ],
+          "errors": [],
+          "pred_consensus": "orange",
+          "latency_median_ms": 732.2,
+          "is_correct": false,
+          "is_association_error": true
+        }
+      }
+    },
+    {
+      "id": "scene_col_03_crop",
+      "scene_id": "scene_col_03",
+      "presentation": "crop",
+      "task": "color",
+      "rel_path": "eval/images/multi_object/scene_col_03_crop.jpg",
+      "target_label": "blue",
+      "distractor_label": "pink",
+      "question_en": "What is the predominant color of this vehicle?",
+      "description": "Blue car in upper left (target) vs large pink car in center (distractor)",
+      "target_bbox": [
+        100,
+        2,
+        291,
+        200
+      ],
+      "distractor_bbox": [
+        164,
+        55,
+        900,
+        458
+      ],
+      "models": {
+        "laya": {
+          "raw_answers": [
+            "red",
+            "red",
+            "red"
+          ],
+          "normalized": [
+            "red",
+            "red",
+            "red"
+          ],
+          "probabilities": {
+            "black": 0.0428,
+            "white": 0.0451,
+            "gray_silver": 0.0768,
+            "red": 0.4083,
+            "blue": 0.0398,
+            "green": 0.0468,
+            "yellow": 0.0429,
+            "orange": 0.0443,
+            "brown": 0.0426,
+            "purple": 0.0449,
+            "pink": 0.1144,
+            "unknown": 0.0512
+          },
+          "confidence": 0.1724,
+          "latencies_ms": [
+            1147.12,
+            1205.18,
+            1231.39
+          ],
+          "errors": [],
+          "pred_consensus": "red",
+          "latency_median_ms": 1205.2,
+          "is_correct": false,
+          "is_association_error": false
+        },
+        "blip": {
+          "raw_answers": [
+            "red",
+            "red",
+            "red"
+          ],
+          "normalized": [
+            "red",
+            "red",
+            "red"
+          ],
+          "probabilities": null,
+          "confidence": null,
+          "latencies_ms": [
+            722.67,
+            716.43,
+            723.54
+          ],
+          "errors": [],
+          "pred_consensus": "red",
+          "latency_median_ms": 722.7,
+          "is_correct": false,
+          "is_association_error": false
+        }
+      }
+    },
+    {
+      "id": "scene_col_03_full_highlighted",
+      "scene_id": "scene_col_03",
+      "presentation": "full_highlighted",
+      "task": "color",
+      "rel_path": "eval/images/multi_object/scene_col_03_full_highlighted.jpg",
+      "target_label": "blue",
+      "distractor_label": "pink",
+      "question_en": "In the highlighted object inside the red box, what is the predominant color of the vehicle?",
+      "description": "Blue car in upper left (target) vs large pink car in center (distractor)",
+      "target_bbox": [
+        100,
+        2,
+        291,
+        200
+      ],
+      "distractor_bbox": [
+        164,
+        55,
+        900,
+        458
+      ],
+      "models": {
+        "laya": {
+          "raw_answers": [
+            "pink",
+            "pink",
+            "pink"
+          ],
+          "normalized": [
+            "pink",
+            "pink",
+            "pink"
+          ],
+          "probabilities": {
+            "black": 0.0381,
+            "white": 0.0671,
+            "gray_silver": 0.0408,
+            "red": 0.2721,
+            "blue": 0.0325,
+            "green": 0.04,
+            "yellow": 0.0377,
+            "orange": 0.0405,
+            "brown": 0.0373,
+            "purple": 0.0401,
+            "pink": 0.3037,
+            "unknown": 0.0501
+          },
+          "confidence": 0.176,
+          "latencies_ms": [
+            1061.63,
+            1240.02,
+            1258.89
+          ],
+          "errors": [],
+          "pred_consensus": "pink",
+          "latency_median_ms": 1240.0,
+          "is_correct": false,
+          "is_association_error": true
+        },
+        "blip": {
+          "raw_answers": [
+            "red",
+            "red",
+            "red"
+          ],
+          "normalized": [
+            "red",
+            "red",
+            "red"
+          ],
+          "probabilities": null,
+          "confidence": null,
+          "latencies_ms": [
+            732.77,
+            729.02,
+            731.25
+          ],
+          "errors": [],
+          "pred_consensus": "red",
+          "latency_median_ms": 731.2,
+          "is_correct": false,
+          "is_association_error": false
+        }
+      }
+    },
+    {
+      "id": "scene_col_04_crop",
+      "scene_id": "scene_col_04",
+      "presentation": "crop",
+      "task": "color",
+      "rel_path": "eval/images/multi_object/scene_col_04_crop.jpg",
+      "target_label": "black",
+      "distractor_label": "purple",
+      "question_en": "What is the predominant color of this vehicle?",
+      "description": "Black car in background (target) vs purple car in foreground (distractor)",
+      "target_bbox": [
+        558,
+        640,
+        2108,
+        1310
+      ],
+      "distractor_bbox": [
+        221,
+        1174,
+        2644,
+        2905
+      ],
+      "models": {
+        "laya": {
+          "raw_answers": [
+            "purple",
+            "purple",
+            "purple"
+          ],
+          "normalized": [
+            "purple",
+            "purple",
+            "purple"
+          ],
+          "probabilities": {
+            "black": 0.1486,
+            "white": 0.0449,
+            "gray_silver": 0.0698,
+            "red": 0.0425,
+            "blue": 0.0416,
+            "green": 0.0453,
+            "yellow": 0.0461,
+            "orange": 0.042,
+            "brown": 0.0472,
+            "purple": 0.3768,
+            "pink": 0.0444,
+            "unknown": 0.0506
+          },
+          "confidence": 0.1583,
+          "latencies_ms": [
+            1113.23,
+            1231.07,
+            1231.04
+          ],
+          "errors": [],
+          "pred_consensus": "purple",
+          "latency_median_ms": 1231.0,
+          "is_correct": false,
+          "is_association_error": true
+        },
+        "blip": {
+          "raw_answers": [
+            "black",
+            "black",
+            "black"
+          ],
+          "normalized": [
+            "black",
+            "black",
+            "black"
+          ],
+          "probabilities": null,
+          "confidence": null,
+          "latencies_ms": [
+            719.13,
+            741.18,
+            716.89
+          ],
+          "errors": [],
+          "pred_consensus": "black",
+          "latency_median_ms": 719.1,
+          "is_correct": true,
+          "is_association_error": false
+        }
+      }
+    },
+    {
+      "id": "scene_col_04_full_highlighted",
+      "scene_id": "scene_col_04",
+      "presentation": "full_highlighted",
+      "task": "color",
+      "rel_path": "eval/images/multi_object/scene_col_04_full_highlighted.jpg",
+      "target_label": "black",
+      "distractor_label": "purple",
+      "question_en": "In the highlighted object inside the red box, what is the predominant color of the vehicle?",
+      "description": "Black car in background (target) vs purple car in foreground (distractor)",
+      "target_bbox": [
+        558,
+        640,
+        2108,
+        1310
+      ],
+      "distractor_bbox": [
+        221,
+        1174,
+        2644,
+        2905
+      ],
+      "models": {
+        "laya": {
+          "raw_answers": [
+            "purple",
+            "purple",
+            "purple"
+          ],
+          "normalized": [
+            "purple",
+            "purple",
+            "purple"
+          ],
+          "probabilities": {
+            "black": 0.0438,
+            "white": 0.038,
+            "gray_silver": 0.0737,
+            "red": 0.0376,
+            "blue": 0.0342,
+            "green": 0.0389,
+            "yellow": 0.0396,
+            "orange": 0.0386,
+            "brown": 0.0402,
+            "purple": 0.5316,
+            "pink": 0.0434,
+            "unknown": 0.0405
+          },
+          "confidence": 0.2745,
+          "latencies_ms": [
+            1246.47,
+            1328.34,
+            1379.7
+          ],
+          "errors": [],
+          "pred_consensus": "purple",
+          "latency_median_ms": 1328.3,
+          "is_correct": false,
+          "is_association_error": true
+        },
+        "blip": {
+          "raw_answers": [
+            "purple",
+            "purple",
+            "purple"
+          ],
+          "normalized": [
+            "purple",
+            "purple",
+            "purple"
+          ],
+          "probabilities": null,
+          "confidence": null,
+          "latencies_ms": [
+            793.0,
+            792.54,
+            789.28
+          ],
+          "errors": [],
+          "pred_consensus": "purple",
+          "latency_median_ms": 792.5,
+          "is_correct": false,
+          "is_association_error": true
+        }
+      }
+    },
+    {
+      "id": "scene_col_05_crop",
+      "scene_id": "scene_col_05",
+      "presentation": "crop",
+      "task": "color",
+      "rel_path": "eval/images/multi_object/scene_col_05_crop.jpg",
+      "target_label": "white",
+      "distractor_label": "brown",
+      "question_en": "What is the predominant color of this vehicle?",
+      "description": "White vehicle on left (target) vs large brown car in center (distractor)",
+      "target_bbox": [
+        0,
+        38,
+        311,
+        266
+      ],
+      "distractor_bbox": [
+        114,
+        38,
+        642,
+        427
+      ],
+      "models": {
+        "laya": {
+          "raw_answers": [
+            "gray_silver",
+            "gray_silver",
+            "gray_silver"
+          ],
+          "normalized": [
+            "gray_silver",
+            "gray_silver",
+            "gray_silver"
+          ],
+          "probabilities": {
+            "black": 0.0331,
+            "white": 0.0523,
+            "gray_silver": 0.5031,
+            "red": 0.0227,
+            "blue": 0.0589,
+            "green": 0.0275,
+            "yellow": 0.027,
+            "orange": 0.0324,
+            "brown": 0.1197,
+            "purple": 0.0325,
+            "pink": 0.0292,
+            "unknown": 0.0617
+          },
+          "confidence": 0.2703,
+          "latencies_ms": [
+            1054.27,
+            1396.31,
+            1248.76
+          ],
+          "errors": [],
+          "pred_consensus": "gray_silver",
+          "latency_median_ms": 1248.8,
+          "is_correct": false,
+          "is_association_error": false
+        },
+        "blip": {
+          "raw_answers": [
+            "white",
+            "white",
+            "white"
+          ],
+          "normalized": [
+            "white",
+            "white",
+            "white"
+          ],
+          "probabilities": null,
+          "confidence": null,
+          "latencies_ms": [
+            702.7,
+            721.47,
+            706.58
+          ],
+          "errors": [],
+          "pred_consensus": "white",
+          "latency_median_ms": 706.6,
+          "is_correct": true,
+          "is_association_error": false
+        }
+      }
+    },
+    {
+      "id": "scene_col_05_full_highlighted",
+      "scene_id": "scene_col_05",
+      "presentation": "full_highlighted",
+      "task": "color",
+      "rel_path": "eval/images/multi_object/scene_col_05_full_highlighted.jpg",
+      "target_label": "white",
+      "distractor_label": "brown",
+      "question_en": "In the highlighted object inside the red box, what is the predominant color of the vehicle?",
+      "description": "White vehicle on left (target) vs large brown car in center (distractor)",
+      "target_bbox": [
+        0,
+        38,
+        311,
+        266
+      ],
+      "distractor_bbox": [
+        114,
+        38,
+        642,
+        427
+      ],
+      "models": {
+        "laya": {
+          "raw_answers": [
+            "brown",
+            "brown",
+            "brown"
+          ],
+          "normalized": [
+            "brown",
+            "brown",
+            "brown"
+          ],
+          "probabilities": {
+            "black": 0.0365,
+            "white": 0.038,
+            "gray_silver": 0.0909,
+            "red": 0.0356,
+            "blue": 0.0298,
+            "green": 0.032,
+            "yellow": 0.033,
+            "orange": 0.0352,
+            "brown": 0.5619,
+            "purple": 0.0303,
+            "pink": 0.0341,
+            "unknown": 0.0427
+          },
+          "confidence": 0.3131,
+          "latencies_ms": [
+            1064.27,
+            1457.22,
+            1243.34
+          ],
+          "errors": [],
+          "pred_consensus": "brown",
+          "latency_median_ms": 1243.3,
+          "is_correct": false,
+          "is_association_error": true
+        },
+        "blip": {
+          "raw_answers": [
+            "red",
+            "red",
+            "red"
+          ],
+          "normalized": [
+            "red",
+            "red",
+            "red"
+          ],
+          "probabilities": null,
+          "confidence": null,
+          "latencies_ms": [
+            709.8,
+            781.68,
+            750.66
+          ],
+          "errors": [],
+          "pred_consensus": "red",
+          "latency_median_ms": 750.7,
+          "is_correct": false,
+          "is_association_error": false
+        }
+      }
+    },
+    {
+      "id": "scene_col_06_crop",
+      "scene_id": "scene_col_06",
+      "presentation": "crop",
+      "task": "color",
+      "rel_path": "eval/images/multi_object/scene_col_06_crop.jpg",
+      "target_label": "black",
+      "distractor_label": "orange",
+      "question_en": "What is the predominant color of this vehicle?",
+      "description": "Black car in middle (target) vs orange car on right (distractor)",
+      "target_bbox": [
+        250,
+        209,
+        672,
+        376
+      ],
+      "distractor_bbox": [
+        438,
+        227,
+        959,
+        495
+      ],
+      "models": {
+        "laya": {
+          "raw_answers": [
+            "orange",
+            "orange",
+            "orange"
+          ],
+          "normalized": [
+            "orange",
+            "orange",
+            "orange"
+          ],
+          "probabilities": {
+            "black": 0.0312,
+            "white": 0.1049,
+            "gray_silver": 0.0586,
+            "red": 0.0636,
+            "blue": 0.0298,
+            "green": 0.0325,
+            "yellow": 0.0336,
+            "orange": 0.459,
+            "brown": 0.0674,
+            "purple": 0.0381,
+            "pink": 0.0325,
+            "unknown": 0.0488
+          },
+          "confidence": 0.2198,
+          "latencies_ms": [
+            1093.91,
+            1539.64,
+            1268.66
+          ],
+          "errors": [],
+          "pred_consensus": "orange",
+          "latency_median_ms": 1268.7,
+          "is_correct": false,
+          "is_association_error": true
+        },
+        "blip": {
+          "raw_answers": [
+            "white",
+            "white",
+            "white"
+          ],
+          "normalized": [
+            "white",
+            "white",
+            "white"
+          ],
+          "probabilities": null,
+          "confidence": null,
+          "latencies_ms": [
+            710.81,
+            829.35,
+            712.37
+          ],
+          "errors": [],
+          "pred_consensus": "white",
+          "latency_median_ms": 712.4,
+          "is_correct": false,
+          "is_association_error": false
+        }
+      }
+    },
+    {
+      "id": "scene_col_06_full_highlighted",
+      "scene_id": "scene_col_06",
+      "presentation": "full_highlighted",
+      "task": "color",
+      "rel_path": "eval/images/multi_object/scene_col_06_full_highlighted.jpg",
+      "target_label": "black",
+      "distractor_label": "orange",
+      "question_en": "In the highlighted object inside the red box, what is the predominant color of the vehicle?",
+      "description": "Black car in middle (target) vs orange car on right (distractor)",
+      "target_bbox": [
+        250,
+        209,
+        672,
+        376
+      ],
+      "distractor_bbox": [
+        438,
+        227,
+        959,
+        495
+      ],
+      "models": {
+        "laya": {
+          "raw_answers": [
+            "gray_silver",
+            "gray_silver",
+            "gray_silver"
+          ],
+          "normalized": [
+            "gray_silver",
+            "gray_silver",
+            "gray_silver"
+          ],
+          "probabilities": {
+            "black": 0.0392,
+            "white": 0.0463,
+            "gray_silver": 0.4424,
+            "red": 0.0898,
+            "blue": 0.0317,
+            "green": 0.0423,
+            "yellow": 0.0384,
+            "orange": 0.1058,
+            "brown": 0.0464,
+            "purple": 0.0368,
+            "pink": 0.0387,
+            "unknown": 0.0422
+          },
+          "confidence": 0.2049,
+          "latencies_ms": [
+            1189.85,
+            1334.85,
+            1240.56
+          ],
+          "errors": [],
+          "pred_consensus": "gray_silver",
+          "latency_median_ms": 1240.6,
+          "is_correct": false,
+          "is_association_error": false
+        },
+        "blip": {
+          "raw_answers": [
+            "orange",
+            "orange",
+            "orange"
+          ],
+          "normalized": [
+            "orange",
+            "orange",
+            "orange"
+          ],
+          "probabilities": null,
+          "confidence": null,
+          "latencies_ms": [
+            719.24,
+            926.8,
+            714.66
+          ],
+          "errors": [],
+          "pred_consensus": "orange",
+          "latency_median_ms": 719.2,
+          "is_correct": false,
+          "is_association_error": true
+        }
+      }
+    },
+    {
+      "id": "scene_col_07_crop",
+      "scene_id": "scene_col_07",
+      "presentation": "crop",
+      "task": "color",
+      "rel_path": "eval/images/multi_object/scene_col_07_crop.jpg",
+      "target_label": "white",
+      "distractor_label": "pink",
+      "question_en": "What is the predominant color of this vehicle?",
+      "description": "White car on right (target) vs pink car on left (distractor)",
+      "target_bbox": [
+        624,
+        491,
+        957,
+        920
+      ],
+      "distractor_bbox": [
+        44,
+        480,
+        856,
+        1138
+      ],
+      "models": {
+        "laya": {
+          "raw_answers": [
+            "black",
+            "black",
+            "black"
+          ],
+          "normalized": [
+            "black",
+            "black",
+            "black"
+          ],
+          "probabilities": {
+            "black": 0.2774,
+            "white": 0.0343,
+            "gray_silver": 0.1488,
+            "red": 0.0303,
+            "blue": 0.0331,
+            "green": 0.0312,
+            "yellow": 0.0309,
+            "orange": 0.0326,
+            "brown": 0.0381,
+            "purple": 0.1672,
+            "pink": 0.0713,
+            "unknown": 0.1048
+          },
+          "confidence": 0.1351,
+          "latencies_ms": [
+            1082.62,
+            1273.12,
+            1240.2
+          ],
+          "errors": [],
+          "pred_consensus": "black",
+          "latency_median_ms": 1240.2,
+          "is_correct": false,
+          "is_association_error": false
+        },
+        "blip": {
+          "raw_answers": [
+            "black",
+            "black",
+            "black"
+          ],
+          "normalized": [
+            "black",
+            "black",
+            "black"
+          ],
+          "probabilities": null,
+          "confidence": null,
+          "latencies_ms": [
+            714.71,
+            992.86,
+            710.69
+          ],
+          "errors": [],
+          "pred_consensus": "black",
+          "latency_median_ms": 714.7,
+          "is_correct": false,
+          "is_association_error": false
+        }
+      }
+    },
+    {
+      "id": "scene_col_07_full_highlighted",
+      "scene_id": "scene_col_07",
+      "presentation": "full_highlighted",
+      "task": "color",
+      "rel_path": "eval/images/multi_object/scene_col_07_full_highlighted.jpg",
+      "target_label": "white",
+      "distractor_label": "pink",
+      "question_en": "In the highlighted object inside the red box, what is the predominant color of the vehicle?",
+      "description": "White car on right (target) vs pink car on left (distractor)",
+      "target_bbox": [
+        624,
+        491,
+        957,
+        920
+      ],
+      "distractor_bbox": [
+        44,
+        480,
+        856,
+        1138
+      ],
+      "models": {
+        "laya": {
+          "raw_answers": [
+            "purple",
+            "purple",
+            "purple"
+          ],
+          "normalized": [
+            "purple",
+            "purple",
+            "purple"
+          ],
+          "probabilities": {
+            "black": 0.0464,
+            "white": 0.0429,
+            "gray_silver": 0.0503,
+            "red": 0.1236,
+            "blue": 0.0409,
+            "green": 0.0462,
+            "yellow": 0.0468,
+            "orange": 0.0486,
+            "brown": 0.0454,
+            "purple": 0.2981,
+            "pink": 0.1518,
+            "unknown": 0.059
+          },
+          "confidence": 0.1131,
+          "latencies_ms": [
+            1098.64,
+            1208.13,
+            1249.63
+          ],
+          "errors": [],
+          "pred_consensus": "purple",
+          "latency_median_ms": 1208.1,
+          "is_correct": false,
+          "is_association_error": false
+        },
+        "blip": {
+          "raw_answers": [
+            "pink",
+            "pink",
+            "pink"
+          ],
+          "normalized": [
+            "pink",
+            "pink",
+            "pink"
+          ],
+          "probabilities": null,
+          "confidence": null,
+          "latencies_ms": [
+            747.71,
+            879.49,
+            720.28
+          ],
+          "errors": [],
+          "pred_consensus": "pink",
+          "latency_median_ms": 747.7,
+          "is_correct": false,
+          "is_association_error": true
+        }
+      }
+    },
+    {
+      "id": "scene_col_08_crop",
+      "scene_id": "scene_col_08",
+      "presentation": "crop",
+      "task": "color",
+      "rel_path": "eval/images/multi_object/scene_col_08_crop.jpg",
+      "target_label": "blue",
+      "distractor_label": "orange",
+      "question_en": "What is the predominant color of this vehicle?",
+      "description": "Blue car in background (target) vs large orange car in foreground (distractor)",
+      "target_bbox": [
+        514,
+        14,
+        908,
+        291
+      ],
+      "distractor_bbox": [
+        96,
+        101,
+        891,
+        555
+      ],
+      "models": {
+        "laya": {
+          "raw_answers": [
+            "orange",
+            "orange",
+            "orange"
+          ],
+          "normalized": [
+            "orange",
+            "orange",
+            "orange"
+          ],
+          "probabilities": {
+            "black": 0.0529,
+            "white": 0.0385,
+            "gray_silver": 0.0436,
+            "red": 0.0347,
+            "blue": 0.1432,
+            "green": 0.0411,
+            "yellow": 0.051,
+            "orange": 0.4279,
+            "brown": 0.0422,
+            "purple": 0.0375,
+            "pink": 0.0367,
+            "unknown": 0.0507
+          },
+          "confidence": 0.2,
+          "latencies_ms": [
+            1071.25,
+            1207.96,
+            1254.94
+          ],
+          "errors": [],
+          "pred_consensus": "orange",
+          "latency_median_ms": 1208.0,
+          "is_correct": false,
+          "is_association_error": true
+        },
+        "blip": {
+          "raw_answers": [
+            "orange",
+            "orange",
+            "orange"
+          ],
+          "normalized": [
+            "orange",
+            "orange",
+            "orange"
+          ],
+          "probabilities": null,
+          "confidence": null,
+          "latencies_ms": [
+            712.86,
+            944.09,
+            718.29
+          ],
+          "errors": [],
+          "pred_consensus": "orange",
+          "latency_median_ms": 718.3,
+          "is_correct": false,
+          "is_association_error": true
+        }
+      }
+    },
+    {
+      "id": "scene_col_08_full_highlighted",
+      "scene_id": "scene_col_08",
+      "presentation": "full_highlighted",
+      "task": "color",
+      "rel_path": "eval/images/multi_object/scene_col_08_full_highlighted.jpg",
+      "target_label": "blue",
+      "distractor_label": "orange",
+      "question_en": "In the highlighted object inside the red box, what is the predominant color of the vehicle?",
+      "description": "Blue car in background (target) vs large orange car in foreground (distractor)",
+      "target_bbox": [
+        514,
+        14,
+        908,
+        291
+      ],
+      "distractor_bbox": [
+        96,
+        101,
+        891,
+        555
+      ],
+      "models": {
+        "laya": {
+          "raw_answers": [
+            "orange",
+            "orange",
+            "orange"
+          ],
+          "normalized": [
+            "orange",
+            "orange",
+            "orange"
+          ],
+          "probabilities": {
+            "black": 0.0492,
+            "white": 0.0467,
+            "gray_silver": 0.0503,
+            "red": 0.1545,
+            "blue": 0.1183,
+            "green": 0.0488,
+            "yellow": 0.0496,
+            "orange": 0.275,
+            "brown": 0.0564,
+            "purple": 0.0518,
+            "pink": 0.0483,
+            "unknown": 0.0511
+          },
+          "confidence": 0.0954,
+          "latencies_ms": [
+            1095.1,
+            1218.73,
+            1495.73
+          ],
+          "errors": [],
+          "pred_consensus": "orange",
+          "latency_median_ms": 1218.7,
+          "is_correct": false,
+          "is_association_error": true
+        },
+        "blip": {
+          "raw_answers": [
+            "orange",
+            "orange",
+            "orange"
+          ],
+          "normalized": [
+            "orange",
+            "orange",
+            "orange"
+          ],
+          "probabilities": null,
+          "confidence": null,
+          "latencies_ms": [
+            729.37,
+            801.66,
+            728.88
+          ],
+          "errors": [],
+          "pred_consensus": "orange",
+          "latency_median_ms": 729.4,
+          "is_correct": false,
+          "is_association_error": true
+        }
+      }
+    },
+    {
+      "id": "scene_col_09_crop",
+      "scene_id": "scene_col_09",
+      "presentation": "crop",
+      "task": "color",
+      "rel_path": "eval/images/multi_object/scene_col_09_crop.jpg",
+      "target_label": "white",
+      "distractor_label": "pink",
+      "question_en": "What is the predominant color of this vehicle?",
+      "description": "White vehicle on left (target) vs pink truck in center (distractor)",
+      "target_bbox": [
+        0,
+        98,
+        253,
+        340
+      ],
+      "distractor_bbox": [
+        98,
+        181,
+        959,
+        695
+      ],
+      "models": {
+        "laya": {
+          "raw_answers": [
+            "pink",
+            "pink",
+            "pink"
+          ],
+          "normalized": [
+            "pink",
+            "pink",
+            "pink"
+          ],
+          "probabilities": {
+            "black": 0.0482,
+            "white": 0.1045,
+            "gray_silver": 0.1623,
+            "red": 0.0501,
+            "blue": 0.0399,
+            "green": 0.0443,
+            "yellow": 0.0476,
+            "orange": 0.0475,
+            "brown": 0.0504,
+            "purple": 0.0531,
+            "pink": 0.2962,
+            "unknown": 0.0558
+          },
+          "confidence": 0.11,
+          "latencies_ms": [
+            1123.17,
+            1215.55,
+            1614.07
+          ],
+          "errors": [],
+          "pred_consensus": "pink",
+          "latency_median_ms": 1215.5,
+          "is_correct": false,
+          "is_association_error": true
+        },
+        "blip": {
+          "raw_answers": [
+            "pink",
+            "pink",
+            "pink"
+          ],
+          "normalized": [
+            "pink",
+            "pink",
+            "pink"
+          ],
+          "probabilities": null,
+          "confidence": null,
+          "latencies_ms": [
+            710.58,
+            725.93,
+            707.23
+          ],
+          "errors": [],
+          "pred_consensus": "pink",
+          "latency_median_ms": 710.6,
+          "is_correct": false,
+          "is_association_error": true
+        }
+      }
+    },
+    {
+      "id": "scene_col_09_full_highlighted",
+      "scene_id": "scene_col_09",
+      "presentation": "full_highlighted",
+      "task": "color",
+      "rel_path": "eval/images/multi_object/scene_col_09_full_highlighted.jpg",
+      "target_label": "white",
+      "distractor_label": "pink",
+      "question_en": "In the highlighted object inside the red box, what is the predominant color of the vehicle?",
+      "description": "White vehicle on left (target) vs pink truck in center (distractor)",
+      "target_bbox": [
+        0,
+        98,
+        253,
+        340
+      ],
+      "distractor_bbox": [
+        98,
+        181,
+        959,
+        695
+      ],
+      "models": {
+        "laya": {
+          "raw_answers": [
+            "purple",
+            "purple",
+            "purple"
+          ],
+          "normalized": [
+            "purple",
+            "purple",
+            "purple"
+          ],
+          "probabilities": {
+            "black": 0.0262,
+            "white": 0.0257,
+            "gray_silver": 0.0324,
+            "red": 0.2786,
+            "blue": 0.0249,
+            "green": 0.0301,
+            "yellow": 0.0288,
+            "orange": 0.0271,
+            "brown": 0.0282,
+            "purple": 0.3695,
+            "pink": 0.0888,
+            "unknown": 0.0397
+          },
+          "confidence": 0.2492,
+          "latencies_ms": [
+            1125.95,
+            1229.73,
+            1696.77
+          ],
+          "errors": [],
+          "pred_consensus": "purple",
+          "latency_median_ms": 1229.7,
+          "is_correct": false,
+          "is_association_error": false
+        },
+        "blip": {
+          "raw_answers": [
+            "pink",
+            "pink",
+            "pink"
+          ],
+          "normalized": [
+            "pink",
+            "pink",
+            "pink"
+          ],
+          "probabilities": null,
+          "confidence": null,
+          "latencies_ms": [
+            740.65,
+            735.66,
+            722.12
+          ],
+          "errors": [],
+          "pred_consensus": "pink",
+          "latency_median_ms": 735.7,
+          "is_correct": false,
+          "is_association_error": true
+        }
+      }
+    },
+    {
+      "id": "scene_col_10_crop",
+      "scene_id": "scene_col_10",
+      "presentation": "crop",
+      "task": "color",
+      "rel_path": "eval/images/multi_object/scene_col_10_crop.jpg",
+      "target_label": "white",
+      "distractor_label": "purple",
+      "question_en": "What is the predominant color of this vehicle?",
+      "description": "White car in background (target) vs purple car in foreground (distractor)",
+      "target_bbox": [
+        233,
+        46,
+        368,
+        100
+      ],
+      "distractor_bbox": [
+        40,
+        62,
+        447,
+        238
+      ],
+      "models": {
+        "laya": {
+          "raw_answers": [
+            "purple",
+            "purple",
+            "purple"
+          ],
+          "normalized": [
+            "purple",
+            "purple",
+            "purple"
+          ],
+          "probabilities": {
+            "black": 0.0465,
+            "white": 0.1106,
+            "gray_silver": 0.0525,
+            "red": 0.0486,
+            "blue": 0.0442,
+            "green": 0.0459,
+            "yellow": 0.0442,
+            "orange": 0.0412,
+            "brown": 0.0422,
+            "purple": 0.436,
+            "pink": 0.0382,
+            "unknown": 0.0497
+          },
+          "confidence": 0.1926,
+          "latencies_ms": [
+            1165.49,
+            1229.5,
+            1414.24
+          ],
+          "errors": [],
+          "pred_consensus": "purple",
+          "latency_median_ms": 1229.5,
+          "is_correct": false,
+          "is_association_error": true
+        },
+        "blip": {
+          "raw_answers": [
+            "white",
+            "white",
+            "white"
+          ],
+          "normalized": [
+            "white",
+            "white",
+            "white"
+          ],
+          "probabilities": null,
+          "confidence": null,
+          "latencies_ms": [
+            695.81,
+            724.2,
+            718.0
+          ],
+          "errors": [],
+          "pred_consensus": "white",
+          "latency_median_ms": 718.0,
+          "is_correct": true,
+          "is_association_error": false
+        }
+      }
+    },
+    {
+      "id": "scene_col_10_full_highlighted",
+      "scene_id": "scene_col_10",
+      "presentation": "full_highlighted",
+      "task": "color",
+      "rel_path": "eval/images/multi_object/scene_col_10_full_highlighted.jpg",
+      "target_label": "white",
+      "distractor_label": "purple",
+      "question_en": "In the highlighted object inside the red box, what is the predominant color of the vehicle?",
+      "description": "White car in background (target) vs purple car in foreground (distractor)",
+      "target_bbox": [
+        233,
+        46,
+        368,
+        100
+      ],
+      "distractor_bbox": [
+        40,
+        62,
+        447,
+        238
+      ],
+      "models": {
+        "laya": {
+          "raw_answers": [
+            "red",
+            "red",
+            "red"
+          ],
+          "normalized": [
+            "red",
+            "red",
+            "red"
+          ],
+          "probabilities": {
+            "black": 0.0458,
+            "white": 0.0533,
+            "gray_silver": 0.0499,
+            "red": 0.2299,
+            "blue": 0.0439,
+            "green": 0.0603,
+            "yellow": 0.1836,
+            "orange": 0.0446,
+            "brown": 0.0642,
+            "purple": 0.1276,
+            "pink": 0.0456,
+            "unknown": 0.0514
+          },
+          "confidence": 0.085,
+          "latencies_ms": [
+            1130.1,
+            1209.7,
+            1272.11
+          ],
+          "errors": [],
+          "pred_consensus": "red",
+          "latency_median_ms": 1209.7,
+          "is_correct": false,
+          "is_association_error": false
+        },
+        "blip": {
+          "raw_answers": [
+            "purple",
+            "purple",
+            "purple"
+          ],
+          "normalized": [
+            "purple",
+            "purple",
+            "purple"
+          ],
+          "probabilities": null,
+          "confidence": null,
+          "latencies_ms": [
+            705.26,
+            716.67,
+            718.44
+          ],
+          "errors": [],
+          "pred_consensus": "purple",
+          "latency_median_ms": 716.7,
+          "is_correct": false,
+          "is_association_error": true
+        }
+      }
+    },
+    {
+      "id": "scene_col_11_crop",
+      "scene_id": "scene_col_11",
+      "presentation": "crop",
+      "task": "color",
+      "rel_path": "eval/images/multi_object/scene_col_11_crop.jpg",
+      "target_label": "white",
+      "distractor_label": "brown",
+      "question_en": "What is the predominant color of this vehicle?",
+      "description": "White vehicle on left (target) vs brown vehicle in center (distractor)",
+      "target_bbox": [
+        0,
+        100,
+        280,
+        300
+      ],
+      "distractor_bbox": [
+        150,
+        50,
+        900,
+        550
+      ],
+      "models": {
+        "laya": {
+          "raw_answers": [
+            "brown",
+            "brown",
+            "brown"
+          ],
+          "normalized": [
+            "brown",
+            "brown",
+            "brown"
+          ],
+          "probabilities": {
+            "black": 0.1856,
+            "white": 0.0488,
+            "gray_silver": 0.0527,
+            "red": 0.0675,
+            "blue": 0.0468,
+            "green": 0.0482,
+            "yellow": 0.0498,
+            "orange": 0.0547,
+            "brown": 0.2626,
+            "purple": 0.0527,
+            "pink": 0.055,
+            "unknown": 0.0758
+          },
+          "confidence": 0.0922,
+          "latencies_ms": [
+            1115.63,
+            1205.24,
+            1264.21
+          ],
+          "errors": [],
+          "pred_consensus": "brown",
+          "latency_median_ms": 1205.2,
+          "is_correct": false,
+          "is_association_error": true
+        },
+        "blip": {
+          "raw_answers": [
+            "brown",
+            "brown",
+            "brown"
+          ],
+          "normalized": [
+            "brown",
+            "brown",
+            "brown"
+          ],
+          "probabilities": null,
+          "confidence": null,
+          "latencies_ms": [
+            696.16,
+            777.83,
+            711.72
+          ],
+          "errors": [],
+          "pred_consensus": "brown",
+          "latency_median_ms": 711.7,
+          "is_correct": false,
+          "is_association_error": true
+        }
+      }
+    },
+    {
+      "id": "scene_col_11_full_highlighted",
+      "scene_id": "scene_col_11",
+      "presentation": "full_highlighted",
+      "task": "color",
+      "rel_path": "eval/images/multi_object/scene_col_11_full_highlighted.jpg",
+      "target_label": "white",
+      "distractor_label": "brown",
+      "question_en": "In the highlighted object inside the red box, what is the predominant color of the vehicle?",
+      "description": "White vehicle on left (target) vs brown vehicle in center (distractor)",
+      "target_bbox": [
+        0,
+        100,
+        280,
+        300
+      ],
+      "distractor_bbox": [
+        150,
+        50,
+        900,
+        550
+      ],
+      "models": {
+        "laya": {
+          "raw_answers": [
+            "brown",
+            "brown",
+            "brown"
+          ],
+          "normalized": [
+            "brown",
+            "brown",
+            "brown"
+          ],
+          "probabilities": {
+            "black": 0.0463,
+            "white": 0.0587,
+            "gray_silver": 0.0583,
+            "red": 0.0984,
+            "blue": 0.036,
+            "green": 0.0389,
+            "yellow": 0.0402,
+            "orange": 0.188,
+            "brown": 0.3068,
+            "purple": 0.0379,
+            "pink": 0.045,
+            "unknown": 0.0457
+          },
+          "confidence": 0.1313,
+          "latencies_ms": [
+            1164.28,
+            1227.7,
+            1261.97
+          ],
+          "errors": [],
+          "pred_consensus": "brown",
+          "latency_median_ms": 1227.7,
+          "is_correct": false,
+          "is_association_error": true
+        },
+        "blip": {
+          "raw_answers": [
+            "brown",
+            "brown",
+            "brown"
+          ],
+          "normalized": [
+            "brown",
+            "brown",
+            "brown"
+          ],
+          "probabilities": null,
+          "confidence": null,
+          "latencies_ms": [
+            700.47,
+            736.33,
+            720.62
+          ],
+          "errors": [],
+          "pred_consensus": "brown",
+          "latency_median_ms": 720.6,
+          "is_correct": false,
+          "is_association_error": true
+        }
+      }
+    },
+    {
+      "id": "scene_col_12_crop",
+      "scene_id": "scene_col_12",
+      "presentation": "crop",
+      "task": "color",
+      "rel_path": "eval/images/multi_object/scene_col_12_crop.jpg",
+      "target_label": "blue",
+      "distractor_label": "orange",
+      "question_en": "What is the predominant color of this vehicle?",
+      "description": "Blue car on left (target) vs orange car in foreground (distractor)",
+      "target_bbox": [
+        0,
+        124,
+        219,
+        292
+      ],
+      "distractor_bbox": [
+        35,
+        183,
+        925,
+        519
+      ],
+      "models": {
+        "laya": {
+          "raw_answers": [
+            "orange",
+            "orange",
+            "orange"
+          ],
+          "normalized": [
+            "orange",
+            "orange",
+            "orange"
+          ],
+          "probabilities": {
+            "black": 0.0393,
+            "white": 0.0616,
+            "gray_silver": 0.083,
+            "red": 0.0606,
+            "blue": 0.0297,
+            "green": 0.0363,
+            "yellow": 0.0392,
+            "orange": 0.4912,
+            "brown": 0.0414,
+            "purple": 0.0385,
+            "pink": 0.0346,
+            "unknown": 0.0447
+          },
+          "confidence": 0.2399,
+          "latencies_ms": [
+            1124.33,
+            1226.17,
+            1267.02
+          ],
+          "errors": [],
+          "pred_consensus": "orange",
+          "latency_median_ms": 1226.2,
+          "is_correct": false,
+          "is_association_error": true
+        },
+        "blip": {
+          "raw_answers": [
+            "white",
+            "white",
+            "white"
+          ],
+          "normalized": [
+            "white",
+            "white",
+            "white"
+          ],
+          "probabilities": null,
+          "confidence": null,
+          "latencies_ms": [
+            723.77,
+            716.51,
+            704.07
+          ],
+          "errors": [],
+          "pred_consensus": "white",
+          "latency_median_ms": 716.5,
+          "is_correct": false,
+          "is_association_error": false
+        }
+      }
+    },
+    {
+      "id": "scene_col_12_full_highlighted",
+      "scene_id": "scene_col_12",
+      "presentation": "full_highlighted",
+      "task": "color",
+      "rel_path": "eval/images/multi_object/scene_col_12_full_highlighted.jpg",
+      "target_label": "blue",
+      "distractor_label": "orange",
+      "question_en": "In the highlighted object inside the red box, what is the predominant color of the vehicle?",
+      "description": "Blue car on left (target) vs orange car in foreground (distractor)",
+      "target_bbox": [
+        0,
+        124,
+        219,
+        292
+      ],
+      "distractor_bbox": [
+        35,
+        183,
+        925,
+        519
+      ],
+      "models": {
+        "laya": {
+          "raw_answers": [
+            "orange",
+            "orange",
+            "orange"
+          ],
+          "normalized": [
+            "orange",
+            "orange",
+            "orange"
+          ],
+          "probabilities": {
+            "black": 0.0573,
+            "white": 0.0404,
+            "gray_silver": 0.0452,
+            "red": 0.1101,
+            "blue": 0.0306,
+            "green": 0.0467,
+            "yellow": 0.0366,
+            "orange": 0.4806,
+            "brown": 0.0387,
+            "purple": 0.0387,
+            "pink": 0.0346,
+            "unknown": 0.0405
+          },
+          "confidence": 0.2365,
+          "latencies_ms": [
+            1857.49,
+            1240.35,
+            1358.46
+          ],
+          "errors": [],
+          "pred_consensus": "orange",
+          "latency_median_ms": 1358.5,
+          "is_correct": false,
+          "is_association_error": true
+        },
+        "blip": {
+          "raw_answers": [
+            "orange",
+            "orange",
+            "orange"
+          ],
+          "normalized": [
+            "orange",
+            "orange",
+            "orange"
+          ],
+          "probabilities": null,
+          "confidence": null,
+          "latencies_ms": [
+            730.08,
+            718.16,
+            733.59
+          ],
+          "errors": [],
+          "pred_consensus": "orange",
+          "latency_median_ms": 730.1,
+          "is_correct": false,
+          "is_association_error": true
+        }
+      }
+    },
+    {
+      "id": "scene_col_13_crop",
+      "scene_id": "scene_col_13",
+      "presentation": "crop",
+      "task": "color",
+      "rel_path": "eval/images/multi_object/scene_col_13_crop.jpg",
+      "target_label": "red",
+      "distractor_label": "purple",
+      "question_en": "What is the predominant color of this vehicle?",
+      "description": "Red car in background (target) vs purple truck in foreground (distractor)",
+      "target_bbox": [
+        0,
+        129,
+        188,
+        292
+      ],
+      "distractor_bbox": [
+        49,
+        68,
+        907,
+        540
+      ],
+      "models": {
+        "laya": {
+          "raw_answers": [
+            "white",
+            "white",
+            "white"
+          ],
+          "normalized": [
+            "white",
+            "white",
+            "white"
+          ],
+          "probabilities": {
+            "black": 0.1329,
+            "white": 0.2079,
+            "gray_silver": 0.1934,
+            "red": 0.0421,
+            "blue": 0.0463,
+            "green": 0.039,
+            "yellow": 0.0406,
+            "orange": 0.0703,
+            "brown": 0.0532,
+            "purple": 0.0408,
+            "pink": 0.037,
+            "unknown": 0.0964
+          },
+          "confidence": 0.0883,
+          "latencies_ms": [
+            2114.52,
+            1224.9,
+            1252.37
+          ],
+          "errors": [],
+          "pred_consensus": "white",
+          "latency_median_ms": 1252.4,
+          "is_correct": false,
+          "is_association_error": false
+        },
+        "blip": {
+          "raw_answers": [
+            "white",
+            "white",
+            "white"
+          ],
+          "normalized": [
+            "white",
+            "white",
+            "white"
+          ],
+          "probabilities": null,
+          "confidence": null,
+          "latencies_ms": [
+            719.62,
+            706.6,
+            707.94
+          ],
+          "errors": [],
+          "pred_consensus": "white",
+          "latency_median_ms": 707.9,
+          "is_correct": false,
+          "is_association_error": false
+        }
+      }
+    },
+    {
+      "id": "scene_col_13_full_highlighted",
+      "scene_id": "scene_col_13",
+      "presentation": "full_highlighted",
+      "task": "color",
+      "rel_path": "eval/images/multi_object/scene_col_13_full_highlighted.jpg",
+      "target_label": "red",
+      "distractor_label": "purple",
+      "question_en": "In the highlighted object inside the red box, what is the predominant color of the vehicle?",
+      "description": "Red car in background (target) vs purple truck in foreground (distractor)",
+      "target_bbox": [
+        0,
+        129,
+        188,
+        292
+      ],
+      "distractor_bbox": [
+        49,
+        68,
+        907,
+        540
+      ],
+      "models": {
+        "laya": {
+          "raw_answers": [
+            "red",
+            "red",
+            "red"
+          ],
+          "normalized": [
+            "red",
+            "red",
+            "red"
+          ],
+          "probabilities": {
+            "black": 0.0756,
+            "white": 0.0554,
+            "gray_silver": 0.1195,
+            "red": 0.3917,
+            "blue": 0.0376,
+            "green": 0.0391,
+            "yellow": 0.0394,
+            "orange": 0.0378,
+            "brown": 0.0416,
+            "purple": 0.0746,
+            "pink": 0.0438,
+            "unknown": 0.044
+          },
+          "confidence": 0.1637,
+          "latencies_ms": [
+            1740.9,
+            1229.02,
+            1258.92
+          ],
+          "errors": [],
+          "pred_consensus": "red",
+          "latency_median_ms": 1258.9,
+          "is_correct": true,
+          "is_association_error": false
+        },
+        "blip": {
+          "raw_answers": [
+            "purple",
+            "purple",
+            "purple"
+          ],
+          "normalized": [
+            "purple",
+            "purple",
+            "purple"
+          ],
+          "probabilities": null,
+          "confidence": null,
+          "latencies_ms": [
+            734.59,
+            732.37,
+            772.25
+          ],
+          "errors": [],
+          "pred_consensus": "purple",
+          "latency_median_ms": 734.6,
+          "is_correct": false,
+          "is_association_error": true
+        }
+      }
+    },
+    {
+      "id": "scene_col_14_crop",
+      "scene_id": "scene_col_14",
+      "presentation": "crop",
+      "task": "color",
+      "rel_path": "eval/images/multi_object/scene_col_14_crop.jpg",
+      "target_label": "black",
+      "distractor_label": "pink",
+      "question_en": "What is the predominant color of this vehicle?",
+      "description": "Black car on left (target) vs pink vehicle in center (distractor)",
+      "target_bbox": [
+        0,
+        136,
+        282,
+        379
+      ],
+      "distractor_bbox": [
+        200,
+        50,
+        900,
+        500
+      ],
+      "models": {
+        "laya": {
+          "raw_answers": [
+            "red",
+            "red",
+            "red"
+          ],
+          "normalized": [
+            "red",
+            "red",
+            "red"
+          ],
+          "probabilities": {
+            "black": 0.0359,
+            "white": 0.0995,
+            "gray_silver": 0.0435,
+            "red": 0.5179,
+            "blue": 0.0288,
+            "green": 0.0333,
+            "yellow": 0.0346,
+            "orange": 0.0372,
+            "brown": 0.0371,
+            "purple": 0.0343,
+            "pink": 0.0365,
+            "unknown": 0.0614
+          },
+          "confidence": 0.2714,
+          "latencies_ms": [
+            1223.52,
+            1208.75,
+            1251.93
+          ],
+          "errors": [],
+          "pred_consensus": "red",
+          "latency_median_ms": 1223.5,
+          "is_correct": false,
+          "is_association_error": false
+        },
+        "blip": {
+          "raw_answers": [
+            "red",
+            "red",
+            "red"
+          ],
+          "normalized": [
+            "red",
+            "red",
+            "red"
+          ],
+          "probabilities": null,
+          "confidence": null,
+          "latencies_ms": [
+            729.18,
+            725.41,
+            798.28
+          ],
+          "errors": [],
+          "pred_consensus": "red",
+          "latency_median_ms": 729.2,
+          "is_correct": false,
+          "is_association_error": false
+        }
+      }
+    },
+    {
+      "id": "scene_col_14_full_highlighted",
+      "scene_id": "scene_col_14",
+      "presentation": "full_highlighted",
+      "task": "color",
+      "rel_path": "eval/images/multi_object/scene_col_14_full_highlighted.jpg",
+      "target_label": "black",
+      "distractor_label": "pink",
+      "question_en": "In the highlighted object inside the red box, what is the predominant color of the vehicle?",
+      "description": "Black car on left (target) vs pink vehicle in center (distractor)",
+      "target_bbox": [
+        0,
+        136,
+        282,
+        379
+      ],
+      "distractor_bbox": [
+        200,
+        50,
+        900,
+        500
+      ],
+      "models": {
+        "laya": {
+          "raw_answers": [
+            "pink",
+            "pink",
+            "pink"
+          ],
+          "normalized": [
+            "pink",
+            "pink",
+            "pink"
+          ],
+          "probabilities": {
+            "black": 0.0479,
+            "white": 0.0539,
+            "gray_silver": 0.0485,
+            "red": 0.1561,
+            "blue": 0.0424,
+            "green": 0.047,
+            "yellow": 0.0477,
+            "orange": 0.0479,
+            "brown": 0.0482,
+            "purple": 0.0467,
+            "pink": 0.3627,
+            "unknown": 0.051
+          },
+          "confidence": 0.1481,
+          "latencies_ms": [
+            1159.99,
+            1227.13,
+            1243.34
+          ],
+          "errors": [],
+          "pred_consensus": "pink",
+          "latency_median_ms": 1227.1,
+          "is_correct": false,
+          "is_association_error": true
+        },
+        "blip": {
+          "raw_answers": [
+            "red",
+            "red",
+            "red"
+          ],
+          "normalized": [
+            "red",
+            "red",
+            "red"
+          ],
+          "probabilities": null,
+          "confidence": null,
+          "latencies_ms": [
+            760.89,
+            729.55,
+            813.28
+          ],
+          "errors": [],
+          "pred_consensus": "red",
+          "latency_median_ms": 760.9,
+          "is_correct": false,
+          "is_association_error": false
+        }
+      }
+    },
+    {
+      "id": "scene_col_15_crop",
+      "scene_id": "scene_col_15",
+      "presentation": "crop",
+      "task": "color",
+      "rel_path": "eval/images/multi_object/scene_col_15_crop.jpg",
+      "target_label": "blue",
+      "distractor_label": "white",
+      "question_en": "What is the predominant color of this vehicle?",
+      "description": "Blue car on right (target) vs white truck on left (distractor)",
+      "target_bbox": [
+        372,
+        91,
+        639,
+        267
+      ],
+      "distractor_bbox": [
+        28,
+        58,
+        626,
+        373
+      ],
+      "models": {
+        "laya": {
+          "raw_answers": [
+            "black",
+            "black",
+            "black"
+          ],
+          "normalized": [
+            "black",
+            "black",
+            "black"
+          ],
+          "probabilities": {
+            "black": 0.2992,
+            "white": 0.0434,
+            "gray_silver": 0.046,
+            "red": 0.0413,
+            "blue": 0.0917,
+            "green": 0.0601,
+            "yellow": 0.0448,
+            "orange": 0.0456,
+            "brown": 0.0828,
+            "purple": 0.0905,
+            "pink": 0.0415,
+            "unknown": 0.1131
+          },
+          "confidence": 0.0983,
+          "latencies_ms": [
+            1154.73,
+            1267.04,
+            1259.87
+          ],
+          "errors": [],
+          "pred_consensus": "black",
+          "latency_median_ms": 1259.9,
+          "is_correct": false,
+          "is_association_error": false
+        },
+        "blip": {
+          "raw_answers": [
+            "blue",
+            "blue",
+            "blue"
+          ],
+          "normalized": [
+            "blue",
+            "blue",
+            "blue"
+          ],
+          "probabilities": null,
+          "confidence": null,
+          "latencies_ms": [
+            731.34,
+            714.13,
+            1082.69
+          ],
+          "errors": [],
+          "pred_consensus": "blue",
+          "latency_median_ms": 731.3,
+          "is_correct": true,
+          "is_association_error": false
+        }
+      }
+    },
+    {
+      "id": "scene_col_15_full_highlighted",
+      "scene_id": "scene_col_15",
+      "presentation": "full_highlighted",
+      "task": "color",
+      "rel_path": "eval/images/multi_object/scene_col_15_full_highlighted.jpg",
+      "target_label": "blue",
+      "distractor_label": "white",
+      "question_en": "In the highlighted object inside the red box, what is the predominant color of the vehicle?",
+      "description": "Blue car on right (target) vs white truck on left (distractor)",
+      "target_bbox": [
+        372,
+        91,
+        639,
+        267
+      ],
+      "distractor_bbox": [
+        28,
+        58,
+        626,
+        373
+      ],
+      "models": {
+        "laya": {
+          "raw_answers": [
+            "red",
+            "red",
+            "red"
+          ],
+          "normalized": [
+            "red",
+            "red",
+            "red"
+          ],
+          "probabilities": {
+            "black": 0.2418,
+            "white": 0.0421,
+            "gray_silver": 0.0494,
+            "red": 0.3083,
+            "blue": 0.0437,
+            "green": 0.0479,
+            "yellow": 0.0422,
+            "orange": 0.0486,
+            "brown": 0.0419,
+            "purple": 0.041,
+            "pink": 0.0448,
+            "unknown": 0.0482
+          },
+          "confidence": 0.1548,
+          "latencies_ms": [
+            1188.11,
+            1229.6,
+            1248.19
+          ],
+          "errors": [],
+          "pred_consensus": "red",
+          "latency_median_ms": 1229.6,
+          "is_correct": false,
+          "is_association_error": false
+        },
+        "blip": {
+          "raw_answers": [
+            "black",
+            "black",
+            "black"
+          ],
+          "normalized": [
+            "black",
+            "black",
+            "black"
+          ],
+          "probabilities": null,
+          "confidence": null,
+          "latencies_ms": [
+            730.63,
+            715.15,
+            1063.6
+          ],
+          "errors": [],
+          "pred_consensus": "black",
+          "latency_median_ms": 730.6,
+          "is_correct": false,
+          "is_association_error": false
+        }
+      }
+    },
+    {
+      "id": "scene_typ_01_crop",
+      "scene_id": "scene_typ_01",
+      "presentation": "crop",
+      "task": "vehicle_type",
+      "rel_path": "eval/images/multi_object/scene_typ_01_crop.jpg",
+      "target_label": "bus",
+      "distractor_label": "sedan",
+      "question_en": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?",
+      "description": "Bus on left (target) vs sedan in center (distractor)",
+      "target_bbox": [
+        0,
+        1,
+        397,
+        320
+      ],
+      "distractor_bbox": [
+        59,
+        118,
+        839,
+        771
+      ],
+      "models": {
+        "laya": {
+          "raw_answers": [
+            "sedan",
+            "sedan",
+            "sedan"
+          ],
+          "normalized": [
+            "sedan",
+            "sedan",
+            "sedan"
+          ],
+          "probabilities": {
+            "sedan": 0.2177,
+            "hatchback": 0.0487,
+            "suv": 0.0505,
+            "pickup": 0.1189,
+            "van": 0.0522,
+            "coupe": 0.0511,
+            "convertible": 0.0497,
+            "truck": 0.1907,
+            "bus": 0.0466,
+            "motorcycle": 0.0459,
+            "unknown": 0.128
+          },
+          "confidence": 0.0818,
+          "latencies_ms": [
+            1210.27,
+            1290.89,
+            1309.0
+          ],
+          "errors": [],
+          "pred_consensus": "sedan",
+          "latency_median_ms": 1290.9,
+          "is_correct": false,
+          "is_association_error": true
+        },
+        "blip": {
+          "raw_answers": [
+            "sedan",
+            "sedan",
+            "sedan"
+          ],
+          "normalized": [
+            "sedan",
+            "sedan",
+            "sedan"
+          ],
+          "probabilities": null,
+          "confidence": null,
+          "latencies_ms": [
+            785.09,
+            742.95,
+            1333.44
+          ],
+          "errors": [],
+          "pred_consensus": "sedan",
+          "latency_median_ms": 785.1,
+          "is_correct": false,
+          "is_association_error": true
+        }
+      }
+    },
+    {
+      "id": "scene_typ_01_full_highlighted",
+      "scene_id": "scene_typ_01",
+      "presentation": "full_highlighted",
+      "task": "vehicle_type",
+      "rel_path": "eval/images/multi_object/scene_typ_01_full_highlighted.jpg",
+      "target_label": "bus",
+      "distractor_label": "sedan",
+      "question_en": "In the highlighted object inside the red box, what body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?",
+      "description": "Bus on left (target) vs sedan in center (distractor)",
+      "target_bbox": [
+        0,
+        1,
+        397,
+        320
+      ],
+      "distractor_bbox": [
+        59,
+        118,
+        839,
+        771
+      ],
+      "models": {
+        "laya": {
+          "raw_answers": [
+            "unknown",
+            "unknown",
+            "unknown"
+          ],
+          "normalized": [
+            "unknown",
+            "unknown",
+            "unknown"
+          ],
+          "probabilities": {
+            "sedan": 0.1805,
+            "hatchback": 0.0449,
+            "suv": 0.0327,
+            "pickup": 0.0176,
+            "van": 0.0557,
+            "coupe": 0.0594,
+            "convertible": 0.0739,
+            "truck": 0.0369,
+            "bus": 0.0266,
+            "motorcycle": 0.0295,
+            "unknown": 0.4424
+          },
+          "confidence": 0.2347,
+          "latencies_ms": [
+            1278.83,
+            1527.56,
+            1347.68
+          ],
+          "errors": [],
+          "pred_consensus": "unknown",
+          "latency_median_ms": 1347.7,
+          "is_correct": false,
+          "is_association_error": false
+        },
+        "blip": {
+          "raw_answers": [
+            "convertible",
+            "convertible",
+            "convertible"
+          ],
+          "normalized": [
+            "convertible",
+            "convertible",
+            "convertible"
+          ],
+          "probabilities": null,
+          "confidence": null,
+          "latencies_ms": [
+            836.05,
+            759.95,
+            1017.61
+          ],
+          "errors": [],
+          "pred_consensus": "convertible",
+          "latency_median_ms": 836.0,
+          "is_correct": false,
+          "is_association_error": false
+        }
+      }
+    },
+    {
+      "id": "scene_typ_02_crop",
+      "scene_id": "scene_typ_02",
+      "presentation": "crop",
+      "task": "vehicle_type",
+      "rel_path": "eval/images/multi_object/scene_typ_02_crop.jpg",
+      "target_label": "sedan",
+      "distractor_label": "truck",
+      "question_en": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?",
+      "description": "Sedan car on right (target) vs large truck on left (distractor)",
+      "target_bbox": [
+        372,
+        91,
+        639,
+        267
+      ],
+      "distractor_bbox": [
+        28,
+        58,
+        626,
+        373
+      ],
+      "models": {
+        "laya": {
+          "raw_answers": [
+            "sedan",
+            "sedan",
+            "sedan"
+          ],
+          "normalized": [
+            "sedan",
+            "sedan",
+            "sedan"
+          ],
+          "probabilities": {
+            "sedan": 0.2413,
+            "hatchback": 0.0554,
+            "suv": 0.1504,
+            "pickup": 0.044,
+            "van": 0.0484,
+            "coupe": 0.0802,
+            "convertible": 0.0667,
+            "truck": 0.0511,
+            "bus": 0.0517,
+            "motorcycle": 0.0504,
+            "unknown": 0.1605
+          },
+          "confidence": 0.0807,
+          "latencies_ms": [
+            1251.26,
+            1618.05,
+            1290.83
+          ],
+          "errors": [],
+          "pred_consensus": "sedan",
+          "latency_median_ms": 1290.8,
+          "is_correct": true,
+          "is_association_error": false
+        },
+        "blip": {
+          "raw_answers": [
+            "convertible",
+            "convertible",
+            "convertible"
+          ],
+          "normalized": [
+            "convertible",
+            "convertible",
+            "convertible"
+          ],
+          "probabilities": null,
+          "confidence": null,
+          "latencies_ms": [
+            825.77,
+            740.06,
+            752.06
+          ],
+          "errors": [],
+          "pred_consensus": "convertible",
+          "latency_median_ms": 752.1,
+          "is_correct": false,
+          "is_association_error": false
+        }
+      }
+    },
+    {
+      "id": "scene_typ_02_full_highlighted",
+      "scene_id": "scene_typ_02",
+      "presentation": "full_highlighted",
+      "task": "vehicle_type",
+      "rel_path": "eval/images/multi_object/scene_typ_02_full_highlighted.jpg",
+      "target_label": "sedan",
+      "distractor_label": "truck",
+      "question_en": "In the highlighted object inside the red box, what body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?",
+      "description": "Sedan car on right (target) vs large truck on left (distractor)",
+      "target_bbox": [
+        372,
+        91,
+        639,
+        267
+      ],
+      "distractor_bbox": [
+        28,
+        58,
+        626,
+        373
+      ],
+      "models": {
+        "laya": {
+          "raw_answers": [
+            "sedan",
+            "sedan",
+            "sedan"
+          ],
+          "normalized": [
+            "sedan",
+            "sedan",
+            "sedan"
+          ],
+          "probabilities": {
+            "sedan": 0.4551,
+            "hatchback": 0.0404,
+            "suv": 0.0491,
+            "pickup": 0.018,
+            "van": 0.0374,
+            "coupe": 0.0555,
+            "convertible": 0.0744,
+            "truck": 0.0344,
+            "bus": 0.0382,
+            "motorcycle": 0.0388,
+            "unknown": 0.1589
+          },
+          "confidence": 0.2312,
+          "latencies_ms": [
+            1241.03,
+            1901.66,
+            1328.16
+          ],
+          "errors": [],
+          "pred_consensus": "sedan",
+          "latency_median_ms": 1328.2,
+          "is_correct": true,
+          "is_association_error": false
+        },
+        "blip": {
+          "raw_answers": [
+            "hatchback",
+            "hatchback",
+            "hatchback"
+          ],
+          "normalized": [
+            "hatchback",
+            "hatchback",
+            "hatchback"
+          ],
+          "probabilities": null,
+          "confidence": null,
+          "latencies_ms": [
+            1108.02,
+            760.22,
+            786.07
+          ],
+          "errors": [],
+          "pred_consensus": "hatchback",
+          "latency_median_ms": 786.1,
+          "is_correct": false,
+          "is_association_error": false
+        }
+      }
+    },
+    {
+      "id": "scene_typ_03_crop",
+      "scene_id": "scene_typ_03",
+      "presentation": "crop",
+      "task": "vehicle_type",
+      "rel_path": "eval/images/multi_object/scene_typ_03_crop.jpg",
+      "target_label": "sedan",
+      "distractor_label": "bus",
+      "question_en": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?",
+      "description": "Small sedan on right (target) vs large bus in center (distractor)",
+      "target_bbox": [
+        880,
+        433,
+        924,
+        469
+      ],
+      "distractor_bbox": [
+        232,
+        307,
+        529,
+        556
+      ],
+      "models": {
+        "laya": {
+          "raw_answers": [
+            "sedan",
+            "sedan",
+            "sedan"
+          ],
+          "normalized": [
+            "sedan",
+            "sedan",
+            "sedan"
+          ],
+          "probabilities": {
+            "sedan": 0.2417,
+            "hatchback": 0.0587,
+            "suv": 0.075,
+            "pickup": 0.0586,
+            "van": 0.0505,
+            "coupe": 0.078,
+            "convertible": 0.0699,
+            "truck": 0.0886,
+            "bus": 0.0527,
+            "motorcycle": 0.0489,
+            "unknown": 0.1775
+          },
+          "confidence": 0.07,
+          "latencies_ms": [
+            1292.19,
+            1289.36,
+            1297.05
+          ],
+          "errors": [],
+          "pred_consensus": "sedan",
+          "latency_median_ms": 1292.2,
+          "is_correct": true,
+          "is_association_error": false
+        },
+        "blip": {
+          "raw_answers": [
+            "sedan",
+            "sedan",
+            "sedan"
+          ],
+          "normalized": [
+            "sedan",
+            "sedan",
+            "sedan"
+          ],
+          "probabilities": null,
+          "confidence": null,
+          "latencies_ms": [
+            1079.31,
+            779.77,
+            749.71
+          ],
+          "errors": [],
+          "pred_consensus": "sedan",
+          "latency_median_ms": 779.8,
+          "is_correct": true,
+          "is_association_error": false
+        }
+      }
+    },
+    {
+      "id": "scene_typ_03_full_highlighted",
+      "scene_id": "scene_typ_03",
+      "presentation": "full_highlighted",
+      "task": "vehicle_type",
+      "rel_path": "eval/images/multi_object/scene_typ_03_full_highlighted.jpg",
+      "target_label": "sedan",
+      "distractor_label": "bus",
+      "question_en": "In the highlighted object inside the red box, what body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?",
+      "description": "Small sedan on right (target) vs large bus in center (distractor)",
+      "target_bbox": [
+        880,
+        433,
+        924,
+        469
+      ],
+      "distractor_bbox": [
+        232,
+        307,
+        529,
+        556
+      ],
+      "models": {
+        "laya": {
+          "raw_answers": [
+            "sedan",
+            "sedan",
+            "sedan"
+          ],
+          "normalized": [
+            "sedan",
+            "sedan",
+            "sedan"
+          ],
+          "probabilities": {
+            "sedan": 0.249,
+            "hatchback": 0.0423,
+            "suv": 0.0441,
+            "pickup": 0.0336,
+            "van": 0.0434,
+            "coupe": 0.0424,
+            "convertible": 0.0716,
+            "truck": 0.041,
+            "bus": 0.2479,
+            "motorcycle": 0.0456,
+            "unknown": 0.1391
+          },
+          "confidence": 0.1316,
+          "latencies_ms": [
+            1264.38,
+            1430.45,
+            1309.89
+          ],
+          "errors": [],
+          "pred_consensus": "sedan",
+          "latency_median_ms": 1309.9,
+          "is_correct": true,
+          "is_association_error": false
+        },
+        "blip": {
+          "raw_answers": [
+            "convertible",
+            "convertible",
+            "convertible"
+          ],
+          "normalized": [
+            "convertible",
+            "convertible",
+            "convertible"
+          ],
+          "probabilities": null,
+          "confidence": null,
+          "latencies_ms": [
+            916.53,
+            733.25,
+            771.49
+          ],
+          "errors": [],
+          "pred_consensus": "convertible",
+          "latency_median_ms": 771.5,
+          "is_correct": false,
+          "is_association_error": false
+        }
+      }
+    },
+    {
+      "id": "scene_typ_04_crop",
+      "scene_id": "scene_typ_04",
+      "presentation": "crop",
+      "task": "vehicle_type",
+      "rel_path": "eval/images/multi_object/scene_typ_04_crop.jpg",
+      "target_label": "sedan",
+      "distractor_label": "truck",
+      "question_en": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?",
+      "description": "Sedan car on left (target) vs large truck in center (distractor)",
+      "target_bbox": [
+        0,
+        98,
+        253,
+        340
+      ],
+      "distractor_bbox": [
+        98,
+        181,
+        959,
+        695
+      ],
+      "models": {
+        "laya": {
+          "raw_answers": [
+            "sedan",
+            "sedan",
+            "sedan"
+          ],
+          "normalized": [
+            "sedan",
+            "sedan",
+            "sedan"
+          ],
+          "probabilities": {
+            "sedan": 0.2124,
+            "hatchback": 0.058,
+            "suv": 0.1256,
+            "pickup": 0.0486,
+            "van": 0.0527,
+            "coupe": 0.0988,
+            "convertible": 0.0631,
+            "truck": 0.057,
+            "bus": 0.0543,
+            "motorcycle": 0.0519,
+            "unknown": 0.1776
+          },
+          "confidence": 0.065,
+          "latencies_ms": [
+            1392.93,
+            1283.75,
+            1306.26
+          ],
+          "errors": [],
+          "pred_consensus": "sedan",
+          "latency_median_ms": 1306.3,
+          "is_correct": true,
+          "is_association_error": false
+        },
+        "blip": {
+          "raw_answers": [
+            "hatchback",
+            "hatchback",
+            "hatchback"
+          ],
+          "normalized": [
+            "hatchback",
+            "hatchback",
+            "hatchback"
+          ],
+          "probabilities": null,
+          "confidence": null,
+          "latencies_ms": [
+            901.12,
+            756.7,
+            772.91
+          ],
+          "errors": [],
+          "pred_consensus": "hatchback",
+          "latency_median_ms": 772.9,
+          "is_correct": false,
+          "is_association_error": false
+        }
+      }
+    },
+    {
+      "id": "scene_typ_04_full_highlighted",
+      "scene_id": "scene_typ_04",
+      "presentation": "full_highlighted",
+      "task": "vehicle_type",
+      "rel_path": "eval/images/multi_object/scene_typ_04_full_highlighted.jpg",
+      "target_label": "sedan",
+      "distractor_label": "truck",
+      "question_en": "In the highlighted object inside the red box, what body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?",
+      "description": "Sedan car on left (target) vs large truck in center (distractor)",
+      "target_bbox": [
+        0,
+        98,
+        253,
+        340
+      ],
+      "distractor_bbox": [
+        98,
+        181,
+        959,
+        695
+      ],
+      "models": {
+        "laya": {
+          "raw_answers": [
+            "sedan",
+            "sedan",
+            "sedan"
+          ],
+          "normalized": [
+            "sedan",
+            "sedan",
+            "sedan"
+          ],
+          "probabilities": {
+            "sedan": 0.2386,
+            "hatchback": 0.1203,
+            "suv": 0.1113,
+            "pickup": 0.0334,
+            "van": 0.0293,
+            "coupe": 0.076,
+            "convertible": 0.1143,
+            "truck": 0.0852,
+            "bus": 0.0442,
+            "motorcycle": 0.0319,
+            "unknown": 0.1154
+          },
+          "confidence": 0.0789,
+          "latencies_ms": [
+            1243.75,
+            1315.15,
+            1788.85
+          ],
+          "errors": [],
+          "pred_consensus": "sedan",
+          "latency_median_ms": 1315.2,
+          "is_correct": true,
+          "is_association_error": false
+        },
+        "blip": {
+          "raw_answers": [
+            "convertible",
+            "convertible",
+            "convertible"
+          ],
+          "normalized": [
+            "convertible",
+            "convertible",
+            "convertible"
+          ],
+          "probabilities": null,
+          "confidence": null,
+          "latencies_ms": [
+            770.95,
+            737.49,
+            764.22
+          ],
+          "errors": [],
+          "pred_consensus": "convertible",
+          "latency_median_ms": 764.2,
+          "is_correct": false,
+          "is_association_error": false
+        }
+      }
+    },
+    {
+      "id": "scene_typ_05_crop",
+      "scene_id": "scene_typ_05",
+      "presentation": "crop",
+      "task": "vehicle_type",
+      "rel_path": "eval/images/multi_object/scene_typ_05_crop.jpg",
+      "target_label": "sedan",
+      "distractor_label": "truck",
+      "question_en": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?",
+      "description": "Sedan on left (target) vs truck in foreground (distractor)",
+      "target_bbox": [
+        0,
+        129,
+        188,
+        292
+      ],
+      "distractor_bbox": [
+        49,
+        68,
+        907,
+        540
+      ],
+      "models": {
+        "laya": {
+          "raw_answers": [
+            "unknown",
+            "unknown",
+            "unknown"
+          ],
+          "normalized": [
+            "unknown",
+            "unknown",
+            "unknown"
+          ],
+          "probabilities": {
+            "sedan": 0.1517,
+            "hatchback": 0.0863,
+            "suv": 0.1603,
+            "pickup": 0.047,
+            "van": 0.0497,
+            "coupe": 0.107,
+            "convertible": 0.0791,
+            "truck": 0.0489,
+            "bus": 0.0496,
+            "motorcycle": 0.0471,
+            "unknown": 0.1734
+          },
+          "confidence": 0.0543,
+          "latencies_ms": [
+            1238.54,
+            1271.54,
+            1618.32
+          ],
+          "errors": [],
+          "pred_consensus": "unknown",
+          "latency_median_ms": 1271.5,
+          "is_correct": false,
+          "is_association_error": false
+        },
+        "blip": {
+          "raw_answers": [
+            "sedan",
+            "sedan",
+            "sedan"
+          ],
+          "normalized": [
+            "sedan",
+            "sedan",
+            "sedan"
+          ],
+          "probabilities": null,
+          "confidence": null,
+          "latencies_ms": [
+            720.61,
+            727.61,
+            764.72
+          ],
+          "errors": [],
+          "pred_consensus": "sedan",
+          "latency_median_ms": 727.6,
+          "is_correct": true,
+          "is_association_error": false
+        }
+      }
+    },
+    {
+      "id": "scene_typ_05_full_highlighted",
+      "scene_id": "scene_typ_05",
+      "presentation": "full_highlighted",
+      "task": "vehicle_type",
+      "rel_path": "eval/images/multi_object/scene_typ_05_full_highlighted.jpg",
+      "target_label": "sedan",
+      "distractor_label": "truck",
+      "question_en": "In the highlighted object inside the red box, what body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?",
+      "description": "Sedan on left (target) vs truck in foreground (distractor)",
+      "target_bbox": [
+        0,
+        129,
+        188,
+        292
+      ],
+      "distractor_bbox": [
+        49,
+        68,
+        907,
+        540
+      ],
+      "models": {
+        "laya": {
+          "raw_answers": [
+            "sedan",
+            "sedan",
+            "sedan"
+          ],
+          "normalized": [
+            "sedan",
+            "sedan",
+            "sedan"
+          ],
+          "probabilities": {
+            "sedan": 0.4051,
+            "hatchback": 0.1115,
+            "suv": 0.0867,
+            "pickup": 0.0368,
+            "van": 0.0408,
+            "coupe": 0.0672,
+            "convertible": 0.0418,
+            "truck": 0.0306,
+            "bus": 0.0414,
+            "motorcycle": 0.0326,
+            "unknown": 0.1056
+          },
+          "confidence": 0.1758,
+          "latencies_ms": [
+            1261.88,
+            1275.43,
+            1744.81
+          ],
+          "errors": [],
+          "pred_consensus": "sedan",
+          "latency_median_ms": 1275.4,
+          "is_correct": true,
+          "is_association_error": false
+        },
+        "blip": {
+          "raw_answers": [
+            "hatchback",
+            "hatchback",
+            "hatchback"
+          ],
+          "normalized": [
+            "hatchback",
+            "hatchback",
+            "hatchback"
+          ],
+          "probabilities": null,
+          "confidence": null,
+          "latencies_ms": [
+            768.65,
+            763.98,
+            790.35
+          ],
+          "errors": [],
+          "pred_consensus": "hatchback",
+          "latency_median_ms": 768.6,
+          "is_correct": false,
+          "is_association_error": false
+        }
+      }
+    },
+    {
+      "id": "scene_typ_06_crop",
+      "scene_id": "scene_typ_06",
+      "presentation": "crop",
+      "task": "vehicle_type",
+      "rel_path": "eval/images/multi_object/scene_typ_06_crop.jpg",
+      "target_label": "sedan",
+      "distractor_label": "truck",
+      "question_en": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?",
+      "description": "Audi sedan in center (target) vs white truck behind it (distractor)",
+      "target_bbox": [
+        42,
+        55,
+        231,
+        147
+      ],
+      "distractor_bbox": [
+        201,
+        27,
+        258,
+        155
+      ],
+      "models": {
+        "laya": {
+          "raw_answers": [
+            "sedan",
+            "sedan",
+            "sedan"
+          ],
+          "normalized": [
+            "sedan",
+            "sedan",
+            "sedan"
+          ],
+          "probabilities": {
+            "sedan": 0.2192,
+            "hatchback": 0.0908,
+            "suv": 0.0719,
+            "pickup": 0.0258,
+            "van": 0.0312,
+            "coupe": 0.0993,
+            "convertible": 0.1576,
+            "truck": 0.0305,
+            "bus": 0.0352,
+            "motorcycle": 0.0396,
+            "unknown": 0.1989
+          },
+          "confidence": 0.1092,
+          "latencies_ms": [
+            1368.3,
+            1257.96,
+            1431.65
+          ],
+          "errors": [],
+          "pred_consensus": "sedan",
+          "latency_median_ms": 1368.3,
+          "is_correct": true,
+          "is_association_error": false
+        },
+        "blip": {
+          "raw_answers": [
+            "sedan",
+            "sedan",
+            "sedan"
+          ],
+          "normalized": [
+            "sedan",
+            "sedan",
+            "sedan"
+          ],
+          "probabilities": null,
+          "confidence": null,
+          "latencies_ms": [
+            778.12,
+            734.07,
+            779.94
+          ],
+          "errors": [],
+          "pred_consensus": "sedan",
+          "latency_median_ms": 778.1,
+          "is_correct": true,
+          "is_association_error": false
+        }
+      }
+    },
+    {
+      "id": "scene_typ_06_full_highlighted",
+      "scene_id": "scene_typ_06",
+      "presentation": "full_highlighted",
+      "task": "vehicle_type",
+      "rel_path": "eval/images/multi_object/scene_typ_06_full_highlighted.jpg",
+      "target_label": "sedan",
+      "distractor_label": "truck",
+      "question_en": "In the highlighted object inside the red box, what body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?",
+      "description": "Audi sedan in center (target) vs white truck behind it (distractor)",
+      "target_bbox": [
+        42,
+        55,
+        231,
+        147
+      ],
+      "distractor_bbox": [
+        201,
+        27,
+        258,
+        155
+      ],
+      "models": {
+        "laya": {
+          "raw_answers": [
+            "sedan",
+            "sedan",
+            "sedan"
+          ],
+          "normalized": [
+            "sedan",
+            "sedan",
+            "sedan"
+          ],
+          "probabilities": {
+            "sedan": 0.1924,
+            "hatchback": 0.1128,
+            "suv": 0.0804,
+            "pickup": 0.0353,
+            "van": 0.044,
+            "coupe": 0.0894,
+            "convertible": 0.1023,
+            "truck": 0.0384,
+            "bus": 0.0373,
+            "motorcycle": 0.1083,
+            "unknown": 0.1595
+          },
+          "confidence": 0.061,
+          "latencies_ms": [
+            1516.0,
+            1276.81,
+            1320.9
+          ],
+          "errors": [],
+          "pred_consensus": "sedan",
+          "latency_median_ms": 1320.9,
+          "is_correct": true,
+          "is_association_error": false
+        },
+        "blip": {
+          "raw_answers": [
+            "convertible",
+            "convertible",
+            "convertible"
+          ],
+          "normalized": [
+            "convertible",
+            "convertible",
+            "convertible"
+          ],
+          "probabilities": null,
+          "confidence": null,
+          "latencies_ms": [
+            761.66,
+            738.43,
+            758.28
+          ],
+          "errors": [],
+          "pred_consensus": "convertible",
+          "latency_median_ms": 758.3,
+          "is_correct": false,
+          "is_association_error": false
+        }
+      }
+    },
+    {
+      "id": "scene_typ_07_crop",
+      "scene_id": "scene_typ_07",
+      "presentation": "crop",
+      "task": "vehicle_type",
+      "rel_path": "eval/images/multi_object/scene_typ_07_crop.jpg",
+      "target_label": "sedan",
+      "distractor_label": "bus",
+      "question_en": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?",
+      "description": "Car on far left edge (target) vs large bus dominating scene (distractor)",
+      "target_bbox": [
+        0,
+        315,
+        42,
+        403
+      ],
+      "distractor_bbox": [
+        45,
+        61,
+        871,
+        571
+      ],
+      "models": {
+        "laya": {
+          "raw_answers": [
+            "sedan",
+            "sedan",
+            "sedan"
+          ],
+          "normalized": [
+            "sedan",
+            "sedan",
+            "sedan"
+          ],
+          "probabilities": {
+            "sedan": 0.1923,
+            "hatchback": 0.0907,
+            "suv": 0.1037,
+            "pickup": 0.0604,
+            "van": 0.0576,
+            "coupe": 0.0776,
+            "convertible": 0.0661,
+            "truck": 0.0719,
+            "bus": 0.057,
+            "motorcycle": 0.055,
+            "unknown": 0.1677
+          },
+          "confidence": 0.0437,
+          "latencies_ms": [
+            1302.49,
+            1268.15,
+            1322.25
+          ],
+          "errors": [],
+          "pred_consensus": "sedan",
+          "latency_median_ms": 1302.5,
+          "is_correct": true,
+          "is_association_error": false
+        },
+        "blip": {
+          "raw_answers": [
+            "suv",
+            "suv",
+            "suv"
+          ],
+          "normalized": [
+            "suv",
+            "suv",
+            "suv"
+          ],
+          "probabilities": null,
+          "confidence": null,
+          "latencies_ms": [
+            754.76,
+            729.51,
+            763.32
+          ],
+          "errors": [],
+          "pred_consensus": "suv",
+          "latency_median_ms": 754.8,
+          "is_correct": false,
+          "is_association_error": false
+        }
+      }
+    },
+    {
+      "id": "scene_typ_07_full_highlighted",
+      "scene_id": "scene_typ_07",
+      "presentation": "full_highlighted",
+      "task": "vehicle_type",
+      "rel_path": "eval/images/multi_object/scene_typ_07_full_highlighted.jpg",
+      "target_label": "sedan",
+      "distractor_label": "bus",
+      "question_en": "In the highlighted object inside the red box, what body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?",
+      "description": "Car on far left edge (target) vs large bus dominating scene (distractor)",
+      "target_bbox": [
+        0,
+        315,
+        42,
+        403
+      ],
+      "distractor_bbox": [
+        45,
+        61,
+        871,
+        571
+      ],
+      "models": {
+        "laya": {
+          "raw_answers": [
+            "bus",
+            "bus",
+            "bus"
+          ],
+          "normalized": [
+            "bus",
+            "bus",
+            "bus"
+          ],
+          "probabilities": {
+            "sedan": 0.0582,
+            "hatchback": 0.0488,
+            "suv": 0.0509,
+            "pickup": 0.0513,
+            "van": 0.0775,
+            "coupe": 0.0404,
+            "convertible": 0.0509,
+            "truck": 0.0984,
+            "bus": 0.4224,
+            "motorcycle": 0.0486,
+            "unknown": 0.0527
+          },
+          "confidence": 0.1699,
+          "latencies_ms": [
+            1267.82,
+            1273.83,
+            1305.59
+          ],
+          "errors": [],
+          "pred_consensus": "bus",
+          "latency_median_ms": 1273.8,
+          "is_correct": false,
+          "is_association_error": true
+        },
+        "blip": {
+          "raw_answers": [
+            "convertible",
+            "convertible",
+            "convertible"
+          ],
+          "normalized": [
+            "convertible",
+            "convertible",
+            "convertible"
+          ],
+          "probabilities": null,
+          "confidence": null,
+          "latencies_ms": [
+            761.99,
+            743.13,
+            767.48
+          ],
+          "errors": [],
+          "pred_consensus": "convertible",
+          "latency_median_ms": 762.0,
+          "is_correct": false,
+          "is_association_error": false
+        }
+      }
+    },
+    {
+      "id": "scene_typ_08_crop",
+      "scene_id": "scene_typ_08",
+      "presentation": "crop",
+      "task": "vehicle_type",
+      "rel_path": "eval/images/multi_object/scene_typ_08_crop.jpg",
+      "target_label": "truck",
+      "distractor_label": "sedan",
+      "question_en": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?",
+      "description": "White truck on left (target) vs brown sedan in center (distractor)",
+      "target_bbox": [
+        0,
+        38,
+        311,
+        266
+      ],
+      "distractor_bbox": [
+        114,
+        38,
+        642,
+        427
+      ],
+      "models": {
+        "laya": {
+          "raw_answers": [
+            "suv",
+            "suv",
+            "suv"
+          ],
+          "normalized": [
+            "suv",
+            "suv",
+            "suv"
+          ],
+          "probabilities": {
+            "sedan": 0.1334,
+            "hatchback": 0.0788,
+            "suv": 0.1538,
+            "pickup": 0.0594,
+            "van": 0.0553,
+            "coupe": 0.0494,
+            "convertible": 0.1074,
+            "truck": 0.1238,
+            "bus": 0.0476,
+            "motorcycle": 0.0476,
+            "unknown": 0.1437
+          },
+          "confidence": 0.0409,
+          "latencies_ms": [
+            1371.07,
+            1316.58,
+            1308.44
+          ],
+          "errors": [],
+          "pred_consensus": "suv",
+          "latency_median_ms": 1316.6,
+          "is_correct": false,
+          "is_association_error": false
+        },
+        "blip": {
+          "raw_answers": [
+            "suv",
+            "suv",
+            "suv"
+          ],
+          "normalized": [
+            "suv",
+            "suv",
+            "suv"
+          ],
+          "probabilities": null,
+          "confidence": null,
+          "latencies_ms": [
+            758.92,
+            733.42,
+            749.97
+          ],
+          "errors": [],
+          "pred_consensus": "suv",
+          "latency_median_ms": 750.0,
+          "is_correct": false,
+          "is_association_error": false
+        }
+      }
+    },
+    {
+      "id": "scene_typ_08_full_highlighted",
+      "scene_id": "scene_typ_08",
+      "presentation": "full_highlighted",
+      "task": "vehicle_type",
+      "rel_path": "eval/images/multi_object/scene_typ_08_full_highlighted.jpg",
+      "target_label": "truck",
+      "distractor_label": "sedan",
+      "question_en": "In the highlighted object inside the red box, what body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?",
+      "description": "White truck on left (target) vs brown sedan in center (distractor)",
+      "target_bbox": [
+        0,
+        38,
+        311,
+        266
+      ],
+      "distractor_bbox": [
+        114,
+        38,
+        642,
+        427
+      ],
+      "models": {
+        "laya": {
+          "raw_answers": [
+            "sedan",
+            "sedan",
+            "sedan"
+          ],
+          "normalized": [
+            "sedan",
+            "sedan",
+            "sedan"
+          ],
+          "probabilities": {
+            "sedan": 0.3382,
+            "hatchback": 0.0548,
+            "suv": 0.0811,
+            "pickup": 0.0501,
+            "van": 0.0357,
+            "coupe": 0.0481,
+            "convertible": 0.1886,
+            "truck": 0.054,
+            "bus": 0.0482,
+            "motorcycle": 0.0454,
+            "unknown": 0.0559
+          },
+          "confidence": 0.1391,
+          "latencies_ms": [
+            1483.91,
+            1272.76,
+            1331.52
+          ],
+          "errors": [],
+          "pred_consensus": "sedan",
+          "latency_median_ms": 1331.5,
+          "is_correct": false,
+          "is_association_error": true
+        },
+        "blip": {
+          "raw_answers": [
+            "hatchback",
+            "hatchback",
+            "hatchback"
+          ],
+          "normalized": [
+            "hatchback",
+            "hatchback",
+            "hatchback"
+          ],
+          "probabilities": null,
+          "confidence": null,
+          "latencies_ms": [
+            787.97,
+            765.49,
+            777.71
+          ],
+          "errors": [],
+          "pred_consensus": "hatchback",
+          "latency_median_ms": 777.7,
+          "is_correct": false,
+          "is_association_error": false
+        }
+      }
+    },
+    {
+      "id": "scene_typ_09_crop",
+      "scene_id": "scene_typ_09",
+      "presentation": "crop",
+      "task": "vehicle_type",
+      "rel_path": "eval/images/multi_object/scene_typ_09_crop.jpg",
+      "target_label": "sedan",
+      "distractor_label": "bus",
+      "question_en": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?",
+      "description": "Car adjacent to bus (target) vs main bus (distractor)",
+      "target_bbox": [
+        750,
+        350,
+        850,
+        450
+      ],
+      "distractor_bbox": [
+        50,
+        50,
+        750,
+        550
+      ],
+      "models": {
+        "laya": {
+          "raw_answers": [
+            "sedan",
+            "sedan",
+            "sedan"
+          ],
+          "normalized": [
+            "sedan",
+            "sedan",
+            "sedan"
+          ],
+          "probabilities": {
+            "sedan": 0.2244,
+            "hatchback": 0.0615,
+            "suv": 0.0926,
+            "pickup": 0.0578,
+            "van": 0.0678,
+            "coupe": 0.0607,
+            "convertible": 0.0635,
+            "truck": 0.0857,
+            "bus": 0.0745,
+            "motorcycle": 0.0512,
+            "unknown": 0.1602
+          },
+          "confidence": 0.0536,
+          "latencies_ms": [
+            1508.84,
+            1290.8,
+            1345.56
+          ],
+          "errors": [],
+          "pred_consensus": "sedan",
+          "latency_median_ms": 1345.6,
+          "is_correct": true,
+          "is_association_error": false
+        },
+        "blip": {
+          "raw_answers": [
+            "bus",
+            "bus",
+            "bus"
+          ],
+          "normalized": [
+            "bus",
+            "bus",
+            "bus"
+          ],
+          "probabilities": null,
+          "confidence": null,
+          "latencies_ms": [
+            754.34,
+            731.16,
+            772.86
+          ],
+          "errors": [],
+          "pred_consensus": "bus",
+          "latency_median_ms": 754.3,
+          "is_correct": false,
+          "is_association_error": true
+        }
+      }
+    },
+    {
+      "id": "scene_typ_09_full_highlighted",
+      "scene_id": "scene_typ_09",
+      "presentation": "full_highlighted",
+      "task": "vehicle_type",
+      "rel_path": "eval/images/multi_object/scene_typ_09_full_highlighted.jpg",
+      "target_label": "sedan",
+      "distractor_label": "bus",
+      "question_en": "In the highlighted object inside the red box, what body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?",
+      "description": "Car adjacent to bus (target) vs main bus (distractor)",
+      "target_bbox": [
+        750,
+        350,
+        850,
+        450
+      ],
+      "distractor_bbox": [
+        50,
+        50,
+        750,
+        550
+      ],
+      "models": {
+        "laya": {
+          "raw_answers": [
+            "sedan",
+            "sedan",
+            "sedan"
+          ],
+          "normalized": [
+            "sedan",
+            "sedan",
+            "sedan"
+          ],
+          "probabilities": {
+            "sedan": 0.2061,
+            "hatchback": 0.0493,
+            "suv": 0.0798,
+            "pickup": 0.0594,
+            "van": 0.0478,
+            "coupe": 0.0504,
+            "convertible": 0.0626,
+            "truck": 0.0557,
+            "bus": 0.1357,
+            "motorcycle": 0.0681,
+            "unknown": 0.185
+          },
+          "confidence": 0.0659,
+          "latencies_ms": [
+            1469.9,
+            1300.02,
+            1307.36
+          ],
+          "errors": [],
+          "pred_consensus": "sedan",
+          "latency_median_ms": 1307.4,
+          "is_correct": true,
+          "is_association_error": false
+        },
+        "blip": {
+          "raw_answers": [
+            "convertible",
+            "convertible",
+            "convertible"
+          ],
+          "normalized": [
+            "convertible",
+            "convertible",
+            "convertible"
+          ],
+          "probabilities": null,
+          "confidence": null,
+          "latencies_ms": [
+            730.2,
+            785.83,
+            744.92
+          ],
+          "errors": [],
+          "pred_consensus": "convertible",
+          "latency_median_ms": 744.9,
+          "is_correct": false,
+          "is_association_error": false
+        }
+      }
+    },
+    {
+      "id": "scene_typ_10_crop",
+      "scene_id": "scene_typ_10",
+      "presentation": "crop",
+      "task": "vehicle_type",
+      "rel_path": "eval/images/multi_object/scene_typ_10_crop.jpg",
+      "target_label": "sedan",
+      "distractor_label": "truck",
+      "question_en": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?",
+      "description": "Sedan car on right (target) vs truck in center (distractor)",
+      "target_bbox": [
+        704,
+        414,
+        956,
+        519
+      ],
+      "distractor_bbox": [
+        245,
+        315,
+        548,
+        542
+      ],
+      "models": {
+        "laya": {
+          "raw_answers": [
+            "sedan",
+            "sedan",
+            "sedan"
+          ],
+          "normalized": [
+            "sedan",
+            "sedan",
+            "sedan"
+          ],
+          "probabilities": {
+            "sedan": 0.2118,
+            "hatchback": 0.067,
+            "suv": 0.1335,
+            "pickup": 0.0475,
+            "van": 0.0439,
+            "coupe": 0.1153,
+            "convertible": 0.0541,
+            "truck": 0.1051,
+            "bus": 0.0411,
+            "motorcycle": 0.0461,
+            "unknown": 0.1344
+          },
+          "confidence": 0.0628,
+          "latencies_ms": [
+            1286.87,
+            1274.97,
+            1296.98
+          ],
+          "errors": [],
+          "pred_consensus": "sedan",
+          "latency_median_ms": 1286.9,
+          "is_correct": true,
+          "is_association_error": false
+        },
+        "blip": {
+          "raw_answers": [
+            "suv",
+            "suv",
+            "suv"
+          ],
+          "normalized": [
+            "suv",
+            "suv",
+            "suv"
+          ],
+          "probabilities": null,
+          "confidence": null,
+          "latencies_ms": [
+            746.13,
+            1011.86,
+            733.43
+          ],
+          "errors": [],
+          "pred_consensus": "suv",
+          "latency_median_ms": 746.1,
+          "is_correct": false,
+          "is_association_error": false
+        }
+      }
+    },
+    {
+      "id": "scene_typ_10_full_highlighted",
+      "scene_id": "scene_typ_10",
+      "presentation": "full_highlighted",
+      "task": "vehicle_type",
+      "rel_path": "eval/images/multi_object/scene_typ_10_full_highlighted.jpg",
+      "target_label": "sedan",
+      "distractor_label": "truck",
+      "question_en": "In the highlighted object inside the red box, what body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?",
+      "description": "Sedan car on right (target) vs truck in center (distractor)",
+      "target_bbox": [
+        704,
+        414,
+        956,
+        519
+      ],
+      "distractor_bbox": [
+        245,
+        315,
+        548,
+        542
+      ],
+      "models": {
+        "laya": {
+          "raw_answers": [
+            "sedan",
+            "sedan",
+            "sedan"
+          ],
+          "normalized": [
+            "sedan",
+            "sedan",
+            "sedan"
+          ],
+          "probabilities": {
+            "sedan": 0.2904,
+            "hatchback": 0.035,
+            "suv": 0.0685,
+            "pickup": 0.0427,
+            "van": 0.0327,
+            "coupe": 0.0382,
+            "convertible": 0.0793,
+            "truck": 0.1264,
+            "bus": 0.0316,
+            "motorcycle": 0.0363,
+            "unknown": 0.219
+          },
+          "confidence": 0.1427,
+          "latencies_ms": [
+            1237.02,
+            1279.99,
+            1309.62
+          ],
+          "errors": [],
+          "pred_consensus": "sedan",
+          "latency_median_ms": 1280.0,
+          "is_correct": true,
+          "is_association_error": false
+        },
+        "blip": {
+          "raw_answers": [
+            "convertible",
+            "convertible",
+            "convertible"
+          ],
+          "normalized": [
+            "convertible",
+            "convertible",
+            "convertible"
+          ],
+          "probabilities": null,
+          "confidence": null,
+          "latencies_ms": [
+            731.62,
+            897.4,
+            744.6
+          ],
+          "errors": [],
+          "pred_consensus": "convertible",
+          "latency_median_ms": 744.6,
+          "is_correct": false,
+          "is_association_error": false
+        }
+      }
+    },
+    {
+      "id": "scene_per_01_crop",
+      "scene_id": "scene_per_01",
+      "presentation": "crop",
+      "task": "helmet",
+      "rel_path": "eval/images/multi_object/scene_per_01_crop.jpg",
+      "target_label": "yes",
+      "distractor_label": "no",
+      "question_en": "Is the person wearing a helmet or hard hat?",
+      "description": "Person on left wearing helmet (target) vs person on right with bare head (distractor)",
+      "target_bbox": [
+        58,
+        23,
+        227,
+        415
+      ],
+      "distractor_bbox": [
+        361,
+        48,
+        588,
+        452
+      ],
+      "models": {
+        "laya": {
+          "raw_answers": [
+            "yes",
+            "yes",
+            "yes"
+          ],
+          "normalized": [
+            "yes",
+            "yes",
+            "yes"
+          ],
+          "probabilities": {
+            "yes": 0.4294,
+            "no": 0.3438,
+            "not_visible": 0.2268
+          },
+          "confidence": 0.0292,
+          "latencies_ms": [
+            1149.7,
+            1211.59,
+            1224.5
+          ],
+          "errors": [],
+          "pred_consensus": "yes",
+          "latency_median_ms": 1211.6,
+          "is_correct": true,
+          "is_association_error": false
+        },
+        "blip": {
+          "raw_answers": [
+            "helmet",
+            "helmet",
+            "helmet"
+          ],
+          "normalized": [
+            "yes",
+            "yes",
+            "yes"
+          ],
+          "probabilities": null,
+          "confidence": null,
+          "latencies_ms": [
+            704.4,
+            1129.39,
+            706.89
+          ],
+          "errors": [],
+          "pred_consensus": "yes",
+          "latency_median_ms": 706.9,
+          "is_correct": true,
+          "is_association_error": false
+        }
+      }
+    },
+    {
+      "id": "scene_per_01_full_highlighted",
+      "scene_id": "scene_per_01",
+      "presentation": "full_highlighted",
+      "task": "helmet",
+      "rel_path": "eval/images/multi_object/scene_per_01_full_highlighted.jpg",
+      "target_label": "yes",
+      "distractor_label": "no",
+      "question_en": "In the highlighted object inside the red box, is the person wearing a helmet or hard hat?",
+      "description": "Person on left wearing helmet (target) vs person on right with bare head (distractor)",
+      "target_bbox": [
+        58,
+        23,
+        227,
+        415
+      ],
+      "distractor_bbox": [
+        361,
+        48,
+        588,
+        452
+      ],
+      "models": {
+        "laya": {
+          "raw_answers": [
+            "yes",
+            "yes",
+            "yes"
+          ],
+          "normalized": [
+            "yes",
+            "yes",
+            "yes"
+          ],
+          "probabilities": {
+            "yes": 0.6439,
+            "no": 0.1744,
+            "not_visible": 0.1817
+          },
+          "confidence": 0.1827,
+          "latencies_ms": [
+            1173.03,
+            1220.51,
+            1224.91
+          ],
+          "errors": [],
+          "pred_consensus": "yes",
+          "latency_median_ms": 1220.5,
+          "is_correct": true,
+          "is_association_error": false
+        },
+        "blip": {
+          "raw_answers": [
+            "helmet",
+            "helmet",
+            "helmet"
+          ],
+          "normalized": [
+            "yes",
+            "yes",
+            "yes"
+          ],
+          "probabilities": null,
+          "confidence": null,
+          "latencies_ms": [
+            715.65,
+            1375.44,
+            724.17
+          ],
+          "errors": [],
+          "pred_consensus": "yes",
+          "latency_median_ms": 724.2,
+          "is_correct": true,
+          "is_association_error": false
+        }
+      }
+    },
+    {
+      "id": "scene_per_02_crop",
+      "scene_id": "scene_per_02",
+      "presentation": "crop",
+      "task": "carrying",
+      "rel_path": "eval/images/multi_object/scene_per_02_crop.jpg",
+      "target_label": "backpack",
+      "distractor_label": "none",
+      "question_en": "Is the person carrying a backpack, bag, box, or nothing?",
+      "description": "Person on right carrying backpack (target) vs person on left with no bag (distractor)",
+      "target_bbox": [
+        552,
+        633,
+        807,
+        1341
+      ],
+      "distractor_bbox": [
+        324,
+        643,
+        594,
+        1270
+      ],
+      "models": {
+        "laya": {
+          "raw_answers": [
+            "bag_or_box",
+            "bag_or_box",
+            "bag_or_box"
+          ],
+          "normalized": [
+            "bag_or_box",
+            "bag_or_box",
+            "bag_or_box"
+          ],
+          "probabilities": {
+            "backpack": 0.1333,
+            "bag_or_box": 0.5152,
+            "none": 0.1678,
+            "not_visible": 0.1838
+          },
+          "confidence": 0.1192,
+          "latencies_ms": [
+            1210.04,
+            1282.85,
+            1243.18
+          ],
+          "errors": [],
+          "pred_consensus": "bag_or_box",
+          "latency_median_ms": 1243.2,
+          "is_correct": false,
+          "is_association_error": false
+        },
+        "blip": {
+          "raw_answers": [
+            "no",
+            "no",
+            "no"
+          ],
+          "normalized": [
+            "none",
+            "none",
+            "none"
+          ],
+          "probabilities": null,
+          "confidence": null,
+          "latencies_ms": [
+            709.68,
+            1026.07,
+            716.16
+          ],
+          "errors": [],
+          "pred_consensus": "none",
+          "latency_median_ms": 716.2,
+          "is_correct": false,
+          "is_association_error": true
+        }
+      }
+    },
+    {
+      "id": "scene_per_02_full_highlighted",
+      "scene_id": "scene_per_02",
+      "presentation": "full_highlighted",
+      "task": "carrying",
+      "rel_path": "eval/images/multi_object/scene_per_02_full_highlighted.jpg",
+      "target_label": "backpack",
+      "distractor_label": "none",
+      "question_en": "In the highlighted object inside the red box, is the person carrying a backpack, bag, box, or nothing?",
+      "description": "Person on right carrying backpack (target) vs person on left with no bag (distractor)",
+      "target_bbox": [
+        552,
+        633,
+        807,
+        1341
+      ],
+      "distractor_bbox": [
+        324,
+        643,
+        594,
+        1270
+      ],
+      "models": {
+        "laya": {
+          "raw_answers": [
+            "bag_or_box",
+            "bag_or_box",
+            "bag_or_box"
+          ],
+          "normalized": [
+            "bag_or_box",
+            "bag_or_box",
+            "bag_or_box"
+          ],
+          "probabilities": {
+            "backpack": 0.1262,
+            "bag_or_box": 0.5153,
+            "none": 0.2074,
+            "not_visible": 0.1511
+          },
+          "confidence": 0.1238,
+          "latencies_ms": [
+            1179.59,
+            1413.25,
+            1258.57
+          ],
+          "errors": [],
+          "pred_consensus": "bag_or_box",
+          "latency_median_ms": 1258.6,
+          "is_correct": false,
+          "is_association_error": false
+        },
+        "blip": {
+          "raw_answers": [
+            "yes",
+            "yes",
+            "yes"
+          ],
+          "normalized": [
+            "other",
+            "other",
+            "other"
+          ],
+          "probabilities": null,
+          "confidence": null,
+          "latencies_ms": [
+            757.84,
+            725.49,
+            745.84
+          ],
+          "errors": [],
+          "pred_consensus": "other",
+          "latency_median_ms": 745.8,
+          "is_correct": false,
+          "is_association_error": false
+        }
+      }
+    },
+    {
+      "id": "scene_per_03_crop",
+      "scene_id": "scene_per_03",
+      "presentation": "crop",
+      "task": "clothing",
+      "rel_path": "eval/images/multi_object/scene_per_03_crop.jpg",
+      "target_label": "safety_vest",
+      "distractor_label": "jacket_coat",
+      "question_en": "What upper-body clothing is the person wearing: safety_vest, jacket_coat, shirt_tshirt, or not_visible?",
+      "description": "Person wearing safety vest in foreground (target) vs background cars/objects (distractor)",
+      "target_bbox": [
+        98,
+        248,
+        892,
+        1176
+      ],
+      "distractor_bbox": [
+        0,
+        141,
+        285,
+        358
+      ],
+      "models": {
+        "laya": {
+          "raw_answers": [
+            "jacket_coat",
+            "jacket_coat",
+            "jacket_coat"
+          ],
+          "normalized": [
+            "jacket_coat",
+            "jacket_coat",
+            "jacket_coat"
+          ],
+          "probabilities": {
+            "safety_vest": 0.1802,
+            "jacket_coat": 0.4859,
+            "shirt_tshirt": 0.1608,
+            "not_visible": 0.173
+          },
+          "confidence": 0.0933,
+          "latencies_ms": [
+            1198.75,
+            1564.79,
+            1309.6
+          ],
+          "errors": [],
+          "pred_consensus": "jacket_coat",
+          "latency_median_ms": 1309.6,
+          "is_correct": false,
+          "is_association_error": true
+        },
+        "blip": {
+          "raw_answers": [
+            "yes",
+            "yes",
+            "yes"
+          ],
+          "normalized": [
+            "other",
+            "other",
+            "other"
+          ],
+          "probabilities": null,
+          "confidence": null,
+          "latencies_ms": [
+            737.98,
+            726.98,
+            752.14
+          ],
+          "errors": [],
+          "pred_consensus": "other",
+          "latency_median_ms": 738.0,
+          "is_correct": false,
+          "is_association_error": false
+        }
+      }
+    },
+    {
+      "id": "scene_per_03_full_highlighted",
+      "scene_id": "scene_per_03",
+      "presentation": "full_highlighted",
+      "task": "clothing",
+      "rel_path": "eval/images/multi_object/scene_per_03_full_highlighted.jpg",
+      "target_label": "safety_vest",
+      "distractor_label": "jacket_coat",
+      "question_en": "In the highlighted object inside the red box, what upper-body clothing is the person wearing?",
+      "description": "Person wearing safety vest in foreground (target) vs background cars/objects (distractor)",
+      "target_bbox": [
+        98,
+        248,
+        892,
+        1176
+      ],
+      "distractor_bbox": [
+        0,
+        141,
+        285,
+        358
+      ],
+      "models": {
+        "laya": {
+          "raw_answers": [
+            "jacket_coat",
+            "jacket_coat",
+            "jacket_coat"
+          ],
+          "normalized": [
+            "jacket_coat",
+            "jacket_coat",
+            "jacket_coat"
+          ],
+          "probabilities": {
+            "safety_vest": 0.1429,
+            "jacket_coat": 0.5445,
+            "shirt_tshirt": 0.147,
+            "not_visible": 0.1656
+          },
+          "confidence": 0.1426,
+          "latencies_ms": [
+            1180.94,
+            1706.77,
+            1273.3
+          ],
+          "errors": [],
+          "pred_consensus": "jacket_coat",
+          "latency_median_ms": 1273.3,
+          "is_correct": false,
+          "is_association_error": true
+        },
+        "blip": {
+          "raw_answers": [
+            "jacket",
+            "jacket",
+            "jacket"
+          ],
+          "normalized": [
+            "jacket_coat",
+            "jacket_coat",
+            "jacket_coat"
+          ],
+          "probabilities": null,
+          "confidence": null,
+          "latencies_ms": [
+            718.56,
+            720.56,
+            740.94
+          ],
+          "errors": [],
+          "pred_consensus": "jacket_coat",
+          "latency_median_ms": 720.6,
+          "is_correct": false,
+          "is_association_error": true
+        }
+      }
+    },
+    {
+      "id": "scene_per_04_crop",
+      "scene_id": "scene_per_04",
+      "presentation": "crop",
+      "task": "helmet",
+      "rel_path": "eval/images/multi_object/scene_per_04_crop.jpg",
+      "target_label": "no",
+      "distractor_label": "no",
+      "question_en": "Is the person wearing a helmet or hard hat?",
+      "description": "Pedestrian on left without helmet (target) vs pedestrian on right (distractor)",
+      "target_bbox": [
+        504,
+        850,
+        558,
+        1011
+      ],
+      "distractor_bbox": [
+        564,
+        856,
+        616,
+        1011
+      ],
+      "models": {
+        "laya": {
+          "raw_answers": [
+            "yes",
+            "yes",
+            "yes"
+          ],
+          "normalized": [
+            "yes",
+            "yes",
+            "yes"
+          ],
+          "probabilities": {
+            "yes": 0.403,
+            "no": 0.3049,
+            "not_visible": 0.2921
+          },
+          "confidence": 0.0098,
+          "latencies_ms": [
+            1209.23,
+            1217.73,
+            1220.0
+          ],
+          "errors": [],
+          "pred_consensus": "yes",
+          "latency_median_ms": 1217.7,
+          "is_correct": false,
+          "is_association_error": false
+        },
+        "blip": {
+          "raw_answers": [
+            "helmet",
+            "helmet",
+            "helmet"
+          ],
+          "normalized": [
+            "yes",
+            "yes",
+            "yes"
+          ],
+          "probabilities": null,
+          "confidence": null,
+          "latencies_ms": [
+            708.23,
+            709.11,
+            731.75
+          ],
+          "errors": [],
+          "pred_consensus": "yes",
+          "latency_median_ms": 709.1,
+          "is_correct": false,
+          "is_association_error": false
+        }
+      }
+    },
+    {
+      "id": "scene_per_04_full_highlighted",
+      "scene_id": "scene_per_04",
+      "presentation": "full_highlighted",
+      "task": "helmet",
+      "rel_path": "eval/images/multi_object/scene_per_04_full_highlighted.jpg",
+      "target_label": "no",
+      "distractor_label": "no",
+      "question_en": "In the highlighted object inside the red box, is the person wearing a helmet or hard hat?",
+      "description": "Pedestrian on left without helmet (target) vs pedestrian on right (distractor)",
+      "target_bbox": [
+        504,
+        850,
+        558,
+        1011
+      ],
+      "distractor_bbox": [
+        564,
+        856,
+        616,
+        1011
+      ],
+      "models": {
+        "laya": {
+          "raw_answers": [
+            "yes",
+            "yes",
+            "yes"
+          ],
+          "normalized": [
+            "yes",
+            "yes",
+            "yes"
+          ],
+          "probabilities": {
+            "yes": 0.3498,
+            "no": 0.3493,
+            "not_visible": 0.3009
+          },
+          "confidence": 0.0022,
+          "latencies_ms": [
+            1181.13,
+            1193.89,
+            1253.18
+          ],
+          "errors": [],
+          "pred_consensus": "yes",
+          "latency_median_ms": 1193.9,
+          "is_correct": false,
+          "is_association_error": false
+        },
+        "blip": {
+          "raw_answers": [
+            "helmet",
+            "helmet",
+            "helmet"
+          ],
+          "normalized": [
+            "yes",
+            "yes",
+            "yes"
+          ],
+          "probabilities": null,
+          "confidence": null,
+          "latencies_ms": [
+            722.88,
+            729.43,
+            720.69
+          ],
+          "errors": [],
+          "pred_consensus": "yes",
+          "latency_median_ms": 722.9,
+          "is_correct": false,
+          "is_association_error": false
+        }
+      }
+    },
+    {
+      "id": "scene_per_05_crop",
+      "scene_id": "scene_per_05",
+      "presentation": "crop",
+      "task": "color",
+      "rel_path": "eval/images/multi_object/scene_per_05_crop.jpg",
+      "target_label": "white",
+      "distractor_label": "blue",
+      "question_en": "What is the predominant color of this vehicle?",
+      "description": "White car (target) vs person in blue shirt standing next to car (distractor)",
+      "target_bbox": [
+        22,
+        31,
+        417,
+        305
+      ],
+      "distractor_bbox": [
+        56,
+        2,
+        153,
+        134
+      ],
+      "models": {
+        "laya": {
+          "raw_answers": [
+            "gray_silver",
+            "gray_silver",
+            "gray_silver"
+          ],
+          "normalized": [
+            "gray_silver",
+            "gray_silver",
+            "gray_silver"
+          ],
+          "probabilities": {
+            "black": 0.0124,
+            "white": 0.1624,
+            "gray_silver": 0.5576,
+            "red": 0.0203,
+            "blue": 0.0944,
+            "green": 0.0143,
+            "yellow": 0.0182,
+            "orange": 0.0419,
+            "brown": 0.0203,
+            "purple": 0.0199,
+            "pink": 0.0175,
+            "unknown": 0.0207
+          },
+          "confidence": 0.3755,
+          "latencies_ms": [
+            1194.14,
+            1245.22,
+            1386.74
+          ],
+          "errors": [],
+          "pred_consensus": "gray_silver",
+          "latency_median_ms": 1245.2,
+          "is_correct": false,
+          "is_association_error": false
+        },
+        "blip": {
+          "raw_answers": [
+            "white",
+            "white",
+            "white"
+          ],
+          "normalized": [
+            "white",
+            "white",
+            "white"
+          ],
+          "probabilities": null,
+          "confidence": null,
+          "latencies_ms": [
+            701.19,
+            718.36,
+            711.12
+          ],
+          "errors": [],
+          "pred_consensus": "white",
+          "latency_median_ms": 711.1,
+          "is_correct": true,
+          "is_association_error": false
+        }
+      }
+    },
+    {
+      "id": "scene_per_05_full_highlighted",
+      "scene_id": "scene_per_05",
+      "presentation": "full_highlighted",
+      "task": "color",
+      "rel_path": "eval/images/multi_object/scene_per_05_full_highlighted.jpg",
+      "target_label": "white",
+      "distractor_label": "blue",
+      "question_en": "In the highlighted object inside the red box, what is the predominant color of the vehicle?",
+      "description": "White car (target) vs person in blue shirt standing next to car (distractor)",
+      "target_bbox": [
+        22,
+        31,
+        417,
+        305
+      ],
+      "distractor_bbox": [
+        56,
+        2,
+        153,
+        134
+      ],
+      "models": {
+        "laya": {
+          "raw_answers": [
+            "gray_silver",
+            "gray_silver",
+            "gray_silver"
+          ],
+          "normalized": [
+            "gray_silver",
+            "gray_silver",
+            "gray_silver"
+          ],
+          "probabilities": {
+            "black": 0.0344,
+            "white": 0.0412,
+            "gray_silver": 0.4956,
+            "red": 0.0534,
+            "blue": 0.0849,
+            "green": 0.0384,
+            "yellow": 0.0394,
+            "orange": 0.044,
+            "brown": 0.0412,
+            "purple": 0.0401,
+            "pink": 0.0437,
+            "unknown": 0.0436
+          },
+          "confidence": 0.2414,
+          "latencies_ms": [
+            1199.54,
+            1251.93,
+            1704.48
+          ],
+          "errors": [],
+          "pred_consensus": "gray_silver",
+          "latency_median_ms": 1251.9,
+          "is_correct": false,
+          "is_association_error": false
+        },
+        "blip": {
+          "raw_answers": [
+            "white",
+            "white",
+            "white"
+          ],
+          "normalized": [
+            "white",
+            "white",
+            "white"
+          ],
+          "probabilities": null,
+          "confidence": null,
+          "latencies_ms": [
+            713.42,
+            774.49,
+            725.55
+          ],
+          "errors": [],
+          "pred_consensus": "white",
+          "latency_median_ms": 725.5,
+          "is_correct": true,
+          "is_association_error": false
+        }
+      }
+    }
+  ]
+}
