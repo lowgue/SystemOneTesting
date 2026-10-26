@@ -1,3 +1,16 @@
+## Clef-Flash local com Ollama: início rápido
+
+Instale [Ollama](https://ollama.com/download) (0.35.1 ou superior) e Python 3.12. Atualize o projeto com `git pull`.
+
+- **Windows:** dê dois cliques em `iniciar_clef_ollama.bat`.
+- **Linux/macOS:** execute `bash iniciar_clef_ollama.sh` na pasta do projeto.
+
+O iniciador prepara `.venv`, instala Pillow se necessário, verifica/inicia o Ollama local, baixa `clef-flash:9b` se estiver ausente e abre **http://127.0.0.1:7860**. O primeiro download é grande e depende da conexão. Envie uma imagem na página. Mantenha o terminal aberto; `Ctrl+C` encerra os processos iniciados pelo script. Um serviço Ollama que já estava ativo continua funcionando.
+
+Se a inferência informar memória insuficiente, use um computador com mais RAM/VRAM. Nesta máquina de 7,5 GiB de RAM, o Ollama tentou alocar aproximadamente 12,6 GB e não conseguiu carregar esta variante. Isso não é um requisito universal: o consumo depende da configuração e do hardware.
+
+Para outra porta: `python scripts/start_clef_ollama.py --port 7861`. Para não abrir o navegador automaticamente: adicione `--no-browser`. A interface fica acessível apenas no próprio computador. Este iniciador prepara o playground; para medições e comparação entre modelos, siga [o guia de benchmarks](docs/COMPARISON_SETUP.md).
+
 # System One Testing
 
 

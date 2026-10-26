@@ -13,6 +13,7 @@ import os
 import sys
 import threading
 import time
+import urllib.error
 import urllib.request
 from http.server import ThreadingHTTPServer, BaseHTTPRequestHandler
 from pathlib import Path
@@ -138,8 +139,18 @@ def call_local_clef(image: Image.Image, questions: dict[str, Any], *, ollama: bo
         headers={"Content-Type": "application/json"},
         method="POST",
     )
-    with urllib.request.urlopen(request, timeout=300) as response:
-        return json.loads(response.read().decode("utf-8"))
+    try:
+        with urllib.request.urlopen(request, timeout=300) as response:
+            return json.loads(response.read().decode("utf-8"))
+    except urllib.error.HTTPError as exc:
+        detail = exc.read(16384).decode("utf-8", errors="replace").lower()
+        if ollama and any(term in detail for term in ("insufficient memory", "out of memory", "not enough memory")):
+            raise RuntimeError(
+                "Memória insuficiente para carregar clef-flash:9b no Ollama. "
+                "Feche outros aplicativos ou use um computador com mais RAM/VRAM. "
+                "Consulte o terminal do Ollama para os detalhes da alocação."
+            ) from exc
+        raise RuntimeError(f"O servidor local retornou HTTP {exc.code}. Consulte os logs do Ollama/llama-server.") from exc
 MODEL_BACKEND = "laya"
 
 
