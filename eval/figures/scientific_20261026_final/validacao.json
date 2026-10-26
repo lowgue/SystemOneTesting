@@ -1,0 +1,18 @@
+{
+  "status": "passed",
+  "figures": 13,
+  "individual_exports": 39,
+  "pdf_pages": 13,
+  "png_dpi": 300,
+  "svg_well_formed": true,
+  "input_hashes_match": true,
+  "plot_script_hash_matches": true,
+  "atlas_links_valid": true,
+  "csv_row_counts": {
+    "observacoes_desempenho.csv": 160,
+    "observacoes_experimentos.csv": 452,
+    "auditoria_orcamento.csv": 54,
+    "inferencias_orcamento.csv": 12,
+    "simulacao_poder.csv": 48
+  }
+}

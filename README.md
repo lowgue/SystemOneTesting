@@ -193,3 +193,41 @@ Os intervalos de confiança são descritivos, e as imagens não constituem amost
 ## Experimentos
 
 Registre, para cada caso, a entrada, as regras/opções, a resposta correta anotada, a resposta do modelo, as probabilidades, a latência e a versão do modelo. Separe os dados usados para ajustar limiares do conjunto final de avaliação. As probabilidades declaradas pelo modelo não garantem calibração no seu domínio.
+
+## Comparação por conjunto completo de atributos (Teste 7)
+
+O próximo estudo está definido no [plano de avaliação robusta](eval/plans/robust_visual_description_evaluation.md): dados separados para desenvolvimento, calibração e teste final; anotação independente; comparação pareada; e custo por descrição completa correta. A etapa confirmatória com anotação humana ainda não foi executada.
+
+A etapa sem anotação humana tem um [piloto automatizado](eval/experiments/automated_pilot_20261026/report.md) separado: auditoria dos dados, parser estrito, desempenho em blocos alternados, configurações completas de prompt, degradações, controles sintéticos e fila. Essa etapa não substitui a avaliação confirmatória de qualidade. Há também uma [auditoria do orçamento de opções do Laya](eval/experiments/laya_option_budget_20261026/report.md).
+
+Para reproduzir em um diretório novo, com os pesos já no cache:
+
+```bash
+.venv/bin/python -m unittest discover -s eval/tests -v
+.venv/bin/python eval/run_automated_description_pilot.py --run-dir eval/experiments/novo_piloto --threads 8
+.venv/bin/python eval/report_automated_description_pilot.py eval/experiments/novo_piloto
+.venv/bin/python eval/audit_laya_option_budget.py --run-dir eval/experiments/novo_orcamento
+.venv/bin/python eval/simulate_paired_test_power.py --run-dir eval/experiments/novo_poder
+```
+
+O runner grava progresso e permite `--resume` com o mesmo diretório e configuração. Energia e custo monetário só serão informados quando houver medição e parâmetros disponíveis.
+
+Os resultados automatizados têm um [atlas com 13 figuras científicas](eval/figures/scientific_20261026_final/README.md), [PDF completo](eval/figures/scientific_20261026_final/relatorio_estatistico.pdf) e perfis individuais de [Laya](eval/figures/scientific_20261026_final/12_perfil_laya.pdf) e [BLIP](eval/figures/scientific_20261026_final/13_perfil_blip.pdf). Cada figura está disponível em PNG 300 dpi, SVG e PDF, com notas metodológicas, unidades, tamanho amostral e intervalos quando aplicáveis. Os CSVs e hashes permitem conferir os dados de origem. Para gerar outra versão sem sobrescrever arquivos:
+
+```bash
+.venv/bin/python eval/plot_scientific_description_results.py --output eval/figures/nova_execucao
+```
+
+O [Teste 7](eval/results/test_7_complete_tags_report.md) compara a entrega de quatro atributos por imagem: presença, marca, cor e carroceria para veículos; presença, capacete, objeto transportado e vestimenta superior para pessoas. O BLIP recebe perguntas curtas abertas em batch; o Laya recebe decisões tipadas com opções fixas. O critério principal exige todos os campos corretos na mesma imagem, incluindo abstenções quando o atributo não está visível. O tempo medido cobre o conjunto completo de perguntas.
+
+A amostra contém 41 imagens locais com anotações revisadas visualmente pelo agente antes da inferência, incluindo controles negativos. Os rótulos e hashes estão no [manifesto](eval/datasets/test_7_complete_tags_manifest.json). Trata-se de uma amostra exploratória reutilizada, sem adjudicação humana independente; o teste não valida uma integração real com o CaptionerManager.
+
+```bash
+# Opcional: reconstruir o manifesto com as imagens já disponíveis localmente
+.venv/bin/python eval/build_test_7_dataset.py
+# Executar com pesos já presentes no cache
+HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 .venv/bin/python eval/run_test_7_complete_benchmark.py --threads 8 --repetitions 3
+.venv/bin/python eval/generate_test_7_report.py
+```
+
+Os [resultados brutos](eval/results/test_7_complete_tags_results.json) preservam respostas anteriores e posteriores ao filtro de ausência, probabilidades disponíveis, tempos, erros e versões. As três repetições medem estabilidade e latência; a acurácia usa a primeira execução por imagem.

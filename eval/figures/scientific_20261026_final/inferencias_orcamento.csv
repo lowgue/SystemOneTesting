@@ -1,0 +1,13 @@
+head_tokens,image_id,latency_ms,truncated
+256,real_audi_1.jpg,2596.8036689992005,True
+256,real_dodge_1.jpg,2451.086007999038,True
+256,real_ford_1.jpg,2491.962648999106,True
+256,real_dodge_2.jpg,2460.6359749996045,True
+256,vehicle_no_car_landscape.jpg,2461.2239059988497,True
+256,vehicle_no_car_field.jpg,2482.72113999883,True
+512,real_audi_1.jpg,3727.85008900064,False
+512,real_dodge_1.jpg,3684.722243999204,False
+512,real_ford_1.jpg,3098.995524000202,False
+512,real_dodge_2.jpg,3005.372528999942,False
+512,vehicle_no_car_landscape.jpg,3060.478195999167,False
+512,vehicle_no_car_field.jpg,3001.693226999123,False
