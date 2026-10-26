@@ -1,8 +1,8 @@
 export const pages = {
-  live: ["Teste de imagem", "Compare modelos sobre a mesma imagem."],
+  live: ["Avaliar foto", "Envie uma foto e veja as respostas dos modelos."],
   benchmark: [
-    "Benchmark",
-    "Execute avaliações reproduzíveis e acompanhe os resultados.",
+    "Avaliar dataset",
+    "Avalie várias fotos automaticamente e compare acurácia, tempo e falhas.",
   ],
   results: ["Resultados", "Histórico de tarefas, gráficos e métricas."],
   diagnostics: [
@@ -20,6 +20,8 @@ export const labels = {
   clothing: "Vestimenta",
 };
 const values = {
+  __error__: "Falha de execução",
+  __missing__: "Ausente",
   yes: "Sim",
   no: "Não",
   unknown: "Não identificado",
@@ -43,7 +45,12 @@ export function stateText(job) {
   return (
     {
       queued: "Preparando tarefa",
-      running: job.phase || "Executando",
+      running:
+        job.progress?.phase === "warmup"
+          ? `Preparando modelo ${job.progress.model} e aquecimento…`
+          : job.progress?.model
+            ? `Avaliando fotos com ${job.progress.model}`
+            : job.phase || "Executando",
       complete: job.errors ? "Concluído com falhas" : "Concluído",
       failed: job.error || "Falha na tarefa",
       cancelled: "Cancelado",

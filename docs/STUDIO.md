@@ -18,9 +18,11 @@ As chamadas usam a mesma imagem RGB com até 1024 px e as mesmas perguntas para 
 
 O container padrão é voltado aos adapters HTTP. Para usar BLIP/Laya, instale o ambiente CPU/GPU e os pesos no desenvolvimento local, conforme o guia de comparação. CUDA e threads da interface afetam os modelos Python, não a configuração do Ollama.
 
-## Benchmark e resultados
+## Avaliação automática de datasets e resultados
 
-O benchmark usa o runner existente, incluindo aquecimento, alternância e configuração congelada. O dataset portátil tem 22 eventos e rótulos exploratórios. Ao terminar, gera gráficos e métricas. Em **Resultados**, abra os arquivos ou selecione uma tarefa anterior para consultar o estado e as respostas.
+Em **Avaliar dataset**, importe suas fotos e um CSV de gabarito opcional, ou use o conjunto de exemplo. Veja [DATASETS.md](DATASETS.md) para o formato do CSV e a definição de cada métrica. O relatório inclui acurácia completa e por atributo, precisão, recall, F1, distribuição de latência, falhas, formato e consumo de recursos, além de revisão e exportação por foto.
+
+A avaliação usa o runner existente, incluindo aquecimento, alternância e configuração congelada. O dataset portátil tem 22 eventos e rótulos exploratórios. Ao terminar, gera gráficos e métricas. Em **Resultados**, abra os arquivos ou selecione uma tarefa anterior para consultar o estado e as respostas.
 
 O histórico e as avaliações ficam em `/app/.artifacts` no volume `evaluations`. A aplicação usa um processo Uvicorn e um worker de inferência por vez. Não aumente `--workers`: o gerenciador de tarefas é local ao processo.
 

@@ -76,7 +76,7 @@ export default function Live({
                 onRun({ kind: "live", domain, image_data: image.data })
               }
             >
-              Avaliar imagem
+              Avaliar foto
             </button>
           </div>
           <p className="hint">

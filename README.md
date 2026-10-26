@@ -15,7 +15,7 @@ Abra **http://localhost:7860**.
 
 1. Entre em **Ambiente e modelos**.
 2. Clique em **Baixar ou atualizar Clef-Flash 9B** e acompanhe o progresso.
-3. Em **Teste de imagem**, envie uma imagem e clique em **Avaliar imagem**.
+3. Em **Avaliar foto**, envie uma imagem e clique em **Avaliar foto**.
 
 Não é necessário executar `.sh`, instalar Python/Node no computador de destino ou iniciar `ollama serve`. O Compose sobe a aplicação e um Ollama próprio. Os pesos ficam no volume `ollama-models` e as avaliações no volume `evaluations`; ambos persistem ao reiniciar.
 
@@ -25,12 +25,20 @@ O primeiro build baixa as imagens Docker. O download do modelo é separado e ini
 
 | Tela | Função |
 |---|---|
-| Teste de imagem | Avaliar a mesma imagem com os modelos selecionados; respostas e erros por modelo |
-| Benchmark | Rodadas com repetições, aquecimento, progresso e cancelamento |
+| Avaliar foto | Inspecionar uma foto com os modelos selecionados; respostas e tempo por modelo |
+| Avaliar dataset | Importar várias fotos e gabarito CSV opcional; avaliar automaticamente e ver acurácia, F1, latência, falhas e gráficos |
 | Resultados | Histórico das tarefas, JSON, CSV, gráficos PNG/PDF e atlas científico anterior |
 | Ambiente e modelos | Download do Clef pelo navegador, versão do Ollama, memória e diagnóstico |
 
 A imagem Docker padrão contém o backend HTTP, incluindo Clef pelo Ollama. Para validar a aplicação sem pesos, escolha `smoke_mock`: os resultados aparecem explicitamente como simulação. BLIP/Laya precisam do ambiente Python específico, documentado no [guia de comparação](docs/COMPARISON_SETUP.md).
+
+## Avaliar meu dataset
+
+Abra **Avaliar dataset → Importar minhas fotos**. Selecione as fotos, anexe um CSV de gabarito se disponível e clique em **Preparar dataset**. Depois, clique em **Iniciar avaliação do dataset**.
+
+O relatório mostra acurácia completa por foto, acurácia por atributo, precisão/recall/F1, mediana e P95 do tempo, falhas, validade do formato e recursos medidos. Inclui revisão por foto, matrizes de confusão e exportação CSV/JSON/PDF. Sem gabarito, ficam disponíveis somente as métricas de desempenho e falhas.
+
+O botão **Baixar modelo de gabarito** facilita a criação do CSV. Veja [como importar e interpretar as métricas](docs/DATASETS.md).
 
 ## Operação
 

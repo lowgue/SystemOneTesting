@@ -17,6 +17,9 @@ flowchart LR
 | Componente | Responsabilidade |
 |---|---|
 | `frontend/src/App.jsx` e `components/` | Navegação, componentes de cada tela e acompanhamento via eventos |
+| `frontend/src/components/DatasetImport.jsx` e `Evaluation.jsx` | Importação, gabarito, métricas e revisão por foto |
+| `vision_bench/webui/datasets.py` | Fotos e gabaritos imutáveis, validação e catálogo persistente |
+| `vision_bench/dataset_metrics.py` | Métricas, matrizes de confusão, CSVs e gráfico de acurácia |
 | `frontend/src/api.js` | Cliente HTTP e exportação JSON |
 | `frontend/vite.config.js` | Build e proxy de desenvolvimento |
 | `vision_bench/webui/api.py` | Aplicação ASGI, REST, eventos, lifecycle e frontend compilado |

@@ -140,16 +140,16 @@ def run(args):
     else:
         write_json(out/'frozen_config.json',frozen)
         write_json(out/'run.json',dict(started_utc=datetime.now(timezone.utc).isoformat(),identity=identity,machine_id=machine,hardware=env,
-            contract_hash=fingerprint(contract),dataset_hash=fingerprint([{k:v for k,v in it.items() if k in {'id','domain','sha256','expected','group_id'}} for it in items]),label_status=manifest.get('label_status','exploratory_unadjudicated'),
+            contract_hash=fingerprint(contract),dataset_hash=fingerprint([{k:v for k,v in it.items() if k in {'id','domain','sha256','expected','annotations','group_id'}} for it in items]),label_status=manifest.get('label_status','exploratory_unadjudicated'),
             resource_note='CPU/RSS scope is explicit per record; HTTP client resources are not server resources. Energy and monetary cost not measured.',
             simulated=any(s['adapter']=='mock' for s in specs)))
-    data=out/'predictions.jsonl';done=set()
+    data=out/'predictions.jsonl';done=set();measured_errors=0
     if data.exists():
         for line in data.read_text().splitlines():
             import json
             row=json.loads(line)
             if row['request_key'] in done:raise ValueError('Duplicate request key in existing results')
-            done.add(row['request_key'])
+            done.add(row['request_key']);measured_errors+=bool(row.get('error'))
     def append(filename,row):
         import json
         with (out/filename).open('a',encoding='utf-8') as f:f.write(json.dumps(row,ensure_ascii=False)+'\n');f.flush();os.fsync(f.fileno())
@@ -167,15 +167,21 @@ def run(args):
             metadata=server_metadata(spec) if spec['adapter']=='systemone_http' else None
             pid=metadata.get('pid') if metadata else None
             scope='client_plus_local_server' if pid else ('client_only' if spec['adapter']=='systemone_http' else 'in_process_model')
+            write_json(out/'status.json',dict(status='running',phase='warmup',model=spec['id'],completed=len(done),planned=total,errors=measured_errors))
             start=time.perf_counter();adapter=create_adapter(spec,contract,device=args.device,offline=args.offline)
             try:
                 adapter.synchronize();load_s=time.perf_counter()-start
                 warm=time.perf_counter()
+                warmup_errors=[]
                 for domain in sorted({it['domain'] for it in items}):
                     it=next(it for it in items if it['domain']==domain)
-                    with Image.open(resolve_image(args.data_root,it['rel_path'])) as src:image=src.convert('RGB')
-                    image.thumbnail((args.max_edge,args.max_edge));adapter.predict(image,domain);adapter.synchronize()
-                append('loads.jsonl',dict(model=spec['id'],block=block,load_or_client_init_s=load_s,warmup_s=time.perf_counter()-warm,server_metadata=metadata,resource_scope=scope))
+                    try:
+                        with Image.open(resolve_image(args.data_root,it['rel_path'])) as src:image=src.convert('RGB')
+                        image.thumbnail((args.max_edge,args.max_edge));adapter.predict(image,domain);adapter.synchronize()
+                    except Exception:
+                        warmup_errors.append(domain)
+                        print(f'Warm-up failed for {spec["id"]}/{domain}; recording all measured attempts.',flush=True)
+                append('loads.jsonl',dict(model=spec['id'],block=block,load_or_client_init_s=load_s,warmup_s=time.perf_counter()-warm,warmup_failed_domains=warmup_errors,server_metadata=metadata,resource_scope=scope))
                 random.Random(args.seed+block).shuffle(pending)
                 for it in pending:
                     key=f'{block}/{spec["id"]}/{it["id"]}'
@@ -197,9 +203,9 @@ def run(args):
                              error=error,raw=raw,**result)
                     if gpu:row['gpu_peak_allocated_bytes']=sys.modules['torch'].cuda.max_memory_allocated(args.device)
                     if it.get('expected') is not None:row.update(expected=it['expected'],exploratory_exact=(not error and result['predicted']==it['expected']))
-                    append('predictions.jsonl',row);done.add(key)
-                    write_json(out/'status.json',dict(status='running',completed=len(done),planned=total))
-                    print(f'{len(done)}/{total} {spec["id"]} {it["id"]}',flush=True)
+                    append('predictions.jsonl',row);done.add(key);measured_errors+=bool(error)
+                    write_json(out/'status.json',dict(status='running',phase='predict',model=spec['id'],current_filename=it.get('filename',it['id']),completed=len(done),planned=total,errors=measured_errors))
+                    print(f'{len(done)}/{total} {spec["id"]} {it["id"]}'+(f' ERROR: {error}' if error else ''),flush=True)
             finally:
                 adapter.close();del adapter;gc.collect()
                 if 'torch' in sys.modules and args.device.startswith('cuda'):sys.modules['torch'].cuda.empty_cache()

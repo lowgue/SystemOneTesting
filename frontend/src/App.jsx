@@ -169,6 +169,10 @@ export default function App() {
             {view === "benchmark" && (
               <Benchmark
                 catalog={catalog}
+                contract={settings.contract}
+                onCatalogRefresh={async () =>
+                  setCatalog(await api("/api/catalog"))
+                }
                 job={job?.kind === "benchmark" ? job : null}
                 busy={busy}
                 onRun={begin}

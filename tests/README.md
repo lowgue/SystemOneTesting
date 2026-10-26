@@ -19,7 +19,7 @@ python -m playwright install chromium
 python -m tests.browser_web
 ```
 
-O teste inicia uma API Uvicorn própria em uma porta livre e abre Chromium headless. Exercita upload, dois modelos simulados, eventos SSE, JSON, benchmark, gráficos, histórico, download do modelo simulado, erro detalhado, recarregamento e layout móvel sem overflow. Não usa o Ollama real para baixar pesos.
+O teste inicia uma API Uvicorn própria em uma porta livre e abre Chromium headless. Exercita foto singular, importação de várias fotos com gabarito parcial, acurácia automática, revisão de erros, dois modelos simulados, eventos SSE, JSON, gráficos, histórico, download do modelo simulado, erro detalhado, recarregamento e layout móvel sem overflow. Não usa o Ollama real para baixar pesos.
 
 Capturas e resumo ficam em `.artifacts/validation/react-web/`.
 

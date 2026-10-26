@@ -37,6 +37,11 @@ def validate_manifest(path,data_root,contract):
         image=resolve_image(data_root,it['rel_path'])
         if not image.is_file():raise ValueError(f'Missing image: {it["rel_path"]}; import the dataset bundle or use portable_vehicles.json')
         if not it.get('sha256') or sha256(image)!=it['sha256']:raise ValueError(f'Image checksum mismatch: {it["id"]}')
+        annotations=it.get('annotations')
+        if annotations is not None:
+            fields=domain['questions']
+            if not isinstance(annotations,dict) or not annotations or not set(annotations)<=set(fields):raise ValueError(f'Invalid annotation fields: {it["id"]}')
+            if any(v not in fields[k]['criteria'] for k,v in annotations.items()):raise ValueError(f'Invalid annotation label: {it["id"]}')
         expected=it.get('expected')
         if expected is not None:
             if set(expected)!=set(domain['questions']):raise ValueError(f'Incomplete expected fields: {it["id"]}')

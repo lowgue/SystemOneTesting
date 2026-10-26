@@ -13,11 +13,13 @@ import psutil
 from ..core import ROOT, load_json, resolve_image
 from ..runner import validate_config
 from .jobs import Jobs
+from .datasets import Datasets, dataset_info
 
 class Studio:
     def __init__(self, config_dir=None, jobs_root=None):
         self.config_dir = Path(config_dir or ROOT / 'benchmarks/configs')
         self.jobs = Jobs(jobs_root)
+        self.datasets = Datasets(self.jobs.root.parent / "datasets")
         self.contracts = {
             'ollama': ROOT / 'benchmarks/contracts/description_ollama_v1.json',
             'original': ROOT / 'benchmarks/contracts/description_v1.json',
@@ -40,11 +42,14 @@ class Studio:
                 pass
         return result
 
+    def dataset_paths(self):
+        return {**self.manifests, **self.datasets.manifests()}
+
     def catalog(self):
         return dict(configs=[dict(id=key, models=[dict(id=s['id'], adapter=s['adapter'],
             simulated=s['adapter']=='mock') for s in load_json(path)['models']]) for key,path in self.configs().items()],
             contracts=[dict(id=k, name=load_json(v)['name'], domains=list(load_json(v)['domains'])) for k,v in self.contracts.items()],
-            datasets=[dict(id=k, events=len(load_json(v)['items'])) for k,v in self.manifests.items()],
+            datasets=[dataset_info(k,load_json(v)) for k,v in self.dataset_paths().items()],
             current_job=self.jobs.current)
 
     def prepare(self, body):
@@ -90,12 +95,13 @@ class Studio:
             except (ValueError, UnidentifiedImageError, OSError, Image.DecompressionBombError) as exc:
                 raise ValueError(f'Imagem inválida: {exc}') from exc
         elif request['kind'] == 'benchmark':
-            manifest = self.manifests.get(body.get('dataset','portable'))
+            dataset_id=body.get('dataset','portable')
+            manifest = self.dataset_paths().get(dataset_id)
             reps = body.get('repetitions',3)
             limit = body.get('limit', 0)
             if not manifest or type(reps) is not int or not 1 <= reps <= 100 or type(limit) is not int or not 0 <= limit <= 100000:
                 raise ValueError('Dataset, repetições ou limite inválidos.')
-            request.update(manifest=str(manifest), repetitions=reps, limit=limit)
+            request.update(manifest=str(manifest), dataset=dataset_id, data_root=str(ROOT if dataset_id in self.manifests else manifest.parent), repetitions=reps, limit=limit)
         else:
             raise ValueError('Tipo de tarefa inválido.')
         return request, image
@@ -135,4 +141,3 @@ class Studio:
         except (OSError,ValueError) as exc:
             result.update(ollama='unavailable',error=str(exc))
         return result
-

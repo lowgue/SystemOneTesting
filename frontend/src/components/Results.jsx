@@ -30,7 +30,7 @@ export default function Results({ inspect }) {
               {job.kind === "live"
                 ? "Imagem"
                 : job.kind === "benchmark"
-                  ? "Benchmark"
+                  ? "Dataset"
                   : "Download"}{" "}
               — {stateText(job)} <small>{job.id.slice(0, 8)}</small>
             </button>

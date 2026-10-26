@@ -33,18 +33,24 @@ def run(folder):
                     write_json(folder/'status.json',status)
         elif request['kind'] == 'benchmark':
             from ..cli import main
+            status.update(phase='Preparando modelos e avaliando dataset',dataset=request.get('dataset','portable'))
+            write_json(folder/'status.json',status)
             run_path = folder / 'run'
             arguments = ['run', '--config', request['config'], '--contract', request['contract'],
-                         '--manifest', request['manifest'], '--models', *request['models'],
+                         '--manifest', request['manifest'], '--data-root', request.get('data_root',str(Path(request['manifest']).parents[2])), '--models', *request['models'],
                          '--output', str(run_path), '--repetitions', str(request['repetitions']),
                          '--threads', str(request['threads']), '--device', request['device']]
             if request.get('limit'):
                 arguments += ['--limit', str(request['limit'])]
             if main(arguments):
                 raise RuntimeError('O benchmark falhou. Consulte o registro abaixo; os arquivos parciais foram preservados.')
+            status['phase']='Calculando métricas e gerando relatórios'
+            write_json(folder/'status.json',status)
             if main(['report', str(run_path), '--output', str(folder / 'report')]):
                 raise RuntimeError('A rodada terminou, mas a geração do relatório falhou. Consulte o registro.')
-            status['errors'] = sum(row['errors'] for row in load_json(folder / 'report/metrics.json'))
+            from ..dataset_metrics import generate
+            evaluation=generate(run_path,folder/'report')
+            status.update(errors=sum(row['errors'] for row in evaluation['models']),dataset=request.get('dataset','portable'),simulated=evaluation['simulated'])
         else:
             contract = load_json(request['contract'])
             specs = load_json(request['config'])['models']

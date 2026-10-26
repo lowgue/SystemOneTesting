@@ -9,7 +9,7 @@ from pathlib import Path
 from urllib.parse import urlsplit
 
 from fastapi import FastAPI, Request
-from fastapi.responses import FileResponse, JSONResponse, StreamingResponse
+from fastapi.responses import FileResponse, JSONResponse, StreamingResponse, Response
 from fastapi.staticfiles import StaticFiles
 from starlette.concurrency import run_in_threadpool
 
@@ -26,6 +26,16 @@ def ollama_origin():
     if parsed.scheme != 'http' or parsed.hostname not in {'localhost','127.0.0.1','::1','ollama','host.docker.internal'} or parsed.username or parsed.password:
         raise ValueError('Configure um endpoint HTTP do Ollama local ou do serviço Docker.')
     return f'{parsed.scheme}://{parsed.netloc}'
+
+
+async def json_body(request):
+    try:
+        body=await request.json()
+    except (ValueError,UnicodeDecodeError):
+        raise ValueError('Envie JSON válido.')
+    if not isinstance(body,dict):
+        raise ValueError('Envie um objeto JSON.')
+    return body
 
 
 def create_app(studio=None, frontend=None):
@@ -83,17 +93,70 @@ def create_app(studio=None, frontend=None):
         results=[]
         for path in sorted(studio.jobs.root.glob('*/status.json'),key=lambda p:p.stat().st_mtime,reverse=True)[:100]:
             value=load_json(path)
-            results.append({key:value.get(key) for key in ['id','kind','state','errors','started_utc','phase']})
+            results.append({key:value.get(key) for key in ['id','kind','state','errors','started_utc','phase','dataset','simulated']})
         return results
 
     @app.post('/api/jobs',status_code=202)
     async def start(request: Request):
         try:
-            body=await request.json()
+            body=await json_body(request)
         except (ValueError, UnicodeDecodeError):
             raise ValueError('Envie JSON válido.')
         prepared,image=await run_in_threadpool(studio.prepare,body)
         return await run_in_threadpool(studio.jobs.start,prepared,image)
+
+    @app.post('/api/datasets',status_code=201)
+    async def new_dataset(request: Request):
+        body=await json_body(request)
+        return await run_in_threadpool(studio.datasets.create,body.get('name','Minhas fotos'),body.get('domain','vehicle'))
+
+    @app.post('/api/datasets/{dataset_id}/images')
+    async def upload_photo(dataset_id: str,request: Request):
+        body=await json_body(request)
+        return await run_in_threadpool(studio.datasets.add_image,dataset_id,body.get('filename'),body.get('image_data'))
+
+    @app.post('/api/datasets/{dataset_id}/finalize')
+    async def finalize_dataset(dataset_id: str,request: Request):
+        body=await json_body(request)
+        contract=studio.contracts.get(body.get('contract','ollama'))
+        if not contract:raise ValueError('Contrato inválido.')
+        text=body.get('csv','')
+        if not isinstance(text,str):raise ValueError('O gabarito deve ser texto CSV.')
+        return await run_in_threadpool(studio.datasets.finalize,dataset_id,text,load_json(contract))
+
+    @app.post('/api/datasets/{dataset_id}/discard')
+    def discard_dataset(dataset_id: str):
+        return studio.datasets.discard(dataset_id)
+
+    @app.get('/api/contracts/{contract_id}')
+    def contract_questions(contract_id: str):
+        path=studio.contracts.get(contract_id)
+        if not path:raise ValueError('Contrato inválido.')
+        return load_json(path)['domains']
+
+    @app.get('/api/datasets/{dataset_id}/photos/{photo_id}')
+    def dataset_photo(dataset_id: str,photo_id: str,thumbnail: bool=False):
+        manifest_path=studio.dataset_paths().get(dataset_id)
+        if not manifest_path:raise ValueError('Dataset não encontrado.')
+        item=next((it for it in load_json(manifest_path)['items'] if it['id']==photo_id),None)
+        if not item:raise ValueError('Foto não encontrada.')
+        root=ROOT if dataset_id in studio.manifests else manifest_path.parent
+        path=resolve_image(root,item['rel_path'])
+        if thumbnail:
+            from io import BytesIO
+            from PIL import Image
+            buffer=BytesIO()
+            with Image.open(path) as image:
+                image=image.convert('RGB');image.thumbnail((200,150));image.save(buffer,format='JPEG',quality=75)
+            return Response(buffer.getvalue(),media_type='image/jpeg')
+        return FileResponse(path)
+
+    @app.get('/api/jobs/{job_id}/evaluation')
+    def evaluation(job_id: str):
+        path=studio.jobs.folder(job_id)/'report/evaluation.json'
+        if not path.is_file():
+            return JSONResponse({'error':'O relatório estará disponível ao concluir a avaliação.'},status_code=404)
+        return load_json(path)
 
     @app.post('/api/ollama/pull',status_code=202)
     def pull():
