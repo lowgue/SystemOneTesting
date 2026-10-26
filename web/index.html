@@ -355,7 +355,7 @@
       const error = document.getElementById('inference-error');
       error.classList.add('hidden');
       document.getElementById('loading-label').textContent =
-        activeModel === 'clef' ? 'Consultando Clef-Flash...' : 'Consultando Laya Vision...';
+        activeModel.startsWith('clef') ? 'Consultando Clef-Flash...' : 'Consultando Laya Vision...';
       if (currentImage.type === 'preset') {
         payload.filename = currentImage.filename;
       } else {

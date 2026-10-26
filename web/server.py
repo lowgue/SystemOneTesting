@@ -143,14 +143,25 @@ def call_local_clef(image: Image.Image, questions: dict[str, Any], *, ollama: bo
         with urllib.request.urlopen(request, timeout=300) as response:
             return json.loads(response.read().decode("utf-8"))
     except urllib.error.HTTPError as exc:
-        detail = exc.read(16384).decode("utf-8", errors="replace").lower()
-        if ollama and any(term in detail for term in ("insufficient memory", "out of memory", "not enough memory")):
+        raw_detail = exc.read(16384).decode("utf-8", errors="replace")
+        try:
+            detail = str(json.loads(raw_detail).get("error", raw_detail))
+        except (ValueError, AttributeError):
+            detail = raw_detail
+        detail = detail[:2000]
+        sys.stderr.write(f"Servidor local HTTP {exc.code}: {detail}\n")
+        if ollama and any(term in detail.lower() for term in ("insufficient memory", "out of memory", "not enough memory")):
             raise RuntimeError(
                 "Memória insuficiente para carregar clef-flash:9b no Ollama. "
                 "Feche outros aplicativos ou use um computador com mais RAM/VRAM. "
-                "Consulte o terminal do Ollama para os detalhes da alocação."
+                f"Detalhes do Ollama: {detail}"
             ) from exc
-        raise RuntimeError(f"O servidor local retornou HTTP {exc.code}. Consulte os logs do Ollama/llama-server.") from exc
+        raise RuntimeError(f"O servidor local retornou HTTP {exc.code}: {detail}") from exc
+    except urllib.error.URLError as exc:
+        raise RuntimeError(
+            "Não foi possível conectar ao servidor local. Verifique se o Ollama está ativo "
+            "e se OLLAMA_SYSTEMONE_URL aponta para a porta correta."
+        ) from exc
 MODEL_BACKEND = "laya"
 
 
