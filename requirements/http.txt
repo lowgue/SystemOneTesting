@@ -1,0 +1,3 @@
+-r base.txt
+# Only needed for pinned GGUF downloads; no torch or transformers.
+huggingface-hub==2.2.0

@@ -1,0 +1,6 @@
+{
+  "schema_version": 1,
+  "models": [
+    {"id": "clef-flash-cloudflare", "adapter": "systemone_http", "account_env": "CLOUDFLARE_ACCOUNT_ID", "token_env": "CLOUDFLARE_API_TOKEN", "request_model": "clef-flash", "model": "@cf/cloudflare/clef-flash", "timeout_s": 120, "runtime": "remote; provider revision not pinned"}
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "repository": "ggml-org/Clef-Flash-GGUF",
+  "revision": "6e2a164d70aae2af7fce86005da3f91805565b1d",
+  "files": [
+    {
+      "filename": "Clef-Flash-Q4_K_M.gguf",
+      "sha256": "eef2968c238a80d49d340430f22410ea3db9934ad1c6fdb233a503cbf9a9b54e",
+      "size": 6732781824
+    },
+    {
+      "filename": "mmproj-Clef-Flash-Q8_0.gguf",
+      "sha256": "9dd8bc279f57d33b0697d4d0fe900fe751a24c9e3d30ab90969d4714ffc0722d",
+      "size": 624229728
+    }
+  ]
+}

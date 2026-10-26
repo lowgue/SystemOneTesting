@@ -1,0 +1,4 @@
+-r base.txt
+transformers==5.20.2
+huggingface-hub==2.2.0
+safetensors==0.8.0

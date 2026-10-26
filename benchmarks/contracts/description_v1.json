@@ -1,0 +1,271 @@
+{
+  "schema_version": 1,
+  "name": "complete-description-v1",
+  "domains": {
+    "vehicle": {
+      "prompts": {
+        "presence": "Is there a vehicle in the image?",
+        "make": "What brand is the vehicle?",
+        "color": "What is the predominant color of this vehicle?",
+        "body": "What body style is the vehicle?"
+      },
+      "questions": {
+        "presence": {
+          "type": "choice",
+          "instructions": "Is there a vehicle in the image?",
+          "criteria": {
+            "yes": "Yes",
+            "no": "No"
+          }
+        },
+        "make": {
+          "type": "choice",
+          "instructions": "What brand is the vehicle?",
+          "criteria": {
+            "mercedes_benz": "Mercedes-Benz",
+            "aston_martin": "Aston Martin",
+            "rolls_royce": "Rolls-Royce",
+            "lamborghini": "Lamborghini",
+            "am_general": "AM General",
+            "land_rover": "Land Rover",
+            "mitsubishi": "Mitsubishi",
+            "volkswagen": "Volkswagen",
+            "chevrolet": "Chevrolet",
+            "cadillac": "Cadillac",
+            "chrysler": "Chrysler",
+            "infiniti": "Infiniti",
+            "plymouth": "Plymouth",
+            "bentley": "Bentley",
+            "bugatti": "Bugatti",
+            "ferrari": "Ferrari",
+            "hyundai": "Hyundai",
+            "lincoln": "Lincoln",
+            "maybach": "Maybach",
+            "mclaren": "McLaren",
+            "porsche": "Porsche",
+            "daewoo": "Daewoo",
+            "fisker": "Fisker",
+            "hummer": "HUMMER",
+            "jaguar": "Jaguar",
+            "nissan": "Nissan",
+            "spyker": "Spyker",
+            "suzuki": "Suzuki",
+            "toyota": "Toyota",
+            "acura": "Acura",
+            "buick": "Buick",
+            "dodge": "Dodge",
+            "eagle": "Eagle",
+            "honda": "Honda",
+            "isuzu": "Isuzu",
+            "mazda": "Mazda",
+            "scion": "Scion",
+            "smart": "smart",
+            "tesla": "Tesla",
+            "volvo": "Volvo",
+            "audi": "Audi",
+            "fiat": "FIAT",
+            "ford": "Ford",
+            "jeep": "Jeep",
+            "bmw": "BMW",
+            "gmc": "GMC",
+            "geo": "Geo",
+            "ram": "Ram",
+            "unknown": "Unknown or no car"
+          }
+        },
+        "color": {
+          "type": "choice",
+          "instructions": "What is the predominant color of this vehicle?",
+          "criteria": {
+            "black": "Black",
+            "white": "White",
+            "gray_silver": "Gray or silver",
+            "red": "Red",
+            "blue": "Blue",
+            "green": "Green",
+            "yellow": "Yellow",
+            "orange": "Orange",
+            "brown": "Brown",
+            "purple": "Purple",
+            "pink": "Pink",
+            "unknown": "No car or color not identifiable / not visible"
+          }
+        },
+        "body": {
+          "type": "choice",
+          "instructions": "What body style is the vehicle?",
+          "criteria": {
+            "sedan": "Sedan",
+            "suv": "SUV",
+            "hatch": "Hatchback",
+            "truck": "Pickup truck",
+            "van": "Van or minivan",
+            "coupe": "Coupe",
+            "convertible": "Convertible",
+            "wagon": "Wagon",
+            "other": "Another body style",
+            "unknown": "No car or not identifiable"
+          }
+        }
+      }
+    },
+    "person": {
+      "prompts": {
+        "presence": "Is there a person in the image?",
+        "helmet": "Is the person wearing a helmet?",
+        "carrying": "What is the person carrying?",
+        "clothing": "What is the person wearing on their upper body?"
+      },
+      "questions": {
+        "presence": {
+          "type": "choice",
+          "instructions": "Is there a person in the image?",
+          "criteria": {
+            "yes": "Yes",
+            "no": "No"
+          }
+        },
+        "helmet": {
+          "type": "choice",
+          "instructions": "Is the person wearing a helmet?",
+          "criteria": {
+            "yes": "Yes, wearing helmet, hard hat, or motorcycle helmet",
+            "no": "No, bare head or regular cap/hat",
+            "not_visible": "Head not visible, occluded, or no person"
+          }
+        },
+        "carrying": {
+          "type": "choice",
+          "instructions": "What is the person carrying?",
+          "criteria": {
+            "backpack": "Carrying a backpack on back",
+            "bag_or_box": "Carrying a bag, briefcase, box, or suitcase",
+            "none": "Hands free, not carrying visible items",
+            "not_visible": "Body occluded, unclear, or no person"
+          }
+        },
+        "clothing": {
+          "type": "choice",
+          "instructions": "What is the person wearing on their upper body?",
+          "criteria": {
+            "safety_vest": "High-visibility fluorescent safety vest",
+            "jacket_coat": "Jacket, coat, suit, or outerwear",
+            "shirt_tshirt": "T-shirt, shirt, or light top",
+            "not_visible": "Upper body not visible, occluded, or no person"
+          }
+        }
+      }
+    }
+  },
+  "aliases": {
+    "color": {
+      "gray_silver": [
+        "gray",
+        "grey",
+        "silver"
+      ],
+      "purple": [
+        "purple",
+        "violet"
+      ]
+    },
+    "body": {
+      "truck": [
+        "pickup truck",
+        "pickup",
+        "truck"
+      ],
+      "hatch": [
+        "hatchback",
+        "hatch"
+      ],
+      "van": [
+        "minivan",
+        "van"
+      ],
+      "suv": [
+        "suv",
+        "crossover"
+      ],
+      "coupe": [
+        "coupe"
+      ],
+      "sedan": [
+        "sedan"
+      ],
+      "convertible": [
+        "convertible"
+      ],
+      "wagon": [
+        "wagon"
+      ]
+    },
+    "helmet": {
+      "yes": [
+        "yes",
+        "helmet",
+        "hard hat",
+        "hardhat"
+      ],
+      "no": [
+        "no",
+        "not",
+        "bareheaded",
+        "cap",
+        "hat"
+      ]
+    },
+    "carrying": {
+      "backpack": [
+        "backpack",
+        "rucksack"
+      ],
+      "bag_or_box": [
+        "bag",
+        "bags",
+        "box",
+        "briefcase",
+        "suitcase",
+        "purse",
+        "handbag",
+        "package"
+      ],
+      "none": [
+        "nothing",
+        "none",
+        "empty handed",
+        "no"
+      ]
+    },
+    "clothing": {
+      "safety_vest": [
+        "safety vest",
+        "vest",
+        "reflective vest"
+      ],
+      "jacket_coat": [
+        "jacket",
+        "coat",
+        "suit",
+        "blazer",
+        "sweater",
+        "sweatshirt",
+        "hoodie",
+        "uniform"
+      ],
+      "shirt_tshirt": [
+        "shirt",
+        "t shirt",
+        "tshirt",
+        "top",
+        "polo",
+        "blouse"
+      ]
+    }
+  },
+  "absence": {
+    "vehicle": "unknown",
+    "person": "not_visible"
+  },
+  "label_policy": "Existing exploratory taxonomy, not a human-adjudicated final contract."
+}

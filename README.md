@@ -1,11 +1,29 @@
 # System One Testing
 
+
+## Começar uma comparação em outro computador
+
+Use o [guia de comparação portátil](docs/COMPARISON_SETUP.md). Ele prepara BLIP, Laya e Clef-Flash, permite cadastrar outros modelos e descreve a transferência dos datasets com hashes.
+
+```bash
+git submodule update --init --recursive
+python3.12 scripts/setup_benchmark.py --backend http  # Clef/API, sem torch
+.venv/bin/python -m vision_bench doctor --models clef-flash-local-q4
+```
+
+Para BLIP/Laya em CPU, use `--backend cpu` no setup. Há uma amostra de 22 eventos de veículos disponível no clone; pessoas e o Teste 7 completo são transferidos por `pack-data`/`unpack-data`. Os resultados novos ficam em `.artifacts/`, separados dos experimentos históricos.
+
+
 Experimentos para avaliar modelos de decisão System 1 (Laya) em tarefas reais de classificação, roteamento e inspeção visual.
 
 ## Estrutura do projeto
 
 ```
 SystemOneTesting/
+├── vision_bench/          # CLI portátil, adaptadores e relatório para N modelos
+├── benchmarks/           # Configurações, contrato e amostra portátil
+├── requirements/         # Instalações HTTP e CPU, com versões fixadas
+├── docs/                 # Guia para preparar outro computador
 ├── web/
 │   ├── index.html          # Interface visual em tempo real (Tailwind / responsiva)
 │   └── server.py           # Servidor local para inspeção interativa de imagens

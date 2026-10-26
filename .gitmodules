@@ -1,0 +1,3 @@
+[submodule "vendor/laya-vision"]
+	path = vendor/laya-vision
+	url = https://github.com/r33drichards/laya-vision.git

@@ -1,0 +1,294 @@
+{
+  "schema_version": 1,
+  "name": "portable-vehicles",
+  "label_status": "exploratory_agent_reviewed",
+  "description": "22 vehicle images tracked in Git; people require the full exported dataset.",
+  "items": [
+    {
+      "id": "real_audi_1.jpg",
+      "domain": "vehicle",
+      "rel_path": "eval/images/cars/real_audi_1.jpg",
+      "expected": {
+        "presence": "yes",
+        "make": "audi",
+        "color": "white",
+        "body": "coupe"
+      },
+      "annotation": "Visual color review; existing make/body metadata, corrected Land Rover make. Gray includes silver.",
+      "sha256": "a7202789cca67d07693b7ac4388aac7db979a803576f3b7e53dac984a3f7f0a1"
+    },
+    {
+      "id": "real_dodge_1.jpg",
+      "domain": "vehicle",
+      "rel_path": "eval/images/cars/real_dodge_1.jpg",
+      "expected": {
+        "presence": "yes",
+        "make": "dodge",
+        "color": "red",
+        "body": "truck"
+      },
+      "annotation": "Visual color review; existing make/body metadata, corrected Land Rover make. Gray includes silver.",
+      "sha256": "6acbbcd51594dcedec392eb8d4f210d1ed91e948a38f54a446cf9e669e226915"
+    },
+    {
+      "id": "real_ford_1.jpg",
+      "domain": "vehicle",
+      "rel_path": "eval/images/cars/real_ford_1.jpg",
+      "expected": {
+        "presence": "yes",
+        "make": "ford",
+        "color": "gray_silver",
+        "body": "truck"
+      },
+      "annotation": "Visual color review; existing make/body metadata, corrected Land Rover make. Gray includes silver.",
+      "sha256": "59c82ea0b41db4c9ef70c63016cebcbed387e12f7b1d037e24b32975cec692f7"
+    },
+    {
+      "id": "real_dodge_2.jpg",
+      "domain": "vehicle",
+      "rel_path": "eval/images/cars/real_dodge_2.jpg",
+      "expected": {
+        "presence": "yes",
+        "make": "dodge",
+        "color": "blue",
+        "body": "suv"
+      },
+      "annotation": "Visual color review; existing make/body metadata, corrected Land Rover make. Gray includes silver.",
+      "sha256": "3e0d2f521365210c0161495b74bbe78882c96f0e2de283032f53ecc34bfcee8a"
+    },
+    {
+      "id": "real_chevrolet_1.jpg",
+      "domain": "vehicle",
+      "rel_path": "eval/images/cars/real_chevrolet_1.jpg",
+      "expected": {
+        "presence": "yes",
+        "make": "chevrolet",
+        "color": "gray_silver",
+        "body": "suv"
+      },
+      "annotation": "Visual color review; existing make/body metadata, corrected Land Rover make. Gray includes silver.",
+      "sha256": "419fddba2a109bbf7ac13caf6dcfcfd3ce32252810208c1958db76122077ab7d"
+    },
+    {
+      "id": "real_toyota_1.jpg",
+      "domain": "vehicle",
+      "rel_path": "eval/images/cars/real_toyota_1.jpg",
+      "expected": {
+        "presence": "yes",
+        "make": "toyota",
+        "color": "gray_silver",
+        "body": "suv"
+      },
+      "annotation": "Visual color review; existing make/body metadata, corrected Land Rover make. Gray includes silver.",
+      "sha256": "dff1bfbc9d829a03411d9efe58cb56e7ac2e4d79889af7a613ba377f05817ad3"
+    },
+    {
+      "id": "real_toyota_2.jpg",
+      "domain": "vehicle",
+      "rel_path": "eval/images/cars/real_toyota_2.jpg",
+      "expected": {
+        "presence": "yes",
+        "make": "toyota",
+        "color": "gray_silver",
+        "body": "sedan"
+      },
+      "annotation": "Visual color review; existing make/body metadata, corrected Land Rover make. Gray includes silver.",
+      "sha256": "e07a571d4d94516daa703ce217f1b7a686ce4fca855768629779a72505739b84"
+    },
+    {
+      "id": "real_audi_2.jpg",
+      "domain": "vehicle",
+      "rel_path": "eval/images/cars/real_audi_2.jpg",
+      "expected": {
+        "presence": "yes",
+        "make": "audi",
+        "color": "white",
+        "body": "coupe"
+      },
+      "annotation": "Visual color review; existing make/body metadata, corrected Land Rover make. Gray includes silver.",
+      "sha256": "77c5bdbbea8d6d3794813a6f3093216b83d6dcf5246f7b68419cf8d258981a04"
+    },
+    {
+      "id": "real_chevrolet_2.jpg",
+      "domain": "vehicle",
+      "rel_path": "eval/images/cars/real_chevrolet_2.jpg",
+      "expected": {
+        "presence": "yes",
+        "make": "chevrolet",
+        "color": "white",
+        "body": "sedan"
+      },
+      "annotation": "Visual color review; existing make/body metadata, corrected Land Rover make. Gray includes silver.",
+      "sha256": "0317d7261c094867660eb8af76edbf2f229ea4be7c2d17eb910632f30973e6e4"
+    },
+    {
+      "id": "real_volkswagen_1.jpg",
+      "domain": "vehicle",
+      "rel_path": "eval/images/cars/real_volkswagen_1.jpg",
+      "expected": {
+        "presence": "yes",
+        "make": "volkswagen",
+        "color": "red",
+        "body": "hatch"
+      },
+      "annotation": "Visual color review; existing make/body metadata, corrected Land Rover make. Gray includes silver.",
+      "sha256": "b8488005fcf0306f5a18a7aa264f00c13ab559e00ced4b25b2fb0bc4c15ddaff"
+    },
+    {
+      "id": "real_bmw_1.jpg",
+      "domain": "vehicle",
+      "rel_path": "eval/images/cars/real_bmw_1.jpg",
+      "expected": {
+        "presence": "yes",
+        "make": "bmw",
+        "color": "black",
+        "body": "convertible"
+      },
+      "annotation": "Visual color review; existing make/body metadata, corrected Land Rover make. Gray includes silver.",
+      "sha256": "b8f0059ea53a2d469b3835176d9c41ea602ccba24a3d62a0dd3fc7c0e06d7803"
+    },
+    {
+      "id": "real_hyundai_1.jpg",
+      "domain": "vehicle",
+      "rel_path": "eval/images/cars/real_hyundai_1.jpg",
+      "expected": {
+        "presence": "yes",
+        "make": "hyundai",
+        "color": "gray_silver",
+        "body": "sedan"
+      },
+      "annotation": "Visual color review; existing make/body metadata, corrected Land Rover make. Gray includes silver.",
+      "sha256": "1046b0abcb0658b92d12c6bdb4ac0b62df3adaf807b9d5d755ed70912324f65d"
+    },
+    {
+      "id": "real_hyundai_2.jpg",
+      "domain": "vehicle",
+      "rel_path": "eval/images/cars/real_hyundai_2.jpg",
+      "expected": {
+        "presence": "yes",
+        "make": "hyundai",
+        "color": "blue",
+        "body": "hatch"
+      },
+      "annotation": "Visual color review; existing make/body metadata, corrected Land Rover make. Gray includes silver.",
+      "sha256": "2f63df46dd12a000e93ea9203f524a069df2a67ebd0a808ec673d0623d747259"
+    },
+    {
+      "id": "real_ford_2.jpg",
+      "domain": "vehicle",
+      "rel_path": "eval/images/cars/real_ford_2.jpg",
+      "expected": {
+        "presence": "yes",
+        "make": "land_rover",
+        "color": "gray_silver",
+        "body": "suv"
+      },
+      "annotation": "Visual color review; existing make/body metadata, corrected Land Rover make. Gray includes silver.",
+      "sha256": "15451268e9118c3033f0767fd6fc24879a0cefceee5cdabf5eba62f1784f3aa3"
+    },
+    {
+      "id": "real_bmw_2.jpg",
+      "domain": "vehicle",
+      "rel_path": "eval/images/cars/real_bmw_2.jpg",
+      "expected": {
+        "presence": "yes",
+        "make": "bmw",
+        "color": "black",
+        "body": "convertible"
+      },
+      "annotation": "Visual color review; existing make/body metadata, corrected Land Rover make. Gray includes silver.",
+      "sha256": "4f0bcaf030c1b7ec71bbb999a84debce8eee8c3ba0b850ce94e99bdf1e0046dc"
+    },
+    {
+      "id": "real_volkswagen_2.jpg",
+      "domain": "vehicle",
+      "rel_path": "eval/images/cars/real_volkswagen_2.jpg",
+      "expected": {
+        "presence": "yes",
+        "make": "volkswagen",
+        "color": "gray_silver",
+        "body": "hatch"
+      },
+      "annotation": "Visual color review; existing make/body metadata, corrected Land Rover make. Gray includes silver.",
+      "sha256": "781c3ad4e9a72e2da5040d84ce8cbb86f976ad8c4f5dcbfe08faec6f38c696a1"
+    },
+    {
+      "id": "real_jeep_1.jpg",
+      "domain": "vehicle",
+      "rel_path": "eval/images/cars/real_jeep_1.jpg",
+      "expected": {
+        "presence": "yes",
+        "make": "jeep",
+        "color": "black",
+        "body": "suv"
+      },
+      "annotation": "Visual color review; existing make/body metadata, corrected Land Rover make. Gray includes silver.",
+      "sha256": "45b6992d545a65e77a00f4deb625c641163423ecec8493e1c6ddf6d55943087b"
+    },
+    {
+      "id": "real_honda_1.jpg",
+      "domain": "vehicle",
+      "rel_path": "eval/images/cars/real_honda_1.jpg",
+      "expected": {
+        "presence": "yes",
+        "make": "honda",
+        "color": "red",
+        "body": "van"
+      },
+      "annotation": "Visual color review; existing make/body metadata, corrected Land Rover make. Gray includes silver.",
+      "sha256": "eadf42393d23a10b395b17009cdbab58769318d3205fb8b2635ad1348cc899e0"
+    },
+    {
+      "id": "real_jeep_2.jpg",
+      "domain": "vehicle",
+      "rel_path": "eval/images/cars/real_jeep_2.jpg",
+      "expected": {
+        "presence": "yes",
+        "make": "jeep",
+        "color": "white",
+        "body": "suv"
+      },
+      "annotation": "Visual color review; existing make/body metadata, corrected Land Rover make. Gray includes silver.",
+      "sha256": "62d8080b4fad81ee751f487d2fd693099d04a559215e6f474a98fd635e5f658b"
+    },
+    {
+      "id": "real_honda_2.jpg",
+      "domain": "vehicle",
+      "rel_path": "eval/images/cars/real_honda_2.jpg",
+      "expected": {
+        "presence": "yes",
+        "make": "honda",
+        "color": "red",
+        "body": "coupe"
+      },
+      "annotation": "Visual color review; existing make/body metadata, corrected Land Rover make. Gray includes silver.",
+      "sha256": "489b8d3a343ae4d98b762ffb7ce3c12432fe2843480cb3b626632fa15111c0c6"
+    },
+    {
+      "id": "vehicle_no_car_landscape.jpg",
+      "domain": "vehicle",
+      "rel_path": "eval/images/cars/no_car_landscape.jpg",
+      "expected": {
+        "presence": "no",
+        "make": "unknown",
+        "color": "unknown",
+        "body": "unknown"
+      },
+      "annotation": "Reviewed negative control.",
+      "sha256": "483cbf0e5f28194105303c04b8acfefc7bb557450c288c66e6233ea42a1ca23c"
+    },
+    {
+      "id": "vehicle_no_car_field.jpg",
+      "domain": "vehicle",
+      "rel_path": "eval/images/cars/no_car_field.jpg",
+      "expected": {
+        "presence": "no",
+        "make": "unknown",
+        "color": "unknown",
+        "body": "unknown"
+      },
+      "annotation": "Reviewed negative control.",
+      "sha256": "c4e870d358d64ce677e958c156d0e3fba466993d8e915fc81c5dc64937a9b696"
+    }
+  ]
+}

@@ -13,3 +13,9 @@ eval/results/benchmark-live-progress.json
 eval/results/benchmark-live.log
 # Local pre-review render; the reviewed scientific atlas is versioned separately.
 eval/figures/scientific_20261026/
+.artifacts/
+.env
+.env.local
+*.egg-info/
+build/
+dist/

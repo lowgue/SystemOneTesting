@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "models": [
+    {"id": "blip-vqa", "adapter": "blip", "model": "Salesforce/blip-vqa-base", "revision": "787b3d35d57e49572baabd22884b3d5a05acf072"},
+    {"id": "laya-vision-head512", "adapter": "laya", "model": "thaitea/laya-vision", "revision": "f2fe3c12cb6d04c59d8a190250bf3fb40fc828dc", "head_max_len": 512, "experimental_input_budget": true},
+    {"id": "clef-flash-local-q4", "adapter": "systemone_http", "url_env": "CLEF_LOCAL_SYSTEMONE_URL", "url": "http://127.0.0.1:11437/v1/systemone", "timeout_s": 300, "server_metadata_env": "CLEF_SERVER_METADATA", "model": "ggml-org/Clef-Flash-GGUF", "revision": "6e2a164d70aae2af7fce86005da3f91805565b1d", "quantization": "Q4_K_M", "runtime": "external llama-server"}
+  ]
+}

@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "systemone-testing"
+version = "0.1.0"
+description = "Portable, evidence-preserving visual model comparisons"
+requires-python = ">=3.12"
+dependencies = ["Pillow>=12.3,<13", "numpy>=2.5,<3", "psutil>=7.2,<8", "matplotlib>=3.11,<4"]
+
+[project.scripts]
+vision-bench = "vision_bench.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["vision_bench*"]
