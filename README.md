@@ -107,6 +107,14 @@ export CLOUDFLARE_API_TOKEN="seu_api_token_com_permissao_workers_ai"
 .venv/bin/python web/server.py --model clef --port 7860
 ```
 
+Para usar o Clef-Flash já instalado no Ollama local, mantenha o serviço Ollama ativo e execute:
+
+```bash
+.venv/bin/python web/server.py --model clef-ollama --host 127.0.0.1 --port 7860
+```
+
+Abra **http://localhost:7860** e envie uma imagem. No Windows, substitua `.venv/bin/python` por `.venv\Scripts\python.exe`. O modelo padrão é `clef-flash:9b`; as variáveis opcionais `OLLAMA_MODEL` e `OLLAMA_SYSTEMONE_URL` permitem mudar o modelo e o endpoint.
+
 Encerre uma sessão com `Ctrl+C` antes de iniciar a outra na mesma porta.
 
 Para testar Clef-Flash localmente em Q4_K_M, rode o launcher em um terminal. Ele baixa os pesos quantizados e inicia `llama-server` na porta `11437`:

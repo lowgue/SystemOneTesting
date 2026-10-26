@@ -118,19 +118,22 @@ def call_cloudflare_clef(image: Image.Image, questions: dict[str, Any]) -> dict[
     return result.get("result", result)
 
 
-def call_local_clef(image: Image.Image, questions: dict[str, Any]) -> dict[str, Any]:
+def call_local_clef(image: Image.Image, questions: dict[str, Any], *, ollama: bool = False) -> dict[str, Any]:
     image_buffer = io.BytesIO()
     image = image.copy()
     image.thumbnail((2048, 2048))
     image.save(image_buffer, format="JPEG", quality=85, optimize=True)
     image_data = base64.b64encode(image_buffer.getvalue()).decode("ascii")
-    payload = json.dumps({
+    body = {
         "state": "Classifique os elementos visíveis nesta imagem.",
-        "images": [f"data:image/jpeg;base64,{image_data}"],
+        "images": [image_data if ollama else f"data:image/jpeg;base64,{image_data}"],
         "questions": questions,
-    }).encode("utf-8")
+    }
+    if ollama:
+        body["model"] = os.environ.get("OLLAMA_MODEL", "clef-flash:9b")
+    payload = json.dumps(body).encode("utf-8")
     request = urllib.request.Request(
-        LOCAL_CLEF_URL,
+        os.environ.get("OLLAMA_SYSTEMONE_URL", "http://127.0.0.1:11434/v1/systemone") if ollama else LOCAL_CLEF_URL,
         data=payload,
         headers={"Content-Type": "application/json"},
         method="POST",
@@ -202,6 +205,7 @@ class DecisionServerHandler(BaseHTTPRequestHandler):
                 "laya": "Laya Vision (rápido)",
                 "clef": "Clef-Flash (Cloudflare)",
                 "clef-local": "Clef-Flash local (Q4)",
+                "clef-ollama": "Clef-Flash (Ollama local)",
             }
             display_name = names[MODEL_BACKEND]
             self.send_json({"model": MODEL_BACKEND, "display_name": display_name})
@@ -304,8 +308,8 @@ class DecisionServerHandler(BaseHTTPRequestHandler):
                     res = AGENT.predict(pil_img, questions)
                 elif model == "clef":
                     res = call_cloudflare_clef(pil_img, questions)
-                elif model == "clef-local":
-                    res = call_local_clef(pil_img, questions)
+                elif model in ("clef-local", "clef-ollama"):
+                    res = call_local_clef(pil_img, questions, ollama=model == "clef-ollama")
                 else:
                     self.send_json({"error": "Modelo desconhecido."}, status=400)
                     return
@@ -316,6 +320,7 @@ class DecisionServerHandler(BaseHTTPRequestHandler):
                         "laya": "Laya Vision",
                         "clef": "Clef-Flash (Cloudflare Workers AI)",
                         "clef-local": "Clef-Flash local Q4_K_M",
+                        "clef-ollama": "Clef-Flash (Ollama local)",
                     }[model],
                     "latency_ms": latency_ms,
                     "answers": res.get("answers", {}),
@@ -350,6 +355,8 @@ def run_server(host: str = "0.0.0.0", port: int = 7860, model: str = "laya"):
             if not CF_ACCOUNT_ID or not CF_API_TOKEN:
                 print("AVISO: configure CLOUDFLARE_ACCOUNT_ID e CLOUDFLARE_API_TOKEN antes de avaliar.")
             print("Usando Clef-Flash hospedado no Cloudflare Workers AI.")
+        elif model == "clef-ollama":
+            print("Usando Clef-Flash no Ollama local (porta padrão 11434).")
         else:
             print(f"Usando Clef-Flash local em {LOCAL_CLEF_URL}.")
 
@@ -370,6 +377,6 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--port", type=int, default=7860)
     parser.add_argument("--host", default="0.0.0.0")
-    parser.add_argument("--model", choices=("laya", "clef", "clef-local"), default="laya")
+    parser.add_argument("--model", choices=("laya", "clef", "clef-local", "clef-ollama"), default="laya")
     args = parser.parse_args()
     run_server(host=args.host, port=args.port, model=args.model)
