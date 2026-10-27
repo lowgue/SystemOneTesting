@@ -68,7 +68,9 @@ class WebAPITests(unittest.TestCase):
         self.assertEqual(self.client.get('/files/studio/secret.json').status_code,404)
 
     def test_protocol_preview_and_verified_dataset_export(self):
-        body={**self.body,'kind':'benchmark','dataset':'historical-color-eval','contract':'historical','comparison':'all','limit':2,'repetitions':3}
+        body={**self.body,'kind':'benchmark','dataset':'historical-color-eval','contract':'ollama','comparison':'all','limit':2,'repetitions':3}
+        request,_=self.studio.prepare(body)
+        self.assertEqual(Path(request['contract']).name,'historical_tasks_v1.json')
         response=self.client.post('/api/protocol-preview',json=body)
         self.assertEqual(response.status_code,200,response.text)
         self.assertEqual(response.json()['planned'],6)

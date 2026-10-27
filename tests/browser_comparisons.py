@@ -29,6 +29,8 @@ def main():
   page.locator('#config').select_option('local');page.get_by_role('checkbox',name='BLIP VQA',exact=True).check();page.get_by_role('checkbox',name='Laya Vision',exact=True).check()
   page.locator('#dataset').select_option('historical-color-eval');page.locator('#comparison').select_option('all')
   expect(page.locator('#contract')).to_have_value('historical')
+  page.locator('#contract').select_option('original',force=True)
+  expect(page.locator('#contract')).to_have_value('historical')
   expect(page.locator('.dataset-summary').last).to_contain_text('2880',timeout=10000)
   page.locator('#limit').fill('2')
   expect(page.locator('.dataset-summary').last).to_contain_text('48 avaliações',timeout=10000)
@@ -62,7 +64,7 @@ def main():
   expect(page.locator('.benchmark-layout [role=status]')).to_have_text('Concluído',timeout=60000)
   expect(page.locator('.benchmark-layout')).to_contain_text('4 de 4 previsões concluídas',timeout=60000)
   expect(page.locator('.benchmark-layout [role=status]')).to_have_text('Concluído',timeout=60000)
-  page.reload();expect(page.locator('#limit')).to_have_value('0');expect(page.locator('#dataset')).to_have_value('historical-color-eval');expect(page.locator('#comparison')).to_have_value('all');expect(page.locator('#config')).to_have_value('simulation')
+  page.reload();expect(page.locator('#limit')).to_have_value('0');expect(page.locator('#dataset')).to_have_value('historical-color-eval');expect(page.locator('#comparison')).to_have_value('all');expect(page.locator('#config')).to_have_value('simulation');expect(page.locator('#contract')).to_have_value('historical')
   page.set_viewport_size({'width':390,'height':844});expect(report).to_be_visible();page.screenshot(path=str(output/'mobile.png'),full_page=True)
   assert page.evaluate('document.documentElement.scrollWidth <= innerWidth'), 'Mobile overflow'
   assert not errors,errors

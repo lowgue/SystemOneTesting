@@ -71,6 +71,7 @@ export default function App() {
       if (path === "/api/jobs" && !settings.models.length)
         throw new Error("Selecione pelo menos um modelo.");
       const j = await api(path, { ...settings, ...body });
+      if (j.settings) setSettings(j.settings);
       setJob(j);
       setJobId(j.id);
       localStorage.setItem("vision-studio-job", j.id);

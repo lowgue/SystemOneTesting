@@ -59,7 +59,12 @@ class Studio:
         if not isinstance(body, dict):
             raise ValueError('Envie um objeto JSON.')
         config = self.configs().get(body.get('config'))
-        contract = self.contracts.get(body.get('contract', 'ollama'))
+        contract_id=body.get('contract','ollama')
+        if body.get('kind')=='benchmark':
+            manifest_path=self.dataset_paths().get(body.get('dataset','portable'))
+            if manifest_path:
+                contract_id=load_json(manifest_path).get('required_contract') or contract_id
+        contract = self.contracts.get(contract_id)
         if not config or not contract:
             raise ValueError('Selecione uma configuração e um contrato da lista.')
         models = body.get('models')
@@ -107,9 +112,6 @@ class Studio:
             limit = body.get('limit', 0)
             if not manifest or type(reps) is not int or not 1 <= reps <= 100 or type(limit) is not int or not 0 <= limit <= 100000:
                 raise ValueError('Dataset, repetições ou limite inválidos.')
-            required=load_json(manifest).get('required_contract')
-            if required and self.contracts.get(required)!=contract:
-                raise ValueError('Este dataset usa o contrato Histórico: selecione-o nas perguntas compartilhadas para preservar as classes originais.')
             request['comparison']=mode
             request.update(manifest=str(manifest), dataset=dataset_id, data_root=str(ROOT if dataset_id in self.manifests else manifest.parent), repetitions=reps, limit=limit)
         else:

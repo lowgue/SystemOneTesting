@@ -19,6 +19,12 @@ export default function Benchmark({
     [limit, setLimit] = useState(0),
     [importing, setImporting] = useState(false);
   const [comparison,setComparison]=useState("baseline"),[preview,setPreview]=useState(null),[previewError,setPreviewError]=useState("");
+  const selected = catalog.datasets.find((d) => d.id === dataset);
+  const effectiveContract=selected?.required_contract || contract;
+  useEffect(()=>{
+    if(!busy && selected?.required_contract && settings?.contract!==selected.required_contract)
+      setSettings(s=>({...s,contract:selected.required_contract}));
+  },[selected?.required_contract,settings?.contract,busy,setSettings]);
   useEffect(()=>{
     if(job?.experiment){setDataset(job.experiment.dataset);setRepetitions(job.experiment.repetitions);setLimit(['queued','running'].includes(job.state) ? job.experiment.limit : 0);setComparison(job.experiment.comparison);}
     else if(job?.dataset)setDataset(job.dataset);
@@ -27,10 +33,9 @@ export default function Benchmark({
     let active=true;
     setPreview(null);setPreviewError("");
     if(!settings?.models.length)return;
-    const timer=setTimeout(()=>api('/api/protocol-preview',{...settings,dataset,comparison,repetitions,limit}).then(d=>{if(active)setPreview(d)}).catch(e=>{if(active)setPreviewError(e.message)}),250);
+    const timer=setTimeout(()=>api('/api/protocol-preview',{...settings,contract:effectiveContract,dataset,comparison,repetitions,limit}).then(d=>{if(active)setPreview(d)}).catch(e=>{if(active)setPreviewError(e.message)}),250);
     return()=>{active=false;clearTimeout(timer)};
-  },[settings,dataset,comparison,repetitions,limit]);
-  const selected = catalog.datasets.find((d) => d.id === dataset);
+  },[settings,effectiveContract,dataset,comparison,repetitions,limit]);
   async function imported(result) {
     await onCatalogRefresh();
     setDataset(result.id);
@@ -65,6 +70,7 @@ export default function Benchmark({
               {selected.complete_labels} com todos os atributos anotados
             </p><p>{selected.unique_images} imagens únicas · {selected.groups ?? selected.unique_images} grupos de origem</p>
             {selected.note && <p className="hint">{selected.note}</p>}
+            {selected.required_contract && <p>Contrato {selected.required_contract==='historical'?'Histórico':selected.required_contract} aplicado automaticamente para preservar as classes deste dataset.</p>}
             {selected.available!==false && <p><a href={`/api/datasets/${selected.id}/bundle`}>Baixar dataset com imagens e gabarito (ZIP)</a></p>}
             {selected.available===false && <p className="error">As imagens deste dataset precisam ser instaladas neste computador. Consulte docs/DATASETS.md.</p>}
             </div>
@@ -132,7 +138,7 @@ export default function Benchmark({
                   className="primary"
                   disabled={busy || !selected || !preview || selected.available===false || Boolean(previewError)}
                   onClick={() =>
-                    onRun({ kind: "benchmark", dataset, repetitions, limit, comparison })
+                    onRun({ kind: "benchmark", contract:effectiveContract, dataset, repetitions, limit, comparison })
                   }
                 >
                   Iniciar avaliação do dataset
