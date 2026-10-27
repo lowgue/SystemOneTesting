@@ -20,7 +20,7 @@ export default function Benchmark({
     [importing, setImporting] = useState(false);
   const [comparison,setComparison]=useState("baseline"),[preview,setPreview]=useState(null),[previewError,setPreviewError]=useState("");
   useEffect(()=>{
-    if(job?.experiment){setDataset(job.experiment.dataset);setRepetitions(job.experiment.repetitions);setLimit(job.experiment.limit);setComparison(job.experiment.comparison);}
+    if(job?.experiment){setDataset(job.experiment.dataset);setRepetitions(job.experiment.repetitions);setLimit(['queued','running'].includes(job.state) ? job.experiment.limit : 0);setComparison(job.experiment.comparison);}
     else if(job?.dataset)setDataset(job.dataset);
   },[job?.id]);
   useEffect(()=>{
@@ -34,6 +34,7 @@ export default function Benchmark({
   async function imported(result) {
     await onCatalogRefresh();
     setDataset(result.id);
+    setLimit(0);
     setImporting(false);
   }
   return (
@@ -50,7 +51,7 @@ export default function Benchmark({
             id="dataset"
             disabled={busy}
             value={dataset}
-            onChange={(e) => {setDataset(e.target.value);const d=catalog.datasets.find(d=>d.id===e.target.value);if(d?.required_contract)setSettings(s=>({...s,contract:d.required_contract}));}}
+            onChange={(e) => {setDataset(e.target.value);setLimit(0);const d=catalog.datasets.find(d=>d.id===e.target.value);if(d?.required_contract)setSettings(s=>({...s,contract:d.required_contract}));}}
           >
             {catalog.datasets.map((d) => (
               <option key={d.id} value={d.id}>
@@ -84,7 +85,7 @@ export default function Benchmark({
           )}
           {!importing && (
             <>
-              <details className="method">
+              <details className="method" open>
                 <summary>Opções de medição</summary>
                 <label htmlFor="repetitions">
                   Repetições por foto e modelo
@@ -112,6 +113,7 @@ export default function Benchmark({
                   onChange={(e) => setLimit(Number(e.target.value))}
                 />
               </details>
+              {limit>0 && <p className="notice">Limite ativo: serão usadas somente {Math.min(limit,selected?.events || limit)} fotos deste dataset. <button type="button" disabled={busy} onClick={()=>setLimit(0)}>Usar todas as fotos</button></p>}
               <label htmlFor="comparison">O que comparar?</label>
               <select id="comparison" disabled={busy} value={comparison} onChange={e=>setComparison(e.target.value)}>
                 <option value="baseline">Modelos com o formato padrão</option>
@@ -128,7 +130,7 @@ export default function Benchmark({
               <div className="actions">
                 <button
                   className="primary"
-                  disabled={busy || !selected || selected.available===false || Boolean(previewError)}
+                  disabled={busy || !selected || !preview || selected.available===false || Boolean(previewError)}
                   onClick={() =>
                     onRun({ kind: "benchmark", dataset, repetitions, limit, comparison })
                   }
@@ -144,7 +146,8 @@ export default function Benchmark({
           )}
         </section>
         <section>
-          <h2>Andamento</h2>
+          <h2>{job && !busy ? 'Última avaliação' : 'Andamento'}</h2>
+          {job && !busy && <p className="hint">Resultado da execução anterior, não da seleção atual. Dataset: {catalog.datasets.find(d=>d.id===(job.experiment?.dataset || job.dataset))?.name || job.dataset}. Inicie uma nova avaliação para processar a seleção atual.</p>}
           <JobState job={job} cancel={onCancel} />
           <details className="method">
             <summary>Ver registro técnico</summary>

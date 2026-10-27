@@ -70,7 +70,6 @@ def main():
         result.value.save_as(output/'interactive.json')
         page.screenshot(path=str(output/'desktop.png'),full_page=True)
         page.get_by_role('link',name='Avaliar dataset',exact=True).click()
-        page.get_by_text('Opções de medição',exact=True).click()
         page.locator('#repetitions').fill('1');page.locator('#limit').fill('2')
         page.get_by_role('button',name='Iniciar avaliação do dataset').click()
         expect(page.locator('.benchmark-layout [role=status]')).to_have_text('Concluído',timeout=30000)
