@@ -50,6 +50,10 @@ class WebAPITests(unittest.TestCase):
         response=self.client.post('/api/jobs',json=self.body)
         self.assertEqual(response.status_code,202,response.text)
         job_id=response.json()['id']
+        self.assertEqual(response.json()['settings'], {
+            'config':'mock', 'contract':'ollama', 'models':['SIMULATED-a'],
+            'device':'cpu', 'threads':8,
+        })
         response=self.client.get('/api/jobs/'+job_id+'/events')
         self.assertIn('text/event-stream',response.headers['content-type'])
         states=[json.loads(line[6:]) for line in response.text.splitlines() if line.startswith('data: ')]

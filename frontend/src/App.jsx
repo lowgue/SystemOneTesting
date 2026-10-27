@@ -41,6 +41,7 @@ export default function App() {
             .then((j) => {
               setJob(j);
               setJobId(j.id);
+              if (j.settings) setSettings(j.settings);
             })
             .catch(() => localStorage.removeItem("vision-studio-job"));
       })
@@ -89,6 +90,7 @@ export default function App() {
       const j = await api(`/api/jobs/${id}`);
       setJob(j);
       setJobId(id);
+      if (j.settings) setSettings(j.settings);
       location.hash =
         j.kind === "live"
           ? "live"

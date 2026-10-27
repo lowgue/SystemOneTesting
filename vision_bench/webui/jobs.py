@@ -72,6 +72,15 @@ class Jobs:
             self.refresh()
             folder = self.folder(job_id)
             result = load_json(folder / 'status.json')
+            request = load_json(folder / 'request.json')
+            if request.get('kind') in {'live', 'benchmark'}:
+                result['settings'] = {
+                    'config': Path(request['config']).stem,
+                    'contract': {'description_ollama_v1': 'ollama', 'description_v1': 'original'}.get(Path(request['contract']).stem, Path(request['contract']).stem),
+                    'models': request['models'],
+                    'device': request['device'],
+                    'threads': request['threads'],
+                }
             log = folder / 'worker.log'
             if log.exists():
                 with log.open('rb') as stream:
