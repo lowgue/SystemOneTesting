@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { api } from "../api.js";
 import JobState from "./JobState.jsx";
 import DatasetImport from "./DatasetImport.jsx";
 import Evaluation from "./Evaluation.jsx";
@@ -11,11 +12,24 @@ export default function Benchmark({
   onCancel,
   contract,
   onCatalogRefresh,
+  settings, setSettings,
 }) {
   const [dataset, setDataset] = useState("portable"),
     [repetitions, setRepetitions] = useState(3),
     [limit, setLimit] = useState(0),
     [importing, setImporting] = useState(false);
+  const [comparison,setComparison]=useState("baseline"),[preview,setPreview]=useState(null),[previewError,setPreviewError]=useState("");
+  useEffect(()=>{
+    if(job?.experiment){setDataset(job.experiment.dataset);setRepetitions(job.experiment.repetitions);setLimit(job.experiment.limit);setComparison(job.experiment.comparison);}
+    else if(job?.dataset)setDataset(job.dataset);
+  },[job?.id]);
+  useEffect(()=>{
+    let active=true;
+    setPreview(null);setPreviewError("");
+    if(!settings?.models.length)return;
+    const timer=setTimeout(()=>api('/api/protocol-preview',{...settings,dataset,comparison,repetitions,limit}).then(d=>{if(active)setPreview(d)}).catch(e=>{if(active)setPreviewError(e.message)}),250);
+    return()=>{active=false;clearTimeout(timer)};
+  },[settings,dataset,comparison,repetitions,limit]);
   const selected = catalog.datasets.find((d) => d.id === dataset);
   async function imported(result) {
     await onCatalogRefresh();
@@ -36,19 +50,23 @@ export default function Benchmark({
             id="dataset"
             disabled={busy}
             value={dataset}
-            onChange={(e) => setDataset(e.target.value)}
+            onChange={(e) => {setDataset(e.target.value);const d=catalog.datasets.find(d=>d.id===e.target.value);if(d?.required_contract)setSettings(s=>({...s,contract:d.required_contract}));}}
           >
             {catalog.datasets.map((d) => (
               <option key={d.id} value={d.id}>
-                {d.name} — {d.events} fotos
+                {d.name} — {d.events} fotos{d.available===false ? ' (imagens não instaladas)' : ''}
               </option>
             ))}
           </select>
           {selected && (
-            <p className="dataset-summary">
+            <div className="dataset-summary"><p>
               {selected.events} fotos · {selected.annotated} com gabarito ·{" "}
               {selected.complete_labels} com todos os atributos anotados
-            </p>
+            </p><p>{selected.unique_images} imagens únicas · {selected.groups ?? selected.unique_images} grupos de origem</p>
+            {selected.note && <p className="hint">{selected.note}</p>}
+            {selected.available!==false && <p><a href={`/api/datasets/${selected.id}/bundle`}>Baixar dataset com imagens e gabarito (ZIP)</a></p>}
+            {selected.available===false && <p className="error">As imagens deste dataset precisam ser instaladas neste computador. Consulte docs/DATASETS.md.</p>}
+            </div>
           )}
           <button
             className="quiet"
@@ -94,12 +112,25 @@ export default function Benchmark({
                   onChange={(e) => setLimit(Number(e.target.value))}
                 />
               </details>
+              <label htmlFor="comparison">O que comparar?</label>
+              <select id="comparison" disabled={busy} value={comparison} onChange={e=>setComparison(e.target.value)}>
+                <option value="baseline">Modelos com o formato padrão</option>
+                <option value="prompts">Variações de pergunta e formato de saída</option>
+                <option value="requests">Perguntas juntas × uma chamada por atributo</option>
+                <option value="all">Todas as variantes de prompt e request</option>
+              </select>
+              {preview && <p className="dataset-summary">{preview.photos} fotos × {preview.variants} variantes × {repetitions} repetições = {preview.planned} avaliações de foto. Cada avaliação pode incluir várias chamadas internas.</p>}
+              {previewError && <p className="error">{previewError}</p>}
+              {preview && <details className="method"><summary>Perguntas, requests e métricas de cada variante</summary>
+                <p>Todos recebem as mesmas imagens e classes. O BLIP gera texto; o Laya escolhe alternativas nativas. Solicitar JSON ao BLIP é uma condição experimental e pode falhar.</p>
+                {preview.protocols.map(p=><section key={p.model}><h3>{p.model}</h3>{p.examples.map((x,i)=><details key={i}><summary>{x.domain} · {x.profile} · {x.calls_per_photo} chamada(s) por foto</summary><p>{x.question_type} · {x.request_mode} · {x.output_format}</p><p>Métricas: {x.metrics.join('; ')}.</p><pre>{JSON.stringify(x.request,null,2)}</pre></details>)}</section>)}
+              </details>}
               <div className="actions">
                 <button
                   className="primary"
-                  disabled={busy || !selected}
+                  disabled={busy || !selected || selected.available===false || Boolean(previewError)}
                   onClick={() =>
-                    onRun({ kind: "benchmark", dataset, repetitions, limit })
+                    onRun({ kind: "benchmark", dataset, repetitions, limit, comparison })
                   }
                 >
                   Iniciar avaliação do dataset

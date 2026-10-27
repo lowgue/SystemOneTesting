@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { api } from "../api.js";
 import { labels, text } from "../presentation.js";
+import ProtocolComparison, {ModelProtocol,AttributeCharts} from './ProtocolComparison.jsx';
 const percent = (value) =>
   value == null
     ? "Sem gabarito"
@@ -307,6 +308,7 @@ export default function Evaluation({ job }) {
               <small>Formato válido: {percent(model.schema_valid_rate)}</small>
             </div>
           </div>
+          <ModelProtocol model={model}/>
           {model.fields.length > 0 && (
             <div className="table-scroll">
               <table>
@@ -316,6 +318,9 @@ export default function Evaluation({ job }) {
                     <th>Acertos / fotos</th>
                     <th>Acurácia</th>
                     <th>F1 macro</th>
+                    <th>Precisão / recall macro</th>
+                    <th>Aderência bruta / formato válido</th>
+                    <th>Tempo isolado p50</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -327,6 +332,9 @@ export default function Evaluation({ job }) {
                       </td>
                       <td>{percent(field.accuracy)}</td>
                       <td>{percent(field.macro_f1)}</td>
+                      <td>{percent(field.macro_precision)} / {percent(field.macro_recall)}</td>
+                      <td>{field.raw_adherence==null?'Não registrado':percent(field.raw_adherence)} / {field.output_format_valid==null?'Não registrado':percent(field.output_format_valid)}</td>
+                      <td>{field.attribute_latency?.p50_ms==null?'Conjunto ou não registrado':millis(field.attribute_latency.p50_ms)}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -387,6 +395,8 @@ export default function Evaluation({ job }) {
         </a>
         <a href={base + "photos.csv"}>Resultados por foto (CSV)</a>
         <a href={base + "attributes.csv"}>Métricas por atributo (CSV)</a>
+        {data.comparisons && <a href={base+'comparisons.csv'}>Comparações pareadas (CSV)</a>}
+        {data.charts && <a href={base+'protocols.json'} target="_blank" rel="noreferrer">Perguntas e requests (JSON)</a>}
         <a href={base + "comparison_1.pdf"} target="_blank" rel="noreferrer">
           Gráfico de desempenho (PDF)
         </a>
@@ -396,6 +406,8 @@ export default function Evaluation({ job }) {
           </a>
         )}
       </div>
+      <AttributeCharts data={data} base={base}/>
+      <ProtocolComparison data={data}/>
       <details className="method">
         <summary>Como estas métricas são calculadas?</summary>
         {Object.values(data.methodology).map((note) => (

@@ -763,3 +763,8 @@ caption {
   overflow-wrap: anywhere;
 }
 .report-charts{margin:24px 0}.report-charts img{display:block;width:100%;height:auto;margin:18px 0;background:white}
+.attribute-charts figure { margin: 1.2rem 0; }
+.attribute-charts img { display:block; width:100%; height:auto; border:1px solid var(--border, #dde5ed); border-radius:10px; }
+.attribute-charts figcaption { margin:.8rem 0; color:#456; font-size:.9rem; }
+.attribute-charts select { max-width:100%; }
+.model-evaluation pre,.method pre { white-space:pre-wrap; overflow-wrap:anywhere; max-height:450px; overflow:auto; }

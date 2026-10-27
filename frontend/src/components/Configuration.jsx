@@ -86,6 +86,7 @@ export default function Configuration({
                 <option key={c.id} value={c.id}>
                   {c.id === "ollama"
                     ? "Compatível com Ollama (26 alternativas)"
+                    : c.id === "historical" ? "Testes históricos (inclui ônibus, moto e picape)"
                     : "Original (49 alternativas de marca)"}
                 </option>
               ))}

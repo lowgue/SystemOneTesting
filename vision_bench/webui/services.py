@@ -23,8 +23,10 @@ class Studio:
         self.contracts = {
             'ollama': ROOT / 'benchmarks/contracts/description_ollama_v1.json',
             'original': ROOT / 'benchmarks/contracts/description_v1.json',
+            'historical': ROOT / 'benchmarks/contracts/historical_tasks_v1.json',
         }
         self.manifests = {'portable': ROOT / 'benchmarks/datasets/portable_vehicles.json'}
+        self.manifests.update({'historical-'+p.stem:p for p in sorted((ROOT/'benchmarks/datasets/historical').glob('*.json'))})
         self.sources = {
             'studio': self.jobs.root,
             'reports': ROOT / '.artifacts/reports',
@@ -46,10 +48,11 @@ class Studio:
         return {**self.manifests, **self.datasets.manifests()}
 
     def catalog(self):
-        return dict(configs=[dict(id=key, models=[dict(id=s['id'], adapter=s['adapter'],
+        from ..protocols import PROFILES
+        return dict(protocols=PROFILES,configs=[dict(id=key, models=[dict(id=s['id'], adapter=s['adapter'],
             simulated=s['adapter']=='mock') for s in load_json(path)['models']]) for key,path in self.configs().items()],
             contracts=[dict(id=k, name=load_json(v)['name'], domains=list(load_json(v)['domains'])) for k,v in self.contracts.items()],
-            datasets=[dataset_info(k,load_json(v)) for k,v in self.dataset_paths().items()],
+            datasets=[dict(dataset_info(k,load_json(v)),available=all(resolve_image(ROOT if k in self.manifests else v.parent,it['rel_path']).is_file() for it in load_json(v)['items'])) for k,v in self.dataset_paths().items()],
             current_job=self.jobs.current)
 
     def prepare(self, body):
@@ -95,12 +98,19 @@ class Studio:
             except (ValueError, UnidentifiedImageError, OSError, Image.DecompressionBombError) as exc:
                 raise ValueError(f'Imagem inválida: {exc}') from exc
         elif request['kind'] == 'benchmark':
+            from ..protocols import MODES
+            mode=body.get('comparison','baseline')
+            if mode not in MODES:raise ValueError('Comparação inválida.')
             dataset_id=body.get('dataset','portable')
             manifest = self.dataset_paths().get(dataset_id)
             reps = body.get('repetitions',3)
             limit = body.get('limit', 0)
             if not manifest or type(reps) is not int or not 1 <= reps <= 100 or type(limit) is not int or not 0 <= limit <= 100000:
                 raise ValueError('Dataset, repetições ou limite inválidos.')
+            required=load_json(manifest).get('required_contract')
+            if required and self.contracts.get(required)!=contract:
+                raise ValueError('Este dataset usa o contrato Histórico: selecione-o nas perguntas compartilhadas para preservar as classes originais.')
+            request['comparison']=mode
             request.update(manifest=str(manifest), dataset=dataset_id, data_root=str(ROOT if dataset_id in self.manifests else manifest.parent), repetitions=reps, limit=limit)
         else:
             raise ValueError('Tipo de tarefa inválido.')

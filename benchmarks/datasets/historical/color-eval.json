@@ -1,0 +1,2199 @@
+{
+  "schema_version": 1,
+  "name": "Cores — avaliação",
+  "label_status": "exploratory_historical_unadjudicated",
+  "source_manifest": "eval/datasets/test_1_vehicle_color_manifest.json",
+  "source_manifest_sha256": "6931eec8190986045d47d41c14060e32e54d682fdd06b45861304ee90ffa3cd2",
+  "required_contract": "historical",
+  "note": "Gabaritos históricos exploratórios. Imagens derivadas compartilham grupo; eventos não equivalem a imagens independentes. hatchback → hatch; pickup e truck preservados.",
+  "items": [
+    {
+      "id": "color_black_001",
+      "domain": "vehicle",
+      "filename": "color_black_001.jpg",
+      "rel_path": "eval/images/color_test/color_black_001.jpg",
+      "sha256": "25d89b744e066a7cf2e3a591621087b5ce78a0f387fdd233c987007c2d9dd913",
+      "annotations": {
+        "color": "black"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "vehicle-colors-dataset",
+      "group_id": "25d89b744e066a7cf2e3a591621087b5ce78a0f387fdd233c987007c2d9dd913",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_black_002",
+      "domain": "vehicle",
+      "filename": "color_black_002.jpg",
+      "rel_path": "eval/images/color_test/color_black_002.jpg",
+      "sha256": "648d968511959fd049934cf1593e2f6a993d81c6df4c68e00d42c7d59aa0ddad",
+      "annotations": {
+        "color": "black"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "vehicle-colors-dataset",
+      "group_id": "648d968511959fd049934cf1593e2f6a993d81c6df4c68e00d42c7d59aa0ddad",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_black_003",
+      "domain": "vehicle",
+      "filename": "color_black_003.jpg",
+      "rel_path": "eval/images/color_test/color_black_003.jpg",
+      "sha256": "1295791f837258bc8d0a66f7174ea75ad8d817cff4e09014aece09200c55d097",
+      "annotations": {
+        "color": "black"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "unclear_vehicle_crop"
+      ],
+      "source": "vehicle-colors-dataset",
+      "group_id": "1295791f837258bc8d0a66f7174ea75ad8d817cff4e09014aece09200c55d097",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_black_004",
+      "domain": "vehicle",
+      "filename": "color_black_004.jpg",
+      "rel_path": "eval/images/color_test/color_black_004.jpg",
+      "sha256": "8d6327afdcff9563ab333f1ab1903931f03c89a98d837ebcb455189b4eaa3d7f",
+      "annotations": {
+        "color": "black"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "vehicle-colors-dataset",
+      "group_id": "8d6327afdcff9563ab333f1ab1903931f03c89a98d837ebcb455189b4eaa3d7f",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_black_005",
+      "domain": "vehicle",
+      "filename": "color_black_005.jpg",
+      "rel_path": "eval/images/color_test/color_black_005.jpg",
+      "sha256": "aeda7bf215cd8f54ef4d71bfb214555bfe5cb3160bd6856d61c6a2b0eadb74c7",
+      "annotations": {
+        "color": "black"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "unclear_vehicle_crop"
+      ],
+      "source": "vehicle-colors-dataset",
+      "group_id": "aeda7bf215cd8f54ef4d71bfb214555bfe5cb3160bd6856d61c6a2b0eadb74c7",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_black_006",
+      "domain": "vehicle",
+      "filename": "color_black_006.jpg",
+      "rel_path": "eval/images/color_test/color_black_006.jpg",
+      "sha256": "0e51a8cdc42941e2f136456c0320b3cd06fcf09136de9c9c00d546bf2fef6414",
+      "annotations": {
+        "color": "black"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "heavy_shadow",
+        "multiple_vehicles"
+      ],
+      "source": "vehicle-colors-dataset",
+      "group_id": "0e51a8cdc42941e2f136456c0320b3cd06fcf09136de9c9c00d546bf2fef6414",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_black_007",
+      "domain": "vehicle",
+      "filename": "color_black_007.jpg",
+      "rel_path": "eval/images/color_test/color_black_007.jpg",
+      "sha256": "ef31c774bb2230b3bc0a04055015cbf93a909ca060f9dba49c5b49d615c5f264",
+      "annotations": {
+        "color": "black"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "unclear_vehicle_crop"
+      ],
+      "source": "vehicle-colors-dataset",
+      "group_id": "ef31c774bb2230b3bc0a04055015cbf93a909ca060f9dba49c5b49d615c5f264",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_black_008",
+      "domain": "vehicle",
+      "filename": "color_black_008.jpg",
+      "rel_path": "eval/images/color_test/color_black_008.jpg",
+      "sha256": "42abfce951b1e840cc6729dffa4afa0e8d9f387ab8a0b03014ca09f785d65e7b",
+      "annotations": {
+        "color": "black"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "vehicle-colors-dataset",
+      "group_id": "42abfce951b1e840cc6729dffa4afa0e8d9f387ab8a0b03014ca09f785d65e7b",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_black_009",
+      "domain": "vehicle",
+      "filename": "color_black_009.jpg",
+      "rel_path": "eval/images/color_test/color_black_009.jpg",
+      "sha256": "9c0e07496d7cffe85f83f7a3f891335272d1a4ee193b47c7f13a9fe17e07500a",
+      "annotations": {
+        "color": "black"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "unclear_vehicle_crop"
+      ],
+      "source": "vehicle-colors-dataset",
+      "group_id": "9c0e07496d7cffe85f83f7a3f891335272d1a4ee193b47c7f13a9fe17e07500a",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_black_010",
+      "domain": "vehicle",
+      "filename": "color_black_010.jpg",
+      "rel_path": "eval/images/color_test/color_black_010.jpg",
+      "sha256": "09de66ad1c7dcad3a2b1f7c63f5e14bb3ff0ce61aaad7f5f13ccc5ad944e817b",
+      "annotations": {
+        "color": "black"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "vehicle-colors-dataset",
+      "group_id": "09de66ad1c7dcad3a2b1f7c63f5e14bb3ff0ce61aaad7f5f13ccc5ad944e817b",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_white_001",
+      "domain": "vehicle",
+      "filename": "color_white_001.jpg",
+      "rel_path": "eval/images/color_test/color_white_001.jpg",
+      "sha256": "1adb3b45613db99108507692ff381996aa68273296c9dca6be865e638b49b93d",
+      "annotations": {
+        "color": "white"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "high_reflection"
+      ],
+      "source": "vehicle-colors-dataset",
+      "group_id": "1adb3b45613db99108507692ff381996aa68273296c9dca6be865e638b49b93d",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_white_002",
+      "domain": "vehicle",
+      "filename": "color_white_002.jpg",
+      "rel_path": "eval/images/color_test/color_white_002.jpg",
+      "sha256": "38b4e78da90983123291f545a7ea07132d7db58f3d9e6f0f34fe80a8b6f8e7ce",
+      "annotations": {
+        "color": "white"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "vehicle-colors-dataset",
+      "group_id": "38b4e78da90983123291f545a7ea07132d7db58f3d9e6f0f34fe80a8b6f8e7ce",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_white_003",
+      "domain": "vehicle",
+      "filename": "color_white_003.jpg",
+      "rel_path": "eval/images/color_test/color_white_003.jpg",
+      "sha256": "b53ab7932599caee80a806b11fdd223b4da80865da6a5585ee61968577fd1c0e",
+      "annotations": {
+        "color": "white"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ],
+      "source": "vehicle-colors-dataset",
+      "group_id": "b53ab7932599caee80a806b11fdd223b4da80865da6a5585ee61968577fd1c0e",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_white_004",
+      "domain": "vehicle",
+      "filename": "color_white_004.jpg",
+      "rel_path": "eval/images/color_test/color_white_004.jpg",
+      "sha256": "cd097198590b9c330a821c0235d5860703439671917b4d5bda891973b25269a0",
+      "annotations": {
+        "color": "white"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "high_reflection"
+      ],
+      "source": "vehicle-colors-dataset",
+      "group_id": "cd097198590b9c330a821c0235d5860703439671917b4d5bda891973b25269a0",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_white_005",
+      "domain": "vehicle",
+      "filename": "color_white_005.jpg",
+      "rel_path": "eval/images/color_test/color_white_005.jpg",
+      "sha256": "a4f8bde6a2b5b404dd8275204f4340b5764315cbebb477314607c790c614b4a8",
+      "annotations": {
+        "color": "white"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "high_reflection",
+        "unclear_vehicle_crop"
+      ],
+      "source": "vehicle-colors-dataset",
+      "group_id": "a4f8bde6a2b5b404dd8275204f4340b5764315cbebb477314607c790c614b4a8",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_white_006",
+      "domain": "vehicle",
+      "filename": "color_white_006.jpg",
+      "rel_path": "eval/images/color_test/color_white_006.jpg",
+      "sha256": "8e9afb482ad4457d6c41fe031d841c45a4d8d29c24081ac54c603ca1737906df",
+      "annotations": {
+        "color": "white"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "heavy_shadow",
+        "multiple_vehicles"
+      ],
+      "source": "vehicle-colors-dataset",
+      "group_id": "8e9afb482ad4457d6c41fe031d841c45a4d8d29c24081ac54c603ca1737906df",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_white_007",
+      "domain": "vehicle",
+      "filename": "color_white_007.jpg",
+      "rel_path": "eval/images/color_test/color_white_007.jpg",
+      "sha256": "2d13f05147a5558e759018ea8d03be669a1667e03f3fb6851f072dfd401a592c",
+      "annotations": {
+        "color": "white"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "heavy_shadow",
+        "high_reflection",
+        "multiple_vehicles"
+      ],
+      "source": "vehicle-colors-dataset",
+      "group_id": "2d13f05147a5558e759018ea8d03be669a1667e03f3fb6851f072dfd401a592c",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_white_008",
+      "domain": "vehicle",
+      "filename": "color_white_008.jpg",
+      "rel_path": "eval/images/color_test/color_white_008.jpg",
+      "sha256": "30e67e8bf600149f518ff7d268b249cd448791617751c4933f37341b3b70819f",
+      "annotations": {
+        "color": "white"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "high_reflection",
+        "unclear_vehicle_crop"
+      ],
+      "source": "vehicle-colors-dataset",
+      "group_id": "30e67e8bf600149f518ff7d268b249cd448791617751c4933f37341b3b70819f",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_white_009",
+      "domain": "vehicle",
+      "filename": "color_white_009.jpg",
+      "rel_path": "eval/images/color_test/color_white_009.jpg",
+      "sha256": "62fe37ebfb01d01df64ae948c0694c59daa61133a269309ed912a8caecbfdddb",
+      "annotations": {
+        "color": "white"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "unclear_vehicle_crop"
+      ],
+      "source": "vehicle-colors-dataset",
+      "group_id": "62fe37ebfb01d01df64ae948c0694c59daa61133a269309ed912a8caecbfdddb",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_white_010",
+      "domain": "vehicle",
+      "filename": "color_white_010.jpg",
+      "rel_path": "eval/images/color_test/color_white_010.jpg",
+      "sha256": "c12cfae64ae3c9dc4952fd57e9d1dcf8c34c7dbce92644b5ba5f0a0d19f2a43a",
+      "annotations": {
+        "color": "white"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "high_reflection"
+      ],
+      "source": "vehicle-colors-dataset",
+      "group_id": "c12cfae64ae3c9dc4952fd57e9d1dcf8c34c7dbce92644b5ba5f0a0d19f2a43a",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_gray_silver_001",
+      "domain": "vehicle",
+      "filename": "color_gray_silver_001.jpg",
+      "rel_path": "eval/images/color_test/color_gray_silver_001.jpg",
+      "sha256": "f6987b528be65ed0ee7b8f24487aae3bcf51a3840ee3517bb2526e5d59442e01",
+      "annotations": {
+        "color": "gray_silver"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ],
+      "source": "vehicle-colors-dataset",
+      "group_id": "f6987b528be65ed0ee7b8f24487aae3bcf51a3840ee3517bb2526e5d59442e01",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_gray_silver_002",
+      "domain": "vehicle",
+      "filename": "color_gray_silver_002.jpg",
+      "rel_path": "eval/images/color_test/color_gray_silver_002.jpg",
+      "sha256": "45a28e869823d11b2126c6761c3348feaccac910060746bbd07bd0b0e5dc33ce",
+      "annotations": {
+        "color": "gray_silver"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "vehicle-colors-dataset",
+      "group_id": "45a28e869823d11b2126c6761c3348feaccac910060746bbd07bd0b0e5dc33ce",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_gray_silver_003",
+      "domain": "vehicle",
+      "filename": "color_gray_silver_003.jpg",
+      "rel_path": "eval/images/color_test/color_gray_silver_003.jpg",
+      "sha256": "a2b1414c5c8645ceaa4e5a625bcc74e82454a59009ab31ad55a5e4717ab76bb5",
+      "annotations": {
+        "color": "gray_silver"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "vehicle-colors-dataset",
+      "group_id": "a2b1414c5c8645ceaa4e5a625bcc74e82454a59009ab31ad55a5e4717ab76bb5",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_gray_silver_004",
+      "domain": "vehicle",
+      "filename": "color_gray_silver_004.jpg",
+      "rel_path": "eval/images/color_test/color_gray_silver_004.jpg",
+      "sha256": "c7cb4e9ff716d335c2a9bf279555614a6a776a4d92df39659022f77d2ead20b6",
+      "annotations": {
+        "color": "gray_silver"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ],
+      "source": "vehicle-colors-dataset",
+      "group_id": "c7cb4e9ff716d335c2a9bf279555614a6a776a4d92df39659022f77d2ead20b6",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_gray_silver_005",
+      "domain": "vehicle",
+      "filename": "color_gray_silver_005.jpg",
+      "rel_path": "eval/images/color_test/color_gray_silver_005.jpg",
+      "sha256": "ed4a58698211a1aa1d8f96a9dd1cbfed6b388f8562434dda3a2d15dc32dc8070",
+      "annotations": {
+        "color": "gray_silver"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ],
+      "source": "vehicle-colors-dataset",
+      "group_id": "ed4a58698211a1aa1d8f96a9dd1cbfed6b388f8562434dda3a2d15dc32dc8070",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_gray_silver_006",
+      "domain": "vehicle",
+      "filename": "color_gray_silver_006.jpg",
+      "rel_path": "eval/images/color_test/color_gray_silver_006.jpg",
+      "sha256": "064fab0e47d91cb22814aba08c70cc3ab7c37c6b7ca6bb69a667c571c0771fa1",
+      "annotations": {
+        "color": "gray_silver"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "vehicle-colors-dataset",
+      "group_id": "064fab0e47d91cb22814aba08c70cc3ab7c37c6b7ca6bb69a667c571c0771fa1",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_gray_silver_007",
+      "domain": "vehicle",
+      "filename": "color_gray_silver_007.jpg",
+      "rel_path": "eval/images/color_test/color_gray_silver_007.jpg",
+      "sha256": "5ad86122453026e1d6cd95895490ec6225ec5e6d29ec83fd4590b443eb635395",
+      "annotations": {
+        "color": "gray_silver"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "unclear_vehicle_crop"
+      ],
+      "source": "vehicle-colors-dataset",
+      "group_id": "5ad86122453026e1d6cd95895490ec6225ec5e6d29ec83fd4590b443eb635395",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_gray_silver_008",
+      "domain": "vehicle",
+      "filename": "color_gray_silver_008.jpg",
+      "rel_path": "eval/images/color_test/color_gray_silver_008.jpg",
+      "sha256": "58a71267003e5ae732dd6ff31e4266f1a652498e6877f59d987f97e20d0825bb",
+      "annotations": {
+        "color": "gray_silver"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ],
+      "source": "vehicle-colors-dataset",
+      "group_id": "58a71267003e5ae732dd6ff31e4266f1a652498e6877f59d987f97e20d0825bb",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_gray_silver_009",
+      "domain": "vehicle",
+      "filename": "color_gray_silver_009.jpg",
+      "rel_path": "eval/images/color_test/color_gray_silver_009.jpg",
+      "sha256": "fc6724feae529f1a4c8a9e069a4b22196df91a8ac85644db5e3da356b232b44e",
+      "annotations": {
+        "color": "gray_silver"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "vehicle-colors-dataset",
+      "group_id": "fc6724feae529f1a4c8a9e069a4b22196df91a8ac85644db5e3da356b232b44e",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_gray_silver_010",
+      "domain": "vehicle",
+      "filename": "color_gray_silver_010.jpg",
+      "rel_path": "eval/images/color_test/color_gray_silver_010.jpg",
+      "sha256": "3225a6d74f8a97b70da0c41667f293e146999947798adce57d549c1e3e115f61",
+      "annotations": {
+        "color": "gray_silver"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "unclear_vehicle_crop"
+      ],
+      "source": "vehicle-colors-dataset",
+      "group_id": "3225a6d74f8a97b70da0c41667f293e146999947798adce57d549c1e3e115f61",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_red_001",
+      "domain": "vehicle",
+      "filename": "color_red_001.jpg",
+      "rel_path": "eval/images/color_test/color_red_001.jpg",
+      "sha256": "bb970f189df85a7e48d1b24779e2cb4bf0bf94d8e938825156374586ee3e6976",
+      "annotations": {
+        "color": "red"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "vehicle-colors-dataset",
+      "group_id": "bb970f189df85a7e48d1b24779e2cb4bf0bf94d8e938825156374586ee3e6976",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_red_002",
+      "domain": "vehicle",
+      "filename": "color_red_002.jpg",
+      "rel_path": "eval/images/color_test/color_red_002.jpg",
+      "sha256": "1a413f5360ad198dffb92fa2188842d5bd21c158f8b186331f81e4768829f684",
+      "annotations": {
+        "color": "red"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "unclear_vehicle_crop"
+      ],
+      "source": "vehicle-colors-dataset",
+      "group_id": "1a413f5360ad198dffb92fa2188842d5bd21c158f8b186331f81e4768829f684",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_red_003",
+      "domain": "vehicle",
+      "filename": "color_red_003.jpg",
+      "rel_path": "eval/images/color_test/color_red_003.jpg",
+      "sha256": "66d857205572dd3f4246910714a324c90985afedb2b47eab3b44573b1c64aef1",
+      "annotations": {
+        "color": "red"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "unclear_vehicle_crop"
+      ],
+      "source": "vehicle-colors-dataset",
+      "group_id": "66d857205572dd3f4246910714a324c90985afedb2b47eab3b44573b1c64aef1",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_red_004",
+      "domain": "vehicle",
+      "filename": "color_red_004.jpg",
+      "rel_path": "eval/images/color_test/color_red_004.jpg",
+      "sha256": "5ee01a6e0c298c8362ed8e333131c631506404b876c66da2faabaa5418e0190d",
+      "annotations": {
+        "color": "red"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "vehicle-colors-dataset",
+      "group_id": "5ee01a6e0c298c8362ed8e333131c631506404b876c66da2faabaa5418e0190d",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_red_005",
+      "domain": "vehicle",
+      "filename": "color_red_005.jpg",
+      "rel_path": "eval/images/color_test/color_red_005.jpg",
+      "sha256": "b204d17440a5134738d36f709ea624cf1639e0454689470a6fb9e4349a5bacd9",
+      "annotations": {
+        "color": "red"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "vehicle-colors-dataset",
+      "group_id": "b204d17440a5134738d36f709ea624cf1639e0454689470a6fb9e4349a5bacd9",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_red_006",
+      "domain": "vehicle",
+      "filename": "color_red_006.jpg",
+      "rel_path": "eval/images/color_test/color_red_006.jpg",
+      "sha256": "6afac74e1d704a8c4226858481396c2d1177c1a18d1d0a328e3b4026283c70fe",
+      "annotations": {
+        "color": "red"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "unclear_vehicle_crop"
+      ],
+      "source": "vehicle-colors-dataset",
+      "group_id": "6afac74e1d704a8c4226858481396c2d1177c1a18d1d0a328e3b4026283c70fe",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_red_007",
+      "domain": "vehicle",
+      "filename": "color_red_007.jpg",
+      "rel_path": "eval/images/color_test/color_red_007.jpg",
+      "sha256": "e737b8cbb6b36f457610cd65ca875ae36e43258a51d450a8e7060dbedcbc8008",
+      "annotations": {
+        "color": "red"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "unclear_vehicle_crop"
+      ],
+      "source": "vehicle-colors-dataset",
+      "group_id": "e737b8cbb6b36f457610cd65ca875ae36e43258a51d450a8e7060dbedcbc8008",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_red_008",
+      "domain": "vehicle",
+      "filename": "color_red_008.jpg",
+      "rel_path": "eval/images/color_test/color_red_008.jpg",
+      "sha256": "677f89d17f0bff7fcd18c65791eea0fcf1477f2f933d0d6fa4e788776c3866ad",
+      "annotations": {
+        "color": "red"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "unclear_vehicle_crop"
+      ],
+      "source": "vehicle-colors-dataset",
+      "group_id": "677f89d17f0bff7fcd18c65791eea0fcf1477f2f933d0d6fa4e788776c3866ad",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_red_009",
+      "domain": "vehicle",
+      "filename": "color_red_009.jpg",
+      "rel_path": "eval/images/color_test/color_red_009.jpg",
+      "sha256": "959aa2f80ae1163e8f794ea2f0f00d6567ebd9a7b11ec7811745f60467e0c96f",
+      "annotations": {
+        "color": "red"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "vehicle-colors-dataset",
+      "group_id": "959aa2f80ae1163e8f794ea2f0f00d6567ebd9a7b11ec7811745f60467e0c96f",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_red_010",
+      "domain": "vehicle",
+      "filename": "color_red_010.jpg",
+      "rel_path": "eval/images/color_test/color_red_010.jpg",
+      "sha256": "225b6a9f969e7ba1aa54a6c220912bd4d7bfeadda50dd96e97ad6b64ac7a81d5",
+      "annotations": {
+        "color": "red"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "unclear_vehicle_crop"
+      ],
+      "source": "vehicle-colors-dataset",
+      "group_id": "225b6a9f969e7ba1aa54a6c220912bd4d7bfeadda50dd96e97ad6b64ac7a81d5",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_blue_001",
+      "domain": "vehicle",
+      "filename": "color_blue_001.jpg",
+      "rel_path": "eval/images/color_test/color_blue_001.jpg",
+      "sha256": "703297a429523c51e9dd15893ea40b03bd53ccef98be691e47afa8c6960d0cdf",
+      "annotations": {
+        "color": "blue"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "vehicle-colors-dataset",
+      "group_id": "703297a429523c51e9dd15893ea40b03bd53ccef98be691e47afa8c6960d0cdf",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_blue_002",
+      "domain": "vehicle",
+      "filename": "color_blue_002.jpg",
+      "rel_path": "eval/images/color_test/color_blue_002.jpg",
+      "sha256": "48a7ee3da3350e36b0fbbffd5616e983b27981fe980d411603b551f0cd9b375f",
+      "annotations": {
+        "color": "blue"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "unclear_vehicle_crop"
+      ],
+      "source": "vehicle-colors-dataset",
+      "group_id": "48a7ee3da3350e36b0fbbffd5616e983b27981fe980d411603b551f0cd9b375f",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_blue_003",
+      "domain": "vehicle",
+      "filename": "color_blue_003.jpg",
+      "rel_path": "eval/images/color_test/color_blue_003.jpg",
+      "sha256": "4f7751e2aa40362560d33babfae24a055815a28bfcb2c78edc03d4cbe9e9ac3b",
+      "annotations": {
+        "color": "blue"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "vehicle-colors-dataset",
+      "group_id": "4f7751e2aa40362560d33babfae24a055815a28bfcb2c78edc03d4cbe9e9ac3b",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_blue_004",
+      "domain": "vehicle",
+      "filename": "color_blue_004.jpg",
+      "rel_path": "eval/images/color_test/color_blue_004.jpg",
+      "sha256": "2162adf2b2f5050c2d4e3ec7af9174535a2c04af269bcd1a9324af8a24eb3305",
+      "annotations": {
+        "color": "blue"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "vehicle-colors-dataset",
+      "group_id": "2162adf2b2f5050c2d4e3ec7af9174535a2c04af269bcd1a9324af8a24eb3305",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_blue_005",
+      "domain": "vehicle",
+      "filename": "color_blue_005.jpg",
+      "rel_path": "eval/images/color_test/color_blue_005.jpg",
+      "sha256": "96eb8e5483a6474de330ff0dda036dbf9ac470f5632f58d66585c353941d96ea",
+      "annotations": {
+        "color": "blue"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ],
+      "source": "vehicle-colors-dataset",
+      "group_id": "96eb8e5483a6474de330ff0dda036dbf9ac470f5632f58d66585c353941d96ea",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_blue_006",
+      "domain": "vehicle",
+      "filename": "color_blue_006.jpg",
+      "rel_path": "eval/images/color_test/color_blue_006.jpg",
+      "sha256": "9f8b1846a776d1bc4d5be676d26b5fcc620428db0fdfd6241512d7bc396114df",
+      "annotations": {
+        "color": "blue"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "vehicle-colors-dataset",
+      "group_id": "9f8b1846a776d1bc4d5be676d26b5fcc620428db0fdfd6241512d7bc396114df",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_blue_007",
+      "domain": "vehicle",
+      "filename": "color_blue_007.jpg",
+      "rel_path": "eval/images/color_test/color_blue_007.jpg",
+      "sha256": "4e1a180dc4024ad4d9a28c6a50eb3d893d10dde5c6a2754130708c307123a6db",
+      "annotations": {
+        "color": "blue"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "vehicle-colors-dataset",
+      "group_id": "4e1a180dc4024ad4d9a28c6a50eb3d893d10dde5c6a2754130708c307123a6db",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_blue_008",
+      "domain": "vehicle",
+      "filename": "color_blue_008.jpg",
+      "rel_path": "eval/images/color_test/color_blue_008.jpg",
+      "sha256": "b582097f0615b2a263b285d07bc6478d4f2f3d3a648603265854991c86ecc118",
+      "annotations": {
+        "color": "blue"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "vehicle-colors-dataset",
+      "group_id": "b582097f0615b2a263b285d07bc6478d4f2f3d3a648603265854991c86ecc118",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_blue_009",
+      "domain": "vehicle",
+      "filename": "color_blue_009.jpg",
+      "rel_path": "eval/images/color_test/color_blue_009.jpg",
+      "sha256": "bd62405ec1ee3aacfcbe9c9999b9c7684fea847c707dd2829817c1763664453f",
+      "annotations": {
+        "color": "blue"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "unclear_vehicle_crop"
+      ],
+      "source": "vehicle-colors-dataset",
+      "group_id": "bd62405ec1ee3aacfcbe9c9999b9c7684fea847c707dd2829817c1763664453f",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_blue_010",
+      "domain": "vehicle",
+      "filename": "color_blue_010.jpg",
+      "rel_path": "eval/images/color_test/color_blue_010.jpg",
+      "sha256": "5a2a54e83401d619d4c516b9f855ba2964d367d3122f2adf933086295abdd44f",
+      "annotations": {
+        "color": "blue"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "vehicle-colors-dataset",
+      "group_id": "5a2a54e83401d619d4c516b9f855ba2964d367d3122f2adf933086295abdd44f",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_green_001",
+      "domain": "vehicle",
+      "filename": "color_green_001.jpg",
+      "rel_path": "eval/images/color_test/color_green_001.jpg",
+      "sha256": "47612aa5387898be2ba39c0ab094814bb59498a31df6f0e2dd17eb3184e08cf8",
+      "annotations": {
+        "color": "green"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ],
+      "source": "vehicle-colors-dataset",
+      "group_id": "47612aa5387898be2ba39c0ab094814bb59498a31df6f0e2dd17eb3184e08cf8",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_green_002",
+      "domain": "vehicle",
+      "filename": "color_green_002.jpg",
+      "rel_path": "eval/images/color_test/color_green_002.jpg",
+      "sha256": "95fdfccc76ba94b36ca83760c5a1a3bb1c5afca9602ab5d934f8ef9ea0118467",
+      "annotations": {
+        "color": "green"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ],
+      "source": "vehicle-colors-dataset",
+      "group_id": "95fdfccc76ba94b36ca83760c5a1a3bb1c5afca9602ab5d934f8ef9ea0118467",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_green_003",
+      "domain": "vehicle",
+      "filename": "color_green_003.png",
+      "rel_path": "eval/images/color_test/color_green_003.png",
+      "sha256": "2b50d1235d2b588bcef0874b23966a1747cc9124a63b18166edb0de457e707b1",
+      "annotations": {
+        "color": "green"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ],
+      "source": "vehicle-colors-dataset",
+      "group_id": "2b50d1235d2b588bcef0874b23966a1747cc9124a63b18166edb0de457e707b1",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_green_004",
+      "domain": "vehicle",
+      "filename": "color_green_004.jpg",
+      "rel_path": "eval/images/color_test/color_green_004.jpg",
+      "sha256": "5b8a1909dad43368b8cf8f2dd610efc9549f41a352e13ba5ba6c144c7a4785ec",
+      "annotations": {
+        "color": "green"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "vehicle-colors-dataset",
+      "group_id": "5b8a1909dad43368b8cf8f2dd610efc9549f41a352e13ba5ba6c144c7a4785ec",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_green_005",
+      "domain": "vehicle",
+      "filename": "color_green_005.jpg",
+      "rel_path": "eval/images/color_test/color_green_005.jpg",
+      "sha256": "b876d0e84da87134004f6e36e32a37eabf8d2ce901e52656e8f5f153042c87d0",
+      "annotations": {
+        "color": "green"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "vehicle-colors-dataset",
+      "group_id": "b876d0e84da87134004f6e36e32a37eabf8d2ce901e52656e8f5f153042c87d0",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_green_006",
+      "domain": "vehicle",
+      "filename": "color_green_006.jpg",
+      "rel_path": "eval/images/color_test/color_green_006.jpg",
+      "sha256": "cf29dd92c09bfc7759f8a4a498570492b1227e7279ff102ddfaf722e4ab57f22",
+      "annotations": {
+        "color": "green"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ],
+      "source": "vehicle-colors-dataset",
+      "group_id": "cf29dd92c09bfc7759f8a4a498570492b1227e7279ff102ddfaf722e4ab57f22",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_green_007",
+      "domain": "vehicle",
+      "filename": "color_green_007.png",
+      "rel_path": "eval/images/color_test/color_green_007.png",
+      "sha256": "6397a5fc81ceeebc7bf6ca9c5fa36240665052e9f578d1c8e3e6dfbcd1e225b1",
+      "annotations": {
+        "color": "green"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ],
+      "source": "vehicle-colors-dataset",
+      "group_id": "6397a5fc81ceeebc7bf6ca9c5fa36240665052e9f578d1c8e3e6dfbcd1e225b1",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_green_008",
+      "domain": "vehicle",
+      "filename": "color_green_008.jpg",
+      "rel_path": "eval/images/color_test/color_green_008.jpg",
+      "sha256": "76e4745b015a0cf9cc2456a8b10ec96b10a6a0209a1a0625047a36cdd541255d",
+      "annotations": {
+        "color": "green"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "vehicle-colors-dataset",
+      "group_id": "76e4745b015a0cf9cc2456a8b10ec96b10a6a0209a1a0625047a36cdd541255d",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_green_009",
+      "domain": "vehicle",
+      "filename": "color_green_009.jpg",
+      "rel_path": "eval/images/color_test/color_green_009.jpg",
+      "sha256": "4ea4e810f6fcc2d829107f561a75d13dc8148555b1bb9000847a496bc72cb360",
+      "annotations": {
+        "color": "green"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "unclear_vehicle_crop"
+      ],
+      "source": "vehicle-colors-dataset",
+      "group_id": "4ea4e810f6fcc2d829107f561a75d13dc8148555b1bb9000847a496bc72cb360",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_green_010",
+      "domain": "vehicle",
+      "filename": "color_green_010.jpg",
+      "rel_path": "eval/images/color_test/color_green_010.jpg",
+      "sha256": "208ba6cd963acb202c72d14f73d05af4af9ad2641f42175b74fa1c3f0a2b90a2",
+      "annotations": {
+        "color": "green"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "vehicle-colors-dataset",
+      "group_id": "208ba6cd963acb202c72d14f73d05af4af9ad2641f42175b74fa1c3f0a2b90a2",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_yellow_001",
+      "domain": "vehicle",
+      "filename": "color_yellow_001.jpg",
+      "rel_path": "eval/images/color_test/color_yellow_001.jpg",
+      "sha256": "6441001d58bdaa1388d3a705dfdb47be6829506823941a62918a4a9aa700f431",
+      "annotations": {
+        "color": "yellow"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "vehicle-colors-dataset",
+      "group_id": "6441001d58bdaa1388d3a705dfdb47be6829506823941a62918a4a9aa700f431",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_yellow_002",
+      "domain": "vehicle",
+      "filename": "color_yellow_002.jpg",
+      "rel_path": "eval/images/color_test/color_yellow_002.jpg",
+      "sha256": "e8f22cefc4803f3b7888470fd48cf7522957415fcd5285e8c90e9166d1ec8b7a",
+      "annotations": {
+        "color": "yellow"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "vehicle-colors-dataset",
+      "group_id": "e8f22cefc4803f3b7888470fd48cf7522957415fcd5285e8c90e9166d1ec8b7a",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_yellow_003",
+      "domain": "vehicle",
+      "filename": "color_yellow_003.jpg",
+      "rel_path": "eval/images/color_test/color_yellow_003.jpg",
+      "sha256": "97ce501b4546a3671ebad3969006a20bc8ac1e4a237ebe6c2abfab23c5cc1060",
+      "annotations": {
+        "color": "yellow"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "vehicle-colors-dataset",
+      "group_id": "97ce501b4546a3671ebad3969006a20bc8ac1e4a237ebe6c2abfab23c5cc1060",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_yellow_004",
+      "domain": "vehicle",
+      "filename": "color_yellow_004.jpg",
+      "rel_path": "eval/images/color_test/color_yellow_004.jpg",
+      "sha256": "ceaad82d912552c34b37a425ee47b1d7a3708d84ccdf74e379cd9526c7ba0ade",
+      "annotations": {
+        "color": "yellow"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "vehicle-colors-dataset",
+      "group_id": "ceaad82d912552c34b37a425ee47b1d7a3708d84ccdf74e379cd9526c7ba0ade",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_yellow_005",
+      "domain": "vehicle",
+      "filename": "color_yellow_005.jpg",
+      "rel_path": "eval/images/color_test/color_yellow_005.jpg",
+      "sha256": "a0f7690c852085d32092dbdf6b0724bf5e1f887caed80b5cb8a9e6ac4ba9b639",
+      "annotations": {
+        "color": "yellow"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "vehicle-colors-dataset",
+      "group_id": "a0f7690c852085d32092dbdf6b0724bf5e1f887caed80b5cb8a9e6ac4ba9b639",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_yellow_006",
+      "domain": "vehicle",
+      "filename": "color_yellow_006.jpg",
+      "rel_path": "eval/images/color_test/color_yellow_006.jpg",
+      "sha256": "d87445866b38dc44e1dd0735b63063ae22539739a419b03cdb69668ae5a411ba",
+      "annotations": {
+        "color": "yellow"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ],
+      "source": "vehicle-colors-dataset",
+      "group_id": "d87445866b38dc44e1dd0735b63063ae22539739a419b03cdb69668ae5a411ba",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_yellow_007",
+      "domain": "vehicle",
+      "filename": "color_yellow_007.jpg",
+      "rel_path": "eval/images/color_test/color_yellow_007.jpg",
+      "sha256": "f0303ca7f1f0ee96fbccc3d98157381e74c538fed4868f744cac1cd6349fde39",
+      "annotations": {
+        "color": "yellow"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ],
+      "source": "vehicle-colors-dataset",
+      "group_id": "f0303ca7f1f0ee96fbccc3d98157381e74c538fed4868f744cac1cd6349fde39",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_yellow_008",
+      "domain": "vehicle",
+      "filename": "color_yellow_008.jpg",
+      "rel_path": "eval/images/color_test/color_yellow_008.jpg",
+      "sha256": "88f3dc9670a2b937e1c1a94b3125e33d3c469a96cd752ddd1458b0451537c894",
+      "annotations": {
+        "color": "yellow"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "vehicle-colors-dataset",
+      "group_id": "88f3dc9670a2b937e1c1a94b3125e33d3c469a96cd752ddd1458b0451537c894",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_yellow_009",
+      "domain": "vehicle",
+      "filename": "color_yellow_009.jpg",
+      "rel_path": "eval/images/color_test/color_yellow_009.jpg",
+      "sha256": "920ca9904eeb4e3a55c31d426f4daa8a3c7201b4a7b58216d53bc0a83f219371",
+      "annotations": {
+        "color": "yellow"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ],
+      "source": "vehicle-colors-dataset",
+      "group_id": "920ca9904eeb4e3a55c31d426f4daa8a3c7201b4a7b58216d53bc0a83f219371",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_yellow_010",
+      "domain": "vehicle",
+      "filename": "color_yellow_010.jpg",
+      "rel_path": "eval/images/color_test/color_yellow_010.jpg",
+      "sha256": "c27e3e447befba797215055a2cd7fdd4333ffbabb569bb1b36494d255a613734",
+      "annotations": {
+        "color": "yellow"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "vehicle-colors-dataset",
+      "group_id": "c27e3e447befba797215055a2cd7fdd4333ffbabb569bb1b36494d255a613734",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_orange_001",
+      "domain": "vehicle",
+      "filename": "color_orange_001.jpg",
+      "rel_path": "eval/images/color_test/color_orange_001.jpg",
+      "sha256": "632a8c179b58f9cb00adefdda697d259b1896c2a155dc3bdc9203bc59e1bdd07",
+      "annotations": {
+        "color": "orange"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ],
+      "source": "vehicle-colors-dataset",
+      "group_id": "632a8c179b58f9cb00adefdda697d259b1896c2a155dc3bdc9203bc59e1bdd07",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_orange_002",
+      "domain": "vehicle",
+      "filename": "color_orange_002.jpg",
+      "rel_path": "eval/images/color_test/color_orange_002.jpg",
+      "sha256": "3281c4c272102bf6669153221fd6a1c97d79a165db5c05098273b76fd64404aa",
+      "annotations": {
+        "color": "orange"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "vehicle-colors-dataset",
+      "group_id": "3281c4c272102bf6669153221fd6a1c97d79a165db5c05098273b76fd64404aa",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_orange_003",
+      "domain": "vehicle",
+      "filename": "color_orange_003.jpg",
+      "rel_path": "eval/images/color_test/color_orange_003.jpg",
+      "sha256": "1db95554fb3e4ca86d1f28718e448acee397e7dd73aa97fc6d2cba8a9917a0a0",
+      "annotations": {
+        "color": "orange"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "vehicle-colors-dataset",
+      "group_id": "1db95554fb3e4ca86d1f28718e448acee397e7dd73aa97fc6d2cba8a9917a0a0",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_orange_004",
+      "domain": "vehicle",
+      "filename": "color_orange_004.jpg",
+      "rel_path": "eval/images/color_test/color_orange_004.jpg",
+      "sha256": "ccb34d3da92af59cf6ee907c44d0c91356660c10e31c2956c43667ee8f1d1aba",
+      "annotations": {
+        "color": "orange"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "vehicle-colors-dataset",
+      "group_id": "ccb34d3da92af59cf6ee907c44d0c91356660c10e31c2956c43667ee8f1d1aba",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_orange_005",
+      "domain": "vehicle",
+      "filename": "color_orange_005.jpg",
+      "rel_path": "eval/images/color_test/color_orange_005.jpg",
+      "sha256": "ee564003a26f5cceda4d42aaa9d6d748255ee9aa4609d7b0caee413131ec8673",
+      "annotations": {
+        "color": "orange"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "vehicle-colors-dataset",
+      "group_id": "ee564003a26f5cceda4d42aaa9d6d748255ee9aa4609d7b0caee413131ec8673",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_orange_006",
+      "domain": "vehicle",
+      "filename": "color_orange_006.jpg",
+      "rel_path": "eval/images/color_test/color_orange_006.jpg",
+      "sha256": "835cc671cf4b1a10ed318ab9edb0372eb7557629d80337ded7dfb763d7d1e910",
+      "annotations": {
+        "color": "orange"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ],
+      "source": "vehicle-colors-dataset",
+      "group_id": "835cc671cf4b1a10ed318ab9edb0372eb7557629d80337ded7dfb763d7d1e910",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_orange_007",
+      "domain": "vehicle",
+      "filename": "color_orange_007.jpg",
+      "rel_path": "eval/images/color_test/color_orange_007.jpg",
+      "sha256": "6a9a8f12c0129eb4b19b064c21c8e239cf9f84aee09db1222ccf00d7e8297a63",
+      "annotations": {
+        "color": "orange"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ],
+      "source": "vehicle-colors-dataset",
+      "group_id": "6a9a8f12c0129eb4b19b064c21c8e239cf9f84aee09db1222ccf00d7e8297a63",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_orange_008",
+      "domain": "vehicle",
+      "filename": "color_orange_008.jpg",
+      "rel_path": "eval/images/color_test/color_orange_008.jpg",
+      "sha256": "f705bdd6f04b87571ba17e7da4efe4a30937e316b13f8ac1a615934db1d1f84f",
+      "annotations": {
+        "color": "orange"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ],
+      "source": "vehicle-colors-dataset",
+      "group_id": "f705bdd6f04b87571ba17e7da4efe4a30937e316b13f8ac1a615934db1d1f84f",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_orange_009",
+      "domain": "vehicle",
+      "filename": "color_orange_009.jpg",
+      "rel_path": "eval/images/color_test/color_orange_009.jpg",
+      "sha256": "80eec6a8dee4ed33d65ce2dfc92536377fb41f8e404221a8aae004359dbc96ca",
+      "annotations": {
+        "color": "orange"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ],
+      "source": "vehicle-colors-dataset",
+      "group_id": "80eec6a8dee4ed33d65ce2dfc92536377fb41f8e404221a8aae004359dbc96ca",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_orange_010",
+      "domain": "vehicle",
+      "filename": "color_orange_010.jpg",
+      "rel_path": "eval/images/color_test/color_orange_010.jpg",
+      "sha256": "b3ff802d63eb172dbcb05a92ab54c73d45b1a9bc4327dc3a0094ed97e5ef0c41",
+      "annotations": {
+        "color": "orange"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ],
+      "source": "vehicle-colors-dataset",
+      "group_id": "b3ff802d63eb172dbcb05a92ab54c73d45b1a9bc4327dc3a0094ed97e5ef0c41",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_brown_001",
+      "domain": "vehicle",
+      "filename": "color_brown_001.jpeg",
+      "rel_path": "eval/images/color_test/color_brown_001.jpeg",
+      "sha256": "2f45c88184b9824d83944a0b475e181ea3e82f4726f42451186ec3f30786be25",
+      "annotations": {
+        "color": "brown"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ],
+      "source": "vehicle-colors-dataset",
+      "group_id": "2f45c88184b9824d83944a0b475e181ea3e82f4726f42451186ec3f30786be25",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_brown_002",
+      "domain": "vehicle",
+      "filename": "color_brown_002.jpg",
+      "rel_path": "eval/images/color_test/color_brown_002.jpg",
+      "sha256": "6c2c708fe3143d501e26c5bfae836737a469fb413aac7c905f58f2608f59a10f",
+      "annotations": {
+        "color": "brown"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "heavy_shadow",
+        "multiple_vehicles"
+      ],
+      "source": "vehicle-colors-dataset",
+      "group_id": "6c2c708fe3143d501e26c5bfae836737a469fb413aac7c905f58f2608f59a10f",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_brown_003",
+      "domain": "vehicle",
+      "filename": "color_brown_003.jpg",
+      "rel_path": "eval/images/color_test/color_brown_003.jpg",
+      "sha256": "88db97dbf95d388b3a89e3dd7faae1cb87b4d27886db5893c5bb4aa614414da7",
+      "annotations": {
+        "color": "brown"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "unclear_vehicle_crop"
+      ],
+      "source": "vehicle-colors-dataset",
+      "group_id": "88db97dbf95d388b3a89e3dd7faae1cb87b4d27886db5893c5bb4aa614414da7",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_brown_004",
+      "domain": "vehicle",
+      "filename": "color_brown_004.jpg",
+      "rel_path": "eval/images/color_test/color_brown_004.jpg",
+      "sha256": "1e625faa8c957a02157163b582edf2e0e598a6f06614295d8562647b359a2e0d",
+      "annotations": {
+        "color": "brown"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "high_reflection",
+        "multiple_vehicles"
+      ],
+      "source": "vehicle-colors-dataset",
+      "group_id": "1e625faa8c957a02157163b582edf2e0e598a6f06614295d8562647b359a2e0d",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_brown_005",
+      "domain": "vehicle",
+      "filename": "color_brown_005.jpg",
+      "rel_path": "eval/images/color_test/color_brown_005.jpg",
+      "sha256": "15f1208ca05832baf96d8d52116d14b2a9c4fb6cec89a7f6f3cc2c0e4cbdf02f",
+      "annotations": {
+        "color": "brown"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "heavy_shadow",
+        "multiple_vehicles"
+      ],
+      "source": "vehicle-colors-dataset",
+      "group_id": "15f1208ca05832baf96d8d52116d14b2a9c4fb6cec89a7f6f3cc2c0e4cbdf02f",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_brown_006",
+      "domain": "vehicle",
+      "filename": "color_brown_006.png",
+      "rel_path": "eval/images/color_test/color_brown_006.png",
+      "sha256": "477af552998284cbb794f18900a8722bc8866891e606da9c3942e241ad154df0",
+      "annotations": {
+        "color": "brown"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "vehicle-colors-dataset",
+      "group_id": "477af552998284cbb794f18900a8722bc8866891e606da9c3942e241ad154df0",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_brown_007",
+      "domain": "vehicle",
+      "filename": "color_brown_007.jpg",
+      "rel_path": "eval/images/color_test/color_brown_007.jpg",
+      "sha256": "adbd34606286536e55d60e1588b8fcc8aa53e5f891b954071a6ecda2f48e16bb",
+      "annotations": {
+        "color": "brown"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ],
+      "source": "vehicle-colors-dataset",
+      "group_id": "adbd34606286536e55d60e1588b8fcc8aa53e5f891b954071a6ecda2f48e16bb",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_brown_008",
+      "domain": "vehicle",
+      "filename": "color_brown_008.jpeg",
+      "rel_path": "eval/images/color_test/color_brown_008.jpeg",
+      "sha256": "4ac39ed8e53b3f39002f75ddde9fb64b1249b0d5022082c44ed31ba74638d9b0",
+      "annotations": {
+        "color": "brown"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "small_vehicle"
+      ],
+      "source": "vehicle-colors-dataset",
+      "group_id": "4ac39ed8e53b3f39002f75ddde9fb64b1249b0d5022082c44ed31ba74638d9b0",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_brown_009",
+      "domain": "vehicle",
+      "filename": "color_brown_009.jpg",
+      "rel_path": "eval/images/color_test/color_brown_009.jpg",
+      "sha256": "e276b857bbccc4564bfc2374978c5dfa06b48dbc0fdecbce7e7119a51ea76cf4",
+      "annotations": {
+        "color": "brown"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ],
+      "source": "vehicle-colors-dataset",
+      "group_id": "e276b857bbccc4564bfc2374978c5dfa06b48dbc0fdecbce7e7119a51ea76cf4",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_brown_010",
+      "domain": "vehicle",
+      "filename": "color_brown_010.jpg",
+      "rel_path": "eval/images/color_test/color_brown_010.jpg",
+      "sha256": "810b1b858b8c471ae317fe712558e1769f67d8a67de82513d7a8ab86a42b03cb",
+      "annotations": {
+        "color": "brown"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "heavy_shadow"
+      ],
+      "source": "vehicle-colors-dataset",
+      "group_id": "810b1b858b8c471ae317fe712558e1769f67d8a67de82513d7a8ab86a42b03cb",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_purple_001",
+      "domain": "vehicle",
+      "filename": "color_purple_001.jpg",
+      "rel_path": "eval/images/color_test/color_purple_001.jpg",
+      "sha256": "7cb0a25a691041645c5c94d4a3c7e9138331967d755b2ba14fc355fa1a025292",
+      "annotations": {
+        "color": "purple"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ],
+      "source": "vehicle-colors-dataset",
+      "group_id": "7cb0a25a691041645c5c94d4a3c7e9138331967d755b2ba14fc355fa1a025292",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_purple_002",
+      "domain": "vehicle",
+      "filename": "color_purple_002.png",
+      "rel_path": "eval/images/color_test/color_purple_002.png",
+      "sha256": "7493d00b3cd87dca07858b7fe876b516bfd7be7b9dfb8a59ec9c76d4c2ed1008",
+      "annotations": {
+        "color": "purple"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ],
+      "source": "vehicle-colors-dataset",
+      "group_id": "7493d00b3cd87dca07858b7fe876b516bfd7be7b9dfb8a59ec9c76d4c2ed1008",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_purple_003",
+      "domain": "vehicle",
+      "filename": "color_purple_003.jpg",
+      "rel_path": "eval/images/color_test/color_purple_003.jpg",
+      "sha256": "03c3f5603b995190a5e36542d011829e4e27a1e78a2db3f0677b9bd13c70d3c3",
+      "annotations": {
+        "color": "purple"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "heavy_shadow",
+        "high_reflection",
+        "multiple_vehicles"
+      ],
+      "source": "vehicle-colors-dataset",
+      "group_id": "03c3f5603b995190a5e36542d011829e4e27a1e78a2db3f0677b9bd13c70d3c3",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_purple_004",
+      "domain": "vehicle",
+      "filename": "color_purple_004.jpg",
+      "rel_path": "eval/images/color_test/color_purple_004.jpg",
+      "sha256": "75214e0bbdb16cf5c6f0e488961c7af6c6302f2cc51aa38e45f884926113d630",
+      "annotations": {
+        "color": "purple"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "vehicle-colors-dataset",
+      "group_id": "75214e0bbdb16cf5c6f0e488961c7af6c6302f2cc51aa38e45f884926113d630",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_purple_005",
+      "domain": "vehicle",
+      "filename": "color_purple_005.jpg",
+      "rel_path": "eval/images/color_test/color_purple_005.jpg",
+      "sha256": "08cecc0cb69ae1e5a527b9321da9485d8fdd33b21338bc036a4e7f0d72908c4a",
+      "annotations": {
+        "color": "purple"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ],
+      "source": "vehicle-colors-dataset",
+      "group_id": "08cecc0cb69ae1e5a527b9321da9485d8fdd33b21338bc036a4e7f0d72908c4a",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_purple_006",
+      "domain": "vehicle",
+      "filename": "color_purple_006.jpg",
+      "rel_path": "eval/images/color_test/color_purple_006.jpg",
+      "sha256": "337d3583b478ecbfcd95e7c31ebf8acaf428032926dc61492c2898c02c0414fa",
+      "annotations": {
+        "color": "purple"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ],
+      "source": "vehicle-colors-dataset",
+      "group_id": "337d3583b478ecbfcd95e7c31ebf8acaf428032926dc61492c2898c02c0414fa",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_purple_007",
+      "domain": "vehicle",
+      "filename": "color_purple_007.jpg",
+      "rel_path": "eval/images/color_test/color_purple_007.jpg",
+      "sha256": "cbfcc7a68b1cb6b753b2d5d480d5c14c8037495521ea7c0b5f1ae74c976128d7",
+      "annotations": {
+        "color": "purple"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "vehicle-colors-dataset",
+      "group_id": "cbfcc7a68b1cb6b753b2d5d480d5c14c8037495521ea7c0b5f1ae74c976128d7",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_purple_008",
+      "domain": "vehicle",
+      "filename": "color_purple_008.jpg",
+      "rel_path": "eval/images/color_test/color_purple_008.jpg",
+      "sha256": "21fa40230b5d58997bda38da612c69d67dbaf9ff8d9de7c82681e3c1d489d89d",
+      "annotations": {
+        "color": "purple"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "high_reflection"
+      ],
+      "source": "vehicle-colors-dataset",
+      "group_id": "21fa40230b5d58997bda38da612c69d67dbaf9ff8d9de7c82681e3c1d489d89d",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_purple_009",
+      "domain": "vehicle",
+      "filename": "color_purple_009.jpg",
+      "rel_path": "eval/images/color_test/color_purple_009.jpg",
+      "sha256": "8eb20904f1df6cf73a9b47f9eaf1f2213329b03ffa123589da0fe3f564a0daef",
+      "annotations": {
+        "color": "purple"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "high_reflection"
+      ],
+      "source": "vehicle-colors-dataset",
+      "group_id": "8eb20904f1df6cf73a9b47f9eaf1f2213329b03ffa123589da0fe3f564a0daef",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_purple_010",
+      "domain": "vehicle",
+      "filename": "color_purple_010.jpg",
+      "rel_path": "eval/images/color_test/color_purple_010.jpg",
+      "sha256": "d1d83f0dbbda9ffc803434a3a1ab070b666b2faa412956c8d757e53929e9bfef",
+      "annotations": {
+        "color": "purple"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "vehicle-colors-dataset",
+      "group_id": "d1d83f0dbbda9ffc803434a3a1ab070b666b2faa412956c8d757e53929e9bfef",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_pink_001",
+      "domain": "vehicle",
+      "filename": "color_pink_001.jpg",
+      "rel_path": "eval/images/color_test/color_pink_001.jpg",
+      "sha256": "3d5f1b66a4e65b1a29f2beb8cada131392be832ae71caedab15fb94ce6d30787",
+      "annotations": {
+        "color": "pink"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "unclear_vehicle_crop"
+      ],
+      "source": "vehicle-colors-dataset",
+      "group_id": "3d5f1b66a4e65b1a29f2beb8cada131392be832ae71caedab15fb94ce6d30787",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_pink_002",
+      "domain": "vehicle",
+      "filename": "color_pink_002.jpeg",
+      "rel_path": "eval/images/color_test/color_pink_002.jpeg",
+      "sha256": "e41257c3c3b9546705dd0f48bf22aef608e4ecbf8dd4a125a4ca8d3c33dfdc3e",
+      "annotations": {
+        "color": "pink"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "vehicle-colors-dataset",
+      "group_id": "e41257c3c3b9546705dd0f48bf22aef608e4ecbf8dd4a125a4ca8d3c33dfdc3e",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_pink_003",
+      "domain": "vehicle",
+      "filename": "color_pink_003.jpeg",
+      "rel_path": "eval/images/color_test/color_pink_003.jpeg",
+      "sha256": "46bea43da3fc657e2b217f741f976985c0361d00677b7178b9eaaea68df5294e",
+      "annotations": {
+        "color": "pink"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ],
+      "source": "vehicle-colors-dataset",
+      "group_id": "46bea43da3fc657e2b217f741f976985c0361d00677b7178b9eaaea68df5294e",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_pink_004",
+      "domain": "vehicle",
+      "filename": "color_pink_004.jpg",
+      "rel_path": "eval/images/color_test/color_pink_004.jpg",
+      "sha256": "d037391c11ddb0ba58d67478653ad6931ff4ed906cf5a583bd644d52152ea348",
+      "annotations": {
+        "color": "pink"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ],
+      "source": "vehicle-colors-dataset",
+      "group_id": "d037391c11ddb0ba58d67478653ad6931ff4ed906cf5a583bd644d52152ea348",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_pink_005",
+      "domain": "vehicle",
+      "filename": "color_pink_005.jpeg",
+      "rel_path": "eval/images/color_test/color_pink_005.jpeg",
+      "sha256": "eb9aaf60f590d8ec9ca0fe76be3c8b025d914219803bcfddcef5f15d54729de6",
+      "annotations": {
+        "color": "pink"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ],
+      "source": "vehicle-colors-dataset",
+      "group_id": "eb9aaf60f590d8ec9ca0fe76be3c8b025d914219803bcfddcef5f15d54729de6",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_pink_006",
+      "domain": "vehicle",
+      "filename": "color_pink_006.jpg",
+      "rel_path": "eval/images/color_test/color_pink_006.jpg",
+      "sha256": "f0b3a4da50884b228ec8a6fd66862463c99a6fe77b5f538aa46b89d1cf3221b2",
+      "annotations": {
+        "color": "pink"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ],
+      "source": "vehicle-colors-dataset",
+      "group_id": "f0b3a4da50884b228ec8a6fd66862463c99a6fe77b5f538aa46b89d1cf3221b2",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_pink_007",
+      "domain": "vehicle",
+      "filename": "color_pink_007.jpg",
+      "rel_path": "eval/images/color_test/color_pink_007.jpg",
+      "sha256": "6692bdfe1b5da67d1458880f32547bfc1d033ef908fcfee93bf61d6e8d6d3137",
+      "annotations": {
+        "color": "pink"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "small_vehicle"
+      ],
+      "source": "vehicle-colors-dataset",
+      "group_id": "6692bdfe1b5da67d1458880f32547bfc1d033ef908fcfee93bf61d6e8d6d3137",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_pink_008",
+      "domain": "vehicle",
+      "filename": "color_pink_008.jpg",
+      "rel_path": "eval/images/color_test/color_pink_008.jpg",
+      "sha256": "ddd6d3199a2451bf659e28ea4219c3850825684998acd8ddc9d302a4d0dcbf13",
+      "annotations": {
+        "color": "pink"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "vehicle-colors-dataset",
+      "group_id": "ddd6d3199a2451bf659e28ea4219c3850825684998acd8ddc9d302a4d0dcbf13",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_pink_009",
+      "domain": "vehicle",
+      "filename": "color_pink_009.jpeg",
+      "rel_path": "eval/images/color_test/color_pink_009.jpeg",
+      "sha256": "81dca14f0c44f1eef6d630ae6d65ec33550ecb80a7e553fdab5676bd3b2d524f",
+      "annotations": {
+        "color": "pink"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ],
+      "source": "vehicle-colors-dataset",
+      "group_id": "81dca14f0c44f1eef6d630ae6d65ec33550ecb80a7e553fdab5676bd3b2d524f",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "color_pink_010",
+      "domain": "vehicle",
+      "filename": "color_pink_010.jpg",
+      "rel_path": "eval/images/color_test/color_pink_010.jpg",
+      "sha256": "c170b95736ee736292c3b8e8ec7793b1f70bbbfc309e7f7e7b623cc3f51a3ae6",
+      "annotations": {
+        "color": "pink"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "high_reflection",
+        "multiple_vehicles"
+      ],
+      "source": "vehicle-colors-dataset",
+      "group_id": "c170b95736ee736292c3b8e8ec7793b1f70bbbfc309e7f7e7b623cc3f51a3ae6",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "control_unknown_001",
+      "domain": "vehicle",
+      "filename": "no_car_03.jpg",
+      "rel_path": "eval/images/unknown_controls/no_car_03.jpg",
+      "sha256": "38b4efc34f71a810ae31ce5e870c636cefee6c8d1f7fa87b2f8cb7c4b21c409c",
+      "annotations": {
+        "color": "unknown"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "curated-negative-control",
+      "group_id": "38b4efc34f71a810ae31ce5e870c636cefee6c8d1f7fa87b2f8cb7c4b21c409c",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "control_unknown_002",
+      "domain": "vehicle",
+      "filename": "no_car_04.jpg",
+      "rel_path": "eval/images/unknown_controls/no_car_04.jpg",
+      "sha256": "57137cd742da0c85521567bd14bb113191a55437387384c38dacf5e9babb6c21",
+      "annotations": {
+        "color": "unknown"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "curated-negative-control",
+      "group_id": "57137cd742da0c85521567bd14bb113191a55437387384c38dacf5e9babb6c21",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "control_unknown_003",
+      "domain": "vehicle",
+      "filename": "no_car_05.jpg",
+      "rel_path": "eval/images/unknown_controls/no_car_05.jpg",
+      "sha256": "ed6f851d0ca9659a59cc817ea8d1096d94150edb6579ef9e58f519065bcb9216",
+      "annotations": {
+        "color": "unknown"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "curated-negative-control",
+      "group_id": "ed6f851d0ca9659a59cc817ea8d1096d94150edb6579ef9e58f519065bcb9216",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "control_unknown_004",
+      "domain": "vehicle",
+      "filename": "no_car_06.jpg",
+      "rel_path": "eval/images/unknown_controls/no_car_06.jpg",
+      "sha256": "9ff4d9b345f61316961d4b8ced71b5f3329ff682dcce7a6673029fc605ee3dc1",
+      "annotations": {
+        "color": "unknown"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "curated-negative-control",
+      "group_id": "9ff4d9b345f61316961d4b8ced71b5f3329ff682dcce7a6673029fc605ee3dc1",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "control_unknown_005",
+      "domain": "vehicle",
+      "filename": "no_car_07.jpg",
+      "rel_path": "eval/images/unknown_controls/no_car_07.jpg",
+      "sha256": "79094b5020561ee379ead06d2f81f1d5d89880c4fc5ce15ebadbf5debb7f2658",
+      "annotations": {
+        "color": "unknown"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "curated-negative-control",
+      "group_id": "79094b5020561ee379ead06d2f81f1d5d89880c4fc5ce15ebadbf5debb7f2658",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "control_unknown_006",
+      "domain": "vehicle",
+      "filename": "no_car_08.jpg",
+      "rel_path": "eval/images/unknown_controls/no_car_08.jpg",
+      "sha256": "cf19d3efcc82b325335886bdc9ab4d352d6079afe0c87fe2e3392e9855e3d1ac",
+      "annotations": {
+        "color": "unknown"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "curated-negative-control",
+      "group_id": "cf19d3efcc82b325335886bdc9ab4d352d6079afe0c87fe2e3392e9855e3d1ac",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "control_unknown_007",
+      "domain": "vehicle",
+      "filename": "no_car_09.jpg",
+      "rel_path": "eval/images/unknown_controls/no_car_09.jpg",
+      "sha256": "d7bcff4b75c0d8b81924500b0921e98686bfbf4a00aabe7b2749a83d742e24d0",
+      "annotations": {
+        "color": "unknown"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "curated-negative-control",
+      "group_id": "d7bcff4b75c0d8b81924500b0921e98686bfbf4a00aabe7b2749a83d742e24d0",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "control_unknown_008",
+      "domain": "vehicle",
+      "filename": "no_car_10.jpg",
+      "rel_path": "eval/images/unknown_controls/no_car_10.jpg",
+      "sha256": "f18b658366648a7c222c3c57d3b1449af0e1d30b1edca841112578fb5ea77902",
+      "annotations": {
+        "color": "unknown"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "curated-negative-control",
+      "group_id": "f18b658366648a7c222c3c57d3b1449af0e1d30b1edca841112578fb5ea77902",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "control_unknown_009",
+      "domain": "vehicle",
+      "filename": "no_car_field.jpg",
+      "rel_path": "eval/images/unknown_controls/no_car_field.jpg",
+      "sha256": "c4e870d358d64ce677e958c156d0e3fba466993d8e915fc81c5dc64937a9b696",
+      "annotations": {
+        "color": "unknown"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "curated-negative-control",
+      "group_id": "c4e870d358d64ce677e958c156d0e3fba466993d8e915fc81c5dc64937a9b696",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "control_unknown_010",
+      "domain": "vehicle",
+      "filename": "no_car_landscape.jpg",
+      "rel_path": "eval/images/unknown_controls/no_car_landscape.jpg",
+      "sha256": "483cbf0e5f28194105303c04b8acfefc7bb557450c288c66e6233ea42a1ca23c",
+      "annotations": {
+        "color": "unknown"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "curated-negative-control",
+      "group_id": "483cbf0e5f28194105303c04b8acfefc7bb557450c288c66e6233ea42a1ca23c",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    }
+  ]
+}

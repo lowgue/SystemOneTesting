@@ -17,6 +17,7 @@ from PIL import Image
 import psutil
 from .adapters import create_adapter,endpoint,REGISTRY
 from .core import ROOT,load_json,write_json,sha256,fingerprint,validate_manifest,resolve_image,finalize
+from .protocols import item_contract, describe, output_diagnostics
 
 
 def environment():
@@ -177,6 +178,7 @@ def run(args):
                     it=next(it for it in items if it['domain']==domain)
                     try:
                         with Image.open(resolve_image(args.data_root,it['rel_path'])) as src:image=src.convert('RGB')
+                        adapter.contract=item_contract(contract,it)
                         image.thumbnail((args.max_edge,args.max_edge));adapter.predict(image,domain);adapter.synchronize()
                     except Exception:
                         warmup_errors.append(domain)
@@ -184,6 +186,7 @@ def run(args):
                 append('loads.jsonl',dict(model=spec['id'],block=block,load_or_client_init_s=load_s,warmup_s=time.perf_counter()-warm,warmup_failed_domains=warmup_errors,server_metadata=metadata,resource_scope=scope))
                 random.Random(args.seed+block).shuffle(pending)
                 for it in pending:
+                    effective=item_contract(contract,it);adapter.contract=effective
                     key=f'{block}/{spec["id"]}/{it["id"]}'
                     gpu=args.device.startswith('cuda') and spec['adapter'] in {'blip','laya'}
                     if gpu:sys.modules['torch'].cuda.reset_peak_memory_stats(args.device)
@@ -192,15 +195,18 @@ def run(args):
                         try:
                             with Image.open(resolve_image(args.data_root,it['rel_path'])) as src:image=src.convert('RGB')
                             image.thumbnail((args.max_edge,args.max_edge))
-                            answers,raw=adapter.predict(image,it['domain']);result=finalize(contract,it['domain'],answers);adapter.synchronize();error=None
+                            answers,raw=adapter.predict(image,it['domain']);result=finalize(effective,it['domain'],answers);adapter.synchronize();error=None
                         except Exception as exc:
-                            raw={};result=finalize(contract,it['domain'],{});error=f'{type(exc).__name__}: {exc}'
+                            raw={};result=finalize(effective,it['domain'],{});error=f'{type(exc).__name__}: {exc}'
                             for s in specs:
                                 token=os.environ.get(s.get('token_env',''),'')
                                 if token:error=error.replace(token,'[REDACTED]')
                     row=dict(request_key=key,model=spec['id'],adapter=spec['adapter'],block=block,id=it['id'],domain=it['domain'],image_sha256=it['sha256'],
                              elapsed_ms=(time.perf_counter()-timer)*1000,cpu_s=resource.cpu_s,peak_rss_bytes=resource.peak,resource_scope=scope,
                              error=error,raw=raw,**result)
+                    row['protocol_metrics']=dict(getattr(adapter,'last_metrics',{})) if not error else {}
+                    row['request']=describe(spec,effective,it['domain'])
+                    if spec['adapter'] in {'blip','laya'}:row['output_diagnostics']=output_diagnostics(spec,effective,it['domain'],raw)
                     if gpu:row['gpu_peak_allocated_bytes']=sys.modules['torch'].cuda.max_memory_allocated(args.device)
                     if it.get('expected') is not None:row.update(expected=it['expected'],exploratory_exact=(not error and result['predicted']==it['expected']))
                     append('predictions.jsonl',row);done.add(key);measured_errors+=bool(error)

@@ -61,6 +61,7 @@ def normalize_text(contract,domain,key,raw):
     if key=='helmet' and re.match(r'^(no|not)\b',text):return 'no'
     if key=='carrying' and re.match(r'^(no|not carrying|nothing|none)\b',text):return 'none'
     choices=contract['domains'][domain]['questions'][key]['criteria']
+    if key=='body' and 'pickup' in choices and text in {'pickup','pickup truck'}:return 'pickup'
     clean=lambda s:re.sub(r'[^a-z0-9]+',' ',s.lower()).strip()
     aliases={k:[clean(k),clean(v)] for k,v in choices.items() if k not in {'unknown','not_visible'}}
     aliases.update(contract.get('aliases',{}).get(key,{}))

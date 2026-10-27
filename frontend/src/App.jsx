@@ -172,6 +172,8 @@ export default function App() {
               <Benchmark
                 catalog={catalog}
                 contract={settings.contract}
+                settings={settings}
+                setSettings={setSettings}
                 onCatalogRefresh={async () =>
                   setCatalog(await api("/api/catalog"))
                 }

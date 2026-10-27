@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import base64
 import csv
+from collections import Counter
 import hashlib
 import shutil
 from io import BytesIO, StringIO
@@ -86,7 +87,11 @@ def dataset_info(key, manifest):
     return dict(id=key,name='Exemplo: veículos' if key=='portable' else manifest.get('name',key),
                 events=len(manifest['items']),annotated=annotated,complete_labels=complete,
                 unique_images=len({it['sha256'] for it in manifest['items']}),
-                label_status=manifest.get('label_status','exploratory_unadjudicated'))
+                label_status=manifest.get('label_status','exploratory_unadjudicated'),
+                required_contract=manifest.get('required_contract'),note=manifest.get('note'),
+                groups=len({it.get('group_id',it['sha256']) for it in manifest['items']}),
+                source_manifest=manifest.get('source_manifest'),
+                splits=dict(Counter(it.get('split','unspecified') for it in manifest['items'])))
 
 
 class Datasets:

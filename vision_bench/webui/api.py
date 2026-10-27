@@ -134,6 +134,23 @@ def create_app(studio=None, frontend=None):
         if not path:raise ValueError('Contrato inválido.')
         return load_json(path)['domains']
 
+    @app.post('/api/protocol-preview')
+    def protocol_preview(body: dict):
+        from ..protocols import expand_specs, item_contract, describe
+        request,_=studio.prepare({**body,'kind':'benchmark'})
+        contract=load_json(request['contract'])
+        specs=[s for s in load_json(request['config'])['models'] if s['id'] in request['models']]
+        specs=expand_specs(specs,request.get('comparison','baseline'))
+        items=load_json(request['manifest'])['items']
+        if request['limit']:items=items[:request['limit']]
+        examples={}
+        for item in items:
+            key=(item['domain'],tuple(item.get('task_fields',[])),item.get('task_field'),item.get('question'))
+            examples.setdefault(key,item)
+        return dict(variants=len(specs),photos=min(request['limit'] or len(items),len(items)),
+                    planned=min(request['limit'] or len(items),len(items))*len(specs)*request['repetitions'],
+                    protocols=[dict(model=s['id'],examples=[dict(domain=it['domain'],**describe(s,item_contract(contract,it),it['domain'])) for it in examples.values()]) for s in specs])
+
     @app.get('/api/datasets/{dataset_id}/photos/{photo_id}')
     def dataset_photo(dataset_id: str,photo_id: str,thumbnail: bool=False):
         manifest_path=studio.dataset_paths().get(dataset_id)
@@ -150,6 +167,23 @@ def create_app(studio=None, frontend=None):
                 image=image.convert('RGB');image.thumbnail((200,150));image.save(buffer,format='JPEG',quality=75)
             return Response(buffer.getvalue(),media_type='image/jpeg')
         return FileResponse(path)
+
+    @app.get('/api/datasets/{dataset_id}/bundle')
+    def dataset_bundle(dataset_id: str):
+        from ..core import pack_dataset, sha256
+        manifest=studio.dataset_paths().get(dataset_id)
+        if not manifest:raise ValueError('Dataset não encontrado.')
+        contract=studio.contracts.get(load_json(manifest).get('required_contract','ollama'))
+        root=ROOT if dataset_id in studio.manifests else manifest.parent
+        folder=studio.jobs.root.parent/'dataset-bundles';folder.mkdir(exist_ok=True,parents=True)
+        bundle=folder/(sha256(manifest)+'.zip')
+        with studio.datasets.lock:
+            if not bundle.exists():
+                try:pack_dataset(manifest,root,bundle,load_json(contract))
+                except Exception:
+                    bundle.unlink(missing_ok=True)
+                    raise
+        return FileResponse(bundle,filename=dataset_id+'.zip',media_type='application/zip')
 
     @app.get('/api/jobs/{job_id}/evaluation')
     def evaluation(job_id: str):

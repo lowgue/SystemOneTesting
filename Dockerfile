@@ -13,7 +13,7 @@ RUN pip install -r requirements/web.txt
 COPY pyproject.toml ./
 COPY vision_bench/ vision_bench/
 COPY benchmarks/ benchmarks/
-COPY eval/images/cars/ eval/images/cars/
+COPY eval/images/ eval/images/
 COPY eval/figures/scientific_20261026_final/ eval/figures/scientific_20261026_final/
 COPY --from=frontend /build/dist frontend/dist/
 RUN pip install --no-deps -e . && useradd --uid 10001 --create-home appuser && mkdir -p .artifacts/studio && chown -R appuser:appuser .artifacts

@@ -1,0 +1,4907 @@
+{
+  "schema_version": 1,
+  "name": "Robustez: iluminação, desfoque e oclusão",
+  "label_status": "exploratory_historical_unadjudicated",
+  "source_manifest": "eval/datasets/test_4_robustness_manifest.json",
+  "source_manifest_sha256": "a5abf10d1b903efbff78ce5f166d02d864016e67f3a2b21435f5e0319e657cd4",
+  "required_contract": "historical",
+  "note": "Gabaritos históricos exploratórios. Imagens derivadas compartilham grupo; eventos não equivalem a imagens independentes. hatchback → hatch; pickup e truck preservados.",
+  "items": [
+    {
+      "id": "rob_color_yellow_003_original",
+      "domain": "vehicle",
+      "filename": "color_yellow_003_original.jpg",
+      "rel_path": "eval/images/robustness/color_yellow_003_original.jpg",
+      "sha256": "35ff3d437139822c4bbbf3988c2bc1d6b0318d82ecf2e3c6b53218d5f33f12d8",
+      "annotations": {
+        "color": "yellow"
+      },
+      "split": "eval",
+      "stratum": "original",
+      "source_id": "color_yellow_003",
+      "group_id": "color_yellow_003",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "rob_color_yellow_003_low_light",
+      "domain": "vehicle",
+      "filename": "color_yellow_003_low_light.jpg",
+      "rel_path": "eval/images/robustness/color_yellow_003_low_light.jpg",
+      "sha256": "ce457e1637006692c0a0c09ddd88025af7b98091d75df520d7ba3ef04717b42c",
+      "annotations": {
+        "color": "yellow"
+      },
+      "split": "eval",
+      "stratum": "low_light",
+      "source_id": "color_yellow_003",
+      "group_id": "color_yellow_003",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "rob_color_yellow_003_blur",
+      "domain": "vehicle",
+      "filename": "color_yellow_003_blur.jpg",
+      "rel_path": "eval/images/robustness/color_yellow_003_blur.jpg",
+      "sha256": "aa78f457188fa5431c764895abb209c102818aeae6ec0b5e2d1e986117f5ac61",
+      "annotations": {
+        "color": "yellow"
+      },
+      "split": "eval",
+      "stratum": "blur",
+      "source_id": "color_yellow_003",
+      "group_id": "color_yellow_003",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "rob_color_yellow_003_low_res",
+      "domain": "vehicle",
+      "filename": "color_yellow_003_low_res.jpg",
+      "rel_path": "eval/images/robustness/color_yellow_003_low_res.jpg",
+      "sha256": "9f4208a9d6026df4f04cedb78fd5884e6cbc37123eaf0277e7f9ecebc166ecd6",
+      "annotations": {
+        "color": "yellow"
+      },
+      "split": "eval",
+      "stratum": "low_res",
+      "source_id": "color_yellow_003",
+      "group_id": "color_yellow_003",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "rob_color_yellow_003_jpeg_compress",
+      "domain": "vehicle",
+      "filename": "color_yellow_003_jpeg_compress.jpg",
+      "rel_path": "eval/images/robustness/color_yellow_003_jpeg_compress.jpg",
+      "sha256": "7fe85d96642c3cd015810b98cf97da41824110dea0742111116c630bca740595",
+      "annotations": {
+        "color": "yellow"
+      },
+      "split": "eval",
+      "stratum": "jpeg_compress",
+      "source_id": "color_yellow_003",
+      "group_id": "color_yellow_003",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "rob_color_yellow_003_occlusion",
+      "domain": "vehicle",
+      "filename": "color_yellow_003_occlusion.jpg",
+      "rel_path": "eval/images/robustness/color_yellow_003_occlusion.jpg",
+      "sha256": "388a953885fbeafa17e7a4a1041284bb1c8ed232cd1a244a559ec0f311561844",
+      "annotations": {
+        "color": "yellow"
+      },
+      "split": "eval",
+      "stratum": "occlusion",
+      "source_id": "color_yellow_003",
+      "group_id": "color_yellow_003",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "rob_color_black_008_original",
+      "domain": "vehicle",
+      "filename": "color_black_008_original.jpg",
+      "rel_path": "eval/images/robustness/color_black_008_original.jpg",
+      "sha256": "bdca58d8369f2a68cc0ad6f710fc27c947c7e5ff788f70c923e6a4dc43a16758",
+      "annotations": {
+        "color": "black"
+      },
+      "split": "eval",
+      "stratum": "original",
+      "source_id": "color_black_008",
+      "group_id": "color_black_008",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "rob_color_black_008_low_light",
+      "domain": "vehicle",
+      "filename": "color_black_008_low_light.jpg",
+      "rel_path": "eval/images/robustness/color_black_008_low_light.jpg",
+      "sha256": "0cced833b16e99d25577c84dc567f9d7108ad017e9e630b06d386a5812c3156b",
+      "annotations": {
+        "color": "black"
+      },
+      "split": "eval",
+      "stratum": "low_light",
+      "source_id": "color_black_008",
+      "group_id": "color_black_008",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "rob_color_black_008_blur",
+      "domain": "vehicle",
+      "filename": "color_black_008_blur.jpg",
+      "rel_path": "eval/images/robustness/color_black_008_blur.jpg",
+      "sha256": "ebe27bc1f630870ee845d639a5d096e3c961516aee894492ccb576d262aedd33",
+      "annotations": {
+        "color": "black"
+      },
+      "split": "eval",
+      "stratum": "blur",
+      "source_id": "color_black_008",
+      "group_id": "color_black_008",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "rob_color_black_008_low_res",
+      "domain": "vehicle",
+      "filename": "color_black_008_low_res.jpg",
+      "rel_path": "eval/images/robustness/color_black_008_low_res.jpg",
+      "sha256": "0666d42e33568a4ae5d941904f80f7dc1a22c923f77f97db0f1ae34f838fe294",
+      "annotations": {
+        "color": "black"
+      },
+      "split": "eval",
+      "stratum": "low_res",
+      "source_id": "color_black_008",
+      "group_id": "color_black_008",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "rob_color_black_008_jpeg_compress",
+      "domain": "vehicle",
+      "filename": "color_black_008_jpeg_compress.jpg",
+      "rel_path": "eval/images/robustness/color_black_008_jpeg_compress.jpg",
+      "sha256": "3c207cb68c08dfd307648403a55209e4230a728682569af5a23fea2c1805bdc0",
+      "annotations": {
+        "color": "black"
+      },
+      "split": "eval",
+      "stratum": "jpeg_compress",
+      "source_id": "color_black_008",
+      "group_id": "color_black_008",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "rob_color_black_008_occlusion",
+      "domain": "vehicle",
+      "filename": "color_black_008_occlusion.jpg",
+      "rel_path": "eval/images/robustness/color_black_008_occlusion.jpg",
+      "sha256": "687066ddcc15a6f063d8ab602137ced04cbcdb0536d6da2299e74ed65a767085",
+      "annotations": {
+        "color": "black"
+      },
+      "split": "eval",
+      "stratum": "occlusion",
+      "source_id": "color_black_008",
+      "group_id": "color_black_008",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "rob_color_blue_004_original",
+      "domain": "vehicle",
+      "filename": "color_blue_004_original.jpg",
+      "rel_path": "eval/images/robustness/color_blue_004_original.jpg",
+      "sha256": "b7149598d5ce15ee2ee9da89a55d9c790865223c930b8a2f44e4c2cd2e424deb",
+      "annotations": {
+        "color": "blue"
+      },
+      "split": "eval",
+      "stratum": "original",
+      "source_id": "color_blue_004",
+      "group_id": "color_blue_004",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "rob_color_blue_004_low_light",
+      "domain": "vehicle",
+      "filename": "color_blue_004_low_light.jpg",
+      "rel_path": "eval/images/robustness/color_blue_004_low_light.jpg",
+      "sha256": "e6900acfa93ff84551f2b15b890cd010ae75db5ec413854919b08b5e6898dcc1",
+      "annotations": {
+        "color": "blue"
+      },
+      "split": "eval",
+      "stratum": "low_light",
+      "source_id": "color_blue_004",
+      "group_id": "color_blue_004",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "rob_color_blue_004_blur",
+      "domain": "vehicle",
+      "filename": "color_blue_004_blur.jpg",
+      "rel_path": "eval/images/robustness/color_blue_004_blur.jpg",
+      "sha256": "8df51d7e11769f2db51b8dc716e1bec8d3d55b6df6be93cc946405bd2e61340b",
+      "annotations": {
+        "color": "blue"
+      },
+      "split": "eval",
+      "stratum": "blur",
+      "source_id": "color_blue_004",
+      "group_id": "color_blue_004",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "rob_color_blue_004_low_res",
+      "domain": "vehicle",
+      "filename": "color_blue_004_low_res.jpg",
+      "rel_path": "eval/images/robustness/color_blue_004_low_res.jpg",
+      "sha256": "d2704954edc99ed44317521dda677a21261bb0dfb108bd3387092f21cd77d6be",
+      "annotations": {
+        "color": "blue"
+      },
+      "split": "eval",
+      "stratum": "low_res",
+      "source_id": "color_blue_004",
+      "group_id": "color_blue_004",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "rob_color_blue_004_jpeg_compress",
+      "domain": "vehicle",
+      "filename": "color_blue_004_jpeg_compress.jpg",
+      "rel_path": "eval/images/robustness/color_blue_004_jpeg_compress.jpg",
+      "sha256": "4fbfbbab80f7c881f1961bab33865b5ef0c9aa3cb98e0309689da753e7d8da2b",
+      "annotations": {
+        "color": "blue"
+      },
+      "split": "eval",
+      "stratum": "jpeg_compress",
+      "source_id": "color_blue_004",
+      "group_id": "color_blue_004",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "rob_color_blue_004_occlusion",
+      "domain": "vehicle",
+      "filename": "color_blue_004_occlusion.jpg",
+      "rel_path": "eval/images/robustness/color_blue_004_occlusion.jpg",
+      "sha256": "90827b957d32b861f95be3f9a805c819a6c8f38b240319f2f984ac0fc1ef0e56",
+      "annotations": {
+        "color": "blue"
+      },
+      "split": "eval",
+      "stratum": "occlusion",
+      "source_id": "color_blue_004",
+      "group_id": "color_blue_004",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "rob_color_pink_006_original",
+      "domain": "vehicle",
+      "filename": "color_pink_006_original.jpg",
+      "rel_path": "eval/images/robustness/color_pink_006_original.jpg",
+      "sha256": "95297df41d5831207da282c1e078d60536215acea26188f4d9059314ade02e0b",
+      "annotations": {
+        "color": "pink"
+      },
+      "split": "eval",
+      "stratum": "original",
+      "source_id": "color_pink_006",
+      "group_id": "color_pink_006",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "rob_color_pink_006_low_light",
+      "domain": "vehicle",
+      "filename": "color_pink_006_low_light.jpg",
+      "rel_path": "eval/images/robustness/color_pink_006_low_light.jpg",
+      "sha256": "2f5a26ea5aa2294547e23eb6ed0ece38a53ba0ccb39b7980db0dd551875138c7",
+      "annotations": {
+        "color": "pink"
+      },
+      "split": "eval",
+      "stratum": "low_light",
+      "source_id": "color_pink_006",
+      "group_id": "color_pink_006",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "rob_color_pink_006_blur",
+      "domain": "vehicle",
+      "filename": "color_pink_006_blur.jpg",
+      "rel_path": "eval/images/robustness/color_pink_006_blur.jpg",
+      "sha256": "c11711520df247efb15826ddaafd8a5ab911b576876d257e723a22596c6a3464",
+      "annotations": {
+        "color": "pink"
+      },
+      "split": "eval",
+      "stratum": "blur",
+      "source_id": "color_pink_006",
+      "group_id": "color_pink_006",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "rob_color_pink_006_low_res",
+      "domain": "vehicle",
+      "filename": "color_pink_006_low_res.jpg",
+      "rel_path": "eval/images/robustness/color_pink_006_low_res.jpg",
+      "sha256": "dc74d4df3ed0436c96027c76c99642948964b3bf380a5a7a42c302c61a7619cc",
+      "annotations": {
+        "color": "pink"
+      },
+      "split": "eval",
+      "stratum": "low_res",
+      "source_id": "color_pink_006",
+      "group_id": "color_pink_006",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "rob_color_pink_006_jpeg_compress",
+      "domain": "vehicle",
+      "filename": "color_pink_006_jpeg_compress.jpg",
+      "rel_path": "eval/images/robustness/color_pink_006_jpeg_compress.jpg",
+      "sha256": "56f6cbc53274e5f82aa737e390143ebea0f4f55d2f97adc94f5d8143f0f5ea51",
+      "annotations": {
+        "color": "pink"
+      },
+      "split": "eval",
+      "stratum": "jpeg_compress",
+      "source_id": "color_pink_006",
+      "group_id": "color_pink_006",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "rob_color_pink_006_occlusion",
+      "domain": "vehicle",
+      "filename": "color_pink_006_occlusion.jpg",
+      "rel_path": "eval/images/robustness/color_pink_006_occlusion.jpg",
+      "sha256": "64445e77b0f2b28e4d05b23d14846d1298e391fa679187d19f84c301ed81ef76",
+      "annotations": {
+        "color": "pink"
+      },
+      "split": "eval",
+      "stratum": "occlusion",
+      "source_id": "color_pink_006",
+      "group_id": "color_pink_006",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "rob_color_white_005_original",
+      "domain": "vehicle",
+      "filename": "color_white_005_original.jpg",
+      "rel_path": "eval/images/robustness/color_white_005_original.jpg",
+      "sha256": "4e194dc76d70d583151077344be21a0aa72d89cf110ce79ea5f56aefed10b224",
+      "annotations": {
+        "color": "white"
+      },
+      "split": "eval",
+      "stratum": "original",
+      "source_id": "color_white_005",
+      "group_id": "color_white_005",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "rob_color_white_005_low_light",
+      "domain": "vehicle",
+      "filename": "color_white_005_low_light.jpg",
+      "rel_path": "eval/images/robustness/color_white_005_low_light.jpg",
+      "sha256": "178d56b2f204b8de457be636bad88955ab0a40bc4d000ff69fd30a8968525f98",
+      "annotations": {
+        "color": "white"
+      },
+      "split": "eval",
+      "stratum": "low_light",
+      "source_id": "color_white_005",
+      "group_id": "color_white_005",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "rob_color_white_005_blur",
+      "domain": "vehicle",
+      "filename": "color_white_005_blur.jpg",
+      "rel_path": "eval/images/robustness/color_white_005_blur.jpg",
+      "sha256": "897ef75a69a0934569f5903e6dc4025958dca2884d5691e817aeccea89610a9a",
+      "annotations": {
+        "color": "white"
+      },
+      "split": "eval",
+      "stratum": "blur",
+      "source_id": "color_white_005",
+      "group_id": "color_white_005",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "rob_color_white_005_low_res",
+      "domain": "vehicle",
+      "filename": "color_white_005_low_res.jpg",
+      "rel_path": "eval/images/robustness/color_white_005_low_res.jpg",
+      "sha256": "45286a4dbf187e655930eaf47580f0fc89f3abcf625d23af6de99c8800c08956",
+      "annotations": {
+        "color": "white"
+      },
+      "split": "eval",
+      "stratum": "low_res",
+      "source_id": "color_white_005",
+      "group_id": "color_white_005",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "rob_color_white_005_jpeg_compress",
+      "domain": "vehicle",
+      "filename": "color_white_005_jpeg_compress.jpg",
+      "rel_path": "eval/images/robustness/color_white_005_jpeg_compress.jpg",
+      "sha256": "f12e2230d8bb37b0597871b4292f97ab73093563c3f6f88a89585f511fde881e",
+      "annotations": {
+        "color": "white"
+      },
+      "split": "eval",
+      "stratum": "jpeg_compress",
+      "source_id": "color_white_005",
+      "group_id": "color_white_005",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "rob_color_white_005_occlusion",
+      "domain": "vehicle",
+      "filename": "color_white_005_occlusion.jpg",
+      "rel_path": "eval/images/robustness/color_white_005_occlusion.jpg",
+      "sha256": "1c204c2be0e82e3e5f24d3cc89fc21008e496f8c8244d54ba225ec39821946d7",
+      "annotations": {
+        "color": "white"
+      },
+      "split": "eval",
+      "stratum": "occlusion",
+      "source_id": "color_white_005",
+      "group_id": "color_white_005",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "rob_color_purple_001_original",
+      "domain": "vehicle",
+      "filename": "color_purple_001_original.jpg",
+      "rel_path": "eval/images/robustness/color_purple_001_original.jpg",
+      "sha256": "853e60cc92e896adc524c59e3035189ad33b5d22d08dd82eb871939fab049e87",
+      "annotations": {
+        "color": "purple"
+      },
+      "split": "eval",
+      "stratum": "original",
+      "source_id": "color_purple_001",
+      "group_id": "color_purple_001",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "rob_color_purple_001_low_light",
+      "domain": "vehicle",
+      "filename": "color_purple_001_low_light.jpg",
+      "rel_path": "eval/images/robustness/color_purple_001_low_light.jpg",
+      "sha256": "60e484cb95f2bb963f6ea4e7b62dc0c29fac00296dc9f1da4325119d151e40a4",
+      "annotations": {
+        "color": "purple"
+      },
+      "split": "eval",
+      "stratum": "low_light",
+      "source_id": "color_purple_001",
+      "group_id": "color_purple_001",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "rob_color_purple_001_blur",
+      "domain": "vehicle",
+      "filename": "color_purple_001_blur.jpg",
+      "rel_path": "eval/images/robustness/color_purple_001_blur.jpg",
+      "sha256": "d521aa9b83d0bb6c190f618848f4305d7eaf0497af5b56e7e7e685824da3280d",
+      "annotations": {
+        "color": "purple"
+      },
+      "split": "eval",
+      "stratum": "blur",
+      "source_id": "color_purple_001",
+      "group_id": "color_purple_001",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "rob_color_purple_001_low_res",
+      "domain": "vehicle",
+      "filename": "color_purple_001_low_res.jpg",
+      "rel_path": "eval/images/robustness/color_purple_001_low_res.jpg",
+      "sha256": "cf780947d27add33bf08c607da49724b5c544db78ca42c03d4aecccbf1d93858",
+      "annotations": {
+        "color": "purple"
+      },
+      "split": "eval",
+      "stratum": "low_res",
+      "source_id": "color_purple_001",
+      "group_id": "color_purple_001",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "rob_color_purple_001_jpeg_compress",
+      "domain": "vehicle",
+      "filename": "color_purple_001_jpeg_compress.jpg",
+      "rel_path": "eval/images/robustness/color_purple_001_jpeg_compress.jpg",
+      "sha256": "599d21cc39ddb34548da61467d38b235e60d7e6ce16667d5c19b7c4d0cdd4f9c",
+      "annotations": {
+        "color": "purple"
+      },
+      "split": "eval",
+      "stratum": "jpeg_compress",
+      "source_id": "color_purple_001",
+      "group_id": "color_purple_001",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "rob_color_purple_001_occlusion",
+      "domain": "vehicle",
+      "filename": "color_purple_001_occlusion.jpg",
+      "rel_path": "eval/images/robustness/color_purple_001_occlusion.jpg",
+      "sha256": "6fb3bdd0e7fe2cd6e108484ee950a9152df0950e075235b155b61f340e37f4d1",
+      "annotations": {
+        "color": "purple"
+      },
+      "split": "eval",
+      "stratum": "occlusion",
+      "source_id": "color_purple_001",
+      "group_id": "color_purple_001",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "rob_color_orange_009_original",
+      "domain": "vehicle",
+      "filename": "color_orange_009_original.jpg",
+      "rel_path": "eval/images/robustness/color_orange_009_original.jpg",
+      "sha256": "3856f230017fe8176bd8898a6e3795d31c4cbd0b0dd1aaa61197c78f3ad76c10",
+      "annotations": {
+        "color": "orange"
+      },
+      "split": "eval",
+      "stratum": "original",
+      "source_id": "color_orange_009",
+      "group_id": "color_orange_009",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "rob_color_orange_009_low_light",
+      "domain": "vehicle",
+      "filename": "color_orange_009_low_light.jpg",
+      "rel_path": "eval/images/robustness/color_orange_009_low_light.jpg",
+      "sha256": "6433fcb74e86a95aa73e9f6646341e7eaa0c2ddf50773c7e8bbf4c852762eb89",
+      "annotations": {
+        "color": "orange"
+      },
+      "split": "eval",
+      "stratum": "low_light",
+      "source_id": "color_orange_009",
+      "group_id": "color_orange_009",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "rob_color_orange_009_blur",
+      "domain": "vehicle",
+      "filename": "color_orange_009_blur.jpg",
+      "rel_path": "eval/images/robustness/color_orange_009_blur.jpg",
+      "sha256": "9a502e07c9b85176a5b0b352b4271c2a281a200687f948bf7b9adcbb5f8f16d6",
+      "annotations": {
+        "color": "orange"
+      },
+      "split": "eval",
+      "stratum": "blur",
+      "source_id": "color_orange_009",
+      "group_id": "color_orange_009",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "rob_color_orange_009_low_res",
+      "domain": "vehicle",
+      "filename": "color_orange_009_low_res.jpg",
+      "rel_path": "eval/images/robustness/color_orange_009_low_res.jpg",
+      "sha256": "d6ffe5074a931a871b874613a13fbfbfcfcc6457de6226b0db762bbd59e9718c",
+      "annotations": {
+        "color": "orange"
+      },
+      "split": "eval",
+      "stratum": "low_res",
+      "source_id": "color_orange_009",
+      "group_id": "color_orange_009",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "rob_color_orange_009_jpeg_compress",
+      "domain": "vehicle",
+      "filename": "color_orange_009_jpeg_compress.jpg",
+      "rel_path": "eval/images/robustness/color_orange_009_jpeg_compress.jpg",
+      "sha256": "1efe0d93acbb07cf728b3ccf3add8615e76bf29f5c6209fbd5fc24c51fa80723",
+      "annotations": {
+        "color": "orange"
+      },
+      "split": "eval",
+      "stratum": "jpeg_compress",
+      "source_id": "color_orange_009",
+      "group_id": "color_orange_009",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "rob_color_orange_009_occlusion",
+      "domain": "vehicle",
+      "filename": "color_orange_009_occlusion.jpg",
+      "rel_path": "eval/images/robustness/color_orange_009_occlusion.jpg",
+      "sha256": "d9a2fa3e0abd57e0bb807054170e20839e91675090a8923b9df9ad2d12b8ceea",
+      "annotations": {
+        "color": "orange"
+      },
+      "split": "eval",
+      "stratum": "occlusion",
+      "source_id": "color_orange_009",
+      "group_id": "color_orange_009",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "rob_color_green_010_original",
+      "domain": "vehicle",
+      "filename": "color_green_010_original.jpg",
+      "rel_path": "eval/images/robustness/color_green_010_original.jpg",
+      "sha256": "7219b08259598a522890fae3ccc88f66d00c3efcbb91d86d3d86126948ae206b",
+      "annotations": {
+        "color": "green"
+      },
+      "split": "eval",
+      "stratum": "original",
+      "source_id": "color_green_010",
+      "group_id": "color_green_010",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "rob_color_green_010_low_light",
+      "domain": "vehicle",
+      "filename": "color_green_010_low_light.jpg",
+      "rel_path": "eval/images/robustness/color_green_010_low_light.jpg",
+      "sha256": "ca09b8b3bbcd2489e17c161f11404de70f6184b8541afe290d49588c93946022",
+      "annotations": {
+        "color": "green"
+      },
+      "split": "eval",
+      "stratum": "low_light",
+      "source_id": "color_green_010",
+      "group_id": "color_green_010",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "rob_color_green_010_blur",
+      "domain": "vehicle",
+      "filename": "color_green_010_blur.jpg",
+      "rel_path": "eval/images/robustness/color_green_010_blur.jpg",
+      "sha256": "45ac973ed9d0d93f487f8ca9aeab9a08ff3395aaab3a184bfa9dc41b9f8c1c83",
+      "annotations": {
+        "color": "green"
+      },
+      "split": "eval",
+      "stratum": "blur",
+      "source_id": "color_green_010",
+      "group_id": "color_green_010",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "rob_color_green_010_low_res",
+      "domain": "vehicle",
+      "filename": "color_green_010_low_res.jpg",
+      "rel_path": "eval/images/robustness/color_green_010_low_res.jpg",
+      "sha256": "657ba17cad8ca0816b37c7650297a2f7b03b39b1c700bc405f72331377fa4aaf",
+      "annotations": {
+        "color": "green"
+      },
+      "split": "eval",
+      "stratum": "low_res",
+      "source_id": "color_green_010",
+      "group_id": "color_green_010",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "rob_color_green_010_jpeg_compress",
+      "domain": "vehicle",
+      "filename": "color_green_010_jpeg_compress.jpg",
+      "rel_path": "eval/images/robustness/color_green_010_jpeg_compress.jpg",
+      "sha256": "6d14a3f3d3ce3b3f57d5c0e387a05d05db013f54747974f2747ecf3494f3c864",
+      "annotations": {
+        "color": "green"
+      },
+      "split": "eval",
+      "stratum": "jpeg_compress",
+      "source_id": "color_green_010",
+      "group_id": "color_green_010",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "rob_color_green_010_occlusion",
+      "domain": "vehicle",
+      "filename": "color_green_010_occlusion.jpg",
+      "rel_path": "eval/images/robustness/color_green_010_occlusion.jpg",
+      "sha256": "30bc63b2bd530e68a91b3f9d02e401e4d60126ba1c17a512ccae8e48aebca008",
+      "annotations": {
+        "color": "green"
+      },
+      "split": "eval",
+      "stratum": "occlusion",
+      "source_id": "color_green_010",
+      "group_id": "color_green_010",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "rob_color_red_007_original",
+      "domain": "vehicle",
+      "filename": "color_red_007_original.jpg",
+      "rel_path": "eval/images/robustness/color_red_007_original.jpg",
+      "sha256": "6f6f521fa05c861ffe905431453fa3cd0df929fa6b552f1dc52449714bc02e1d",
+      "annotations": {
+        "color": "red"
+      },
+      "split": "eval",
+      "stratum": "original",
+      "source_id": "color_red_007",
+      "group_id": "color_red_007",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "rob_color_red_007_low_light",
+      "domain": "vehicle",
+      "filename": "color_red_007_low_light.jpg",
+      "rel_path": "eval/images/robustness/color_red_007_low_light.jpg",
+      "sha256": "db091162cd6c67605c11b94850ee39a99ad3d226048338c55934bbb51ed65caa",
+      "annotations": {
+        "color": "red"
+      },
+      "split": "eval",
+      "stratum": "low_light",
+      "source_id": "color_red_007",
+      "group_id": "color_red_007",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "rob_color_red_007_blur",
+      "domain": "vehicle",
+      "filename": "color_red_007_blur.jpg",
+      "rel_path": "eval/images/robustness/color_red_007_blur.jpg",
+      "sha256": "a58bf11076ed8f8a0199690666f28e71315be6df00ead2e207542cc798179f28",
+      "annotations": {
+        "color": "red"
+      },
+      "split": "eval",
+      "stratum": "blur",
+      "source_id": "color_red_007",
+      "group_id": "color_red_007",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "rob_color_red_007_low_res",
+      "domain": "vehicle",
+      "filename": "color_red_007_low_res.jpg",
+      "rel_path": "eval/images/robustness/color_red_007_low_res.jpg",
+      "sha256": "dd7845130e05bfaa2bd1bdf617b1f705406122950cc5ffe5635e07f6a772f2fc",
+      "annotations": {
+        "color": "red"
+      },
+      "split": "eval",
+      "stratum": "low_res",
+      "source_id": "color_red_007",
+      "group_id": "color_red_007",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "rob_color_red_007_jpeg_compress",
+      "domain": "vehicle",
+      "filename": "color_red_007_jpeg_compress.jpg",
+      "rel_path": "eval/images/robustness/color_red_007_jpeg_compress.jpg",
+      "sha256": "7c7e59be7729ed36b0d1122996663339bc3aa526e9cc201241adf877db0d8df3",
+      "annotations": {
+        "color": "red"
+      },
+      "split": "eval",
+      "stratum": "jpeg_compress",
+      "source_id": "color_red_007",
+      "group_id": "color_red_007",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "rob_color_red_007_occlusion",
+      "domain": "vehicle",
+      "filename": "color_red_007_occlusion.jpg",
+      "rel_path": "eval/images/robustness/color_red_007_occlusion.jpg",
+      "sha256": "10270c8eb1293d2333af34fd24ac3c6fa9c4f1f892e917a2705ca8f822c044b0",
+      "annotations": {
+        "color": "red"
+      },
+      "split": "eval",
+      "stratum": "occlusion",
+      "source_id": "color_red_007",
+      "group_id": "color_red_007",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "rob_color_gray_silver_008_original",
+      "domain": "vehicle",
+      "filename": "color_gray_silver_008_original.jpg",
+      "rel_path": "eval/images/robustness/color_gray_silver_008_original.jpg",
+      "sha256": "01450c6abbde3385e2fed1b62d70909ee0e6299c965576c3a5b7f8dd79b64815",
+      "annotations": {
+        "color": "gray_silver"
+      },
+      "split": "eval",
+      "stratum": "original",
+      "source_id": "color_gray_silver_008",
+      "group_id": "color_gray_silver_008",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "rob_color_gray_silver_008_low_light",
+      "domain": "vehicle",
+      "filename": "color_gray_silver_008_low_light.jpg",
+      "rel_path": "eval/images/robustness/color_gray_silver_008_low_light.jpg",
+      "sha256": "e3a2724b870543b53f0c6babadc1ca8c0df5c19f259e7f6818fc14082ac2c97a",
+      "annotations": {
+        "color": "gray_silver"
+      },
+      "split": "eval",
+      "stratum": "low_light",
+      "source_id": "color_gray_silver_008",
+      "group_id": "color_gray_silver_008",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "rob_color_gray_silver_008_blur",
+      "domain": "vehicle",
+      "filename": "color_gray_silver_008_blur.jpg",
+      "rel_path": "eval/images/robustness/color_gray_silver_008_blur.jpg",
+      "sha256": "14f539dcba6277368b8d8ec22b0226c3b2865bf24acc5e0df7e94031cdccd238",
+      "annotations": {
+        "color": "gray_silver"
+      },
+      "split": "eval",
+      "stratum": "blur",
+      "source_id": "color_gray_silver_008",
+      "group_id": "color_gray_silver_008",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "rob_color_gray_silver_008_low_res",
+      "domain": "vehicle",
+      "filename": "color_gray_silver_008_low_res.jpg",
+      "rel_path": "eval/images/robustness/color_gray_silver_008_low_res.jpg",
+      "sha256": "9ea906c88b4f24891d7784311489b6af35ed3411231fc7919cd505b039afb4e5",
+      "annotations": {
+        "color": "gray_silver"
+      },
+      "split": "eval",
+      "stratum": "low_res",
+      "source_id": "color_gray_silver_008",
+      "group_id": "color_gray_silver_008",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "rob_color_gray_silver_008_jpeg_compress",
+      "domain": "vehicle",
+      "filename": "color_gray_silver_008_jpeg_compress.jpg",
+      "rel_path": "eval/images/robustness/color_gray_silver_008_jpeg_compress.jpg",
+      "sha256": "87a5460870fec848edba932518dfcd78479301e8407513e2ff0b9a9f399e8338",
+      "annotations": {
+        "color": "gray_silver"
+      },
+      "split": "eval",
+      "stratum": "jpeg_compress",
+      "source_id": "color_gray_silver_008",
+      "group_id": "color_gray_silver_008",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "rob_color_gray_silver_008_occlusion",
+      "domain": "vehicle",
+      "filename": "color_gray_silver_008_occlusion.jpg",
+      "rel_path": "eval/images/robustness/color_gray_silver_008_occlusion.jpg",
+      "sha256": "8334e21939fac8672f6479450ff4a4f2714a4f6675b4ab30ac09355eaed36c6c",
+      "annotations": {
+        "color": "gray_silver"
+      },
+      "split": "eval",
+      "stratum": "occlusion",
+      "source_id": "color_gray_silver_008",
+      "group_id": "color_gray_silver_008",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "rob_color_brown_008_original",
+      "domain": "vehicle",
+      "filename": "color_brown_008_original.jpg",
+      "rel_path": "eval/images/robustness/color_brown_008_original.jpg",
+      "sha256": "6f7d00471349bbad8d49ae499f4c83172cd68d67af26f89f4a89b49d9b7089d2",
+      "annotations": {
+        "color": "brown"
+      },
+      "split": "eval",
+      "stratum": "original",
+      "source_id": "color_brown_008",
+      "group_id": "color_brown_008",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "rob_color_brown_008_low_light",
+      "domain": "vehicle",
+      "filename": "color_brown_008_low_light.jpg",
+      "rel_path": "eval/images/robustness/color_brown_008_low_light.jpg",
+      "sha256": "9d805bf97a4b692477b9d53d545ab882c05a354d223bf1a070249069ecb72558",
+      "annotations": {
+        "color": "brown"
+      },
+      "split": "eval",
+      "stratum": "low_light",
+      "source_id": "color_brown_008",
+      "group_id": "color_brown_008",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "rob_color_brown_008_blur",
+      "domain": "vehicle",
+      "filename": "color_brown_008_blur.jpg",
+      "rel_path": "eval/images/robustness/color_brown_008_blur.jpg",
+      "sha256": "fcf695671e6793e329b05c520f1f6895db0d6ebc87759247c392dcf9a845eea5",
+      "annotations": {
+        "color": "brown"
+      },
+      "split": "eval",
+      "stratum": "blur",
+      "source_id": "color_brown_008",
+      "group_id": "color_brown_008",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "rob_color_brown_008_low_res",
+      "domain": "vehicle",
+      "filename": "color_brown_008_low_res.jpg",
+      "rel_path": "eval/images/robustness/color_brown_008_low_res.jpg",
+      "sha256": "8f3212b0fb091077a801f239c585a7381647089611021d9fb980030d722ebed3",
+      "annotations": {
+        "color": "brown"
+      },
+      "split": "eval",
+      "stratum": "low_res",
+      "source_id": "color_brown_008",
+      "group_id": "color_brown_008",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "rob_color_brown_008_jpeg_compress",
+      "domain": "vehicle",
+      "filename": "color_brown_008_jpeg_compress.jpg",
+      "rel_path": "eval/images/robustness/color_brown_008_jpeg_compress.jpg",
+      "sha256": "c58b487dfe3573ae245decf7d046e918640488cc10312430279bae1be97b85b7",
+      "annotations": {
+        "color": "brown"
+      },
+      "split": "eval",
+      "stratum": "jpeg_compress",
+      "source_id": "color_brown_008",
+      "group_id": "color_brown_008",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "rob_color_brown_008_occlusion",
+      "domain": "vehicle",
+      "filename": "color_brown_008_occlusion.jpg",
+      "rel_path": "eval/images/robustness/color_brown_008_occlusion.jpg",
+      "sha256": "eb803901c4b63e6c3432e83c6be4d7337f20a68c16dc6607141bd322b98f4e88",
+      "annotations": {
+        "color": "brown"
+      },
+      "split": "eval",
+      "stratum": "occlusion",
+      "source_id": "color_brown_008",
+      "group_id": "color_brown_008",
+      "task_field": "color",
+      "question": "What is the predominant color of the most prominent car?"
+    },
+    {
+      "id": "rob_type_motorcycle_10_original",
+      "domain": "vehicle",
+      "filename": "type_motorcycle_10_original.jpg",
+      "rel_path": "eval/images/robustness/type_motorcycle_10_original.jpg",
+      "sha256": "93020cdc5a5fad242b6687111a693aca76b628aee2321d6c3f544de5d81dbdeb",
+      "annotations": {
+        "body": "motorcycle"
+      },
+      "split": "eval",
+      "stratum": "original",
+      "source_id": "type_motorcycle_10",
+      "group_id": "type_motorcycle_10",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_motorcycle_10_low_light",
+      "domain": "vehicle",
+      "filename": "type_motorcycle_10_low_light.jpg",
+      "rel_path": "eval/images/robustness/type_motorcycle_10_low_light.jpg",
+      "sha256": "c6c96e5b38b888488c19a7ad68d62f0bb0c9cdda6cc1184a3ea112ea8991661c",
+      "annotations": {
+        "body": "motorcycle"
+      },
+      "split": "eval",
+      "stratum": "low_light",
+      "source_id": "type_motorcycle_10",
+      "group_id": "type_motorcycle_10",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_motorcycle_10_blur",
+      "domain": "vehicle",
+      "filename": "type_motorcycle_10_blur.jpg",
+      "rel_path": "eval/images/robustness/type_motorcycle_10_blur.jpg",
+      "sha256": "aa7e914e127fb608c239ae68b8d96c211ac6636c27d5260b5f5c6bb1afe9b809",
+      "annotations": {
+        "body": "motorcycle"
+      },
+      "split": "eval",
+      "stratum": "blur",
+      "source_id": "type_motorcycle_10",
+      "group_id": "type_motorcycle_10",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_motorcycle_10_low_res",
+      "domain": "vehicle",
+      "filename": "type_motorcycle_10_low_res.jpg",
+      "rel_path": "eval/images/robustness/type_motorcycle_10_low_res.jpg",
+      "sha256": "4d42875dd5104270bbf559c27baeca0299f463d1c1799d60fc8066a8fed3d6e0",
+      "annotations": {
+        "body": "motorcycle"
+      },
+      "split": "eval",
+      "stratum": "low_res",
+      "source_id": "type_motorcycle_10",
+      "group_id": "type_motorcycle_10",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_motorcycle_10_jpeg_compress",
+      "domain": "vehicle",
+      "filename": "type_motorcycle_10_jpeg_compress.jpg",
+      "rel_path": "eval/images/robustness/type_motorcycle_10_jpeg_compress.jpg",
+      "sha256": "ea164f4bdb88705d01e289486e7e74b3a2d16a9631afb48a5c758a7f1541a6dc",
+      "annotations": {
+        "body": "motorcycle"
+      },
+      "split": "eval",
+      "stratum": "jpeg_compress",
+      "source_id": "type_motorcycle_10",
+      "group_id": "type_motorcycle_10",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_motorcycle_10_occlusion",
+      "domain": "vehicle",
+      "filename": "type_motorcycle_10_occlusion.jpg",
+      "rel_path": "eval/images/robustness/type_motorcycle_10_occlusion.jpg",
+      "sha256": "daa2c56807aa8245db60700dcae34162373a3ff8708fc0c7de6242b72c51499b",
+      "annotations": {
+        "body": "motorcycle"
+      },
+      "split": "eval",
+      "stratum": "occlusion",
+      "source_id": "type_motorcycle_10",
+      "group_id": "type_motorcycle_10",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_suv_06_original",
+      "domain": "vehicle",
+      "filename": "type_suv_06_original.jpg",
+      "rel_path": "eval/images/robustness/type_suv_06_original.jpg",
+      "sha256": "d01e81c79e30c0ca962aee015cdae7894de6b4b1279c8e583939b118e87d3488",
+      "annotations": {
+        "body": "suv"
+      },
+      "split": "eval",
+      "stratum": "original",
+      "source_id": "type_suv_06",
+      "group_id": "type_suv_06",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_suv_06_low_light",
+      "domain": "vehicle",
+      "filename": "type_suv_06_low_light.jpg",
+      "rel_path": "eval/images/robustness/type_suv_06_low_light.jpg",
+      "sha256": "c6f802d4b3d0883d1e67ebaaea2a4bd0e06d46ecc2888849e716b02ea522b406",
+      "annotations": {
+        "body": "suv"
+      },
+      "split": "eval",
+      "stratum": "low_light",
+      "source_id": "type_suv_06",
+      "group_id": "type_suv_06",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_suv_06_blur",
+      "domain": "vehicle",
+      "filename": "type_suv_06_blur.jpg",
+      "rel_path": "eval/images/robustness/type_suv_06_blur.jpg",
+      "sha256": "6ca8c67592bc3b0e47c47ada520cbb7c3f22890c1fe69f2fdea18d21a84eab0a",
+      "annotations": {
+        "body": "suv"
+      },
+      "split": "eval",
+      "stratum": "blur",
+      "source_id": "type_suv_06",
+      "group_id": "type_suv_06",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_suv_06_low_res",
+      "domain": "vehicle",
+      "filename": "type_suv_06_low_res.jpg",
+      "rel_path": "eval/images/robustness/type_suv_06_low_res.jpg",
+      "sha256": "0b1db6067bfce9bb5dbc2321e438dc7cc8b57e564b4287832ab36f70bcbf7c32",
+      "annotations": {
+        "body": "suv"
+      },
+      "split": "eval",
+      "stratum": "low_res",
+      "source_id": "type_suv_06",
+      "group_id": "type_suv_06",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_suv_06_jpeg_compress",
+      "domain": "vehicle",
+      "filename": "type_suv_06_jpeg_compress.jpg",
+      "rel_path": "eval/images/robustness/type_suv_06_jpeg_compress.jpg",
+      "sha256": "e08c7a0694c35ad904f339962012121734e88ab5b4f3052e28afd05495bbd7ca",
+      "annotations": {
+        "body": "suv"
+      },
+      "split": "eval",
+      "stratum": "jpeg_compress",
+      "source_id": "type_suv_06",
+      "group_id": "type_suv_06",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_suv_06_occlusion",
+      "domain": "vehicle",
+      "filename": "type_suv_06_occlusion.jpg",
+      "rel_path": "eval/images/robustness/type_suv_06_occlusion.jpg",
+      "sha256": "56bcdc1c3dc1bdc5fd6e49c898ed4c61384285661d8abea733ed3841c27d33d2",
+      "annotations": {
+        "body": "suv"
+      },
+      "split": "eval",
+      "stratum": "occlusion",
+      "source_id": "type_suv_06",
+      "group_id": "type_suv_06",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_bus_04_original",
+      "domain": "vehicle",
+      "filename": "type_bus_04_original.jpg",
+      "rel_path": "eval/images/robustness/type_bus_04_original.jpg",
+      "sha256": "37ab5c47fc4526f4b6792538f40d314c9f91e1b5aabf5f5c1c7d5bb5a5bb1756",
+      "annotations": {
+        "body": "bus"
+      },
+      "split": "eval",
+      "stratum": "original",
+      "source_id": "type_bus_04",
+      "group_id": "type_bus_04",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_bus_04_low_light",
+      "domain": "vehicle",
+      "filename": "type_bus_04_low_light.jpg",
+      "rel_path": "eval/images/robustness/type_bus_04_low_light.jpg",
+      "sha256": "1775c2ca339c959ce5dfeb3431d8936ed8a1e345013ff4437760ecaa593933a7",
+      "annotations": {
+        "body": "bus"
+      },
+      "split": "eval",
+      "stratum": "low_light",
+      "source_id": "type_bus_04",
+      "group_id": "type_bus_04",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_bus_04_blur",
+      "domain": "vehicle",
+      "filename": "type_bus_04_blur.jpg",
+      "rel_path": "eval/images/robustness/type_bus_04_blur.jpg",
+      "sha256": "4c99263cd9dd444ef81c909b5579eaf6dce2caba363c620a795634a473a8be87",
+      "annotations": {
+        "body": "bus"
+      },
+      "split": "eval",
+      "stratum": "blur",
+      "source_id": "type_bus_04",
+      "group_id": "type_bus_04",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_bus_04_low_res",
+      "domain": "vehicle",
+      "filename": "type_bus_04_low_res.jpg",
+      "rel_path": "eval/images/robustness/type_bus_04_low_res.jpg",
+      "sha256": "6433b40366d4464f83931ee5b9a9084fabe2459bcb53743e7bc0cc8018d14fc9",
+      "annotations": {
+        "body": "bus"
+      },
+      "split": "eval",
+      "stratum": "low_res",
+      "source_id": "type_bus_04",
+      "group_id": "type_bus_04",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_bus_04_jpeg_compress",
+      "domain": "vehicle",
+      "filename": "type_bus_04_jpeg_compress.jpg",
+      "rel_path": "eval/images/robustness/type_bus_04_jpeg_compress.jpg",
+      "sha256": "f5597551021f1d933f081760387d165983f7a03e4b84939d8d4d1579a67d5103",
+      "annotations": {
+        "body": "bus"
+      },
+      "split": "eval",
+      "stratum": "jpeg_compress",
+      "source_id": "type_bus_04",
+      "group_id": "type_bus_04",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_bus_04_occlusion",
+      "domain": "vehicle",
+      "filename": "type_bus_04_occlusion.jpg",
+      "rel_path": "eval/images/robustness/type_bus_04_occlusion.jpg",
+      "sha256": "8201157ffaad8790ddb58ac55e0245641112333a8d55b33d37d25be816e799e4",
+      "annotations": {
+        "body": "bus"
+      },
+      "split": "eval",
+      "stratum": "occlusion",
+      "source_id": "type_bus_04",
+      "group_id": "type_bus_04",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_sedan_04_original",
+      "domain": "vehicle",
+      "filename": "type_sedan_04_original.jpg",
+      "rel_path": "eval/images/robustness/type_sedan_04_original.jpg",
+      "sha256": "0e2fad80feec7a50b332afef44b3b8afe6bb4115a9521b0ba7e7df75596fcffe",
+      "annotations": {
+        "body": "sedan"
+      },
+      "split": "eval",
+      "stratum": "original",
+      "source_id": "type_sedan_04",
+      "group_id": "type_sedan_04",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_sedan_04_low_light",
+      "domain": "vehicle",
+      "filename": "type_sedan_04_low_light.jpg",
+      "rel_path": "eval/images/robustness/type_sedan_04_low_light.jpg",
+      "sha256": "a1e934fa864001a01e6454d850ce24a172c96b2c2948dbfe239b64fc3655ce4a",
+      "annotations": {
+        "body": "sedan"
+      },
+      "split": "eval",
+      "stratum": "low_light",
+      "source_id": "type_sedan_04",
+      "group_id": "type_sedan_04",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_sedan_04_blur",
+      "domain": "vehicle",
+      "filename": "type_sedan_04_blur.jpg",
+      "rel_path": "eval/images/robustness/type_sedan_04_blur.jpg",
+      "sha256": "1102dd51429bba5d84e5d73ba3860e0d0537e1df5ff70ee10e34ac8dc1f6a86d",
+      "annotations": {
+        "body": "sedan"
+      },
+      "split": "eval",
+      "stratum": "blur",
+      "source_id": "type_sedan_04",
+      "group_id": "type_sedan_04",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_sedan_04_low_res",
+      "domain": "vehicle",
+      "filename": "type_sedan_04_low_res.jpg",
+      "rel_path": "eval/images/robustness/type_sedan_04_low_res.jpg",
+      "sha256": "114e86ae39a463e786eae92410a5c9206b050aa02135c2befca0f35be0797fee",
+      "annotations": {
+        "body": "sedan"
+      },
+      "split": "eval",
+      "stratum": "low_res",
+      "source_id": "type_sedan_04",
+      "group_id": "type_sedan_04",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_sedan_04_jpeg_compress",
+      "domain": "vehicle",
+      "filename": "type_sedan_04_jpeg_compress.jpg",
+      "rel_path": "eval/images/robustness/type_sedan_04_jpeg_compress.jpg",
+      "sha256": "d435fbb7d9f2f0ab70abb7c3ff60488ac7a86ade550761efabad9f2a60eea46c",
+      "annotations": {
+        "body": "sedan"
+      },
+      "split": "eval",
+      "stratum": "jpeg_compress",
+      "source_id": "type_sedan_04",
+      "group_id": "type_sedan_04",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_sedan_04_occlusion",
+      "domain": "vehicle",
+      "filename": "type_sedan_04_occlusion.jpg",
+      "rel_path": "eval/images/robustness/type_sedan_04_occlusion.jpg",
+      "sha256": "7da66e8691d75b30a952084b46426f9aaef2764de1432bedc504f374bcb75040",
+      "annotations": {
+        "body": "sedan"
+      },
+      "split": "eval",
+      "stratum": "occlusion",
+      "source_id": "type_sedan_04",
+      "group_id": "type_sedan_04",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_hatchback_04_original",
+      "domain": "vehicle",
+      "filename": "type_hatchback_04_original.jpg",
+      "rel_path": "eval/images/robustness/type_hatchback_04_original.jpg",
+      "sha256": "83d957f6be964f58491fc3493391938a429d10c816260dbd4a192373e2e32e70",
+      "annotations": {
+        "body": "hatch"
+      },
+      "split": "eval",
+      "stratum": "original",
+      "source_id": "type_hatchback_04",
+      "group_id": "type_hatchback_04",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_hatchback_04_low_light",
+      "domain": "vehicle",
+      "filename": "type_hatchback_04_low_light.jpg",
+      "rel_path": "eval/images/robustness/type_hatchback_04_low_light.jpg",
+      "sha256": "8790d23793a5a47e960f0f66c126c16e4c5ae44f180645dff249e7b1d92e6b04",
+      "annotations": {
+        "body": "hatch"
+      },
+      "split": "eval",
+      "stratum": "low_light",
+      "source_id": "type_hatchback_04",
+      "group_id": "type_hatchback_04",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_hatchback_04_blur",
+      "domain": "vehicle",
+      "filename": "type_hatchback_04_blur.jpg",
+      "rel_path": "eval/images/robustness/type_hatchback_04_blur.jpg",
+      "sha256": "b82ca108db73c4843e18cb4a097ba6f87cac06a93e55153e63e4e42e45d87286",
+      "annotations": {
+        "body": "hatch"
+      },
+      "split": "eval",
+      "stratum": "blur",
+      "source_id": "type_hatchback_04",
+      "group_id": "type_hatchback_04",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_hatchback_04_low_res",
+      "domain": "vehicle",
+      "filename": "type_hatchback_04_low_res.jpg",
+      "rel_path": "eval/images/robustness/type_hatchback_04_low_res.jpg",
+      "sha256": "ff66e947b03a6b0ab73c3250772a3571ca0422218aa882eb59c664bd146bbaaa",
+      "annotations": {
+        "body": "hatch"
+      },
+      "split": "eval",
+      "stratum": "low_res",
+      "source_id": "type_hatchback_04",
+      "group_id": "type_hatchback_04",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_hatchback_04_jpeg_compress",
+      "domain": "vehicle",
+      "filename": "type_hatchback_04_jpeg_compress.jpg",
+      "rel_path": "eval/images/robustness/type_hatchback_04_jpeg_compress.jpg",
+      "sha256": "b4f2991100f6304b3baa8b4c6b1e0b62df1bb5686af0fb82481a1c6039bf2a11",
+      "annotations": {
+        "body": "hatch"
+      },
+      "split": "eval",
+      "stratum": "jpeg_compress",
+      "source_id": "type_hatchback_04",
+      "group_id": "type_hatchback_04",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_hatchback_04_occlusion",
+      "domain": "vehicle",
+      "filename": "type_hatchback_04_occlusion.jpg",
+      "rel_path": "eval/images/robustness/type_hatchback_04_occlusion.jpg",
+      "sha256": "dd446eff0187f80b02ee4bc1c29b32ed77f0eb0162985fe1e07d11909577eeb9",
+      "annotations": {
+        "body": "hatch"
+      },
+      "split": "eval",
+      "stratum": "occlusion",
+      "source_id": "type_hatchback_04",
+      "group_id": "type_hatchback_04",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_pickup_06_original",
+      "domain": "vehicle",
+      "filename": "type_pickup_06_original.jpg",
+      "rel_path": "eval/images/robustness/type_pickup_06_original.jpg",
+      "sha256": "c8f4b1577ce847c19f185e73313619358eb7b78b0698dd18fdd18ae79b5d4d4b",
+      "annotations": {
+        "body": "pickup"
+      },
+      "split": "eval",
+      "stratum": "original",
+      "source_id": "type_pickup_06",
+      "group_id": "type_pickup_06",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_pickup_06_low_light",
+      "domain": "vehicle",
+      "filename": "type_pickup_06_low_light.jpg",
+      "rel_path": "eval/images/robustness/type_pickup_06_low_light.jpg",
+      "sha256": "278a619fd5c3ec980eca01ade786ca9f6b7871914b74be609e539a1b9ca5946a",
+      "annotations": {
+        "body": "pickup"
+      },
+      "split": "eval",
+      "stratum": "low_light",
+      "source_id": "type_pickup_06",
+      "group_id": "type_pickup_06",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_pickup_06_blur",
+      "domain": "vehicle",
+      "filename": "type_pickup_06_blur.jpg",
+      "rel_path": "eval/images/robustness/type_pickup_06_blur.jpg",
+      "sha256": "3e8b1dd22f1fb198048f3e9ec6bb4f1a059281c9e73350ae3153e243e7949f11",
+      "annotations": {
+        "body": "pickup"
+      },
+      "split": "eval",
+      "stratum": "blur",
+      "source_id": "type_pickup_06",
+      "group_id": "type_pickup_06",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_pickup_06_low_res",
+      "domain": "vehicle",
+      "filename": "type_pickup_06_low_res.jpg",
+      "rel_path": "eval/images/robustness/type_pickup_06_low_res.jpg",
+      "sha256": "da3dec0ff97b96c5296cc4418743adba1675c1a0e74eeb00813bc18b344c02f4",
+      "annotations": {
+        "body": "pickup"
+      },
+      "split": "eval",
+      "stratum": "low_res",
+      "source_id": "type_pickup_06",
+      "group_id": "type_pickup_06",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_pickup_06_jpeg_compress",
+      "domain": "vehicle",
+      "filename": "type_pickup_06_jpeg_compress.jpg",
+      "rel_path": "eval/images/robustness/type_pickup_06_jpeg_compress.jpg",
+      "sha256": "efb000d2c9398dd2af432ba023faf92c63880f07779d98b7b33baa07d60c97f1",
+      "annotations": {
+        "body": "pickup"
+      },
+      "split": "eval",
+      "stratum": "jpeg_compress",
+      "source_id": "type_pickup_06",
+      "group_id": "type_pickup_06",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_pickup_06_occlusion",
+      "domain": "vehicle",
+      "filename": "type_pickup_06_occlusion.jpg",
+      "rel_path": "eval/images/robustness/type_pickup_06_occlusion.jpg",
+      "sha256": "27c8000d5dc92aee14fd56f7e98fb2e4bb3239981de5c8f6cb5257616f2cf099",
+      "annotations": {
+        "body": "pickup"
+      },
+      "split": "eval",
+      "stratum": "occlusion",
+      "source_id": "type_pickup_06",
+      "group_id": "type_pickup_06",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_coupe_08_original",
+      "domain": "vehicle",
+      "filename": "type_coupe_08_original.jpg",
+      "rel_path": "eval/images/robustness/type_coupe_08_original.jpg",
+      "sha256": "633f4d8861774d318681a135d3d227fdf9445ccb3f5ccfd9547adedbe1e724fc",
+      "annotations": {
+        "body": "coupe"
+      },
+      "split": "eval",
+      "stratum": "original",
+      "source_id": "type_coupe_08",
+      "group_id": "type_coupe_08",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_coupe_08_low_light",
+      "domain": "vehicle",
+      "filename": "type_coupe_08_low_light.jpg",
+      "rel_path": "eval/images/robustness/type_coupe_08_low_light.jpg",
+      "sha256": "2884da3702af45ca161c3aed0382aa08a404ea41ea330031dd143e0789c878a9",
+      "annotations": {
+        "body": "coupe"
+      },
+      "split": "eval",
+      "stratum": "low_light",
+      "source_id": "type_coupe_08",
+      "group_id": "type_coupe_08",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_coupe_08_blur",
+      "domain": "vehicle",
+      "filename": "type_coupe_08_blur.jpg",
+      "rel_path": "eval/images/robustness/type_coupe_08_blur.jpg",
+      "sha256": "b00ae3b4e710c0f82f2ccd4bc0c55967d7f7a73451ab655f5766fad3d7714f43",
+      "annotations": {
+        "body": "coupe"
+      },
+      "split": "eval",
+      "stratum": "blur",
+      "source_id": "type_coupe_08",
+      "group_id": "type_coupe_08",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_coupe_08_low_res",
+      "domain": "vehicle",
+      "filename": "type_coupe_08_low_res.jpg",
+      "rel_path": "eval/images/robustness/type_coupe_08_low_res.jpg",
+      "sha256": "d403d653c05da73711c44e6a0ce7ff26396777457f4202f14c23248eb9a97a7c",
+      "annotations": {
+        "body": "coupe"
+      },
+      "split": "eval",
+      "stratum": "low_res",
+      "source_id": "type_coupe_08",
+      "group_id": "type_coupe_08",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_coupe_08_jpeg_compress",
+      "domain": "vehicle",
+      "filename": "type_coupe_08_jpeg_compress.jpg",
+      "rel_path": "eval/images/robustness/type_coupe_08_jpeg_compress.jpg",
+      "sha256": "1f46ee7a16b8647b4abaa1f869a5b4d75b3c37bfa5a8b7ec53405af15ad7ead5",
+      "annotations": {
+        "body": "coupe"
+      },
+      "split": "eval",
+      "stratum": "jpeg_compress",
+      "source_id": "type_coupe_08",
+      "group_id": "type_coupe_08",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_coupe_08_occlusion",
+      "domain": "vehicle",
+      "filename": "type_coupe_08_occlusion.jpg",
+      "rel_path": "eval/images/robustness/type_coupe_08_occlusion.jpg",
+      "sha256": "c40b1d74b54ed2911d8507a943b1b4047974c730d0eac76c7d00e78b46b622e7",
+      "annotations": {
+        "body": "coupe"
+      },
+      "split": "eval",
+      "stratum": "occlusion",
+      "source_id": "type_coupe_08",
+      "group_id": "type_coupe_08",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_truck_03_original",
+      "domain": "vehicle",
+      "filename": "type_truck_03_original.jpg",
+      "rel_path": "eval/images/robustness/type_truck_03_original.jpg",
+      "sha256": "ea74e61439c1e943458530e609737c39f2684d72bd77cab2fe84ceaeafd838bb",
+      "annotations": {
+        "body": "truck"
+      },
+      "split": "eval",
+      "stratum": "original",
+      "source_id": "type_truck_03",
+      "group_id": "type_truck_03",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_truck_03_low_light",
+      "domain": "vehicle",
+      "filename": "type_truck_03_low_light.jpg",
+      "rel_path": "eval/images/robustness/type_truck_03_low_light.jpg",
+      "sha256": "e7901ef190eef1d715eb9e79155ed1b2e9b51509fccaa18f53ff8fff68585b3b",
+      "annotations": {
+        "body": "truck"
+      },
+      "split": "eval",
+      "stratum": "low_light",
+      "source_id": "type_truck_03",
+      "group_id": "type_truck_03",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_truck_03_blur",
+      "domain": "vehicle",
+      "filename": "type_truck_03_blur.jpg",
+      "rel_path": "eval/images/robustness/type_truck_03_blur.jpg",
+      "sha256": "f06ddeca98c2b90eab9973e061d8e687ece247b1abd7301e3c31da76ea31cb6b",
+      "annotations": {
+        "body": "truck"
+      },
+      "split": "eval",
+      "stratum": "blur",
+      "source_id": "type_truck_03",
+      "group_id": "type_truck_03",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_truck_03_low_res",
+      "domain": "vehicle",
+      "filename": "type_truck_03_low_res.jpg",
+      "rel_path": "eval/images/robustness/type_truck_03_low_res.jpg",
+      "sha256": "037963bc7cd28b0e3b429f097f7ffe41a30e38fa3d11f5e8979ba31bf69a2022",
+      "annotations": {
+        "body": "truck"
+      },
+      "split": "eval",
+      "stratum": "low_res",
+      "source_id": "type_truck_03",
+      "group_id": "type_truck_03",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_truck_03_jpeg_compress",
+      "domain": "vehicle",
+      "filename": "type_truck_03_jpeg_compress.jpg",
+      "rel_path": "eval/images/robustness/type_truck_03_jpeg_compress.jpg",
+      "sha256": "c7ba04a7f94c857aa781674c0a39bb53c0bba5c128fdb813c625639530c1ea9a",
+      "annotations": {
+        "body": "truck"
+      },
+      "split": "eval",
+      "stratum": "jpeg_compress",
+      "source_id": "type_truck_03",
+      "group_id": "type_truck_03",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_truck_03_occlusion",
+      "domain": "vehicle",
+      "filename": "type_truck_03_occlusion.jpg",
+      "rel_path": "eval/images/robustness/type_truck_03_occlusion.jpg",
+      "sha256": "0c6311b38e717af85e337ddf29f4d3f71c7a31ec0a397bcd37f865ed6f91957f",
+      "annotations": {
+        "body": "truck"
+      },
+      "split": "eval",
+      "stratum": "occlusion",
+      "source_id": "type_truck_03",
+      "group_id": "type_truck_03",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_sedan_01_original",
+      "domain": "vehicle",
+      "filename": "type_sedan_01_original.jpg",
+      "rel_path": "eval/images/robustness/type_sedan_01_original.jpg",
+      "sha256": "66276d461e08f27f04e63e3fb1bb8dd477c16f156e6efe7df87d3856f8372133",
+      "annotations": {
+        "body": "sedan"
+      },
+      "split": "eval",
+      "stratum": "original",
+      "source_id": "type_sedan_01",
+      "group_id": "type_sedan_01",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_sedan_01_low_light",
+      "domain": "vehicle",
+      "filename": "type_sedan_01_low_light.jpg",
+      "rel_path": "eval/images/robustness/type_sedan_01_low_light.jpg",
+      "sha256": "5ab6cfb1a0ac870b52b0052ad9635ba3b3d957559617e1e0d4c6a59f82c80007",
+      "annotations": {
+        "body": "sedan"
+      },
+      "split": "eval",
+      "stratum": "low_light",
+      "source_id": "type_sedan_01",
+      "group_id": "type_sedan_01",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_sedan_01_blur",
+      "domain": "vehicle",
+      "filename": "type_sedan_01_blur.jpg",
+      "rel_path": "eval/images/robustness/type_sedan_01_blur.jpg",
+      "sha256": "a6020dbc8150f1fd2e04f92db62b2dc2c34ac36ccf8e7c954fc7660f1913e419",
+      "annotations": {
+        "body": "sedan"
+      },
+      "split": "eval",
+      "stratum": "blur",
+      "source_id": "type_sedan_01",
+      "group_id": "type_sedan_01",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_sedan_01_low_res",
+      "domain": "vehicle",
+      "filename": "type_sedan_01_low_res.jpg",
+      "rel_path": "eval/images/robustness/type_sedan_01_low_res.jpg",
+      "sha256": "72a0a3985602a5e520f071966cc29a038ad8d2519fa56cb673c2d243bdcc2c22",
+      "annotations": {
+        "body": "sedan"
+      },
+      "split": "eval",
+      "stratum": "low_res",
+      "source_id": "type_sedan_01",
+      "group_id": "type_sedan_01",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_sedan_01_jpeg_compress",
+      "domain": "vehicle",
+      "filename": "type_sedan_01_jpeg_compress.jpg",
+      "rel_path": "eval/images/robustness/type_sedan_01_jpeg_compress.jpg",
+      "sha256": "c8e7459aaeb02060a53f3b7e3be88d928114e82ba242ed506d9c8ef1a7464d4d",
+      "annotations": {
+        "body": "sedan"
+      },
+      "split": "eval",
+      "stratum": "jpeg_compress",
+      "source_id": "type_sedan_01",
+      "group_id": "type_sedan_01",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_sedan_01_occlusion",
+      "domain": "vehicle",
+      "filename": "type_sedan_01_occlusion.jpg",
+      "rel_path": "eval/images/robustness/type_sedan_01_occlusion.jpg",
+      "sha256": "646f5286df7ef8adf20cf9cadaa22a6b0963b3b472037670aabca9e1c2a2ad91",
+      "annotations": {
+        "body": "sedan"
+      },
+      "split": "eval",
+      "stratum": "occlusion",
+      "source_id": "type_sedan_01",
+      "group_id": "type_sedan_01",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_van_04_original",
+      "domain": "vehicle",
+      "filename": "type_van_04_original.jpg",
+      "rel_path": "eval/images/robustness/type_van_04_original.jpg",
+      "sha256": "1f8aed2970f6f7e00cc47917d0507761c1e1050881c54772ed49acc7aa4f37df",
+      "annotations": {
+        "body": "van"
+      },
+      "split": "eval",
+      "stratum": "original",
+      "source_id": "type_van_04",
+      "group_id": "type_van_04",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_van_04_low_light",
+      "domain": "vehicle",
+      "filename": "type_van_04_low_light.jpg",
+      "rel_path": "eval/images/robustness/type_van_04_low_light.jpg",
+      "sha256": "2b58d741e0b6dd487a19ff2f3c818f03cde8bf623e40d397a484e383db4b5f19",
+      "annotations": {
+        "body": "van"
+      },
+      "split": "eval",
+      "stratum": "low_light",
+      "source_id": "type_van_04",
+      "group_id": "type_van_04",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_van_04_blur",
+      "domain": "vehicle",
+      "filename": "type_van_04_blur.jpg",
+      "rel_path": "eval/images/robustness/type_van_04_blur.jpg",
+      "sha256": "8e96d1849ca8cc63d3389ebcc665e1172d97d84a6721908fdf8980475ebe05a4",
+      "annotations": {
+        "body": "van"
+      },
+      "split": "eval",
+      "stratum": "blur",
+      "source_id": "type_van_04",
+      "group_id": "type_van_04",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_van_04_low_res",
+      "domain": "vehicle",
+      "filename": "type_van_04_low_res.jpg",
+      "rel_path": "eval/images/robustness/type_van_04_low_res.jpg",
+      "sha256": "bdbad45672b4b856b0213f82e671cec4f97d469d268fb03cfdc27cbe3bc6266b",
+      "annotations": {
+        "body": "van"
+      },
+      "split": "eval",
+      "stratum": "low_res",
+      "source_id": "type_van_04",
+      "group_id": "type_van_04",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_van_04_jpeg_compress",
+      "domain": "vehicle",
+      "filename": "type_van_04_jpeg_compress.jpg",
+      "rel_path": "eval/images/robustness/type_van_04_jpeg_compress.jpg",
+      "sha256": "2d25af26fe2a9a95c7c54251cb4375ab61437dfaebe2fff8cb7c39bd3b9f21e8",
+      "annotations": {
+        "body": "van"
+      },
+      "split": "eval",
+      "stratum": "jpeg_compress",
+      "source_id": "type_van_04",
+      "group_id": "type_van_04",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_van_04_occlusion",
+      "domain": "vehicle",
+      "filename": "type_van_04_occlusion.jpg",
+      "rel_path": "eval/images/robustness/type_van_04_occlusion.jpg",
+      "sha256": "dd26c293de087425734dc1cf7934b2b0a963836f0aa4c363e031abbf97e56a02",
+      "annotations": {
+        "body": "van"
+      },
+      "split": "eval",
+      "stratum": "occlusion",
+      "source_id": "type_van_04",
+      "group_id": "type_van_04",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_suv_01_original",
+      "domain": "vehicle",
+      "filename": "type_suv_01_original.jpg",
+      "rel_path": "eval/images/robustness/type_suv_01_original.jpg",
+      "sha256": "7114b9856648701d3b76bcd8a35856aeab2f14c6eb491c24744ec63d357280cd",
+      "annotations": {
+        "body": "suv"
+      },
+      "split": "eval",
+      "stratum": "original",
+      "source_id": "type_suv_01",
+      "group_id": "type_suv_01",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_suv_01_low_light",
+      "domain": "vehicle",
+      "filename": "type_suv_01_low_light.jpg",
+      "rel_path": "eval/images/robustness/type_suv_01_low_light.jpg",
+      "sha256": "fe4e7d2363f732b1af87f45c64828b2741f06f838e305ae9a8dbbd47f05ed163",
+      "annotations": {
+        "body": "suv"
+      },
+      "split": "eval",
+      "stratum": "low_light",
+      "source_id": "type_suv_01",
+      "group_id": "type_suv_01",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_suv_01_blur",
+      "domain": "vehicle",
+      "filename": "type_suv_01_blur.jpg",
+      "rel_path": "eval/images/robustness/type_suv_01_blur.jpg",
+      "sha256": "0851d6ff49818ee14104aa213b0b67501f5ca6edd9394ee1028fd11197b0fc7f",
+      "annotations": {
+        "body": "suv"
+      },
+      "split": "eval",
+      "stratum": "blur",
+      "source_id": "type_suv_01",
+      "group_id": "type_suv_01",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_suv_01_low_res",
+      "domain": "vehicle",
+      "filename": "type_suv_01_low_res.jpg",
+      "rel_path": "eval/images/robustness/type_suv_01_low_res.jpg",
+      "sha256": "1c88cc82f3fe53bd877faba023a420e0dce9f6035c3bfbcc0e24134d03d7f55e",
+      "annotations": {
+        "body": "suv"
+      },
+      "split": "eval",
+      "stratum": "low_res",
+      "source_id": "type_suv_01",
+      "group_id": "type_suv_01",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_suv_01_jpeg_compress",
+      "domain": "vehicle",
+      "filename": "type_suv_01_jpeg_compress.jpg",
+      "rel_path": "eval/images/robustness/type_suv_01_jpeg_compress.jpg",
+      "sha256": "e2a3f73e0c217bf2b6ef7336637f35f9a329604bbf38d4b24e9be8f94f56dd24",
+      "annotations": {
+        "body": "suv"
+      },
+      "split": "eval",
+      "stratum": "jpeg_compress",
+      "source_id": "type_suv_01",
+      "group_id": "type_suv_01",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_suv_01_occlusion",
+      "domain": "vehicle",
+      "filename": "type_suv_01_occlusion.jpg",
+      "rel_path": "eval/images/robustness/type_suv_01_occlusion.jpg",
+      "sha256": "6a4511276dfa1380a27c63161724acb963b916f5ba999cb3188794125eca7dd2",
+      "annotations": {
+        "body": "suv"
+      },
+      "split": "eval",
+      "stratum": "occlusion",
+      "source_id": "type_suv_01",
+      "group_id": "type_suv_01",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_coupe_04_original",
+      "domain": "vehicle",
+      "filename": "type_coupe_04_original.jpg",
+      "rel_path": "eval/images/robustness/type_coupe_04_original.jpg",
+      "sha256": "30248d8c45449ce1f9999f4357dfeba8c472cb59456da602f568fa70d52085c2",
+      "annotations": {
+        "body": "coupe"
+      },
+      "split": "eval",
+      "stratum": "original",
+      "source_id": "type_coupe_04",
+      "group_id": "type_coupe_04",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_coupe_04_low_light",
+      "domain": "vehicle",
+      "filename": "type_coupe_04_low_light.jpg",
+      "rel_path": "eval/images/robustness/type_coupe_04_low_light.jpg",
+      "sha256": "358e43fa232da924f9fb2f85a959df3c7fcc2c2185e5e6b04fc7a1bf52834273",
+      "annotations": {
+        "body": "coupe"
+      },
+      "split": "eval",
+      "stratum": "low_light",
+      "source_id": "type_coupe_04",
+      "group_id": "type_coupe_04",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_coupe_04_blur",
+      "domain": "vehicle",
+      "filename": "type_coupe_04_blur.jpg",
+      "rel_path": "eval/images/robustness/type_coupe_04_blur.jpg",
+      "sha256": "0312b83233f78b85ed08be387150e9013a65b8cea8549dea8e2f1d66fe09b2d9",
+      "annotations": {
+        "body": "coupe"
+      },
+      "split": "eval",
+      "stratum": "blur",
+      "source_id": "type_coupe_04",
+      "group_id": "type_coupe_04",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_coupe_04_low_res",
+      "domain": "vehicle",
+      "filename": "type_coupe_04_low_res.jpg",
+      "rel_path": "eval/images/robustness/type_coupe_04_low_res.jpg",
+      "sha256": "1e54067af96af218eeddc63650359983f1f34f83419527c2fbd5524f0a84459c",
+      "annotations": {
+        "body": "coupe"
+      },
+      "split": "eval",
+      "stratum": "low_res",
+      "source_id": "type_coupe_04",
+      "group_id": "type_coupe_04",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_coupe_04_jpeg_compress",
+      "domain": "vehicle",
+      "filename": "type_coupe_04_jpeg_compress.jpg",
+      "rel_path": "eval/images/robustness/type_coupe_04_jpeg_compress.jpg",
+      "sha256": "a550f3e21525a84567cf3650a03b4d0dc0d6575ab77b598f38127813b321db7f",
+      "annotations": {
+        "body": "coupe"
+      },
+      "split": "eval",
+      "stratum": "jpeg_compress",
+      "source_id": "type_coupe_04",
+      "group_id": "type_coupe_04",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_coupe_04_occlusion",
+      "domain": "vehicle",
+      "filename": "type_coupe_04_occlusion.jpg",
+      "rel_path": "eval/images/robustness/type_coupe_04_occlusion.jpg",
+      "sha256": "94af891050645226b289aa43de209b837bd28f6263b7ba052f14ed5669894b46",
+      "annotations": {
+        "body": "coupe"
+      },
+      "split": "eval",
+      "stratum": "occlusion",
+      "source_id": "type_coupe_04",
+      "group_id": "type_coupe_04",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_convertible_01_original",
+      "domain": "vehicle",
+      "filename": "type_convertible_01_original.jpg",
+      "rel_path": "eval/images/robustness/type_convertible_01_original.jpg",
+      "sha256": "faa59a6975d1c3c181b424c4a91e78933380c17e69fbba82702d4c5443127271",
+      "annotations": {
+        "body": "convertible"
+      },
+      "split": "eval",
+      "stratum": "original",
+      "source_id": "type_convertible_01",
+      "group_id": "type_convertible_01",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_convertible_01_low_light",
+      "domain": "vehicle",
+      "filename": "type_convertible_01_low_light.jpg",
+      "rel_path": "eval/images/robustness/type_convertible_01_low_light.jpg",
+      "sha256": "af9894ba52aa1fdaf38c556157e9927acd5f3bf95ea8eea793c306f9c0797067",
+      "annotations": {
+        "body": "convertible"
+      },
+      "split": "eval",
+      "stratum": "low_light",
+      "source_id": "type_convertible_01",
+      "group_id": "type_convertible_01",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_convertible_01_blur",
+      "domain": "vehicle",
+      "filename": "type_convertible_01_blur.jpg",
+      "rel_path": "eval/images/robustness/type_convertible_01_blur.jpg",
+      "sha256": "4a44d6f1f34d0c0d84fd636fd2b3f1199b0727c0c21f4718936f165ccdfc3204",
+      "annotations": {
+        "body": "convertible"
+      },
+      "split": "eval",
+      "stratum": "blur",
+      "source_id": "type_convertible_01",
+      "group_id": "type_convertible_01",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_convertible_01_low_res",
+      "domain": "vehicle",
+      "filename": "type_convertible_01_low_res.jpg",
+      "rel_path": "eval/images/robustness/type_convertible_01_low_res.jpg",
+      "sha256": "88d710132c51985e067afeaf37b4490ec4cb04309fee311594eabc7bfce9626f",
+      "annotations": {
+        "body": "convertible"
+      },
+      "split": "eval",
+      "stratum": "low_res",
+      "source_id": "type_convertible_01",
+      "group_id": "type_convertible_01",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_convertible_01_jpeg_compress",
+      "domain": "vehicle",
+      "filename": "type_convertible_01_jpeg_compress.jpg",
+      "rel_path": "eval/images/robustness/type_convertible_01_jpeg_compress.jpg",
+      "sha256": "9f8b086b0af397a6ceb42dcbe9594186c67e9886a0b2a7eeb549b04d09d163a8",
+      "annotations": {
+        "body": "convertible"
+      },
+      "split": "eval",
+      "stratum": "jpeg_compress",
+      "source_id": "type_convertible_01",
+      "group_id": "type_convertible_01",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_convertible_01_occlusion",
+      "domain": "vehicle",
+      "filename": "type_convertible_01_occlusion.jpg",
+      "rel_path": "eval/images/robustness/type_convertible_01_occlusion.jpg",
+      "sha256": "35849ba92c0d4d1d01fe67724b0efd5f9eb9099137091e99a2b6183d01d85959",
+      "annotations": {
+        "body": "convertible"
+      },
+      "split": "eval",
+      "stratum": "occlusion",
+      "source_id": "type_convertible_01",
+      "group_id": "type_convertible_01",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_motorcycle_08_original",
+      "domain": "vehicle",
+      "filename": "type_motorcycle_08_original.jpg",
+      "rel_path": "eval/images/robustness/type_motorcycle_08_original.jpg",
+      "sha256": "f113ca19597a579f3cefcf78046225b079558495dd8a4df20b84730425928543",
+      "annotations": {
+        "body": "motorcycle"
+      },
+      "split": "eval",
+      "stratum": "original",
+      "source_id": "type_motorcycle_08",
+      "group_id": "type_motorcycle_08",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_motorcycle_08_low_light",
+      "domain": "vehicle",
+      "filename": "type_motorcycle_08_low_light.jpg",
+      "rel_path": "eval/images/robustness/type_motorcycle_08_low_light.jpg",
+      "sha256": "cb79dc47bee1ee0a71957e16c7d2f9287ba51c7f4fc539c40dbb190874a845f9",
+      "annotations": {
+        "body": "motorcycle"
+      },
+      "split": "eval",
+      "stratum": "low_light",
+      "source_id": "type_motorcycle_08",
+      "group_id": "type_motorcycle_08",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_motorcycle_08_blur",
+      "domain": "vehicle",
+      "filename": "type_motorcycle_08_blur.jpg",
+      "rel_path": "eval/images/robustness/type_motorcycle_08_blur.jpg",
+      "sha256": "4057bc05e347024cd4368d9e9afeeaa48bacd36df7a9d8a599ff6b639c052b5e",
+      "annotations": {
+        "body": "motorcycle"
+      },
+      "split": "eval",
+      "stratum": "blur",
+      "source_id": "type_motorcycle_08",
+      "group_id": "type_motorcycle_08",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_motorcycle_08_low_res",
+      "domain": "vehicle",
+      "filename": "type_motorcycle_08_low_res.jpg",
+      "rel_path": "eval/images/robustness/type_motorcycle_08_low_res.jpg",
+      "sha256": "2883814fae1e489d5ff30b6e319007065b658366acff34f2c012c84a6f56762c",
+      "annotations": {
+        "body": "motorcycle"
+      },
+      "split": "eval",
+      "stratum": "low_res",
+      "source_id": "type_motorcycle_08",
+      "group_id": "type_motorcycle_08",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_motorcycle_08_jpeg_compress",
+      "domain": "vehicle",
+      "filename": "type_motorcycle_08_jpeg_compress.jpg",
+      "rel_path": "eval/images/robustness/type_motorcycle_08_jpeg_compress.jpg",
+      "sha256": "b89cca23f6dd6bf213cc567397388673c90440d921235f8a31e3771698c83cfd",
+      "annotations": {
+        "body": "motorcycle"
+      },
+      "split": "eval",
+      "stratum": "jpeg_compress",
+      "source_id": "type_motorcycle_08",
+      "group_id": "type_motorcycle_08",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_motorcycle_08_occlusion",
+      "domain": "vehicle",
+      "filename": "type_motorcycle_08_occlusion.jpg",
+      "rel_path": "eval/images/robustness/type_motorcycle_08_occlusion.jpg",
+      "sha256": "a5bd32f8aa7069c01ae0199cae3f3d292c8ffa1cc73e3a0197cc40aba842b7fe",
+      "annotations": {
+        "body": "motorcycle"
+      },
+      "split": "eval",
+      "stratum": "occlusion",
+      "source_id": "type_motorcycle_08",
+      "group_id": "type_motorcycle_08",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_truck_02_original",
+      "domain": "vehicle",
+      "filename": "type_truck_02_original.jpg",
+      "rel_path": "eval/images/robustness/type_truck_02_original.jpg",
+      "sha256": "7fb6ed79531919f05581e5c60846c048b808a46cc86e7b7e81d012f1a02d23cf",
+      "annotations": {
+        "body": "truck"
+      },
+      "split": "eval",
+      "stratum": "original",
+      "source_id": "type_truck_02",
+      "group_id": "type_truck_02",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_truck_02_low_light",
+      "domain": "vehicle",
+      "filename": "type_truck_02_low_light.jpg",
+      "rel_path": "eval/images/robustness/type_truck_02_low_light.jpg",
+      "sha256": "68db6c55c172be4768fc40da924127c33d6d70cafe356f28e9f041066cbf9bdb",
+      "annotations": {
+        "body": "truck"
+      },
+      "split": "eval",
+      "stratum": "low_light",
+      "source_id": "type_truck_02",
+      "group_id": "type_truck_02",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_truck_02_blur",
+      "domain": "vehicle",
+      "filename": "type_truck_02_blur.jpg",
+      "rel_path": "eval/images/robustness/type_truck_02_blur.jpg",
+      "sha256": "7c282c15522509acb2064b99b9ce9f65a2fa7187eff1e70c532b2be9097fd6a7",
+      "annotations": {
+        "body": "truck"
+      },
+      "split": "eval",
+      "stratum": "blur",
+      "source_id": "type_truck_02",
+      "group_id": "type_truck_02",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_truck_02_low_res",
+      "domain": "vehicle",
+      "filename": "type_truck_02_low_res.jpg",
+      "rel_path": "eval/images/robustness/type_truck_02_low_res.jpg",
+      "sha256": "5508f504f16fe7be7264e779ade023185ed85552b45c0dd77ae94c43aa97f03f",
+      "annotations": {
+        "body": "truck"
+      },
+      "split": "eval",
+      "stratum": "low_res",
+      "source_id": "type_truck_02",
+      "group_id": "type_truck_02",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_truck_02_jpeg_compress",
+      "domain": "vehicle",
+      "filename": "type_truck_02_jpeg_compress.jpg",
+      "rel_path": "eval/images/robustness/type_truck_02_jpeg_compress.jpg",
+      "sha256": "9db4fbd0656e37c8c08cfaeb42b3662e92ae51ff4eb7afd54ca9ef3ebede385a",
+      "annotations": {
+        "body": "truck"
+      },
+      "split": "eval",
+      "stratum": "jpeg_compress",
+      "source_id": "type_truck_02",
+      "group_id": "type_truck_02",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_truck_02_occlusion",
+      "domain": "vehicle",
+      "filename": "type_truck_02_occlusion.jpg",
+      "rel_path": "eval/images/robustness/type_truck_02_occlusion.jpg",
+      "sha256": "ab70a82b53b56e7da3be3367c2f14ac9f32e3ccd21b230f54e91b1d3d1f24dc5",
+      "annotations": {
+        "body": "truck"
+      },
+      "split": "eval",
+      "stratum": "occlusion",
+      "source_id": "type_truck_02",
+      "group_id": "type_truck_02",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_pickup_05_original",
+      "domain": "vehicle",
+      "filename": "type_pickup_05_original.jpg",
+      "rel_path": "eval/images/robustness/type_pickup_05_original.jpg",
+      "sha256": "106c1582fded88f2adddea40f987a934daf6c3c0623c22aef6a16c4d3caecf7a",
+      "annotations": {
+        "body": "pickup"
+      },
+      "split": "eval",
+      "stratum": "original",
+      "source_id": "type_pickup_05",
+      "group_id": "type_pickup_05",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_pickup_05_low_light",
+      "domain": "vehicle",
+      "filename": "type_pickup_05_low_light.jpg",
+      "rel_path": "eval/images/robustness/type_pickup_05_low_light.jpg",
+      "sha256": "742415adebdf371ebfe87cf79fe3500fa6288e61bf2e3844eb7b3bc18dbd5d4b",
+      "annotations": {
+        "body": "pickup"
+      },
+      "split": "eval",
+      "stratum": "low_light",
+      "source_id": "type_pickup_05",
+      "group_id": "type_pickup_05",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_pickup_05_blur",
+      "domain": "vehicle",
+      "filename": "type_pickup_05_blur.jpg",
+      "rel_path": "eval/images/robustness/type_pickup_05_blur.jpg",
+      "sha256": "a0ef86f491f2c86ed2d6cfe5f2d7ef2fdbfb3f95537368e85b88dbb5db7e47d0",
+      "annotations": {
+        "body": "pickup"
+      },
+      "split": "eval",
+      "stratum": "blur",
+      "source_id": "type_pickup_05",
+      "group_id": "type_pickup_05",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_pickup_05_low_res",
+      "domain": "vehicle",
+      "filename": "type_pickup_05_low_res.jpg",
+      "rel_path": "eval/images/robustness/type_pickup_05_low_res.jpg",
+      "sha256": "c7aa9007906539bdeadb4f74673f1cbb5b8bf7c3756304e487e2f793c447781b",
+      "annotations": {
+        "body": "pickup"
+      },
+      "split": "eval",
+      "stratum": "low_res",
+      "source_id": "type_pickup_05",
+      "group_id": "type_pickup_05",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_pickup_05_jpeg_compress",
+      "domain": "vehicle",
+      "filename": "type_pickup_05_jpeg_compress.jpg",
+      "rel_path": "eval/images/robustness/type_pickup_05_jpeg_compress.jpg",
+      "sha256": "9b9c5bb7ed0e711a08470a82addc37f677b6459d354b9800b508bfdfdc078c28",
+      "annotations": {
+        "body": "pickup"
+      },
+      "split": "eval",
+      "stratum": "jpeg_compress",
+      "source_id": "type_pickup_05",
+      "group_id": "type_pickup_05",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_pickup_05_occlusion",
+      "domain": "vehicle",
+      "filename": "type_pickup_05_occlusion.jpg",
+      "rel_path": "eval/images/robustness/type_pickup_05_occlusion.jpg",
+      "sha256": "12e60e73e3f9237cb0c4bcd2e26cf60f04eb1edee23ab2ed8df1f530c164bb8a",
+      "annotations": {
+        "body": "pickup"
+      },
+      "split": "eval",
+      "stratum": "occlusion",
+      "source_id": "type_pickup_05",
+      "group_id": "type_pickup_05",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_van_03_original",
+      "domain": "vehicle",
+      "filename": "type_van_03_original.jpg",
+      "rel_path": "eval/images/robustness/type_van_03_original.jpg",
+      "sha256": "57a71bc27e35be9264b1510701297b83aa5cd007f0b1c9e3fb22a41ebd7bcf69",
+      "annotations": {
+        "body": "van"
+      },
+      "split": "eval",
+      "stratum": "original",
+      "source_id": "type_van_03",
+      "group_id": "type_van_03",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_van_03_low_light",
+      "domain": "vehicle",
+      "filename": "type_van_03_low_light.jpg",
+      "rel_path": "eval/images/robustness/type_van_03_low_light.jpg",
+      "sha256": "b79b8aa734229398ae5ea2dd5c79c471869cf7158e74f87b8e16f8c0aa9242b3",
+      "annotations": {
+        "body": "van"
+      },
+      "split": "eval",
+      "stratum": "low_light",
+      "source_id": "type_van_03",
+      "group_id": "type_van_03",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_van_03_blur",
+      "domain": "vehicle",
+      "filename": "type_van_03_blur.jpg",
+      "rel_path": "eval/images/robustness/type_van_03_blur.jpg",
+      "sha256": "dd0711f20f2e246ceec09ed5a4e7cbe26f13da0903d09784a14fe6a52d1c65e0",
+      "annotations": {
+        "body": "van"
+      },
+      "split": "eval",
+      "stratum": "blur",
+      "source_id": "type_van_03",
+      "group_id": "type_van_03",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_van_03_low_res",
+      "domain": "vehicle",
+      "filename": "type_van_03_low_res.jpg",
+      "rel_path": "eval/images/robustness/type_van_03_low_res.jpg",
+      "sha256": "c0f6c001a118c1889f29a492a88d4da4b5f48a31cb690e2906cd35a0e821b953",
+      "annotations": {
+        "body": "van"
+      },
+      "split": "eval",
+      "stratum": "low_res",
+      "source_id": "type_van_03",
+      "group_id": "type_van_03",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_van_03_jpeg_compress",
+      "domain": "vehicle",
+      "filename": "type_van_03_jpeg_compress.jpg",
+      "rel_path": "eval/images/robustness/type_van_03_jpeg_compress.jpg",
+      "sha256": "26345c4348b719079be6af314f137ca04bea790088e9c5a5757153a0fc5dca1b",
+      "annotations": {
+        "body": "van"
+      },
+      "split": "eval",
+      "stratum": "jpeg_compress",
+      "source_id": "type_van_03",
+      "group_id": "type_van_03",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_van_03_occlusion",
+      "domain": "vehicle",
+      "filename": "type_van_03_occlusion.jpg",
+      "rel_path": "eval/images/robustness/type_van_03_occlusion.jpg",
+      "sha256": "ec3c60155ed9b4326f7fe0e2dde89a9f525baf95888ae33d7bcd838852b95ca7",
+      "annotations": {
+        "body": "van"
+      },
+      "split": "eval",
+      "stratum": "occlusion",
+      "source_id": "type_van_03",
+      "group_id": "type_van_03",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_convertible_09_original",
+      "domain": "vehicle",
+      "filename": "type_convertible_09_original.jpg",
+      "rel_path": "eval/images/robustness/type_convertible_09_original.jpg",
+      "sha256": "d57098a00a95de702f06b7d27f91f5e93f28db4f8d7a5f2cb534d6e3d228e23e",
+      "annotations": {
+        "body": "convertible"
+      },
+      "split": "eval",
+      "stratum": "original",
+      "source_id": "type_convertible_09",
+      "group_id": "type_convertible_09",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_convertible_09_low_light",
+      "domain": "vehicle",
+      "filename": "type_convertible_09_low_light.jpg",
+      "rel_path": "eval/images/robustness/type_convertible_09_low_light.jpg",
+      "sha256": "4ef01317019116f491fcd76b4385e1bc44c2d00499fa9394d0eb225cbef257ff",
+      "annotations": {
+        "body": "convertible"
+      },
+      "split": "eval",
+      "stratum": "low_light",
+      "source_id": "type_convertible_09",
+      "group_id": "type_convertible_09",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_convertible_09_blur",
+      "domain": "vehicle",
+      "filename": "type_convertible_09_blur.jpg",
+      "rel_path": "eval/images/robustness/type_convertible_09_blur.jpg",
+      "sha256": "72d903bdda815f1fc394a3e7be85d975235963af24061e5c436409d9f26deea0",
+      "annotations": {
+        "body": "convertible"
+      },
+      "split": "eval",
+      "stratum": "blur",
+      "source_id": "type_convertible_09",
+      "group_id": "type_convertible_09",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_convertible_09_low_res",
+      "domain": "vehicle",
+      "filename": "type_convertible_09_low_res.jpg",
+      "rel_path": "eval/images/robustness/type_convertible_09_low_res.jpg",
+      "sha256": "75213e6fc9dbc8c0fcea096db675b0a2f738ff3cbb2094332e0aa01f70084f8f",
+      "annotations": {
+        "body": "convertible"
+      },
+      "split": "eval",
+      "stratum": "low_res",
+      "source_id": "type_convertible_09",
+      "group_id": "type_convertible_09",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_convertible_09_jpeg_compress",
+      "domain": "vehicle",
+      "filename": "type_convertible_09_jpeg_compress.jpg",
+      "rel_path": "eval/images/robustness/type_convertible_09_jpeg_compress.jpg",
+      "sha256": "ac079dd521ddc2db384b9b26eb73dc55651e66661e931c6a2f4f784be696141b",
+      "annotations": {
+        "body": "convertible"
+      },
+      "split": "eval",
+      "stratum": "jpeg_compress",
+      "source_id": "type_convertible_09",
+      "group_id": "type_convertible_09",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_convertible_09_occlusion",
+      "domain": "vehicle",
+      "filename": "type_convertible_09_occlusion.jpg",
+      "rel_path": "eval/images/robustness/type_convertible_09_occlusion.jpg",
+      "sha256": "5351167ae55c0085516afd5b8014687733211f9bea8046bdf3fae6bdbc710795",
+      "annotations": {
+        "body": "convertible"
+      },
+      "split": "eval",
+      "stratum": "occlusion",
+      "source_id": "type_convertible_09",
+      "group_id": "type_convertible_09",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_hatchback_09_original",
+      "domain": "vehicle",
+      "filename": "type_hatchback_09_original.jpg",
+      "rel_path": "eval/images/robustness/type_hatchback_09_original.jpg",
+      "sha256": "e3c5c44407728c9f2fab75b43be2fd650a736144ee193ca188614291145c1c81",
+      "annotations": {
+        "body": "hatch"
+      },
+      "split": "eval",
+      "stratum": "original",
+      "source_id": "type_hatchback_09",
+      "group_id": "type_hatchback_09",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_hatchback_09_low_light",
+      "domain": "vehicle",
+      "filename": "type_hatchback_09_low_light.jpg",
+      "rel_path": "eval/images/robustness/type_hatchback_09_low_light.jpg",
+      "sha256": "16e06f548b3eda81ddf1cc2b223864ae10b91ef5f1cfa74cdf9b97f13942a8ac",
+      "annotations": {
+        "body": "hatch"
+      },
+      "split": "eval",
+      "stratum": "low_light",
+      "source_id": "type_hatchback_09",
+      "group_id": "type_hatchback_09",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_hatchback_09_blur",
+      "domain": "vehicle",
+      "filename": "type_hatchback_09_blur.jpg",
+      "rel_path": "eval/images/robustness/type_hatchback_09_blur.jpg",
+      "sha256": "9cae7cf025b34d133fa462cf90cb5eedc87e63930f21d225bd3ccbdfe61cc1b1",
+      "annotations": {
+        "body": "hatch"
+      },
+      "split": "eval",
+      "stratum": "blur",
+      "source_id": "type_hatchback_09",
+      "group_id": "type_hatchback_09",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_hatchback_09_low_res",
+      "domain": "vehicle",
+      "filename": "type_hatchback_09_low_res.jpg",
+      "rel_path": "eval/images/robustness/type_hatchback_09_low_res.jpg",
+      "sha256": "9bbf8323f73a9ccef2e16062522b6c0e7063d606006a36aabe62e3f819771fed",
+      "annotations": {
+        "body": "hatch"
+      },
+      "split": "eval",
+      "stratum": "low_res",
+      "source_id": "type_hatchback_09",
+      "group_id": "type_hatchback_09",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_hatchback_09_jpeg_compress",
+      "domain": "vehicle",
+      "filename": "type_hatchback_09_jpeg_compress.jpg",
+      "rel_path": "eval/images/robustness/type_hatchback_09_jpeg_compress.jpg",
+      "sha256": "2b8f9b04aacea492094b267a25c29ce949a0920ce2471874406d869d48d566cd",
+      "annotations": {
+        "body": "hatch"
+      },
+      "split": "eval",
+      "stratum": "jpeg_compress",
+      "source_id": "type_hatchback_09",
+      "group_id": "type_hatchback_09",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_hatchback_09_occlusion",
+      "domain": "vehicle",
+      "filename": "type_hatchback_09_occlusion.jpg",
+      "rel_path": "eval/images/robustness/type_hatchback_09_occlusion.jpg",
+      "sha256": "ceda68d110c9d7534f61976699d640e7aaf33678b0119103a4e609653accd11f",
+      "annotations": {
+        "body": "hatch"
+      },
+      "split": "eval",
+      "stratum": "occlusion",
+      "source_id": "type_hatchback_09",
+      "group_id": "type_hatchback_09",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_bus_05_original",
+      "domain": "vehicle",
+      "filename": "type_bus_05_original.jpg",
+      "rel_path": "eval/images/robustness/type_bus_05_original.jpg",
+      "sha256": "d71228ade78e889b9952d4088ffa2b6cadfdf9e9142e3c2fb4dc6050854b573a",
+      "annotations": {
+        "body": "bus"
+      },
+      "split": "eval",
+      "stratum": "original",
+      "source_id": "type_bus_05",
+      "group_id": "type_bus_05",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_bus_05_low_light",
+      "domain": "vehicle",
+      "filename": "type_bus_05_low_light.jpg",
+      "rel_path": "eval/images/robustness/type_bus_05_low_light.jpg",
+      "sha256": "3772670ce2683d7e62f87baa2bfd34cfa5758d5f7d21ff4cee7bd5f2de916cb7",
+      "annotations": {
+        "body": "bus"
+      },
+      "split": "eval",
+      "stratum": "low_light",
+      "source_id": "type_bus_05",
+      "group_id": "type_bus_05",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_bus_05_blur",
+      "domain": "vehicle",
+      "filename": "type_bus_05_blur.jpg",
+      "rel_path": "eval/images/robustness/type_bus_05_blur.jpg",
+      "sha256": "c7eeaba9706bc357b03278ee9aba2d18e1d6034761368746fd7072b163205eab",
+      "annotations": {
+        "body": "bus"
+      },
+      "split": "eval",
+      "stratum": "blur",
+      "source_id": "type_bus_05",
+      "group_id": "type_bus_05",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_bus_05_low_res",
+      "domain": "vehicle",
+      "filename": "type_bus_05_low_res.jpg",
+      "rel_path": "eval/images/robustness/type_bus_05_low_res.jpg",
+      "sha256": "82275864587eb51752c5981cc8e4f7d47a83560e20b0adeb5a3c667f77e6a072",
+      "annotations": {
+        "body": "bus"
+      },
+      "split": "eval",
+      "stratum": "low_res",
+      "source_id": "type_bus_05",
+      "group_id": "type_bus_05",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_bus_05_jpeg_compress",
+      "domain": "vehicle",
+      "filename": "type_bus_05_jpeg_compress.jpg",
+      "rel_path": "eval/images/robustness/type_bus_05_jpeg_compress.jpg",
+      "sha256": "786b7353b87e7e346ad45692dcdada0fa2f5c12965cb8ce8749eb7c6ae66baf3",
+      "annotations": {
+        "body": "bus"
+      },
+      "split": "eval",
+      "stratum": "jpeg_compress",
+      "source_id": "type_bus_05",
+      "group_id": "type_bus_05",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_type_bus_05_occlusion",
+      "domain": "vehicle",
+      "filename": "type_bus_05_occlusion.jpg",
+      "rel_path": "eval/images/robustness/type_bus_05_occlusion.jpg",
+      "sha256": "dfec2795cfc979afb622039102489c6634eb2de76b3a4b48b7e058113b37dba4",
+      "annotations": {
+        "body": "bus"
+      },
+      "split": "eval",
+      "stratum": "occlusion",
+      "source_id": "type_bus_05",
+      "group_id": "type_bus_05",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "rob_person_039_original",
+      "domain": "person",
+      "filename": "person_039_original.jpg",
+      "rel_path": "eval/images/robustness/person_039_original.jpg",
+      "sha256": "036e62585e133c54e7df2821862c1902d29088cf278f088b5574e3beea8413f1",
+      "annotations": {
+        "helmet": "no"
+      },
+      "split": "eval",
+      "stratum": "original",
+      "source_id": "person_039",
+      "group_id": "person_039",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_039_low_light",
+      "domain": "person",
+      "filename": "person_039_low_light.jpg",
+      "rel_path": "eval/images/robustness/person_039_low_light.jpg",
+      "sha256": "bc45988bbbabeea62782ae23b3a4610db3d4e5ed28cef47a5aec2b75ef4edc8c",
+      "annotations": {
+        "helmet": "no"
+      },
+      "split": "eval",
+      "stratum": "low_light",
+      "source_id": "person_039",
+      "group_id": "person_039",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_039_blur",
+      "domain": "person",
+      "filename": "person_039_blur.jpg",
+      "rel_path": "eval/images/robustness/person_039_blur.jpg",
+      "sha256": "ebd5b618ed05797e2492ce8108a2e87da1805cc49435c9f389d1ba7d85663e5f",
+      "annotations": {
+        "helmet": "no"
+      },
+      "split": "eval",
+      "stratum": "blur",
+      "source_id": "person_039",
+      "group_id": "person_039",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_039_low_res",
+      "domain": "person",
+      "filename": "person_039_low_res.jpg",
+      "rel_path": "eval/images/robustness/person_039_low_res.jpg",
+      "sha256": "53d9f30f4e8c3344a27c355b965b9c5460b7097aecfd5a4340f47e154362448c",
+      "annotations": {
+        "helmet": "no"
+      },
+      "split": "eval",
+      "stratum": "low_res",
+      "source_id": "person_039",
+      "group_id": "person_039",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_039_jpeg_compress",
+      "domain": "person",
+      "filename": "person_039_jpeg_compress.jpg",
+      "rel_path": "eval/images/robustness/person_039_jpeg_compress.jpg",
+      "sha256": "a30386a40862d17b5256a4fb591d27f6b67b8817cfef95386f7116d5dc9a5177",
+      "annotations": {
+        "helmet": "no"
+      },
+      "split": "eval",
+      "stratum": "jpeg_compress",
+      "source_id": "person_039",
+      "group_id": "person_039",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_039_occlusion",
+      "domain": "person",
+      "filename": "person_039_occlusion.jpg",
+      "rel_path": "eval/images/robustness/person_039_occlusion.jpg",
+      "sha256": "38394533fd74fada4dedb2c90c3690b8b90751c8ee6c9616b3be2c380c67ead3",
+      "annotations": {
+        "helmet": "no"
+      },
+      "split": "eval",
+      "stratum": "occlusion",
+      "source_id": "person_039",
+      "group_id": "person_039",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_005_original",
+      "domain": "person",
+      "filename": "person_005_original.jpg",
+      "rel_path": "eval/images/robustness/person_005_original.jpg",
+      "sha256": "9ec37627c44f07f543953296b5e4137b71c0d85151a7e50e55cfc16b9ce4b2d4",
+      "annotations": {
+        "helmet": "yes"
+      },
+      "split": "eval",
+      "stratum": "original",
+      "source_id": "person_005",
+      "group_id": "person_005",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_005_low_light",
+      "domain": "person",
+      "filename": "person_005_low_light.jpg",
+      "rel_path": "eval/images/robustness/person_005_low_light.jpg",
+      "sha256": "35838524e84e0e33a1de605ddd05f9e4e54d2deb5b0e19cc4facdaa563631c12",
+      "annotations": {
+        "helmet": "yes"
+      },
+      "split": "eval",
+      "stratum": "low_light",
+      "source_id": "person_005",
+      "group_id": "person_005",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_005_blur",
+      "domain": "person",
+      "filename": "person_005_blur.jpg",
+      "rel_path": "eval/images/robustness/person_005_blur.jpg",
+      "sha256": "8f322b72133b37fb3c282b740324ac880b2d8184b642d0f32d798ecb7f11895b",
+      "annotations": {
+        "helmet": "yes"
+      },
+      "split": "eval",
+      "stratum": "blur",
+      "source_id": "person_005",
+      "group_id": "person_005",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_005_low_res",
+      "domain": "person",
+      "filename": "person_005_low_res.jpg",
+      "rel_path": "eval/images/robustness/person_005_low_res.jpg",
+      "sha256": "2e2602210dfc3b8f67650b049625eb9aa414ced02f32a5342e4adb3da50d6452",
+      "annotations": {
+        "helmet": "yes"
+      },
+      "split": "eval",
+      "stratum": "low_res",
+      "source_id": "person_005",
+      "group_id": "person_005",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_005_jpeg_compress",
+      "domain": "person",
+      "filename": "person_005_jpeg_compress.jpg",
+      "rel_path": "eval/images/robustness/person_005_jpeg_compress.jpg",
+      "sha256": "30d097939ad2406a805b7e93fcaab09fa63569cac63770df865544c8e7f14bff",
+      "annotations": {
+        "helmet": "yes"
+      },
+      "split": "eval",
+      "stratum": "jpeg_compress",
+      "source_id": "person_005",
+      "group_id": "person_005",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_005_occlusion",
+      "domain": "person",
+      "filename": "person_005_occlusion.jpg",
+      "rel_path": "eval/images/robustness/person_005_occlusion.jpg",
+      "sha256": "a682f753b3e130874bfaacbf81793917a8446762a170e89d9c27715d58581614",
+      "annotations": {
+        "helmet": "yes"
+      },
+      "split": "eval",
+      "stratum": "occlusion",
+      "source_id": "person_005",
+      "group_id": "person_005",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_053_original",
+      "domain": "person",
+      "filename": "person_053_original.jpg",
+      "rel_path": "eval/images/robustness/person_053_original.jpg",
+      "sha256": "b97b4e5cf5e312449e2c43589141e3f24f21c1c9d58132eed4c6dd2b0f60bb68",
+      "annotations": {
+        "helmet": "not_visible"
+      },
+      "split": "eval",
+      "stratum": "original",
+      "source_id": "person_053",
+      "group_id": "person_053",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_053_low_light",
+      "domain": "person",
+      "filename": "person_053_low_light.jpg",
+      "rel_path": "eval/images/robustness/person_053_low_light.jpg",
+      "sha256": "4814f0ae6ff7efd7aa9b20de5b0df5d887f42012c7a0f1208bc3893d9fd5c8e1",
+      "annotations": {
+        "helmet": "not_visible"
+      },
+      "split": "eval",
+      "stratum": "low_light",
+      "source_id": "person_053",
+      "group_id": "person_053",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_053_blur",
+      "domain": "person",
+      "filename": "person_053_blur.jpg",
+      "rel_path": "eval/images/robustness/person_053_blur.jpg",
+      "sha256": "0e5ff3b222b8948c025c4d9b2dbd7a95b295c17bccce8ef202ec71d07ef40818",
+      "annotations": {
+        "helmet": "not_visible"
+      },
+      "split": "eval",
+      "stratum": "blur",
+      "source_id": "person_053",
+      "group_id": "person_053",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_053_low_res",
+      "domain": "person",
+      "filename": "person_053_low_res.jpg",
+      "rel_path": "eval/images/robustness/person_053_low_res.jpg",
+      "sha256": "b4ef2e8179aec77c7d643a8b171b9da942068d035cd89e1acda9bf07908c79b2",
+      "annotations": {
+        "helmet": "not_visible"
+      },
+      "split": "eval",
+      "stratum": "low_res",
+      "source_id": "person_053",
+      "group_id": "person_053",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_053_jpeg_compress",
+      "domain": "person",
+      "filename": "person_053_jpeg_compress.jpg",
+      "rel_path": "eval/images/robustness/person_053_jpeg_compress.jpg",
+      "sha256": "60e3e2896f6c58e32b97f8836dcc30408e19242fdcda93144ef594f3c397d2a7",
+      "annotations": {
+        "helmet": "not_visible"
+      },
+      "split": "eval",
+      "stratum": "jpeg_compress",
+      "source_id": "person_053",
+      "group_id": "person_053",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_053_occlusion",
+      "domain": "person",
+      "filename": "person_053_occlusion.jpg",
+      "rel_path": "eval/images/robustness/person_053_occlusion.jpg",
+      "sha256": "c5cd94a768e0bf9feb8c7aba3ea1a3d8a22961dd6dbf8b09ea74b2e7c8f85a22",
+      "annotations": {
+        "helmet": "not_visible"
+      },
+      "split": "eval",
+      "stratum": "occlusion",
+      "source_id": "person_053",
+      "group_id": "person_053",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_017_original",
+      "domain": "person",
+      "filename": "person_017_original.jpg",
+      "rel_path": "eval/images/robustness/person_017_original.jpg",
+      "sha256": "690811e2d182150f813792b3d8ac396fc6a13ca292f17f87c18ecf5ebf306688",
+      "annotations": {
+        "helmet": "no"
+      },
+      "split": "eval",
+      "stratum": "original",
+      "source_id": "person_017",
+      "group_id": "person_017",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_017_low_light",
+      "domain": "person",
+      "filename": "person_017_low_light.jpg",
+      "rel_path": "eval/images/robustness/person_017_low_light.jpg",
+      "sha256": "ef3accc51625b25c162346ea19feb96db42dc58b3a5e635408d5e58e9e8d4c6e",
+      "annotations": {
+        "helmet": "no"
+      },
+      "split": "eval",
+      "stratum": "low_light",
+      "source_id": "person_017",
+      "group_id": "person_017",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_017_blur",
+      "domain": "person",
+      "filename": "person_017_blur.jpg",
+      "rel_path": "eval/images/robustness/person_017_blur.jpg",
+      "sha256": "98fbae1230a5f6cecdc20833cc05cc99b9cc154d1096b6b2254b4feb7000b0d9",
+      "annotations": {
+        "helmet": "no"
+      },
+      "split": "eval",
+      "stratum": "blur",
+      "source_id": "person_017",
+      "group_id": "person_017",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_017_low_res",
+      "domain": "person",
+      "filename": "person_017_low_res.jpg",
+      "rel_path": "eval/images/robustness/person_017_low_res.jpg",
+      "sha256": "7d7adabb5ee787fbdfc50344de8edf6342371fd04b5e7ca358de45819d6d73c1",
+      "annotations": {
+        "helmet": "no"
+      },
+      "split": "eval",
+      "stratum": "low_res",
+      "source_id": "person_017",
+      "group_id": "person_017",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_017_jpeg_compress",
+      "domain": "person",
+      "filename": "person_017_jpeg_compress.jpg",
+      "rel_path": "eval/images/robustness/person_017_jpeg_compress.jpg",
+      "sha256": "70a4b475834f57f4273a98afebe2ec1232e232c9123a9e9c9b6d5b8c5532f4ff",
+      "annotations": {
+        "helmet": "no"
+      },
+      "split": "eval",
+      "stratum": "jpeg_compress",
+      "source_id": "person_017",
+      "group_id": "person_017",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_017_occlusion",
+      "domain": "person",
+      "filename": "person_017_occlusion.jpg",
+      "rel_path": "eval/images/robustness/person_017_occlusion.jpg",
+      "sha256": "d60e2e972f16eab0bef6aaf75fb996bcad5d0172d8085792c37036a1dca13165",
+      "annotations": {
+        "helmet": "no"
+      },
+      "split": "eval",
+      "stratum": "occlusion",
+      "source_id": "person_017",
+      "group_id": "person_017",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_031_original",
+      "domain": "person",
+      "filename": "person_031_original.jpg",
+      "rel_path": "eval/images/robustness/person_031_original.jpg",
+      "sha256": "0658c6fb90def71438fef1dc7d2cce6bbc8531bf97bcdf6dcdac88e7b81fd8fa",
+      "annotations": {
+        "helmet": "no"
+      },
+      "split": "eval",
+      "stratum": "original",
+      "source_id": "person_031",
+      "group_id": "person_031",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_031_low_light",
+      "domain": "person",
+      "filename": "person_031_low_light.jpg",
+      "rel_path": "eval/images/robustness/person_031_low_light.jpg",
+      "sha256": "09049f95ac3744acb84f363a7642566ddd5deea500040953c81b72f7218a880c",
+      "annotations": {
+        "helmet": "no"
+      },
+      "split": "eval",
+      "stratum": "low_light",
+      "source_id": "person_031",
+      "group_id": "person_031",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_031_blur",
+      "domain": "person",
+      "filename": "person_031_blur.jpg",
+      "rel_path": "eval/images/robustness/person_031_blur.jpg",
+      "sha256": "ab816ab30954af9b9c2463ec95b3143b9ef96c8e56a706d08bbda0c3a378a3df",
+      "annotations": {
+        "helmet": "no"
+      },
+      "split": "eval",
+      "stratum": "blur",
+      "source_id": "person_031",
+      "group_id": "person_031",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_031_low_res",
+      "domain": "person",
+      "filename": "person_031_low_res.jpg",
+      "rel_path": "eval/images/robustness/person_031_low_res.jpg",
+      "sha256": "f903d05e92ca2e46dbd713095cf22354303d94c2a0a049f26c41d2ff015de48a",
+      "annotations": {
+        "helmet": "no"
+      },
+      "split": "eval",
+      "stratum": "low_res",
+      "source_id": "person_031",
+      "group_id": "person_031",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_031_jpeg_compress",
+      "domain": "person",
+      "filename": "person_031_jpeg_compress.jpg",
+      "rel_path": "eval/images/robustness/person_031_jpeg_compress.jpg",
+      "sha256": "e27b39555be86884d955926e29fd68393d384bdd3dee5243bf7cde7c134a405d",
+      "annotations": {
+        "helmet": "no"
+      },
+      "split": "eval",
+      "stratum": "jpeg_compress",
+      "source_id": "person_031",
+      "group_id": "person_031",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_031_occlusion",
+      "domain": "person",
+      "filename": "person_031_occlusion.jpg",
+      "rel_path": "eval/images/robustness/person_031_occlusion.jpg",
+      "sha256": "04d1f79caa762ffcf39834ca7230b5d1633982abb68daef2eedfd5b82b09a9ad",
+      "annotations": {
+        "helmet": "no"
+      },
+      "split": "eval",
+      "stratum": "occlusion",
+      "source_id": "person_031",
+      "group_id": "person_031",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_010_original",
+      "domain": "person",
+      "filename": "person_010_original.jpg",
+      "rel_path": "eval/images/robustness/person_010_original.jpg",
+      "sha256": "d939f206544a0935a7b93a3c7712d57986bd7af6876d1816a8efcb0d802418a4",
+      "annotations": {
+        "helmet": "yes"
+      },
+      "split": "eval",
+      "stratum": "original",
+      "source_id": "person_010",
+      "group_id": "person_010",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_010_low_light",
+      "domain": "person",
+      "filename": "person_010_low_light.jpg",
+      "rel_path": "eval/images/robustness/person_010_low_light.jpg",
+      "sha256": "07a2f32144bf04d39eabf736bc695b620d1213c65d62bcfb36fb3402ec9505ff",
+      "annotations": {
+        "helmet": "yes"
+      },
+      "split": "eval",
+      "stratum": "low_light",
+      "source_id": "person_010",
+      "group_id": "person_010",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_010_blur",
+      "domain": "person",
+      "filename": "person_010_blur.jpg",
+      "rel_path": "eval/images/robustness/person_010_blur.jpg",
+      "sha256": "63ae7515b3e85199ca61d7dd067b73bbbe0ef592d44edd48dd96ca2ddb95dd90",
+      "annotations": {
+        "helmet": "yes"
+      },
+      "split": "eval",
+      "stratum": "blur",
+      "source_id": "person_010",
+      "group_id": "person_010",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_010_low_res",
+      "domain": "person",
+      "filename": "person_010_low_res.jpg",
+      "rel_path": "eval/images/robustness/person_010_low_res.jpg",
+      "sha256": "ddaf4b0e29a1621275033a1ecc5996dec9ba03da549100d32af048229f2711fe",
+      "annotations": {
+        "helmet": "yes"
+      },
+      "split": "eval",
+      "stratum": "low_res",
+      "source_id": "person_010",
+      "group_id": "person_010",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_010_jpeg_compress",
+      "domain": "person",
+      "filename": "person_010_jpeg_compress.jpg",
+      "rel_path": "eval/images/robustness/person_010_jpeg_compress.jpg",
+      "sha256": "570ccf2776d5cd681b7a64426584f36181071046ba05dccbc073db0aa6144bba",
+      "annotations": {
+        "helmet": "yes"
+      },
+      "split": "eval",
+      "stratum": "jpeg_compress",
+      "source_id": "person_010",
+      "group_id": "person_010",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_010_occlusion",
+      "domain": "person",
+      "filename": "person_010_occlusion.jpg",
+      "rel_path": "eval/images/robustness/person_010_occlusion.jpg",
+      "sha256": "d2631d810508a711808b475106b2804dea455777df128abcc96e6cbf961165ad",
+      "annotations": {
+        "helmet": "yes"
+      },
+      "split": "eval",
+      "stratum": "occlusion",
+      "source_id": "person_010",
+      "group_id": "person_010",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_037_original",
+      "domain": "person",
+      "filename": "person_037_original.jpg",
+      "rel_path": "eval/images/robustness/person_037_original.jpg",
+      "sha256": "cbe72b87a49929bb6fb7f6086dc1d0af3133bb69f327735dbcd492954c382446",
+      "annotations": {
+        "helmet": "no"
+      },
+      "split": "eval",
+      "stratum": "original",
+      "source_id": "person_037",
+      "group_id": "person_037",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_037_low_light",
+      "domain": "person",
+      "filename": "person_037_low_light.jpg",
+      "rel_path": "eval/images/robustness/person_037_low_light.jpg",
+      "sha256": "d2113e8a8f56de2ffd87b77583b9296b3d768604f8328c231c0073f349899ddc",
+      "annotations": {
+        "helmet": "no"
+      },
+      "split": "eval",
+      "stratum": "low_light",
+      "source_id": "person_037",
+      "group_id": "person_037",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_037_blur",
+      "domain": "person",
+      "filename": "person_037_blur.jpg",
+      "rel_path": "eval/images/robustness/person_037_blur.jpg",
+      "sha256": "1d9938d0f34ad7d1c3d9da2127d78bf7665f8da68e3fadc3f38523325d3b1819",
+      "annotations": {
+        "helmet": "no"
+      },
+      "split": "eval",
+      "stratum": "blur",
+      "source_id": "person_037",
+      "group_id": "person_037",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_037_low_res",
+      "domain": "person",
+      "filename": "person_037_low_res.jpg",
+      "rel_path": "eval/images/robustness/person_037_low_res.jpg",
+      "sha256": "d2f18b102752a43a1770d13d84aed5c4a8e9b10488f13b52213dee70a17e894b",
+      "annotations": {
+        "helmet": "no"
+      },
+      "split": "eval",
+      "stratum": "low_res",
+      "source_id": "person_037",
+      "group_id": "person_037",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_037_jpeg_compress",
+      "domain": "person",
+      "filename": "person_037_jpeg_compress.jpg",
+      "rel_path": "eval/images/robustness/person_037_jpeg_compress.jpg",
+      "sha256": "33758931e543cab799805a999da7f653f1d24876c5c94a98260d506f6813929d",
+      "annotations": {
+        "helmet": "no"
+      },
+      "split": "eval",
+      "stratum": "jpeg_compress",
+      "source_id": "person_037",
+      "group_id": "person_037",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_037_occlusion",
+      "domain": "person",
+      "filename": "person_037_occlusion.jpg",
+      "rel_path": "eval/images/robustness/person_037_occlusion.jpg",
+      "sha256": "e0944a199d8e11af3ad131d1ba3dc19c93688041b060c739d00730997ff3ee66",
+      "annotations": {
+        "helmet": "no"
+      },
+      "split": "eval",
+      "stratum": "occlusion",
+      "source_id": "person_037",
+      "group_id": "person_037",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_011_original",
+      "domain": "person",
+      "filename": "person_011_original.jpg",
+      "rel_path": "eval/images/robustness/person_011_original.jpg",
+      "sha256": "07f2d5670ef98d655808cdcced8b07b9ac3c908a3d9208136ce29c9a0d519180",
+      "annotations": {
+        "helmet": "yes"
+      },
+      "split": "eval",
+      "stratum": "original",
+      "source_id": "person_011",
+      "group_id": "person_011",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_011_low_light",
+      "domain": "person",
+      "filename": "person_011_low_light.jpg",
+      "rel_path": "eval/images/robustness/person_011_low_light.jpg",
+      "sha256": "69777352161b91bd0fdd110c6a631b450e862a607a41e038ed4f7255ca10011a",
+      "annotations": {
+        "helmet": "yes"
+      },
+      "split": "eval",
+      "stratum": "low_light",
+      "source_id": "person_011",
+      "group_id": "person_011",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_011_blur",
+      "domain": "person",
+      "filename": "person_011_blur.jpg",
+      "rel_path": "eval/images/robustness/person_011_blur.jpg",
+      "sha256": "f772451fdc842325a9cd9a7e62792289c9c5306bd47f04c5f805d78b06677c04",
+      "annotations": {
+        "helmet": "yes"
+      },
+      "split": "eval",
+      "stratum": "blur",
+      "source_id": "person_011",
+      "group_id": "person_011",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_011_low_res",
+      "domain": "person",
+      "filename": "person_011_low_res.jpg",
+      "rel_path": "eval/images/robustness/person_011_low_res.jpg",
+      "sha256": "ddcf5d615bee7f880594959f750939f3c8a300de351e91db99d47826e49ed693",
+      "annotations": {
+        "helmet": "yes"
+      },
+      "split": "eval",
+      "stratum": "low_res",
+      "source_id": "person_011",
+      "group_id": "person_011",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_011_jpeg_compress",
+      "domain": "person",
+      "filename": "person_011_jpeg_compress.jpg",
+      "rel_path": "eval/images/robustness/person_011_jpeg_compress.jpg",
+      "sha256": "bad1627721db8c3abf51a4af5a7574d94e57f5d79a673db5304e769423bd9d96",
+      "annotations": {
+        "helmet": "yes"
+      },
+      "split": "eval",
+      "stratum": "jpeg_compress",
+      "source_id": "person_011",
+      "group_id": "person_011",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_011_occlusion",
+      "domain": "person",
+      "filename": "person_011_occlusion.jpg",
+      "rel_path": "eval/images/robustness/person_011_occlusion.jpg",
+      "sha256": "4e5c301f71a7d6c371e3a7fd04c468377b138e8ddf278cf03ccfd2b919e9f369",
+      "annotations": {
+        "helmet": "yes"
+      },
+      "split": "eval",
+      "stratum": "occlusion",
+      "source_id": "person_011",
+      "group_id": "person_011",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_032_original",
+      "domain": "person",
+      "filename": "person_032_original.jpg",
+      "rel_path": "eval/images/robustness/person_032_original.jpg",
+      "sha256": "8fbb261476ca8a54e322d0c9e9a44c49cea3bb8a403f9e78433294f4ae66d6c3",
+      "annotations": {
+        "helmet": "no"
+      },
+      "split": "eval",
+      "stratum": "original",
+      "source_id": "person_032",
+      "group_id": "person_032",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_032_low_light",
+      "domain": "person",
+      "filename": "person_032_low_light.jpg",
+      "rel_path": "eval/images/robustness/person_032_low_light.jpg",
+      "sha256": "6fc5f390540760230704b7cf7691ef91739c2e2caa17e6553d02e046f9ac6ca2",
+      "annotations": {
+        "helmet": "no"
+      },
+      "split": "eval",
+      "stratum": "low_light",
+      "source_id": "person_032",
+      "group_id": "person_032",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_032_blur",
+      "domain": "person",
+      "filename": "person_032_blur.jpg",
+      "rel_path": "eval/images/robustness/person_032_blur.jpg",
+      "sha256": "47e4ee13e990f7482fd3d3ffeff4a85eca7647c0662f7cc8d5cca352585e866c",
+      "annotations": {
+        "helmet": "no"
+      },
+      "split": "eval",
+      "stratum": "blur",
+      "source_id": "person_032",
+      "group_id": "person_032",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_032_low_res",
+      "domain": "person",
+      "filename": "person_032_low_res.jpg",
+      "rel_path": "eval/images/robustness/person_032_low_res.jpg",
+      "sha256": "af1bbe67339787d0d0ec10fa4fed5ffa87697006a8b14cf068b061ba50ac676f",
+      "annotations": {
+        "helmet": "no"
+      },
+      "split": "eval",
+      "stratum": "low_res",
+      "source_id": "person_032",
+      "group_id": "person_032",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_032_jpeg_compress",
+      "domain": "person",
+      "filename": "person_032_jpeg_compress.jpg",
+      "rel_path": "eval/images/robustness/person_032_jpeg_compress.jpg",
+      "sha256": "438385da4933b890bc87a68521bf3fac1953bca1ab3a3b3e40a1bc5f689fa59e",
+      "annotations": {
+        "helmet": "no"
+      },
+      "split": "eval",
+      "stratum": "jpeg_compress",
+      "source_id": "person_032",
+      "group_id": "person_032",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_032_occlusion",
+      "domain": "person",
+      "filename": "person_032_occlusion.jpg",
+      "rel_path": "eval/images/robustness/person_032_occlusion.jpg",
+      "sha256": "f31056b191fbef6609f6f1ba86ff8f025336ae938480478d9c22bb65acbff482",
+      "annotations": {
+        "helmet": "no"
+      },
+      "split": "eval",
+      "stratum": "occlusion",
+      "source_id": "person_032",
+      "group_id": "person_032",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_019_original",
+      "domain": "person",
+      "filename": "person_019_original.jpg",
+      "rel_path": "eval/images/robustness/person_019_original.jpg",
+      "sha256": "b4b28cf183dff80637b02f44b4c8d4510effc56d7c7398eb1e12d0252ca1f2d9",
+      "annotations": {
+        "helmet": "no"
+      },
+      "split": "eval",
+      "stratum": "original",
+      "source_id": "person_019",
+      "group_id": "person_019",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_019_low_light",
+      "domain": "person",
+      "filename": "person_019_low_light.jpg",
+      "rel_path": "eval/images/robustness/person_019_low_light.jpg",
+      "sha256": "4f53cc41c83f96e5f031f4af8b9207780ed7fb3106a94f4431292804e063c1ef",
+      "annotations": {
+        "helmet": "no"
+      },
+      "split": "eval",
+      "stratum": "low_light",
+      "source_id": "person_019",
+      "group_id": "person_019",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_019_blur",
+      "domain": "person",
+      "filename": "person_019_blur.jpg",
+      "rel_path": "eval/images/robustness/person_019_blur.jpg",
+      "sha256": "df5b1648146ddcf6d2a486a0dfa41b1cbdc3cd21b936dc73799003296d2a2754",
+      "annotations": {
+        "helmet": "no"
+      },
+      "split": "eval",
+      "stratum": "blur",
+      "source_id": "person_019",
+      "group_id": "person_019",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_019_low_res",
+      "domain": "person",
+      "filename": "person_019_low_res.jpg",
+      "rel_path": "eval/images/robustness/person_019_low_res.jpg",
+      "sha256": "4aef9c97d8094712df5bb4ea913e517e85bce022a577beb8c74f848f06975463",
+      "annotations": {
+        "helmet": "no"
+      },
+      "split": "eval",
+      "stratum": "low_res",
+      "source_id": "person_019",
+      "group_id": "person_019",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_019_jpeg_compress",
+      "domain": "person",
+      "filename": "person_019_jpeg_compress.jpg",
+      "rel_path": "eval/images/robustness/person_019_jpeg_compress.jpg",
+      "sha256": "1975634036fec642d0470471cd0ba1e605a84d0c006ff464d329075112622d9f",
+      "annotations": {
+        "helmet": "no"
+      },
+      "split": "eval",
+      "stratum": "jpeg_compress",
+      "source_id": "person_019",
+      "group_id": "person_019",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_019_occlusion",
+      "domain": "person",
+      "filename": "person_019_occlusion.jpg",
+      "rel_path": "eval/images/robustness/person_019_occlusion.jpg",
+      "sha256": "75f90260921aced49bc1ab7023acafac2851bf820ce2fc89f53593812034ff1d",
+      "annotations": {
+        "helmet": "no"
+      },
+      "split": "eval",
+      "stratum": "occlusion",
+      "source_id": "person_019",
+      "group_id": "person_019",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_020_original",
+      "domain": "person",
+      "filename": "person_020_original.jpg",
+      "rel_path": "eval/images/robustness/person_020_original.jpg",
+      "sha256": "e55bb066f519286c10b148b31732c9564fcffdc9c50ab7868ec816d58757ca17",
+      "annotations": {
+        "helmet": "no"
+      },
+      "split": "eval",
+      "stratum": "original",
+      "source_id": "person_020",
+      "group_id": "person_020",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_020_low_light",
+      "domain": "person",
+      "filename": "person_020_low_light.jpg",
+      "rel_path": "eval/images/robustness/person_020_low_light.jpg",
+      "sha256": "2c91691328a7ddf1a6b02974728c1fc38041c8a7a864102f4b0a3146cf16cdd9",
+      "annotations": {
+        "helmet": "no"
+      },
+      "split": "eval",
+      "stratum": "low_light",
+      "source_id": "person_020",
+      "group_id": "person_020",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_020_blur",
+      "domain": "person",
+      "filename": "person_020_blur.jpg",
+      "rel_path": "eval/images/robustness/person_020_blur.jpg",
+      "sha256": "ebb8c10703090b485d8a1e00669de206d7c1cfd0920950510ec91407326826a7",
+      "annotations": {
+        "helmet": "no"
+      },
+      "split": "eval",
+      "stratum": "blur",
+      "source_id": "person_020",
+      "group_id": "person_020",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_020_low_res",
+      "domain": "person",
+      "filename": "person_020_low_res.jpg",
+      "rel_path": "eval/images/robustness/person_020_low_res.jpg",
+      "sha256": "bcb60aa2592316f53c12dcf7ed59f8081eb064f2bf9c1df3c1f80ad3e4e52dcf",
+      "annotations": {
+        "helmet": "no"
+      },
+      "split": "eval",
+      "stratum": "low_res",
+      "source_id": "person_020",
+      "group_id": "person_020",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_020_jpeg_compress",
+      "domain": "person",
+      "filename": "person_020_jpeg_compress.jpg",
+      "rel_path": "eval/images/robustness/person_020_jpeg_compress.jpg",
+      "sha256": "35864df7880f5b85d4c9c92f0174316f1d1d7fba12e9da5ea9447f0e4c132ed1",
+      "annotations": {
+        "helmet": "no"
+      },
+      "split": "eval",
+      "stratum": "jpeg_compress",
+      "source_id": "person_020",
+      "group_id": "person_020",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_020_occlusion",
+      "domain": "person",
+      "filename": "person_020_occlusion.jpg",
+      "rel_path": "eval/images/robustness/person_020_occlusion.jpg",
+      "sha256": "50263cb010c606d0d6e0890925f23407abc4b3a865266900e900d790dd8159d4",
+      "annotations": {
+        "helmet": "no"
+      },
+      "split": "eval",
+      "stratum": "occlusion",
+      "source_id": "person_020",
+      "group_id": "person_020",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_040_original",
+      "domain": "person",
+      "filename": "person_040_original.jpg",
+      "rel_path": "eval/images/robustness/person_040_original.jpg",
+      "sha256": "e33393e68fae0ee1bc2192bb479579a017dabf618b53c34131ea3b37cb5330c1",
+      "annotations": {
+        "helmet": "no"
+      },
+      "split": "eval",
+      "stratum": "original",
+      "source_id": "person_040",
+      "group_id": "person_040",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_040_low_light",
+      "domain": "person",
+      "filename": "person_040_low_light.jpg",
+      "rel_path": "eval/images/robustness/person_040_low_light.jpg",
+      "sha256": "d505954e6dee0894cdd5df3161af53e6e348d252c83a1c6aa7659e3ffe2ab7da",
+      "annotations": {
+        "helmet": "no"
+      },
+      "split": "eval",
+      "stratum": "low_light",
+      "source_id": "person_040",
+      "group_id": "person_040",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_040_blur",
+      "domain": "person",
+      "filename": "person_040_blur.jpg",
+      "rel_path": "eval/images/robustness/person_040_blur.jpg",
+      "sha256": "7005ca2f70b5cdcb0931c3be897429ab4b12c95892901a13d61edf261a149792",
+      "annotations": {
+        "helmet": "no"
+      },
+      "split": "eval",
+      "stratum": "blur",
+      "source_id": "person_040",
+      "group_id": "person_040",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_040_low_res",
+      "domain": "person",
+      "filename": "person_040_low_res.jpg",
+      "rel_path": "eval/images/robustness/person_040_low_res.jpg",
+      "sha256": "a9d2f86e7fa773867f51d80854f87d5eda81b745285ef5eddfb2dbff0aa5a9fc",
+      "annotations": {
+        "helmet": "no"
+      },
+      "split": "eval",
+      "stratum": "low_res",
+      "source_id": "person_040",
+      "group_id": "person_040",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_040_jpeg_compress",
+      "domain": "person",
+      "filename": "person_040_jpeg_compress.jpg",
+      "rel_path": "eval/images/robustness/person_040_jpeg_compress.jpg",
+      "sha256": "b3fe766b778ce06a51a2592b33980f39c28d069786e185011efe86c8835709ac",
+      "annotations": {
+        "helmet": "no"
+      },
+      "split": "eval",
+      "stratum": "jpeg_compress",
+      "source_id": "person_040",
+      "group_id": "person_040",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_040_occlusion",
+      "domain": "person",
+      "filename": "person_040_occlusion.jpg",
+      "rel_path": "eval/images/robustness/person_040_occlusion.jpg",
+      "sha256": "c1d8fcb90bd73fecd293011955644b1cbef824062b91f051ee153ac0cb4ca3d6",
+      "annotations": {
+        "helmet": "no"
+      },
+      "split": "eval",
+      "stratum": "occlusion",
+      "source_id": "person_040",
+      "group_id": "person_040",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_024_original",
+      "domain": "person",
+      "filename": "person_024_original.jpg",
+      "rel_path": "eval/images/robustness/person_024_original.jpg",
+      "sha256": "b5257be198e17a83196a481e9b14c77af5ef3ff0c932ee45cc81a90902319311",
+      "annotations": {
+        "helmet": "no"
+      },
+      "split": "eval",
+      "stratum": "original",
+      "source_id": "person_024",
+      "group_id": "person_024",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_024_low_light",
+      "domain": "person",
+      "filename": "person_024_low_light.jpg",
+      "rel_path": "eval/images/robustness/person_024_low_light.jpg",
+      "sha256": "2cbdbd654da63cc3bde1ef3fefca04e5a0751d88b81a484d618d562eaeefba28",
+      "annotations": {
+        "helmet": "no"
+      },
+      "split": "eval",
+      "stratum": "low_light",
+      "source_id": "person_024",
+      "group_id": "person_024",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_024_blur",
+      "domain": "person",
+      "filename": "person_024_blur.jpg",
+      "rel_path": "eval/images/robustness/person_024_blur.jpg",
+      "sha256": "6a77f6ca2d0badf55e9c4b54871dadacbbc7177ca4d7077b2301348364ec5b49",
+      "annotations": {
+        "helmet": "no"
+      },
+      "split": "eval",
+      "stratum": "blur",
+      "source_id": "person_024",
+      "group_id": "person_024",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_024_low_res",
+      "domain": "person",
+      "filename": "person_024_low_res.jpg",
+      "rel_path": "eval/images/robustness/person_024_low_res.jpg",
+      "sha256": "b6626a22ad69c189e276ad0047d874e5fdb808c588b29386d58e4f8a08cff9d1",
+      "annotations": {
+        "helmet": "no"
+      },
+      "split": "eval",
+      "stratum": "low_res",
+      "source_id": "person_024",
+      "group_id": "person_024",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_024_jpeg_compress",
+      "domain": "person",
+      "filename": "person_024_jpeg_compress.jpg",
+      "rel_path": "eval/images/robustness/person_024_jpeg_compress.jpg",
+      "sha256": "2e7b1ffbae6287fc7d8b1739cbc684d0c920f333ec85cf96c158c39bac379acd",
+      "annotations": {
+        "helmet": "no"
+      },
+      "split": "eval",
+      "stratum": "jpeg_compress",
+      "source_id": "person_024",
+      "group_id": "person_024",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_024_occlusion",
+      "domain": "person",
+      "filename": "person_024_occlusion.jpg",
+      "rel_path": "eval/images/robustness/person_024_occlusion.jpg",
+      "sha256": "fbcf34ca4059a98cd04059ada27a3855c2b04b18e5a7a63116de5b6cff38c433",
+      "annotations": {
+        "helmet": "no"
+      },
+      "split": "eval",
+      "stratum": "occlusion",
+      "source_id": "person_024",
+      "group_id": "person_024",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_045_original",
+      "domain": "person",
+      "filename": "person_045_original.jpg",
+      "rel_path": "eval/images/robustness/person_045_original.jpg",
+      "sha256": "8689b2a57b4d048596155a531765413b68bde45e425297de638ce62ddc093594",
+      "annotations": {
+        "helmet": "no"
+      },
+      "split": "eval",
+      "stratum": "original",
+      "source_id": "person_045",
+      "group_id": "person_045",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_045_low_light",
+      "domain": "person",
+      "filename": "person_045_low_light.jpg",
+      "rel_path": "eval/images/robustness/person_045_low_light.jpg",
+      "sha256": "af543a10a4d29963601e5a23547a7609ef6cfafe567c0d2717b05145493a2a5a",
+      "annotations": {
+        "helmet": "no"
+      },
+      "split": "eval",
+      "stratum": "low_light",
+      "source_id": "person_045",
+      "group_id": "person_045",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_045_blur",
+      "domain": "person",
+      "filename": "person_045_blur.jpg",
+      "rel_path": "eval/images/robustness/person_045_blur.jpg",
+      "sha256": "9e7b056ebbd2b1dadd791153f6baa266ecb4a624c61f4d34e6a4e43f0cd81925",
+      "annotations": {
+        "helmet": "no"
+      },
+      "split": "eval",
+      "stratum": "blur",
+      "source_id": "person_045",
+      "group_id": "person_045",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_045_low_res",
+      "domain": "person",
+      "filename": "person_045_low_res.jpg",
+      "rel_path": "eval/images/robustness/person_045_low_res.jpg",
+      "sha256": "6dd65c7508ff84304de4e898f4a8ddf0ea5c0f9077a29a30c89390bcb2a8fd79",
+      "annotations": {
+        "helmet": "no"
+      },
+      "split": "eval",
+      "stratum": "low_res",
+      "source_id": "person_045",
+      "group_id": "person_045",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_045_jpeg_compress",
+      "domain": "person",
+      "filename": "person_045_jpeg_compress.jpg",
+      "rel_path": "eval/images/robustness/person_045_jpeg_compress.jpg",
+      "sha256": "b546806c4896ed067eb0c1d7bb60258667ab3bdf4887e33d5cf13a8b96a3f1b1",
+      "annotations": {
+        "helmet": "no"
+      },
+      "split": "eval",
+      "stratum": "jpeg_compress",
+      "source_id": "person_045",
+      "group_id": "person_045",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_045_occlusion",
+      "domain": "person",
+      "filename": "person_045_occlusion.jpg",
+      "rel_path": "eval/images/robustness/person_045_occlusion.jpg",
+      "sha256": "c65d76e391a247b4c65ad4c4b7b4fc9608dadacf3657acef0953589bb822d26a",
+      "annotations": {
+        "helmet": "no"
+      },
+      "split": "eval",
+      "stratum": "occlusion",
+      "source_id": "person_045",
+      "group_id": "person_045",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_041_original",
+      "domain": "person",
+      "filename": "person_041_original.jpg",
+      "rel_path": "eval/images/robustness/person_041_original.jpg",
+      "sha256": "e8d832c7345dacbaef249888926f0beefe0d79167ef1dfb300c9cb847dd75b0b",
+      "annotations": {
+        "helmet": "no"
+      },
+      "split": "eval",
+      "stratum": "original",
+      "source_id": "person_041",
+      "group_id": "person_041",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_041_low_light",
+      "domain": "person",
+      "filename": "person_041_low_light.jpg",
+      "rel_path": "eval/images/robustness/person_041_low_light.jpg",
+      "sha256": "b9e00e85368ec780ac7c59900664009dd4bf0ac66ca526007f0f412383adb6a9",
+      "annotations": {
+        "helmet": "no"
+      },
+      "split": "eval",
+      "stratum": "low_light",
+      "source_id": "person_041",
+      "group_id": "person_041",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_041_blur",
+      "domain": "person",
+      "filename": "person_041_blur.jpg",
+      "rel_path": "eval/images/robustness/person_041_blur.jpg",
+      "sha256": "e613568e56c96a4b7e458d4535138f2ea7aa63c9db7208746413074d96e7143e",
+      "annotations": {
+        "helmet": "no"
+      },
+      "split": "eval",
+      "stratum": "blur",
+      "source_id": "person_041",
+      "group_id": "person_041",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_041_low_res",
+      "domain": "person",
+      "filename": "person_041_low_res.jpg",
+      "rel_path": "eval/images/robustness/person_041_low_res.jpg",
+      "sha256": "93d939e1fb9e42c45f97ba35dd1ec805eded582c1fe87ddb849853eb05eff9a8",
+      "annotations": {
+        "helmet": "no"
+      },
+      "split": "eval",
+      "stratum": "low_res",
+      "source_id": "person_041",
+      "group_id": "person_041",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_041_jpeg_compress",
+      "domain": "person",
+      "filename": "person_041_jpeg_compress.jpg",
+      "rel_path": "eval/images/robustness/person_041_jpeg_compress.jpg",
+      "sha256": "71d638371ef5d2cd12e11804e76a5b4f1f77e32c86400fdebca5ebfa82bcba42",
+      "annotations": {
+        "helmet": "no"
+      },
+      "split": "eval",
+      "stratum": "jpeg_compress",
+      "source_id": "person_041",
+      "group_id": "person_041",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_041_occlusion",
+      "domain": "person",
+      "filename": "person_041_occlusion.jpg",
+      "rel_path": "eval/images/robustness/person_041_occlusion.jpg",
+      "sha256": "0953fcc345b8ff1b7717590d3df62263b178d8296e7de5edfc2e0c83662d78c0",
+      "annotations": {
+        "helmet": "no"
+      },
+      "split": "eval",
+      "stratum": "occlusion",
+      "source_id": "person_041",
+      "group_id": "person_041",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_014_original",
+      "domain": "person",
+      "filename": "person_014_original.jpg",
+      "rel_path": "eval/images/robustness/person_014_original.jpg",
+      "sha256": "3e914d215306e7dde1825f2291420a4f05b15a0d4b50d66838d42291b37144b0",
+      "annotations": {
+        "helmet": "yes"
+      },
+      "split": "eval",
+      "stratum": "original",
+      "source_id": "person_014",
+      "group_id": "person_014",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_014_low_light",
+      "domain": "person",
+      "filename": "person_014_low_light.jpg",
+      "rel_path": "eval/images/robustness/person_014_low_light.jpg",
+      "sha256": "b0acb7d3d62cf35f9c8dccd6fe6e56e62467e249c78594b6233d7afe291619d7",
+      "annotations": {
+        "helmet": "yes"
+      },
+      "split": "eval",
+      "stratum": "low_light",
+      "source_id": "person_014",
+      "group_id": "person_014",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_014_blur",
+      "domain": "person",
+      "filename": "person_014_blur.jpg",
+      "rel_path": "eval/images/robustness/person_014_blur.jpg",
+      "sha256": "f2fddb568708641a3ef40ebe008afc5c79f0875ec8ca38c033ae5608d08cd2c0",
+      "annotations": {
+        "helmet": "yes"
+      },
+      "split": "eval",
+      "stratum": "blur",
+      "source_id": "person_014",
+      "group_id": "person_014",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_014_low_res",
+      "domain": "person",
+      "filename": "person_014_low_res.jpg",
+      "rel_path": "eval/images/robustness/person_014_low_res.jpg",
+      "sha256": "09887dae5c845ef2ad61480752df0b9065bfb0dd0fa909b1ea71b4d8467e11ba",
+      "annotations": {
+        "helmet": "yes"
+      },
+      "split": "eval",
+      "stratum": "low_res",
+      "source_id": "person_014",
+      "group_id": "person_014",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_014_jpeg_compress",
+      "domain": "person",
+      "filename": "person_014_jpeg_compress.jpg",
+      "rel_path": "eval/images/robustness/person_014_jpeg_compress.jpg",
+      "sha256": "ab6cbdd418d17007ee364a671dd0be445479562c71b3755e0ccc8356e38438a3",
+      "annotations": {
+        "helmet": "yes"
+      },
+      "split": "eval",
+      "stratum": "jpeg_compress",
+      "source_id": "person_014",
+      "group_id": "person_014",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_014_occlusion",
+      "domain": "person",
+      "filename": "person_014_occlusion.jpg",
+      "rel_path": "eval/images/robustness/person_014_occlusion.jpg",
+      "sha256": "06800ddb51392fefa1fa9da85bf69e98e9c9b6e0c398e594523a0a61eede6c6d",
+      "annotations": {
+        "helmet": "yes"
+      },
+      "split": "eval",
+      "stratum": "occlusion",
+      "source_id": "person_014",
+      "group_id": "person_014",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_006_original",
+      "domain": "person",
+      "filename": "person_006_original.jpg",
+      "rel_path": "eval/images/robustness/person_006_original.jpg",
+      "sha256": "95e4ba1d72add3922ad9bc0bd0c7f3e9864449a3c3c211d5b44758569a243947",
+      "annotations": {
+        "helmet": "yes"
+      },
+      "split": "eval",
+      "stratum": "original",
+      "source_id": "person_006",
+      "group_id": "person_006",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_006_low_light",
+      "domain": "person",
+      "filename": "person_006_low_light.jpg",
+      "rel_path": "eval/images/robustness/person_006_low_light.jpg",
+      "sha256": "68087963ebba3132b0bc1c003b106c0810fdf441978cc1632d6032a2315ed2d3",
+      "annotations": {
+        "helmet": "yes"
+      },
+      "split": "eval",
+      "stratum": "low_light",
+      "source_id": "person_006",
+      "group_id": "person_006",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_006_blur",
+      "domain": "person",
+      "filename": "person_006_blur.jpg",
+      "rel_path": "eval/images/robustness/person_006_blur.jpg",
+      "sha256": "b3bc33c96d845f55c0e045b214e7288ebe91daadbe6098f10f0aa045805b3582",
+      "annotations": {
+        "helmet": "yes"
+      },
+      "split": "eval",
+      "stratum": "blur",
+      "source_id": "person_006",
+      "group_id": "person_006",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_006_low_res",
+      "domain": "person",
+      "filename": "person_006_low_res.jpg",
+      "rel_path": "eval/images/robustness/person_006_low_res.jpg",
+      "sha256": "40781986c531bb44bd59ef43fb2c9dd9dbdc83fa71d366c1627104e599cde84b",
+      "annotations": {
+        "helmet": "yes"
+      },
+      "split": "eval",
+      "stratum": "low_res",
+      "source_id": "person_006",
+      "group_id": "person_006",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_006_jpeg_compress",
+      "domain": "person",
+      "filename": "person_006_jpeg_compress.jpg",
+      "rel_path": "eval/images/robustness/person_006_jpeg_compress.jpg",
+      "sha256": "25529c604ee7321ac02424c1858fe4bbfb589f95fa0477d5677bce1e71e35abf",
+      "annotations": {
+        "helmet": "yes"
+      },
+      "split": "eval",
+      "stratum": "jpeg_compress",
+      "source_id": "person_006",
+      "group_id": "person_006",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_006_occlusion",
+      "domain": "person",
+      "filename": "person_006_occlusion.jpg",
+      "rel_path": "eval/images/robustness/person_006_occlusion.jpg",
+      "sha256": "9539d22d1549ca983a752b19cddf7c2d57d8352da24ac2cb3800cd933c112c7e",
+      "annotations": {
+        "helmet": "yes"
+      },
+      "split": "eval",
+      "stratum": "occlusion",
+      "source_id": "person_006",
+      "group_id": "person_006",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_036_original",
+      "domain": "person",
+      "filename": "person_036_original.jpg",
+      "rel_path": "eval/images/robustness/person_036_original.jpg",
+      "sha256": "9c71eeb2556ffed92e2d917a0bf5bf9f15f71326e16f185223d7495140a4e752",
+      "annotations": {
+        "helmet": "no"
+      },
+      "split": "eval",
+      "stratum": "original",
+      "source_id": "person_036",
+      "group_id": "person_036",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_036_low_light",
+      "domain": "person",
+      "filename": "person_036_low_light.jpg",
+      "rel_path": "eval/images/robustness/person_036_low_light.jpg",
+      "sha256": "81862de668f0258e3664ef6c71491287a5344862c3df406ac64e11c8850fd356",
+      "annotations": {
+        "helmet": "no"
+      },
+      "split": "eval",
+      "stratum": "low_light",
+      "source_id": "person_036",
+      "group_id": "person_036",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_036_blur",
+      "domain": "person",
+      "filename": "person_036_blur.jpg",
+      "rel_path": "eval/images/robustness/person_036_blur.jpg",
+      "sha256": "2f81055bee8b555c9507744468393adea39d583553312de8a0712419004ead7b",
+      "annotations": {
+        "helmet": "no"
+      },
+      "split": "eval",
+      "stratum": "blur",
+      "source_id": "person_036",
+      "group_id": "person_036",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_036_low_res",
+      "domain": "person",
+      "filename": "person_036_low_res.jpg",
+      "rel_path": "eval/images/robustness/person_036_low_res.jpg",
+      "sha256": "79f55a81871c284e688ca60782df7f53240d27c30c4765474e80fdee4d3e81c6",
+      "annotations": {
+        "helmet": "no"
+      },
+      "split": "eval",
+      "stratum": "low_res",
+      "source_id": "person_036",
+      "group_id": "person_036",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_036_jpeg_compress",
+      "domain": "person",
+      "filename": "person_036_jpeg_compress.jpg",
+      "rel_path": "eval/images/robustness/person_036_jpeg_compress.jpg",
+      "sha256": "80a3bca7f99c7d5a2e2486dad3195942c27225526df627cd0e6008cf19d9b881",
+      "annotations": {
+        "helmet": "no"
+      },
+      "split": "eval",
+      "stratum": "jpeg_compress",
+      "source_id": "person_036",
+      "group_id": "person_036",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_036_occlusion",
+      "domain": "person",
+      "filename": "person_036_occlusion.jpg",
+      "rel_path": "eval/images/robustness/person_036_occlusion.jpg",
+      "sha256": "cf9d9c0e965e88a5a08434e372b29ac5d426b0a6e2003348c5313bb18458257a",
+      "annotations": {
+        "helmet": "no"
+      },
+      "split": "eval",
+      "stratum": "occlusion",
+      "source_id": "person_036",
+      "group_id": "person_036",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_051_original",
+      "domain": "person",
+      "filename": "person_051_original.jpg",
+      "rel_path": "eval/images/robustness/person_051_original.jpg",
+      "sha256": "5eab8398b6024b2b05fe48e651efcbd7a03ec11fe697c840892d0f1a0abe8b9c",
+      "annotations": {
+        "helmet": "not_visible"
+      },
+      "split": "eval",
+      "stratum": "original",
+      "source_id": "person_051",
+      "group_id": "person_051",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_051_low_light",
+      "domain": "person",
+      "filename": "person_051_low_light.jpg",
+      "rel_path": "eval/images/robustness/person_051_low_light.jpg",
+      "sha256": "b25d1e3b12fa83df7148ade45f111245bd3c47ec04b2924a1b3674babbbe5ff0",
+      "annotations": {
+        "helmet": "not_visible"
+      },
+      "split": "eval",
+      "stratum": "low_light",
+      "source_id": "person_051",
+      "group_id": "person_051",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_051_blur",
+      "domain": "person",
+      "filename": "person_051_blur.jpg",
+      "rel_path": "eval/images/robustness/person_051_blur.jpg",
+      "sha256": "c36c9cf8089283c39fa00d57ca4760e2b02b85b32a4385b03159a1f0b1ff26db",
+      "annotations": {
+        "helmet": "not_visible"
+      },
+      "split": "eval",
+      "stratum": "blur",
+      "source_id": "person_051",
+      "group_id": "person_051",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_051_low_res",
+      "domain": "person",
+      "filename": "person_051_low_res.jpg",
+      "rel_path": "eval/images/robustness/person_051_low_res.jpg",
+      "sha256": "81d7c72835933d8ef98a185087acdff6a8af7d23159569f4a2303a6f45808e7c",
+      "annotations": {
+        "helmet": "not_visible"
+      },
+      "split": "eval",
+      "stratum": "low_res",
+      "source_id": "person_051",
+      "group_id": "person_051",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_051_jpeg_compress",
+      "domain": "person",
+      "filename": "person_051_jpeg_compress.jpg",
+      "rel_path": "eval/images/robustness/person_051_jpeg_compress.jpg",
+      "sha256": "5fd0686f48bed5ddbc284a3e242fc6433e2b3ed96cba55d2ed6121a577bb025f",
+      "annotations": {
+        "helmet": "not_visible"
+      },
+      "split": "eval",
+      "stratum": "jpeg_compress",
+      "source_id": "person_051",
+      "group_id": "person_051",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_051_occlusion",
+      "domain": "person",
+      "filename": "person_051_occlusion.jpg",
+      "rel_path": "eval/images/robustness/person_051_occlusion.jpg",
+      "sha256": "9f0fa3d01f8bf9ce59bb477224c1d67f96ffff72c12810b9df2c275821f1e565",
+      "annotations": {
+        "helmet": "not_visible"
+      },
+      "split": "eval",
+      "stratum": "occlusion",
+      "source_id": "person_051",
+      "group_id": "person_051",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_001_original",
+      "domain": "person",
+      "filename": "person_001_original.jpg",
+      "rel_path": "eval/images/robustness/person_001_original.jpg",
+      "sha256": "cfba4663ff58616a05fe873b613cbce37cf951a56cc9a5843f98c20c701ca68f",
+      "annotations": {
+        "helmet": "yes"
+      },
+      "split": "eval",
+      "stratum": "original",
+      "source_id": "person_001",
+      "group_id": "person_001",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_001_low_light",
+      "domain": "person",
+      "filename": "person_001_low_light.jpg",
+      "rel_path": "eval/images/robustness/person_001_low_light.jpg",
+      "sha256": "3884e0d1f6746d9d325c019c236a893228d59055257e00b555cd38a4a0ca384e",
+      "annotations": {
+        "helmet": "yes"
+      },
+      "split": "eval",
+      "stratum": "low_light",
+      "source_id": "person_001",
+      "group_id": "person_001",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_001_blur",
+      "domain": "person",
+      "filename": "person_001_blur.jpg",
+      "rel_path": "eval/images/robustness/person_001_blur.jpg",
+      "sha256": "b5267f33c050c843bf5877bd2d986eb70460ac6eb3564fe4ea6da4270e7aae26",
+      "annotations": {
+        "helmet": "yes"
+      },
+      "split": "eval",
+      "stratum": "blur",
+      "source_id": "person_001",
+      "group_id": "person_001",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_001_low_res",
+      "domain": "person",
+      "filename": "person_001_low_res.jpg",
+      "rel_path": "eval/images/robustness/person_001_low_res.jpg",
+      "sha256": "955c160a79aa81c665a885fe6da8c9da8c2ce2f383661ba42f87ac3f2915c725",
+      "annotations": {
+        "helmet": "yes"
+      },
+      "split": "eval",
+      "stratum": "low_res",
+      "source_id": "person_001",
+      "group_id": "person_001",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_001_jpeg_compress",
+      "domain": "person",
+      "filename": "person_001_jpeg_compress.jpg",
+      "rel_path": "eval/images/robustness/person_001_jpeg_compress.jpg",
+      "sha256": "33718d1259b8c92a85d8b951af2715eb41da696c7ab79d2d1bea30a376f2a0fe",
+      "annotations": {
+        "helmet": "yes"
+      },
+      "split": "eval",
+      "stratum": "jpeg_compress",
+      "source_id": "person_001",
+      "group_id": "person_001",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "rob_person_001_occlusion",
+      "domain": "person",
+      "filename": "person_001_occlusion.jpg",
+      "rel_path": "eval/images/robustness/person_001_occlusion.jpg",
+      "sha256": "58d802acc753e41832560774ea2b09c51d485c80cb1fa13cc102b7aa36835e8a",
+      "annotations": {
+        "helmet": "yes"
+      },
+      "split": "eval",
+      "stratum": "occlusion",
+      "source_id": "person_001",
+      "group_id": "person_001",
+      "task_field": "helmet",
+      "question": "Is the prominent person wearing a helmet or hard hat?"
+    }
+  ]
+}

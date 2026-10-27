@@ -1,0 +1,626 @@
+{
+  "schema_version": 1,
+  "name": "Descrição completa: veículos e pessoas",
+  "label_status": "exploratory_historical_unadjudicated",
+  "source_manifest": "eval/datasets/test_7_complete_tags_manifest.json",
+  "source_manifest_sha256": "01a67a2265366e4e925bbbb97118daf991d3a0ed046943b00267bbc18a3d86be",
+  "required_contract": "historical",
+  "note": "Gabaritos históricos exploratórios. Imagens derivadas compartilham grupo; eventos não equivalem a imagens independentes. hatchback → hatch; pickup e truck preservados.",
+  "items": [
+    {
+      "id": "real_audi_1.jpg",
+      "domain": "vehicle",
+      "filename": "real_audi_1.jpg",
+      "rel_path": "eval/images/cars/real_audi_1.jpg",
+      "sha256": "a7202789cca67d07693b7ac4388aac7db979a803576f3b7e53dac984a3f7f0a1",
+      "expected": {
+        "presence": "yes",
+        "make": "audi",
+        "color": "white",
+        "body": "coupe"
+      },
+      "annotation": "Visual color review; existing make/body metadata, corrected Land Rover make. Gray includes silver.",
+      "group_id": "a7202789cca67d07693b7ac4388aac7db979a803576f3b7e53dac984a3f7f0a1"
+    },
+    {
+      "id": "real_dodge_1.jpg",
+      "domain": "vehicle",
+      "filename": "real_dodge_1.jpg",
+      "rel_path": "eval/images/cars/real_dodge_1.jpg",
+      "sha256": "6acbbcd51594dcedec392eb8d4f210d1ed91e948a38f54a446cf9e669e226915",
+      "expected": {
+        "presence": "yes",
+        "make": "dodge",
+        "color": "red",
+        "body": "truck"
+      },
+      "annotation": "Visual color review; existing make/body metadata, corrected Land Rover make. Gray includes silver.",
+      "group_id": "6acbbcd51594dcedec392eb8d4f210d1ed91e948a38f54a446cf9e669e226915"
+    },
+    {
+      "id": "real_ford_1.jpg",
+      "domain": "vehicle",
+      "filename": "real_ford_1.jpg",
+      "rel_path": "eval/images/cars/real_ford_1.jpg",
+      "sha256": "59c82ea0b41db4c9ef70c63016cebcbed387e12f7b1d037e24b32975cec692f7",
+      "expected": {
+        "presence": "yes",
+        "make": "ford",
+        "color": "gray_silver",
+        "body": "truck"
+      },
+      "annotation": "Visual color review; existing make/body metadata, corrected Land Rover make. Gray includes silver.",
+      "group_id": "59c82ea0b41db4c9ef70c63016cebcbed387e12f7b1d037e24b32975cec692f7"
+    },
+    {
+      "id": "real_dodge_2.jpg",
+      "domain": "vehicle",
+      "filename": "real_dodge_2.jpg",
+      "rel_path": "eval/images/cars/real_dodge_2.jpg",
+      "sha256": "3e0d2f521365210c0161495b74bbe78882c96f0e2de283032f53ecc34bfcee8a",
+      "expected": {
+        "presence": "yes",
+        "make": "dodge",
+        "color": "blue",
+        "body": "suv"
+      },
+      "annotation": "Visual color review; existing make/body metadata, corrected Land Rover make. Gray includes silver.",
+      "group_id": "3e0d2f521365210c0161495b74bbe78882c96f0e2de283032f53ecc34bfcee8a"
+    },
+    {
+      "id": "real_chevrolet_1.jpg",
+      "domain": "vehicle",
+      "filename": "real_chevrolet_1.jpg",
+      "rel_path": "eval/images/cars/real_chevrolet_1.jpg",
+      "sha256": "419fddba2a109bbf7ac13caf6dcfcfd3ce32252810208c1958db76122077ab7d",
+      "expected": {
+        "presence": "yes",
+        "make": "chevrolet",
+        "color": "gray_silver",
+        "body": "suv"
+      },
+      "annotation": "Visual color review; existing make/body metadata, corrected Land Rover make. Gray includes silver.",
+      "group_id": "419fddba2a109bbf7ac13caf6dcfcfd3ce32252810208c1958db76122077ab7d"
+    },
+    {
+      "id": "real_toyota_1.jpg",
+      "domain": "vehicle",
+      "filename": "real_toyota_1.jpg",
+      "rel_path": "eval/images/cars/real_toyota_1.jpg",
+      "sha256": "dff1bfbc9d829a03411d9efe58cb56e7ac2e4d79889af7a613ba377f05817ad3",
+      "expected": {
+        "presence": "yes",
+        "make": "toyota",
+        "color": "gray_silver",
+        "body": "suv"
+      },
+      "annotation": "Visual color review; existing make/body metadata, corrected Land Rover make. Gray includes silver.",
+      "group_id": "dff1bfbc9d829a03411d9efe58cb56e7ac2e4d79889af7a613ba377f05817ad3"
+    },
+    {
+      "id": "real_toyota_2.jpg",
+      "domain": "vehicle",
+      "filename": "real_toyota_2.jpg",
+      "rel_path": "eval/images/cars/real_toyota_2.jpg",
+      "sha256": "e07a571d4d94516daa703ce217f1b7a686ce4fca855768629779a72505739b84",
+      "expected": {
+        "presence": "yes",
+        "make": "toyota",
+        "color": "gray_silver",
+        "body": "sedan"
+      },
+      "annotation": "Visual color review; existing make/body metadata, corrected Land Rover make. Gray includes silver.",
+      "group_id": "e07a571d4d94516daa703ce217f1b7a686ce4fca855768629779a72505739b84"
+    },
+    {
+      "id": "real_audi_2.jpg",
+      "domain": "vehicle",
+      "filename": "real_audi_2.jpg",
+      "rel_path": "eval/images/cars/real_audi_2.jpg",
+      "sha256": "77c5bdbbea8d6d3794813a6f3093216b83d6dcf5246f7b68419cf8d258981a04",
+      "expected": {
+        "presence": "yes",
+        "make": "audi",
+        "color": "white",
+        "body": "coupe"
+      },
+      "annotation": "Visual color review; existing make/body metadata, corrected Land Rover make. Gray includes silver.",
+      "group_id": "77c5bdbbea8d6d3794813a6f3093216b83d6dcf5246f7b68419cf8d258981a04"
+    },
+    {
+      "id": "real_chevrolet_2.jpg",
+      "domain": "vehicle",
+      "filename": "real_chevrolet_2.jpg",
+      "rel_path": "eval/images/cars/real_chevrolet_2.jpg",
+      "sha256": "0317d7261c094867660eb8af76edbf2f229ea4be7c2d17eb910632f30973e6e4",
+      "expected": {
+        "presence": "yes",
+        "make": "chevrolet",
+        "color": "white",
+        "body": "sedan"
+      },
+      "annotation": "Visual color review; existing make/body metadata, corrected Land Rover make. Gray includes silver.",
+      "group_id": "0317d7261c094867660eb8af76edbf2f229ea4be7c2d17eb910632f30973e6e4"
+    },
+    {
+      "id": "real_volkswagen_1.jpg",
+      "domain": "vehicle",
+      "filename": "real_volkswagen_1.jpg",
+      "rel_path": "eval/images/cars/real_volkswagen_1.jpg",
+      "sha256": "b8488005fcf0306f5a18a7aa264f00c13ab559e00ced4b25b2fb0bc4c15ddaff",
+      "expected": {
+        "presence": "yes",
+        "make": "volkswagen",
+        "color": "red",
+        "body": "hatch"
+      },
+      "annotation": "Visual color review; existing make/body metadata, corrected Land Rover make. Gray includes silver.",
+      "group_id": "b8488005fcf0306f5a18a7aa264f00c13ab559e00ced4b25b2fb0bc4c15ddaff"
+    },
+    {
+      "id": "real_bmw_1.jpg",
+      "domain": "vehicle",
+      "filename": "real_bmw_1.jpg",
+      "rel_path": "eval/images/cars/real_bmw_1.jpg",
+      "sha256": "b8f0059ea53a2d469b3835176d9c41ea602ccba24a3d62a0dd3fc7c0e06d7803",
+      "expected": {
+        "presence": "yes",
+        "make": "bmw",
+        "color": "black",
+        "body": "convertible"
+      },
+      "annotation": "Visual color review; existing make/body metadata, corrected Land Rover make. Gray includes silver.",
+      "group_id": "b8f0059ea53a2d469b3835176d9c41ea602ccba24a3d62a0dd3fc7c0e06d7803"
+    },
+    {
+      "id": "real_hyundai_1.jpg",
+      "domain": "vehicle",
+      "filename": "real_hyundai_1.jpg",
+      "rel_path": "eval/images/cars/real_hyundai_1.jpg",
+      "sha256": "1046b0abcb0658b92d12c6bdb4ac0b62df3adaf807b9d5d755ed70912324f65d",
+      "expected": {
+        "presence": "yes",
+        "make": "hyundai",
+        "color": "gray_silver",
+        "body": "sedan"
+      },
+      "annotation": "Visual color review; existing make/body metadata, corrected Land Rover make. Gray includes silver.",
+      "group_id": "1046b0abcb0658b92d12c6bdb4ac0b62df3adaf807b9d5d755ed70912324f65d"
+    },
+    {
+      "id": "real_hyundai_2.jpg",
+      "domain": "vehicle",
+      "filename": "real_hyundai_2.jpg",
+      "rel_path": "eval/images/cars/real_hyundai_2.jpg",
+      "sha256": "2f63df46dd12a000e93ea9203f524a069df2a67ebd0a808ec673d0623d747259",
+      "expected": {
+        "presence": "yes",
+        "make": "hyundai",
+        "color": "blue",
+        "body": "hatch"
+      },
+      "annotation": "Visual color review; existing make/body metadata, corrected Land Rover make. Gray includes silver.",
+      "group_id": "2f63df46dd12a000e93ea9203f524a069df2a67ebd0a808ec673d0623d747259"
+    },
+    {
+      "id": "real_ford_2.jpg",
+      "domain": "vehicle",
+      "filename": "real_ford_2.jpg",
+      "rel_path": "eval/images/cars/real_ford_2.jpg",
+      "sha256": "15451268e9118c3033f0767fd6fc24879a0cefceee5cdabf5eba62f1784f3aa3",
+      "expected": {
+        "presence": "yes",
+        "make": "land_rover",
+        "color": "gray_silver",
+        "body": "suv"
+      },
+      "annotation": "Visual color review; existing make/body metadata, corrected Land Rover make. Gray includes silver.",
+      "group_id": "15451268e9118c3033f0767fd6fc24879a0cefceee5cdabf5eba62f1784f3aa3"
+    },
+    {
+      "id": "real_bmw_2.jpg",
+      "domain": "vehicle",
+      "filename": "real_bmw_2.jpg",
+      "rel_path": "eval/images/cars/real_bmw_2.jpg",
+      "sha256": "4f0bcaf030c1b7ec71bbb999a84debce8eee8c3ba0b850ce94e99bdf1e0046dc",
+      "expected": {
+        "presence": "yes",
+        "make": "bmw",
+        "color": "black",
+        "body": "convertible"
+      },
+      "annotation": "Visual color review; existing make/body metadata, corrected Land Rover make. Gray includes silver.",
+      "group_id": "4f0bcaf030c1b7ec71bbb999a84debce8eee8c3ba0b850ce94e99bdf1e0046dc"
+    },
+    {
+      "id": "real_volkswagen_2.jpg",
+      "domain": "vehicle",
+      "filename": "real_volkswagen_2.jpg",
+      "rel_path": "eval/images/cars/real_volkswagen_2.jpg",
+      "sha256": "781c3ad4e9a72e2da5040d84ce8cbb86f976ad8c4f5dcbfe08faec6f38c696a1",
+      "expected": {
+        "presence": "yes",
+        "make": "volkswagen",
+        "color": "gray_silver",
+        "body": "hatch"
+      },
+      "annotation": "Visual color review; existing make/body metadata, corrected Land Rover make. Gray includes silver.",
+      "group_id": "781c3ad4e9a72e2da5040d84ce8cbb86f976ad8c4f5dcbfe08faec6f38c696a1"
+    },
+    {
+      "id": "real_jeep_1.jpg",
+      "domain": "vehicle",
+      "filename": "real_jeep_1.jpg",
+      "rel_path": "eval/images/cars/real_jeep_1.jpg",
+      "sha256": "45b6992d545a65e77a00f4deb625c641163423ecec8493e1c6ddf6d55943087b",
+      "expected": {
+        "presence": "yes",
+        "make": "jeep",
+        "color": "black",
+        "body": "suv"
+      },
+      "annotation": "Visual color review; existing make/body metadata, corrected Land Rover make. Gray includes silver.",
+      "group_id": "45b6992d545a65e77a00f4deb625c641163423ecec8493e1c6ddf6d55943087b"
+    },
+    {
+      "id": "real_honda_1.jpg",
+      "domain": "vehicle",
+      "filename": "real_honda_1.jpg",
+      "rel_path": "eval/images/cars/real_honda_1.jpg",
+      "sha256": "eadf42393d23a10b395b17009cdbab58769318d3205fb8b2635ad1348cc899e0",
+      "expected": {
+        "presence": "yes",
+        "make": "honda",
+        "color": "red",
+        "body": "van"
+      },
+      "annotation": "Visual color review; existing make/body metadata, corrected Land Rover make. Gray includes silver.",
+      "group_id": "eadf42393d23a10b395b17009cdbab58769318d3205fb8b2635ad1348cc899e0"
+    },
+    {
+      "id": "real_jeep_2.jpg",
+      "domain": "vehicle",
+      "filename": "real_jeep_2.jpg",
+      "rel_path": "eval/images/cars/real_jeep_2.jpg",
+      "sha256": "62d8080b4fad81ee751f487d2fd693099d04a559215e6f474a98fd635e5f658b",
+      "expected": {
+        "presence": "yes",
+        "make": "jeep",
+        "color": "white",
+        "body": "suv"
+      },
+      "annotation": "Visual color review; existing make/body metadata, corrected Land Rover make. Gray includes silver.",
+      "group_id": "62d8080b4fad81ee751f487d2fd693099d04a559215e6f474a98fd635e5f658b"
+    },
+    {
+      "id": "real_honda_2.jpg",
+      "domain": "vehicle",
+      "filename": "real_honda_2.jpg",
+      "rel_path": "eval/images/cars/real_honda_2.jpg",
+      "sha256": "489b8d3a343ae4d98b762ffb7ce3c12432fe2843480cb3b626632fa15111c0c6",
+      "expected": {
+        "presence": "yes",
+        "make": "honda",
+        "color": "red",
+        "body": "coupe"
+      },
+      "annotation": "Visual color review; existing make/body metadata, corrected Land Rover make. Gray includes silver.",
+      "group_id": "489b8d3a343ae4d98b762ffb7ce3c12432fe2843480cb3b626632fa15111c0c6"
+    },
+    {
+      "id": "vehicle_no_car_landscape.jpg",
+      "domain": "vehicle",
+      "filename": "no_car_landscape.jpg",
+      "rel_path": "eval/images/cars/no_car_landscape.jpg",
+      "sha256": "483cbf0e5f28194105303c04b8acfefc7bb557450c288c66e6233ea42a1ca23c",
+      "expected": {
+        "presence": "no",
+        "make": "unknown",
+        "color": "unknown",
+        "body": "unknown"
+      },
+      "annotation": "Reviewed negative control.",
+      "group_id": "483cbf0e5f28194105303c04b8acfefc7bb557450c288c66e6233ea42a1ca23c"
+    },
+    {
+      "id": "vehicle_no_car_field.jpg",
+      "domain": "vehicle",
+      "filename": "no_car_field.jpg",
+      "rel_path": "eval/images/cars/no_car_field.jpg",
+      "sha256": "c4e870d358d64ce677e958c156d0e3fba466993d8e915fc81c5dc64937a9b696",
+      "expected": {
+        "presence": "no",
+        "make": "unknown",
+        "color": "unknown",
+        "body": "unknown"
+      },
+      "annotation": "Reviewed negative control.",
+      "group_id": "c4e870d358d64ce677e958c156d0e3fba466993d8e915fc81c5dc64937a9b696"
+    },
+    {
+      "id": "person_009",
+      "domain": "person",
+      "filename": "helmet_yes_09.jpg",
+      "rel_path": "eval/images/person_attributes/helmet_yes_09.jpg",
+      "sha256": "61e6bafea83446d50e6a04a7d8d905f9d950a1463f08967e73e96ae7b1307748",
+      "expected": {
+        "helmet": "yes",
+        "carrying": "not_visible",
+        "clothing": "not_visible",
+        "presence": "yes"
+      },
+      "annotation": "Independent visual review before inference; dominant person; distant attributes explicitly not_visible.",
+      "group_id": "61e6bafea83446d50e6a04a7d8d905f9d950a1463f08967e73e96ae7b1307748"
+    },
+    {
+      "id": "person_010",
+      "domain": "person",
+      "filename": "helmet_yes_10.jpg",
+      "rel_path": "eval/images/person_attributes/helmet_yes_10.jpg",
+      "sha256": "620fd35a4422f186a9e129917444e4359a5952d4f70911ebb82069e114cfb256",
+      "expected": {
+        "helmet": "yes",
+        "carrying": "none",
+        "clothing": "shirt_tshirt",
+        "presence": "yes"
+      },
+      "annotation": "Independent visual review before inference; dominant person; distant attributes explicitly not_visible.",
+      "group_id": "620fd35a4422f186a9e129917444e4359a5952d4f70911ebb82069e114cfb256"
+    },
+    {
+      "id": "person_013",
+      "domain": "person",
+      "filename": "hardhat_03.jpg",
+      "rel_path": "eval/images/person_attributes/hardhat_03.jpg",
+      "sha256": "55cd33965d4f44cd0ab7876f32de7469e3573c232c2cd27203d781c256d77342",
+      "expected": {
+        "helmet": "yes",
+        "carrying": "not_visible",
+        "clothing": "shirt_tshirt",
+        "presence": "yes"
+      },
+      "annotation": "Independent visual review before inference; dominant person; distant attributes explicitly not_visible.",
+      "group_id": "55cd33965d4f44cd0ab7876f32de7469e3573c232c2cd27203d781c256d77342"
+    },
+    {
+      "id": "person_017",
+      "domain": "person",
+      "filename": "backpack_02.jpg",
+      "rel_path": "eval/images/person_attributes/backpack_02.jpg",
+      "sha256": "c5c6fa343aaff52483633f66ef23d1ff9e46ef2d77804d6835d08d80062038d8",
+      "expected": {
+        "helmet": "no",
+        "carrying": "backpack",
+        "clothing": "jacket_coat",
+        "presence": "yes"
+      },
+      "annotation": "Independent visual review before inference; dominant person; distant attributes explicitly not_visible.",
+      "group_id": "c5c6fa343aaff52483633f66ef23d1ff9e46ef2d77804d6835d08d80062038d8"
+    },
+    {
+      "id": "person_018",
+      "domain": "person",
+      "filename": "backpack_03.jpg",
+      "rel_path": "eval/images/person_attributes/backpack_03.jpg",
+      "sha256": "15a8e0e94b612a11149bb6c79b2762fbb9f0e5e3bc9fe5591834536a69c0c056",
+      "expected": {
+        "helmet": "no",
+        "carrying": "none",
+        "clothing": "jacket_coat",
+        "presence": "yes"
+      },
+      "annotation": "Independent visual review before inference; dominant person; distant attributes explicitly not_visible.",
+      "group_id": "15a8e0e94b612a11149bb6c79b2762fbb9f0e5e3bc9fe5591834536a69c0c056"
+    },
+    {
+      "id": "person_021",
+      "domain": "person",
+      "filename": "backpack_06.jpg",
+      "rel_path": "eval/images/person_attributes/backpack_06.jpg",
+      "sha256": "909485df51de0e2537be366d17f321cd35308f268de42b06b99c850914b6b164",
+      "expected": {
+        "helmet": "no",
+        "carrying": "backpack",
+        "clothing": "jacket_coat",
+        "presence": "yes"
+      },
+      "annotation": "Independent visual review before inference; dominant person; distant attributes explicitly not_visible.",
+      "group_id": "909485df51de0e2537be366d17f321cd35308f268de42b06b99c850914b6b164"
+    },
+    {
+      "id": "person_023",
+      "domain": "person",
+      "filename": "backpack_08.jpg",
+      "rel_path": "eval/images/person_attributes/backpack_08.jpg",
+      "sha256": "d76d6a920d97c8f76f3de4fa4454f8914acce5d233762f1a6006d6e1a27fb18a",
+      "expected": {
+        "helmet": "no",
+        "carrying": "bag_or_box",
+        "clothing": "shirt_tshirt",
+        "presence": "yes"
+      },
+      "annotation": "Independent visual review before inference; dominant person; distant attributes explicitly not_visible.",
+      "group_id": "d76d6a920d97c8f76f3de4fa4454f8914acce5d233762f1a6006d6e1a27fb18a"
+    },
+    {
+      "id": "person_026",
+      "domain": "person",
+      "filename": "safety_vest_01.jpg",
+      "rel_path": "eval/images/person_attributes/safety_vest_01.jpg",
+      "sha256": "6aab4cf46b164741f390af38be77804c9572237c6db3c2abba47af61497156ae",
+      "expected": {
+        "helmet": "no",
+        "carrying": "none",
+        "clothing": "safety_vest",
+        "presence": "yes"
+      },
+      "annotation": "Independent visual review before inference; dominant person; distant attributes explicitly not_visible.",
+      "group_id": "6aab4cf46b164741f390af38be77804c9572237c6db3c2abba47af61497156ae"
+    },
+    {
+      "id": "person_028",
+      "domain": "person",
+      "filename": "safety_vest_03.jpg",
+      "rel_path": "eval/images/person_attributes/safety_vest_03.jpg",
+      "sha256": "f0971d1ce494de535ee708d35ef993e5c9acb4e3dd4f9a2be340afc2ee7f6d43",
+      "expected": {
+        "helmet": "yes",
+        "carrying": "none",
+        "clothing": "safety_vest",
+        "presence": "yes"
+      },
+      "annotation": "Independent visual review before inference; dominant person; distant attributes explicitly not_visible.",
+      "group_id": "f0971d1ce494de535ee708d35ef993e5c9acb4e3dd4f9a2be340afc2ee7f6d43"
+    },
+    {
+      "id": "person_029",
+      "domain": "person",
+      "filename": "safety_vest_04.jpg",
+      "rel_path": "eval/images/person_attributes/safety_vest_04.jpg",
+      "sha256": "8670f12b3055716c0aefc39f75dc6818da46edc7b0efaa0f19e4f9297952e7f8",
+      "expected": {
+        "helmet": "not_visible",
+        "carrying": "none",
+        "clothing": "safety_vest",
+        "presence": "yes"
+      },
+      "annotation": "Independent visual review before inference; dominant person; distant attributes explicitly not_visible.",
+      "group_id": "8670f12b3055716c0aefc39f75dc6818da46edc7b0efaa0f19e4f9297952e7f8"
+    },
+    {
+      "id": "person_048",
+      "domain": "person",
+      "filename": "pedestrian_13.jpg",
+      "rel_path": "eval/images/person_attributes/pedestrian_13.jpg",
+      "sha256": "ce36ba42baa92c64bfa114e7237245262fd3a8bdc79c0ce9efa5281c6b5b2d18",
+      "expected": {
+        "helmet": "no",
+        "carrying": "bag_or_box",
+        "clothing": "jacket_coat",
+        "presence": "yes"
+      },
+      "annotation": "Independent visual review before inference; dominant person; distant attributes explicitly not_visible.",
+      "group_id": "ce36ba42baa92c64bfa114e7237245262fd3a8bdc79c0ce9efa5281c6b5b2d18"
+    },
+    {
+      "id": "person_050",
+      "domain": "person",
+      "filename": "pedestrian_15.jpg",
+      "rel_path": "eval/images/person_attributes/pedestrian_15.jpg",
+      "sha256": "83863d145851cc488adc1f1b054cb38920ffa94dedf7d4dc9d25a1d8714a3fff",
+      "expected": {
+        "helmet": "not_visible",
+        "carrying": "not_visible",
+        "clothing": "not_visible",
+        "presence": "yes"
+      },
+      "annotation": "Independent visual review before inference; dominant person; distant attributes explicitly not_visible.",
+      "group_id": "83863d145851cc488adc1f1b054cb38920ffa94dedf7d4dc9d25a1d8714a3fff"
+    },
+    {
+      "id": "person_051",
+      "domain": "person",
+      "filename": "no_car_03.jpg",
+      "rel_path": "eval/images/unknown_controls/no_car_03.jpg",
+      "sha256": "38b4efc34f71a810ae31ce5e870c636cefee6c8d1f7fa87b2f8cb7c4b21c409c",
+      "expected": {
+        "helmet": "not_visible",
+        "carrying": "not_visible",
+        "clothing": "not_visible",
+        "presence": "no"
+      },
+      "annotation": "Independent visual review before inference; dominant person; distant attributes explicitly not_visible.",
+      "group_id": "38b4efc34f71a810ae31ce5e870c636cefee6c8d1f7fa87b2f8cb7c4b21c409c"
+    },
+    {
+      "id": "person_052",
+      "domain": "person",
+      "filename": "no_car_04.jpg",
+      "rel_path": "eval/images/unknown_controls/no_car_04.jpg",
+      "sha256": "57137cd742da0c85521567bd14bb113191a55437387384c38dacf5e9babb6c21",
+      "expected": {
+        "helmet": "not_visible",
+        "carrying": "not_visible",
+        "clothing": "not_visible",
+        "presence": "no"
+      },
+      "annotation": "Independent visual review before inference; dominant person; distant attributes explicitly not_visible.",
+      "group_id": "57137cd742da0c85521567bd14bb113191a55437387384c38dacf5e9babb6c21"
+    },
+    {
+      "id": "person_054",
+      "domain": "person",
+      "filename": "no_car_06.jpg",
+      "rel_path": "eval/images/unknown_controls/no_car_06.jpg",
+      "sha256": "9ff4d9b345f61316961d4b8ced71b5f3329ff682dcce7a6673029fc605ee3dc1",
+      "expected": {
+        "helmet": "not_visible",
+        "carrying": "not_visible",
+        "clothing": "not_visible",
+        "presence": "no"
+      },
+      "annotation": "Independent visual review before inference; dominant person; distant attributes explicitly not_visible.",
+      "group_id": "9ff4d9b345f61316961d4b8ced71b5f3329ff682dcce7a6673029fc605ee3dc1"
+    },
+    {
+      "id": "person_055",
+      "domain": "person",
+      "filename": "no_car_07.jpg",
+      "rel_path": "eval/images/unknown_controls/no_car_07.jpg",
+      "sha256": "79094b5020561ee379ead06d2f81f1d5d89880c4fc5ce15ebadbf5debb7f2658",
+      "expected": {
+        "helmet": "not_visible",
+        "carrying": "not_visible",
+        "clothing": "not_visible",
+        "presence": "no"
+      },
+      "annotation": "Independent visual review before inference; dominant person; distant attributes explicitly not_visible.",
+      "group_id": "79094b5020561ee379ead06d2f81f1d5d89880c4fc5ce15ebadbf5debb7f2658"
+    },
+    {
+      "id": "person_056",
+      "domain": "person",
+      "filename": "no_car_08.jpg",
+      "rel_path": "eval/images/unknown_controls/no_car_08.jpg",
+      "sha256": "cf19d3efcc82b325335886bdc9ab4d352d6079afe0c87fe2e3392e9855e3d1ac",
+      "expected": {
+        "helmet": "not_visible",
+        "carrying": "not_visible",
+        "clothing": "not_visible",
+        "presence": "no"
+      },
+      "annotation": "Independent visual review before inference; dominant person; distant attributes explicitly not_visible.",
+      "group_id": "cf19d3efcc82b325335886bdc9ab4d352d6079afe0c87fe2e3392e9855e3d1ac"
+    },
+    {
+      "id": "person_059",
+      "domain": "person",
+      "filename": "no_car_field.jpg",
+      "rel_path": "eval/images/unknown_controls/no_car_field.jpg",
+      "sha256": "c4e870d358d64ce677e958c156d0e3fba466993d8e915fc81c5dc64937a9b696",
+      "expected": {
+        "helmet": "not_visible",
+        "carrying": "not_visible",
+        "clothing": "not_visible",
+        "presence": "no"
+      },
+      "annotation": "Independent visual review before inference; dominant person; distant attributes explicitly not_visible.",
+      "group_id": "c4e870d358d64ce677e958c156d0e3fba466993d8e915fc81c5dc64937a9b696"
+    },
+    {
+      "id": "person_060",
+      "domain": "person",
+      "filename": "no_car_landscape.jpg",
+      "rel_path": "eval/images/unknown_controls/no_car_landscape.jpg",
+      "sha256": "483cbf0e5f28194105303c04b8acfefc7bb557450c288c66e6233ea42a1ca23c",
+      "expected": {
+        "helmet": "not_visible",
+        "carrying": "not_visible",
+        "clothing": "not_visible",
+        "presence": "no"
+      },
+      "annotation": "Independent visual review before inference; dominant person; distant attributes explicitly not_visible.",
+      "group_id": "483cbf0e5f28194105303c04b8acfefc7bb557450c288c66e6233ea42a1ca23c"
+    }
+  ]
+}

@@ -34,7 +34,10 @@ const values = {
   gray_silver: "Cinza / prata",
   other: "Outro",
   sedan: "Sedã",
-  truck: "Picape",
+  truck: "Truck",
+  pickup: "Picape",
+  bus: "Ônibus",
+  motorcycle: "Motocicleta",
   suv: "SUV",
 };
 export const text = (value) => values[value] || value?.replaceAll("_", " ");
@@ -46,7 +49,8 @@ export function stateText(job) {
     {
       queued: "Preparando tarefa",
       running:
-        job.progress?.phase === "warmup"
+        job.progress?.status === "complete" ? job.phase || "Gerando relatório"
+        : job.progress?.phase === "warmup"
           ? `Preparando modelo ${job.progress.model} e aquecimento…`
           : job.progress?.model
             ? `Avaliando fotos com ${job.progress.model}`

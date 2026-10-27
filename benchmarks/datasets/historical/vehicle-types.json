@@ -1,0 +1,2062 @@
+{
+  "schema_version": 1,
+  "name": "Tipos de veículo",
+  "label_status": "exploratory_historical_unadjudicated",
+  "source_manifest": "eval/datasets/test_2_vehicle_type_manifest.json",
+  "source_manifest_sha256": "8ab4ff7f576979020dba873702df4c2fc6504f79fed429dc94a801875e52c5ca",
+  "required_contract": "historical",
+  "note": "Gabaritos históricos exploratórios. Imagens derivadas compartilham grupo; eventos não equivalem a imagens independentes. hatchback → hatch; pickup e truck preservados.",
+  "items": [
+    {
+      "id": "type_bus_01",
+      "domain": "vehicle",
+      "filename": "type_bus_01.jpg",
+      "rel_path": "eval/images/vehicle_type/type_bus_01.jpg",
+      "sha256": "65f5b034909772f4f745aeb57d25d88168dd7bec4b3a380244733bf51803880d",
+      "annotations": {
+        "body": "bus"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "heavy_shadow",
+        "multiple_vehicles"
+      ],
+      "source": "wikimedia_commons",
+      "group_id": "65f5b034909772f4f745aeb57d25d88168dd7bec4b3a380244733bf51803880d",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_bus_02",
+      "domain": "vehicle",
+      "filename": "type_bus_02.jpg",
+      "rel_path": "eval/images/vehicle_type/type_bus_02.jpg",
+      "sha256": "7a7ca0789e0e1364d8ced79a1179d17c45c39e14bdb37b58cb0a63c3961fadff",
+      "annotations": {
+        "body": "bus"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "wikimedia_commons",
+      "group_id": "7a7ca0789e0e1364d8ced79a1179d17c45c39e14bdb37b58cb0a63c3961fadff",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_bus_03",
+      "domain": "vehicle",
+      "filename": "type_bus_03.jpg",
+      "rel_path": "eval/images/vehicle_type/type_bus_03.jpg",
+      "sha256": "d4011ddd467e4e04b625b220d164cab7215280b8fe668e2a4be074fc7de3b80c",
+      "annotations": {
+        "body": "bus"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ],
+      "source": "wikimedia_commons",
+      "group_id": "d4011ddd467e4e04b625b220d164cab7215280b8fe668e2a4be074fc7de3b80c",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_bus_04",
+      "domain": "vehicle",
+      "filename": "type_bus_04.jpg",
+      "rel_path": "eval/images/vehicle_type/type_bus_04.jpg",
+      "sha256": "ea687ed33d2b89dcd5152793536b65500dd9b458f3ecdbe730bd71e02f52c5a2",
+      "annotations": {
+        "body": "bus"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ],
+      "source": "wikimedia_commons",
+      "group_id": "ea687ed33d2b89dcd5152793536b65500dd9b458f3ecdbe730bd71e02f52c5a2",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_bus_05",
+      "domain": "vehicle",
+      "filename": "type_bus_05.jpg",
+      "rel_path": "eval/images/vehicle_type/type_bus_05.jpg",
+      "sha256": "5eeb8b098eb4acadde7a2b431198572191310496d161875006297c6b35e8792c",
+      "annotations": {
+        "body": "bus"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "heavy_shadow"
+      ],
+      "source": "wikimedia_commons",
+      "group_id": "5eeb8b098eb4acadde7a2b431198572191310496d161875006297c6b35e8792c",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_bus_06",
+      "domain": "vehicle",
+      "filename": "type_bus_06.jpg",
+      "rel_path": "eval/images/vehicle_type/type_bus_06.jpg",
+      "sha256": "32dfaba1604ec1776d3c2cd49de42a5b4b3af3764915b9b3e1d9f435322f475c",
+      "annotations": {
+        "body": "bus"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ],
+      "source": "wikimedia_commons",
+      "group_id": "32dfaba1604ec1776d3c2cd49de42a5b4b3af3764915b9b3e1d9f435322f475c",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_bus_07",
+      "domain": "vehicle",
+      "filename": "type_bus_07.jpg",
+      "rel_path": "eval/images/vehicle_type/type_bus_07.jpg",
+      "sha256": "69edc864ea058a1a2ddf9cfd80921f80080f25e8228a51730e6af8c084d03390",
+      "annotations": {
+        "body": "bus"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "wikimedia_commons",
+      "group_id": "69edc864ea058a1a2ddf9cfd80921f80080f25e8228a51730e6af8c084d03390",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_bus_08",
+      "domain": "vehicle",
+      "filename": "type_bus_08.jpg",
+      "rel_path": "eval/images/vehicle_type/type_bus_08.jpg",
+      "sha256": "3f3df7da2a0cb857254e06a25fbf91457f186c6cc2e84f6873ad29f76d9fb418",
+      "annotations": {
+        "body": "bus"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "wikimedia_commons",
+      "group_id": "3f3df7da2a0cb857254e06a25fbf91457f186c6cc2e84f6873ad29f76d9fb418",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_bus_09",
+      "domain": "vehicle",
+      "filename": "type_bus_09.jpg",
+      "rel_path": "eval/images/vehicle_type/type_bus_09.jpg",
+      "sha256": "c1521c512548c0b4679ea53a50b53066fe82622fdeb2e5b2a6ef4b51f62caa51",
+      "annotations": {
+        "body": "bus"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "small_or_distant"
+      ],
+      "source": "wikimedia_commons",
+      "group_id": "c1521c512548c0b4679ea53a50b53066fe82622fdeb2e5b2a6ef4b51f62caa51",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_bus_10",
+      "domain": "vehicle",
+      "filename": "type_bus_10.jpg",
+      "rel_path": "eval/images/vehicle_type/type_bus_10.jpg",
+      "sha256": "9dcbd16f06fe0fd7c225fbd22518790580cc5ab764c94c02173ade2e9ac9b005",
+      "annotations": {
+        "body": "bus"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "wikimedia_commons",
+      "group_id": "9dcbd16f06fe0fd7c225fbd22518790580cc5ab764c94c02173ade2e9ac9b005",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_convertible_01",
+      "domain": "vehicle",
+      "filename": "real_bmw_1.jpg",
+      "rel_path": "eval/images/cars/real_bmw_1.jpg",
+      "sha256": "b8f0059ea53a2d469b3835176d9c41ea602ccba24a3d62a0dd3fc7c0e06d7803",
+      "annotations": {
+        "body": "convertible"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "heavy_shadow",
+        "high_reflection"
+      ],
+      "source": "real_cars_metadata",
+      "group_id": "b8f0059ea53a2d469b3835176d9c41ea602ccba24a3d62a0dd3fc7c0e06d7803",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_convertible_02",
+      "domain": "vehicle",
+      "filename": "real_bmw_2.jpg",
+      "rel_path": "eval/images/cars/real_bmw_2.jpg",
+      "sha256": "4f0bcaf030c1b7ec71bbb999a84debce8eee8c3ba0b850ce94e99bdf1e0046dc",
+      "annotations": {
+        "body": "convertible"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "heavy_shadow"
+      ],
+      "source": "real_cars_metadata",
+      "group_id": "4f0bcaf030c1b7ec71bbb999a84debce8eee8c3ba0b850ce94e99bdf1e0046dc",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_convertible_03",
+      "domain": "vehicle",
+      "filename": "stanford_test_00177.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00177.jpg",
+      "sha256": "9be6a466f172cd6447c07128561074e321351a38cbd365e5e83912981ac8ee9c",
+      "annotations": {
+        "body": "convertible"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "high_reflection"
+      ],
+      "source": "stanford_cars_sample",
+      "group_id": "9be6a466f172cd6447c07128561074e321351a38cbd365e5e83912981ac8ee9c",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_convertible_04",
+      "domain": "vehicle",
+      "filename": "stanford_test_00683.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00683.jpg",
+      "sha256": "7a2484738ad3b4e1f051b4f310e69f26004fe0ede94b8698c0008f7ff4f9b1ce",
+      "annotations": {
+        "body": "convertible"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "stanford_cars_sample",
+      "group_id": "7a2484738ad3b4e1f051b4f310e69f26004fe0ede94b8698c0008f7ff4f9b1ce",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_convertible_05",
+      "domain": "vehicle",
+      "filename": "stanford_test_00349.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00349.jpg",
+      "sha256": "ae32a80cc2e9b5bba37b274353fe8bad86ec399eb965ae92f142a11b3be2a941",
+      "annotations": {
+        "body": "convertible"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "partial_or_atypical_view"
+      ],
+      "source": "stanford_cars_sample",
+      "group_id": "ae32a80cc2e9b5bba37b274353fe8bad86ec399eb965ae92f142a11b3be2a941",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_convertible_06",
+      "domain": "vehicle",
+      "filename": "stanford_test_00807.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00807.jpg",
+      "sha256": "70ca62e5a919200bf0373be2514fca6df326580a415b37c79efd28adf8a254e7",
+      "annotations": {
+        "body": "convertible"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "heavy_shadow",
+        "multiple_vehicles"
+      ],
+      "source": "stanford_cars_sample",
+      "group_id": "70ca62e5a919200bf0373be2514fca6df326580a415b37c79efd28adf8a254e7",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_convertible_07",
+      "domain": "vehicle",
+      "filename": "stanford_test_00996.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00996.jpg",
+      "sha256": "cad885e68653b99e0e0cbd49c32a2b7655e0ff4db51e44805270b70dc90b5c24",
+      "annotations": {
+        "body": "convertible"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "stanford_cars_sample",
+      "group_id": "cad885e68653b99e0e0cbd49c32a2b7655e0ff4db51e44805270b70dc90b5c24",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_convertible_08",
+      "domain": "vehicle",
+      "filename": "convertible_stanford_08.jpg",
+      "rel_path": "eval/images/vehicle_type/convertible_stanford_08.jpg",
+      "sha256": "6c94466596a187731c4f593219e3b7ff54ef0722cfab3e385d6bb35653a3209c",
+      "annotations": {
+        "body": "convertible"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "high_reflection"
+      ],
+      "source": "stanford_cars_api",
+      "group_id": "6c94466596a187731c4f593219e3b7ff54ef0722cfab3e385d6bb35653a3209c",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_convertible_09",
+      "domain": "vehicle",
+      "filename": "convertible_stanford_09.jpg",
+      "rel_path": "eval/images/vehicle_type/convertible_stanford_09.jpg",
+      "sha256": "1c170ab5b126e62c31cc29b45258cb5415490d164dad2fdcb56dac198d8d78ba",
+      "annotations": {
+        "body": "convertible"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "heavy_shadow",
+        "multiple_vehicles"
+      ],
+      "source": "stanford_cars_api",
+      "group_id": "1c170ab5b126e62c31cc29b45258cb5415490d164dad2fdcb56dac198d8d78ba",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_convertible_10",
+      "domain": "vehicle",
+      "filename": "convertible_stanford_10.jpg",
+      "rel_path": "eval/images/vehicle_type/convertible_stanford_10.jpg",
+      "sha256": "7264c8f7b13091ef0a5b46f77c27dfabf917a4b00889878630fa1b2d3fd4604c",
+      "annotations": {
+        "body": "convertible"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "heavy_shadow",
+        "high_reflection"
+      ],
+      "source": "stanford_cars_api",
+      "group_id": "7264c8f7b13091ef0a5b46f77c27dfabf917a4b00889878630fa1b2d3fd4604c",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_coupe_01",
+      "domain": "vehicle",
+      "filename": "real_audi_1.jpg",
+      "rel_path": "eval/images/cars/real_audi_1.jpg",
+      "sha256": "a7202789cca67d07693b7ac4388aac7db979a803576f3b7e53dac984a3f7f0a1",
+      "annotations": {
+        "body": "coupe"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "high_reflection",
+        "multiple_vehicles"
+      ],
+      "source": "real_cars_metadata",
+      "group_id": "a7202789cca67d07693b7ac4388aac7db979a803576f3b7e53dac984a3f7f0a1",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_coupe_02",
+      "domain": "vehicle",
+      "filename": "real_audi_2.jpg",
+      "rel_path": "eval/images/cars/real_audi_2.jpg",
+      "sha256": "77c5bdbbea8d6d3794813a6f3093216b83d6dcf5246f7b68419cf8d258981a04",
+      "annotations": {
+        "body": "coupe"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "heavy_shadow",
+        "multiple_vehicles"
+      ],
+      "source": "real_cars_metadata",
+      "group_id": "77c5bdbbea8d6d3794813a6f3093216b83d6dcf5246f7b68419cf8d258981a04",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_coupe_03",
+      "domain": "vehicle",
+      "filename": "real_honda_2.jpg",
+      "rel_path": "eval/images/cars/real_honda_2.jpg",
+      "sha256": "489b8d3a343ae4d98b762ffb7ce3c12432fe2843480cb3b626632fa15111c0c6",
+      "annotations": {
+        "body": "coupe"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "real_cars_metadata",
+      "group_id": "489b8d3a343ae4d98b762ffb7ce3c12432fe2843480cb3b626632fa15111c0c6",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_coupe_04",
+      "domain": "vehicle",
+      "filename": "stanford_test_00226.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00226.jpg",
+      "sha256": "839ef81ee237ad2fc6f3e8e3ceb5a88016e9c71947109d298de09979cffb3417",
+      "annotations": {
+        "body": "coupe"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "high_reflection"
+      ],
+      "source": "stanford_cars_sample",
+      "group_id": "839ef81ee237ad2fc6f3e8e3ceb5a88016e9c71947109d298de09979cffb3417",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_coupe_05",
+      "domain": "vehicle",
+      "filename": "stanford_test_00674.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00674.jpg",
+      "sha256": "9521ec751cc135aafa4e84e2bcb27230a33b30217bc1377f945f4de5c74453e6",
+      "annotations": {
+        "body": "coupe"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ],
+      "source": "stanford_cars_sample",
+      "group_id": "9521ec751cc135aafa4e84e2bcb27230a33b30217bc1377f945f4de5c74453e6",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_coupe_06",
+      "domain": "vehicle",
+      "filename": "stanford_test_00908.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00908.jpg",
+      "sha256": "711b993ce4e1da89f8d8289ed5b6bdd3936898cf02c360ea98a74d7562cf833f",
+      "annotations": {
+        "body": "coupe"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "heavy_shadow"
+      ],
+      "source": "stanford_cars_sample",
+      "group_id": "711b993ce4e1da89f8d8289ed5b6bdd3936898cf02c360ea98a74d7562cf833f",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_coupe_07",
+      "domain": "vehicle",
+      "filename": "stanford_test_00987.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00987.jpg",
+      "sha256": "cb89bbd66a365d070d97b1c18027bbc65180df3eb9986c7b4baebee071ea88af",
+      "annotations": {
+        "body": "coupe"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ],
+      "source": "stanford_cars_sample",
+      "group_id": "cb89bbd66a365d070d97b1c18027bbc65180df3eb9986c7b4baebee071ea88af",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_coupe_08",
+      "domain": "vehicle",
+      "filename": "stanford_test_00739.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00739.jpg",
+      "sha256": "7fc8abb3a6cb80d11a9b929f56b8a50164c10e626f3d8e9f3f90c8beac1791bf",
+      "annotations": {
+        "body": "coupe"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "heavy_shadow"
+      ],
+      "source": "stanford_cars_sample",
+      "group_id": "7fc8abb3a6cb80d11a9b929f56b8a50164c10e626f3d8e9f3f90c8beac1791bf",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_coupe_09",
+      "domain": "vehicle",
+      "filename": "stanford_test_00533.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00533.jpg",
+      "sha256": "8cb5aace1775f24a103e2c07f52bcda5d727c35cf05c7fbf154460850ea446ac",
+      "annotations": {
+        "body": "coupe"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "high_reflection"
+      ],
+      "source": "stanford_cars_sample",
+      "group_id": "8cb5aace1775f24a103e2c07f52bcda5d727c35cf05c7fbf154460850ea446ac",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_coupe_10",
+      "domain": "vehicle",
+      "filename": "coupe_stanford_10.jpg",
+      "rel_path": "eval/images/vehicle_type/coupe_stanford_10.jpg",
+      "sha256": "042a564a084eecb568c77ec7fcf310c2e5ad8bd22a8597d3332073cc9f25d48c",
+      "annotations": {
+        "body": "coupe"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "stanford_cars_api",
+      "group_id": "042a564a084eecb568c77ec7fcf310c2e5ad8bd22a8597d3332073cc9f25d48c",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_hatchback_01",
+      "domain": "vehicle",
+      "filename": "real_volkswagen_1.jpg",
+      "rel_path": "eval/images/cars/real_volkswagen_1.jpg",
+      "sha256": "b8488005fcf0306f5a18a7aa264f00c13ab559e00ced4b25b2fb0bc4c15ddaff",
+      "annotations": {
+        "body": "hatch"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "real_cars_metadata",
+      "group_id": "b8488005fcf0306f5a18a7aa264f00c13ab559e00ced4b25b2fb0bc4c15ddaff",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_hatchback_02",
+      "domain": "vehicle",
+      "filename": "real_hyundai_2.jpg",
+      "rel_path": "eval/images/cars/real_hyundai_2.jpg",
+      "sha256": "2f63df46dd12a000e93ea9203f524a069df2a67ebd0a808ec673d0623d747259",
+      "annotations": {
+        "body": "hatch"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ],
+      "source": "real_cars_metadata",
+      "group_id": "2f63df46dd12a000e93ea9203f524a069df2a67ebd0a808ec673d0623d747259",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_hatchback_03",
+      "domain": "vehicle",
+      "filename": "real_volkswagen_2.jpg",
+      "rel_path": "eval/images/cars/real_volkswagen_2.jpg",
+      "sha256": "781c3ad4e9a72e2da5040d84ce8cbb86f976ad8c4f5dcbfe08faec6f38c696a1",
+      "annotations": {
+        "body": "hatch"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "high_reflection",
+        "multiple_vehicles"
+      ],
+      "source": "real_cars_metadata",
+      "group_id": "781c3ad4e9a72e2da5040d84ce8cbb86f976ad8c4f5dcbfe08faec6f38c696a1",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_hatchback_04",
+      "domain": "vehicle",
+      "filename": "stanford_test_00592.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00592.jpg",
+      "sha256": "fda1f0a64b9a0942d8f6d4605ef1b09a633f0636c39a118a3123d379a1465a0f",
+      "annotations": {
+        "body": "hatch"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "heavy_shadow",
+        "high_reflection"
+      ],
+      "source": "stanford_cars_sample",
+      "group_id": "fda1f0a64b9a0942d8f6d4605ef1b09a633f0636c39a118a3123d379a1465a0f",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_hatchback_05",
+      "domain": "vehicle",
+      "filename": "hatchback_stanford_05.jpg",
+      "rel_path": "eval/images/vehicle_type/hatchback_stanford_05.jpg",
+      "sha256": "a4f538fb334d25990be3daa8b0c042d4ad9d4254f616dd6fd6a21f4cb3eb8fb5",
+      "annotations": {
+        "body": "hatch"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "stanford_cars_api",
+      "group_id": "a4f538fb334d25990be3daa8b0c042d4ad9d4254f616dd6fd6a21f4cb3eb8fb5",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_hatchback_06",
+      "domain": "vehicle",
+      "filename": "hatchback_stanford_06.jpg",
+      "rel_path": "eval/images/vehicle_type/hatchback_stanford_06.jpg",
+      "sha256": "a8a55de6959f19e028eddd6b8e5504b18bf27617f34a221ec439c22f4952074c",
+      "annotations": {
+        "body": "hatch"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ],
+      "source": "stanford_cars_api",
+      "group_id": "a8a55de6959f19e028eddd6b8e5504b18bf27617f34a221ec439c22f4952074c",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_hatchback_07",
+      "domain": "vehicle",
+      "filename": "hatchback_stanford_07.jpg",
+      "rel_path": "eval/images/vehicle_type/hatchback_stanford_07.jpg",
+      "sha256": "3639c64998e79d59adf994c56f17805462e1dcf66f9c797d609088548284cbe2",
+      "annotations": {
+        "body": "hatch"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "stanford_cars_api",
+      "group_id": "3639c64998e79d59adf994c56f17805462e1dcf66f9c797d609088548284cbe2",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_hatchback_08",
+      "domain": "vehicle",
+      "filename": "hatchback_stanford_08.jpg",
+      "rel_path": "eval/images/vehicle_type/hatchback_stanford_08.jpg",
+      "sha256": "27b31e822bd57358f5a9ef820694f6984a9d0496f3ee4223861ad259f1dbde39",
+      "annotations": {
+        "body": "hatch"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "high_reflection"
+      ],
+      "source": "stanford_cars_api",
+      "group_id": "27b31e822bd57358f5a9ef820694f6984a9d0496f3ee4223861ad259f1dbde39",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_hatchback_09",
+      "domain": "vehicle",
+      "filename": "hatchback_stanford_09.jpg",
+      "rel_path": "eval/images/vehicle_type/hatchback_stanford_09.jpg",
+      "sha256": "b2fdd72c96b0a01f58180eedbed44d748d9b7c31477338e910c4be80ef987314",
+      "annotations": {
+        "body": "hatch"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "stanford_cars_api",
+      "group_id": "b2fdd72c96b0a01f58180eedbed44d748d9b7c31477338e910c4be80ef987314",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_hatchback_10",
+      "domain": "vehicle",
+      "filename": "hatchback_stanford_10.jpg",
+      "rel_path": "eval/images/vehicle_type/hatchback_stanford_10.jpg",
+      "sha256": "1ad284cfab30f916ca801cf433ab65bea02fa54ca02ea4ad3eb641ced974836c",
+      "annotations": {
+        "body": "hatch"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "heavy_shadow"
+      ],
+      "source": "stanford_cars_api",
+      "group_id": "1ad284cfab30f916ca801cf433ab65bea02fa54ca02ea4ad3eb641ced974836c",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_motorcycle_01",
+      "domain": "vehicle",
+      "filename": "type_motorcycle_01.jpg",
+      "rel_path": "eval/images/vehicle_type/type_motorcycle_01.jpg",
+      "sha256": "7387137c1743db48a286b983947972132094b567c8205d086bbb037858d5e2b7",
+      "annotations": {
+        "body": "motorcycle"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "low_light",
+        "heavy_shadow",
+        "high_reflection",
+        "partial_or_atypical_view"
+      ],
+      "source": "wikimedia_commons",
+      "group_id": "7387137c1743db48a286b983947972132094b567c8205d086bbb037858d5e2b7",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_motorcycle_02",
+      "domain": "vehicle",
+      "filename": "type_motorcycle_02.jpg",
+      "rel_path": "eval/images/vehicle_type/type_motorcycle_02.jpg",
+      "sha256": "d16f9e2a075ec1352bf7581fee3bff59671789c5bdfaa9d00723500588bf1d18",
+      "annotations": {
+        "body": "motorcycle"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "partial_or_atypical_view"
+      ],
+      "source": "wikimedia_commons",
+      "group_id": "d16f9e2a075ec1352bf7581fee3bff59671789c5bdfaa9d00723500588bf1d18",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_motorcycle_03",
+      "domain": "vehicle",
+      "filename": "type_motorcycle_03.jpg",
+      "rel_path": "eval/images/vehicle_type/type_motorcycle_03.jpg",
+      "sha256": "d5727dceb328c720b7172cc523cf1e7ca2d0045f6d9104557603870d2155db61",
+      "annotations": {
+        "body": "motorcycle"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ],
+      "source": "wikimedia_commons",
+      "group_id": "d5727dceb328c720b7172cc523cf1e7ca2d0045f6d9104557603870d2155db61",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_motorcycle_04",
+      "domain": "vehicle",
+      "filename": "type_motorcycle_04.jpg",
+      "rel_path": "eval/images/vehicle_type/type_motorcycle_04.jpg",
+      "sha256": "21adcc27f5c3e9fdd64551f63030bdffe945f6334d66e65e3813717886438370",
+      "annotations": {
+        "body": "motorcycle"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ],
+      "source": "wikimedia_commons",
+      "group_id": "21adcc27f5c3e9fdd64551f63030bdffe945f6334d66e65e3813717886438370",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_motorcycle_05",
+      "domain": "vehicle",
+      "filename": "type_motorcycle_05.jpg",
+      "rel_path": "eval/images/vehicle_type/type_motorcycle_05.jpg",
+      "sha256": "b55a7a9b42a866e0d759886a85f4c741e12427155c2652da2eecd4b0632cbc40",
+      "annotations": {
+        "body": "motorcycle"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ],
+      "source": "wikimedia_commons",
+      "group_id": "b55a7a9b42a866e0d759886a85f4c741e12427155c2652da2eecd4b0632cbc40",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_motorcycle_06",
+      "domain": "vehicle",
+      "filename": "type_motorcycle_06.jpg",
+      "rel_path": "eval/images/vehicle_type/type_motorcycle_06.jpg",
+      "sha256": "56cfa9feb0944fd7d5f1766b3200c5807d5500a162174a8ecea1668344fcc4ec",
+      "annotations": {
+        "body": "motorcycle"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ],
+      "source": "wikimedia_commons",
+      "group_id": "56cfa9feb0944fd7d5f1766b3200c5807d5500a162174a8ecea1668344fcc4ec",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_motorcycle_07",
+      "domain": "vehicle",
+      "filename": "type_motorcycle_07.jpg",
+      "rel_path": "eval/images/vehicle_type/type_motorcycle_07.jpg",
+      "sha256": "2c82d9c3812161f911b304f34715dd365033bbc3d960242be95b6deb415ad237",
+      "annotations": {
+        "body": "motorcycle"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ],
+      "source": "wikimedia_commons",
+      "group_id": "2c82d9c3812161f911b304f34715dd365033bbc3d960242be95b6deb415ad237",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_motorcycle_08",
+      "domain": "vehicle",
+      "filename": "type_motorcycle_08.jpg",
+      "rel_path": "eval/images/vehicle_type/type_motorcycle_08.jpg",
+      "sha256": "72ae666ebaf3ab3b74f5e46fb53c758c1a748b12fd5a3c9b93f9d16588395010",
+      "annotations": {
+        "body": "motorcycle"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ],
+      "source": "wikimedia_commons",
+      "group_id": "72ae666ebaf3ab3b74f5e46fb53c758c1a748b12fd5a3c9b93f9d16588395010",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_motorcycle_09",
+      "domain": "vehicle",
+      "filename": "type_motorcycle_09.jpg",
+      "rel_path": "eval/images/vehicle_type/type_motorcycle_09.jpg",
+      "sha256": "30b469d4837cb655101c8463121b4c2d29a58a27e695fc1614deb8274cd4d550",
+      "annotations": {
+        "body": "motorcycle"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ],
+      "source": "wikimedia_commons",
+      "group_id": "30b469d4837cb655101c8463121b4c2d29a58a27e695fc1614deb8274cd4d550",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_motorcycle_10",
+      "domain": "vehicle",
+      "filename": "type_motorcycle_10.jpg",
+      "rel_path": "eval/images/vehicle_type/type_motorcycle_10.jpg",
+      "sha256": "7423da6117ed31deaa4b5fbf146861f474f3f6e49b3e28acd0e60afc987f1340",
+      "annotations": {
+        "body": "motorcycle"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ],
+      "source": "wikimedia_commons",
+      "group_id": "7423da6117ed31deaa4b5fbf146861f474f3f6e49b3e28acd0e60afc987f1340",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_pickup_01",
+      "domain": "vehicle",
+      "filename": "pickup_stanford_01.jpg",
+      "rel_path": "eval/images/vehicle_type/pickup_stanford_01.jpg",
+      "sha256": "39f02500893e895213319c0aac22e2f284a0e0177fc2ee27e0eb26626782c62f",
+      "annotations": {
+        "body": "pickup"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "high_reflection"
+      ],
+      "source": "stanford_cars_api",
+      "group_id": "39f02500893e895213319c0aac22e2f284a0e0177fc2ee27e0eb26626782c62f",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_pickup_02",
+      "domain": "vehicle",
+      "filename": "pickup_stanford_02.jpg",
+      "rel_path": "eval/images/vehicle_type/pickup_stanford_02.jpg",
+      "sha256": "073690fb1f969c637310c2e4605db81695d1b69a9bdaa0e9eeadd15d80ce41cb",
+      "annotations": {
+        "body": "pickup"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "stanford_cars_api",
+      "group_id": "073690fb1f969c637310c2e4605db81695d1b69a9bdaa0e9eeadd15d80ce41cb",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_pickup_03",
+      "domain": "vehicle",
+      "filename": "pickup_stanford_03.jpg",
+      "rel_path": "eval/images/vehicle_type/pickup_stanford_03.jpg",
+      "sha256": "8beecdf9fcd86e97e7c2daad4a60ee0c150b85998077b1992a398558bed490cf",
+      "annotations": {
+        "body": "pickup"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "high_reflection",
+        "multiple_vehicles"
+      ],
+      "source": "stanford_cars_api",
+      "group_id": "8beecdf9fcd86e97e7c2daad4a60ee0c150b85998077b1992a398558bed490cf",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_pickup_04",
+      "domain": "vehicle",
+      "filename": "pickup_stanford_04.jpg",
+      "rel_path": "eval/images/vehicle_type/pickup_stanford_04.jpg",
+      "sha256": "cdf478483553a099f0b9b23258971039204c6ff6b0c8becbb226c00575329e94",
+      "annotations": {
+        "body": "pickup"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "stanford_cars_api",
+      "group_id": "cdf478483553a099f0b9b23258971039204c6ff6b0c8becbb226c00575329e94",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_pickup_05",
+      "domain": "vehicle",
+      "filename": "pickup_stanford_05.jpg",
+      "rel_path": "eval/images/vehicle_type/pickup_stanford_05.jpg",
+      "sha256": "2c53af811394a4cf727c17d93bc89a92082d50b8a92dbb1819707329d664c22f",
+      "annotations": {
+        "body": "pickup"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ],
+      "source": "stanford_cars_api",
+      "group_id": "2c53af811394a4cf727c17d93bc89a92082d50b8a92dbb1819707329d664c22f",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_pickup_06",
+      "domain": "vehicle",
+      "filename": "pickup_stanford_06.jpg",
+      "rel_path": "eval/images/vehicle_type/pickup_stanford_06.jpg",
+      "sha256": "47392aa4e5e24eae64b661242a4b0ffc95648cd8ae2302b49350fc8c1d5cdc72",
+      "annotations": {
+        "body": "pickup"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "heavy_shadow",
+        "high_reflection",
+        "multiple_vehicles"
+      ],
+      "source": "stanford_cars_api",
+      "group_id": "47392aa4e5e24eae64b661242a4b0ffc95648cd8ae2302b49350fc8c1d5cdc72",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_pickup_07",
+      "domain": "vehicle",
+      "filename": "pickup_stanford_07.jpg",
+      "rel_path": "eval/images/vehicle_type/pickup_stanford_07.jpg",
+      "sha256": "192fedd2f2abb4e1fe36fb18ccfbdcc78e42d55c894c7f2f5c3379f465ad4f8b",
+      "annotations": {
+        "body": "pickup"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "high_reflection",
+        "multiple_vehicles"
+      ],
+      "source": "stanford_cars_api",
+      "group_id": "192fedd2f2abb4e1fe36fb18ccfbdcc78e42d55c894c7f2f5c3379f465ad4f8b",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_pickup_08",
+      "domain": "vehicle",
+      "filename": "pickup_stanford_08.jpg",
+      "rel_path": "eval/images/vehicle_type/pickup_stanford_08.jpg",
+      "sha256": "4c8228deb390ae70344347d3fb41274ef1dae03706e158972d17083aec2ef0cb",
+      "annotations": {
+        "body": "pickup"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "high_reflection",
+        "multiple_vehicles"
+      ],
+      "source": "stanford_cars_api",
+      "group_id": "4c8228deb390ae70344347d3fb41274ef1dae03706e158972d17083aec2ef0cb",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_pickup_09",
+      "domain": "vehicle",
+      "filename": "pickup_stanford_09.jpg",
+      "rel_path": "eval/images/vehicle_type/pickup_stanford_09.jpg",
+      "sha256": "b94ac775e752219517b4410a42ec1a58570962b79257b37b2487a56a120933bb",
+      "annotations": {
+        "body": "pickup"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ],
+      "source": "stanford_cars_api",
+      "group_id": "b94ac775e752219517b4410a42ec1a58570962b79257b37b2487a56a120933bb",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_pickup_10",
+      "domain": "vehicle",
+      "filename": "pickup_stanford_10.jpg",
+      "rel_path": "eval/images/vehicle_type/pickup_stanford_10.jpg",
+      "sha256": "7048edcf66ffc31e9fbd4e4ada76b864bd23ee45211f754434b0b4fdef00ecc5",
+      "annotations": {
+        "body": "pickup"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "high_reflection"
+      ],
+      "source": "stanford_cars_api",
+      "group_id": "7048edcf66ffc31e9fbd4e4ada76b864bd23ee45211f754434b0b4fdef00ecc5",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_sedan_01",
+      "domain": "vehicle",
+      "filename": "real_toyota_2.jpg",
+      "rel_path": "eval/images/cars/real_toyota_2.jpg",
+      "sha256": "e07a571d4d94516daa703ce217f1b7a686ce4fca855768629779a72505739b84",
+      "annotations": {
+        "body": "sedan"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "heavy_shadow",
+        "multiple_vehicles"
+      ],
+      "source": "real_cars_metadata",
+      "group_id": "e07a571d4d94516daa703ce217f1b7a686ce4fca855768629779a72505739b84",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_sedan_02",
+      "domain": "vehicle",
+      "filename": "real_chevrolet_2.jpg",
+      "rel_path": "eval/images/cars/real_chevrolet_2.jpg",
+      "sha256": "0317d7261c094867660eb8af76edbf2f229ea4be7c2d17eb910632f30973e6e4",
+      "annotations": {
+        "body": "sedan"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "real_cars_metadata",
+      "group_id": "0317d7261c094867660eb8af76edbf2f229ea4be7c2d17eb910632f30973e6e4",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_sedan_03",
+      "domain": "vehicle",
+      "filename": "real_hyundai_1.jpg",
+      "rel_path": "eval/images/cars/real_hyundai_1.jpg",
+      "sha256": "1046b0abcb0658b92d12c6bdb4ac0b62df3adaf807b9d5d755ed70912324f65d",
+      "annotations": {
+        "body": "sedan"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "real_cars_metadata",
+      "group_id": "1046b0abcb0658b92d12c6bdb4ac0b62df3adaf807b9d5d755ed70912324f65d",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_sedan_04",
+      "domain": "vehicle",
+      "filename": "stanford_test_00634.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00634.jpg",
+      "sha256": "9b59a0e0ed29aa6e529544ff2c20df096da7573e7435cf357605ae085e807ba6",
+      "annotations": {
+        "body": "sedan"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "stanford_cars_sample",
+      "group_id": "9b59a0e0ed29aa6e529544ff2c20df096da7573e7435cf357605ae085e807ba6",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_sedan_05",
+      "domain": "vehicle",
+      "filename": "stanford_test_00590.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00590.jpg",
+      "sha256": "96fc6c6973e0d3d6c722da2d00f5f76ead7c86a57ccea3a593799a599b2d840b",
+      "annotations": {
+        "body": "sedan"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "stanford_cars_sample",
+      "group_id": "96fc6c6973e0d3d6c722da2d00f5f76ead7c86a57ccea3a593799a599b2d840b",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_sedan_06",
+      "domain": "vehicle",
+      "filename": "stanford_test_00788.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00788.jpg",
+      "sha256": "5318a897865ecac4608c7ee6c6a3227f5330eb653e52f7bf6893ec5d21c72bf8",
+      "annotations": {
+        "body": "sedan"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "high_reflection"
+      ],
+      "source": "stanford_cars_sample",
+      "group_id": "5318a897865ecac4608c7ee6c6a3227f5330eb653e52f7bf6893ec5d21c72bf8",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_sedan_07",
+      "domain": "vehicle",
+      "filename": "stanford_test_00274.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00274.jpg",
+      "sha256": "c1f3848f1be64a38da3997508ce3e69cb11eb3a83526dcca5442fba66bff399f",
+      "annotations": {
+        "body": "sedan"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "heavy_shadow",
+        "high_reflection",
+        "multiple_vehicles"
+      ],
+      "source": "stanford_cars_sample",
+      "group_id": "c1f3848f1be64a38da3997508ce3e69cb11eb3a83526dcca5442fba66bff399f",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_sedan_08",
+      "domain": "vehicle",
+      "filename": "stanford_test_00572.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00572.jpg",
+      "sha256": "ee247c2f465082cf03b22f16becd6b06f979f1905ae9f94d5670c7c0b8c5634a",
+      "annotations": {
+        "body": "sedan"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "stanford_cars_sample",
+      "group_id": "ee247c2f465082cf03b22f16becd6b06f979f1905ae9f94d5670c7c0b8c5634a",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_sedan_09",
+      "domain": "vehicle",
+      "filename": "stanford_test_00015.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00015.jpg",
+      "sha256": "a14d5946d2721dd9b004ed8873ac86edd0c80595fc195f549ab78379259a67d8",
+      "annotations": {
+        "body": "sedan"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "high_reflection"
+      ],
+      "source": "stanford_cars_sample",
+      "group_id": "a14d5946d2721dd9b004ed8873ac86edd0c80595fc195f549ab78379259a67d8",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_sedan_10",
+      "domain": "vehicle",
+      "filename": "stanford_test_00297.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00297.jpg",
+      "sha256": "56033d66f24b149cdf660e86b7554895dd46de799eb06ad595ee7a0d70d23337",
+      "annotations": {
+        "body": "sedan"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "stanford_cars_sample",
+      "group_id": "56033d66f24b149cdf660e86b7554895dd46de799eb06ad595ee7a0d70d23337",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_suv_01",
+      "domain": "vehicle",
+      "filename": "real_dodge_2.jpg",
+      "rel_path": "eval/images/cars/real_dodge_2.jpg",
+      "sha256": "3e0d2f521365210c0161495b74bbe78882c96f0e2de283032f53ecc34bfcee8a",
+      "annotations": {
+        "body": "suv"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ],
+      "source": "real_cars_metadata",
+      "group_id": "3e0d2f521365210c0161495b74bbe78882c96f0e2de283032f53ecc34bfcee8a",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_suv_02",
+      "domain": "vehicle",
+      "filename": "real_chevrolet_1.jpg",
+      "rel_path": "eval/images/cars/real_chevrolet_1.jpg",
+      "sha256": "419fddba2a109bbf7ac13caf6dcfcfd3ce32252810208c1958db76122077ab7d",
+      "annotations": {
+        "body": "suv"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "heavy_shadow",
+        "high_reflection"
+      ],
+      "source": "real_cars_metadata",
+      "group_id": "419fddba2a109bbf7ac13caf6dcfcfd3ce32252810208c1958db76122077ab7d",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_suv_03",
+      "domain": "vehicle",
+      "filename": "real_toyota_1.jpg",
+      "rel_path": "eval/images/cars/real_toyota_1.jpg",
+      "sha256": "dff1bfbc9d829a03411d9efe58cb56e7ac2e4d79889af7a613ba377f05817ad3",
+      "annotations": {
+        "body": "suv"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "heavy_shadow"
+      ],
+      "source": "real_cars_metadata",
+      "group_id": "dff1bfbc9d829a03411d9efe58cb56e7ac2e4d79889af7a613ba377f05817ad3",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_suv_04",
+      "domain": "vehicle",
+      "filename": "real_ford_2.jpg",
+      "rel_path": "eval/images/cars/real_ford_2.jpg",
+      "sha256": "15451268e9118c3033f0767fd6fc24879a0cefceee5cdabf5eba62f1784f3aa3",
+      "annotations": {
+        "body": "suv"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "real_cars_metadata",
+      "group_id": "15451268e9118c3033f0767fd6fc24879a0cefceee5cdabf5eba62f1784f3aa3",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_suv_05",
+      "domain": "vehicle",
+      "filename": "real_jeep_1.jpg",
+      "rel_path": "eval/images/cars/real_jeep_1.jpg",
+      "sha256": "45b6992d545a65e77a00f4deb625c641163423ecec8493e1c6ddf6d55943087b",
+      "annotations": {
+        "body": "suv"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ],
+      "source": "real_cars_metadata",
+      "group_id": "45b6992d545a65e77a00f4deb625c641163423ecec8493e1c6ddf6d55943087b",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_suv_06",
+      "domain": "vehicle",
+      "filename": "real_jeep_2.jpg",
+      "rel_path": "eval/images/cars/real_jeep_2.jpg",
+      "sha256": "62d8080b4fad81ee751f487d2fd693099d04a559215e6f474a98fd635e5f658b",
+      "annotations": {
+        "body": "suv"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "real_cars_metadata",
+      "group_id": "62d8080b4fad81ee751f487d2fd693099d04a559215e6f474a98fd635e5f658b",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_suv_07",
+      "domain": "vehicle",
+      "filename": "stanford_test_00452.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00452.jpg",
+      "sha256": "26be73375903b0cb970fb3b65adefae046618aa97c69228743a30b367811d317",
+      "annotations": {
+        "body": "suv"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "high_reflection",
+        "multiple_vehicles"
+      ],
+      "source": "stanford_cars_sample",
+      "group_id": "26be73375903b0cb970fb3b65adefae046618aa97c69228743a30b367811d317",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_suv_08",
+      "domain": "vehicle",
+      "filename": "stanford_test_00083.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00083.jpg",
+      "sha256": "5826750cbca69531e63473cdd6305d452e27f6a526cf69012e80f366f5e90752",
+      "annotations": {
+        "body": "suv"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ],
+      "source": "stanford_cars_sample",
+      "group_id": "5826750cbca69531e63473cdd6305d452e27f6a526cf69012e80f366f5e90752",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_suv_09",
+      "domain": "vehicle",
+      "filename": "stanford_test_00899.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00899.jpg",
+      "sha256": "04aaf44056ff5220922f18e1b7627ab5ba93afa447b27716420a7bc9286d8278",
+      "annotations": {
+        "body": "suv"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ],
+      "source": "stanford_cars_sample",
+      "group_id": "04aaf44056ff5220922f18e1b7627ab5ba93afa447b27716420a7bc9286d8278",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_suv_10",
+      "domain": "vehicle",
+      "filename": "stanford_test_00661.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00661.jpg",
+      "sha256": "e4acab91a5f92763a2dcd130b33c4d37edbc10d3ebe7865ecbc1902cb469d165",
+      "annotations": {
+        "body": "suv"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ],
+      "source": "stanford_cars_sample",
+      "group_id": "e4acab91a5f92763a2dcd130b33c4d37edbc10d3ebe7865ecbc1902cb469d165",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_truck_01",
+      "domain": "vehicle",
+      "filename": "real_dodge_1.jpg",
+      "rel_path": "eval/images/cars/real_dodge_1.jpg",
+      "sha256": "6acbbcd51594dcedec392eb8d4f210d1ed91e948a38f54a446cf9e669e226915",
+      "annotations": {
+        "body": "truck"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "real_cars_metadata",
+      "group_id": "6acbbcd51594dcedec392eb8d4f210d1ed91e948a38f54a446cf9e669e226915",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_truck_02",
+      "domain": "vehicle",
+      "filename": "real_ford_1.jpg",
+      "rel_path": "eval/images/cars/real_ford_1.jpg",
+      "sha256": "59c82ea0b41db4c9ef70c63016cebcbed387e12f7b1d037e24b32975cec692f7",
+      "annotations": {
+        "body": "truck"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "heavy_shadow",
+        "multiple_vehicles"
+      ],
+      "source": "real_cars_metadata",
+      "group_id": "59c82ea0b41db4c9ef70c63016cebcbed387e12f7b1d037e24b32975cec692f7",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_truck_03",
+      "domain": "vehicle",
+      "filename": "stanford_test_00690.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00690.jpg",
+      "sha256": "b42e512cb98910bbccf171e06289aaacb6afc7c0d5c6252a3cbec6c20d19e35f",
+      "annotations": {
+        "body": "truck"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "heavy_shadow"
+      ],
+      "source": "stanford_cars_sample",
+      "group_id": "b42e512cb98910bbccf171e06289aaacb6afc7c0d5c6252a3cbec6c20d19e35f",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_truck_04",
+      "domain": "vehicle",
+      "filename": "stanford_test_00140.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00140.jpg",
+      "sha256": "e8e9a695b17155cf3c277c8b62a2c4561263b60ca903356efc8bc20b8e435575",
+      "annotations": {
+        "body": "truck"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "high_reflection"
+      ],
+      "source": "stanford_cars_sample",
+      "group_id": "e8e9a695b17155cf3c277c8b62a2c4561263b60ca903356efc8bc20b8e435575",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_truck_05",
+      "domain": "vehicle",
+      "filename": "type_truck_01.jpg",
+      "rel_path": "eval/images/vehicle_type/type_truck_01.jpg",
+      "sha256": "15fd457149227ea00ec6b584c0e70926e2c28606c436c100e701edf04a20adc8",
+      "annotations": {
+        "body": "truck"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "heavy_shadow",
+        "high_reflection",
+        "multiple_vehicles"
+      ],
+      "source": "wikimedia_commons",
+      "group_id": "15fd457149227ea00ec6b584c0e70926e2c28606c436c100e701edf04a20adc8",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_truck_06",
+      "domain": "vehicle",
+      "filename": "type_truck_02.jpg",
+      "rel_path": "eval/images/vehicle_type/type_truck_02.jpg",
+      "sha256": "d3f2c10ec636308099fa877660a4e12ff33e953f93876f2aedb514b4a02eb048",
+      "annotations": {
+        "body": "truck"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "wikimedia_commons",
+      "group_id": "d3f2c10ec636308099fa877660a4e12ff33e953f93876f2aedb514b4a02eb048",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_truck_07",
+      "domain": "vehicle",
+      "filename": "type_truck_03.jpg",
+      "rel_path": "eval/images/vehicle_type/type_truck_03.jpg",
+      "sha256": "9ef66572a76827409641e369375ab60f267febda725e4691812af51b21d29278",
+      "annotations": {
+        "body": "truck"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "partial_or_atypical_view"
+      ],
+      "source": "wikimedia_commons",
+      "group_id": "9ef66572a76827409641e369375ab60f267febda725e4691812af51b21d29278",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_truck_08",
+      "domain": "vehicle",
+      "filename": "type_truck_04.jpg",
+      "rel_path": "eval/images/vehicle_type/type_truck_04.jpg",
+      "sha256": "af530139d5a05088f256afbcb52ac61579f4beb1aa8fe21bdef4605988fb0538",
+      "annotations": {
+        "body": "truck"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "high_reflection",
+        "multiple_vehicles"
+      ],
+      "source": "wikimedia_commons",
+      "group_id": "af530139d5a05088f256afbcb52ac61579f4beb1aa8fe21bdef4605988fb0538",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_truck_09",
+      "domain": "vehicle",
+      "filename": "type_truck_05.jpg",
+      "rel_path": "eval/images/vehicle_type/type_truck_05.jpg",
+      "sha256": "033fae5f682626ae18a7bcb87a02b3d42a74b02e21c9cffbbd538542619cbf54",
+      "annotations": {
+        "body": "truck"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "high_reflection",
+        "partial_or_atypical_view"
+      ],
+      "source": "wikimedia_commons",
+      "group_id": "033fae5f682626ae18a7bcb87a02b3d42a74b02e21c9cffbbd538542619cbf54",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_truck_10",
+      "domain": "vehicle",
+      "filename": "type_truck_06.jpg",
+      "rel_path": "eval/images/vehicle_type/type_truck_06.jpg",
+      "sha256": "ef238657eb846890ee87cfcea89e4a7fb133d4e6bcc1895cbe7c05aca7573a19",
+      "annotations": {
+        "body": "truck"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "heavy_shadow",
+        "high_reflection",
+        "partial_or_atypical_view"
+      ],
+      "source": "wikimedia_commons",
+      "group_id": "ef238657eb846890ee87cfcea89e4a7fb133d4e6bcc1895cbe7c05aca7573a19",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_unknown_01",
+      "domain": "vehicle",
+      "filename": "no_car_03.jpg",
+      "rel_path": "eval/images/unknown_controls/no_car_03.jpg",
+      "sha256": "38b4efc34f71a810ae31ce5e870c636cefee6c8d1f7fa87b2f8cb7c4b21c409c",
+      "annotations": {
+        "body": "unknown"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "curated_negative_controls",
+      "group_id": "38b4efc34f71a810ae31ce5e870c636cefee6c8d1f7fa87b2f8cb7c4b21c409c",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_unknown_02",
+      "domain": "vehicle",
+      "filename": "no_car_04.jpg",
+      "rel_path": "eval/images/unknown_controls/no_car_04.jpg",
+      "sha256": "57137cd742da0c85521567bd14bb113191a55437387384c38dacf5e9babb6c21",
+      "annotations": {
+        "body": "unknown"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "curated_negative_controls",
+      "group_id": "57137cd742da0c85521567bd14bb113191a55437387384c38dacf5e9babb6c21",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_unknown_03",
+      "domain": "vehicle",
+      "filename": "no_car_05.jpg",
+      "rel_path": "eval/images/unknown_controls/no_car_05.jpg",
+      "sha256": "ed6f851d0ca9659a59cc817ea8d1096d94150edb6579ef9e58f519065bcb9216",
+      "annotations": {
+        "body": "unknown"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "curated_negative_controls",
+      "group_id": "ed6f851d0ca9659a59cc817ea8d1096d94150edb6579ef9e58f519065bcb9216",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_unknown_04",
+      "domain": "vehicle",
+      "filename": "no_car_06.jpg",
+      "rel_path": "eval/images/unknown_controls/no_car_06.jpg",
+      "sha256": "9ff4d9b345f61316961d4b8ced71b5f3329ff682dcce7a6673029fc605ee3dc1",
+      "annotations": {
+        "body": "unknown"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "curated_negative_controls",
+      "group_id": "9ff4d9b345f61316961d4b8ced71b5f3329ff682dcce7a6673029fc605ee3dc1",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_unknown_05",
+      "domain": "vehicle",
+      "filename": "no_car_07.jpg",
+      "rel_path": "eval/images/unknown_controls/no_car_07.jpg",
+      "sha256": "79094b5020561ee379ead06d2f81f1d5d89880c4fc5ce15ebadbf5debb7f2658",
+      "annotations": {
+        "body": "unknown"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "curated_negative_controls",
+      "group_id": "79094b5020561ee379ead06d2f81f1d5d89880c4fc5ce15ebadbf5debb7f2658",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_unknown_06",
+      "domain": "vehicle",
+      "filename": "no_car_08.jpg",
+      "rel_path": "eval/images/unknown_controls/no_car_08.jpg",
+      "sha256": "cf19d3efcc82b325335886bdc9ab4d352d6079afe0c87fe2e3392e9855e3d1ac",
+      "annotations": {
+        "body": "unknown"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "curated_negative_controls",
+      "group_id": "cf19d3efcc82b325335886bdc9ab4d352d6079afe0c87fe2e3392e9855e3d1ac",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_unknown_07",
+      "domain": "vehicle",
+      "filename": "no_car_09.jpg",
+      "rel_path": "eval/images/unknown_controls/no_car_09.jpg",
+      "sha256": "d7bcff4b75c0d8b81924500b0921e98686bfbf4a00aabe7b2749a83d742e24d0",
+      "annotations": {
+        "body": "unknown"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "curated_negative_controls",
+      "group_id": "d7bcff4b75c0d8b81924500b0921e98686bfbf4a00aabe7b2749a83d742e24d0",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_unknown_08",
+      "domain": "vehicle",
+      "filename": "no_car_10.jpg",
+      "rel_path": "eval/images/unknown_controls/no_car_10.jpg",
+      "sha256": "f18b658366648a7c222c3c57d3b1449af0e1d30b1edca841112578fb5ea77902",
+      "annotations": {
+        "body": "unknown"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "curated_negative_controls",
+      "group_id": "f18b658366648a7c222c3c57d3b1449af0e1d30b1edca841112578fb5ea77902",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_unknown_09",
+      "domain": "vehicle",
+      "filename": "no_car_field.jpg",
+      "rel_path": "eval/images/unknown_controls/no_car_field.jpg",
+      "sha256": "c4e870d358d64ce677e958c156d0e3fba466993d8e915fc81c5dc64937a9b696",
+      "annotations": {
+        "body": "unknown"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "curated_negative_controls",
+      "group_id": "c4e870d358d64ce677e958c156d0e3fba466993d8e915fc81c5dc64937a9b696",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_unknown_10",
+      "domain": "vehicle",
+      "filename": "no_car_landscape.jpg",
+      "rel_path": "eval/images/unknown_controls/no_car_landscape.jpg",
+      "sha256": "483cbf0e5f28194105303c04b8acfefc7bb557450c288c66e6233ea42a1ca23c",
+      "annotations": {
+        "body": "unknown"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "curated_negative_controls",
+      "group_id": "483cbf0e5f28194105303c04b8acfefc7bb557450c288c66e6233ea42a1ca23c",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_van_01",
+      "domain": "vehicle",
+      "filename": "real_honda_1.jpg",
+      "rel_path": "eval/images/cars/real_honda_1.jpg",
+      "sha256": "eadf42393d23a10b395b17009cdbab58769318d3205fb8b2635ad1348cc899e0",
+      "annotations": {
+        "body": "van"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "real_cars_metadata",
+      "group_id": "eadf42393d23a10b395b17009cdbab58769318d3205fb8b2635ad1348cc899e0",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_van_02",
+      "domain": "vehicle",
+      "filename": "van_stanford_02.jpg",
+      "rel_path": "eval/images/vehicle_type/van_stanford_02.jpg",
+      "sha256": "b275389331a3779eed64485d5113657828468806cfe6a211dca96d45fe38cda4",
+      "annotations": {
+        "body": "van"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "high_reflection"
+      ],
+      "source": "stanford_cars_api",
+      "group_id": "b275389331a3779eed64485d5113657828468806cfe6a211dca96d45fe38cda4",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_van_03",
+      "domain": "vehicle",
+      "filename": "van_stanford_03.jpg",
+      "rel_path": "eval/images/vehicle_type/van_stanford_03.jpg",
+      "sha256": "73797416d14d89a785d814ce1ce52f0c4769a805e522228491bd023e2bd2bb2a",
+      "annotations": {
+        "body": "van"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_vehicles"
+      ],
+      "source": "stanford_cars_api",
+      "group_id": "73797416d14d89a785d814ce1ce52f0c4769a805e522228491bd023e2bd2bb2a",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_van_04",
+      "domain": "vehicle",
+      "filename": "van_stanford_04.jpg",
+      "rel_path": "eval/images/vehicle_type/van_stanford_04.jpg",
+      "sha256": "98a9647b2621688dbb8506f2e481afc367fe6992e32c5ab7655349af8020cef0",
+      "annotations": {
+        "body": "van"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "high_reflection",
+        "multiple_vehicles"
+      ],
+      "source": "stanford_cars_api",
+      "group_id": "98a9647b2621688dbb8506f2e481afc367fe6992e32c5ab7655349af8020cef0",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_van_05",
+      "domain": "vehicle",
+      "filename": "van_stanford_05.jpg",
+      "rel_path": "eval/images/vehicle_type/van_stanford_05.jpg",
+      "sha256": "0b493c8da6d429d0b97166e2bc62b24db456773858bb79c150c37e42f7557010",
+      "annotations": {
+        "body": "van"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "high_reflection",
+        "multiple_vehicles"
+      ],
+      "source": "stanford_cars_api",
+      "group_id": "0b493c8da6d429d0b97166e2bc62b24db456773858bb79c150c37e42f7557010",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_van_06",
+      "domain": "vehicle",
+      "filename": "van_stanford_06.jpg",
+      "rel_path": "eval/images/vehicle_type/van_stanford_06.jpg",
+      "sha256": "efa5d8decbe0f56a5a3ff5211f433dc5f1a9ce2657bb5b08396f96eaf7751a6e",
+      "annotations": {
+        "body": "van"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "heavy_shadow",
+        "high_reflection",
+        "multiple_vehicles"
+      ],
+      "source": "stanford_cars_api",
+      "group_id": "efa5d8decbe0f56a5a3ff5211f433dc5f1a9ce2657bb5b08396f96eaf7751a6e",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_van_07",
+      "domain": "vehicle",
+      "filename": "van_stanford_07.jpg",
+      "rel_path": "eval/images/vehicle_type/van_stanford_07.jpg",
+      "sha256": "e7be69f9ed58e9eeb0feadc6d054885aa62bdf10241924ab85561777dcee00cb",
+      "annotations": {
+        "body": "van"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "stanford_cars_api",
+      "group_id": "e7be69f9ed58e9eeb0feadc6d054885aa62bdf10241924ab85561777dcee00cb",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_van_08",
+      "domain": "vehicle",
+      "filename": "van_stanford_08.jpg",
+      "rel_path": "eval/images/vehicle_type/van_stanford_08.jpg",
+      "sha256": "b543e1cbd94c5d0d5ab1db3998d229dbbfc27e192f59b1a3619b6498990c12e9",
+      "annotations": {
+        "body": "van"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "high_reflection",
+        "multiple_vehicles"
+      ],
+      "source": "stanford_cars_api",
+      "group_id": "b543e1cbd94c5d0d5ab1db3998d229dbbfc27e192f59b1a3619b6498990c12e9",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_van_09",
+      "domain": "vehicle",
+      "filename": "van_stanford_09.jpg",
+      "rel_path": "eval/images/vehicle_type/van_stanford_09.jpg",
+      "sha256": "2152a6b574c8d0fe240d977220b7a0b741bcb83ab60c38aec9a25babb5474a4e",
+      "annotations": {
+        "body": "van"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "stanford_cars_api",
+      "group_id": "2152a6b574c8d0fe240d977220b7a0b741bcb83ab60c38aec9a25babb5474a4e",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "type_van_10",
+      "domain": "vehicle",
+      "filename": "van_stanford_10.jpg",
+      "rel_path": "eval/images/vehicle_type/van_stanford_10.jpg",
+      "sha256": "0df7677ec8fffb4378cdbc97faf65f1b1f7829640a94afd1366b469e27bced7f",
+      "annotations": {
+        "body": "van"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "heavy_shadow",
+        "high_reflection"
+      ],
+      "source": "stanford_cars_api",
+      "group_id": "0df7677ec8fffb4378cdbc97faf65f1b1f7829640a94afd1366b469e27bced7f",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    }
+  ]
+}

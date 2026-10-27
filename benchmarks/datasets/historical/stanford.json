@@ -1,0 +1,491 @@
+{
+  "schema_version": 1,
+  "name": "Stanford Cars: marca e carroceria",
+  "label_status": "exploratory_historical_unadjudicated",
+  "source_manifest": "eval/datasets/stanford_cars_sample.json",
+  "source_manifest_sha256": "39575b15594bd5e7210510f43c05547d7527f4aae6456ae2eb56773dc78db4da",
+  "required_contract": "historical",
+  "note": "Gabaritos históricos exploratórios. Imagens derivadas compartilham grupo; eventos não equivalem a imagens independentes. hatchback → hatch; pickup e truck preservados.",
+  "items": [
+    {
+      "id": "stanford_test_00223.jpg",
+      "domain": "vehicle",
+      "filename": "stanford_test_00223.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00223.jpg",
+      "sha256": "05fc6ebc40c458822db77df9b566ffa4bff408258b69479817c84e4ef672bf87",
+      "annotations": {
+        "make": "dodge",
+        "body": "wagon"
+      },
+      "group_id": "05fc6ebc40c458822db77df9b566ffa4bff408258b69479817c84e4ef672bf87"
+    },
+    {
+      "id": "stanford_test_00500.jpg",
+      "domain": "vehicle",
+      "filename": "stanford_test_00500.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00500.jpg",
+      "sha256": "4ebf5882fcb99cc296915f3162a01712b204b22881d798640b6b440a9b3c7f02",
+      "annotations": {
+        "make": "dodge",
+        "body": "other"
+      },
+      "group_id": "4ebf5882fcb99cc296915f3162a01712b204b22881d798640b6b440a9b3c7f02"
+    },
+    {
+      "id": "stanford_test_00634.jpg",
+      "domain": "vehicle",
+      "filename": "stanford_test_00634.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00634.jpg",
+      "sha256": "9b59a0e0ed29aa6e529544ff2c20df096da7573e7435cf357605ae085e807ba6",
+      "annotations": {
+        "make": "porsche",
+        "body": "sedan"
+      },
+      "group_id": "9b59a0e0ed29aa6e529544ff2c20df096da7573e7435cf357605ae085e807ba6"
+    },
+    {
+      "id": "stanford_test_00690.jpg",
+      "domain": "vehicle",
+      "filename": "stanford_test_00690.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00690.jpg",
+      "sha256": "b42e512cb98910bbccf171e06289aaacb6afc7c0d5c6252a3cbec6c20d19e35f",
+      "annotations": {
+        "make": "chevrolet",
+        "body": "truck"
+      },
+      "group_id": "b42e512cb98910bbccf171e06289aaacb6afc7c0d5c6252a3cbec6c20d19e35f"
+    },
+    {
+      "id": "stanford_test_00177.jpg",
+      "domain": "vehicle",
+      "filename": "stanford_test_00177.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00177.jpg",
+      "sha256": "9be6a466f172cd6447c07128561074e321351a38cbd365e5e83912981ac8ee9c",
+      "annotations": {
+        "make": "bmw",
+        "body": "convertible"
+      },
+      "group_id": "9be6a466f172cd6447c07128561074e321351a38cbd365e5e83912981ac8ee9c"
+    },
+    {
+      "id": "stanford_test_00590.jpg",
+      "domain": "vehicle",
+      "filename": "stanford_test_00590.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00590.jpg",
+      "sha256": "96fc6c6973e0d3d6c722da2d00f5f76ead7c86a57ccea3a593799a599b2d840b",
+      "annotations": {
+        "make": "other",
+        "body": "sedan"
+      },
+      "group_id": "96fc6c6973e0d3d6c722da2d00f5f76ead7c86a57ccea3a593799a599b2d840b"
+    },
+    {
+      "id": "stanford_test_00975.jpg",
+      "domain": "vehicle",
+      "filename": "stanford_test_00975.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00975.jpg",
+      "sha256": "52b3b99f2e9fff640b53ba1cbf89d930b57f951c713a692c40e49a07a839cb3e",
+      "annotations": {
+        "make": "chevrolet",
+        "body": "other"
+      },
+      "group_id": "52b3b99f2e9fff640b53ba1cbf89d930b57f951c713a692c40e49a07a839cb3e"
+    },
+    {
+      "id": "stanford_test_00226.jpg",
+      "domain": "vehicle",
+      "filename": "stanford_test_00226.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00226.jpg",
+      "sha256": "839ef81ee237ad2fc6f3e8e3ceb5a88016e9c71947109d298de09979cffb3417",
+      "annotations": {
+        "make": "ford",
+        "body": "coupe"
+      },
+      "group_id": "839ef81ee237ad2fc6f3e8e3ceb5a88016e9c71947109d298de09979cffb3417"
+    },
+    {
+      "id": "stanford_test_00012.jpg",
+      "domain": "vehicle",
+      "filename": "stanford_test_00012.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00012.jpg",
+      "sha256": "dee6665ea4835eba166232105075c5c7c94e0f23360bd6303c9a81ef7ce1d409",
+      "annotations": {
+        "make": "ford",
+        "body": "wagon"
+      },
+      "group_id": "dee6665ea4835eba166232105075c5c7c94e0f23360bd6303c9a81ef7ce1d409"
+    },
+    {
+      "id": "stanford_test_00683.jpg",
+      "domain": "vehicle",
+      "filename": "stanford_test_00683.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00683.jpg",
+      "sha256": "7a2484738ad3b4e1f051b4f310e69f26004fe0ede94b8698c0008f7ff4f9b1ce",
+      "annotations": {
+        "make": "ferrari",
+        "body": "convertible"
+      },
+      "group_id": "7a2484738ad3b4e1f051b4f310e69f26004fe0ede94b8698c0008f7ff4f9b1ce"
+    },
+    {
+      "id": "stanford_test_00788.jpg",
+      "domain": "vehicle",
+      "filename": "stanford_test_00788.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00788.jpg",
+      "sha256": "5318a897865ecac4608c7ee6c6a3227f5330eb653e52f7bf6893ec5d21c72bf8",
+      "annotations": {
+        "make": "bmw",
+        "body": "sedan"
+      },
+      "group_id": "5318a897865ecac4608c7ee6c6a3227f5330eb653e52f7bf6893ec5d21c72bf8"
+    },
+    {
+      "id": "stanford_test_00274.jpg",
+      "domain": "vehicle",
+      "filename": "stanford_test_00274.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00274.jpg",
+      "sha256": "c1f3848f1be64a38da3997508ce3e69cb11eb3a83526dcca5442fba66bff399f",
+      "annotations": {
+        "make": "hyundai",
+        "body": "sedan"
+      },
+      "group_id": "c1f3848f1be64a38da3997508ce3e69cb11eb3a83526dcca5442fba66bff399f"
+    },
+    {
+      "id": "stanford_test_00415.jpg",
+      "domain": "vehicle",
+      "filename": "stanford_test_00415.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00415.jpg",
+      "sha256": "9c667c37423ca111acebfc3abe66dba4e655e21a8850c7c40d67a704350c0277",
+      "annotations": {
+        "make": "other",
+        "body": "other"
+      },
+      "group_id": "9c667c37423ca111acebfc3abe66dba4e655e21a8850c7c40d67a704350c0277"
+    },
+    {
+      "id": "stanford_test_00572.jpg",
+      "domain": "vehicle",
+      "filename": "stanford_test_00572.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00572.jpg",
+      "sha256": "ee247c2f465082cf03b22f16becd6b06f979f1905ae9f94d5670c7c0b8c5634a",
+      "annotations": {
+        "make": "hyundai",
+        "body": "sedan"
+      },
+      "group_id": "ee247c2f465082cf03b22f16becd6b06f979f1905ae9f94d5670c7c0b8c5634a"
+    },
+    {
+      "id": "stanford_test_00015.jpg",
+      "domain": "vehicle",
+      "filename": "stanford_test_00015.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00015.jpg",
+      "sha256": "a14d5946d2721dd9b004ed8873ac86edd0c80595fc195f549ab78379259a67d8",
+      "annotations": {
+        "make": "other",
+        "body": "sedan"
+      },
+      "group_id": "a14d5946d2721dd9b004ed8873ac86edd0c80595fc195f549ab78379259a67d8"
+    },
+    {
+      "id": "stanford_test_00349.jpg",
+      "domain": "vehicle",
+      "filename": "stanford_test_00349.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00349.jpg",
+      "sha256": "ae32a80cc2e9b5bba37b274353fe8bad86ec399eb965ae92f142a11b3be2a941",
+      "annotations": {
+        "make": "other",
+        "body": "convertible"
+      },
+      "group_id": "ae32a80cc2e9b5bba37b274353fe8bad86ec399eb965ae92f142a11b3be2a941"
+    },
+    {
+      "id": "stanford_test_00297.jpg",
+      "domain": "vehicle",
+      "filename": "stanford_test_00297.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00297.jpg",
+      "sha256": "56033d66f24b149cdf660e86b7554895dd46de799eb06ad595ee7a0d70d23337",
+      "annotations": {
+        "make": "other",
+        "body": "sedan"
+      },
+      "group_id": "56033d66f24b149cdf660e86b7554895dd46de799eb06ad595ee7a0d70d23337"
+    },
+    {
+      "id": "stanford_test_00112.jpg",
+      "domain": "vehicle",
+      "filename": "stanford_test_00112.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00112.jpg",
+      "sha256": "af7d843002fc3aa18867d6db3b7457458c14d6099ecad2c95a7019c969de793b",
+      "annotations": {
+        "make": "mercedes_benz",
+        "body": "sedan"
+      },
+      "group_id": "af7d843002fc3aa18867d6db3b7457458c14d6099ecad2c95a7019c969de793b"
+    },
+    {
+      "id": "stanford_test_00452.jpg",
+      "domain": "vehicle",
+      "filename": "stanford_test_00452.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00452.jpg",
+      "sha256": "26be73375903b0cb970fb3b65adefae046618aa97c69228743a30b367811d317",
+      "annotations": {
+        "make": "other",
+        "body": "suv"
+      },
+      "group_id": "26be73375903b0cb970fb3b65adefae046618aa97c69228743a30b367811d317"
+    },
+    {
+      "id": "stanford_test_00674.jpg",
+      "domain": "vehicle",
+      "filename": "stanford_test_00674.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00674.jpg",
+      "sha256": "9521ec751cc135aafa4e84e2bcb27230a33b30217bc1377f945f4de5c74453e6",
+      "annotations": {
+        "make": "ferrari",
+        "body": "coupe"
+      },
+      "group_id": "9521ec751cc135aafa4e84e2bcb27230a33b30217bc1377f945f4de5c74453e6"
+    },
+    {
+      "id": "stanford_test_00592.jpg",
+      "domain": "vehicle",
+      "filename": "stanford_test_00592.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00592.jpg",
+      "sha256": "fda1f0a64b9a0942d8f6d4605ef1b09a633f0636c39a118a3123d379a1465a0f",
+      "annotations": {
+        "make": "volkswagen",
+        "body": "hatch"
+      },
+      "group_id": "fda1f0a64b9a0942d8f6d4605ef1b09a633f0636c39a118a3123d379a1465a0f"
+    },
+    {
+      "id": "stanford_test_00908.jpg",
+      "domain": "vehicle",
+      "filename": "stanford_test_00908.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00908.jpg",
+      "sha256": "711b993ce4e1da89f8d8289ed5b6bdd3936898cf02c360ea98a74d7562cf833f",
+      "annotations": {
+        "make": "other",
+        "body": "coupe"
+      },
+      "group_id": "711b993ce4e1da89f8d8289ed5b6bdd3936898cf02c360ea98a74d7562cf833f"
+    },
+    {
+      "id": "stanford_test_00987.jpg",
+      "domain": "vehicle",
+      "filename": "stanford_test_00987.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00987.jpg",
+      "sha256": "cb89bbd66a365d070d97b1c18027bbc65180df3eb9986c7b4baebee071ea88af",
+      "annotations": {
+        "make": "audi",
+        "body": "coupe"
+      },
+      "group_id": "cb89bbd66a365d070d97b1c18027bbc65180df3eb9986c7b4baebee071ea88af"
+    },
+    {
+      "id": "stanford_test_00729.jpg",
+      "domain": "vehicle",
+      "filename": "stanford_test_00729.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00729.jpg",
+      "sha256": "a17da72c43c35eac12bd6f65975012e269cd93dcef629d6d59ade4005336f91b",
+      "annotations": {
+        "make": "other",
+        "body": "sedan"
+      },
+      "group_id": "a17da72c43c35eac12bd6f65975012e269cd93dcef629d6d59ade4005336f91b"
+    },
+    {
+      "id": "stanford_test_00807.jpg",
+      "domain": "vehicle",
+      "filename": "stanford_test_00807.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00807.jpg",
+      "sha256": "70ca62e5a919200bf0373be2514fca6df326580a415b37c79efd28adf8a254e7",
+      "annotations": {
+        "make": "other",
+        "body": "convertible"
+      },
+      "group_id": "70ca62e5a919200bf0373be2514fca6df326580a415b37c79efd28adf8a254e7"
+    },
+    {
+      "id": "stanford_test_00382.jpg",
+      "domain": "vehicle",
+      "filename": "stanford_test_00382.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00382.jpg",
+      "sha256": "89ab1b2734fa14b827da1fd92eb3bc0e53c000bce404e3719641a9f0763323e7",
+      "annotations": {
+        "make": "other",
+        "body": "other"
+      },
+      "group_id": "89ab1b2734fa14b827da1fd92eb3bc0e53c000bce404e3719641a9f0763323e7"
+    },
+    {
+      "id": "stanford_test_00996.jpg",
+      "domain": "vehicle",
+      "filename": "stanford_test_00996.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00996.jpg",
+      "sha256": "cad885e68653b99e0e0cbd49c32a2b7655e0ff4db51e44805270b70dc90b5c24",
+      "annotations": {
+        "make": "other",
+        "body": "convertible"
+      },
+      "group_id": "cad885e68653b99e0e0cbd49c32a2b7655e0ff4db51e44805270b70dc90b5c24"
+    },
+    {
+      "id": "stanford_test_00083.jpg",
+      "domain": "vehicle",
+      "filename": "stanford_test_00083.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00083.jpg",
+      "sha256": "5826750cbca69531e63473cdd6305d452e27f6a526cf69012e80f366f5e90752",
+      "annotations": {
+        "make": "volvo",
+        "body": "suv"
+      },
+      "group_id": "5826750cbca69531e63473cdd6305d452e27f6a526cf69012e80f366f5e90752"
+    },
+    {
+      "id": "stanford_test_00899.jpg",
+      "domain": "vehicle",
+      "filename": "stanford_test_00899.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00899.jpg",
+      "sha256": "04aaf44056ff5220922f18e1b7627ab5ba93afa447b27716420a7bc9286d8278",
+      "annotations": {
+        "make": "other",
+        "body": "suv"
+      },
+      "group_id": "04aaf44056ff5220922f18e1b7627ab5ba93afa447b27716420a7bc9286d8278"
+    },
+    {
+      "id": "stanford_test_00661.jpg",
+      "domain": "vehicle",
+      "filename": "stanford_test_00661.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00661.jpg",
+      "sha256": "e4acab91a5f92763a2dcd130b33c4d37edbc10d3ebe7865ecbc1902cb469d165",
+      "annotations": {
+        "make": "mazda",
+        "body": "suv"
+      },
+      "group_id": "e4acab91a5f92763a2dcd130b33c4d37edbc10d3ebe7865ecbc1902cb469d165"
+    },
+    {
+      "id": "stanford_test_00185.jpg",
+      "domain": "vehicle",
+      "filename": "stanford_test_00185.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00185.jpg",
+      "sha256": "92680256d13817551591d1d6e597eedd65db27f238d060dd1982a9664e2c0677",
+      "annotations": {
+        "make": "other",
+        "body": "sedan"
+      },
+      "group_id": "92680256d13817551591d1d6e597eedd65db27f238d060dd1982a9664e2c0677"
+    },
+    {
+      "id": "stanford_test_00647.jpg",
+      "domain": "vehicle",
+      "filename": "stanford_test_00647.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00647.jpg",
+      "sha256": "9d7304743930a74d4bf7f7f87cd129e90028634e9a27bb891c2cffc174aa1b4a",
+      "annotations": {
+        "make": "audi",
+        "body": "sedan"
+      },
+      "group_id": "9d7304743930a74d4bf7f7f87cd129e90028634e9a27bb891c2cffc174aa1b4a"
+    },
+    {
+      "id": "stanford_test_00330.jpg",
+      "domain": "vehicle",
+      "filename": "stanford_test_00330.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00330.jpg",
+      "sha256": "8b13dcab8d7456539d4bd6787d28da9f853d86309cf94722f2599bfe1440194c",
+      "annotations": {
+        "make": "mitsubishi",
+        "body": "sedan"
+      },
+      "group_id": "8b13dcab8d7456539d4bd6787d28da9f853d86309cf94722f2599bfe1440194c"
+    },
+    {
+      "id": "stanford_test_00140.jpg",
+      "domain": "vehicle",
+      "filename": "stanford_test_00140.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00140.jpg",
+      "sha256": "e8e9a695b17155cf3c277c8b62a2c4561263b60ca903356efc8bc20b8e435575",
+      "annotations": {
+        "make": "other",
+        "body": "truck"
+      },
+      "group_id": "e8e9a695b17155cf3c277c8b62a2c4561263b60ca903356efc8bc20b8e435575"
+    },
+    {
+      "id": "stanford_test_00665.jpg",
+      "domain": "vehicle",
+      "filename": "stanford_test_00665.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00665.jpg",
+      "sha256": "ee69834d3984c8d45f617048fccb7f0082af2265385ae5119a7a6af4cbbdb7fe",
+      "annotations": {
+        "make": "jeep",
+        "body": "suv"
+      },
+      "group_id": "ee69834d3984c8d45f617048fccb7f0082af2265385ae5119a7a6af4cbbdb7fe"
+    },
+    {
+      "id": "stanford_test_00092.jpg",
+      "domain": "vehicle",
+      "filename": "stanford_test_00092.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00092.jpg",
+      "sha256": "82d2de60447e417b9cc179f5c24133553027c55225c7f3900702836107f39de5",
+      "annotations": {
+        "make": "toyota",
+        "body": "sedan"
+      },
+      "group_id": "82d2de60447e417b9cc179f5c24133553027c55225c7f3900702836107f39de5"
+    },
+    {
+      "id": "stanford_test_00875.jpg",
+      "domain": "vehicle",
+      "filename": "stanford_test_00875.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00875.jpg",
+      "sha256": "35f2608c73261a26f9fc5b5bdee8efe710853d858a92b4d4f27fbfc9a0d561b0",
+      "annotations": {
+        "make": "other",
+        "body": "sedan"
+      },
+      "group_id": "35f2608c73261a26f9fc5b5bdee8efe710853d858a92b4d4f27fbfc9a0d561b0"
+    },
+    {
+      "id": "stanford_test_00830.jpg",
+      "domain": "vehicle",
+      "filename": "stanford_test_00830.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00830.jpg",
+      "sha256": "4abe00c9462d01810a45e62823b587a1814a29001c7544172b9539cb70f27fe3",
+      "annotations": {
+        "make": "mercedes_benz",
+        "body": "sedan"
+      },
+      "group_id": "4abe00c9462d01810a45e62823b587a1814a29001c7544172b9539cb70f27fe3"
+    },
+    {
+      "id": "stanford_test_00739.jpg",
+      "domain": "vehicle",
+      "filename": "stanford_test_00739.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00739.jpg",
+      "sha256": "7fc8abb3a6cb80d11a9b929f56b8a50164c10e626f3d8e9f3f90c8beac1791bf",
+      "annotations": {
+        "make": "other",
+        "body": "coupe"
+      },
+      "group_id": "7fc8abb3a6cb80d11a9b929f56b8a50164c10e626f3d8e9f3f90c8beac1791bf"
+    },
+    {
+      "id": "stanford_test_00533.jpg",
+      "domain": "vehicle",
+      "filename": "stanford_test_00533.jpg",
+      "rel_path": "eval/images/stanford_cars/stanford_test_00533.jpg",
+      "sha256": "8cb5aace1775f24a103e2c07f52bcda5d727c35cf05c7fbf154460850ea446ac",
+      "annotations": {
+        "make": "other",
+        "body": "coupe"
+      },
+      "group_id": "8cb5aace1775f24a103e2c07f52bcda5d727c35cf05c7fbf154460850ea446ac"
+    }
+  ]
+}

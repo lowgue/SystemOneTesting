@@ -36,8 +36,12 @@ def run(folder):
             status.update(phase='Preparando modelos e avaliando dataset',dataset=request.get('dataset','portable'))
             write_json(folder/'status.json',status)
             run_path = folder / 'run'
-            arguments = ['run', '--config', request['config'], '--contract', request['contract'],
-                         '--manifest', request['manifest'], '--data-root', request.get('data_root',str(Path(request['manifest']).parents[2])), '--models', *request['models'],
+            from ..protocols import expand_specs
+            config = load_json(request['config'])
+            config['models'] = expand_specs([s for s in config['models'] if s['id'] in request['models']], request.get('comparison','baseline'))
+            write_json(folder/'experiment_config.json',config)
+            arguments = ['run', '--config', str(folder/'experiment_config.json'), '--contract', request['contract'],
+                         '--manifest', request['manifest'], '--data-root', request.get('data_root',str(Path(request['manifest']).parents[2])), '--models', *[s['id'] for s in config['models']],
                          '--output', str(run_path), '--repetitions', str(request['repetitions']),
                          '--threads', str(request['threads']), '--device', request['device']]
             if request.get('limit'):

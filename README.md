@@ -34,6 +34,8 @@ A imagem Docker padrão contém o backend HTTP, incluindo Clef pelo Ollama. Para
 
 ## Avaliar meu dataset
 
+O catálogo também oferece os sete testes históricos, com conjuntos de até **340 fotos** e recortes separados de avaliação/desenvolvimento. Em **O que comparar?**, escolha modelos, prompts, requests conjuntos ou chamadas por atributo. A tela mostra perguntas, formatos e orçamento antes de executar; o relatório inclui gráficos por atributo/classe, matrizes e diferenças pareadas. Consulte [datasets](docs/DATASETS.md) e [metodologia das comparações](docs/PROMPT_COMPARISONS.md). Imagens históricas não estão no Git; o painel permite exportar ZIP verificado para outro computador.
+
 Abra **Avaliar dataset → Importar minhas fotos**. Selecione as fotos, anexe um CSV de gabarito se disponível e clique em **Preparar dataset**. Depois, clique em **Iniciar avaliação do dataset**.
 
 O relatório mostra acurácia completa por foto, acurácia por atributo, precisão/recall/F1, mediana e P95 do tempo, falhas, validade do formato e recursos medidos. Inclui revisão por foto, matrizes de confusão e exportação CSV/JSON/PDF. Sem gabarito, ficam disponíveis somente as métricas de desempenho e falhas.

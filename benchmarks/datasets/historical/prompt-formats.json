@@ -1,0 +1,627 @@
+{
+  "schema_version": 1,
+  "name": "Comparação histórica de prompts: cores",
+  "label_status": "exploratory_historical_unadjudicated",
+  "source_manifest": "eval/datasets/test_6_prompt_formats_manifest.json",
+  "source_manifest_sha256": "729d1e3eec780444942473b4e259de57ab8d4911ddf1a3ce6904d79704dcaec3",
+  "required_contract": "historical",
+  "note": "Gabaritos históricos exploratórios. Imagens derivadas compartilham grupo; eventos não equivalem a imagens independentes. hatchback → hatch; pickup e truck preservados.",
+  "items": [
+    {
+      "id": "prompt_eval_color_black_001",
+      "domain": "vehicle",
+      "filename": "color_black_001.jpg",
+      "rel_path": "eval/images/color_test/color_black_001.jpg",
+      "sha256": "25d89b744e066a7cf2e3a591621087b5ce78a0f387fdd233c987007c2d9dd913",
+      "annotations": {
+        "color": "black"
+      },
+      "difficult": false,
+      "source_id": "color_black_001",
+      "group_id": "color_black_001",
+      "task_field": "color"
+    },
+    {
+      "id": "prompt_eval_color_black_002",
+      "domain": "vehicle",
+      "filename": "color_black_002.jpg",
+      "rel_path": "eval/images/color_test/color_black_002.jpg",
+      "sha256": "648d968511959fd049934cf1593e2f6a993d81c6df4c68e00d42c7d59aa0ddad",
+      "annotations": {
+        "color": "black"
+      },
+      "difficult": false,
+      "source_id": "color_black_002",
+      "group_id": "color_black_002",
+      "task_field": "color"
+    },
+    {
+      "id": "prompt_eval_color_black_003",
+      "domain": "vehicle",
+      "filename": "color_black_003.jpg",
+      "rel_path": "eval/images/color_test/color_black_003.jpg",
+      "sha256": "1295791f837258bc8d0a66f7174ea75ad8d817cff4e09014aece09200c55d097",
+      "annotations": {
+        "color": "black"
+      },
+      "difficult": true,
+      "source_id": "color_black_003",
+      "group_id": "color_black_003",
+      "task_field": "color"
+    },
+    {
+      "id": "prompt_eval_color_black_004",
+      "domain": "vehicle",
+      "filename": "color_black_004.jpg",
+      "rel_path": "eval/images/color_test/color_black_004.jpg",
+      "sha256": "8d6327afdcff9563ab333f1ab1903931f03c89a98d837ebcb455189b4eaa3d7f",
+      "annotations": {
+        "color": "black"
+      },
+      "difficult": false,
+      "source_id": "color_black_004",
+      "group_id": "color_black_004",
+      "task_field": "color"
+    },
+    {
+      "id": "prompt_eval_color_white_001",
+      "domain": "vehicle",
+      "filename": "color_white_001.jpg",
+      "rel_path": "eval/images/color_test/color_white_001.jpg",
+      "sha256": "1adb3b45613db99108507692ff381996aa68273296c9dca6be865e638b49b93d",
+      "annotations": {
+        "color": "white"
+      },
+      "difficult": true,
+      "source_id": "color_white_001",
+      "group_id": "color_white_001",
+      "task_field": "color"
+    },
+    {
+      "id": "prompt_eval_color_white_002",
+      "domain": "vehicle",
+      "filename": "color_white_002.jpg",
+      "rel_path": "eval/images/color_test/color_white_002.jpg",
+      "sha256": "38b4e78da90983123291f545a7ea07132d7db58f3d9e6f0f34fe80a8b6f8e7ce",
+      "annotations": {
+        "color": "white"
+      },
+      "difficult": false,
+      "source_id": "color_white_002",
+      "group_id": "color_white_002",
+      "task_field": "color"
+    },
+    {
+      "id": "prompt_eval_color_white_003",
+      "domain": "vehicle",
+      "filename": "color_white_003.jpg",
+      "rel_path": "eval/images/color_test/color_white_003.jpg",
+      "sha256": "b53ab7932599caee80a806b11fdd223b4da80865da6a5585ee61968577fd1c0e",
+      "annotations": {
+        "color": "white"
+      },
+      "difficult": true,
+      "source_id": "color_white_003",
+      "group_id": "color_white_003",
+      "task_field": "color"
+    },
+    {
+      "id": "prompt_eval_color_white_004",
+      "domain": "vehicle",
+      "filename": "color_white_004.jpg",
+      "rel_path": "eval/images/color_test/color_white_004.jpg",
+      "sha256": "cd097198590b9c330a821c0235d5860703439671917b4d5bda891973b25269a0",
+      "annotations": {
+        "color": "white"
+      },
+      "difficult": true,
+      "source_id": "color_white_004",
+      "group_id": "color_white_004",
+      "task_field": "color"
+    },
+    {
+      "id": "prompt_eval_color_gray_silver_001",
+      "domain": "vehicle",
+      "filename": "color_gray_silver_001.jpg",
+      "rel_path": "eval/images/color_test/color_gray_silver_001.jpg",
+      "sha256": "f6987b528be65ed0ee7b8f24487aae3bcf51a3840ee3517bb2526e5d59442e01",
+      "annotations": {
+        "color": "gray_silver"
+      },
+      "difficult": true,
+      "source_id": "color_gray_silver_001",
+      "group_id": "color_gray_silver_001",
+      "task_field": "color"
+    },
+    {
+      "id": "prompt_eval_color_gray_silver_002",
+      "domain": "vehicle",
+      "filename": "color_gray_silver_002.jpg",
+      "rel_path": "eval/images/color_test/color_gray_silver_002.jpg",
+      "sha256": "45a28e869823d11b2126c6761c3348feaccac910060746bbd07bd0b0e5dc33ce",
+      "annotations": {
+        "color": "gray_silver"
+      },
+      "difficult": false,
+      "source_id": "color_gray_silver_002",
+      "group_id": "color_gray_silver_002",
+      "task_field": "color"
+    },
+    {
+      "id": "prompt_eval_color_gray_silver_003",
+      "domain": "vehicle",
+      "filename": "color_gray_silver_003.jpg",
+      "rel_path": "eval/images/color_test/color_gray_silver_003.jpg",
+      "sha256": "a2b1414c5c8645ceaa4e5a625bcc74e82454a59009ab31ad55a5e4717ab76bb5",
+      "annotations": {
+        "color": "gray_silver"
+      },
+      "difficult": false,
+      "source_id": "color_gray_silver_003",
+      "group_id": "color_gray_silver_003",
+      "task_field": "color"
+    },
+    {
+      "id": "prompt_eval_color_gray_silver_004",
+      "domain": "vehicle",
+      "filename": "color_gray_silver_004.jpg",
+      "rel_path": "eval/images/color_test/color_gray_silver_004.jpg",
+      "sha256": "c7cb4e9ff716d335c2a9bf279555614a6a776a4d92df39659022f77d2ead20b6",
+      "annotations": {
+        "color": "gray_silver"
+      },
+      "difficult": true,
+      "source_id": "color_gray_silver_004",
+      "group_id": "color_gray_silver_004",
+      "task_field": "color"
+    },
+    {
+      "id": "prompt_eval_color_red_001",
+      "domain": "vehicle",
+      "filename": "color_red_001.jpg",
+      "rel_path": "eval/images/color_test/color_red_001.jpg",
+      "sha256": "bb970f189df85a7e48d1b24779e2cb4bf0bf94d8e938825156374586ee3e6976",
+      "annotations": {
+        "color": "red"
+      },
+      "difficult": false,
+      "source_id": "color_red_001",
+      "group_id": "color_red_001",
+      "task_field": "color"
+    },
+    {
+      "id": "prompt_eval_color_red_002",
+      "domain": "vehicle",
+      "filename": "color_red_002.jpg",
+      "rel_path": "eval/images/color_test/color_red_002.jpg",
+      "sha256": "1a413f5360ad198dffb92fa2188842d5bd21c158f8b186331f81e4768829f684",
+      "annotations": {
+        "color": "red"
+      },
+      "difficult": true,
+      "source_id": "color_red_002",
+      "group_id": "color_red_002",
+      "task_field": "color"
+    },
+    {
+      "id": "prompt_eval_color_red_003",
+      "domain": "vehicle",
+      "filename": "color_red_003.jpg",
+      "rel_path": "eval/images/color_test/color_red_003.jpg",
+      "sha256": "66d857205572dd3f4246910714a324c90985afedb2b47eab3b44573b1c64aef1",
+      "annotations": {
+        "color": "red"
+      },
+      "difficult": true,
+      "source_id": "color_red_003",
+      "group_id": "color_red_003",
+      "task_field": "color"
+    },
+    {
+      "id": "prompt_eval_color_red_004",
+      "domain": "vehicle",
+      "filename": "color_red_004.jpg",
+      "rel_path": "eval/images/color_test/color_red_004.jpg",
+      "sha256": "5ee01a6e0c298c8362ed8e333131c631506404b876c66da2faabaa5418e0190d",
+      "annotations": {
+        "color": "red"
+      },
+      "difficult": false,
+      "source_id": "color_red_004",
+      "group_id": "color_red_004",
+      "task_field": "color"
+    },
+    {
+      "id": "prompt_eval_color_blue_001",
+      "domain": "vehicle",
+      "filename": "color_blue_001.jpg",
+      "rel_path": "eval/images/color_test/color_blue_001.jpg",
+      "sha256": "703297a429523c51e9dd15893ea40b03bd53ccef98be691e47afa8c6960d0cdf",
+      "annotations": {
+        "color": "blue"
+      },
+      "difficult": false,
+      "source_id": "color_blue_001",
+      "group_id": "color_blue_001",
+      "task_field": "color"
+    },
+    {
+      "id": "prompt_eval_color_blue_002",
+      "domain": "vehicle",
+      "filename": "color_blue_002.jpg",
+      "rel_path": "eval/images/color_test/color_blue_002.jpg",
+      "sha256": "48a7ee3da3350e36b0fbbffd5616e983b27981fe980d411603b551f0cd9b375f",
+      "annotations": {
+        "color": "blue"
+      },
+      "difficult": true,
+      "source_id": "color_blue_002",
+      "group_id": "color_blue_002",
+      "task_field": "color"
+    },
+    {
+      "id": "prompt_eval_color_blue_003",
+      "domain": "vehicle",
+      "filename": "color_blue_003.jpg",
+      "rel_path": "eval/images/color_test/color_blue_003.jpg",
+      "sha256": "4f7751e2aa40362560d33babfae24a055815a28bfcb2c78edc03d4cbe9e9ac3b",
+      "annotations": {
+        "color": "blue"
+      },
+      "difficult": false,
+      "source_id": "color_blue_003",
+      "group_id": "color_blue_003",
+      "task_field": "color"
+    },
+    {
+      "id": "prompt_eval_color_blue_004",
+      "domain": "vehicle",
+      "filename": "color_blue_004.jpg",
+      "rel_path": "eval/images/color_test/color_blue_004.jpg",
+      "sha256": "2162adf2b2f5050c2d4e3ec7af9174535a2c04af269bcd1a9324af8a24eb3305",
+      "annotations": {
+        "color": "blue"
+      },
+      "difficult": false,
+      "source_id": "color_blue_004",
+      "group_id": "color_blue_004",
+      "task_field": "color"
+    },
+    {
+      "id": "prompt_eval_color_green_001",
+      "domain": "vehicle",
+      "filename": "color_green_001.jpg",
+      "rel_path": "eval/images/color_test/color_green_001.jpg",
+      "sha256": "47612aa5387898be2ba39c0ab094814bb59498a31df6f0e2dd17eb3184e08cf8",
+      "annotations": {
+        "color": "green"
+      },
+      "difficult": true,
+      "source_id": "color_green_001",
+      "group_id": "color_green_001",
+      "task_field": "color"
+    },
+    {
+      "id": "prompt_eval_color_green_002",
+      "domain": "vehicle",
+      "filename": "color_green_002.jpg",
+      "rel_path": "eval/images/color_test/color_green_002.jpg",
+      "sha256": "95fdfccc76ba94b36ca83760c5a1a3bb1c5afca9602ab5d934f8ef9ea0118467",
+      "annotations": {
+        "color": "green"
+      },
+      "difficult": true,
+      "source_id": "color_green_002",
+      "group_id": "color_green_002",
+      "task_field": "color"
+    },
+    {
+      "id": "prompt_eval_color_green_003",
+      "domain": "vehicle",
+      "filename": "color_green_003.png",
+      "rel_path": "eval/images/color_test/color_green_003.png",
+      "sha256": "2b50d1235d2b588bcef0874b23966a1747cc9124a63b18166edb0de457e707b1",
+      "annotations": {
+        "color": "green"
+      },
+      "difficult": true,
+      "source_id": "color_green_003",
+      "group_id": "color_green_003",
+      "task_field": "color"
+    },
+    {
+      "id": "prompt_eval_color_green_004",
+      "domain": "vehicle",
+      "filename": "color_green_004.jpg",
+      "rel_path": "eval/images/color_test/color_green_004.jpg",
+      "sha256": "5b8a1909dad43368b8cf8f2dd610efc9549f41a352e13ba5ba6c144c7a4785ec",
+      "annotations": {
+        "color": "green"
+      },
+      "difficult": false,
+      "source_id": "color_green_004",
+      "group_id": "color_green_004",
+      "task_field": "color"
+    },
+    {
+      "id": "prompt_eval_color_yellow_001",
+      "domain": "vehicle",
+      "filename": "color_yellow_001.jpg",
+      "rel_path": "eval/images/color_test/color_yellow_001.jpg",
+      "sha256": "6441001d58bdaa1388d3a705dfdb47be6829506823941a62918a4a9aa700f431",
+      "annotations": {
+        "color": "yellow"
+      },
+      "difficult": false,
+      "source_id": "color_yellow_001",
+      "group_id": "color_yellow_001",
+      "task_field": "color"
+    },
+    {
+      "id": "prompt_eval_color_yellow_002",
+      "domain": "vehicle",
+      "filename": "color_yellow_002.jpg",
+      "rel_path": "eval/images/color_test/color_yellow_002.jpg",
+      "sha256": "e8f22cefc4803f3b7888470fd48cf7522957415fcd5285e8c90e9166d1ec8b7a",
+      "annotations": {
+        "color": "yellow"
+      },
+      "difficult": false,
+      "source_id": "color_yellow_002",
+      "group_id": "color_yellow_002",
+      "task_field": "color"
+    },
+    {
+      "id": "prompt_eval_color_yellow_003",
+      "domain": "vehicle",
+      "filename": "color_yellow_003.jpg",
+      "rel_path": "eval/images/color_test/color_yellow_003.jpg",
+      "sha256": "97ce501b4546a3671ebad3969006a20bc8ac1e4a237ebe6c2abfab23c5cc1060",
+      "annotations": {
+        "color": "yellow"
+      },
+      "difficult": false,
+      "source_id": "color_yellow_003",
+      "group_id": "color_yellow_003",
+      "task_field": "color"
+    },
+    {
+      "id": "prompt_eval_color_yellow_004",
+      "domain": "vehicle",
+      "filename": "color_yellow_004.jpg",
+      "rel_path": "eval/images/color_test/color_yellow_004.jpg",
+      "sha256": "ceaad82d912552c34b37a425ee47b1d7a3708d84ccdf74e379cd9526c7ba0ade",
+      "annotations": {
+        "color": "yellow"
+      },
+      "difficult": false,
+      "source_id": "color_yellow_004",
+      "group_id": "color_yellow_004",
+      "task_field": "color"
+    },
+    {
+      "id": "prompt_eval_color_orange_001",
+      "domain": "vehicle",
+      "filename": "color_orange_001.jpg",
+      "rel_path": "eval/images/color_test/color_orange_001.jpg",
+      "sha256": "632a8c179b58f9cb00adefdda697d259b1896c2a155dc3bdc9203bc59e1bdd07",
+      "annotations": {
+        "color": "orange"
+      },
+      "difficult": true,
+      "source_id": "color_orange_001",
+      "group_id": "color_orange_001",
+      "task_field": "color"
+    },
+    {
+      "id": "prompt_eval_color_orange_002",
+      "domain": "vehicle",
+      "filename": "color_orange_002.jpg",
+      "rel_path": "eval/images/color_test/color_orange_002.jpg",
+      "sha256": "3281c4c272102bf6669153221fd6a1c97d79a165db5c05098273b76fd64404aa",
+      "annotations": {
+        "color": "orange"
+      },
+      "difficult": false,
+      "source_id": "color_orange_002",
+      "group_id": "color_orange_002",
+      "task_field": "color"
+    },
+    {
+      "id": "prompt_eval_color_orange_003",
+      "domain": "vehicle",
+      "filename": "color_orange_003.jpg",
+      "rel_path": "eval/images/color_test/color_orange_003.jpg",
+      "sha256": "1db95554fb3e4ca86d1f28718e448acee397e7dd73aa97fc6d2cba8a9917a0a0",
+      "annotations": {
+        "color": "orange"
+      },
+      "difficult": false,
+      "source_id": "color_orange_003",
+      "group_id": "color_orange_003",
+      "task_field": "color"
+    },
+    {
+      "id": "prompt_eval_color_orange_004",
+      "domain": "vehicle",
+      "filename": "color_orange_004.jpg",
+      "rel_path": "eval/images/color_test/color_orange_004.jpg",
+      "sha256": "ccb34d3da92af59cf6ee907c44d0c91356660c10e31c2956c43667ee8f1d1aba",
+      "annotations": {
+        "color": "orange"
+      },
+      "difficult": false,
+      "source_id": "color_orange_004",
+      "group_id": "color_orange_004",
+      "task_field": "color"
+    },
+    {
+      "id": "prompt_eval_color_brown_001",
+      "domain": "vehicle",
+      "filename": "color_brown_001.jpeg",
+      "rel_path": "eval/images/color_test/color_brown_001.jpeg",
+      "sha256": "2f45c88184b9824d83944a0b475e181ea3e82f4726f42451186ec3f30786be25",
+      "annotations": {
+        "color": "brown"
+      },
+      "difficult": true,
+      "source_id": "color_brown_001",
+      "group_id": "color_brown_001",
+      "task_field": "color"
+    },
+    {
+      "id": "prompt_eval_color_brown_002",
+      "domain": "vehicle",
+      "filename": "color_brown_002.jpg",
+      "rel_path": "eval/images/color_test/color_brown_002.jpg",
+      "sha256": "6c2c708fe3143d501e26c5bfae836737a469fb413aac7c905f58f2608f59a10f",
+      "annotations": {
+        "color": "brown"
+      },
+      "difficult": true,
+      "source_id": "color_brown_002",
+      "group_id": "color_brown_002",
+      "task_field": "color"
+    },
+    {
+      "id": "prompt_eval_color_brown_003",
+      "domain": "vehicle",
+      "filename": "color_brown_003.jpg",
+      "rel_path": "eval/images/color_test/color_brown_003.jpg",
+      "sha256": "88db97dbf95d388b3a89e3dd7faae1cb87b4d27886db5893c5bb4aa614414da7",
+      "annotations": {
+        "color": "brown"
+      },
+      "difficult": true,
+      "source_id": "color_brown_003",
+      "group_id": "color_brown_003",
+      "task_field": "color"
+    },
+    {
+      "id": "prompt_eval_color_brown_004",
+      "domain": "vehicle",
+      "filename": "color_brown_004.jpg",
+      "rel_path": "eval/images/color_test/color_brown_004.jpg",
+      "sha256": "1e625faa8c957a02157163b582edf2e0e598a6f06614295d8562647b359a2e0d",
+      "annotations": {
+        "color": "brown"
+      },
+      "difficult": true,
+      "source_id": "color_brown_004",
+      "group_id": "color_brown_004",
+      "task_field": "color"
+    },
+    {
+      "id": "prompt_eval_color_purple_001",
+      "domain": "vehicle",
+      "filename": "color_purple_001.jpg",
+      "rel_path": "eval/images/color_test/color_purple_001.jpg",
+      "sha256": "7cb0a25a691041645c5c94d4a3c7e9138331967d755b2ba14fc355fa1a025292",
+      "annotations": {
+        "color": "purple"
+      },
+      "difficult": true,
+      "source_id": "color_purple_001",
+      "group_id": "color_purple_001",
+      "task_field": "color"
+    },
+    {
+      "id": "prompt_eval_color_purple_002",
+      "domain": "vehicle",
+      "filename": "color_purple_002.png",
+      "rel_path": "eval/images/color_test/color_purple_002.png",
+      "sha256": "7493d00b3cd87dca07858b7fe876b516bfd7be7b9dfb8a59ec9c76d4c2ed1008",
+      "annotations": {
+        "color": "purple"
+      },
+      "difficult": true,
+      "source_id": "color_purple_002",
+      "group_id": "color_purple_002",
+      "task_field": "color"
+    },
+    {
+      "id": "prompt_eval_color_purple_003",
+      "domain": "vehicle",
+      "filename": "color_purple_003.jpg",
+      "rel_path": "eval/images/color_test/color_purple_003.jpg",
+      "sha256": "03c3f5603b995190a5e36542d011829e4e27a1e78a2db3f0677b9bd13c70d3c3",
+      "annotations": {
+        "color": "purple"
+      },
+      "difficult": true,
+      "source_id": "color_purple_003",
+      "group_id": "color_purple_003",
+      "task_field": "color"
+    },
+    {
+      "id": "prompt_eval_color_purple_004",
+      "domain": "vehicle",
+      "filename": "color_purple_004.jpg",
+      "rel_path": "eval/images/color_test/color_purple_004.jpg",
+      "sha256": "75214e0bbdb16cf5c6f0e488961c7af6c6302f2cc51aa38e45f884926113d630",
+      "annotations": {
+        "color": "purple"
+      },
+      "difficult": false,
+      "source_id": "color_purple_004",
+      "group_id": "color_purple_004",
+      "task_field": "color"
+    },
+    {
+      "id": "prompt_eval_color_pink_001",
+      "domain": "vehicle",
+      "filename": "color_pink_001.jpg",
+      "rel_path": "eval/images/color_test/color_pink_001.jpg",
+      "sha256": "3d5f1b66a4e65b1a29f2beb8cada131392be832ae71caedab15fb94ce6d30787",
+      "annotations": {
+        "color": "pink"
+      },
+      "difficult": true,
+      "source_id": "color_pink_001",
+      "group_id": "color_pink_001",
+      "task_field": "color"
+    },
+    {
+      "id": "prompt_eval_color_pink_002",
+      "domain": "vehicle",
+      "filename": "color_pink_002.jpeg",
+      "rel_path": "eval/images/color_test/color_pink_002.jpeg",
+      "sha256": "e41257c3c3b9546705dd0f48bf22aef608e4ecbf8dd4a125a4ca8d3c33dfdc3e",
+      "annotations": {
+        "color": "pink"
+      },
+      "difficult": false,
+      "source_id": "color_pink_002",
+      "group_id": "color_pink_002",
+      "task_field": "color"
+    },
+    {
+      "id": "prompt_eval_color_pink_003",
+      "domain": "vehicle",
+      "filename": "color_pink_003.jpeg",
+      "rel_path": "eval/images/color_test/color_pink_003.jpeg",
+      "sha256": "46bea43da3fc657e2b217f741f976985c0361d00677b7178b9eaaea68df5294e",
+      "annotations": {
+        "color": "pink"
+      },
+      "difficult": true,
+      "source_id": "color_pink_003",
+      "group_id": "color_pink_003",
+      "task_field": "color"
+    },
+    {
+      "id": "prompt_eval_color_pink_004",
+      "domain": "vehicle",
+      "filename": "color_pink_004.jpg",
+      "rel_path": "eval/images/color_test/color_pink_004.jpg",
+      "sha256": "d037391c11ddb0ba58d67478653ad6931ff4ed906cf5a583bd644d52152ea348",
+      "annotations": {
+        "color": "pink"
+      },
+      "difficult": true,
+      "source_id": "color_pink_004",
+      "group_id": "color_pink_004",
+      "task_field": "color"
+    }
+  ]
+}

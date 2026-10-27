@@ -67,6 +67,22 @@ class WebAPITests(unittest.TestCase):
         self.assertEqual(self.client.post('/api/jobs',json=self.body,headers={'Origin':'https://unrelated.example'}).status_code,403)
         self.assertEqual(self.client.get('/files/studio/secret.json').status_code,404)
 
+    def test_protocol_preview_and_verified_dataset_export(self):
+        body={**self.body,'kind':'benchmark','dataset':'historical-color-eval','contract':'historical','comparison':'all','limit':2,'repetitions':3}
+        response=self.client.post('/api/protocol-preview',json=body)
+        self.assertEqual(response.status_code,200,response.text)
+        self.assertEqual(response.json()['planned'],6)
+        self.assertEqual(list(response.json()['protocols'][0]['examples'][0]['request']['questions']),['color'])
+        self.assertIsNone(self.studio.jobs.current)
+        response=self.client.get('/api/datasets/portable/bundle')
+        self.assertEqual(response.status_code,200)
+        import zipfile
+        with zipfile.ZipFile(BytesIO(response.content)) as bundle:
+            manifest=json.loads(bundle.read('manifest.json'))
+            self.assertEqual(len(manifest['items']),22)
+            import hashlib
+            for item in manifest['items']:self.assertEqual(hashlib.sha256(bundle.read(item['rel_path'])).hexdigest(),item['sha256'])
+
     def test_model_pull_streaming_through_owned_worker(self):
         observed=[]
         class Ollama(BaseHTTPRequestHandler):

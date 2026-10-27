@@ -1,0 +1,1415 @@
+{
+  "schema_version": 1,
+  "name": "Pessoas: capacete, objeto e roupa",
+  "label_status": "exploratory_historical_unadjudicated",
+  "source_manifest": "eval/datasets/test_3_person_attributes_manifest.json",
+  "source_manifest_sha256": "5456ce3dd26868bc52d78c9b765f1f16f51bb4569a744c50abd48e4182b7a8b6",
+  "required_contract": "historical",
+  "note": "Gabaritos históricos exploratórios. Imagens derivadas compartilham grupo; eventos não equivalem a imagens independentes. hatchback → hatch; pickup e truck preservados.",
+  "items": [
+    {
+      "id": "person_001",
+      "domain": "person",
+      "filename": "helmet_yes_01.jpg",
+      "rel_path": "eval/images/person_attributes/helmet_yes_01.jpg",
+      "sha256": "0ac12f57e4145f7d2b93c7c5a81b55bd98c36397e6714776a110506068c4845c",
+      "annotations": {
+        "helmet": "yes",
+        "carrying": "none",
+        "clothing": "jacket_coat"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "partial_or_close_crop"
+      ],
+      "source": "wikimedia_commons",
+      "group_id": "0ac12f57e4145f7d2b93c7c5a81b55bd98c36397e6714776a110506068c4845c",
+      "task_fields": [
+        "helmet",
+        "carrying",
+        "clothing"
+      ]
+    },
+    {
+      "id": "person_002",
+      "domain": "person",
+      "filename": "helmet_yes_02.jpg",
+      "rel_path": "eval/images/person_attributes/helmet_yes_02.jpg",
+      "sha256": "45d004474faebdb3dd5142a7d96e46034943c8b9418c19c17a08c99174839950",
+      "annotations": {
+        "helmet": "yes",
+        "carrying": "none",
+        "clothing": "jacket_coat"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_people"
+      ],
+      "source": "wikimedia_commons",
+      "group_id": "45d004474faebdb3dd5142a7d96e46034943c8b9418c19c17a08c99174839950",
+      "task_fields": [
+        "helmet",
+        "carrying",
+        "clothing"
+      ]
+    },
+    {
+      "id": "person_003",
+      "domain": "person",
+      "filename": "helmet_yes_03.jpg",
+      "rel_path": "eval/images/person_attributes/helmet_yes_03.jpg",
+      "sha256": "36e55a3c830548e35e28ef7d0d465918e2ad6035a8474a5dbd635ce907fc3100",
+      "annotations": {
+        "helmet": "yes",
+        "carrying": "none",
+        "clothing": "jacket_coat"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_people"
+      ],
+      "source": "wikimedia_commons",
+      "group_id": "36e55a3c830548e35e28ef7d0d465918e2ad6035a8474a5dbd635ce907fc3100",
+      "task_fields": [
+        "helmet",
+        "carrying",
+        "clothing"
+      ]
+    },
+    {
+      "id": "person_004",
+      "domain": "person",
+      "filename": "helmet_yes_04.jpg",
+      "rel_path": "eval/images/person_attributes/helmet_yes_04.jpg",
+      "sha256": "386cf773509daa49f62919159c3726b6ab7fb7f1dea0f5e14d09afff6ec09109",
+      "annotations": {
+        "helmet": "yes",
+        "carrying": "none",
+        "clothing": "jacket_coat"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_people"
+      ],
+      "source": "wikimedia_commons",
+      "group_id": "386cf773509daa49f62919159c3726b6ab7fb7f1dea0f5e14d09afff6ec09109",
+      "task_fields": [
+        "helmet",
+        "carrying",
+        "clothing"
+      ]
+    },
+    {
+      "id": "person_005",
+      "domain": "person",
+      "filename": "helmet_yes_05.jpg",
+      "rel_path": "eval/images/person_attributes/helmet_yes_05.jpg",
+      "sha256": "f1a317d61636e6501e770811c00e2d15179c5a27fb953a753cba3b693ead865d",
+      "annotations": {
+        "helmet": "yes",
+        "carrying": "none",
+        "clothing": "jacket_coat"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_people"
+      ],
+      "source": "wikimedia_commons",
+      "group_id": "f1a317d61636e6501e770811c00e2d15179c5a27fb953a753cba3b693ead865d",
+      "task_fields": [
+        "helmet",
+        "carrying",
+        "clothing"
+      ]
+    },
+    {
+      "id": "person_006",
+      "domain": "person",
+      "filename": "helmet_yes_06.jpg",
+      "rel_path": "eval/images/person_attributes/helmet_yes_06.jpg",
+      "sha256": "24d802c766438e18b38b4a5bd9fc92cde9a9ebad6df07e831833044911c5f969",
+      "annotations": {
+        "helmet": "yes",
+        "carrying": "none",
+        "clothing": "jacket_coat"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_people"
+      ],
+      "source": "wikimedia_commons",
+      "group_id": "24d802c766438e18b38b4a5bd9fc92cde9a9ebad6df07e831833044911c5f969",
+      "task_fields": [
+        "helmet",
+        "carrying",
+        "clothing"
+      ]
+    },
+    {
+      "id": "person_007",
+      "domain": "person",
+      "filename": "helmet_yes_07.jpg",
+      "rel_path": "eval/images/person_attributes/helmet_yes_07.jpg",
+      "sha256": "8e7bf05c646797b52db4587804e1a497b851d8114c77cc3a8af34ec2a8cd1609",
+      "annotations": {
+        "helmet": "yes",
+        "carrying": "none",
+        "clothing": "jacket_coat"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_people"
+      ],
+      "source": "wikimedia_commons",
+      "group_id": "8e7bf05c646797b52db4587804e1a497b851d8114c77cc3a8af34ec2a8cd1609",
+      "task_fields": [
+        "helmet",
+        "carrying",
+        "clothing"
+      ]
+    },
+    {
+      "id": "person_008",
+      "domain": "person",
+      "filename": "helmet_yes_08.jpg",
+      "rel_path": "eval/images/person_attributes/helmet_yes_08.jpg",
+      "sha256": "15bc91e8bb88db65b3262bad9d087f0c63add429c2e80e1b718090c23cc5a5aa",
+      "annotations": {
+        "helmet": "yes",
+        "carrying": "none",
+        "clothing": "jacket_coat"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_people"
+      ],
+      "source": "wikimedia_commons",
+      "group_id": "15bc91e8bb88db65b3262bad9d087f0c63add429c2e80e1b718090c23cc5a5aa",
+      "task_fields": [
+        "helmet",
+        "carrying",
+        "clothing"
+      ]
+    },
+    {
+      "id": "person_009",
+      "domain": "person",
+      "filename": "helmet_yes_09.jpg",
+      "rel_path": "eval/images/person_attributes/helmet_yes_09.jpg",
+      "sha256": "61e6bafea83446d50e6a04a7d8d905f9d950a1463f08967e73e96ae7b1307748",
+      "annotations": {
+        "helmet": "yes",
+        "carrying": "none",
+        "clothing": "jacket_coat"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_people"
+      ],
+      "source": "wikimedia_commons",
+      "group_id": "61e6bafea83446d50e6a04a7d8d905f9d950a1463f08967e73e96ae7b1307748",
+      "task_fields": [
+        "helmet",
+        "carrying",
+        "clothing"
+      ]
+    },
+    {
+      "id": "person_010",
+      "domain": "person",
+      "filename": "helmet_yes_10.jpg",
+      "rel_path": "eval/images/person_attributes/helmet_yes_10.jpg",
+      "sha256": "620fd35a4422f186a9e129917444e4359a5952d4f70911ebb82069e114cfb256",
+      "annotations": {
+        "helmet": "yes",
+        "carrying": "none",
+        "clothing": "jacket_coat"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "wikimedia_commons",
+      "group_id": "620fd35a4422f186a9e129917444e4359a5952d4f70911ebb82069e114cfb256",
+      "task_fields": [
+        "helmet",
+        "carrying",
+        "clothing"
+      ]
+    },
+    {
+      "id": "person_011",
+      "domain": "person",
+      "filename": "hardhat_01.jpg",
+      "rel_path": "eval/images/person_attributes/hardhat_01.jpg",
+      "sha256": "f3061e51190aaef6cf306a139cc5c3c494d73500fcab9bbc0723fd0a505b795a",
+      "annotations": {
+        "helmet": "yes",
+        "carrying": "none",
+        "clothing": "safety_vest"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "partial_or_close_crop"
+      ],
+      "source": "wikimedia_commons",
+      "group_id": "f3061e51190aaef6cf306a139cc5c3c494d73500fcab9bbc0723fd0a505b795a",
+      "task_fields": [
+        "helmet",
+        "carrying",
+        "clothing"
+      ]
+    },
+    {
+      "id": "person_012",
+      "domain": "person",
+      "filename": "hardhat_02.jpg",
+      "rel_path": "eval/images/person_attributes/hardhat_02.jpg",
+      "sha256": "d137f213875b28cff2d936486f75c5a1df35ab239bd20019f45e21c262059236",
+      "annotations": {
+        "helmet": "yes",
+        "carrying": "none",
+        "clothing": "safety_vest"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_people"
+      ],
+      "source": "wikimedia_commons",
+      "group_id": "d137f213875b28cff2d936486f75c5a1df35ab239bd20019f45e21c262059236",
+      "task_fields": [
+        "helmet",
+        "carrying",
+        "clothing"
+      ]
+    },
+    {
+      "id": "person_013",
+      "domain": "person",
+      "filename": "hardhat_03.jpg",
+      "rel_path": "eval/images/person_attributes/hardhat_03.jpg",
+      "sha256": "55cd33965d4f44cd0ab7876f32de7469e3573c232c2cd27203d781c256d77342",
+      "annotations": {
+        "helmet": "yes",
+        "carrying": "none",
+        "clothing": "safety_vest"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "wikimedia_commons",
+      "group_id": "55cd33965d4f44cd0ab7876f32de7469e3573c232c2cd27203d781c256d77342",
+      "task_fields": [
+        "helmet",
+        "carrying",
+        "clothing"
+      ]
+    },
+    {
+      "id": "person_014",
+      "domain": "person",
+      "filename": "hardhat_04.jpg",
+      "rel_path": "eval/images/person_attributes/hardhat_04.jpg",
+      "sha256": "d766e4ee1c67c8f888cf7de5ff2f9eefd98c417ab554dc7dbf25e46690f6205d",
+      "annotations": {
+        "helmet": "yes",
+        "carrying": "none",
+        "clothing": "safety_vest"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "partial_or_close_crop"
+      ],
+      "source": "wikimedia_commons",
+      "group_id": "d766e4ee1c67c8f888cf7de5ff2f9eefd98c417ab554dc7dbf25e46690f6205d",
+      "task_fields": [
+        "helmet",
+        "carrying",
+        "clothing"
+      ]
+    },
+    {
+      "id": "person_015",
+      "domain": "person",
+      "filename": "hardhat_05.jpg",
+      "rel_path": "eval/images/person_attributes/hardhat_05.jpg",
+      "sha256": "9a489e9676ff4e22f888ad8f674e9d1434600cc5c3722fb76f430b5c8a5a33e1",
+      "annotations": {
+        "helmet": "yes",
+        "carrying": "none",
+        "clothing": "safety_vest"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "partial_or_close_crop"
+      ],
+      "source": "wikimedia_commons",
+      "group_id": "9a489e9676ff4e22f888ad8f674e9d1434600cc5c3722fb76f430b5c8a5a33e1",
+      "task_fields": [
+        "helmet",
+        "carrying",
+        "clothing"
+      ]
+    },
+    {
+      "id": "person_016",
+      "domain": "person",
+      "filename": "backpack_01.jpg",
+      "rel_path": "eval/images/person_attributes/backpack_01.jpg",
+      "sha256": "0a230b4353c089dfe4827caf5f65b7ced539fa9ec0f784257577431cf6ec0072",
+      "annotations": {
+        "helmet": "no",
+        "carrying": "backpack",
+        "clothing": "jacket_coat"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_people"
+      ],
+      "source": "wikimedia_commons",
+      "group_id": "0a230b4353c089dfe4827caf5f65b7ced539fa9ec0f784257577431cf6ec0072",
+      "task_fields": [
+        "helmet",
+        "carrying",
+        "clothing"
+      ]
+    },
+    {
+      "id": "person_017",
+      "domain": "person",
+      "filename": "backpack_02.jpg",
+      "rel_path": "eval/images/person_attributes/backpack_02.jpg",
+      "sha256": "c5c6fa343aaff52483633f66ef23d1ff9e46ef2d77804d6835d08d80062038d8",
+      "annotations": {
+        "helmet": "no",
+        "carrying": "backpack",
+        "clothing": "jacket_coat"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "wikimedia_commons",
+      "group_id": "c5c6fa343aaff52483633f66ef23d1ff9e46ef2d77804d6835d08d80062038d8",
+      "task_fields": [
+        "helmet",
+        "carrying",
+        "clothing"
+      ]
+    },
+    {
+      "id": "person_018",
+      "domain": "person",
+      "filename": "backpack_03.jpg",
+      "rel_path": "eval/images/person_attributes/backpack_03.jpg",
+      "sha256": "15a8e0e94b612a11149bb6c79b2762fbb9f0e5e3bc9fe5591834536a69c0c056",
+      "annotations": {
+        "helmet": "no",
+        "carrying": "backpack",
+        "clothing": "jacket_coat"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "wikimedia_commons",
+      "group_id": "15a8e0e94b612a11149bb6c79b2762fbb9f0e5e3bc9fe5591834536a69c0c056",
+      "task_fields": [
+        "helmet",
+        "carrying",
+        "clothing"
+      ]
+    },
+    {
+      "id": "person_019",
+      "domain": "person",
+      "filename": "backpack_04.jpg",
+      "rel_path": "eval/images/person_attributes/backpack_04.jpg",
+      "sha256": "e0fbd1a9611d5ab018243811a889f8b83e97c0db2491e579fd407e4c3ed68a68",
+      "annotations": {
+        "helmet": "no",
+        "carrying": "backpack",
+        "clothing": "jacket_coat"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "wikimedia_commons",
+      "group_id": "e0fbd1a9611d5ab018243811a889f8b83e97c0db2491e579fd407e4c3ed68a68",
+      "task_fields": [
+        "helmet",
+        "carrying",
+        "clothing"
+      ]
+    },
+    {
+      "id": "person_020",
+      "domain": "person",
+      "filename": "backpack_05.jpg",
+      "rel_path": "eval/images/person_attributes/backpack_05.jpg",
+      "sha256": "d4d52cbf06643fe734238719a1d0aab1e477b170bacddcc9e10e5e1319f28e97",
+      "annotations": {
+        "helmet": "no",
+        "carrying": "backpack",
+        "clothing": "jacket_coat"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_people"
+      ],
+      "source": "wikimedia_commons",
+      "group_id": "d4d52cbf06643fe734238719a1d0aab1e477b170bacddcc9e10e5e1319f28e97",
+      "task_fields": [
+        "helmet",
+        "carrying",
+        "clothing"
+      ]
+    },
+    {
+      "id": "person_021",
+      "domain": "person",
+      "filename": "backpack_06.jpg",
+      "rel_path": "eval/images/person_attributes/backpack_06.jpg",
+      "sha256": "909485df51de0e2537be366d17f321cd35308f268de42b06b99c850914b6b164",
+      "annotations": {
+        "helmet": "no",
+        "carrying": "backpack",
+        "clothing": "jacket_coat"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_people"
+      ],
+      "source": "wikimedia_commons",
+      "group_id": "909485df51de0e2537be366d17f321cd35308f268de42b06b99c850914b6b164",
+      "task_fields": [
+        "helmet",
+        "carrying",
+        "clothing"
+      ]
+    },
+    {
+      "id": "person_022",
+      "domain": "person",
+      "filename": "backpack_07.jpg",
+      "rel_path": "eval/images/person_attributes/backpack_07.jpg",
+      "sha256": "aa9ff87662784a08811025716d433c0ca5c6130d3f7469fcfb014f2c53bb5053",
+      "annotations": {
+        "helmet": "no",
+        "carrying": "backpack",
+        "clothing": "jacket_coat"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_people"
+      ],
+      "source": "wikimedia_commons",
+      "group_id": "aa9ff87662784a08811025716d433c0ca5c6130d3f7469fcfb014f2c53bb5053",
+      "task_fields": [
+        "helmet",
+        "carrying",
+        "clothing"
+      ]
+    },
+    {
+      "id": "person_023",
+      "domain": "person",
+      "filename": "backpack_08.jpg",
+      "rel_path": "eval/images/person_attributes/backpack_08.jpg",
+      "sha256": "d76d6a920d97c8f76f3de4fa4454f8914acce5d233762f1a6006d6e1a27fb18a",
+      "annotations": {
+        "helmet": "no",
+        "carrying": "backpack",
+        "clothing": "jacket_coat"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "wikimedia_commons",
+      "group_id": "d76d6a920d97c8f76f3de4fa4454f8914acce5d233762f1a6006d6e1a27fb18a",
+      "task_fields": [
+        "helmet",
+        "carrying",
+        "clothing"
+      ]
+    },
+    {
+      "id": "person_024",
+      "domain": "person",
+      "filename": "backpack_09.jpg",
+      "rel_path": "eval/images/person_attributes/backpack_09.jpg",
+      "sha256": "45a7aee8c39134470d3066d6c641edf0f63d654bc678ced7e202f282e0f4addd",
+      "annotations": {
+        "helmet": "no",
+        "carrying": "backpack",
+        "clothing": "jacket_coat"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_people"
+      ],
+      "source": "wikimedia_commons",
+      "group_id": "45a7aee8c39134470d3066d6c641edf0f63d654bc678ced7e202f282e0f4addd",
+      "task_fields": [
+        "helmet",
+        "carrying",
+        "clothing"
+      ]
+    },
+    {
+      "id": "person_025",
+      "domain": "person",
+      "filename": "backpack_10.jpg",
+      "rel_path": "eval/images/person_attributes/backpack_10.jpg",
+      "sha256": "f59116f1c89e81d5ca742eeb6475d463dda7c4034f7cf3a3b0594ebcf9673ede",
+      "annotations": {
+        "helmet": "no",
+        "carrying": "backpack",
+        "clothing": "jacket_coat"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_people"
+      ],
+      "source": "wikimedia_commons",
+      "group_id": "f59116f1c89e81d5ca742eeb6475d463dda7c4034f7cf3a3b0594ebcf9673ede",
+      "task_fields": [
+        "helmet",
+        "carrying",
+        "clothing"
+      ]
+    },
+    {
+      "id": "person_026",
+      "domain": "person",
+      "filename": "safety_vest_01.jpg",
+      "rel_path": "eval/images/person_attributes/safety_vest_01.jpg",
+      "sha256": "6aab4cf46b164741f390af38be77804c9572237c6db3c2abba47af61497156ae",
+      "annotations": {
+        "helmet": "no",
+        "carrying": "none",
+        "clothing": "safety_vest"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "wikimedia_commons",
+      "group_id": "6aab4cf46b164741f390af38be77804c9572237c6db3c2abba47af61497156ae",
+      "task_fields": [
+        "helmet",
+        "carrying",
+        "clothing"
+      ]
+    },
+    {
+      "id": "person_027",
+      "domain": "person",
+      "filename": "safety_vest_02.jpg",
+      "rel_path": "eval/images/person_attributes/safety_vest_02.jpg",
+      "sha256": "4252b5f078f0bc738f2d9f3cf35e4358318a70875f526a93983ae49827b5ffd7",
+      "annotations": {
+        "helmet": "no",
+        "carrying": "none",
+        "clothing": "safety_vest"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_people"
+      ],
+      "source": "wikimedia_commons",
+      "group_id": "4252b5f078f0bc738f2d9f3cf35e4358318a70875f526a93983ae49827b5ffd7",
+      "task_fields": [
+        "helmet",
+        "carrying",
+        "clothing"
+      ]
+    },
+    {
+      "id": "person_028",
+      "domain": "person",
+      "filename": "safety_vest_03.jpg",
+      "rel_path": "eval/images/person_attributes/safety_vest_03.jpg",
+      "sha256": "f0971d1ce494de535ee708d35ef993e5c9acb4e3dd4f9a2be340afc2ee7f6d43",
+      "annotations": {
+        "helmet": "no",
+        "carrying": "none",
+        "clothing": "safety_vest"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "wikimedia_commons",
+      "group_id": "f0971d1ce494de535ee708d35ef993e5c9acb4e3dd4f9a2be340afc2ee7f6d43",
+      "task_fields": [
+        "helmet",
+        "carrying",
+        "clothing"
+      ]
+    },
+    {
+      "id": "person_029",
+      "domain": "person",
+      "filename": "safety_vest_04.jpg",
+      "rel_path": "eval/images/person_attributes/safety_vest_04.jpg",
+      "sha256": "8670f12b3055716c0aefc39f75dc6818da46edc7b0efaa0f19e4f9297952e7f8",
+      "annotations": {
+        "helmet": "no",
+        "carrying": "none",
+        "clothing": "safety_vest"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "distant_small_person"
+      ],
+      "source": "wikimedia_commons",
+      "group_id": "8670f12b3055716c0aefc39f75dc6818da46edc7b0efaa0f19e4f9297952e7f8",
+      "task_fields": [
+        "helmet",
+        "carrying",
+        "clothing"
+      ]
+    },
+    {
+      "id": "person_030",
+      "domain": "person",
+      "filename": "safety_vest_05.jpg",
+      "rel_path": "eval/images/person_attributes/safety_vest_05.jpg",
+      "sha256": "96ca56c50590c4186797cd813ccbfc4b27976323890639f3c287c441edeb517f",
+      "annotations": {
+        "helmet": "no",
+        "carrying": "none",
+        "clothing": "safety_vest"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_people"
+      ],
+      "source": "wikimedia_commons",
+      "group_id": "96ca56c50590c4186797cd813ccbfc4b27976323890639f3c287c441edeb517f",
+      "task_fields": [
+        "helmet",
+        "carrying",
+        "clothing"
+      ]
+    },
+    {
+      "id": "person_031",
+      "domain": "person",
+      "filename": "safety_vest_06.jpg",
+      "rel_path": "eval/images/person_attributes/safety_vest_06.jpg",
+      "sha256": "d531a7f97cb5d20f3c79a036695a93b1423560458e0b1612aadbcf4b096d4374",
+      "annotations": {
+        "helmet": "no",
+        "carrying": "none",
+        "clothing": "safety_vest"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_people"
+      ],
+      "source": "wikimedia_commons",
+      "group_id": "d531a7f97cb5d20f3c79a036695a93b1423560458e0b1612aadbcf4b096d4374",
+      "task_fields": [
+        "helmet",
+        "carrying",
+        "clothing"
+      ]
+    },
+    {
+      "id": "person_032",
+      "domain": "person",
+      "filename": "safety_vest_07.jpg",
+      "rel_path": "eval/images/person_attributes/safety_vest_07.jpg",
+      "sha256": "157e19bcf0a17d746b504b0ad51b279cfdae9de51ed68b0cf9cf303b8f33eb2c",
+      "annotations": {
+        "helmet": "no",
+        "carrying": "none",
+        "clothing": "safety_vest"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_people"
+      ],
+      "source": "wikimedia_commons",
+      "group_id": "157e19bcf0a17d746b504b0ad51b279cfdae9de51ed68b0cf9cf303b8f33eb2c",
+      "task_fields": [
+        "helmet",
+        "carrying",
+        "clothing"
+      ]
+    },
+    {
+      "id": "person_033",
+      "domain": "person",
+      "filename": "safety_vest_08.jpg",
+      "rel_path": "eval/images/person_attributes/safety_vest_08.jpg",
+      "sha256": "ed41c0c9c9099fe0f632a120dc605dd13d5472dd801f99367ecf8f3ada161d9c",
+      "annotations": {
+        "helmet": "no",
+        "carrying": "none",
+        "clothing": "safety_vest"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_people"
+      ],
+      "source": "wikimedia_commons",
+      "group_id": "ed41c0c9c9099fe0f632a120dc605dd13d5472dd801f99367ecf8f3ada161d9c",
+      "task_fields": [
+        "helmet",
+        "carrying",
+        "clothing"
+      ]
+    },
+    {
+      "id": "person_034",
+      "domain": "person",
+      "filename": "safety_vest_09.jpg",
+      "rel_path": "eval/images/person_attributes/safety_vest_09.jpg",
+      "sha256": "4833f2e63993376f9f19441e5a97009eae46c4fe94a2921e0165b33b7c169517",
+      "annotations": {
+        "helmet": "no",
+        "carrying": "none",
+        "clothing": "safety_vest"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_people"
+      ],
+      "source": "wikimedia_commons",
+      "group_id": "4833f2e63993376f9f19441e5a97009eae46c4fe94a2921e0165b33b7c169517",
+      "task_fields": [
+        "helmet",
+        "carrying",
+        "clothing"
+      ]
+    },
+    {
+      "id": "person_035",
+      "domain": "person",
+      "filename": "safety_vest_10.jpg",
+      "rel_path": "eval/images/person_attributes/safety_vest_10.jpg",
+      "sha256": "bcab224b4e6a21c9f24f27355c98b6e33e70ae785d765cf112c2c9af17d0506d",
+      "annotations": {
+        "helmet": "no",
+        "carrying": "none",
+        "clothing": "safety_vest"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_people"
+      ],
+      "source": "wikimedia_commons",
+      "group_id": "bcab224b4e6a21c9f24f27355c98b6e33e70ae785d765cf112c2c9af17d0506d",
+      "task_fields": [
+        "helmet",
+        "carrying",
+        "clothing"
+      ]
+    },
+    {
+      "id": "person_036",
+      "domain": "person",
+      "filename": "pedestrian_01.jpg",
+      "rel_path": "eval/images/person_attributes/pedestrian_01.jpg",
+      "sha256": "d3c92a63a4048712293210d2963045061380d164de2d8ba7c166d4795f131c4f",
+      "annotations": {
+        "helmet": "no",
+        "carrying": "none",
+        "clothing": "shirt_tshirt"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_people"
+      ],
+      "source": "wikimedia_commons",
+      "group_id": "d3c92a63a4048712293210d2963045061380d164de2d8ba7c166d4795f131c4f",
+      "task_fields": [
+        "helmet",
+        "carrying",
+        "clothing"
+      ]
+    },
+    {
+      "id": "person_037",
+      "domain": "person",
+      "filename": "pedestrian_02.jpg",
+      "rel_path": "eval/images/person_attributes/pedestrian_02.jpg",
+      "sha256": "5dcbb42c237ba64221e1bb746ee49aea478a1d1cac8daf4252301c3e7cc8ae55",
+      "annotations": {
+        "helmet": "no",
+        "carrying": "none",
+        "clothing": "shirt_tshirt"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_people"
+      ],
+      "source": "wikimedia_commons",
+      "group_id": "5dcbb42c237ba64221e1bb746ee49aea478a1d1cac8daf4252301c3e7cc8ae55",
+      "task_fields": [
+        "helmet",
+        "carrying",
+        "clothing"
+      ]
+    },
+    {
+      "id": "person_038",
+      "domain": "person",
+      "filename": "pedestrian_03.jpg",
+      "rel_path": "eval/images/person_attributes/pedestrian_03.jpg",
+      "sha256": "8800522f049aa4e55c030a862ea434a5c712135f09fc82b62f7da187090bd4d0",
+      "annotations": {
+        "helmet": "no",
+        "carrying": "none",
+        "clothing": "shirt_tshirt"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_people"
+      ],
+      "source": "wikimedia_commons",
+      "group_id": "8800522f049aa4e55c030a862ea434a5c712135f09fc82b62f7da187090bd4d0",
+      "task_fields": [
+        "helmet",
+        "carrying",
+        "clothing"
+      ]
+    },
+    {
+      "id": "person_039",
+      "domain": "person",
+      "filename": "pedestrian_04.jpg",
+      "rel_path": "eval/images/person_attributes/pedestrian_04.jpg",
+      "sha256": "b649caf5bf23a73a47cad3b1705496618f81ed70cc1d41f21284b6ef89347aaf",
+      "annotations": {
+        "helmet": "no",
+        "carrying": "none",
+        "clothing": "shirt_tshirt"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_people"
+      ],
+      "source": "wikimedia_commons",
+      "group_id": "b649caf5bf23a73a47cad3b1705496618f81ed70cc1d41f21284b6ef89347aaf",
+      "task_fields": [
+        "helmet",
+        "carrying",
+        "clothing"
+      ]
+    },
+    {
+      "id": "person_040",
+      "domain": "person",
+      "filename": "pedestrian_05.jpg",
+      "rel_path": "eval/images/person_attributes/pedestrian_05.jpg",
+      "sha256": "05f19e60108d0af726fb1c2bcd571d274b8e58e55b6eaab6f344265f9887a033",
+      "annotations": {
+        "helmet": "no",
+        "carrying": "none",
+        "clothing": "shirt_tshirt"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_people"
+      ],
+      "source": "wikimedia_commons",
+      "group_id": "05f19e60108d0af726fb1c2bcd571d274b8e58e55b6eaab6f344265f9887a033",
+      "task_fields": [
+        "helmet",
+        "carrying",
+        "clothing"
+      ]
+    },
+    {
+      "id": "person_041",
+      "domain": "person",
+      "filename": "pedestrian_06.jpg",
+      "rel_path": "eval/images/person_attributes/pedestrian_06.jpg",
+      "sha256": "c90f1eed61913791f60918593eee1ea104c486e99978b669cacfe8714becd2c1",
+      "annotations": {
+        "helmet": "no",
+        "carrying": "none",
+        "clothing": "shirt_tshirt"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_people"
+      ],
+      "source": "wikimedia_commons",
+      "group_id": "c90f1eed61913791f60918593eee1ea104c486e99978b669cacfe8714becd2c1",
+      "task_fields": [
+        "helmet",
+        "carrying",
+        "clothing"
+      ]
+    },
+    {
+      "id": "person_042",
+      "domain": "person",
+      "filename": "pedestrian_07.jpg",
+      "rel_path": "eval/images/person_attributes/pedestrian_07.jpg",
+      "sha256": "a2205899859ab567c7315ac7025b512149d82af25861b5d3923296e8cd0b37fa",
+      "annotations": {
+        "helmet": "no",
+        "carrying": "none",
+        "clothing": "shirt_tshirt"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_people"
+      ],
+      "source": "wikimedia_commons",
+      "group_id": "a2205899859ab567c7315ac7025b512149d82af25861b5d3923296e8cd0b37fa",
+      "task_fields": [
+        "helmet",
+        "carrying",
+        "clothing"
+      ]
+    },
+    {
+      "id": "person_043",
+      "domain": "person",
+      "filename": "pedestrian_08.jpg",
+      "rel_path": "eval/images/person_attributes/pedestrian_08.jpg",
+      "sha256": "e75625bef4c1a5cba3b00a3ac9475f0922423f714b684b98d15f8ca853268e9c",
+      "annotations": {
+        "helmet": "no",
+        "carrying": "none",
+        "clothing": "shirt_tshirt"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_people"
+      ],
+      "source": "wikimedia_commons",
+      "group_id": "e75625bef4c1a5cba3b00a3ac9475f0922423f714b684b98d15f8ca853268e9c",
+      "task_fields": [
+        "helmet",
+        "carrying",
+        "clothing"
+      ]
+    },
+    {
+      "id": "person_044",
+      "domain": "person",
+      "filename": "pedestrian_09.jpg",
+      "rel_path": "eval/images/person_attributes/pedestrian_09.jpg",
+      "sha256": "dab8eaeb8eb154287594db8e72cc52e015403205650d7a4e1a337eef065dc77b",
+      "annotations": {
+        "helmet": "no",
+        "carrying": "none",
+        "clothing": "shirt_tshirt"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_people"
+      ],
+      "source": "wikimedia_commons",
+      "group_id": "dab8eaeb8eb154287594db8e72cc52e015403205650d7a4e1a337eef065dc77b",
+      "task_fields": [
+        "helmet",
+        "carrying",
+        "clothing"
+      ]
+    },
+    {
+      "id": "person_045",
+      "domain": "person",
+      "filename": "pedestrian_10.jpg",
+      "rel_path": "eval/images/person_attributes/pedestrian_10.jpg",
+      "sha256": "22628427b0e6b33b2b5c8d0806dbeb4f025edf2f6e2ab48c2af573ed8eb641c4",
+      "annotations": {
+        "helmet": "no",
+        "carrying": "none",
+        "clothing": "shirt_tshirt"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_people"
+      ],
+      "source": "wikimedia_commons",
+      "group_id": "22628427b0e6b33b2b5c8d0806dbeb4f025edf2f6e2ab48c2af573ed8eb641c4",
+      "task_fields": [
+        "helmet",
+        "carrying",
+        "clothing"
+      ]
+    },
+    {
+      "id": "person_046",
+      "domain": "person",
+      "filename": "pedestrian_11.jpg",
+      "rel_path": "eval/images/person_attributes/pedestrian_11.jpg",
+      "sha256": "628646be5b4872f9bf86874b9e30e19fb22e937919f9ea3ac0700d0f47556b0c",
+      "annotations": {
+        "helmet": "no",
+        "carrying": "none",
+        "clothing": "shirt_tshirt"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_people"
+      ],
+      "source": "wikimedia_commons",
+      "group_id": "628646be5b4872f9bf86874b9e30e19fb22e937919f9ea3ac0700d0f47556b0c",
+      "task_fields": [
+        "helmet",
+        "carrying",
+        "clothing"
+      ]
+    },
+    {
+      "id": "person_047",
+      "domain": "person",
+      "filename": "pedestrian_12.jpg",
+      "rel_path": "eval/images/person_attributes/pedestrian_12.jpg",
+      "sha256": "29874b8f79a5e31bb6d567ecc240ebba8a915a5e626be644f6fa32159152fdcf",
+      "annotations": {
+        "helmet": "no",
+        "carrying": "none",
+        "clothing": "shirt_tshirt"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_people"
+      ],
+      "source": "wikimedia_commons",
+      "group_id": "29874b8f79a5e31bb6d567ecc240ebba8a915a5e626be644f6fa32159152fdcf",
+      "task_fields": [
+        "helmet",
+        "carrying",
+        "clothing"
+      ]
+    },
+    {
+      "id": "person_048",
+      "domain": "person",
+      "filename": "pedestrian_13.jpg",
+      "rel_path": "eval/images/person_attributes/pedestrian_13.jpg",
+      "sha256": "ce36ba42baa92c64bfa114e7237245262fd3a8bdc79c0ce9efa5281c6b5b2d18",
+      "annotations": {
+        "helmet": "no",
+        "carrying": "none",
+        "clothing": "shirt_tshirt"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_people"
+      ],
+      "source": "wikimedia_commons",
+      "group_id": "ce36ba42baa92c64bfa114e7237245262fd3a8bdc79c0ce9efa5281c6b5b2d18",
+      "task_fields": [
+        "helmet",
+        "carrying",
+        "clothing"
+      ]
+    },
+    {
+      "id": "person_049",
+      "domain": "person",
+      "filename": "pedestrian_14.jpg",
+      "rel_path": "eval/images/person_attributes/pedestrian_14.jpg",
+      "sha256": "8c151826c237563322e8417b9f2c64e00125f29a698e30c37770667773f275bc",
+      "annotations": {
+        "helmet": "no",
+        "carrying": "none",
+        "clothing": "shirt_tshirt"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_people"
+      ],
+      "source": "wikimedia_commons",
+      "group_id": "8c151826c237563322e8417b9f2c64e00125f29a698e30c37770667773f275bc",
+      "task_fields": [
+        "helmet",
+        "carrying",
+        "clothing"
+      ]
+    },
+    {
+      "id": "person_050",
+      "domain": "person",
+      "filename": "pedestrian_15.jpg",
+      "rel_path": "eval/images/person_attributes/pedestrian_15.jpg",
+      "sha256": "83863d145851cc488adc1f1b054cb38920ffa94dedf7d4dc9d25a1d8714a3fff",
+      "annotations": {
+        "helmet": "no",
+        "carrying": "none",
+        "clothing": "shirt_tshirt"
+      },
+      "split": "eval",
+      "difficult": true,
+      "difficulty_tags": [
+        "multiple_people"
+      ],
+      "source": "wikimedia_commons",
+      "group_id": "83863d145851cc488adc1f1b054cb38920ffa94dedf7d4dc9d25a1d8714a3fff",
+      "task_fields": [
+        "helmet",
+        "carrying",
+        "clothing"
+      ]
+    },
+    {
+      "id": "person_051",
+      "domain": "person",
+      "filename": "no_car_03.jpg",
+      "rel_path": "eval/images/unknown_controls/no_car_03.jpg",
+      "sha256": "38b4efc34f71a810ae31ce5e870c636cefee6c8d1f7fa87b2f8cb7c4b21c409c",
+      "annotations": {
+        "helmet": "not_visible",
+        "carrying": "not_visible",
+        "clothing": "not_visible"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "curated_negative_controls",
+      "group_id": "38b4efc34f71a810ae31ce5e870c636cefee6c8d1f7fa87b2f8cb7c4b21c409c",
+      "task_fields": [
+        "helmet",
+        "carrying",
+        "clothing"
+      ]
+    },
+    {
+      "id": "person_052",
+      "domain": "person",
+      "filename": "no_car_04.jpg",
+      "rel_path": "eval/images/unknown_controls/no_car_04.jpg",
+      "sha256": "57137cd742da0c85521567bd14bb113191a55437387384c38dacf5e9babb6c21",
+      "annotations": {
+        "helmet": "not_visible",
+        "carrying": "not_visible",
+        "clothing": "not_visible"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "curated_negative_controls",
+      "group_id": "57137cd742da0c85521567bd14bb113191a55437387384c38dacf5e9babb6c21",
+      "task_fields": [
+        "helmet",
+        "carrying",
+        "clothing"
+      ]
+    },
+    {
+      "id": "person_053",
+      "domain": "person",
+      "filename": "no_car_05.jpg",
+      "rel_path": "eval/images/unknown_controls/no_car_05.jpg",
+      "sha256": "ed6f851d0ca9659a59cc817ea8d1096d94150edb6579ef9e58f519065bcb9216",
+      "annotations": {
+        "helmet": "not_visible",
+        "carrying": "not_visible",
+        "clothing": "not_visible"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "curated_negative_controls",
+      "group_id": "ed6f851d0ca9659a59cc817ea8d1096d94150edb6579ef9e58f519065bcb9216",
+      "task_fields": [
+        "helmet",
+        "carrying",
+        "clothing"
+      ]
+    },
+    {
+      "id": "person_054",
+      "domain": "person",
+      "filename": "no_car_06.jpg",
+      "rel_path": "eval/images/unknown_controls/no_car_06.jpg",
+      "sha256": "9ff4d9b345f61316961d4b8ced71b5f3329ff682dcce7a6673029fc605ee3dc1",
+      "annotations": {
+        "helmet": "not_visible",
+        "carrying": "not_visible",
+        "clothing": "not_visible"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "curated_negative_controls",
+      "group_id": "9ff4d9b345f61316961d4b8ced71b5f3329ff682dcce7a6673029fc605ee3dc1",
+      "task_fields": [
+        "helmet",
+        "carrying",
+        "clothing"
+      ]
+    },
+    {
+      "id": "person_055",
+      "domain": "person",
+      "filename": "no_car_07.jpg",
+      "rel_path": "eval/images/unknown_controls/no_car_07.jpg",
+      "sha256": "79094b5020561ee379ead06d2f81f1d5d89880c4fc5ce15ebadbf5debb7f2658",
+      "annotations": {
+        "helmet": "not_visible",
+        "carrying": "not_visible",
+        "clothing": "not_visible"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "curated_negative_controls",
+      "group_id": "79094b5020561ee379ead06d2f81f1d5d89880c4fc5ce15ebadbf5debb7f2658",
+      "task_fields": [
+        "helmet",
+        "carrying",
+        "clothing"
+      ]
+    },
+    {
+      "id": "person_056",
+      "domain": "person",
+      "filename": "no_car_08.jpg",
+      "rel_path": "eval/images/unknown_controls/no_car_08.jpg",
+      "sha256": "cf19d3efcc82b325335886bdc9ab4d352d6079afe0c87fe2e3392e9855e3d1ac",
+      "annotations": {
+        "helmet": "not_visible",
+        "carrying": "not_visible",
+        "clothing": "not_visible"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "curated_negative_controls",
+      "group_id": "cf19d3efcc82b325335886bdc9ab4d352d6079afe0c87fe2e3392e9855e3d1ac",
+      "task_fields": [
+        "helmet",
+        "carrying",
+        "clothing"
+      ]
+    },
+    {
+      "id": "person_057",
+      "domain": "person",
+      "filename": "no_car_09.jpg",
+      "rel_path": "eval/images/unknown_controls/no_car_09.jpg",
+      "sha256": "d7bcff4b75c0d8b81924500b0921e98686bfbf4a00aabe7b2749a83d742e24d0",
+      "annotations": {
+        "helmet": "not_visible",
+        "carrying": "not_visible",
+        "clothing": "not_visible"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "curated_negative_controls",
+      "group_id": "d7bcff4b75c0d8b81924500b0921e98686bfbf4a00aabe7b2749a83d742e24d0",
+      "task_fields": [
+        "helmet",
+        "carrying",
+        "clothing"
+      ]
+    },
+    {
+      "id": "person_058",
+      "domain": "person",
+      "filename": "no_car_10.jpg",
+      "rel_path": "eval/images/unknown_controls/no_car_10.jpg",
+      "sha256": "f18b658366648a7c222c3c57d3b1449af0e1d30b1edca841112578fb5ea77902",
+      "annotations": {
+        "helmet": "not_visible",
+        "carrying": "not_visible",
+        "clothing": "not_visible"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "curated_negative_controls",
+      "group_id": "f18b658366648a7c222c3c57d3b1449af0e1d30b1edca841112578fb5ea77902",
+      "task_fields": [
+        "helmet",
+        "carrying",
+        "clothing"
+      ]
+    },
+    {
+      "id": "person_059",
+      "domain": "person",
+      "filename": "no_car_field.jpg",
+      "rel_path": "eval/images/unknown_controls/no_car_field.jpg",
+      "sha256": "c4e870d358d64ce677e958c156d0e3fba466993d8e915fc81c5dc64937a9b696",
+      "annotations": {
+        "helmet": "not_visible",
+        "carrying": "not_visible",
+        "clothing": "not_visible"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "curated_negative_controls",
+      "group_id": "c4e870d358d64ce677e958c156d0e3fba466993d8e915fc81c5dc64937a9b696",
+      "task_fields": [
+        "helmet",
+        "carrying",
+        "clothing"
+      ]
+    },
+    {
+      "id": "person_060",
+      "domain": "person",
+      "filename": "no_car_landscape.jpg",
+      "rel_path": "eval/images/unknown_controls/no_car_landscape.jpg",
+      "sha256": "483cbf0e5f28194105303c04b8acfefc7bb557450c288c66e6233ea42a1ca23c",
+      "annotations": {
+        "helmet": "not_visible",
+        "carrying": "not_visible",
+        "clothing": "not_visible"
+      },
+      "split": "eval",
+      "difficult": false,
+      "difficulty_tags": [],
+      "source": "curated_negative_controls",
+      "group_id": "483cbf0e5f28194105303c04b8acfefc7bb557450c288c66e6233ea42a1ca23c",
+      "task_fields": [
+        "helmet",
+        "carrying",
+        "clothing"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,911 @@
+{
+  "schema_version": 1,
+  "name": "Múltiplos objetos: recorte e contexto",
+  "label_status": "exploratory_historical_unadjudicated",
+  "source_manifest": "eval/datasets/test_5_multi_object_manifest.json",
+  "source_manifest_sha256": "2eff639f18366350d15e010100db9d8d8791b173db9405466f68d3ef225b4f52",
+  "required_contract": "historical",
+  "note": "Gabaritos históricos exploratórios. Imagens derivadas compartilham grupo; eventos não equivalem a imagens independentes. hatchback → hatch; pickup e truck preservados.",
+  "items": [
+    {
+      "id": "scene_col_01_crop",
+      "domain": "vehicle",
+      "filename": "scene_col_01_crop.jpg",
+      "rel_path": "eval/images/multi_object/scene_col_01_crop.jpg",
+      "sha256": "f5b21222b2ff5d9d712d188ef82bcd644f881b5bfc88222ed1d4af9f62669250",
+      "annotations": {
+        "color": "white"
+      },
+      "presentation": "crop",
+      "scene_id": "scene_col_01",
+      "group_id": "scene_col_01",
+      "task_field": "color",
+      "question": "What is the predominant color of this vehicle?"
+    },
+    {
+      "id": "scene_col_01_full_highlighted",
+      "domain": "vehicle",
+      "filename": "scene_col_01_full_highlighted.jpg",
+      "rel_path": "eval/images/multi_object/scene_col_01_full_highlighted.jpg",
+      "sha256": "eeeb6e52156ecf1973869f47d8b172740914dbb3b4135da43adcd35b347c1722",
+      "annotations": {
+        "color": "white"
+      },
+      "presentation": "full_highlighted",
+      "scene_id": "scene_col_01",
+      "group_id": "scene_col_01",
+      "task_field": "color",
+      "question": "In the highlighted object inside the red box, what is the predominant color of the vehicle?"
+    },
+    {
+      "id": "scene_col_02_crop",
+      "domain": "vehicle",
+      "filename": "scene_col_02_crop.jpg",
+      "rel_path": "eval/images/multi_object/scene_col_02_crop.jpg",
+      "sha256": "96b5f66da1e1d884796abb21f56998e2428b2a1f43bc0931917bbbaa126d0fe6",
+      "annotations": {
+        "color": "gray_silver"
+      },
+      "presentation": "crop",
+      "scene_id": "scene_col_02",
+      "group_id": "scene_col_02",
+      "task_field": "color",
+      "question": "What is the predominant color of this vehicle?"
+    },
+    {
+      "id": "scene_col_02_full_highlighted",
+      "domain": "vehicle",
+      "filename": "scene_col_02_full_highlighted.jpg",
+      "rel_path": "eval/images/multi_object/scene_col_02_full_highlighted.jpg",
+      "sha256": "c53a5a79498a859d5b51e148d9ecad176ec830a76a2b9794ac9c5077074702b7",
+      "annotations": {
+        "color": "gray_silver"
+      },
+      "presentation": "full_highlighted",
+      "scene_id": "scene_col_02",
+      "group_id": "scene_col_02",
+      "task_field": "color",
+      "question": "In the highlighted object inside the red box, what is the predominant color of the vehicle?"
+    },
+    {
+      "id": "scene_col_03_crop",
+      "domain": "vehicle",
+      "filename": "scene_col_03_crop.jpg",
+      "rel_path": "eval/images/multi_object/scene_col_03_crop.jpg",
+      "sha256": "5b0caa8420c2330093cb4679b1d30236730e1355a618ee76eb9bfdd8ee216634",
+      "annotations": {
+        "color": "blue"
+      },
+      "presentation": "crop",
+      "scene_id": "scene_col_03",
+      "group_id": "scene_col_03",
+      "task_field": "color",
+      "question": "What is the predominant color of this vehicle?"
+    },
+    {
+      "id": "scene_col_03_full_highlighted",
+      "domain": "vehicle",
+      "filename": "scene_col_03_full_highlighted.jpg",
+      "rel_path": "eval/images/multi_object/scene_col_03_full_highlighted.jpg",
+      "sha256": "38df5e62d32123607fd1f20bf0c7fae4db6f857586b0bac9ad33cca8621e1ca0",
+      "annotations": {
+        "color": "blue"
+      },
+      "presentation": "full_highlighted",
+      "scene_id": "scene_col_03",
+      "group_id": "scene_col_03",
+      "task_field": "color",
+      "question": "In the highlighted object inside the red box, what is the predominant color of the vehicle?"
+    },
+    {
+      "id": "scene_col_04_crop",
+      "domain": "vehicle",
+      "filename": "scene_col_04_crop.jpg",
+      "rel_path": "eval/images/multi_object/scene_col_04_crop.jpg",
+      "sha256": "68d0c63484204c7c2d4a969c2628438ad6aa44e1e8550e7e46909a9cfa51c7fa",
+      "annotations": {
+        "color": "black"
+      },
+      "presentation": "crop",
+      "scene_id": "scene_col_04",
+      "group_id": "scene_col_04",
+      "task_field": "color",
+      "question": "What is the predominant color of this vehicle?"
+    },
+    {
+      "id": "scene_col_04_full_highlighted",
+      "domain": "vehicle",
+      "filename": "scene_col_04_full_highlighted.jpg",
+      "rel_path": "eval/images/multi_object/scene_col_04_full_highlighted.jpg",
+      "sha256": "5c7e5d5bebaded7e7bc74d19d691949b8e186feed9b8cc9ff7a5cdc569c1a222",
+      "annotations": {
+        "color": "black"
+      },
+      "presentation": "full_highlighted",
+      "scene_id": "scene_col_04",
+      "group_id": "scene_col_04",
+      "task_field": "color",
+      "question": "In the highlighted object inside the red box, what is the predominant color of the vehicle?"
+    },
+    {
+      "id": "scene_col_05_crop",
+      "domain": "vehicle",
+      "filename": "scene_col_05_crop.jpg",
+      "rel_path": "eval/images/multi_object/scene_col_05_crop.jpg",
+      "sha256": "54263e68aed7b4d43f915fb6d0fe7401ed16dbb1cfc87d7afc25091e9202d833",
+      "annotations": {
+        "color": "white"
+      },
+      "presentation": "crop",
+      "scene_id": "scene_col_05",
+      "group_id": "scene_col_05",
+      "task_field": "color",
+      "question": "What is the predominant color of this vehicle?"
+    },
+    {
+      "id": "scene_col_05_full_highlighted",
+      "domain": "vehicle",
+      "filename": "scene_col_05_full_highlighted.jpg",
+      "rel_path": "eval/images/multi_object/scene_col_05_full_highlighted.jpg",
+      "sha256": "fcaf784ad98ddb9902c265ccb69739cd59113d1d06abd380a7f30809b59ce2e6",
+      "annotations": {
+        "color": "white"
+      },
+      "presentation": "full_highlighted",
+      "scene_id": "scene_col_05",
+      "group_id": "scene_col_05",
+      "task_field": "color",
+      "question": "In the highlighted object inside the red box, what is the predominant color of the vehicle?"
+    },
+    {
+      "id": "scene_col_06_crop",
+      "domain": "vehicle",
+      "filename": "scene_col_06_crop.jpg",
+      "rel_path": "eval/images/multi_object/scene_col_06_crop.jpg",
+      "sha256": "9e8fcb8d1df97ca7365ea1fbd4aa42ed77339f8a27ffedb9d3d6d6111fd263bf",
+      "annotations": {
+        "color": "black"
+      },
+      "presentation": "crop",
+      "scene_id": "scene_col_06",
+      "group_id": "scene_col_06",
+      "task_field": "color",
+      "question": "What is the predominant color of this vehicle?"
+    },
+    {
+      "id": "scene_col_06_full_highlighted",
+      "domain": "vehicle",
+      "filename": "scene_col_06_full_highlighted.jpg",
+      "rel_path": "eval/images/multi_object/scene_col_06_full_highlighted.jpg",
+      "sha256": "9ade21af423888a56e06458361a8c9dc132c3c8ef81baad89a214f2583d52e87",
+      "annotations": {
+        "color": "black"
+      },
+      "presentation": "full_highlighted",
+      "scene_id": "scene_col_06",
+      "group_id": "scene_col_06",
+      "task_field": "color",
+      "question": "In the highlighted object inside the red box, what is the predominant color of the vehicle?"
+    },
+    {
+      "id": "scene_col_07_crop",
+      "domain": "vehicle",
+      "filename": "scene_col_07_crop.jpg",
+      "rel_path": "eval/images/multi_object/scene_col_07_crop.jpg",
+      "sha256": "0aaddc6d9a276611838be11620b0da92200845a5562c5cdaa3d15ff22b3eb0dc",
+      "annotations": {
+        "color": "white"
+      },
+      "presentation": "crop",
+      "scene_id": "scene_col_07",
+      "group_id": "scene_col_07",
+      "task_field": "color",
+      "question": "What is the predominant color of this vehicle?"
+    },
+    {
+      "id": "scene_col_07_full_highlighted",
+      "domain": "vehicle",
+      "filename": "scene_col_07_full_highlighted.jpg",
+      "rel_path": "eval/images/multi_object/scene_col_07_full_highlighted.jpg",
+      "sha256": "fba42fb7cb47a9a9525d38f4de202713a3343602f027e13233d714baabcc72cb",
+      "annotations": {
+        "color": "white"
+      },
+      "presentation": "full_highlighted",
+      "scene_id": "scene_col_07",
+      "group_id": "scene_col_07",
+      "task_field": "color",
+      "question": "In the highlighted object inside the red box, what is the predominant color of the vehicle?"
+    },
+    {
+      "id": "scene_col_08_crop",
+      "domain": "vehicle",
+      "filename": "scene_col_08_crop.jpg",
+      "rel_path": "eval/images/multi_object/scene_col_08_crop.jpg",
+      "sha256": "33110ef45fdcde2b2d75d5d180d3465467fe5607d3f1cc859eec2f4ac6d11d68",
+      "annotations": {
+        "color": "blue"
+      },
+      "presentation": "crop",
+      "scene_id": "scene_col_08",
+      "group_id": "scene_col_08",
+      "task_field": "color",
+      "question": "What is the predominant color of this vehicle?"
+    },
+    {
+      "id": "scene_col_08_full_highlighted",
+      "domain": "vehicle",
+      "filename": "scene_col_08_full_highlighted.jpg",
+      "rel_path": "eval/images/multi_object/scene_col_08_full_highlighted.jpg",
+      "sha256": "f396ee46ecccca17f08ba2c6c74bdfd73ea1d0aa1e9e9d4e4c6232cd13f9016c",
+      "annotations": {
+        "color": "blue"
+      },
+      "presentation": "full_highlighted",
+      "scene_id": "scene_col_08",
+      "group_id": "scene_col_08",
+      "task_field": "color",
+      "question": "In the highlighted object inside the red box, what is the predominant color of the vehicle?"
+    },
+    {
+      "id": "scene_col_09_crop",
+      "domain": "vehicle",
+      "filename": "scene_col_09_crop.jpg",
+      "rel_path": "eval/images/multi_object/scene_col_09_crop.jpg",
+      "sha256": "7f38763f6e4e92eaf8a818af3e26f89a92590227a6af585bdfdf1f3f50573fa3",
+      "annotations": {
+        "color": "white"
+      },
+      "presentation": "crop",
+      "scene_id": "scene_col_09",
+      "group_id": "scene_col_09",
+      "task_field": "color",
+      "question": "What is the predominant color of this vehicle?"
+    },
+    {
+      "id": "scene_col_09_full_highlighted",
+      "domain": "vehicle",
+      "filename": "scene_col_09_full_highlighted.jpg",
+      "rel_path": "eval/images/multi_object/scene_col_09_full_highlighted.jpg",
+      "sha256": "297c4fb2a9b4e958fc19b8421a8a4e0c2a6a6e836567e00cea273ada1126ddbc",
+      "annotations": {
+        "color": "white"
+      },
+      "presentation": "full_highlighted",
+      "scene_id": "scene_col_09",
+      "group_id": "scene_col_09",
+      "task_field": "color",
+      "question": "In the highlighted object inside the red box, what is the predominant color of the vehicle?"
+    },
+    {
+      "id": "scene_col_10_crop",
+      "domain": "vehicle",
+      "filename": "scene_col_10_crop.jpg",
+      "rel_path": "eval/images/multi_object/scene_col_10_crop.jpg",
+      "sha256": "16af3acf7f850055b0cf9fb38b18abd0193928f67ffdc3473180baea1606ac19",
+      "annotations": {
+        "color": "white"
+      },
+      "presentation": "crop",
+      "scene_id": "scene_col_10",
+      "group_id": "scene_col_10",
+      "task_field": "color",
+      "question": "What is the predominant color of this vehicle?"
+    },
+    {
+      "id": "scene_col_10_full_highlighted",
+      "domain": "vehicle",
+      "filename": "scene_col_10_full_highlighted.jpg",
+      "rel_path": "eval/images/multi_object/scene_col_10_full_highlighted.jpg",
+      "sha256": "c7db8589569f450b861114d1da4de249da3ef3188134a725a0c168de7592b328",
+      "annotations": {
+        "color": "white"
+      },
+      "presentation": "full_highlighted",
+      "scene_id": "scene_col_10",
+      "group_id": "scene_col_10",
+      "task_field": "color",
+      "question": "In the highlighted object inside the red box, what is the predominant color of the vehicle?"
+    },
+    {
+      "id": "scene_col_11_crop",
+      "domain": "vehicle",
+      "filename": "scene_col_11_crop.jpg",
+      "rel_path": "eval/images/multi_object/scene_col_11_crop.jpg",
+      "sha256": "59cc017b1498f0c6ad73e6a1c93f605749053c096466bf2e13f12bf3ef94d118",
+      "annotations": {
+        "color": "white"
+      },
+      "presentation": "crop",
+      "scene_id": "scene_col_11",
+      "group_id": "scene_col_11",
+      "task_field": "color",
+      "question": "What is the predominant color of this vehicle?"
+    },
+    {
+      "id": "scene_col_11_full_highlighted",
+      "domain": "vehicle",
+      "filename": "scene_col_11_full_highlighted.jpg",
+      "rel_path": "eval/images/multi_object/scene_col_11_full_highlighted.jpg",
+      "sha256": "a2f8b5790b3cb0e066f8e8eb267bc0eeecf95084a5f8d7daa10c9a047cda0b2b",
+      "annotations": {
+        "color": "white"
+      },
+      "presentation": "full_highlighted",
+      "scene_id": "scene_col_11",
+      "group_id": "scene_col_11",
+      "task_field": "color",
+      "question": "In the highlighted object inside the red box, what is the predominant color of the vehicle?"
+    },
+    {
+      "id": "scene_col_12_crop",
+      "domain": "vehicle",
+      "filename": "scene_col_12_crop.jpg",
+      "rel_path": "eval/images/multi_object/scene_col_12_crop.jpg",
+      "sha256": "4f0745e3bdf1985c43cfd51e57ce7269a3787fb73326c6f2e3088b050bb5a7d8",
+      "annotations": {
+        "color": "blue"
+      },
+      "presentation": "crop",
+      "scene_id": "scene_col_12",
+      "group_id": "scene_col_12",
+      "task_field": "color",
+      "question": "What is the predominant color of this vehicle?"
+    },
+    {
+      "id": "scene_col_12_full_highlighted",
+      "domain": "vehicle",
+      "filename": "scene_col_12_full_highlighted.jpg",
+      "rel_path": "eval/images/multi_object/scene_col_12_full_highlighted.jpg",
+      "sha256": "fdc8d3ce13f68f0966bf12f7c32f67c82f13e8690ef3767d8e1182b360a7dbd0",
+      "annotations": {
+        "color": "blue"
+      },
+      "presentation": "full_highlighted",
+      "scene_id": "scene_col_12",
+      "group_id": "scene_col_12",
+      "task_field": "color",
+      "question": "In the highlighted object inside the red box, what is the predominant color of the vehicle?"
+    },
+    {
+      "id": "scene_col_13_crop",
+      "domain": "vehicle",
+      "filename": "scene_col_13_crop.jpg",
+      "rel_path": "eval/images/multi_object/scene_col_13_crop.jpg",
+      "sha256": "f558a479f2e9438d79b68f956163d34d2ea493ffb91d6dcd9a1d8b8b950f9b4b",
+      "annotations": {
+        "color": "red"
+      },
+      "presentation": "crop",
+      "scene_id": "scene_col_13",
+      "group_id": "scene_col_13",
+      "task_field": "color",
+      "question": "What is the predominant color of this vehicle?"
+    },
+    {
+      "id": "scene_col_13_full_highlighted",
+      "domain": "vehicle",
+      "filename": "scene_col_13_full_highlighted.jpg",
+      "rel_path": "eval/images/multi_object/scene_col_13_full_highlighted.jpg",
+      "sha256": "4ec353c0fb3f1a849d2fcbf4c3af941a6ca122d5e307d2956ea21dd03393fd34",
+      "annotations": {
+        "color": "red"
+      },
+      "presentation": "full_highlighted",
+      "scene_id": "scene_col_13",
+      "group_id": "scene_col_13",
+      "task_field": "color",
+      "question": "In the highlighted object inside the red box, what is the predominant color of the vehicle?"
+    },
+    {
+      "id": "scene_col_14_crop",
+      "domain": "vehicle",
+      "filename": "scene_col_14_crop.jpg",
+      "rel_path": "eval/images/multi_object/scene_col_14_crop.jpg",
+      "sha256": "ed875a89b5726d64664dd5eb7ff8b401e972a2145724f1123b7630cc63a0dc86",
+      "annotations": {
+        "color": "black"
+      },
+      "presentation": "crop",
+      "scene_id": "scene_col_14",
+      "group_id": "scene_col_14",
+      "task_field": "color",
+      "question": "What is the predominant color of this vehicle?"
+    },
+    {
+      "id": "scene_col_14_full_highlighted",
+      "domain": "vehicle",
+      "filename": "scene_col_14_full_highlighted.jpg",
+      "rel_path": "eval/images/multi_object/scene_col_14_full_highlighted.jpg",
+      "sha256": "568ce7816f821c3456275dd4b1299ceff6ea8426e425d2a541ec6e5cbe4e0920",
+      "annotations": {
+        "color": "black"
+      },
+      "presentation": "full_highlighted",
+      "scene_id": "scene_col_14",
+      "group_id": "scene_col_14",
+      "task_field": "color",
+      "question": "In the highlighted object inside the red box, what is the predominant color of the vehicle?"
+    },
+    {
+      "id": "scene_col_15_crop",
+      "domain": "vehicle",
+      "filename": "scene_col_15_crop.jpg",
+      "rel_path": "eval/images/multi_object/scene_col_15_crop.jpg",
+      "sha256": "6da22a0cb579c6dfa5c9286ffde3f26f8dbb422b4e877418b8ae3e65a513b048",
+      "annotations": {
+        "color": "blue"
+      },
+      "presentation": "crop",
+      "scene_id": "scene_col_15",
+      "group_id": "scene_col_15",
+      "task_field": "color",
+      "question": "What is the predominant color of this vehicle?"
+    },
+    {
+      "id": "scene_col_15_full_highlighted",
+      "domain": "vehicle",
+      "filename": "scene_col_15_full_highlighted.jpg",
+      "rel_path": "eval/images/multi_object/scene_col_15_full_highlighted.jpg",
+      "sha256": "70eb34e724a178d0b9038cdfc228e0d2684cde5950cb3ea18dffda49314a59ed",
+      "annotations": {
+        "color": "blue"
+      },
+      "presentation": "full_highlighted",
+      "scene_id": "scene_col_15",
+      "group_id": "scene_col_15",
+      "task_field": "color",
+      "question": "In the highlighted object inside the red box, what is the predominant color of the vehicle?"
+    },
+    {
+      "id": "scene_typ_01_crop",
+      "domain": "vehicle",
+      "filename": "scene_typ_01_crop.jpg",
+      "rel_path": "eval/images/multi_object/scene_typ_01_crop.jpg",
+      "sha256": "9d42323084cb69c6309b59a771284f53f1f018468c696dbd53f04db0351b44e5",
+      "annotations": {
+        "body": "bus"
+      },
+      "presentation": "crop",
+      "scene_id": "scene_typ_01",
+      "group_id": "scene_typ_01",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "scene_typ_01_full_highlighted",
+      "domain": "vehicle",
+      "filename": "scene_typ_01_full_highlighted.jpg",
+      "rel_path": "eval/images/multi_object/scene_typ_01_full_highlighted.jpg",
+      "sha256": "96e363afe38fc1279a2941616b90c6736cc949575a8c8e75db568e7fe3540141",
+      "annotations": {
+        "body": "bus"
+      },
+      "presentation": "full_highlighted",
+      "scene_id": "scene_typ_01",
+      "group_id": "scene_typ_01",
+      "task_field": "body",
+      "question": "In the highlighted object inside the red box, what body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "scene_typ_02_crop",
+      "domain": "vehicle",
+      "filename": "scene_typ_02_crop.jpg",
+      "rel_path": "eval/images/multi_object/scene_typ_02_crop.jpg",
+      "sha256": "6da22a0cb579c6dfa5c9286ffde3f26f8dbb422b4e877418b8ae3e65a513b048",
+      "annotations": {
+        "body": "sedan"
+      },
+      "presentation": "crop",
+      "scene_id": "scene_typ_02",
+      "group_id": "scene_typ_02",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "scene_typ_02_full_highlighted",
+      "domain": "vehicle",
+      "filename": "scene_typ_02_full_highlighted.jpg",
+      "rel_path": "eval/images/multi_object/scene_typ_02_full_highlighted.jpg",
+      "sha256": "70eb34e724a178d0b9038cdfc228e0d2684cde5950cb3ea18dffda49314a59ed",
+      "annotations": {
+        "body": "sedan"
+      },
+      "presentation": "full_highlighted",
+      "scene_id": "scene_typ_02",
+      "group_id": "scene_typ_02",
+      "task_field": "body",
+      "question": "In the highlighted object inside the red box, what body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "scene_typ_03_crop",
+      "domain": "vehicle",
+      "filename": "scene_typ_03_crop.jpg",
+      "rel_path": "eval/images/multi_object/scene_typ_03_crop.jpg",
+      "sha256": "c17793e8c10f1a2085eb5bca430d58fd41cc11336b6da63a64c4cc12589c54a2",
+      "annotations": {
+        "body": "sedan"
+      },
+      "presentation": "crop",
+      "scene_id": "scene_typ_03",
+      "group_id": "scene_typ_03",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "scene_typ_03_full_highlighted",
+      "domain": "vehicle",
+      "filename": "scene_typ_03_full_highlighted.jpg",
+      "rel_path": "eval/images/multi_object/scene_typ_03_full_highlighted.jpg",
+      "sha256": "1a05d8dde3fd3a1e67f166ec374900b2948d5d17822a3024d68c1a19e0c0f86a",
+      "annotations": {
+        "body": "sedan"
+      },
+      "presentation": "full_highlighted",
+      "scene_id": "scene_typ_03",
+      "group_id": "scene_typ_03",
+      "task_field": "body",
+      "question": "In the highlighted object inside the red box, what body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "scene_typ_04_crop",
+      "domain": "vehicle",
+      "filename": "scene_typ_04_crop.jpg",
+      "rel_path": "eval/images/multi_object/scene_typ_04_crop.jpg",
+      "sha256": "7f38763f6e4e92eaf8a818af3e26f89a92590227a6af585bdfdf1f3f50573fa3",
+      "annotations": {
+        "body": "sedan"
+      },
+      "presentation": "crop",
+      "scene_id": "scene_typ_04",
+      "group_id": "scene_typ_04",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "scene_typ_04_full_highlighted",
+      "domain": "vehicle",
+      "filename": "scene_typ_04_full_highlighted.jpg",
+      "rel_path": "eval/images/multi_object/scene_typ_04_full_highlighted.jpg",
+      "sha256": "297c4fb2a9b4e958fc19b8421a8a4e0c2a6a6e836567e00cea273ada1126ddbc",
+      "annotations": {
+        "body": "sedan"
+      },
+      "presentation": "full_highlighted",
+      "scene_id": "scene_typ_04",
+      "group_id": "scene_typ_04",
+      "task_field": "body",
+      "question": "In the highlighted object inside the red box, what body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "scene_typ_05_crop",
+      "domain": "vehicle",
+      "filename": "scene_typ_05_crop.jpg",
+      "rel_path": "eval/images/multi_object/scene_typ_05_crop.jpg",
+      "sha256": "f558a479f2e9438d79b68f956163d34d2ea493ffb91d6dcd9a1d8b8b950f9b4b",
+      "annotations": {
+        "body": "sedan"
+      },
+      "presentation": "crop",
+      "scene_id": "scene_typ_05",
+      "group_id": "scene_typ_05",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "scene_typ_05_full_highlighted",
+      "domain": "vehicle",
+      "filename": "scene_typ_05_full_highlighted.jpg",
+      "rel_path": "eval/images/multi_object/scene_typ_05_full_highlighted.jpg",
+      "sha256": "4ec353c0fb3f1a849d2fcbf4c3af941a6ca122d5e307d2956ea21dd03393fd34",
+      "annotations": {
+        "body": "sedan"
+      },
+      "presentation": "full_highlighted",
+      "scene_id": "scene_typ_05",
+      "group_id": "scene_typ_05",
+      "task_field": "body",
+      "question": "In the highlighted object inside the red box, what body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "scene_typ_06_crop",
+      "domain": "vehicle",
+      "filename": "scene_typ_06_crop.jpg",
+      "rel_path": "eval/images/multi_object/scene_typ_06_crop.jpg",
+      "sha256": "0d7d667dc27091aac1a1d3cbc89a867fbfc41138acea9f0143986c84afb00f95",
+      "annotations": {
+        "body": "sedan"
+      },
+      "presentation": "crop",
+      "scene_id": "scene_typ_06",
+      "group_id": "scene_typ_06",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "scene_typ_06_full_highlighted",
+      "domain": "vehicle",
+      "filename": "scene_typ_06_full_highlighted.jpg",
+      "rel_path": "eval/images/multi_object/scene_typ_06_full_highlighted.jpg",
+      "sha256": "740266f215c89d8cd4bd189dbdd92691b6b0fab3c8e7b6e3214dceb6c6d9555b",
+      "annotations": {
+        "body": "sedan"
+      },
+      "presentation": "full_highlighted",
+      "scene_id": "scene_typ_06",
+      "group_id": "scene_typ_06",
+      "task_field": "body",
+      "question": "In the highlighted object inside the red box, what body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "scene_typ_07_crop",
+      "domain": "vehicle",
+      "filename": "scene_typ_07_crop.jpg",
+      "rel_path": "eval/images/multi_object/scene_typ_07_crop.jpg",
+      "sha256": "ad8473b8196e1873d101a5f206d0d704ddcd8481f2d508ba0ad630a3881cdae5",
+      "annotations": {
+        "body": "sedan"
+      },
+      "presentation": "crop",
+      "scene_id": "scene_typ_07",
+      "group_id": "scene_typ_07",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "scene_typ_07_full_highlighted",
+      "domain": "vehicle",
+      "filename": "scene_typ_07_full_highlighted.jpg",
+      "rel_path": "eval/images/multi_object/scene_typ_07_full_highlighted.jpg",
+      "sha256": "c174e123a87dfefa254ca369c8a868bc6b193087c6eba905e6eee530f62d8d18",
+      "annotations": {
+        "body": "sedan"
+      },
+      "presentation": "full_highlighted",
+      "scene_id": "scene_typ_07",
+      "group_id": "scene_typ_07",
+      "task_field": "body",
+      "question": "In the highlighted object inside the red box, what body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "scene_typ_08_crop",
+      "domain": "vehicle",
+      "filename": "scene_typ_08_crop.jpg",
+      "rel_path": "eval/images/multi_object/scene_typ_08_crop.jpg",
+      "sha256": "54263e68aed7b4d43f915fb6d0fe7401ed16dbb1cfc87d7afc25091e9202d833",
+      "annotations": {
+        "body": "truck"
+      },
+      "presentation": "crop",
+      "scene_id": "scene_typ_08",
+      "group_id": "scene_typ_08",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "scene_typ_08_full_highlighted",
+      "domain": "vehicle",
+      "filename": "scene_typ_08_full_highlighted.jpg",
+      "rel_path": "eval/images/multi_object/scene_typ_08_full_highlighted.jpg",
+      "sha256": "fcaf784ad98ddb9902c265ccb69739cd59113d1d06abd380a7f30809b59ce2e6",
+      "annotations": {
+        "body": "truck"
+      },
+      "presentation": "full_highlighted",
+      "scene_id": "scene_typ_08",
+      "group_id": "scene_typ_08",
+      "task_field": "body",
+      "question": "In the highlighted object inside the red box, what body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "scene_typ_09_crop",
+      "domain": "vehicle",
+      "filename": "scene_typ_09_crop.jpg",
+      "rel_path": "eval/images/multi_object/scene_typ_09_crop.jpg",
+      "sha256": "cd091f29b38342e67763b396073f4bc7aebae39114b35cf1b04e3352ff43e2ae",
+      "annotations": {
+        "body": "sedan"
+      },
+      "presentation": "crop",
+      "scene_id": "scene_typ_09",
+      "group_id": "scene_typ_09",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "scene_typ_09_full_highlighted",
+      "domain": "vehicle",
+      "filename": "scene_typ_09_full_highlighted.jpg",
+      "rel_path": "eval/images/multi_object/scene_typ_09_full_highlighted.jpg",
+      "sha256": "8078809d94d4d80450b12a26ef5974cf5f13ca3738ac24aeb29f8b4e0a86ddaa",
+      "annotations": {
+        "body": "sedan"
+      },
+      "presentation": "full_highlighted",
+      "scene_id": "scene_typ_09",
+      "group_id": "scene_typ_09",
+      "task_field": "body",
+      "question": "In the highlighted object inside the red box, what body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "scene_typ_10_crop",
+      "domain": "vehicle",
+      "filename": "scene_typ_10_crop.jpg",
+      "rel_path": "eval/images/multi_object/scene_typ_10_crop.jpg",
+      "sha256": "0a7a5dad1175ba619fe35180985429daebd8bfdfd84882a8d3d992e2bc8845d1",
+      "annotations": {
+        "body": "sedan"
+      },
+      "presentation": "crop",
+      "scene_id": "scene_typ_10",
+      "group_id": "scene_typ_10",
+      "task_field": "body",
+      "question": "What body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "scene_typ_10_full_highlighted",
+      "domain": "vehicle",
+      "filename": "scene_typ_10_full_highlighted.jpg",
+      "rel_path": "eval/images/multi_object/scene_typ_10_full_highlighted.jpg",
+      "sha256": "e5c638c951904138cff59455ac026a4eb53a866f61b2a92ab3246fc06611015c",
+      "annotations": {
+        "body": "sedan"
+      },
+      "presentation": "full_highlighted",
+      "scene_id": "scene_typ_10",
+      "group_id": "scene_typ_10",
+      "task_field": "body",
+      "question": "In the highlighted object inside the red box, what body type is this vehicle: sedan, hatchback, suv, pickup truck, van, coupe, convertible, truck, bus, or motorcycle?"
+    },
+    {
+      "id": "scene_per_01_crop",
+      "domain": "person",
+      "filename": "scene_per_01_crop.jpg",
+      "rel_path": "eval/images/multi_object/scene_per_01_crop.jpg",
+      "sha256": "db755d11877ee130af3f1f5c2ede4854ffd0ba642f7225875e89afb6f885b875",
+      "annotations": {
+        "helmet": "yes"
+      },
+      "presentation": "crop",
+      "scene_id": "scene_per_01",
+      "group_id": "scene_per_01",
+      "task_field": "helmet",
+      "question": "Is the person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "scene_per_01_full_highlighted",
+      "domain": "person",
+      "filename": "scene_per_01_full_highlighted.jpg",
+      "rel_path": "eval/images/multi_object/scene_per_01_full_highlighted.jpg",
+      "sha256": "bfcfefa933591fe94592aae5cc391264cb952f677b0afff035d8de62443d1d1d",
+      "annotations": {
+        "helmet": "yes"
+      },
+      "presentation": "full_highlighted",
+      "scene_id": "scene_per_01",
+      "group_id": "scene_per_01",
+      "task_field": "helmet",
+      "question": "In the highlighted object inside the red box, is the person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "scene_per_02_crop",
+      "domain": "person",
+      "filename": "scene_per_02_crop.jpg",
+      "rel_path": "eval/images/multi_object/scene_per_02_crop.jpg",
+      "sha256": "a7f8e41ceb8a23561243fdbb32358c0a41b73bfb6dfafc5fd3d3b57c42ebc4f2",
+      "annotations": {
+        "carrying": "backpack"
+      },
+      "presentation": "crop",
+      "scene_id": "scene_per_02",
+      "group_id": "scene_per_02",
+      "task_field": "carrying",
+      "question": "Is the person carrying a backpack, bag, box, or nothing?"
+    },
+    {
+      "id": "scene_per_02_full_highlighted",
+      "domain": "person",
+      "filename": "scene_per_02_full_highlighted.jpg",
+      "rel_path": "eval/images/multi_object/scene_per_02_full_highlighted.jpg",
+      "sha256": "bb4adfddbbef46afe742397d0d2d78e8169af61272f0dc5395b8f7b8dd6cea5c",
+      "annotations": {
+        "carrying": "backpack"
+      },
+      "presentation": "full_highlighted",
+      "scene_id": "scene_per_02",
+      "group_id": "scene_per_02",
+      "task_field": "carrying",
+      "question": "In the highlighted object inside the red box, is the person carrying a backpack, bag, box, or nothing?"
+    },
+    {
+      "id": "scene_per_03_crop",
+      "domain": "person",
+      "filename": "scene_per_03_crop.jpg",
+      "rel_path": "eval/images/multi_object/scene_per_03_crop.jpg",
+      "sha256": "e2edf4c7c080b97a47e0b75dd2a439542756d5459a4b3c50d6fe58c49ae112cb",
+      "annotations": {
+        "clothing": "safety_vest"
+      },
+      "presentation": "crop",
+      "scene_id": "scene_per_03",
+      "group_id": "scene_per_03",
+      "task_field": "clothing",
+      "question": "What upper-body clothing is the person wearing: safety_vest, jacket_coat, shirt_tshirt, or not_visible?"
+    },
+    {
+      "id": "scene_per_03_full_highlighted",
+      "domain": "person",
+      "filename": "scene_per_03_full_highlighted.jpg",
+      "rel_path": "eval/images/multi_object/scene_per_03_full_highlighted.jpg",
+      "sha256": "fff35338ef8571cf94199562e86a763f97b483ff4258a533591794f8467407e2",
+      "annotations": {
+        "clothing": "safety_vest"
+      },
+      "presentation": "full_highlighted",
+      "scene_id": "scene_per_03",
+      "group_id": "scene_per_03",
+      "task_field": "clothing",
+      "question": "In the highlighted object inside the red box, what upper-body clothing is the person wearing?"
+    },
+    {
+      "id": "scene_per_04_crop",
+      "domain": "person",
+      "filename": "scene_per_04_crop.jpg",
+      "rel_path": "eval/images/multi_object/scene_per_04_crop.jpg",
+      "sha256": "31905eac6989e60804d7bce9a32a60450f793c5a3b2f0071f9f757f241fd513d",
+      "annotations": {
+        "helmet": "no"
+      },
+      "presentation": "crop",
+      "scene_id": "scene_per_04",
+      "group_id": "scene_per_04",
+      "task_field": "helmet",
+      "question": "Is the person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "scene_per_04_full_highlighted",
+      "domain": "person",
+      "filename": "scene_per_04_full_highlighted.jpg",
+      "rel_path": "eval/images/multi_object/scene_per_04_full_highlighted.jpg",
+      "sha256": "8d7af7d75e317139c060d00a46338328582a30770b573c577ee92b667a4d538d",
+      "annotations": {
+        "helmet": "no"
+      },
+      "presentation": "full_highlighted",
+      "scene_id": "scene_per_04",
+      "group_id": "scene_per_04",
+      "task_field": "helmet",
+      "question": "In the highlighted object inside the red box, is the person wearing a helmet or hard hat?"
+    },
+    {
+      "id": "scene_per_05_crop",
+      "domain": "vehicle",
+      "filename": "scene_per_05_crop.jpg",
+      "rel_path": "eval/images/multi_object/scene_per_05_crop.jpg",
+      "sha256": "a49275caa2b116a3728dc2c47a5a19e321cabd85801f5430f0e5c8a6220976e0",
+      "annotations": {
+        "color": "white"
+      },
+      "presentation": "crop",
+      "scene_id": "scene_per_05",
+      "group_id": "scene_per_05",
+      "task_field": "color",
+      "question": "What is the predominant color of this vehicle?"
+    },
+    {
+      "id": "scene_per_05_full_highlighted",
+      "domain": "vehicle",
+      "filename": "scene_per_05_full_highlighted.jpg",
+      "rel_path": "eval/images/multi_object/scene_per_05_full_highlighted.jpg",
+      "sha256": "872e4658aaf4f8972bb6b08f6f98ea695db7854664ba938612c184b31aff6abc",
+      "annotations": {
+        "color": "white"
+      },
+      "presentation": "full_highlighted",
+      "scene_id": "scene_per_05",
+      "group_id": "scene_per_05",
+      "task_field": "color",
+      "question": "In the highlighted object inside the red box, what is the predominant color of the vehicle?"
+    }
+  ]
+}

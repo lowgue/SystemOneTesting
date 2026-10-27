@@ -64,3 +64,34 @@ Resultados com `smoke_mock` são explicitamente identificados como **simulação
 - Gráficos de desempenho e acurácia em PNG/PDF.
 
 Imagens, gabaritos e relatórios ficam no volume persistente de avaliações. O dataset finalizado é imutável; para corrigir fotos ou rótulos, importe outro dataset. Importações incompletas podem ser descartadas sem apagar datasets finalizados ou avaliações existentes.
+
+## Catálogo histórico na aplicação web
+
+A aba **Avaliar dataset** oferece agora os sete testes anteriores:
+
+| Opção | Eventos | Observação |
+|---|---:|---|
+| Cores: avaliação | 120 | Recorte de avaliação do teste 1 |
+| Cores: desenvolvimento | 220 | Ajuste de prompts; não misturar com avaliação final |
+| Cores: coleção completa | 340 | Inclui desenvolvimento; resultado exploratório |
+| Tipos de veículo | 110 | Preserva picape, caminhão, ônibus e motocicleta |
+| Pessoas | 60 | Capacete, objeto carregado e roupa |
+| Robustez | 306 | Versões da mesma origem compartilham grupo |
+| Múltiplos objetos | 60 | Pergunta original e apresentação preservadas |
+| Formatos de prompt | 44 | Cores; subconjunto histórico, não amostra nova |
+| Descrição completa | 41 | Veículos e pessoas |
+| Stanford Cars | 40 | Somente marca e carroceria têm gabarito |
+
+Os manifests normalizados estão em `benchmarks/datasets/historical/`. Os originais em `eval/datasets/` não são alterados. `python scripts/prepare_historical_datasets.py` reconstrói os normalizados a partir das imagens locais e valida as classes. A conversão registra hashes, origem e agrupamento. O contrato `historical_tasks_v1.json` mantém `pickup` separado de `truck`; `hatchback` vira a chave equivalente `hatch`. Marcas fora da taxonomia de 24 marcas são `other`. Não comparar esses números diretamente com rodadas de outro contrato.
+
+As imagens históricas (aproximadamente 111 MB neste computador) permanecem fora do Git. O catálogo informa quando estão ausentes. Neste computador, use **Baixar dataset com imagens e gabarito (ZIP)** para transferir um conjunto verificado ao outro computador. Depois de copiar o ZIP, importe com:
+
+```bash
+python -m vision_bench unpack-data dataset.zip \
+  --destination .artifacts/datasets/import-0123456789abcdef0123456789abcdef \
+  --contract benchmarks/contracts/historical_tasks_v1.json
+```
+
+Use um identificador novo `import-` seguido de 32 caracteres hexadecimais. O dataset importado aparece no catálogo ao atualizar a página. O ZIP verifica hashes e contém só as imagens necessárias e o manifest. No Docker, o destino deve ficar no volume `/app/.artifacts/datasets/`. Também é possível importar fotos e CSV pela interface.
+
+Eventos, imagens únicas e grupos são mostrados separadamente. Gabaritos históricos são exploratórios e não receberam nova adjudicação humana. Resultados de robustez e múltiplos objetos são correlacionados dentro da origem/cena. Repetir inferências não aumenta a amostra independente.

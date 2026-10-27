@@ -76,11 +76,13 @@ class Jobs:
             if request.get('kind') in {'live', 'benchmark'}:
                 result['settings'] = {
                     'config': Path(request['config']).stem,
-                    'contract': {'description_ollama_v1': 'ollama', 'description_v1': 'original'}.get(Path(request['contract']).stem, Path(request['contract']).stem),
+                    'contract': {'description_ollama_v1': 'ollama', 'description_v1': 'original', 'historical_tasks_v1': 'historical'}.get(Path(request['contract']).stem, Path(request['contract']).stem),
                     'models': request['models'],
                     'device': request['device'],
                     'threads': request['threads'],
                 }
+                if request['kind']=='benchmark':
+                    result['experiment']={key:request.get(key,default) for key,default in [('dataset','portable'),('repetitions',3),('limit',0),('comparison','baseline')]}
             log = folder / 'worker.log'
             if log.exists():
                 with log.open('rb') as stream:
