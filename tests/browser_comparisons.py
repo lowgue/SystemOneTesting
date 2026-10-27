@@ -55,6 +55,7 @@ def main():
   expect(page.get_by_role('heading',name='Comparações pareadas de modelos e prompts')).to_be_visible()
   chart=page.locator('.attribute-charts img');chart.scroll_into_view_if_needed();expect(chart).to_be_visible()
   page.wait_for_function("document.querySelector('.attribute-charts img').naturalWidth>0")
+  page.locator('#chart-level').select_option('technical')
   page.locator('#attribute-chart').select_option(label='vehicle: color — F1 por classe')
   page.wait_for_function("document.querySelector('.attribute-charts img').complete && document.querySelector('.attribute-charts img').naturalWidth>0")
   page.screenshot(path=str(output/'large-dataset.png'),full_page=True)

@@ -5,6 +5,7 @@ import json
 from pathlib import Path
 import statistics
 from .core import load_json,write_json
+from .chart_style import model_color
 
 
 def generate(runs,output):
@@ -54,7 +55,7 @@ def generate(runs,output):
                 values=[statistics.median(r[key]/scale for r in rs) for rs in groups.values()]
                 if values:
                     ax.boxplot([values],positions=[pos],widths=.4,manage_ticks=False,showfliers=False,medianprops={'color':'black'})
-                    ax.scatter(pos+rng.uniform(-.1,.1,len(values)),values,color=palettes((pos-1)%10),s=20,alpha=.7)
+                    ax.scatter(pos+rng.uniform(-.1,.1,len(values)),values,color=model_color(m),s=20,alpha=.7)
         for ax in axes:
             ax.set_xticks(range(1,len(entry['models'])+1),entry['models'],rotation=18,ha='right');ax.set_ylim(bottom=0);ax.grid(axis='y',alpha=.2)
         axes[0].set_ylabel('Mediana intraimagem da latência (s)');axes[1].set_ylabel('Mediana intraimagem de CPU-s (escopo por modelo)')

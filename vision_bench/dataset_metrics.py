@@ -179,6 +179,8 @@ def generate(run, output):
                 writer.writerow(row)
     _quality_chart(summary,output)
     _attribute_charts(summary,output)
+    from .simple_charts import generate as simple_charts
+    summary['charts']=simple_charts(summary,output)+summary['charts']
     write_json(output/'evaluation.json',summary)
     with (output/'comparisons.csv').open('w',encoding='utf-8-sig',newline='') as stream:
         columns=['a','b','domain','field','n','groups','delta_b_minus_a','ci95','b_only_correct','a_only_correct']
@@ -190,7 +192,8 @@ def _quality_chart(summary,output):
     import matplotlib
     matplotlib.use('Agg')
     import matplotlib.pyplot as plt
-    models=summary['models']
+    from .chart_style import baseline_models,model_color,model_label
+    models=baseline_models(summary['models'])
     if not any(model['fields'] for model in models):
         return
     keys=sorted({(f['domain'],f['field']) for model in models for f in model['fields']})
@@ -198,7 +201,7 @@ def _quality_chart(summary,output):
     width=.8/len(models);x=np.arange(len(keys))
     for index,model in enumerate(models):
         values={(f['domain'],f['field']):f['accuracy'] for f in model['fields']}
-        ax.bar(x-.4+width/2+index*width,[100*values.get(key,0) for key in keys],width,label=model['model'])
+        ax.bar(x-.4+width/2+index*width,[100*values.get(key,0) for key in keys],width,label=model_label(model),color=model_color(model))
     ax.set_xticks(x,[f'{domain}\n{field}' for domain,field in keys]);ax.set_ylim(0,105)
     ax.set_ylabel('Acurácia por atributo (%)');ax.grid(axis='y',alpha=.2);ax.legend()
     ax.set_title(('SIMULAÇÃO — ' if summary['simulated'] else '')+summary['dataset_name'])
@@ -218,15 +221,16 @@ def _attribute_charts(summary,output):
     for domain,key in keys:
         models=[m for m in summary['models'] if any(f['domain']==domain and f['field']==key for f in m['fields'])]
         fields=[next(f for f in m['fields'] if f['domain']==domain and f['field']==key) for m in models]
-        names=[m['model'] for m in models];x=np.arange(len(models));colors=plt.get_cmap('tab10')(np.arange(len(models))%10)
+        from .chart_style import model_color,model_label
+        names=[model_label(m) for m in models];x=np.arange(len(models));colors=[model_color(m) for m in models]
         fig,axes=plt.subplots(2,2,figsize=(max(11,len(models)*1.1),10))
         ax=axes[0,0];ax.barh(x,[f['accuracy'] for f in fields],color=colors);ax.set_yticks(x,names,fontsize=7);ax.set_xlim(0,1.05);ax.xaxis.set_major_formatter(PercentFormatter(1));ax.set_title('Acurácia — primeira repetição')
         for i,f in enumerate(fields):ax.text(min(f['accuracy']+.01,.92),i,f"{f['correct']}/{f['n']}",va='center',fontsize=8)
         ax=axes[0,1]
-        for i,(metric,label) in enumerate([('macro_precision','Precisão macro'),('macro_recall','Recall macro'),('macro_f1','F1 macro')]):ax.bar(x+(i-1)*.25,[f[metric] for f in fields],.25,label=label)
+        for i,(metric,label) in enumerate([('macro_precision','Precisão macro'),('macro_recall','Recall macro'),('macro_f1','F1 macro')]):ax.bar(x+(i-1)*.25,[f[metric] for f in fields],.25,label=label,color=['#64748B','#A1AAB8','#D3DAE4'][i],hatch=['','//','..'][i])
         ax.set_ylim(0,1.05);ax.yaxis.set_major_formatter(PercentFormatter(1));ax.legend(fontsize=8);ax.set_title('Qualidade com peso igual por classe')
         ax=axes[1,0]
-        for i,(metric,label) in enumerate([('raw_adherence','Aderência bruta'),('output_format_valid','Formato válido'),('ambiguity_rate','Ambiguidade')]):ax.bar(x+(i-1)*.25,[np.nan if f.get(metric) is None else f[metric] for f in fields],.25,label=label)
+        for i,(metric,label) in enumerate([('raw_adherence','Aderência bruta'),('output_format_valid','Formato válido'),('ambiguity_rate','Ambiguidade')]):ax.bar(x+(i-1)*.25,[np.nan if f.get(metric) is None else f[metric] for f in fields],.25,label=label,color=['#64748B','#A1AAB8','#D3DAE4'][i],hatch=['','//','..'][i])
         ax.set_ylim(0,1.05);ax.yaxis.set_major_formatter(PercentFormatter(1));ax.legend(fontsize=8);ax.set_title('Saída antes da normalização (menor ambiguidade é melhor)')
         ax=axes[1,1];measured=[f['attribute_latency']['p50_ms'] for f in fields]
         ax.bar(x,[np.nan if v is None else v for v in measured],color=colors);ax.set_ylabel('ms');ax.set_title('Latência p50 em chamada isolada por atributo')
@@ -243,7 +247,7 @@ def _attribute_charts(summary,output):
         for i,f in enumerate(fields):
             for c in f['classes']:matrix[i,labels.index(c['label'])]=c['f1']
         fig,ax=plt.subplots(figsize=(max(8,len(labels)*.65),max(3,len(models)*.6+2)))
-        im=ax.imshow(matrix,vmin=0,vmax=1,cmap='Blues',aspect='auto');fig.colorbar(im,ax=ax,label='F1 por classe')
+        im=ax.imshow(matrix,vmin=0,vmax=1,cmap='Greys',aspect='auto');fig.colorbar(im,ax=ax,label='F1 por classe')
         ax.set_xticks(range(len(labels)),labels,rotation=45,ha='right',fontsize=8);ax.set_yticks(range(len(models)),names,fontsize=8)
         for i in range(len(models)):
             for j in range(len(labels)):
@@ -256,7 +260,7 @@ def _attribute_charts(summary,output):
             labels=sorted(set(f['confusion'])|{p for row in f['confusion'].values() for p in row})
             matrix=np.array([[f['confusion'].get(a,{}).get(b,0) for b in labels] for a in labels])
             fig,ax=plt.subplots(figsize=(max(6,len(labels)*.5),max(5,len(labels)*.45)))
-            im=ax.imshow(matrix,cmap='Blues');fig.colorbar(im,ax=ax,label='Eventos');ax.set_xticks(range(len(labels)),labels,rotation=60,ha='right',fontsize=7);ax.set_yticks(range(len(labels)),labels,fontsize=7)
+            im=ax.imshow(matrix,cmap='Oranges' if model_color(m)=='#F78C25' else 'Blues' if model_color(m)=='#3378FF' else 'Greys');fig.colorbar(im,ax=ax,label='Eventos');ax.set_xticks(range(len(labels)),labels,rotation=60,ha='right',fontsize=7);ax.set_yticks(range(len(labels)),labels,fontsize=7)
             ax.set_xlabel('Previsão');ax.set_ylabel('Gabarito');ax.set_title(f'{m["model"]}\n{domain} / {key}')
             if len(labels)<18:
                 for i in range(len(labels)):

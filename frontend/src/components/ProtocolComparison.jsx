@@ -22,10 +22,13 @@ export default function ProtocolComparison({data}){
  </section>
 }
 export function AttributeCharts({data,base}){
- const [selected,setSelected]=useState('');const charts=data.charts || [];
+ const [selected,setSelected]=useState(''),[level,setLevel]=useState('simple');const allCharts=data.charts || [];
+ const hasSimple=allCharts.some(c=>c.level==='simple');
+ const charts=hasSimple ? allCharts.filter(c=>level==='simple' ? c.level==='simple' : c.level!=='simple') : allCharts;
  if(!charts.length)return null;
  const chart=charts.find(c=>c.file===selected) || charts[0];
- return <section className="attribute-charts"><h3>Gráficos por atributo e por classe</h3><p>Acurácia, precisão, recall, F1, aderência bruta, formato, ambiguidade e tempo isolado por atributo. Matrizes mostram os erros de cada variante.</p>
+ return <section className="attribute-charts"><h3>Gráficos por atributo e por classe</h3><p>Laya em azul · BLIP em laranja. Os gráficos simples usam os protocolos padrão identificados na legenda, sem misturar resultados de variantes.</p>
+ {hasSimple && <><label htmlFor="chart-level">Tipo de gráfico</label><select id="chart-level" value={level} onChange={e=>{setLevel(e.target.value);setSelected('')}}><option value="simple">Simples: acurácia e tempo</option><option value="technical">Técnicos: variantes, F1 e matrizes</option></select></>}
  <label htmlFor="attribute-chart">Escolher gráfico</label><select id="attribute-chart" value={chart.file} onChange={e=>setSelected(e.target.value)}>{charts.map(c=><option key={c.file} value={c.file}>{c.title}</option>)}</select>
  <figure><img loading="lazy" src={base+chart.file+'.png'} alt={chart.title}/><figcaption>{chart.title} · <a href={base+chart.file+'.pdf'} target="_blank" rel="noreferrer">Baixar PDF</a> · <a href={base+chart.file+'.png'} target="_blank" rel="noreferrer">PNG 300 dpi</a></figcaption></figure>
  </section>

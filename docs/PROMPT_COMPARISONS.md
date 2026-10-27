@@ -27,3 +27,7 @@ A variante JSON usa orçamento de geração maior; portanto a comparação mede 
 Qualidade usa somente a primeira repetição de cada evento; falhas contam como erro. Desempenho usa todas as repetições medidas, com latência resumida sobre chamadas bem-sucedidas. Gráficos exportam PNG a 300 dpi e PDF: qualidade/formato/tempo por atributo, F1 por classe e matriz de confusão por variante. CSV e JSON preservam os dados subjacentes. Custo monetário e energia não são medidos.
 
 Escolha prompts no recorte de desenvolvimento e confirme a escolha no recorte de avaliação. O teste 6 contém imagens também presentes no teste de cores; seus resultados não constituem uma validação independente. Os gabaritos históricos continuam exploratórios.
+
+## Apresentação dos gráficos
+
+Os gráficos simples usam Laya azul (`#3378FF`) e BLIP laranja (`#F78C25`), barras horizontais e acertos/total por classe. A comparação simples identifica os protocolos padrão na legenda e não agrega variantes distintas. Tempo mediano fica em um gráfico separado. O seletor **Técnicos** mantém F1, matrizes e comparações de variantes. PNG 300 dpi e PDF estão disponíveis nos dois modos. Para atualizar somente a apresentação dos relatórios concluídos, preservando inferências e métricas, execute `python -m scripts.refresh_charts`.
