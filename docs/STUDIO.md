@@ -16,7 +16,7 @@ A aplicação mostra os estados de preparação/inferência, cada resposta e cad
 
 As chamadas usam a mesma imagem RGB com até 1024 px e as mesmas perguntas para cada modelo. Os modelos são avaliados sequencialmente. A primeira inferência HTTP pode incluir carregamento do modelo; este modo não tem aquecimento nem gabarito e não estima acurácia.
 
-O container padrão é voltado aos adapters HTTP. Para usar BLIP/Laya, instale o ambiente CPU/GPU e os pesos no desenvolvimento local, conforme o guia de comparação. CUDA e threads da interface afetam os modelos Python, não a configuração do Ollama.
+O container padrão inclui BLIP/Laya em CPU, com as dependências e o código do submódulo. Execute `git submodule update --init --recursive` antes de construir a imagem. Os pesos são baixados na primeira avaliação e persistidos no volume `huggingface-models`. Para GPU Python, use o ambiente específico do guia de comparação; o override de GPU do Ollama não fornece CUDA ao backend Python. Threads da interface afetam os modelos Python, não a configuração do Ollama.
 
 ## Avaliação automática de datasets e resultados
 

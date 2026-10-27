@@ -8,6 +8,7 @@ services:
       OLLAMA_SYSTEMONE_URL: http://ollama:11434/v1/systemone
     volumes:
       - evaluations:/app/.artifacts
+      - huggingface-models:/home/appuser/.cache/huggingface
     depends_on:
       ollama:
         condition: service_healthy
@@ -32,3 +33,4 @@ services:
 volumes:
   evaluations:
   ollama-models:
+  huggingface-models:

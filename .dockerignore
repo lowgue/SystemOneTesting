@@ -4,7 +4,7 @@
 **/__pycache__
 frontend/node_modules
 frontend/dist
-vendor
+vendor/laya-vision/.git
 .env
 .env.*
 eval/experiments

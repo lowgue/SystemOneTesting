@@ -8,6 +8,7 @@ Instale Docker Desktop (Windows/macOS) ou Docker Engine com Compose (Linux). Na 
 
 ```bash
 git pull
+git submodule update --init --recursive
 docker compose up -d --build
 ```
 
@@ -17,7 +18,7 @@ Abra **http://localhost:7860**.
 2. Clique em **Baixar ou atualizar Clef-Flash 9B** e acompanhe o progresso.
 3. Em **Avaliar foto**, envie uma imagem e clique em **Avaliar foto**.
 
-Não é necessário executar `.sh`, instalar Python/Node no computador de destino ou iniciar `ollama serve`. O Compose sobe a aplicação e um Ollama próprio. Os pesos ficam no volume `ollama-models` e as avaliações no volume `evaluations`; ambos persistem ao reiniciar.
+Não é necessário executar `.sh`, instalar Python/Node no computador de destino ou iniciar `ollama serve`. O Compose sobe a aplicação e um Ollama próprio. Os pesos do Clef ficam em `ollama-models`, os pesos do BLIP/Laya em `huggingface-models` e as avaliações em `evaluations`; esses volumes persistem ao reiniciar.
 
 O primeiro build baixa as imagens Docker. O download do modelo é separado e iniciado pela interface. O Ollama da aplicação não compartilha automaticamente os pesos do Ollama instalado no sistema, e não usa a porta 11434 do computador.
 
@@ -30,7 +31,7 @@ O primeiro build baixa as imagens Docker. O download do modelo é separado e ini
 | Resultados | Histórico das tarefas, JSON, CSV, gráficos PNG/PDF e atlas científico anterior |
 | Ambiente e modelos | Download do Clef pelo navegador, versão do Ollama, memória e diagnóstico |
 
-A imagem Docker padrão contém o backend HTTP, incluindo Clef pelo Ollama. Para validar a aplicação sem pesos, escolha `smoke_mock`: os resultados aparecem explicitamente como simulação. BLIP/Laya precisam do ambiente Python específico, documentado no [guia de comparação](docs/COMPARISON_SETUP.md).
+A imagem Docker padrão inclui BLIP e Laya em CPU (torch, torchvision, transformers e o código do submódulo), além de Clef pelo Ollama. Os pesos do BLIP/Laya são baixados na primeira avaliação e reutilizados do volume `huggingface-models`. Para validar a aplicação sem pesos, escolha `smoke_mock`: os resultados aparecem explicitamente como simulação. Para desenvolvimento e GPU, consulte o [guia de comparação](docs/COMPARISON_SETUP.md).
 
 ## Avaliar meu dataset
 
