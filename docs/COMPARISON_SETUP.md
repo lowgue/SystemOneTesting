@@ -6,7 +6,10 @@ Para testes interativos, benchmarks com progresso, gráficos e diagnóstico, exe
 
 Este é o ponto de entrada para novos testes. Os scripts em `eval/run_test_*` e os resultados existentes são evidência histórica; não precisam ser movidos ou editados para adicionar modelos.
 
-A interface `python -m vision_bench` aceita qualquer quantidade de modelos registrados em JSON. Há adaptadores para BLIP VQA, Laya Vision, Clef local/Cloudflare via System One HTTP e extensão Python para outros protocolos. Os testes sempre solicitam o conjunto completo de atributos definido em `benchmarks/contracts/description_v1.json`.
+> [!TIP]
+> **Instalação Rápida em Novo Computador**: Para automatizar a clonagem, instalação de dependências e download de todos os modelos visuais de decisão (**Laya Vision**, **d1-omni-600M** e **Clef**), execute `./scripts/setup_quick.sh` (Linux/macOS) ou `.\scripts\setup_quick.ps1` (Windows). Veja o [QUICK_START_MODELS.md](QUICK_START_MODELS.md).
+
+A interface `python -m vision_bench` aceita qualquer quantidade de modelos registrados em JSON. Há adaptadores para BLIP VQA, Laya Vision, d1-omni-600M (Liquid AI), Clef local/Cloudflare via System One HTTP e extensão Python para outros protocolos. Os testes sempre solicitam o conjunto completo de atributos definido em `benchmarks/contracts/description_v1.json`.
 
 ## 1. Clonar e instalar no outro computador
 

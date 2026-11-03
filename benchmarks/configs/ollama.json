@@ -26,6 +26,12 @@
       "max_choices": 26,
       "timeout_s": 300,
       "runtime": "Ollama; tag is mutable, record version and model digest separately"
+    },
+    {
+      "id": "d1-omni-600M",
+      "adapter": "d1_omni",
+      "model": "LiquidAI/d1-omni-600M",
+      "revision": "414f8d6438174f5b2133a9c21a478fc42625e308"
     }
   ]
 }

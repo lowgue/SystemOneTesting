@@ -44,7 +44,7 @@ def validate_config(config,selected=None):
         if adapter not in REGISTRY and not adapter.startswith('python:'):raise ValueError(f'Unsupported adapter: {adapter}')
         for key in ['token','api_key','password','authorization']:
             if key in spec:raise ValueError('Use token_env, never literal credentials in the configuration')
-        if adapter in {'blip','laya'} and not re.fullmatch(r'[a-f0-9]{40}',spec.get('revision','')):raise ValueError('Pin local Hub models to a full commit SHA')
+        if adapter in {'blip','laya','d1_omni'} and not re.fullmatch(r'[a-f0-9]{40}',spec.get('revision','')):raise ValueError('Pin local Hub models to a full commit SHA')
         if spec.get('token_env') and not re.fullmatch(r'[A-Z_][A-Z0-9_]*',spec['token_env']):raise ValueError('token_env must name an environment variable')
         if spec.get('image_encoding','data_url') not in {'data_url','base64'}:raise ValueError('image_encoding must be data_url or base64')
     return specs
@@ -60,7 +60,7 @@ def preflight(config,manifest,contract,data_root,selected=None,require_dependenc
                 for key,question in domain['questions'].items():
                     if question['type']=='choice' and len(question['criteria'])>limit:
                         issues.append(f'{spec["id"]}: {key} exceeds {limit} choices; use the shared description_ollama_v1.json contract for all compared models')
-        if adapter in {'blip','laya'}:
+        if adapter in {'blip','laya','d1_omni'}:
             if require_dependencies:
                 for p in ['torch','torchvision','transformers','huggingface-hub']:
                     if not env['packages'].get(p):issues.append(f'{spec["id"]}: missing {p}; install requirements/cpu.txt or GPU environment')
@@ -123,7 +123,7 @@ def run(args):
     if args.offline:os.environ['HF_HUB_OFFLINE']='1';os.environ['TRANSFORMERS_OFFLINE']='1'
     os.environ.setdefault('TOKENIZERS_PARALLELISM','false')
     env=environment();machine=args.machine_id or env['hostname'];code={str(p.relative_to(ROOT)):sha256(p) for p in sorted((ROOT/'vision_bench').rglob('*.py'))}
-    if args.device.startswith('cuda') and any(s['adapter'] in {'blip','laya'} for s in specs):
+    if args.device.startswith('cuda') and any(s['adapter'] in {'blip','laya','d1_omni'} for s in specs):
         import torch
         env['cuda']=dict(torch_runtime=torch.version.cuda,devices=[torch.cuda.get_device_name(i) for i in range(torch.cuda.device_count())])
     external={s['id']:server_metadata(s) for s in specs if s['adapter']=='systemone_http'}
@@ -155,7 +155,7 @@ def run(args):
         import json
         with (out/filename).open('a',encoding='utf-8') as f:f.write(json.dumps(row,ensure_ascii=False)+'\n');f.flush();os.fsync(f.fileno())
     import importlib.util
-    if any(s['adapter'] in {'laya','blip'} for s in specs):
+    if any(s['adapter'] in {'laya','blip','d1_omni'} for s in specs):
         import torch
         torch.set_num_threads(args.threads);torch.manual_seed(args.seed)
     total=len(items)*len(specs)*args.repetitions
@@ -188,7 +188,7 @@ def run(args):
                 for it in pending:
                     effective=item_contract(contract,it);adapter.contract=effective
                     key=f'{block}/{spec["id"]}/{it["id"]}'
-                    gpu=args.device.startswith('cuda') and spec['adapter'] in {'blip','laya'}
+                    gpu=args.device.startswith('cuda') and spec['adapter'] in {'blip','laya','d1_omni'}
                     if gpu:sys.modules['torch'].cuda.reset_peak_memory_stats(args.device)
                     adapter.synchronize();timer=time.perf_counter()
                     with Resources(pid) as resource:
@@ -206,7 +206,7 @@ def run(args):
                              error=error,raw=raw,**result)
                     row['protocol_metrics']=dict(getattr(adapter,'last_metrics',{})) if not error else {}
                     row['request']=describe(spec,effective,it['domain'])
-                    if spec['adapter'] in {'blip','laya'}:row['output_diagnostics']=output_diagnostics(spec,effective,it['domain'],raw)
+                    if spec['adapter'] in {'blip','laya','d1_omni'}:row['output_diagnostics']=output_diagnostics(spec,effective,it['domain'],raw)
                     if gpu:row['gpu_peak_allocated_bytes']=sys.modules['torch'].cuda.max_memory_allocated(args.device)
                     if it.get('expected') is not None:row.update(expected=it['expected'],exploratory_exact=(not error and result['predicted']==it['expected']))
                     append('predictions.jsonl',row);done.add(key);measured_errors+=bool(error)

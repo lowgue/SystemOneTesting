@@ -134,7 +134,39 @@ class Laya(BLIP):
         self.last_metrics=dict(inference_calls=len(groups),attribute_ms=timings)
         return {k:str(raw.get('answers',{}).get(k,{}).get('choice','parse_error')) for k in self.contract['domains'][domain]['questions']},raw
 
-REGISTRY={'mock':MockAdapter,'systemone_http':SystemOneHTTP,'blip':BLIP,'laya':Laya}
+class D1Omni(MockAdapter):
+    """LiquidAI d1-omni decision model loaded via transformers with trust_remote_code.
+
+    Uses the native .system_one() method which accepts PIL images and typed
+    questions, returning calibrated probabilities in a single forward pass
+    with zero generated tokens.
+    """
+    def __init__(self,spec,contract,device='cpu',offline=False,**kwargs):
+        import torch
+        from transformers import AutoModel
+        self.contract=contract;self.device=device;self.spec=spec
+        dtype=torch.float16 if device.startswith('cuda') else torch.float32
+        self.model=AutoModel.from_pretrained(spec['model'],revision=spec['revision'],trust_remote_code=True,torch_dtype=dtype,local_files_only=offline).to(device).eval()
+    def synchronize(self):
+        if self.device.startswith('cuda'):
+            import torch
+            torch.cuda.synchronize(self.device)
+    def predict(self,image,domain):
+        from .protocols import questions
+        qs=questions(self.spec,self.contract,domain)
+        self.synchronize();start=time.perf_counter()
+        raw=self.model.system_one(state='Describe only the visible attributes of the target in this image.',questions=qs,images=image)
+        self.synchronize();elapsed=(time.perf_counter()-start)*1000
+        answers={k:str(raw.get('answers',{}).get(k,{}).get('choice','parse_error')) for k in self.contract['domains'][domain]['questions']}
+        self.last_metrics=dict(inference_calls=1,attribute_ms={k:elapsed/len(qs) for k in qs})
+        return answers,raw
+    def close(self):
+        del self.model
+        import gc;gc.collect()
+        if self.device.startswith('cuda'):
+            import torch;torch.cuda.empty_cache()
+
+REGISTRY={'mock':MockAdapter,'systemone_http':SystemOneHTTP,'blip':BLIP,'laya':Laya,'d1_omni':D1Omni}
 
 def create_adapter(spec,contract,**context):
     adapter=spec['adapter']
