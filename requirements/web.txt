@@ -1,3 +1,0 @@
--r base.txt
-fastapi==0.162.0
-uvicorn==0.54.0

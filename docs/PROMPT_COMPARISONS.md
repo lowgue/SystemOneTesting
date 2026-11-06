@@ -30,4 +30,4 @@ Escolha prompts no recorte de desenvolvimento e confirme a escolha no recorte de
 
 ## Apresentação dos gráficos
 
-Os gráficos simples usam Laya azul (`#3378FF`) e BLIP laranja (`#F78C25`), barras horizontais e acertos/total por classe. A comparação simples identifica os protocolos padrão na legenda e não agrega variantes distintas. Tempo mediano fica em um gráfico separado. O seletor **Técnicos** mantém F1, matrizes e comparações de variantes. PNG 300 dpi e PDF estão disponíveis nos dois modos. Para atualizar somente a apresentação dos relatórios concluídos, preservando inferências e métricas, execute `python -m scripts.refresh_charts`.
+Os gráficos simples usam Laya azul (`#3378FF`) e BLIP laranja (`#F78C25`), barras horizontais e acertos/total por classe. A comparação simples identifica os protocolos padrão na legenda e não agrega variantes distintas. Tempo mediano fica em um gráfico separado. O seletor **Técnicos** mantém F1, matrizes e comparações de variantes. PNG 300 dpi e PDF estão disponíveis nos dois modos.

@@ -1,44 +1,29 @@
-# Arquitetura da aplicação
+# Arquitetura (CLI, sem interface web)
 
 ```mermaid
 flowchart LR
-  React[React / Vite] --> REST[FastAPI / Uvicorn]
-  REST --> SSE[Eventos ao vivo]
-  SSE --> React
-  REST --> Jobs[Gerenciador de tarefas]
-  Jobs --> Worker[Worker isolado]
-  Worker --> Models[Adapters de modelos]
-  Models --> Ollama[Serviço Ollama]
-  Worker --> Runner[Runner e relatórios]
-  Worker --> Data[Volume de avaliações]
-  Ollama --> Weights[Volume de pesos]
+  CLI[vision-bench] --> Runner[runner.py]
+  Runner --> Adapters[adapters.py]
+  Adapters --> Local[BLIP / Laya / d1-omni]
+  Adapters --> HTTP[Clef via System One / Ollama]
+  Runner --> Report[report.py + simple_charts.py + dataset_metrics.py]
+  Report --> Graphs[PNG / SVG / PDF / CSV]
 ```
 
 | Componente | Responsabilidade |
 |---|---|
-| `frontend/src/App.jsx` e `components/` | Navegação, componentes de cada tela e acompanhamento via eventos |
-| `frontend/src/components/DatasetImport.jsx` e `Evaluation.jsx` | Importação, gabarito, métricas e revisão por foto |
-| `vision_bench/webui/datasets.py` | Fotos e gabaritos imutáveis, validação e catálogo persistente |
-| `vision_bench/dataset_metrics.py` | Métricas, matrizes de confusão, CSVs e gráfico de acurácia |
-| `frontend/src/api.js` | Cliente HTTP e exportação JSON |
-| `frontend/vite.config.js` | Build e proxy de desenvolvimento |
-| `vision_bench/webui/api.py` | Aplicação ASGI, REST, eventos, lifecycle e frontend compilado |
-| `vision_bench/webui/services.py` | Catálogo, validação dos pedidos, diagnóstico e artefatos |
-| `vision_bench/webui/jobs.py` | Uma tarefa ativa, processos, estados e cancelamento |
-| `vision_bench/webui/worker.py` | Inferência, benchmark e download do modelo via API Ollama |
-| `vision_bench/adapters.py` | Integrações compartilhadas de modelos |
-| `vision_bench/runner.py` | Avaliação reproduzível e proveniência |
-| `vision_bench/report.py` | Métricas e gráficos |
-| `Dockerfile` | Build Node + runtime Python, sem entrypoint shell |
-| `compose.yaml` | Aplicação, Ollama, healthchecks e volumes |
-| `compose.gpu.yaml` | Acesso opcional à GPU NVIDIA |
-| `tests/` | API ASGI, integração e navegador |
+| `vision_bench/cli.py` | Entrada única: doctor, run, report, pack-data, unpack-data, clef-server |
+| `vision_bench/runner.py` | Execução serial e retomável com configuração e máquina congeladas |
+| `vision_bench/report.py` | Relatório Markdown + metrics.csv/json + gráficos de comparação |
+| `vision_bench/simple_charts.py` | Gráficos horizontais de acurácia e latência |
+| `vision_bench/dataset_metrics.py` | Métricas, matrizes de confusão e gráficos por atributo |
+| `vision_bench/adapters.py` | Integrações de modelos (BLIP, Laya, d1-omni, System One HTTP) |
+| `vision_bench/core.py` | Contrato, parsing estrito e I/O verificada de datasets |
+| `vision_bench/protocols.py` | Contrato por evento, descrição e diagnóstico de saída |
+| `vision_bench/clef.py` | Download de pesos do Clef e servidor llama-server |
+| `benchmarks/` | Configurações, contratos e dataset portátil |
 | `eval/` | Experimentos e evidências científicas anteriores |
+| `scripts/` | Instalação e download de modelos |
+| `tests/` | Testes do motor (métricas de dataset) |
 
-O processo web não carrega pesos nem roda inferência durante a inicialização. Trabalhos são executados em subprocesso; a API transmite os estados por Server-Sent Events. O banco de tarefas é o conjunto de documentos JSON atômicos no volume persistente. Não é necessário Redis/Postgres para uma instalação local com uma tarefa por vez.
-
-A aplicação deve usar **um worker Uvicorn**. Escalar o servidor para vários processos exigiria substituir o gerenciador por uma fila e coordenação persistente entre processos; aumentar `--workers` isoladamente não implementa isso.
-
-As interfaces antigas em `web/` e `vision_bench/webui/static/` são mantidas apenas para referência e testes de compatibilidade. O frontend ativo está em `frontend/`. Os iniciadores `iniciar_clef_ollama.sh`, `.bat` e o script Python associado foram removidos; Docker Compose é o ponto de entrada operacional.
-
-Modelos novos entram em `benchmarks/configs/`. Novos contratos/datasets precisam ser registrados nos serviços. Nenhuma evidência em `eval/experiments`, `eval/results` ou `eval/figures` é movida ou recalculada ao desenvolver a aplicação.
+Nenhuma evidência em `eval/experiments`, `eval/results` ou `eval/figures` é movida ou recalculada ao desenvolver o projeto. Modelos novos entram em `benchmarks/configs/`.

@@ -114,6 +114,13 @@ class Laya(BLIP):
         import torch
         import laya
         import laya.vlm as vlm
+        import logging
+        from transformers.utils import logging as hf_logging
+        class _MMFilter(logging.Filter):
+            def filter(self,record):return 'mm_encoder_outputs' not in record.getMessage()
+        _root=hf_logging._get_library_root_logger()
+        _root.addFilter(_MMFilter())
+        for _h in _root.handlers:_h.addFilter(_MMFilter())
         def encode_images(self,pixel_values,pixel_attention_mask=None):
             result=self._image_features(pixel_values[None],pixel_attention_mask[None] if pixel_attention_mask is not None else None)
             return torch.stack(result) if isinstance(result,list) else result

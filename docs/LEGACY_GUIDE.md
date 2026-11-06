@@ -4,7 +4,7 @@ Os comandos deste documento descrevem versões anteriores e podem não funcionar
 
 # Guia anterior e exemplos históricos
 
-Este documento preserva os comandos anteriores. Execute-os na raiz do repositório. Para o fluxo atual, use o [README](../README.md) e o [guia do painel](STUDIO.md).
+Este documento preserva os comandos anteriores. Execute-os na raiz do repositório. Para o fluxo atual, use o [README](../README.md) e o [guia de comparação](COMPARISON_SETUP.md).
 
 ## Clef-Flash local com Ollama: início rápido
 
