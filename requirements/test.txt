@@ -1,0 +1,2 @@
+# Minimal pinned dependencies for the complete unittest suite and report charts.
+-r base.txt

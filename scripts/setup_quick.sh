@@ -7,6 +7,7 @@ ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT_DIR"
 
 MODE="cpu"
+PYTORCH_INDEX_URL="${PYTORCH_INDEX_URL:-https://download.pytorch.org/whl/cu128}"
 MODELS="laya d1-omni clef-gguf"
 RUN_SMOKE=0
 
@@ -101,8 +102,12 @@ if [[ "$MODE" == "cpu" ]]; then
     echo "--> Instalando dependências de CPU..."
     "$VENV_PY" -m pip install -r requirements/cpu.txt -e .
 else
-    echo "--> Instalando dependências de GPU (PyTorch CUDA + bibliotecas)..."
-    "$VENV_PY" -m pip install -r requirements/models.txt -e . -e ./vendor/laya-vision
+    echo "--> Instalando PyTorch CUDA pelo índice oficial: $PYTORCH_INDEX_URL"
+    "$VENV_PY" -m pip install torch torchvision --index-url "$PYTORCH_INDEX_URL"
+    echo "--> Instalando bibliotecas dos modelos..."
+    "$VENV_PY" -m pip install -r requirements/models.txt -e . -e ./modelos/laya/laya_vision
+    echo "--> Validando GPU CUDA encontrada..."
+    "$VENV_PY" -c 'import torch; assert torch.cuda.is_available(), "PyTorch não encontrou CUDA; confira o driver NVIDIA"; print(torch.cuda.get_device_name(0), torch.version.cuda)'
 fi
 
 # 5. Baixar e verificar modelos
@@ -132,5 +137,5 @@ echo " Para rodar o benchmark comparativo completo:"
 echo "   .venv/bin/python -m vision_bench run \\"
 echo "     --config benchmarks/configs/local.json \\"
 echo "     --models laya-vision-head512 d1-omni-600M \\"
-echo "     --repetitions 3 --output .artifacts/runs/meu-teste"
+echo "     --device auto --threads auto --repetitions 3 --output .artifacts/runs/meu-teste"
 echo "======================================================================"

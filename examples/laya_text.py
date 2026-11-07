@@ -198,6 +198,7 @@ EXAMPLES = [
 
 
 def run_examples() -> None:
+    """Run examples."""
     print(f"{'='*60}")
     print("  Laya Textual – Exemplos de Decisão")
     print(f"{'='*60}\n")

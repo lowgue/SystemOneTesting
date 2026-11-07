@@ -1,6 +1,6 @@
 # Comparação portátil de modelos visuais
 
-Este é o ponto de entrada para novos testes. Os scripts em `eval/run_test_*` e os resultados existentes são evidência histórica; não precisam ser movidos ou editados para adicionar modelos.
+Este é o ponto de entrada para novos testes. Os scripts históricos foram organizados em `benchmarks/tasks/`, os dados em `benchmarks/datasets/` e os resultados em `benchmarks/results/`; eles servem como evidência histórica e não são necessários para adicionar modelos ao runner portátil.
 
 > [!TIP]
 > **Instalação Rápida em Novo Computador**: Para automatizar a clonagem, instalação de dependências e download de todos os modelos visuais de decisão (**Laya Vision**, **d1-omni-600M** e **Clef**), execute `./scripts/setup_quick.sh` (Linux/macOS) ou `.\scripts\setup_quick.ps1` (Windows). Veja o [QUICK_START_MODELS.md](QUICK_START_MODELS.md).
@@ -38,23 +38,23 @@ python3.12 scripts/setup_benchmark.py --backend cpu
 
 O setup cria/reutiliza `.venv` e instala o projeto. Não baixa pesos nem inicia inferência. No Windows, use `py -3.12` para o setup e `.venv\Scripts\python.exe` nos comandos seguintes. O launcher Python do Clef também funciona no Windows; o wrapper `run_clef_local.sh` exige Bash/WSL.
 
-Para GPU, crie o venv e instale uma combinação compatível de torch/torchvision usando o [seletor oficial do PyTorch](https://pytorch.org/get-started/locally/). Depois instale:
+Para GPU, o fluxo recomendado para testar e medir os três modelos locais está em `python3 scripts/test_all.py --gpu`: ele instala PyTorch pelo índice CUDA 12.8 oficial, identifica a GPU, usa `--device auto --threads auto`, roda os testes e salva gráficos. O driver NVIDIA precisa estar instalado. A build pip do PyTorch inclui o runtime CUDA necessário; não é preciso instalar o CUDA Toolkit para usar os wheels oficiais. Para selecionar outra build compatível, use `PYTORCH_INDEX_URL` ou consulte o [seletor oficial do PyTorch](https://pytorch.org/get-started/locally/).
 
 ```bash
-.venv/bin/python -m pip install -r requirements/models.txt -e . -e ./vendor/laya-vision
+.venv/bin/python -m pip install -r requirements/models.txt -e . -e ./modelos/laya/laya_vision
 ```
 
-Use `--device cuda` no runner para os adaptadores locais. O runner sincroniza o dispositivo para medir tempo completo e registra o pico de memória CUDA alocada pelo processo. Os parâmetros de GPU do servidor Clef são configurados separadamente; `--device cuda` não altera um servidor externo. Esta preparação não executou validação de GPU nesta máquina.
+O runner usa CUDA automaticamente quando PyTorch detecta uma GPU; `--device cpu` força CPU, e `--device cuda` exige CUDA disponível. `--threads auto` seleciona um Torch thread por núcleo físico, sem contar SMT como núcleos adicionais. O runner sincroniza o dispositivo para medir tempo completo e registra o pico de memória CUDA alocada pelo processo. Para métricas comparáveis, o número de threads, device e flags TF32 ficam congelados nos metadados. Os parâmetros de GPU do servidor Clef são configurados separadamente; o device do runner não altera um servidor externo.
 
 ## 2. Dados disponíveis no clone e conjunto completo
 
-O padrão `benchmarks/datasets/portable_vehicles.json` contém **22 eventos de veículos**, com as imagens já rastreadas no Git. Serve para teste inicial sem baixar dados. São rótulos exploratórios, não uma amostra confirmatória. O contrato também tem perguntas de pessoas, mas essa amostra padrão não testa pessoas.
+O padrão `benchmarks/datasets/vehicles/portable.json` contém **22 eventos de veículos**, com as imagens já rastreadas no Git. Serve para teste inicial sem baixar dados. São rótulos exploratórios, não uma amostra confirmatória. O contrato também tem perguntas de pessoas, mas essa amostra padrão não testa pessoas.
 
 As imagens de pessoas e outros datasets antigos são ignoradas pelo Git. Para usar exatamente o Teste 7 nas duas máquinas, exporte na máquina que possui as imagens:
 
 ```bash
 .venv/bin/python -m vision_bench pack-data \
-  --manifest eval/datasets/test_7_complete_tags_manifest.json \
+  --manifest benchmarks/datasets/historical/mixed/manifests/test_7_complete_tags_manifest.json \
   --output .artifacts/datasets/test7.zip
 ```
 
@@ -224,7 +224,7 @@ Ou informe várias execuções, inclusive de computadores diferentes:
 
 Cada execução/máquina recebe seção e gráfico próprios; não se misturam tempos de hardwares diferentes. Use mesmos hashes de contrato/dataset, versões e quantidade de repetições para uma comparação direta. Um smoke de duas imagens não substitui a rodada completa. Preserve o diretório inteiro de cada run ao copiar resultados para consolidar.
 
-Saídas: tabelas Markdown, `metrics.json`, `metrics.csv` e gráficos PNG 300 dpi/SVG/PDF. Pontos de distribuição são medianas por evento entre repetições, não imagens novas. O relatório portátil é descritivo, sem intervalos populacionais fabricados para uma amostra arbitrária. O atlas científico histórico continua em `eval/figures/scientific_20261026_final` e usa seus dados congelados; o gerador histórico não deve ser usado como se aceitasse automaticamente novos modelos.
+Saídas: tabelas Markdown, `metrics.json`, `metrics.csv` e gráficos PNG 300 dpi/SVG/PDF. Pontos de distribuição são medianas por evento entre repetições, não imagens novas. O relatório portátil é descritivo, sem intervalos populacionais fabricados para uma amostra arbitrária. O README, os dados congelados e a proveniência do atlas histórico permanecem em `graficos/execucoes/scientific_20261026_final`; suas figuras estão agrupadas em `graficos/`. O gerador histórico não deve ser usado como se aceitasse automaticamente novos modelos.
 
 Não compare CPU de HTTP `client_only` à CPU do modelo em processo como custo total. Não compare custo local ao tempo remoto sem informar rede/hardware/faturamento. As respostas brutas preservam `usage` quando fornecido, mas não há preço monetário presumido. A métrica de positivos completos com os rótulos históricos é exploratória e deve permanecer identificada assim.
 
@@ -292,7 +292,7 @@ O exemplo ilustra o domínio veículo, não implementa inferência. Pessoas exig
 ## 8. Testes de infraestrutura
 
 ```bash
-.venv/bin/python -m unittest discover -s eval/tests -v
+.venv/bin/python -m unittest discover -s tests -v
 .venv/bin/python -m vision_bench run \
   --config benchmarks/configs/smoke_mock.json --limit 2 --repetitions 2 \
   --output .artifacts/runs/infra-fixture

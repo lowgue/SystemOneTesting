@@ -76,6 +76,7 @@ PRESETS = {
 
 
 def sha256_file(path: Path) -> str:
+    """Calculate a streaming SHA-256 digest for a file."""
     h = hashlib.sha256()
     with path.open('rb') as f:
         for chunk in iter(lambda: f.read(1024 * 1024), b''):
@@ -84,10 +85,11 @@ def sha256_file(path: Path) -> str:
 
 
 def ensure_laya_submodule() -> bool:
-    vlm_path = ROOT / 'vendor/laya-vision/laya/vlm.py'
+    """Initialize the Laya Vision submodule when the checkout is empty."""
+    vlm_path = ROOT / 'modelos/laya/laya_vision/laya/vlm.py'
     if vlm_path.is_file():
         return True
-    print('--> Inicializando submódulo vendor/laya-vision via git...')
+    print('--> Inicializando submódulo modelos/laya/laya_vision via git...')
     try:
         subprocess.run(['git', 'submodule', 'update', '--init', '--recursive'], cwd=ROOT, check=True)
         return vlm_path.is_file()
@@ -97,6 +99,7 @@ def ensure_laya_submodule() -> bool:
 
 
 def download_hf_repo(repo_id: str, revision: str | None = None, token: str | None = None) -> str:
+    """Download hf repo."""
     from huggingface_hub import snapshot_download
     print(f'--> Baixando repositório Hugging Face: {repo_id} (revisão: {revision or "latest"})...')
     start = time.perf_counter()
@@ -112,6 +115,7 @@ def download_hf_repo(repo_id: str, revision: str | None = None, token: str | Non
 
 
 def download_clef_gguf(token: str | None = None) -> dict[str, str]:
+    """Download clef gguf."""
     from huggingface_hub import hf_hub_download
     weights_path = ROOT / MODEL_SPECS['clef-gguf']['weights_file']
     weights = json.loads(weights_path.read_text(encoding='utf-8'))
@@ -144,6 +148,7 @@ def download_clef_gguf(token: str | None = None) -> dict[str, str]:
 
 
 def download_clef_ollama(ollama_url: str = 'http://127.0.0.1:11434', tag: str = 'clef-flash:9b') -> bool:
+    """Download clef ollama."""
     print(f'--> Solicitando pull de {tag} no Ollama...')
     # Check if CLI exists first
     ollama_cli = shutil.which('ollama')
@@ -177,6 +182,7 @@ def download_clef_ollama(ollama_url: str = 'http://127.0.0.1:11434', tag: str = 
 
 
 def verify_model(key: str, device: str = 'cpu') -> bool:
+    """Check that installed model files match their expected checksums."""
     print(f'--> Verificando carregamento do modelo [{key}]...')
     try:
         if key == 'd1-omni':
@@ -198,7 +204,7 @@ def verify_model(key: str, device: str = 'cpu') -> bool:
 
         if key == 'laya':
             ensure_laya_submodule()
-            sys.path.insert(0, str(ROOT / 'vendor/laya-vision'))
+            sys.path.insert(0, str(ROOT / 'modelos/laya/laya_vision'))
             import laya
             spec = MODEL_SPECS['laya']
             model = laya.load_vlm(spec['repo_id'], revision=spec['revision'], device=device)
@@ -244,6 +250,7 @@ def verify_model(key: str, device: str = 'cpu') -> bool:
 
 
 def parse_selected_models(choices: list[str]) -> list[str]:
+    """Parse parse selected models."""
     selected = set()
     for item in choices:
         item = item.strip().lower()
@@ -257,6 +264,7 @@ def parse_selected_models(choices: list[str]) -> list[str]:
 
 
 def main():
+    """Run main."""
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument(
         '--models',

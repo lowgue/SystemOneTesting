@@ -82,7 +82,7 @@ A aba **Avaliar dataset** oferece agora os sete testes anteriores:
 | Descrição completa | 41 | Veículos e pessoas |
 | Stanford Cars | 40 | Somente marca e carroceria têm gabarito |
 
-Os manifests normalizados estão em `benchmarks/datasets/historical/`. Os originais em `eval/datasets/` não são alterados. `python scripts/prepare_historical_datasets.py` reconstrói os normalizados a partir das imagens locais e valida as classes. A conversão registra hashes, origem e agrupamento. O contrato `historical_tasks_v1.json` mantém `pickup` separado de `truck`; `hatchback` vira a chave equivalente `hatch`. Marcas fora da taxonomia de 24 marcas são `other`. Não comparar esses números diretamente com rodadas de outro contrato.
+Os manifests normalizados estão em `benchmarks/datasets/historical/`, agrupados em subpastas por domínio e tipo: `vehicles/`, `people/`, `robustness/`, `multi_object/`, `prompts/` e `mixed/`. O manifesto portátil de veículos fica em `benchmarks/datasets/vehicles/portable.json`. Os originais em `benchmarks/datasets/` não são alterados. `python scripts/prepare_historical_datasets.py` reconstrói os normalizados a partir das imagens locais e valida as classes. A conversão registra hashes, origem e agrupamento. O contrato `historical_tasks_v1.json` mantém `pickup` separado de `truck`; `hatchback` vira a chave equivalente `hatch`. Marcas fora da taxonomia de 24 marcas são `other`. Não comparar esses números diretamente com rodadas de outro contrato.
 
 As imagens históricas (aproximadamente 111 MB neste computador) permanecem fora do Git. O catálogo informa quando estão ausentes. Neste computador, use **Baixar dataset com imagens e gabarito (ZIP)** para transferir um conjunto verificado ao outro computador. Depois de copiar o ZIP, importe com:
 

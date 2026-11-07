@@ -8,6 +8,7 @@ from PIL import Image
 
 
 def main() -> None:
+    """Run main."""
     if len(sys.argv) != 2:
         raise SystemExit("Usage: python3 examples/laya_vision.py path/to/image.jpg")
 

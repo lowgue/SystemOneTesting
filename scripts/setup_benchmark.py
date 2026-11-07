@@ -8,6 +8,7 @@ import venv
 ROOT=Path(__file__).resolve().parents[1]
 
 def main():
+    """Run main."""
     ap=argparse.ArgumentParser(description=__doc__)
     ap.add_argument('--backend',choices=['http','cpu'],default='http')
     ap.add_argument('--venv',type=Path,default=ROOT/'.venv')

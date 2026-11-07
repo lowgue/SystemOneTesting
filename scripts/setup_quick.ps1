@@ -53,8 +53,13 @@ Write-Host "--> Atualizando pip..."
 & $VenvPy -m pip install --upgrade pip
 
 if ($Gpu) {
-    Write-Host "--> Instalando pacotes com suporte a GPU..."
-    & $VenvPy -m pip install -r requirements/models.txt -e . -e ./vendor/laya-vision
+    $TorchIndexUrl = if ($env:PYTORCH_INDEX_URL) { $env:PYTORCH_INDEX_URL } else { "https://download.pytorch.org/whl/cu128" }
+    Write-Host "--> Instalando PyTorch CUDA pelo índice oficial: $TorchIndexUrl"
+    & $VenvPy -m pip install torch torchvision --index-url $TorchIndexUrl
+    Write-Host "--> Instalando bibliotecas dos modelos..."
+    & $VenvPy -m pip install -r requirements/models.txt -e . -e ./modelos/laya/laya_vision
+    Write-Host "--> Validando GPU CUDA encontrada..."
+    & $VenvPy -c "import torch; assert torch.cuda.is_available(), 'PyTorch não encontrou CUDA; confira o driver NVIDIA'; print(torch.cuda.get_device_name(0), torch.version.cuda)"
 } else {
     Write-Host "--> Instalando pacotes para CPU..."
     & $VenvPy -m pip install -r requirements/cpu.txt -e .
@@ -72,12 +77,12 @@ Write-Host "--> Executando diagnostic doctor..."
 # 7. Smoke test
 if ($Smoke) {
     Write-Host "--> Executando smoke test (1 imagem)..."
-    & $VenvPy -m vision_bench run --config benchmarks/configs/local.json --models laya-vision-head512 d1-omni-600M --limit 1 --repetitions 1 --output "$RootDir\.artifacts\runs\quick-smoke"
+    & $VenvPy -m vision_bench run --config benchmarks/configs/local.json --models laya-vision-head512 d1-omni-600M --device auto --threads auto --limit 1 --repetitions 1 --output "$RootDir\.artifacts\runs\quick-smoke"
     Write-Host "✓ Smoke test concluido!"
 }
 
 Write-Host "======================================================================"
 Write-Host " Instalacao concluida com sucesso!"
 Write-Host " Execute o runner com:"
-Write-Host "   .venv\Scripts\python.exe -m vision_bench run --config benchmarks/configs/local.json --models laya-vision-head512 d1-omni-600M --output .artifacts\runs\teste"
+Write-Host "   .venv\Scripts\python.exe -m vision_bench run --config benchmarks/configs/local.json --models blip-vqa laya-vision-head512 d1-omni-600M --device auto --threads auto --output .artifacts\runs\teste"
 Write-Host "======================================================================"

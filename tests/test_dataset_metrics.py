@@ -2,11 +2,13 @@
 import copy
 import unittest
 from vision_bench.core import ROOT,load_json
-from vision_bench.dataset_metrics import evaluate,field_scores
+from vision_bench.reporting.dataset_metrics import evaluate, field_scores
 
 
 class DatasetMetricsTests(unittest.TestCase):
+    """Group tests for dataset metrics tests."""
     def setUp(self):
+        """Set up."""
         contract=load_json(ROOT/'benchmarks/contracts/description_ollama_v1.json')
         a=dict(presence='yes',make='audi',color='black',body='sedan')
         b=dict(presence='yes',make='bmw',color='white',body='suv')
@@ -22,6 +24,7 @@ class DatasetMetricsTests(unittest.TestCase):
                 self.rows.append(dict(request_key=f'{block}/m/{i}',model='m',id=str(i),block=block,predicted=pred,error='failed' if error else None,valid=not error,elapsed_ms=10*(i+1),cpu_s=.01,peak_rss_bytes=1024))
 
     def test_repetitions_never_inflate_accuracy_or_hide_failures(self):
+        """Verify that repetitions never inflate accuracy or hide failures."""
         result=evaluate(self.frozen,self.rows)['models'][0]
         self.assertEqual(result['requests'],8)
         self.assertEqual(result['photos'],4)
@@ -38,6 +41,7 @@ class DatasetMetricsTests(unittest.TestCase):
         self.assertAlmostEqual(color['macro_f1'],1/3)
 
     def test_unlabeled_is_none_not_zero(self):
+        """Verify that unlabeled is none not zero."""
         for item in self.frozen['manifest']['items']:
             item.pop('expected',None);item.pop('annotations',None)
         result=evaluate(self.frozen,self.rows)['models'][0]
@@ -46,6 +50,7 @@ class DatasetMetricsTests(unittest.TestCase):
         self.assertEqual(result['field_n'],0)
 
     def test_all_failures_count_against_quality_without_fake_latency(self):
+        """Verify that all failures count against quality without fake latency."""
         for row in self.rows:row.update(error='offline',valid=False)
         result=evaluate(self.frozen,self.rows)['models'][0]
         self.assertEqual(result['exact_accuracy'],0)
@@ -54,6 +59,7 @@ class DatasetMetricsTests(unittest.TestCase):
         self.assertIsNone(result['latency']['p50_ms'])
 
     def test_precision_recall_and_confusion_include_false_positives(self):
+        """Verify that precision recall and confusion include false positives."""
         score=field_scores([('yes','yes'),('no','yes'),('yes','__error__')])
         yes=next(c for c in score['classes'] if c['label']=='yes')
         self.assertEqual(yes['precision'],.5)
@@ -62,4 +68,5 @@ class DatasetMetricsTests(unittest.TestCase):
         self.assertEqual(score['correct'],1)
 
     def test_duplicate_records_are_rejected(self):
+        """Verify that duplicate records are rejected."""
         with self.assertRaises(ValueError):evaluate(self.frozen,[*self.rows,self.rows[0]])
