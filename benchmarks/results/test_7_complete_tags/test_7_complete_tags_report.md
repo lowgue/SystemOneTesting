@@ -19,7 +19,7 @@ Acurácia principal: todos os quatro campos corretos simultaneamente na primeira
 
 Nos 32 casos com objeto presente, o conjunto inteiro ficou correto em 7 imagens para Laya e 9 para BLIP. A diferença é exploratória e não sustenta uma escolha definitiva. Nenhum dos dois demonstrou entrega completa confiável nesta configuração; revisão ou tratamento explícito de falhas continua necessário.
 
-![Acerto do conjunto completo](../../../graficos/acuracia/test_7_complete_tags_accuracy.svg)
+![Acerto do conjunto completo](../../../charts/accuracy/test_7_complete_tags_accuracy.svg)
 
 ## Atributos, abstenções e erros
 

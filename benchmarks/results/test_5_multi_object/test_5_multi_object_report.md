@@ -44,13 +44,13 @@ Cada variante foi executada em **3 repetições** com consenso por voto majorit�
 
 ## 3. Comparação de Acurácia: Recorte Isolado vs Imagem Completa
 
-![Recorte vs Completa](../../../graficos/multiplos_objetos/test_5_multi_object_crop_vs_highlighted.svg)
+![Recorte vs Completa](../../../charts/multiple_objects/test_5_multi_object_crop_vs_highlighted.svg)
 
 ---
 
 ## 4. Decomposição de Erros na Imagem Completa (Associação vs Classificação)
 
-![Distribuição de Erros](../../../graficos/multiplos_objetos/test_5_multi_object_error_distribution.svg)
+![Distribuição de Erros](../../../charts/multiple_objects/test_5_multi_object_error_distribution.svg)
 
 Quando o modelo erra na imagem completa, distinguimos:
 - **Erro de Associação:** O modelo respondeu exatamente o atributo do objeto concorrente presente na mesma cena.

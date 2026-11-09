@@ -11,7 +11,7 @@ from unittest.mock import Mock, patch
 
 from PIL import Image
 
-from modelos.comum import motor
+from models.common import motor
 from vision_bench.adapters.d1_omni import D1Omni
 from vision_bench.adapters.http import SystemOneHTTP
 from vision_bench.core import DEFAULT_CONTRACT, load_json

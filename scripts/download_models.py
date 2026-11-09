@@ -86,10 +86,10 @@ def sha256_file(path: Path) -> str:
 
 def ensure_laya_submodule() -> bool:
     """Initialize the Laya Vision submodule when the checkout is empty."""
-    vlm_path = ROOT / 'modelos/laya/laya_vision/laya/vlm.py'
+    vlm_path = ROOT / 'models/laya/laya_vision/laya/vlm.py'
     if vlm_path.is_file():
         return True
-    print('--> Inicializando submódulo modelos/laya/laya_vision via git...')
+    print('--> Inicializando submódulo models/laya/laya_vision via git...')
     try:
         subprocess.run(['git', 'submodule', 'update', '--init', '--recursive'], cwd=ROOT, check=True)
         return vlm_path.is_file()
@@ -204,7 +204,7 @@ def verify_model(key: str, device: str = 'cpu') -> bool:
 
         if key == 'laya':
             ensure_laya_submodule()
-            sys.path.insert(0, str(ROOT / 'modelos/laya/laya_vision'))
+            sys.path.insert(0, str(ROOT / 'models/laya/laya_vision'))
             import laya
             spec = MODEL_SPECS['laya']
             model = laya.load_vlm(spec['repo_id'], revision=spec['revision'], device=device)

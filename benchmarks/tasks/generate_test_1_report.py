@@ -9,7 +9,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 RESULTS_FILE = ROOT / "benchmarks/results/test_1_vehicle_color/test_1_vehicle_color_results.json"
 REPORT_FILE = ROOT / "benchmarks/results/test_1_vehicle_color/test_1_vehicle_color_report.md"
-GRAPHICS_DIR = ROOT / "graficos"
+GRAPHICS_DIR = ROOT / "charts"
 
 COLOR_HEX = {
     "laya": "#2563eb",  # blue
@@ -80,7 +80,7 @@ def build_accuracy_svg(data: dict) -> Path:
     lines.append(tx(w - 220, 62, f"BLIP VQA ({data['models']['blip']['accuracy']['accuracy']*100:.1f}%)", 12, "#1e293b", "600"))
 
     lines.append("</svg>")
-    out_path = GRAPHICS_DIR / "acuracia" / "test_1_color_accuracy.svg"
+    out_path = GRAPHICS_DIR / "accuracy" / "test_1_color_accuracy.svg"
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text("\n".join(lines), encoding="utf-8")
     return out_path
@@ -149,7 +149,7 @@ def build_difficulty_latency_svg(data: dict) -> Path:
         lines.append(tx(rx + 150 + bw + 6, y + 24, val_str_b, 10, COLOR_HEX["blip"], "600"))
 
     lines.append("</svg>")
-    out_path = GRAPHICS_DIR / "latencia" / "test_1_color_latency_difficulty.svg"
+    out_path = GRAPHICS_DIR / "latency" / "test_1_color_latency_difficulty.svg"
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text("\n".join(lines), encoding="utf-8")
     return out_path
@@ -215,7 +215,7 @@ O teste foi executado estritamente conforme as regras do plano:
 
 ## 3. Desempenho Detalhado por Classe de Cor
 
-![Acurácia por Classe de Cor](../../../graficos/acuracia/test_1_color_accuracy.svg)
+![Acurácia por Classe de Cor](../../../charts/accuracy/test_1_color_accuracy.svg)
 
 | Classe de Cor | Amostras | Acertos Laya | Acurácia Laya | F1 Laya | Acertos BLIP | Acurácia BLIP | F1 BLIP |
 |---|---:|---:|---:|---:|---:|---:|---:|
@@ -248,7 +248,7 @@ O teste foi executado estritamente conforme as regras do plano:
 
 ## 5. Robustez em Condições Visuais Difíceis
 
-![Robustez e Latência](../../../graficos/latencia/test_1_color_latency_difficulty.svg)
+![Robustez e Latência](../../../charts/latency/test_1_color_latency_difficulty.svg)
 
 As 120 imagens foram auditadas automaticamente com YOLO e análise de densidade de luminância:
 - **`multiple_vehicles`:** Cenas com múltiplos carros no quadro.

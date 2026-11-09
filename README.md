@@ -22,7 +22,7 @@ Depois de clonar o repositório, rode um comando para criar `.venv`, instalar as
 python3 scripts/test_all.py
 ```
 
-No Windows, use `py -3.12 scripts/test_all.py`. Os relatórios e gráficos ficam em `graficos/relatorios/AAAAmmdd-HHMMSS/`; cada execução tem gráficos de desempenho e avaliação em PNG/PDF, com os dados CSV/JSON correspondentes. O script não baixa pesos nem executa inferência. Para gerar gráficos a partir de execuções específicas:
+No Windows, use `py -3.12 scripts/test_all.py`. Os relatórios e gráficos ficam em `charts/reports/AAAAmmdd-HHMMSS/`; cada execução tem gráficos de desempenho e avaliação em PNG/PDF, com os dados CSV/JSON correspondentes. O script não baixa pesos nem executa inferência. Para gerar gráficos a partir de execuções específicas:
 
 ```bash
 .venv/bin/python scripts/report_runs.py .artifacts/runs/minha-execucao
@@ -38,7 +38,7 @@ Com driver NVIDIA instalado e `nvidia-smi` funcionando, rode:
 python3 scripts/test_all.py --gpu
 ```
 
-No Windows, use `py -3.12 scripts/test_all.py --gpu`. Esse fluxo instala a build CUDA oficial do PyTorch, verifica que a GPU está acessível, executa toda a suíte unitária e roda o benchmark completo das 22 imagens portáteis com BLIP, Laya e D1. O device é selecionado automaticamente; `--threads auto` usa os núcleos físicos reportados pelo sistema, pois os modelos são executados um por vez. TF32 fica habilitado na GPU NVIDIA para acelerar operações de ponto flutuante. A rodada real baixa os pesos dos três modelos quando necessário e salva execução, dados e gráficos em `.artifacts/runs/` e `graficos/relatorios/`.
+No Windows, use `py -3.12 scripts/test_all.py --gpu`. Esse fluxo instala a build CUDA oficial do PyTorch, verifica que a GPU está acessível, executa toda a suíte unitária e roda o benchmark completo das 22 imagens portáteis com BLIP, Laya e D1. O device é selecionado automaticamente; `--threads auto` usa os núcleos físicos reportados pelo sistema, pois os modelos são executados um por vez. TF32 fica habilitado na GPU NVIDIA para acelerar operações de ponto flutuante. A rodada real baixa os pesos dos três modelos quando necessário e salva execução, dados e gráficos em `.artifacts/runs/` e `charts/reports/`.
 
 O Clef não entra nessa rodada: ele roda em um servidor externo e precisa de configuração própria de `llama-server`/CUDA. Para preparar esse caminho separado, use `scripts/setup_quick.sh --gpu` no Linux/macOS ou `scripts/setup_quick.ps1 -Gpu` no Windows. O índice CUDA pode ser trocado pela variável `PYTORCH_INDEX_URL`.
 
@@ -80,9 +80,9 @@ benchmarks/     Configurações, tarefas, datasets e resultados
   datasets/     Dados e imagens agrupados por domínio/tipo
   tasks/        Execução e relatórios dos benchmarks históricos
   results/      Resultados e evidências por execução
-modelos/        Experimentos e bibliotecas organizados por modelo
+models/        Experimentos e bibliotecas organizados por modelo
   laya/laya_vision/  Submódulo do código Laya Vision
-graficos/       Figuras e PDFs históricos, organizados por característica
+charts/       Figuras e PDFs históricos, organizados por característica
 scripts/        Instalação, download de modelos e preparação de datasets
 requirements/   Dependências Python por backend
 docs/           Guias de comparação e metodologia
@@ -95,6 +95,6 @@ tests/          Testes do motor e dos benchmarks
 - [Datasets e métricas](docs/DATASETS.md)
 - [Metodologia das comparações](docs/PROMPT_COMPARISONS.md)
 - [Modelos e início rápido](docs/QUICK_START_MODELS.md)
-- [Atlas estatístico anterior](graficos/execucoes/scientific_20261026_final/README.md)
+- [Atlas estatístico anterior](charts/runs/scientific_20261026_final/README.md)
 
 Os gabaritos existentes são exploratórios; o benchmark separa execuções e computadores. Recursos do cliente HTTP não medem o consumo do servidor Ollama.

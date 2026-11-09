@@ -86,7 +86,7 @@ def main() -> int:
                     "-e",
                     str(ROOT),
                     "-e",
-                    str(ROOT / "modelos" / "laya" / "laya_vision"),
+                    str(ROOT / "models" / "laya" / "laya_vision"),
                 ]
             )
         else:

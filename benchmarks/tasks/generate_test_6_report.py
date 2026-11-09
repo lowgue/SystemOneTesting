@@ -8,7 +8,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 RESULTS_FILE = ROOT / "benchmarks/results/test_6_prompt_formats/test_6_prompt_formats_results.json"
 REPORT_FILE = ROOT / "benchmarks/results/test_6_prompt_formats/test_6_prompt_formats_report.md"
-GRAPHICS_DIR = ROOT / "graficos"
+GRAPHICS_DIR = ROOT / "charts"
 
 COLOR_HEX = {
     "laya": "#2563eb",
@@ -147,7 +147,7 @@ def build_latency_svg(data: dict) -> Path:
         lines.append(tx(x0 + lw + 8, y + 19, f"{lat:.1f} ms", 11, m_color, "700"))
 
     lines.append("</svg>")
-    out_path = GRAPHICS_DIR / "latencia" / "test_6_prompt_latency.svg"
+    out_path = GRAPHICS_DIR / "latency" / "test_6_prompt_latency.svg"
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text("\n".join(lines), encoding="utf-8")
     return out_path
@@ -189,13 +189,13 @@ def generate_markdown_report(data: dict) -> Path:
 
 ## 2. Acurácia e Aderência por Formato
 
-![Acurácia e Aderência](../../../graficos/prompts/test_6_prompt_accuracy_adherence.svg)
+![Acurácia e Aderência](../../../charts/prompts/test_6_prompt_accuracy_adherence.svg)
 
 ---
 
 ## 3. Análise de Latência Operacional
 
-![Latência por Formato](../../../graficos/latencia/test_6_prompt_latency.svg)
+![Latência por Formato](../../../charts/latency/test_6_prompt_latency.svg)
 
 ---
 

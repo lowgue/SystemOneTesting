@@ -57,7 +57,7 @@ if ($Gpu) {
     Write-Host "--> Instalando PyTorch CUDA pelo índice oficial: $TorchIndexUrl"
     & $VenvPy -m pip install torch torchvision --index-url $TorchIndexUrl
     Write-Host "--> Instalando bibliotecas dos modelos..."
-    & $VenvPy -m pip install -r requirements/models.txt -e . -e ./modelos/laya/laya_vision
+    & $VenvPy -m pip install -r requirements/models.txt -e . -e ./models/laya/laya_vision
     Write-Host "--> Validando GPU CUDA encontrada..."
     & $VenvPy -c "import torch; assert torch.cuda.is_available(), 'PyTorch não encontrou CUDA; confira o driver NVIDIA'; print(torch.cuda.get_device_name(0), torch.version.cuda)"
 } else {

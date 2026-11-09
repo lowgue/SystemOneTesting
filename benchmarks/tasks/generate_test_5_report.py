@@ -8,7 +8,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 RESULTS_FILE = ROOT / "benchmarks/results/test_5_multi_object/test_5_multi_object_results.json"
 REPORT_FILE = ROOT / "benchmarks/results/test_5_multi_object/test_5_multi_object_report.md"
-GRAPHICS_DIR = ROOT / "graficos"
+GRAPHICS_DIR = ROOT / "charts"
 
 COLOR_HEX = {
     "laya": "#2563eb",
@@ -89,7 +89,7 @@ def build_crop_vs_highlighted_svg(data: dict) -> Path:
     lines.append(tx(w - 160, ly + 12, "BLIP VQA", 12, "#1e293b", "600"))
 
     lines.append("</svg>")
-    out_path = GRAPHICS_DIR / "multiplos_objetos" / "test_5_multi_object_crop_vs_highlighted.svg"
+    out_path = GRAPHICS_DIR / "multiple_objects" / "test_5_multi_object_crop_vs_highlighted.svg"
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text("\n".join(lines), encoding="utf-8")
     return out_path
@@ -151,7 +151,7 @@ def build_error_distribution_svg(data: dict) -> Path:
         leg_x += 220
 
     lines.append("</svg>")
-    out_path = GRAPHICS_DIR / "multiplos_objetos" / "test_5_multi_object_error_distribution.svg"
+    out_path = GRAPHICS_DIR / "multiple_objects" / "test_5_multi_object_error_distribution.svg"
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text("\n".join(lines), encoding="utf-8")
     return out_path
@@ -216,13 +216,13 @@ Cada variante foi executada em **3 repetições** com consenso por voto majorit�
 
 ## 3. Comparação de Acurácia: Recorte Isolado vs Imagem Completa
 
-![Recorte vs Completa](../../../graficos/multiplos_objetos/test_5_multi_object_crop_vs_highlighted.svg)
+![Recorte vs Completa](../../../charts/multiple_objects/test_5_multi_object_crop_vs_highlighted.svg)
 
 ---
 
 ## 4. Decomposição de Erros na Imagem Completa (Associação vs Classificação)
 
-![Distribuição de Erros](../../../graficos/multiplos_objetos/test_5_multi_object_error_distribution.svg)
+![Distribuição de Erros](../../../charts/multiple_objects/test_5_multi_object_error_distribution.svg)
 
 Quando o modelo erra na imagem completa, distinguimos:
 - **Erro de Associação:** O modelo respondeu exatamente o atributo do objeto concorrente presente na mesma cena.

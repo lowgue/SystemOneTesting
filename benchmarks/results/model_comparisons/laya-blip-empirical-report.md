@@ -25,7 +25,7 @@ Na mediana, o BLIP levou aproximadamente 2,03 vezes o tempo do Laya (cerca de 10
 | Primeira expansão de cor | 247 | 388 | 227/388 (58,51%) | 285/388 (73,45%) | 1.517 / 945 ms |
 | Conjunto colorido atual | 397 | 538 | 370/538 (68,77%) | 254/538 (47,21%) | 1.892 / 3.845 ms |
 
-Os quatro pontos estão no [gráfico histórico](../../../graficos/historico/laya-blip-history.svg) e nos dados [laya-blip-history.json](laya-blip-history.json). Não são quatro medições de uma mesma configuração: os dados, as respostas pontuadas por imagem, as cores e as instruções mudaram. O gráfico registra o que foi observado em cada etapa, não uma curva de progresso ou regressão do modelo.
+Os quatro pontos estão no [gráfico histórico](../../../charts/history/laya-blip-history.svg) e nos dados [laya-blip-history.json](laya-blip-history.json). Não são quatro medições de uma mesma configuração: os dados, as respostas pontuadas por imagem, as cores e as instruções mudaram. O gráfico registra o que foi observado em cada etapa, não uma curva de progresso ou regressão do modelo.
 
 ### O que mudou de uma etapa para a seguinte
 

@@ -8,7 +8,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 RESULTS_FILE = ROOT / "benchmarks/results/test_4_robustness/test_4_robustness_results.json"
 REPORT_FILE = ROOT / "benchmarks/results/test_4_robustness/test_4_robustness_report.md"
-GRAPHICS_DIR = ROOT / "graficos"
+GRAPHICS_DIR = ROOT / "charts"
 
 COLOR_HEX = {"laya": "#2563eb", "blip": "#ea580c"}
 
@@ -106,7 +106,7 @@ def build_accuracy_by_stratum_svg(data: dict) -> Path:
     lines.append(tx(w - 190, ly + 12, "BLIP VQA", 12, "#1e293b", "600"))
 
     lines.append("</svg>")
-    out_path = GRAPHICS_DIR / "robustez" / "test_4_robustness_accuracy.svg"
+    out_path = GRAPHICS_DIR / "robustness" / "test_4_robustness_accuracy.svg"
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text("\n".join(lines), encoding="utf-8")
     return out_path
@@ -173,7 +173,7 @@ def build_task_breakdown_svg(data: dict) -> Path:
             lines.append(tx(x + 10, y + 38, f"B: {b_acc*100:.0f}%", 11, COLOR_HEX["blip"], "600"))
 
     lines.append("</svg>")
-    out_path = GRAPHICS_DIR / "robustez" / "test_4_robustness_task_breakdown.svg"
+    out_path = GRAPHICS_DIR / "robustness" / "test_4_robustness_task_breakdown.svg"
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text("\n".join(lines), encoding="utf-8")
     return out_path
@@ -274,7 +274,7 @@ def generate_markdown_report(data: dict) -> Path:
 
 ## 3. Acurácia por Estrato de Degradação
 
-![Acurácia por Estrato](../../../graficos/robustez/test_4_robustness_accuracy.svg)
+![Acurácia por Estrato](../../../charts/robustness/test_4_robustness_accuracy.svg)
 
 {stratum_table}
 
@@ -282,7 +282,7 @@ def generate_markdown_report(data: dict) -> Path:
 
 ## 4. Acurácia por Tarefa × Estrato
 
-![Tarefa × Estrato](../../../graficos/robustez/test_4_robustness_task_breakdown.svg)
+![Tarefa × Estrato](../../../charts/robustness/test_4_robustness_task_breakdown.svg)
 
 {task_table}
 

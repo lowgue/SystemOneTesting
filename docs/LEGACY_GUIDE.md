@@ -51,12 +51,12 @@ SystemOneTesting/
 │   ├── datasets/                  # Datasets e imagens por domínio/tipo
 │   ├── tasks/                     # Fluxos históricos de execução e análise
 │   └── results/                   # Resultados e relatórios por execução
-├── graficos/                      # Gráficos históricos por característica
+├── charts/                      # Gráficos históricos por característica
 │   └── execucoes/                 # Tabelas e proveniência dos gráficos
 ├── scripts/datasets/              # Download e preparação de dados
 ├── tests/                         # Testes do motor e dos fluxos históricos
 ├── docs/                          # Guias e metodologia
-└── modelos/laya/laya_vision/      # Submódulo do código de inferência visual
+└── models/laya/laya_vision/      # Submódulo do código de inferência visual
 ```
 
 ## Laya textual no Ollama
@@ -87,8 +87,8 @@ Crie um ambiente Python e instale o código de inferência publicado pelo autor:
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
-git clone https://github.com/r33drichards/laya-vision modelos/laya/laya_vision
-python -m pip install -e ./modelos/laya/laya_vision torchvision pillow
+git clone https://github.com/r33drichards/laya-vision models/laya/laya_vision
+python -m pip install -e ./models/laya/laya_vision torchvision pillow
 ```
 
 Execute com uma imagem local:
@@ -183,7 +183,7 @@ Se precisar recriar o ambiente local:
 python3 -m venv .venv
 .venv/bin/python -m pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
 .venv/bin/python -m pip install transformers safetensors pillow
-.venv/bin/python -m pip install -e ./modelos/laya/laya_vision
+.venv/bin/python -m pip install -e ./models/laya/laya_vision
 ```
 
 ```bash
@@ -219,19 +219,19 @@ Para recriar os três SVGs após uma nova avaliação:
 
 **Acurácia geral e por pergunta**
 
-![Acurácia e intervalos Wilson de 95%](../graficos/acuracia/laya-blip-accuracy.svg)
+![Acurácia e intervalos Wilson de 95%](../charts/accuracy/laya-blip-accuracy.svg)
 
 **Latência por imagem**
 
-![Mediana, média, p90 e p95 da latência](../graficos/latencia/laya-blip-latency.svg)
+![Mediana, média, p90 e p95 da latência](../charts/latency/laya-blip-latency.svg)
 
 **Acurácia nas 11 classes do conjunto balanceado (30 imagens por classe)**
 
-![Acurácia de cor por classe](../graficos/classes/laya-blip-color-classes.svg)
+![Acurácia de cor por classe](../charts/classes/laya-blip-color-classes.svg)
 
 **Histórico das quatro rodadas comparativas**
 
-![Acurácia e latência nas rodadas de 7, 67, 247 e 397 imagens](../graficos/historico/laya-blip-history.svg)
+![Acurácia e latência nas rodadas de 7, 67, 247 e 397 imagens](../charts/history/laya-blip-history.svg)
 
 Os intervalos de confiança são descritivos, e as imagens não constituem amostra aleatória de todos os veículos. Veja no relatório a metodologia, limitações, análise de aderência do prompt e fatores técnicos de velocidade e acurácia.
 
@@ -257,10 +257,10 @@ Para reproduzir em um diretório novo, com os pesos já no cache:
 
 O runner grava progresso e permite `--resume` com o mesmo diretório e configuração. Energia e custo monetário só serão informados quando houver medição e parâmetros disponíveis.
 
-Os resultados automatizados têm um [atlas com 13 figuras científicas](../graficos/execucoes/scientific_20261026_final/README.md), [PDF completo](../graficos/relatorios/relatorio_estatistico.pdf) e perfis individuais de [Laya](../graficos/perfis_modelos/12_perfil_laya.pdf) e [BLIP](../graficos/perfis_modelos/13_perfil_blip.pdf). Cada figura está disponível em PNG 300 dpi, SVG e PDF, com notas metodológicas, unidades, tamanho amostral e intervalos quando aplicáveis. Os CSVs e hashes permitem conferir os dados de origem. Para gerar outra versão sem sobrescrever arquivos:
+Os resultados automatizados têm um [atlas com 13 figuras científicas](../charts/runs/scientific_20261026_final/README.md), [PDF completo](../charts/reports/relatorio_estatistico.pdf) e perfis individuais de [Laya](../charts/model_profiles/12_perfil_laya.pdf) e [BLIP](../charts/model_profiles/13_perfil_blip.pdf). Cada figura está disponível em PNG 300 dpi, SVG e PDF, com notas metodológicas, unidades, tamanho amostral e intervalos quando aplicáveis. Os CSVs e hashes permitem conferir os dados de origem. Para gerar outra versão sem sobrescrever arquivos:
 
 ```bash
-.venv/bin/python benchmarks/tasks/plot_scientific_description_results.py --output graficos/execucoes/nova_execucao
+.venv/bin/python benchmarks/tasks/plot_scientific_description_results.py --output charts/runs/nova_execucao
 ```
 
 O [Teste 7](../benchmarks/results/test_7_complete_tags/test_7_complete_tags_report.md) compara a entrega de quatro atributos por imagem: presença, marca, cor e carroceria para veículos; presença, capacete, objeto transportado e vestimenta superior para pessoas. O BLIP recebe perguntas curtas abertas em batch; o Laya recebe decisões tipadas com opções fixas. O critério principal exige todos os campos corretos na mesma imagem, incluindo abstenções quando o atributo não está visível. O tempo medido cobre o conjunto completo de perguntas.

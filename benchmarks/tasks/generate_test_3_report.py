@@ -9,7 +9,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 RESULTS_FILE = ROOT / "benchmarks/results/test_3_person_attributes/test_3_person_attributes_results.json"
 REPORT_FILE = ROOT / "benchmarks/results/test_3_person_attributes/test_3_person_attributes_report.md"
-GRAPHICS_DIR = ROOT / "graficos"
+GRAPHICS_DIR = ROOT / "charts"
 
 COLOR_HEX = {
     "laya": "#2563eb",  # blue
@@ -114,7 +114,7 @@ def build_person_accuracy_svg(data: dict) -> Path:
     lines.append(tx(w - 220, 62, f"BLIP VQA ({b_acc_o*100:.1f}%)", 12, "#1e293b", "600"))
 
     lines.append("</svg>")
-    out_path = GRAPHICS_DIR / "acuracia" / "test_3_person_accuracy.svg"
+    out_path = GRAPHICS_DIR / "accuracy" / "test_3_person_accuracy.svg"
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text("\n".join(lines), encoding="utf-8")
     return out_path
@@ -174,7 +174,7 @@ def build_person_latency_difficulty_svg(data: dict) -> Path:
         lines.append(tx(rx + 150 + bw + 6, y + 24, val_str_b, 10, COLOR_HEX["blip"], "600"))
 
     lines.append("</svg>")
-    out_path = GRAPHICS_DIR / "latencia" / "test_3_person_latency_difficulty.svg"
+    out_path = GRAPHICS_DIR / "latency" / "test_3_person_latency_difficulty.svg"
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text("\n".join(lines), encoding="utf-8")
     return out_path
@@ -246,7 +246,7 @@ def generate_person_markdown_report(data: dict) -> Path:
 
 ## 3. Desempenho Detalhado por Pergunta e Classe
 
-![Acurácia em Atributos de Pessoas](../../../graficos/acuracia/test_3_person_accuracy.svg)
+![Acurácia em Atributos de Pessoas](../../../charts/accuracy/test_3_person_accuracy.svg)
 
 """
     for q_k in q_keys:
@@ -264,7 +264,7 @@ def generate_person_markdown_report(data: dict) -> Path:
 
 ## 4. Robustez em Condições Difíceis (Multidões, Distância e Oclusão)
 
-![Robustez e Latência](../../../graficos/latencia/test_3_person_latency_difficulty.svg)
+![Robustez e Latência](../../../charts/latency/test_3_person_latency_difficulty.svg)
 
 - **`multiple_people`:** Em cenas de calçadas movimentadas com múltiplos pedestres, se a imagem for passada inteira, ambos os modelos sofrem ambiguidade sobre "qual" pessoa responder. Recortar a pessoa individualmente (*crop bounding box*) restaura a acurácia para níveis superiores a 75%.
 - **`distant_small_person`:** Pessoas com área menor que 10% do quadro têm resolução insuficiente para discernir a textura de uma mochila ou se estão usando boné vs. capacete. Nesses casos, o `CaptionerManager` deve adotar `not_visible` como política segura.

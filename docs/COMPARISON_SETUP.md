@@ -41,7 +41,7 @@ O setup cria/reutiliza `.venv` e instala o projeto. Não baixa pesos nem inicia 
 Para GPU, o fluxo recomendado para testar e medir os três modelos locais está em `python3 scripts/test_all.py --gpu`: ele instala PyTorch pelo índice CUDA 12.8 oficial, identifica a GPU, usa `--device auto --threads auto`, roda os testes e salva gráficos. O driver NVIDIA precisa estar instalado. A build pip do PyTorch inclui o runtime CUDA necessário; não é preciso instalar o CUDA Toolkit para usar os wheels oficiais. Para selecionar outra build compatível, use `PYTORCH_INDEX_URL` ou consulte o [seletor oficial do PyTorch](https://pytorch.org/get-started/locally/).
 
 ```bash
-.venv/bin/python -m pip install -r requirements/models.txt -e . -e ./modelos/laya/laya_vision
+.venv/bin/python -m pip install -r requirements/models.txt -e . -e ./models/laya/laya_vision
 ```
 
 O runner usa CUDA automaticamente quando PyTorch detecta uma GPU; `--device cpu` força CPU, e `--device cuda` exige CUDA disponível. `--threads auto` seleciona um Torch thread por núcleo físico, sem contar SMT como núcleos adicionais. O runner sincroniza o dispositivo para medir tempo completo e registra o pico de memória CUDA alocada pelo processo. Para métricas comparáveis, o número de threads, device e flags TF32 ficam congelados nos metadados. Os parâmetros de GPU do servidor Clef são configurados separadamente; o device do runner não altera um servidor externo.
@@ -224,7 +224,7 @@ Ou informe várias execuções, inclusive de computadores diferentes:
 
 Cada execução/máquina recebe seção e gráfico próprios; não se misturam tempos de hardwares diferentes. Use mesmos hashes de contrato/dataset, versões e quantidade de repetições para uma comparação direta. Um smoke de duas imagens não substitui a rodada completa. Preserve o diretório inteiro de cada run ao copiar resultados para consolidar.
 
-Saídas: tabelas Markdown, `metrics.json`, `metrics.csv` e gráficos PNG 300 dpi/SVG/PDF. Pontos de distribuição são medianas por evento entre repetições, não imagens novas. O relatório portátil é descritivo, sem intervalos populacionais fabricados para uma amostra arbitrária. O README, os dados congelados e a proveniência do atlas histórico permanecem em `graficos/execucoes/scientific_20261026_final`; suas figuras estão agrupadas em `graficos/`. O gerador histórico não deve ser usado como se aceitasse automaticamente novos modelos.
+Saídas: tabelas Markdown, `metrics.json`, `metrics.csv` e gráficos PNG 300 dpi/SVG/PDF. Pontos de distribuição são medianas por evento entre repetições, não imagens novas. O relatório portátil é descritivo, sem intervalos populacionais fabricados para uma amostra arbitrária. O README, os dados congelados e a proveniência do atlas histórico permanecem em `charts/runs/scientific_20261026_final`; suas figuras estão agrupadas em `charts/`. O gerador histórico não deve ser usado como se aceitasse automaticamente novos modelos.
 
 Não compare CPU de HTTP `client_only` à CPU do modelo em processo como custo total. Não compare custo local ao tempo remoto sem informar rede/hardware/faturamento. As respostas brutas preservam `usage` quando fornecido, mas não há preço monetário presumido. A métrica de positivos completos com os rótulos históricos é exploratória e deve permanecer identificada assim.
 

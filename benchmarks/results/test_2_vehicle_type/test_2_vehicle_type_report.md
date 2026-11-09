@@ -50,7 +50,7 @@
 
 ## 3. Desempenho Detalhado por Tipo de Veículo
 
-![Acurácia por Tipo de Veículo](../../../graficos/acuracia/test_2_type_accuracy.svg)
+![Acurácia por Tipo de Veículo](../../../charts/accuracy/test_2_type_accuracy.svg)
 
 | Tipo de Veículo | Amostras | Acertos Laya | Acurácia Laya | F1 Laya | Acertos BLIP | Acurácia BLIP | F1 BLIP |
 |---|---:|---:|---:|---:|---:|---:|---:|
@@ -86,7 +86,7 @@
 
 ## 5. Robustez em Condições Visuais Difíceis
 
-![Robustez e Latência](../../../graficos/latencia/test_2_type_latency_difficulty.svg)
+![Robustez e Latência](../../../charts/latency/test_2_type_latency_difficulty.svg)
 
 - **`partial_or_atypical_view`:** Veículos fotografados em ângulos muito fechados (ex.: apenas a grade dianteira ou apenas a traseira) sofrem queda de precisão em ambos os modelos, pois a proporção do habitáculo é necessária para distinguir cupê, sedã e perua.
 - **`multiple_vehicles`:** Quando múltiplos tipos de veículos coexistem no frame (ex.: um carro ultrapassando um caminhão), o modelo pode atribuir a resposta ao veículo secundário se não for fornecido o recorte exato do detector.

@@ -48,7 +48,7 @@ def main():
     a=metrics['all']['laya'];b=metrics['all']['blip']
     winner='Empate' if a['positive_exact']==b['positive_exact'] else ('Laya' if a['positive_exact']>b['positive_exact'] else 'BLIP')
     lines += ['',f'**Melhor entrega completa nos casos positivos desta amostra: {winner}.** Compare também os domínios separadamente. Uma saída com quatro campos válidos pode conter quatro erros; formato e correção são medidos separadamente.', '',
-              f'Nos {a["positive_images"]} casos com objeto presente, o conjunto inteiro ficou correto em {a["positive_exact"]} imagens para Laya e {b["positive_exact"]} para BLIP. A diferença é exploratória e não sustenta uma escolha definitiva. Nenhum dos dois demonstrou entrega completa confiável nesta configuração; revisão ou tratamento explícito de falhas continua necessário.', '', '![Acerto do conjunto completo](../../../graficos/acuracia/test_7_complete_tags_accuracy.svg)', '',
+              f'Nos {a["positive_images"]} casos com objeto presente, o conjunto inteiro ficou correto em {a["positive_exact"]} imagens para Laya e {b["positive_exact"]} para BLIP. A diferença é exploratória e não sustenta uma escolha definitiva. Nenhum dos dois demonstrou entrega completa confiável nesta configuração; revisão ou tratamento explícito de falhas continua necessário.', '', '![Acerto do conjunto completo](../../../charts/accuracy/test_7_complete_tags_accuracy.svg)', '',
               '## Atributos, abstenções e erros','',
               '| Domínio | Campo | Modelo | Acertos (todos) | Acertos com valor observável |', '|---|---|---|---:|---:|']
     for domain in ['vehicle','person']:
@@ -104,7 +104,7 @@ def main():
         for j,model in enumerate(['laya','blip']):
             m=metrics[domain][model];y=60+i*85+j*30;value=100*m['exact']/m['images'];color='#2563eb' if model=='laya' else '#d97706'
             svg += [f'<text x="20" y="{y+17}" font-family="sans-serif" font-size="14">{domain} / {model}</text>',f'<rect x="160" y="{y}" width="{value*5}" height="23" fill="{color}"/>', f'<text x="{170+value*5}" y="{y+17}" font-family="sans-serif" font-size="14">{value:.1f}% ({m["exact"]}/{m["images"]})</text>']
-    chart_path=ROOT/'graficos/acuracia/test_7_complete_tags_accuracy.svg';chart_path.parent.mkdir(parents=True,exist_ok=True);chart_path.write_text('\n'.join(svg)+'\n')
+    chart_path=ROOT/'charts/accuracy/test_7_complete_tags_accuracy.svg';chart_path.parent.mkdir(parents=True,exist_ok=True);chart_path.write_text('\n'.join(svg)+'\n')
     print(REPORT)
     print(json.dumps(metrics,indent=2))
 

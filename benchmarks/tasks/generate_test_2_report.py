@@ -9,7 +9,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 RESULTS_FILE = ROOT / "benchmarks/results/test_2_vehicle_type/test_2_vehicle_type_results.json"
 REPORT_FILE = ROOT / "benchmarks/results/test_2_vehicle_type/test_2_vehicle_type_report.md"
-GRAPHICS_DIR = ROOT / "graficos"
+GRAPHICS_DIR = ROOT / "charts"
 
 COLOR_HEX = {
     "laya": "#2563eb",  # blue
@@ -77,7 +77,7 @@ def build_type_accuracy_svg(data: dict) -> Path:
     lines.append(tx(w - 220, 62, f"BLIP VQA ({data['models']['blip']['accuracy']['accuracy']*100:.1f}%)", 12, "#1e293b", "600"))
 
     lines.append("</svg>")
-    out_path = GRAPHICS_DIR / "acuracia" / "test_2_type_accuracy.svg"
+    out_path = GRAPHICS_DIR / "accuracy" / "test_2_type_accuracy.svg"
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text("\n".join(lines), encoding="utf-8")
     return out_path
@@ -143,7 +143,7 @@ def build_type_latency_difficulty_svg(data: dict) -> Path:
         lines.append(tx(rx + 150 + bw + 6, y + 24, val_str_b, 10, COLOR_HEX["blip"], "600"))
 
     lines.append("</svg>")
-    out_path = GRAPHICS_DIR / "latencia" / "test_2_type_latency_difficulty.svg"
+    out_path = GRAPHICS_DIR / "latency" / "test_2_type_latency_difficulty.svg"
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text("\n".join(lines), encoding="utf-8")
     return out_path
@@ -217,7 +217,7 @@ def generate_type_markdown_report(data: dict) -> Path:
 
 ## 3. Desempenho Detalhado por Tipo de Veículo
 
-![Acurácia por Tipo de Veículo](../../../graficos/acuracia/test_2_type_accuracy.svg)
+![Acurácia por Tipo de Veículo](../../../charts/accuracy/test_2_type_accuracy.svg)
 
 | Tipo de Veículo | Amostras | Acertos Laya | Acurácia Laya | F1 Laya | Acertos BLIP | Acurácia BLIP | F1 BLIP |
 |---|---:|---:|---:|---:|---:|---:|---:|
@@ -249,7 +249,7 @@ def generate_type_markdown_report(data: dict) -> Path:
 
 ## 5. Robustez em Condições Visuais Difíceis
 
-![Robustez e Latência](../../../graficos/latencia/test_2_type_latency_difficulty.svg)
+![Robustez e Latência](../../../charts/latency/test_2_type_latency_difficulty.svg)
 
 - **`partial_or_atypical_view`:** Veículos fotografados em ângulos muito fechados (ex.: apenas a grade dianteira ou apenas a traseira) sofrem queda de precisão em ambos os modelos, pois a proporção do habitáculo é necessária para distinguir cupê, sedã e perua.
 - **`multiple_vehicles`:** Quando múltiplos tipos de veículos coexistem no frame (ex.: um carro ultrapassando um caminhão), o modelo pode atribuir a resposta ao veículo secundário se não for fornecido o recorte exato do detector.

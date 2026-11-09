@@ -222,7 +222,7 @@ def main():
               '- [Predições brutas](predictions.jsonl)', '- [Recursos amostrados](resource_samples.jsonl)', '- [Métricas](metrics.json)',
               '- [Orçamento de opções do Laya](../laya_option_budget_20261026/report.md)', '',
               '- [Simulação de poder e tamanho da amostra](../paired_power_20261026/report.md)', '',
-              f'![Latência por conjunto completo]({os.path.relpath(ROOT / "graficos/desempenho" / (out.name + "_summary.svg"), out)})']
+              f'![Latência por conjunto completo]({os.path.relpath(ROOT / "charts/desempenho" / (out.name + "_summary.svg"), out)})']
     (out/'report.md').write_text('\n'.join(lines)+'\n')
     (out/'metrics.json').write_text(json.dumps(metrics,ensure_ascii=False,indent=2)+'\n')
     svg=ET.Element('svg',xmlns='http://www.w3.org/2000/svg',width='850',height='230',viewBox='0 0 850 230')
@@ -235,7 +235,7 @@ def main():
         ET.SubElement(svg,'rect',x='100',y=str(y),width=str(width),height='33',fill=color)
         ET.SubElement(svg,'text',x=str(115+width),y=str(y+23),**{'font-family':'sans-serif','font-size':'16'}).text=f'{value:.0f} ms'
     ET.SubElement(svg,'text',x='20',y='215',**{'font-family':'sans-serif','font-size':'13'}).text='16 eventos históricos por modelo × 5 blocos; não mede qualidade factual.'
-    chart_path=ROOT/'graficos/desempenho'/(out.name+'_summary.svg')
+    chart_path=ROOT/'charts/desempenho'/(out.name+'_summary.svg')
     chart_path.parent.mkdir(parents=True,exist_ok=True)
     ET.ElementTree(svg).write(chart_path,encoding='unicode',xml_declaration=False)
     print(out/'report.md');print(json.dumps(metrics['performance']['all'],indent=2));print(json.dumps(metrics['integrity']))

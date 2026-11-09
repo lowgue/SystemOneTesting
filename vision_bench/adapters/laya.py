@@ -41,7 +41,7 @@ class Laya(_TorchAdapter):
     ) -> None:
         """Load Laya and install the image-batch compatibility patch it requires."""
         super().__init__(spec, contract, device)
-        sys.path.insert(0, str(ROOT / "modelos/laya/laya_vision"))
+        sys.path.insert(0, str(ROOT / "models/laya/laya_vision"))
         import laya
         import laya.vlm as vlm
         from transformers.utils import logging as transformers_logging

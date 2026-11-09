@@ -174,10 +174,10 @@ def preflight(
                             'requirements/cpu.txt or GPU environment'
                         )
             if adapter == 'laya' and not (
-                ROOT / 'modelos/laya/laya_vision/laya/vlm.py'
+                ROOT / 'models/laya/laya_vision/laya/vlm.py'
             ).is_file():
                 issues.append(
-                    'Initialize modelos/laya/laya_vision with '
+                    'Initialize models/laya/laya_vision with '
                     'git submodule update --init --recursive'
                 )
 

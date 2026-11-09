@@ -1,58 +1,87 @@
-# Arquitetura (CLI, sem interface web)
+# Project architecture
+
+The project is a local CLI application organized as a modular monolith with
+traditional layers. Each module has a focused responsibility, and the CLI is the
+only user-facing entry point.
 
 ```mermaid
-flowchart LR
-  CLI[vision-bench] --> Runner[runner.py]
-  Runner --> Adapters[adapters package]
-  Adapters --> Local[BLIP / Laya / d1-omni]
-  Adapters --> HTTP[System One HTTP]
-  Runner --> Reporting[reporting package]
-  Reporting --> Charts[reporting/charts]
-  Charts --> GraphTypes[quality / performance / attributes / class metrics / confusion matrices]
-  Reporting --> Data[".artifacts/reports/<run>"]
-  Data --> GraphOutputs["charts/<type>/*.png, *.pdf, *.svg"]
-  Data --> Tables["CSV / JSON / README"]
-  Datasets["benchmarks/datasets: portátil por domínio; histórico por tarefa"] --> Runner
-  Historical["benchmarks/results + graficos/execucoes"] --> Graphics["graficos/<caracteristica>"]
+flowchart TD
+  subgraph Presentation[Presentation layer]
+    CLI[vision_bench/cli.py]
+    Reports[vision_bench/reporting/]
+  end
+  subgraph Application[Application layer]
+    Runner[vision_bench/runner.py]
+  end
+  subgraph Domain[Domain layer]
+    Rules[vision_bench/core.py and protocols.py]
+    Contracts[benchmarks/contracts/]
+    Datasets[benchmarks/datasets/]
+  end
+  subgraph Infrastructure[Infrastructure layer]
+    Adapters[vision_bench/adapters/]
+    Clef[vision_bench/clef.py]
+    External[Model libraries and HTTP endpoints]
+  end
+  CLI --> Runner
+  CLI --> Reports
+  Runner --> Rules
+  Runner --> Adapters
+  Runner --> Reports
+  Rules --> Contracts
+  Rules --> Datasets
+  Adapters --> External
+  Clef --> External
+  Runner --> Results[benchmarks/results/]
+  Reports --> Charts[charts/]
 ```
 
-| Componente | Responsabilidade |
+## Layer responsibilities
+
+| Layer | Modules and data | Responsibility |
+|---|---|---|
+| Presentation | `vision_bench/cli.py`, `vision_bench/reporting/` | Parse commands and present benchmark results as reports and charts. |
+| Application | `vision_bench/runner.py` | Coordinate configuration, model adapters, dataset events, repetitions, and persisted runs. |
+| Domain | `vision_bench/core.py`, `vision_bench/protocols.py`, `benchmarks/contracts/` | Define validation, normalization, request/prompt semantics, and response rules. |
+| Infrastructure | `vision_bench/adapters/`, `vision_bench/clef.py` | Communicate with local model libraries, HTTP services, and the Clef server process. |
+
+Dependencies flow from presentation and application toward domain rules. Domain
+modules do not import the CLI or model adapters. `runner.py` is the coordination
+point between domain behavior and infrastructure. `core.py` currently also
+contains verified dataset file operations; if that responsibility grows, move it
+to a focused storage module in the infrastructure layer.
+
+## Important paths
+
+| Path | Responsibility |
 |---|---|
-| `vision_bench/cli.py` | Entrada única: doctor, run, report, pack-data, unpack-data, clef-server |
-| `vision_bench/runner.py` | Execução serial e retomável com configuração e máquina congeladas |
-| `vision_bench/reporting/report.py` | Relatório Markdown e tabelas de desempenho |
-| `vision_bench/reporting/dataset_metrics.py` | Métricas por modelo, atributo e classe |
-| `vision_bench/reporting/charts/` | Geração de gráficos agrupada por tipo |
-| `vision_bench/reporting/charts/quality.py` | Acurácia e qualidade por atributo/classe |
-| `vision_bench/reporting/charts/comparison.py` | Distribuição de latência e CPU |
-| `vision_bench/reporting/charts/summary.py` | Gráficos horizontais de resumo |
-| `vision_bench/reporting/charts/style.py` | Cores e rótulos compartilhados pelos gráficos |
-| `vision_bench/adapters/` | Implementações de request separadas por backend e transporte |
-| `vision_bench/adapters/base.py` | Interface comum e adapter simulado |
-| `vision_bench/adapters/http.py` | Requests HTTP para System One e resolução de endpoint |
-| `vision_bench/adapters/transformers.py` | Base local Torch e integração BLIP |
-| `vision_bench/adapters/laya.py` | Requests nativos do Laya Vision e ajuste de compatibilidade |
-| `vision_bench/adapters/d1_omni.py` | Requests nativos do d1-omni |
-| `vision_bench/adapters/__init__.py` | Registro/fábrica pública dos adapters |
-| `vision_bench/core.py` | Contrato, parsing estrito e I/O verificada de datasets |
-| `vision_bench/protocols.py` | Contrato por evento, descrição e diagnóstico de saída |
-| `vision_bench/clef.py` | Download de pesos do Clef e servidor llama-server |
-| `benchmarks/configs/` | Seleção de adapter, modelo, revisão e endpoint |
-| `benchmarks/contracts/` | Campos, tipos, prompts e critérios de resposta |
-| `benchmarks/datasets/` | Manifests portáteis e históricos agrupados por domínio/tipo |
-| `modelos/laya/laya_vision/` | Submódulo externo do código do Laya Vision |
-| `graficos/` | Gráficos históricos separados por característica |
-| `benchmarks/tasks/` | Execução, preparação e relatórios dos benchmarks históricos |
-| `benchmarks/results/` | Resultados JSON, relatórios e evidências por benchmark/execução |
-| `graficos/execucoes/` | Tabelas, proveniência e artefatos de cada execução de gráficos |
-| `docs/plans/` | Planos metodológicos e de avaliação |
-| `scripts/` | Instalação e download de modelos |
-| `scripts/datasets/` | Download e preparação de datasets |
-| `tests/` | Testes do motor (métricas de dataset) |
+| `vision_bench/cli.py` | Entry point for doctor, run, report, dataset packing, and Clef server commands. |
+| `vision_bench/runner.py` | Serial, resumable benchmark execution with frozen configuration and machine metadata. |
+| `vision_bench/core.py` | Dataset validation, text normalization, result finalization, and verified dataset I/O. |
+| `vision_bench/protocols.py` | Build model questions/prompts and diagnose response output. |
+| `vision_bench/adapters/base.py` | Shared adapter interface and deterministic mock adapter. |
+| `vision_bench/adapters/http.py` | System One HTTP request implementation and endpoint validation. |
+| `vision_bench/adapters/transformers.py` | Shared Torch adapter and BLIP requests. |
+| `vision_bench/adapters/laya.py` | Laya native requests and its Transformers compatibility patch. |
+| `vision_bench/adapters/d1_omni.py` | d1-omni native requests. |
+| `vision_bench/adapters/__init__.py` | Built-in adapter registry and public factory. |
+| `vision_bench/clef.py` | Clef model download, server setup, and process metadata. |
+| `vision_bench/reporting/` | Metrics, Markdown reports, and chart generation. |
+| `benchmarks/configs/` | Adapter, model revision, endpoint, and runtime configuration. |
+| `benchmarks/contracts/` | Request fields, prompt definitions, answer choices, and validation criteria. |
+| `benchmarks/datasets/` | Portable and historical datasets grouped by domain. |
+| `benchmarks/tasks/` | Historical benchmark runners, preparation tools, and report generators. |
+| `benchmarks/results/` | Historical result data and reports. |
+| `charts/` | Historical figures organized by chart characteristic. |
+| `charts/runs/` | Provenance, tables, and supporting files for chart runs. |
+| `models/` | Per-model experiments and the shared legacy model-test framework. |
+| `models/laya/laya_vision/` | External Git submodule; its contents are maintained upstream. |
+| `scripts/` | Installation, model download, dataset preparation, and report commands. |
+| `tests/` | Tests for the benchmark engine and migrated tasks. |
 
-Relatórios, métricas e estilos têm um caminho de importação autoritativo em `vision_bench.reporting` e `vision_bench.reporting.charts`. Cada relatório grava os gráficos em `charts/quality/`, `charts/performance/`, `charts/attributes/`, `charts/class_metrics/` ou `charts/confusion_matrices/`, separados das tabelas e do README.
+## Dataset layout
 
-Datasets portáteis e históricos ficam separados por uso e assunto:
+Portable datasets are separated from historical task datasets:
 
 ```text
 benchmarks/datasets/
@@ -67,27 +96,32 @@ benchmarks/datasets/
     └── mixed/
 ```
 
-Os gráficos históricos ficam centralizados por característica:
+## Historical chart categories
 
 ```text
-graficos/
-├── desempenho/
-├── latencia/
-├── acuracia/
+charts/
+├── accuracy/
+├── sampling/
 ├── classes/
-├── robustez/
+├── synthetic_controls/
+├── performance/
+├── runs/
+├── queue/
+├── history/
+├── latency/
+├── memory/
+├── multiple_objects/
+├── budget/
+├── model_profiles/
 ├── prompts/
-├── repetibilidade/
-├── controles_sinteticos/
-├── orcamento/
-├── amostragem/
-├── memoria/
-├── fila/
-├── perfis_modelos/
-├── historico/
-├── multiplos_objetos/
-├── veiculos/
-└── relatorios/
+├── reports/
+├── repeatability/
+├── robustness/
+└── vehicles/
 ```
 
-Os gráficos históricos ficam em `graficos/<caracteristica>/`; tabelas e proveniência de execuções ficam em `graficos/execucoes/`. Os dados de benchmark ficam em `benchmarks/datasets/`, e relatórios e resultados em `benchmarks/results/`. Código reutilizável do runner fica em `vision_bench/`; fluxos históricos ficam em `benchmarks/tasks/`. Modelos novos entram em `benchmarks/configs/`.
+New model request logic belongs in the matching module under
+`vision_bench/adapters/`. Request and prompt definitions belong in
+`benchmarks/contracts/`. Reusable chart code belongs in the matching module
+under `vision_bench/reporting/charts/`; historical output files belong under
+`charts/<category>/`.

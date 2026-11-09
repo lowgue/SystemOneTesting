@@ -4,13 +4,13 @@ Estado: etapa automática preliminar executada; avaliação confirmatória ainda
 
 ## Resultados preliminares sem anotação humana
 
-O [piloto automatizado](../experiments/automated_pilot_20261026/report.md) executou 452 requisições exploratórias: cinco blocos de desempenho com ordem alternada, seis configurações completas por modelo, degradações, controles sintéticos e fila. Os dados históricos continuam fora do futuro teste confirmatório.
+O [piloto automatizado](../../benchmarks/results/experiments/automated_pilot_20261026/report.md) executou 452 requisições exploratórias: cinco blocos de desempenho com ordem alternada, seis configurações completas por modelo, degradações, controles sintéticos e fila. Os dados históricos continuam fora do futuro teste confirmatório.
 
 Dois achados afetam a preparação da próxima rodada:
 
-- A lista de 48 marcas mais desconhecida provoca truncamento da instrução e de opções no orçamento padrão do Laya. A [auditoria de orçamento](../experiments/laya_option_budget_20261026/report.md) testa a integridade da entrada; qualquer nova configuração ainda precisa de validação de qualidade.
+- A lista de 48 marcas mais desconhecida provoca truncamento da instrução e de opções no orçamento padrão do Laya. A [auditoria de orçamento](../../benchmarks/results/experiments/laya_option_budget_20261026/report.md) testa a integridade da entrada; qualquer nova configuração ainda precisa de validação de qualidade.
 - No lote adicional de seis imagens, aumentar a cabeça de 256 para 512 tokens eliminou os avisos de truncamento (6/6 para 0/6), alterou três conjuntos de respostas e aumentou a mediana de 2,47 s para 3,08 s. Esse teste confirma integridade de entrada, não melhora semântica. Não declarar uma vantagem definitiva de custo a partir da configuração que recebia entradas cortadas.
-- A [simulação de poder](../experiments/paired_power_20261026/report.md), sem usar gabaritos, mostra que 600 positivos por domínio não garantem 80% de poder. Para detectar uma diferença real de 5 pontos contra zero, com α=0,025 por domínio e 20% de discordância entre modelos, o poder simulado foi 67,2%. Na grade testada, 900 pares foi o primeiro tamanho com pelo menos 80% nesse cenário. Com 30% de discordância, foi 1.200; com 50%, 2.400. São cenários de planejamento, não estimativas da discordância real.
+- A [simulação de poder](../../benchmarks/results/experiments/paired_power_20261026/report.md), sem usar gabaritos, mostra que 600 positivos por domínio não garantem 80% de poder. Para detectar uma diferença real de 5 pontos contra zero, com α=0,025 por domínio e 20% de discordância entre modelos, o poder simulado foi 67,2%. Na grade testada, 900 pares foi o primeiro tamanho com pelo menos 80% nesse cenário. Com 30% de discordância, foi 1.200; com 50%, 2.400. São cenários de planejamento, não estimativas da discordância real.
 
 Assim, os 600 positivos continuam sendo uma meta inicial condicionada ao piloto anotado. Não abrir o teste final antes de fechar a análise de poder e a família de critérios de aceitação. A simulação distingue detectar diferença contra zero de demonstrar vantagem superior à margem prática de 5 pontos.
 

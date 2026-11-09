@@ -1,4 +1,4 @@
-"""Create charts in graficos/relatorios from completed benchmark runs."""
+"""Create reports and charts in charts/reports from completed benchmark runs."""
 
 import argparse
 from datetime import datetime
@@ -10,7 +10,7 @@ import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 RUNS_ROOT = ROOT / ".artifacts" / "runs"
-REPORTS_ROOT = ROOT / "graficos" / "relatorios"
+REPORTS_ROOT = ROOT / "charts" / "reports"
 
 
 def completed_runs(run_paths: list[Path]) -> list[Path]:
@@ -39,7 +39,7 @@ def discover_completed_runs() -> list[Path]:
 
 
 def create_report(run_paths: list[Path], python: str = sys.executable) -> Path:
-    """Create performance and dataset charts under graficos/relatorios."""
+    """Create performance and dataset charts under charts/reports."""
     timestamp = datetime.now().strftime("%Y%m%d-%H%M%S")
     output = REPORTS_ROOT / f"execucao-{timestamp}"
     REPORTS_ROOT.mkdir(parents=True, exist_ok=True)
@@ -65,7 +65,7 @@ def create_report(run_paths: list[Path], python: str = sys.executable) -> Path:
 def main() -> int:
     """Generate charts for provided runs or discover completed local runs."""
     parser = argparse.ArgumentParser(
-        description="Gera relatórios e gráficos em graficos/relatorios/."
+        description="Gera relatórios e gráficos em charts/reports/."
     )
     parser.add_argument(
         "runs",

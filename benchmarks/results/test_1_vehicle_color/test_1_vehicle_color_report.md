@@ -45,7 +45,7 @@ O teste foi executado estritamente conforme as regras do plano:
 
 ## 3. Desempenho Detalhado por Classe de Cor
 
-![Acurácia por Classe de Cor](../../../graficos/acuracia/test_1_color_accuracy.svg)
+![Acurácia por Classe de Cor](../../../charts/accuracy/test_1_color_accuracy.svg)
 
 | Classe de Cor | Amostras | Acertos Laya | Acurácia Laya | F1 Laya | Acertos BLIP | Acurácia BLIP | F1 BLIP |
 |---|---:|---:|---:|---:|---:|---:|---:|
@@ -83,7 +83,7 @@ O teste foi executado estritamente conforme as regras do plano:
 
 ## 5. Robustez em Condições Visuais Difíceis
 
-![Robustez e Latência](../../../graficos/latencia/test_1_color_latency_difficulty.svg)
+![Robustez e Latência](../../../charts/latency/test_1_color_latency_difficulty.svg)
 
 As 120 imagens foram auditadas automaticamente com YOLO e análise de densidade de luminância:
 - **`multiple_vehicles`:** Cenas com múltiplos carros no quadro.

@@ -105,7 +105,7 @@ else
     echo "--> Instalando PyTorch CUDA pelo índice oficial: $PYTORCH_INDEX_URL"
     "$VENV_PY" -m pip install torch torchvision --index-url "$PYTORCH_INDEX_URL"
     echo "--> Instalando bibliotecas dos modelos..."
-    "$VENV_PY" -m pip install -r requirements/models.txt -e . -e ./modelos/laya/laya_vision
+    "$VENV_PY" -m pip install -r requirements/models.txt -e . -e ./models/laya/laya_vision
     echo "--> Validando GPU CUDA encontrada..."
     "$VENV_PY" -c 'import torch; assert torch.cuda.is_available(), "PyTorch não encontrou CUDA; confira o driver NVIDIA"; print(torch.cuda.get_device_name(0), torch.version.cuda)'
 fi

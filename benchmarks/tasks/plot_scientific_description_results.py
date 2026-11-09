@@ -21,13 +21,13 @@ MODELS=['laya','blip'];COLORS={'laya':'#0072B2','blip':'#D55E00'}
 NAMES={'laya':'Laya Vision','blip':'BLIP VQA'}
 DOMAINS=['vehicle','person'];DNAMES={'vehicle':'Veículos','person':'Pessoas'}
 GRAPH_CATEGORIES={
- '01_desempenho_distribuicoes':'desempenho','02_latencia_pareada':'latencia',
- '03_repetibilidade':'repetibilidade','04_prompts_laya':'prompts',
- '05_prompts_blip':'prompts','06_robustez':'robustez',
- '07_controles_sinteticos':'controles_sinteticos','08_orcamento_laya':'orcamento',
- '09_fila':'fila','10_planejamento_amostral':'amostragem',
- '11_memoria_processo':'memoria','12_perfil_laya':'perfis_modelos',
- '13_perfil_blip':'perfis_modelos',
+ '01_desempenho_distribuicoes':'performance','02_latencia_pareada':'latency',
+ '03_repetibilidade':'repeatability','04_prompts_laya':'prompts',
+ '05_prompts_blip':'prompts','06_robustez':'robustness',
+ '07_controles_sinteticos':'synthetic_controls','08_orcamento_laya':'budget',
+ '09_fila':'queue','10_planejamento_amostral':'sampling',
+ '11_memoria_processo':'memory','12_perfil_laya':'model_profiles',
+ '13_perfil_blip':'model_profiles',
 }
 TRANS=['resize64','jpeg20','dark50','blur2']
 TNAMES=['Resolução 64×64','JPEG, qualidade 20','Brilho ×0,5','Blur, raio 2']
@@ -102,7 +102,7 @@ def boot_median(rows,value='elapsed_ms',scale=1000,resamples=4000):
 def main():
     """Run main."""
     ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--pilot',default='benchmarks/results/experiments/automated_pilot_20261026')
-    ap.add_argument('--output',default='graficos/execucoes/scientific_20261026');args=ap.parse_args()
+    ap.add_argument('--output',default='charts/runs/scientific_20261026');args=ap.parse_args()
     src=(ROOT/args.pilot).resolve();out=(ROOT/args.output).resolve();out.mkdir(parents=True,exist_ok=False)
     style();rows=readl(src/'predictions.jsonl');cfg=json.loads((src/'frozen_config.json').read_text());metrics=json.loads((src/'metrics.json').read_text())
     assert json.loads((src/'status.json').read_text())['status']=='complete'
@@ -115,7 +115,8 @@ def main():
     perf_ids=set().union(*map(set,ids.values()));assert len({hashes[i] for i in perf_ids})==len(perf_ids)
     per_image={(m,i):{k:med([r[k] for r in perf if r['model']==m and r['id']==i]) for k in ['elapsed_ms','cpu_s']} for m in MODELS for i in perf_ids}
     tables=[];figures=[]
-    reports_dir=out/'relatorios';reports_dir.mkdir(parents=True,exist_ok=True)
+    reports_dir = out / "reports"
+    reports_dir.mkdir(parents=True, exist_ok=True)
     pdf=PdfPages(reports_dir/'relatorio_estatistico.pdf',metadata={'Title':'Avaliação científica de descrições visuais — piloto automatizado','Author':'SystemOneTesting','Subject':'Desempenho, integridade e robustez; sem avaliação confirmatória de acurácia'})
     def save(fig,name,title,method):
         """Save a figure in each supported format and add it to the report index."""
@@ -333,7 +334,7 @@ def main():
        plotting_script_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),figures=figures,paired_bootstrap=bootstats)
     (out/'proveniencia.json').write_text(json.dumps(provenance,ensure_ascii=False,indent=2)+'\n')
     lines=['# Atlas estatístico — Laya Vision e BLIP VQA','',
-      '**13 figuras**, com exportações PNG (300 dpi), SVG e PDF vetorial. [PDF completo](../../../graficos/relatorios/relatorio_estatistico.pdf).', '',
+      '**13 figuras**, com exportações PNG (300 dpi), SVG e PDF vetorial. [PDF completo](../../../charts/reports/relatorio_estatistico.pdf).', '',
       'Amostra exploratória. Não há nova anotação humana ou avaliação confirmatória da verdade das descrições. A configuração padrão do Laya trunca a pergunta de marca; os gráficos de custo precisam ser lidos com essa limitação.', '',
       '## Convenções científicas','',
       '- Desempenho: 16 imagens distintas, oito por domínio, com cinco repetições; cada ponto de distribuição é a mediana por imagem. As 80 requisições por modelo não são 80 cenas independentes.',
@@ -346,9 +347,9 @@ def main():
       '- Cores acessíveis, escalas iguais entre modelos, unidades explícitas, eixos iniciados em zero quando representam magnitudes; razões usam referência de igualdade em 1.', '',
       '## Figuras','']
     for item in figures:
-        n=item['file'];category=GRAPH_CATEGORIES[n];graph=f'../../../graficos/{category}/{n}';lines += [f'### {item["title"]}','','![{item["title"]}]({graph}.png)','',item['method'],'',f'[SVG]({graph}.svg) · [PDF]({graph}.pdf) · [PNG 300 dpi]({graph}.png)','']
+        n=item['file'];category=GRAPH_CATEGORIES[n];graph=f'../../../charts/{category}/{n}';lines += [f'### {item["title"]}','','![{item["title"]}]({graph}.png)','',item['method'],'',f'[SVG]({graph}.svg) · [PDF]({graph}.pdf) · [PNG 300 dpi]({graph}.png)','']
     lines += ['## Dados e reprodução','', '[Estatísticas dos gráficos](estatisticas_dos_graficos.csv) · [Observações de desempenho](observacoes_desempenho.csv) · [Todos os experimentos](observacoes_experimentos.csv) · [Auditoria de tokens](auditoria_orcamento.csv) · [Inferências por orçamento](inferencias_orcamento.csv) · [Poder simulado](simulacao_poder.csv) · [Proveniência e hashes](proveniencia.json)','',
-      'Reprodução em diretório novo: `.venv/bin/python benchmarks/tasks/plot_scientific_description_results.py --output graficos/execucoes/nova_execucao`.', '',
+      'Reprodução em diretório novo: `.venv/bin/python benchmarks/tasks/plot_scientific_description_results.py --output charts/runs/nova_execucao`.', '',
       '[Relatório empírico de origem](../../../benchmarks/results/experiments/automated_pilot_20261026/report.md). Nenhum resultado anterior foi sobrescrito.']
     (out/'README.md').write_text('\n'.join(lines)+'\n')
     print(out/'README.md');print(reports_dir/'relatorio_estatistico.pdf');print(f'{len(figures)} figures, 3 formats each, plus combined PDF.')

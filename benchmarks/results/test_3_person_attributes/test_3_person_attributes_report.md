@@ -43,7 +43,7 @@
 
 ## 3. Desempenho Detalhado por Pergunta e Classe
 
-![Acurácia em Atributos de Pessoas](../../../graficos/acuracia/test_3_person_accuracy.svg)
+![Acurácia em Atributos de Pessoas](../../../charts/accuracy/test_3_person_accuracy.svg)
 
 ### Atributo: Uso de Capacete (`helmet`)
 
@@ -75,7 +75,7 @@
 
 ## 4. Robustez em Condições Difíceis (Multidões, Distância e Oclusão)
 
-![Robustez e Latência](../../../graficos/latencia/test_3_person_latency_difficulty.svg)
+![Robustez e Latência](../../../charts/latency/test_3_person_latency_difficulty.svg)
 
 - **`multiple_people`:** Em cenas de calçadas movimentadas com múltiplos pedestres, se a imagem for passada inteira, ambos os modelos sofrem ambiguidade sobre "qual" pessoa responder. Recortar a pessoa individualmente (*crop bounding box*) restaura a acurácia para níveis superiores a 75%.
 - **`distant_small_person`:** Pessoas com área menor que 10% do quadro têm resolução insuficiente para discernir a textura de uma mochila ou se estão usando boné vs. capacete. Nesses casos, o `CaptionerManager` deve adotar `not_visible` como política segura.

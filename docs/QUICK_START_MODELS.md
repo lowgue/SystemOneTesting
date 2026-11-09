@@ -59,7 +59,7 @@ Para já executar um teste rápido de 1 imagem ao final da instalação:
 
 O script executa automaticamente:
 1. Criação do ambiente virtual Python 3.12 (`.venv`).
-2. Atualização dos submódulos Git (`modelos/laya/laya_vision`).
+2. Atualização dos submódulos Git (`models/laya/laya_vision`).
 3. Instalação das dependências pip do projeto.
 4. Download e validação dos pesos dos 3 modelos (`laya`, `d1-omni`, `clef-gguf`).
 5. Diagnóstico de integridade (`vision_bench doctor`).

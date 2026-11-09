@@ -29,13 +29,13 @@
 
 ## 2. Acurácia e Aderência por Formato
 
-![Acurácia e Aderência](../../../graficos/prompts/test_6_prompt_accuracy_adherence.svg)
+![Acurácia e Aderência](../../../charts/prompts/test_6_prompt_accuracy_adherence.svg)
 
 ---
 
 ## 3. Análise de Latência Operacional
 
-![Latência por Formato](../../../graficos/latencia/test_6_prompt_latency.svg)
+![Latência por Formato](../../../charts/latency/test_6_prompt_latency.svg)
 
 ---
 

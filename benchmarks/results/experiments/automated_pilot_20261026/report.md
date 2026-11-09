@@ -148,4 +148,4 @@ O parser estrito foi congelado antes das novas inferências. Reprocessando as sa
 
 - [Simulação de poder e tamanho da amostra](../paired_power_20261026/report.md)
 
-![Latência por conjunto completo](../../../../graficos/desempenho/automated_pilot_20261026_summary.svg)
+![Latência por conjunto completo](../../../../charts/performance/automated_pilot_20261026_summary.svg)

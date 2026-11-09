@@ -12,9 +12,9 @@ yolo11n.pt
 benchmarks/results/benchmark-live-progress.json
 benchmarks/results/benchmark-live.log
 # Local pre-review render; the reviewed scientific atlas is versioned separately.
-graficos/execucoes/scientific_20261026/
+charts/runs/scientific_20261026/
 .artifacts/
-graficos/relatorios/
+charts/reports/
 .env
 .env.local
 *.egg-info/

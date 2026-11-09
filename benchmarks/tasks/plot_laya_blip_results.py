@@ -9,7 +9,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_INPUT = ROOT / "benchmarks/results/model_comparisons/laya-blip-car-color.json"
 HISTORY_INPUT = ROOT / "benchmarks/results/model_comparisons/laya-blip-history.json"
-OUT_DIR = ROOT / "graficos"
+OUT_DIR = ROOT / "charts"
 BLUE, ORANGE = "#3478f6", "#f28e2b"
 MODELS = (("laya", "Laya Vision", BLUE), ("blip", "BLIP VQA", ORANGE))
 
@@ -30,10 +30,10 @@ def wilson(k,n,z=1.959963984540054):
 def save(name, lines):
     """Save save."""
     categories = {
-        "laya-blip-accuracy.svg": "acuracia",
-        "laya-blip-latency.svg": "latencia",
+        "laya-blip-accuracy.svg": "accuracy",
+        "laya-blip-latency.svg": "latency",
         "laya-blip-color-classes.svg": "classes",
-        "laya-blip-history.svg": "historico",
+        "laya-blip-history.svg": "history",
     }
     p = OUT_DIR / categories[name] / name
     p.parent.mkdir(parents=True, exist_ok=True)
