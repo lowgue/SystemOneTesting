@@ -121,7 +121,17 @@ Deve exibir `"status": "ready"` e `"issues": []`.
   --output .artifacts/runs/smoke-local
 ```
 
-#### Testar comparando com Clef no Ollama:
+#### Testar um modelo multimodal servido pelo vLLM:
+Inicie o vLLM com um modelo multimodal, exporte `VLLM_CHAT_COMPLETIONS_URL` e `VLLM_MODEL`, depois execute:
+```bash
+.venv/bin/python -m vision_bench run \
+  --config benchmarks/configs/vllm.json \
+  --contract benchmarks/contracts/description_ollama_v1.json \
+  --models vllm-vision --limit 2 --repetitions 1 --concurrency 2 \
+  --output .artifacts/runs/smoke-vllm
+```
+
+#### Reproduzir o perfil legado do Clef no Ollama:
 Certifique-se de que o Ollama está rodando (`ollama serve`). Então execute:
 ```bash
 .venv/bin/python -m vision_bench run \

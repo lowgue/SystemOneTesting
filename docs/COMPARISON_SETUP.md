@@ -5,7 +5,7 @@ Este é o ponto de entrada para novos testes. Os scripts históricos foram organ
 > [!TIP]
 > **Instalação Rápida em Novo Computador**: Para automatizar a clonagem, instalação de dependências e download de todos os modelos visuais de decisão (**Laya Vision**, **d1-omni-600M** e **Clef**), execute `./scripts/setup_quick.sh` (Linux/macOS) ou `.\scripts\setup_quick.ps1` (Windows). Veja o [QUICK_START_MODELS.md](QUICK_START_MODELS.md).
 
-A interface `python -m vision_bench` aceita qualquer quantidade de modelos registrados em JSON. Há adaptadores para BLIP VQA, Laya Vision, d1-omni-600M (Liquid AI), Clef local/Cloudflare via System One HTTP e extensão Python para outros protocolos. Os testes sempre solicitam o conjunto completo de atributos definido em `benchmarks/contracts/description_v1.json`.
+A interface `python -m vision_bench` aceita qualquer quantidade de modelos registrados em JSON. Há adaptadores para BLIP VQA, Laya Vision, d1-omni-600M (Liquid AI), endpoints System One, vLLM via chat multimodal compatível com OpenAI e extensão Python para outros protocolos. Os testes sempre solicitam o conjunto completo de atributos definido no contrato selecionado.
 
 ## 1. Clonar e instalar no outro computador
 
@@ -116,9 +116,32 @@ Sem `CLEF_SERVER_METADATA`, o teste HTTP funciona, mas registra `client_only`: C
 
 Não altere servidor, pesos, quantização ou flags durante uma execução. O setup não faz download automático de llama.cpp nem escolhe driver/GPU pelo usuário.
 
-## 3b. Clef-Flash pelo Ollama
+## 3b. Modelo multimodal servido pelo vLLM
 
-Instale/atualize o [Ollama](https://ollama.com/download). O [modelo oficial Clef-Flash](https://ollama.com/library/clef-flash) exige Ollama 0.35.1 ou superior. No outro computador:
+O perfil `benchmarks/configs/vllm.json` usa a API de chat compatível com OpenAI do vLLM. O servidor precisa carregar um modelo multimodal e estar ativo antes da rodada. O vLLM documenta a API de chat e imagens no [servidor compatível com OpenAI](https://docs.vllm.ai/en/stable/serving/online_serving/openai_compatible_server/).
+
+Configure a URL completa de chat e o nome do modelo servido:
+
+```bash
+export VLLM_CHAT_COMPLETIONS_URL=http://127.0.0.1:8000/v1/chat/completions
+export VLLM_MODEL=nome-do-modelo-servido
+.venv/bin/python -m vision_bench doctor \
+  --config benchmarks/configs/vllm.json \
+  --contract benchmarks/contracts/description_ollama_v1.json
+.venv/bin/python -m vision_bench run \
+  --config benchmarks/configs/vllm.json \
+  --contract benchmarks/contracts/description_ollama_v1.json \
+  --models vllm-vision --repetitions 1 --concurrency 4 \
+  --output .artifacts/runs/vllm-smoke
+```
+
+O valor de `--concurrency` limita quantas imagens são enviadas em paralelo; cada imagem continua sendo uma requisição independente e o servidor vLLM pode agrupá-las durante a inferência. O padrão é `1`. A concorrência maior que `1` só é aceita no perfil vLLM. As linhas registram `batch_size`, `batch_elapsed_ms` e `batch_id`; o relatório calcula throughput pelo tempo total de cada lote. CPU e RSS são compartilhados pelo lote e identificados como `client_batch_shared`. O uso de GPU do servidor continua fora dos contadores CUDA do cliente.
+
+Para autenticação, defina `token_env` no arquivo de configuração e exporte a variável correspondente. Não inclua credenciais na URL ou no JSON. O runner registra a URL e o nome de modelo resolvidos no snapshot congelado da execução.
+
+## 3c. Perfil legado do Ollama
+
+O perfil `benchmarks/configs/ollama.json` continua disponível para reproduzir execuções antigas. O novo fluxo recomendado para serviço externo usa vLLM acima. Para reproduzir o perfil histórico, instale o [Ollama](https://ollama.com/download). O [modelo oficial Clef-Flash](https://ollama.com/library/clef-flash) exige Ollama 0.35.1 ou superior. No outro computador:
 
 ```bash
 ollama --version

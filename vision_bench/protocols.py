@@ -38,6 +38,9 @@ PROFILES = {
         {"id": "native_short", "name": "Alternativas nativas curtas", "group": "baseline"},
         {"id": "native_descriptive", "name": "Alternativas nativas descritivas", "group": "prompts"},
     ],
+    "vllm_openai": [
+        {"id": "native_short", "name": "Alternativas nativas curtas", "group": "baseline"},
+    ],
     "d1_omni": [
         {"id": "native_short", "name": "Alternativas nativas curtas", "group": "baseline"},
         {"id": "native_descriptive", "name": "Alternativas nativas descritivas", "group": "prompts"},
@@ -178,8 +181,28 @@ def describe(spec, contract, domain):
             "text": prompts(spec, contract, domain),
         }
     else:
-        output_format = "answers.<atributo>.choice (alternativa nativa)"
-        request = {"images": ["<imagem RGB>"], "questions": model_questions}
+        output_format = (
+            "JSON com chave por atributo e escolha validada"
+            if adapter == "vllm_openai"
+            else "answers.<atributo>.choice (alternativa nativa)"
+        )
+        if adapter == "vllm_openai":
+            request = {
+                "messages": [
+                    {
+                        "role": "user",
+                        "content": [
+                            {"type": "text", "text": "<perguntas do contrato>"},
+                            {
+                                "type": "image_url",
+                                "image_url": {"url": "<imagem data URL>"},
+                            },
+                        ],
+                    }
+                ]
+            }
+        else:
+            request = {"images": ["<imagem RGB>"], "questions": model_questions}
 
     return {
         "adapter": adapter,

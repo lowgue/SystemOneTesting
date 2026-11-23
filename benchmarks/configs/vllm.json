@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "models": [
+    {
+      "id": "vllm-vision",
+      "adapter": "vllm_openai",
+      "url_env": "VLLM_CHAT_COMPLETIONS_URL",
+      "url": "http://127.0.0.1:8000/v1/chat/completions",
+      "model_env": "VLLM_MODEL",
+      "timeout_s": 300
+    }
+  ]
+}

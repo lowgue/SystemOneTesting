@@ -2,6 +2,8 @@
 from __future__ import annotations
 
 from datetime import datetime, timezone
+from concurrent.futures import ThreadPoolExecutor, as_completed
+from contextlib import nullcontext
 import gc
 import importlib.metadata
 import json
@@ -181,12 +183,35 @@ def preflight(
                     'git submodule update --init --recursive'
                 )
 
+        token_env = spec.get('token_env')
         if adapter == 'systemone_http':
             try:
                 endpoint(spec)
             except ValueError as exc:
                 issues.append(f'{spec["id"]}: {exc}')
-            token_env = spec.get('token_env')
+            if token_env and not os.environ.get(token_env):
+                issues.append(f'{spec["id"]}: set {token_env}')
+
+        if adapter == 'vllm_openai':
+            try:
+                endpoint(spec)
+            except ValueError as exc:
+                issues.append(f'{spec["id"]}: {exc}')
+            model_variable = spec.get('model_env')
+            if model_variable and (
+                not isinstance(model_variable, str)
+                or not re.fullmatch(r'[A-Z_][A-Z0-9_]*', model_variable)
+            ):
+                issues.append(
+                    f'{spec["id"]}: model_env must name an environment variable'
+                )
+            resolved_model = (
+                os.environ.get(model_variable, '')
+                if isinstance(model_variable, str)
+                else spec.get('model')
+            )
+            if not isinstance(resolved_model, str) or not resolved_model:
+                issues.append(f'{spec["id"]}: set the vLLM served model name')
             if token_env and not os.environ.get(token_env):
                 issues.append(f'{spec["id"]}: set {token_env}')
 
@@ -288,6 +313,8 @@ def _validate_run_arguments(args):
         raise ValueError('threads and repetitions must be positive')
     if args.limit is not None and args.limit < 1:
         raise ValueError('limit must be positive')
+    if args.concurrency < 1:
+        raise ValueError('concurrency must be positive')
 
 
 def _items_for_run(manifest, limit):
@@ -360,6 +387,7 @@ def _frozen_configuration(args, specs, contract, manifest, items):
         manifest=manifest,
         item_ids=[item['id'] for item in items],
         repetitions=args.repetitions,
+        concurrency=args.concurrency,
         threads=args.threads,
         device=args.device,
         max_edge=args.max_edge,
@@ -371,7 +399,12 @@ def _frozen_configuration(args, specs, contract, manifest, items):
         resolved_http_endpoints={
             spec['id']: endpoint(spec)
             for spec in specs
-            if spec['adapter'] == 'systemone_http'
+            if spec['adapter'] in {'systemone_http', 'vllm_openai'}
+        },
+        resolved_vllm_models={
+            spec['id']: os.environ.get(spec.get('model_env', ''), spec.get('model', ''))
+            for spec in specs
+            if spec['adapter'] == 'vllm_openai'
         },
         external_provenance={
             model_id: {
@@ -536,8 +569,11 @@ def _run_measured_request(
     block,
     resource_scope,
     server_pid,
+    shared_batch=False,
 ):
     """Run one timed request and collect predictions, resource metrics, and diagnostics."""
+    if shared_batch:
+        adapter = create_adapter(spec, effective_contract)
     adapter.contract = effective_contract
     request_key = f'{block}/{spec["id"]}/{item["id"]}'
     uses_gpu = (
@@ -549,7 +585,7 @@ def _run_measured_request(
 
     adapter.synchronize()
     timer_start = time.perf_counter()
-    with Resources(server_pid) as resources:
+    with (nullcontext(None) if shared_batch else Resources(server_pid)) as resources:
         try:
             image_path = resolve_image(args.data_root, item['rel_path'])
             with Image.open(image_path) as source:
@@ -573,8 +609,8 @@ def _run_measured_request(
         domain=item['domain'],
         image_sha256=item['sha256'],
         elapsed_ms=(time.perf_counter() - timer_start) * 1000,
-        cpu_s=resources.cpu_s,
-        peak_rss_bytes=resources.peak,
+        cpu_s=resources.cpu_s if resources else 0,
+        peak_rss_bytes=resources.peak if resources else 0,
         resource_scope=resource_scope,
         error=error,
         raw=raw,
@@ -599,6 +635,8 @@ def _run_measured_request(
                 not error and result['predicted'] == item['expected']
             ),
         )
+    if shared_batch:
+        adapter.close()
     return request_key, row, error
 
 
@@ -675,40 +713,93 @@ def _run_model_block(
             )
 
             random.Random(args.seed + block).shuffle(pending_items)
-            for item in pending_items:
-                effective_contract = item_contract(contract, item)
-                request_key, row, error = _run_measured_request(
-                    adapter,
-                    spec,
-                    item,
-                    effective_contract,
-                    args,
-                    specs,
-                    block,
-                    resource_scope,
-                    server_pid,
-                )
-                _append_jsonl(output_directory, 'predictions.jsonl', row)
-                completed_requests.add(request_key)
-                measured_errors += bool(error)
-                write_json(
-                    output_directory / 'status.json',
-                    dict(
-                        status='running',
-                        phase='predict',
-                        model=spec['id'],
-                        current_filename=item.get('filename', item['id']),
-                        completed=len(completed_requests),
-                        planned=total_requests,
-                        errors=measured_errors,
-                    ),
-                )
-                error_text = f' ERROR: {error}' if error else ''
-                print(
-                    f'{len(completed_requests)}/{total_requests} '
-                    f'{spec["id"]} {item["id"]}{error_text}',
-                    flush=True,
-                )
+            concurrency = (
+                args.concurrency if spec['adapter'] == 'vllm_openai' else 1
+            )
+            batches = (
+                [
+                    pending_items[index:index + concurrency]
+                    for index in range(0, len(pending_items), concurrency)
+                ]
+                if concurrency > 1
+                else [[item] for item in pending_items]
+            )
+            for batch_number, batch in enumerate(batches):
+                batch_started = time.perf_counter()
+                batch_resource = Resources() if concurrency > 1 else nullcontext()
+                with batch_resource as resources:
+                    if concurrency > 1:
+                        with ThreadPoolExecutor(max_workers=concurrency) as executor:
+                            futures = [
+                                executor.submit(
+                                    _run_measured_request,
+                                    adapter,
+                                    spec,
+                                    item,
+                                    item_contract(contract, item),
+                                    args,
+                                    specs,
+                                    block,
+                                    'client_batch_shared',
+                                    None,
+                                    True,
+                                )
+                                for item in batch
+                            ]
+                            measured = [
+                                future.result()
+                                for future in as_completed(futures)
+                            ]
+                    else:
+                        item = batch[0]
+                        measured = [
+                            _run_measured_request(
+                                adapter,
+                                spec,
+                                item,
+                                item_contract(contract, item),
+                                args,
+                                specs,
+                                block,
+                                resource_scope,
+                                server_pid,
+                            )
+                        ]
+                batch_elapsed_ms = (time.perf_counter() - batch_started) * 1000
+                batch_items = {item['id']: item for item in batch}
+                for request_key, row, error in measured:
+                    if concurrency > 1:
+                        row.update(
+                            cpu_s=resources.cpu_s,
+                            peak_rss_bytes=resources.peak,
+                            resource_scope='client_batch_shared',
+                            batch_id=f'{block}/{spec["id"]}/{batch_number}',
+                            batch_size=len(batch),
+                            batch_elapsed_ms=batch_elapsed_ms,
+                        )
+                    _append_jsonl(output_directory, 'predictions.jsonl', row)
+                    completed_requests.add(request_key)
+                    measured_errors += bool(error)
+                    write_json(
+                        output_directory / 'status.json',
+                        dict(
+                            status='running',
+                            phase='predict',
+                            model=spec['id'],
+                            current_filename=batch_items[row['id']].get(
+                                'filename', row['id']
+                            ),
+                            completed=len(completed_requests),
+                            planned=total_requests,
+                            errors=measured_errors,
+                        ),
+                    )
+                    error_text = f' ERROR: {error}' if error else ''
+                    print(
+                        f'{len(completed_requests)}/{total_requests} '
+                        f'{spec["id"]} {row["id"]}{error_text}',
+                        flush=True,
+                    )
         finally:
             adapter.close()
             del adapter
@@ -734,6 +825,12 @@ def run(args):
     )
     args.device = resolve_device(args.device, has_local_torch_models)
     args.threads = resolve_thread_count(args.threads)
+    if args.concurrency > 1 and any(
+        spec['adapter'] != 'vllm_openai' for spec in specs
+    ):
+        raise ValueError(
+            '--concurrency greater than 1 requires only vllm_openai models'
+        )
     print(
         f"Runtime selecionado: dispositivo={args.device}, "
         f"threads PyTorch={args.threads}"

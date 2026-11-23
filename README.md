@@ -1,6 +1,6 @@
 # System One — Comparação portátil de modelos visuais
 
-CLI para comparar modelos visuais (BLIP VQA, Laya Vision, d1-omni-600M e Clef via System One/Ollama) e gerar relatórios com gráficos salvos. Sem interface web.
+CLI para comparar modelos visuais (BLIP VQA, Laya Vision, d1-omni-600M e modelos servidos por System One ou vLLM) e gerar relatórios com gráficos salvos. Sem interface web.
 
 ## Instalar
 
@@ -97,4 +97,4 @@ tests/          Testes do motor e dos benchmarks
 - [Modelos e início rápido](docs/QUICK_START_MODELS.md)
 - [Atlas estatístico anterior](charts/runs/scientific_20261026_final/README.md)
 
-Os gabaritos existentes são exploratórios; o benchmark separa execuções e computadores. Recursos do cliente HTTP não medem o consumo do servidor Ollama.
+Os gabaritos existentes são exploratórios; o benchmark separa execuções e computadores. Recursos do cliente HTTP não medem o consumo de GPU do servidor vLLM ou de outro serviço externo.

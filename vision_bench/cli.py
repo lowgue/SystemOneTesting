@@ -51,6 +51,12 @@ def _build_parser():
     _add_common_inputs(run, default_config, default_manifest)
     run.add_argument("--output", type=Path, required=True)
     run.add_argument("--repetitions", type=int, default=3)
+    run.add_argument(
+        "--concurrency",
+        type=int,
+        default=1,
+        help="Parallel requests for vLLM; requests are grouped by the server.",
+    )
     run.add_argument("--threads", type=_parse_threads, default="auto")
     run.add_argument("--device", default="auto", help="auto, cpu, cuda, or cuda:N")
     run.add_argument("--offline", action="store_true")

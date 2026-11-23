@@ -49,8 +49,8 @@ def generate(runs, output):
                 "",
             ]
         lines += [
-            "| Modelo | Eventos / requisições | p50 / p95 (s) | CPU média (s) | RSS pico amostrado (MiB) | Escopo CPU/RSS | Esquema válido (1ª repetição) | Positivos completos corretos* | Erros |",
-            "|---|---:|---:|---:|---:|---|---:|---:|---:|",
+            "| Modelo | Eventos / requisições | p50 / p95 (s) | Throughput (req/s) | CPU média (s) | RSS pico amostrado (MiB) | Escopo CPU/RSS | Esquema válido (1ª repetição) | Positivos completos corretos* | Erros |",
+            "|---|---:|---:|---:|---:|---:|---|---:|---:|---:|",
         ]
         for spec in frozen["models"]:
             model = spec["id"]
@@ -65,6 +65,16 @@ def generate(runs, output):
             med = float(np.median(times)) if times else None
             p95 = float(np.quantile(times, 0.95)) if times else None
             scopes = sorted({r["resource_scope"] for r in rs})
+            batch_rows = {}
+            for record in rs:
+                if record.get("batch_id"):
+                    batch_rows.setdefault(record["batch_id"], record)
+            measured_ms = (
+                sum(record["batch_elapsed_ms"] for record in batch_rows.values())
+                if batch_rows
+                else sum(record["elapsed_ms"] for record in rs)
+            )
+            throughput = len(ok) / (measured_ms / 1000) if measured_ms else None
             row = dict(
                 run=run.name,
                 machine=meta["machine_id"],
@@ -74,6 +84,11 @@ def generate(runs, output):
                 requests=len(rs),
                 p50_s=med,
                 p95_s=p95,
+                throughput_requests_s=throughput,
+                throughput_mode=(
+                    "concurrent_batches" if batch_rows else "serial_requests"
+                ),
+                measured_s=measured_ms / 1000,
                 mean_cpu_s=statistics.mean(r["cpu_s"] for r in rs),
                 peak_rss_mib=max(r["peak_rss_bytes"] for r in rs) / 2**20,
                 resource_scope=",".join(scopes),
@@ -85,7 +100,7 @@ def generate(runs, output):
             summary.append(row)
             timing = f"{med:.3f} / {p95:.3f}" if times else "sem sucesso"
             lines.append(
-                f'| {model} | {len(first)} / {len(rs)} | {timing} | {row["mean_cpu_s"]:.3f} | {row["peak_rss_mib"]:.0f} | {row["resource_scope"]} | {row["first_valid"]}/{len(first)} | {correct}/{len(positive)} | {row["errors"]} |'
+                f'| {model} | {len(first)} / {len(rs)} | {timing} | {throughput:.2f} | {row["mean_cpu_s"]:.3f} | {row["peak_rss_mib"]:.0f} | {row["resource_scope"]} | {row["first_valid"]}/{len(first)} | {correct}/{len(positive)} | {row["errors"]} |'
             )
         lines += [
             "",

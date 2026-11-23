@@ -10,10 +10,12 @@ from .d1_omni import D1Omni
 from .http import SystemOneHTTP, endpoint
 from .laya import Laya
 from .transformers import BLIP
+from .vllm import VLLMOpenAI
 
 REGISTRY: dict[str, type[MockAdapter]] = {
     "mock": MockAdapter,
     "systemone_http": SystemOneHTTP,
+    "vllm_openai": VLLMOpenAI,
     "blip": BLIP,
     "laya": Laya,
     "d1_omni": D1Omni,
@@ -46,6 +48,7 @@ __all__ = [
     "MockAdapter",
     "REGISTRY",
     "SystemOneHTTP",
+    "VLLMOpenAI",
     "create_adapter",
     "endpoint",
 ]

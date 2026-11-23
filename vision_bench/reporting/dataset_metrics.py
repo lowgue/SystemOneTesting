@@ -170,7 +170,15 @@ def evaluate(frozen, rows, loads=None):
             )
         field_n = sum(f["n"] for f in field_results)
         field_correct = sum(f["correct"] for f in field_results)
-        total_ms = sum(r["elapsed_ms"] for r in rs)
+        batch_rows = {}
+        for row in rs:
+            if row.get("batch_id"):
+                batch_rows.setdefault(row["batch_id"], row)
+        total_ms = (
+            sum(row["batch_elapsed_ms"] for row in batch_rows.values())
+            if batch_rows
+            else sum(r["elapsed_ms"] for r in rs)
+        )
         successful = sum(not bool(r.get("error")) for r in rs)
         resources = sorted({r.get("resource_scope", "unknown") for r in rs})
         model_loads = [row for row in (loads or []) if row["model"] == model]
@@ -225,6 +233,7 @@ def evaluate(frozen, rows, loads=None):
             ),
             measured_s=total_ms / 1000,
             successful_calls_s=successful / (total_ms / 1000) if total_ms else None,
+            throughput_mode=("concurrent_batches" if batch_rows else "serial_requests"),
             mean_cpu_s=statistics.mean(r.get("cpu_s", 0) for r in rs) if rs else None,
             peak_rss_mib=max((r.get("peak_rss_bytes", 0) for r in rs), default=0)
             / 2**20,
@@ -359,6 +368,7 @@ def generate(run, output):
         "max_ms",
         "std_ms",
         "successful_calls_s",
+        "throughput_mode",
         "measured_s",
         "load_s",
         "warmup_s",
