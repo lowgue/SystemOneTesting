@@ -1,16 +1,22 @@
-"""Download a reproducible, label-balanced Stanford Cars test subset.
+"""Download a reproducible, diverse Stanford Cars test subset.
 
-Images are fetched from the public Hugging Face Dataset Viewer rows API so this
-script downloads only the selected image files, not the multi-gigabyte dataset.
+Images are fetched from the public Hugging Face Dataset Viewer rows API. Only
+the selected images are downloaded; the source dataset is not mirrored locally.
+Pass ``--runner-ready`` to write a dataset for ``vision_bench`` under
+``.artifacts/datasets``. The default output preserves the historical format.
 """
 
 from __future__ import annotations
 
 import argparse
 import concurrent.futures
+from functools import partial
+import hashlib
 import json
 import random
 import re
+import time
+import urllib.error
 import urllib.parse
 import urllib.request
 from pathlib import Path
@@ -22,8 +28,14 @@ SPLIT = "test"
 ROWS_API = "https://datasets-server.huggingface.co/rows"
 IMAGE_DIR = ROOT / "benchmarks/datasets/vehicles/images/stanford_cars"
 MANIFEST = ROOT / "benchmarks/datasets/historical/vehicles/stanford_cars_sample.json"
+OUTPUT_DIR = ROOT / ".artifacts/datasets/stanford_cars_diverse"
 EXISTING_METADATA = ROOT / "benchmarks/datasets/vehicles/real_cars_metadata.json"
 SEED = 20261022
+PAGE_SIZE = 100
+MAX_WORKERS = 8
+PAGE_WORKERS = 4
+REQUEST_ATTEMPTS = 4
+TASK_FIELDS = ["make", "body"]
 
 MAKES = sorted([
     "AM General", "Aston Martin", "Land Rover", "Rolls-Royce", "Mercedes-Benz",
@@ -47,10 +59,25 @@ BODY_PATTERNS = [
 
 
 def _get_json(url: str) -> dict[str, Any]:
-    """Send a JSON request and decode the response body."""
+    """Send a retryable JSON request and decode its response body."""
     request = urllib.request.Request(url, headers={"User-Agent": "SystemOneTesting/1.0"})
-    with urllib.request.urlopen(request, timeout=45) as response:
-        return json.loads(response.read().decode("utf-8"))
+    for attempt in range(REQUEST_ATTEMPTS):
+        try:
+            with urllib.request.urlopen(request, timeout=45) as response:
+                return json.loads(response.read().decode("utf-8"))
+        except urllib.error.HTTPError as error:
+            if error.code not in {429, 502, 503, 504}:
+                raise
+            if attempt + 1 == REQUEST_ATTEMPTS:
+                raise
+            retry_after = error.headers.get("Retry-After")
+            delay = int(retry_after) if retry_after and retry_after.isdigit() else 5 * 2**attempt
+            time.sleep(min(delay, 60))
+        except (urllib.error.URLError, TimeoutError):
+            if attempt + 1 == REQUEST_ATTEMPTS:
+                raise
+            time.sleep(2**attempt)
+    raise RuntimeError("Dataset request exhausted its retries")
 
 
 def _make_and_body(class_name: str) -> tuple[str, str, str]:
@@ -71,7 +98,7 @@ def _canonical(value: str) -> str:
     return re.sub(r"[^a-z0-9]+", "", value.lower())
 
 
-def _fetch_rows(offset: int, length: int = 100) -> list[dict[str, Any]]:
+def _fetch_rows(offset: int, length: int = PAGE_SIZE) -> dict[str, Any]:
     """Read paginated dataset records from the configured Hub source."""
     query = urllib.parse.urlencode({
         "dataset": DATASET,
@@ -80,42 +107,53 @@ def _fetch_rows(offset: int, length: int = 100) -> list[dict[str, Any]]:
         "offset": offset,
         "length": length,
     })
-    return _get_json(f"{ROWS_API}?{query}")["rows"]
+    return _get_json(f"{ROWS_API}?{query}")
 
 
-def choose_rows(count: int, per_make: int, seed: int) -> list[dict[str, Any]]:
+def choose_rows(
+    count: int,
+    per_make: int,
+    per_class: int,
+    seed: int,
+    scan_limit: int,
+) -> list[dict[str, Any]]:
     """Select a reproducible, balanced sample of dataset rows."""
+    if count < 1 or per_make < 1 or per_class < 1 or scan_limit < 1:
+        raise ValueError("count, per-make, per-class and scan-limit must be positive")
+
     with EXISTING_METADATA.open(encoding="utf-8") as handle:
         existing = {_canonical(item["full_name"]) for item in json.load(handle)}
 
-    # A few metadata pages are enough for a diverse, reproducible sample; no
-    # parquet shard or full Stanford Cars archive is downloaded.
-    offsets = list(range(0, 1000, 100))
-    pages: list[list[dict[str, Any]]] = []
-    with concurrent.futures.ThreadPoolExecutor(max_workers=5) as pool:
+    first_page = _fetch_rows(0)
+    total_rows = first_page["num_rows_total"]
+    scan_end = min(total_rows, scan_limit)
+    offsets = range(PAGE_SIZE, scan_end, PAGE_SIZE)
+    with concurrent.futures.ThreadPoolExecutor(max_workers=PAGE_WORKERS) as pool:
         pages = list(pool.map(_fetch_rows, offsets))
-    candidates = [row for page in pages for row in page]
+    candidates = [*first_page["rows"], *(row for page in pages for row in page["rows"])]
     random.Random(seed).shuffle(candidates)
 
     chosen: list[dict[str, Any]] = []
-    counts: dict[str, int] = {}
-    seen_classes: set[str] = set()
+    make_counts: dict[str, int] = {}
+    class_counts: dict[str, int] = {}
     for entry in candidates:
         row = entry["row"]
         class_name = row["car_name"]
         canon = _canonical(class_name)
-        if canon in existing or canon in seen_classes:
+        if canon in existing:
             continue
         try:
             make_key, make, body_type = _make_and_body(class_name)
         except ValueError:
             continue
-        if counts.get(make_key, 0) >= per_make:
+        if make_counts.get(make_key, 0) >= per_make:
+            continue
+        if class_counts.get(canon, 0) >= per_class:
             continue
         if not row.get("image_path", {}).get("src"):
             continue
-        seen_classes.add(canon)
-        counts[make_key] = counts.get(make_key, 0) + 1
+        make_counts[make_key] = make_counts.get(make_key, 0) + 1
+        class_counts[canon] = class_counts.get(canon, 0) + 1
         chosen.append({
             "row_idx": entry["row_idx"],
             "class_name": class_name,
@@ -127,14 +165,15 @@ def choose_rows(count: int, per_make: int, seed: int) -> list[dict[str, Any]]:
         if len(chosen) == count:
             return chosen
     raise RuntimeError(
-        f"Só encontrei {len(chosen)} imagens válidas; tente aumentar as páginas ou mudar --per-make."
+        f"Only found {len(chosen)} valid images; lower --count or increase "
+        "--scan-limit, --per-make or --per-class."
     )
 
 
-def _download_one(item: dict[str, Any]) -> dict[str, Any]:
+def _download_one(item: dict[str, Any], image_dir: Path) -> dict[str, Any]:
     """Download one dataset image and return its metadata."""
     filename = f"stanford_test_{item['row_idx']:05d}.jpg"
-    destination = IMAGE_DIR / filename
+    destination = image_dir / filename
     if not destination.exists():
         request = urllib.request.Request(item["image_url"], headers={"User-Agent": "SystemOneTesting/1.0"})
         with urllib.request.urlopen(request, timeout=60) as response:
@@ -151,38 +190,107 @@ def _download_one(item: dict[str, Any]) -> dict[str, Any]:
         "make": item["make"],
         "make_display": item["make_display"],
         "body_type": item["body_type"],
+        "sha256": _sha256(destination),
+    }
+
+
+def _sha256(path: Path) -> str:
+    """Return the SHA-256 digest of one downloaded image."""
+    digest = hashlib.sha256()
+    with path.open("rb") as image_file:
+        for chunk in iter(lambda: image_file.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
+def _make_manifest(items: list[dict[str, Any]], seed: int) -> dict[str, Any]:
+    """Build the runner manifest with partial ground truth for vehicle tasks."""
+    events = []
+    for item in items:
+        events.append({
+            "id": item["filename"],
+            "domain": "vehicle",
+            "rel_path": f"images/{item['filename']}",
+            "sha256": item["sha256"],
+            "task_fields": TASK_FIELDS,
+            "annotations": {
+                "make": item["make"],
+                "body": item["body_type"],
+            },
+        })
+    return {
+        "schema_version": 1,
+        "name": "stanford-cars-diverse",
+        "label_status": "exploratory_huggingface_labels",
+        "source": DATASET,
+        "split": SPLIT,
+        "seed": seed,
+        "image_count": len(events),
+        "task_fields": TASK_FIELDS,
+        "note": (
+            "Labels are inherited from the source dataset. Make and body type "
+            "are scored; color is not annotated."
+        ),
+        "items": events,
     }
 
 
 def main() -> None:
-    """Run main."""
+    """Download selected images and write a validated-runner manifest."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--count", type=int, default=40)
     parser.add_argument("--per-make", type=int, default=2)
+    parser.add_argument("--per-class", type=int, default=1)
+    parser.add_argument("--scan-limit", type=int, default=2000)
     parser.add_argument("--seed", type=int, default=SEED)
+    parser.add_argument(
+        "--runner-ready",
+        action="store_true",
+        help="Write images and a manifest for vision_bench under .artifacts.",
+    )
+    parser.add_argument("--output-dir", type=Path)
     args = parser.parse_args()
-    IMAGE_DIR.mkdir(parents=True, exist_ok=True)
+    output_dir = args.output_dir or OUTPUT_DIR
+    image_dir = output_dir / "images" if args.runner_ready else IMAGE_DIR
+    manifest_path = output_dir / "manifest.json" if args.runner_ready else MANIFEST
+    image_dir.mkdir(parents=True, exist_ok=True)
 
-    selected = choose_rows(args.count, args.per_make, args.seed)
-    print(f"Baixando {len(selected)} imagens do split de teste Stanford Cars...")
-    with concurrent.futures.ThreadPoolExecutor(max_workers=8) as pool:
-        items = list(pool.map(_download_one, selected))
+    selected = choose_rows(
+        args.count,
+        args.per_make,
+        args.per_class,
+        args.seed,
+        args.scan_limit,
+    )
+    print(f"Downloading {len(selected)} images from Stanford Cars test split...")
+    with concurrent.futures.ThreadPoolExecutor(max_workers=MAX_WORKERS) as pool:
+        download_one = partial(_download_one, image_dir=image_dir)
+        items = list(pool.map(download_one, selected))
 
-    manifest = {
-        "dataset": DATASET,
-        "split": SPLIT,
-        "seed": args.seed,
-        "image_count": len(items),
-        "source_url": f"https://huggingface.co/datasets/{DATASET}",
-        "tasks_with_ground_truth": ["car_presence (all yes)", "make", "body_type"],
-        "color_is_not_annotated": True,
-        "items": items,
-    }
-    MANIFEST.write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    if args.runner_ready:
+        manifest = _make_manifest(items, args.seed)
+    else:
+        manifest = {
+            "dataset": DATASET,
+            "split": SPLIT,
+            "seed": args.seed,
+            "image_count": len(items),
+            "source_url": f"https://huggingface.co/datasets/{DATASET}",
+            "tasks_with_ground_truth": ["car_presence (all yes)", "make", "body_type"],
+            "color_is_not_annotated": True,
+            "items": items,
+        }
+    manifest_path.parent.mkdir(parents=True, exist_ok=True)
+    manifest_path.write_text(
+        json.dumps(manifest, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
     makers = sorted({item["make_display"] for item in items})
-    print(f"Salvas em: {IMAGE_DIR}")
-    print(f"Manifesto: {MANIFEST}")
-    print(f"Marcas cobertas ({len(makers)}): {', '.join(makers)}")
+    models = len({item["class_name"] for item in items})
+    print(f"Images: {image_dir}")
+    print(f"Manifest: {manifest_path}")
+    print(f"Coverage: {len(makers)} makes and {models} car models")
+    print(f"Makes covered: {', '.join(makers)}")
 
 
 if __name__ == "__main__":

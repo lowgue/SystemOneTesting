@@ -209,13 +209,7 @@ No Transformers 5, use a API direta do modelo; o pipeline genérico `visual-ques
 
 A rodada atual avaliou 397 imagens e 538 campos com gabarito. A acurácia agregada foi 370/538 (68,77%) para Laya e 254/538 (47,21%) para BLIP. A mediana por imagem foi 1.892 ms para Laya e 3.845 ms para BLIP (aproximadamente 2,03x mais tempo para BLIP). Estes números são de CPU, 8 threads, e do prompt descrito no [relatório empírico](../benchmarks/results/model_comparisons/laya-blip-empirical-report.md). O BLIP foi perfeito na detecção de presença, mas teve baixa aderência ao formato de alternativas em marca e carroceria; isso afeta a leitura da diferença de acurácia. A acurácia agregada pesa cada resposta anotada, então a tarefa de cor (337 de 538 campos) tem maior peso. O subconjunto balanceado de cor contém 330 fotos, 30 para cada uma de 11 classes.
 
-O histórico também inclui comparações anteriores com 7, 67 e 247 imagens. Os dados e resultados de cada etapa estão em [`laya-blip-history.json`](../benchmarks/results/model_comparisons/laya-blip-history.json), com o gráfico longitudinal em SVG abaixo. Essas rodadas mudaram o conjunto, o número de perguntas realmente executadas em imagens de cor e o prompt; não são uma sequência controlada de evolução do modelo. O relatório apresenta cada etapa e os experimentos anteriores apenas com Laya, incluindo os testes textuais, em uma seção separada.
-
-Para recriar os três SVGs após uma nova avaliação:
-
-```bash
-.venv/bin/python benchmarks/tasks/plot_laya_blip_results.py
-```
+O histórico também inclui comparações anteriores com 7, 67 e 247 imagens. Os dados e resultados de cada etapa estão em [`laya-blip-history.json`](../benchmarks/results/model_comparisons/laya-blip-history.json). Essas rodadas mudaram o conjunto, o número de perguntas realmente executadas em imagens de cor e o prompt; não são uma sequência controlada de evolução do modelo. O relatório apresenta cada etapa e os experimentos anteriores apenas com Laya, incluindo os testes textuais, em uma seção separada.
 
 **Acurácia geral e por pergunta**
 
@@ -224,14 +218,6 @@ Para recriar os três SVGs após uma nova avaliação:
 **Latência por imagem**
 
 ![Mediana, média, p90 e p95 da latência](../charts/latency/laya-blip-latency.svg)
-
-**Acurácia nas 11 classes do conjunto balanceado (30 imagens por classe)**
-
-![Acurácia de cor por classe](../charts/classes/laya-blip-color-classes.svg)
-
-**Histórico das quatro rodadas comparativas**
-
-![Acurácia e latência nas rodadas de 7, 67, 247 e 397 imagens](../charts/history/laya-blip-history.svg)
 
 Os intervalos de confiança são descritivos, e as imagens não constituem amostra aleatória de todos os veículos. Veja no relatório a metodologia, limitações, análise de aderência do prompt e fatores técnicos de velocidade e acurácia.
 
@@ -257,11 +243,7 @@ Para reproduzir em um diretório novo, com os pesos já no cache:
 
 O runner grava progresso e permite `--resume` com o mesmo diretório e configuração. Energia e custo monetário só serão informados quando houver medição e parâmetros disponíveis.
 
-Os resultados automatizados têm um [atlas com 13 figuras científicas](../charts/runs/scientific_20261026_final/README.md), [PDF completo](../charts/reports/relatorio_estatistico.pdf) e perfis individuais de [Laya](../charts/model_profiles/12_perfil_laya.pdf) e [BLIP](../charts/model_profiles/13_perfil_blip.pdf). Cada figura está disponível em PNG 300 dpi, SVG e PDF, com notas metodológicas, unidades, tamanho amostral e intervalos quando aplicáveis. Os CSVs e hashes permitem conferir os dados de origem. Para gerar outra versão sem sobrescrever arquivos:
-
-```bash
-.venv/bin/python benchmarks/tasks/plot_scientific_description_results.py --output charts/runs/nova_execucao
-```
+Os resultados automatizados têm dados CSV/JSON e hashes para conferência. Os gráficos do projeto são limitados a acurácia, latência, RAM e GPU, com unidades e método de amostragem identificados.
 
 O [Teste 7](../benchmarks/results/test_7_complete_tags/test_7_complete_tags_report.md) compara a entrega de quatro atributos por imagem: presença, marca, cor e carroceria para veículos; presença, capacete, objeto transportado e vestimenta superior para pessoas. O BLIP recebe perguntas curtas abertas em batch; o Laya recebe decisões tipadas com opções fixas. O critério principal exige todos os campos corretos na mesma imagem, incluindo abstenções quando o atributo não está visível. O tempo medido cobre o conjunto completo de perguntas.
 

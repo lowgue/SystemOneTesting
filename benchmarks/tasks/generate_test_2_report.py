@@ -217,7 +217,6 @@ def generate_type_markdown_report(data: dict) -> Path:
 
 ## 3. Desempenho Detalhado por Tipo de Veículo
 
-![Acurácia por Tipo de Veículo](../../../charts/accuracy/test_2_type_accuracy.svg)
 
 | Tipo de Veículo | Amostras | Acertos Laya | Acurácia Laya | F1 Laya | Acertos BLIP | Acurácia BLIP | F1 BLIP |
 |---|---:|---:|---:|---:|---:|---:|---:|
@@ -249,7 +248,6 @@ def generate_type_markdown_report(data: dict) -> Path:
 
 ## 5. Robustez em Condições Visuais Difíceis
 
-![Robustez e Latência](../../../charts/latency/test_2_type_latency_difficulty.svg)
 
 - **`partial_or_atypical_view`:** Veículos fotografados em ângulos muito fechados (ex.: apenas a grade dianteira ou apenas a traseira) sofrem queda de precisão em ambos os modelos, pois a proporção do habitáculo é necessária para distinguir cupê, sedã e perua.
 - **`multiple_vehicles`:** Quando múltiplos tipos de veículos coexistem no frame (ex.: um carro ultrapassando um caminhão), o modelo pode atribuir a resposta ao veículo secundário se não for fornecido o recorte exato do detector.
@@ -285,14 +283,8 @@ def main() -> None:
     with open(RESULTS_FILE, encoding="utf-8") as f:
         data = json.load(f)
 
-    p1 = build_type_accuracy_svg(data)
-    print(f"Generated accuracy chart: {p1}")
-
-    p2 = build_type_latency_difficulty_svg(data)
-    print(f"Generated latency & difficulty chart: {p2}")
-
-    p3 = generate_type_markdown_report(data)
-    print(f"Generated empirical report: {p3}")
+    report = generate_type_markdown_report(data)
+    print(f"Generated empirical report: {report}")
 
 
 if __name__ == "__main__":

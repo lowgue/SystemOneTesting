@@ -50,6 +50,27 @@ O runner usa CUDA automaticamente quando PyTorch detecta uma GPU; `--device cpu`
 
 O padrão `benchmarks/datasets/vehicles/portable.json` contém **22 eventos de veículos**, com as imagens já rastreadas no Git. Serve para teste inicial sem baixar dados. São rótulos exploratórios, não uma amostra confirmatória. O contrato também tem perguntas de pessoas, mas essa amostra padrão não testa pessoas.
 
+### Conjunto maior e mais diverso
+
+Para uma rodada com mais imagens distintas, gere o conjunto Stanford Cars balanceado. O downloader usa o split de teste, seleciona até 10 fotos por marca e até 3 por modelo, baixa somente as imagens selecionadas e grava um manifesto pronto para o runner. O comando abaixo gera 300 imagens e mede marca e carroceria; não há gabarito de cor.
+
+```bash
+.venv/bin/python scripts/datasets/download_stanford_cars_sample.py \
+  --runner-ready --count 300 --per-make 10 --per-class 3
+.venv/bin/python -m vision_bench doctor \
+  --manifest .artifacts/datasets/stanford_cars_diverse/manifest.json \
+  --data-root .artifacts/datasets/stanford_cars_diverse
+.venv/bin/python -m vision_bench run \
+  --manifest .artifacts/datasets/stanford_cars_diverse/manifest.json \
+  --data-root .artifacts/datasets/stanford_cars_diverse \
+  --models blip-vqa laya-vision-head512 d1-omni-600M \
+  --device auto --threads auto --repetitions 1 \
+  --machine-id computador-b \
+  --output .artifacts/runs/stanford-cars-diverse
+```
+
+Use `--count`, `--per-make`, `--per-class`, `--scan-limit`, `--seed` ou `--output-dir` para ajustar a seleção. Sem `--runner-ready`, o downloader mantém o formato histórico utilizado pelos scripts antigos. As anotações vêm do dataset de origem e são exploratórias, sem revisão independente neste projeto. Use uma repetição para avaliar qualidade em imagens distintas; aumente `--repetitions` quando a pergunta for latência ou estabilidade. Repetições adicionais processam novamente as mesmas imagens e não aumentam a amostra independente.
+
 As imagens de pessoas e outros datasets antigos são ignoradas pelo Git. Para usar exatamente o Teste 7 nas duas máquinas, exporte na máquina que possui as imagens:
 
 ```bash
@@ -247,9 +268,82 @@ Ou informe várias execuções, inclusive de computadores diferentes:
 
 Cada execução/máquina recebe seção e gráfico próprios; não se misturam tempos de hardwares diferentes. Use mesmos hashes de contrato/dataset, versões e quantidade de repetições para uma comparação direta. Um smoke de duas imagens não substitui a rodada completa. Preserve o diretório inteiro de cada run ao copiar resultados para consolidar.
 
-Saídas: tabelas Markdown, `metrics.json`, `metrics.csv` e gráficos PNG 300 dpi/SVG/PDF. Pontos de distribuição são medianas por evento entre repetições, não imagens novas. O relatório portátil é descritivo, sem intervalos populacionais fabricados para uma amostra arbitrária. O README, os dados congelados e a proveniência do atlas histórico permanecem em `charts/runs/scientific_20261026_final`; suas figuras estão agrupadas em `charts/`. O gerador histórico não deve ser usado como se aceitasse automaticamente novos modelos.
+Saídas: tabelas Markdown, `metrics.json`, `metrics.csv` e gráficos científicos de acurácia, latência, RAM e GPU em PNG 300 dpi, PDF e SVG. Pontos de distribuição são medianas por evento entre repetições, não imagens novas. O relatório portátil é descritivo, sem intervalos populacionais fabricados para uma amostra arbitrária. O README, os dados congelados e a proveniência das execuções permanecem disponíveis para conferência.
 
 Não compare CPU de HTTP `client_only` à CPU do modelo em processo como custo total. Não compare custo local ao tempo remoto sem informar rede/hardware/faturamento. As respostas brutas preservam `usage` quando fornecido, mas não há preço monetário presumido. A métrica de positivos completos com os rótulos históricos é exploratória e deve permanecer identificada assim.
+
+## Executar na máquina remota e trazer resultados
+
+Os exemplos abaixo usam a máquina remota `lospampa@HOST_REMOTO` e o clone remoto `~/ProjetosJev/Luan/SystemOneTesting`. Substitua `HOST_REMOTO` pelo alias SSH que funciona ou pelo IP da máquina. Rode os comandos de cópia no terminal local, depois de entrar na raiz do clone local. Assim, `charts/reports/` vai para o projeto, não para `~/charts`.
+
+### Rodar testes e o benchmark padrão na GPU
+
+Na máquina remota, com o repositório atualizado e o driver NVIDIA funcionando:
+
+```bash
+cd ~/ProjetosJev/Luan/SystemOneTesting
+git pull
+git submodule update --init --recursive
+python3.12 scripts/test_all.py --gpu
+```
+
+Esse fluxo verifica CUDA, executa os testes automatizados e roda o benchmark padrão de 22 imagens. Ao terminar, também gera um relatório em `charts/reports/`. Se o ambiente `.venv` e as dependências já estiverem instalados, acrescente `--no-install` para pular a instalação.
+
+Para rodar o dataset maior e diverso documentado acima, use o downloader e o runner em vez do benchmark padrão de 22 imagens:
+
+```bash
+cd ~/ProjetosJev/Luan/SystemOneTesting
+.venv/bin/python scripts/datasets/download_stanford_cars_sample.py \
+  --runner-ready --count 300 --per-make 10 --per-class 3
+.venv/bin/python -m vision_bench doctor \
+  --manifest .artifacts/datasets/stanford_cars_diverse/manifest.json \
+  --data-root .artifacts/datasets/stanford_cars_diverse
+.venv/bin/python -m vision_bench run \
+  --manifest .artifacts/datasets/stanford_cars_diverse/manifest.json \
+  --data-root .artifacts/datasets/stanford_cars_diverse \
+  --models blip-vqa laya-vision-head512 d1-omni-600M \
+  --device auto --threads auto --repetitions 1 \
+  --machine-id maquina-remota \
+  --output .artifacts/runs/stanford-cars-diverse
+.venv/bin/python scripts/report_runs.py \
+  .artifacts/runs/stanford-cars-diverse
+```
+
+O último comando imprime a pasta gerada, por exemplo `charts/reports/execucao-20261109-122411`. Anote esse nome para conferir a cópia. Para outro run, troque `stanford-cars-diverse` pelo nome usado em `--output`.
+
+### Copiar os dados e gráficos para o clone local
+
+No computador local, primeiro entre na raiz do repositório. Consulte o IP na máquina remota com `hostname -I` se o nome do host não resolver no seu computador. Se a conexão SSH usa uma porta diferente da padrão, acrescente `-e "ssh -p PORTA"` aos comandos `rsync`.
+
+```bash
+cd /caminho/para/o/clone/local/SystemOneTesting
+
+mkdir -p .artifacts/runs/stanford-cars-diverse
+rsync -av --progress \
+  lospampa@HOST_REMOTO:~/ProjetosJev/Luan/SystemOneTesting/.artifacts/runs/stanford-cars-diverse/ \
+  .artifacts/runs/stanford-cars-diverse/
+
+mkdir -p .artifacts/datasets/stanford_cars_diverse
+rsync -av --progress \
+  lospampa@HOST_REMOTO:~/ProjetosJev/Luan/SystemOneTesting/.artifacts/datasets/stanford_cars_diverse/ \
+  .artifacts/datasets/stanford_cars_diverse/
+
+mkdir -p charts/reports
+rsync -av --progress \
+  lospampa@HOST_REMOTO:~/ProjetosJev/Luan/SystemOneTesting/charts/reports/ \
+  charts/reports/
+```
+
+Para copiar só um relatório, troque o último caminho remoto por `charts/reports/execucao-AAAAMMDD-HHMMSS/` e o destino por `charts/reports/execucao-AAAAMMDD-HHMMSS/`, usando o nome impresso no servidor. O `rsync` mescla o conteúdo no `charts/reports/` do projeto e não apaga outros relatórios locais. As pastas `.artifacts/` e `charts/reports/` são saídas locais ignoradas pelo Git; os arquivos ficam disponíveis no clone, mas não entram em commits.
+
+Também é possível transferir os dados brutos e gerar os gráficos localmente, depois de copiar um run completo:
+
+```bash
+.venv/bin/python scripts/report_runs.py \
+  .artifacts/runs/stanford-cars-diverse
+```
+
+Para copiar runs com outros nomes, use seus diretórios correspondentes dentro de `.artifacts/runs/`. Preserve o diretório inteiro de cada run para manter logs, previsões e metadados junto dos gráficos.
 
 ## 6. Clef hospedado na Cloudflare (opcional)
 

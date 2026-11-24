@@ -274,7 +274,6 @@ def generate_markdown_report(data: dict) -> Path:
 
 ## 3. Acurácia por Estrato de Degradação
 
-![Acurácia por Estrato](../../../charts/robustness/test_4_robustness_accuracy.svg)
 
 {stratum_table}
 
@@ -282,7 +281,6 @@ def generate_markdown_report(data: dict) -> Path:
 
 ## 4. Acurácia por Tarefa × Estrato
 
-![Tarefa × Estrato](../../../charts/robustness/test_4_robustness_task_breakdown.svg)
 
 {task_table}
 
@@ -340,14 +338,8 @@ def main() -> None:
     with open(RESULTS_FILE, encoding="utf-8") as f:
         data = json.load(f)
 
-    p1 = build_accuracy_by_stratum_svg(data)
-    print(f"Generated accuracy chart: {p1}")
-
-    p2 = build_task_breakdown_svg(data)
-    print(f"Generated task breakdown chart: {p2}")
-
-    p3 = generate_markdown_report(data)
-    print(f"Generated report: {p3}")
+    report = generate_markdown_report(data)
+    print(f"Generated report: {report}")
 
 
 if __name__ == "__main__":

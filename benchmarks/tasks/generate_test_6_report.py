@@ -189,13 +189,11 @@ def generate_markdown_report(data: dict) -> Path:
 
 ## 2. Acurácia e Aderência por Formato
 
-![Acurácia e Aderência](../../../charts/prompts/test_6_prompt_accuracy_adherence.svg)
 
 ---
 
 ## 3. Análise de Latência Operacional
 
-![Latência por Formato](../../../charts/latency/test_6_prompt_latency.svg)
 
 ---
 
@@ -224,14 +222,8 @@ def main():
     with open(RESULTS_FILE, encoding="utf-8") as f:
         data = json.load(f)
 
-    p1 = build_accuracy_adherence_svg(data)
-    print(f"Generated accuracy & adherence chart: {p1}")
-
-    p2 = build_latency_svg(data)
-    print(f"Generated latency chart: {p2}")
-
-    p3 = generate_markdown_report(data)
-    print(f"Generated report: {p3}")
+    report = generate_markdown_report(data)
+    print(f"Generated report: {report}")
 
 
 if __name__ == "__main__":

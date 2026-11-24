@@ -1,99 +1,208 @@
-"""Performance distribution charts for comparison reports."""
+"""Generate scientific latency, RAM, and GPU performance figures."""
 
 from collections import defaultdict
-import statistics
+from pathlib import Path
+from typing import Any
 
 import numpy as np
 
 from .paths import chart_directory
-from .style import model_color
+from .style import model_color, model_label
 
 
-def generate_performance_charts(plot_inputs, lines, output):
-    """Write latency and resource comparison charts for each run."""
+def _sample_values(
+    rows: list[dict[str, Any]], model: str, key: str
+) -> list[float]:
+    """Return one median measurement per image for an available row metric."""
+    by_image: dict[str, list[float]] = defaultdict(list)
+    for row in rows:
+        if row["model"] != model or row.get("error") or row.get(key) is None:
+            continue
+        by_image[row["id"]].append(float(row[key]))
+    return [float(np.median(values)) for values in by_image.values()]
+
+
+def _resource_rows(rows: list[dict[str, Any]], model: str) -> list[dict[str, Any]]:
+    """Deduplicate shared batch resource samples before plotting them."""
+    selected = [row for row in rows if row["model"] == model and not row.get("error")]
+    unique: dict[str, dict[str, Any]] = {}
+    for row in selected:
+        key = row.get("batch_id", row["request_key"])
+        unique.setdefault(key, row)
+    return list(unique.values())
+
+
+def _plot_distributions(
+    axis: Any,
+    models: list[str],
+    values_by_model: dict[str, list[float]],
+    colors: dict[str, str],
+    unit: str,
+) -> None:
+    """Draw a box plot and repeatable jittered observations for each model."""
+    rng = np.random.default_rng(20261123)
+    positions = []
+    values = []
+    labels = []
+    for position, model in enumerate(models, 1):
+        sample = values_by_model[model]
+        if not sample:
+            continue
+        axis.boxplot(
+            [sample],
+            positions=[position],
+            widths=0.5,
+            showfliers=False,
+            medianprops={"color": "black", "linewidth": 1.5},
+        )
+        axis.scatter(
+            position + rng.uniform(-0.08, 0.08, len(sample)),
+            sample,
+            color=colors[model],
+            edgecolor="white",
+            linewidth=0.4,
+            s=22,
+            zorder=3,
+        )
+        positions.append(position)
+        values.append(sample)
+        labels.append(f"{model_label(model)}\n(n={len(sample)})")
+    axis.set_xticks(positions, labels, rotation=15, ha="right")
+    axis.set_ylabel(unit)
+    axis.set_ylim(bottom=0)
+    axis.grid(axis="y", alpha=0.25)
+    axis.set_axisbelow(True)
+
+
+def _save_figure(figure: Any, output: Path, stem: str) -> None:
+    """Save one publication-ready figure as PNG, PDF, and SVG."""
+    for extension in ("png", "pdf", "svg"):
+        figure.savefig(
+            output / f"{stem}.{extension}",
+            dpi=300,
+            bbox_inches="tight",
+        )
+
+
+def generate_performance_charts(
+    plot_inputs: list[dict[str, Any]], lines: list[str], output: Path
+) -> None:
+    """Write separate latency, RAM, and measured GPU performance charts."""
     import matplotlib
 
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
 
-    chart_output = chart_directory(output, "performance")
-
-    plt.rcParams.update(
-        {
-            "font.family": "DejaVu Sans",
-            "font.size": 9,
-            "axes.spines.top": False,
-            "axes.spines.right": False,
-            "pdf.fonttype": 42,
-            "svg.fonttype": "none",
-        }
-    )
     for index, entry in enumerate(plot_inputs, 1):
-        fig, axes = plt.subplots(1, 2, figsize=(12, 6))
-        fig.suptitle(
-            ("SIMULAÇÃO — " if entry["simulated"] else "") + entry["label"],
-            x=0.06,
-            ha="left",
-            fontsize=13,
-            fontweight="bold",
-        )
-        palettes = plt.get_cmap("tab10")
-        rng = np.random.default_rng(20261026)
-        for pos, m in enumerate(entry["models"], 1):
-            groups = defaultdict(list)
-            for r in entry["rows"]:
-                if r["model"] == m and not r["error"]:
-                    groups[r["id"]].append(r)
-            for ax, key, scale in [
-                (axes[0], "elapsed_ms", 1000),
-                (axes[1], "cpu_s", 1),
-            ]:
-                values = [
-                    statistics.median(r[key] / scale for r in rs)
-                    for rs in groups.values()
-                ]
-                if values:
-                    ax.boxplot(
-                        [values],
-                        positions=[pos],
-                        widths=0.4,
-                        manage_ticks=False,
-                        showfliers=False,
-                        medianprops={"color": "black"},
-                    )
-                    ax.scatter(
-                        pos + rng.uniform(-0.1, 0.1, len(values)),
-                        values,
-                        color=model_color(m),
-                        s=20,
-                        alpha=0.7,
-                    )
-        for ax in axes:
-            ax.set_xticks(
-                range(1, len(entry["models"]) + 1),
-                entry["models"],
-                rotation=18,
-                ha="right",
+        rows = entry["rows"]
+        models = entry["models"]
+        colors = {model: model_color(model) for model in models}
+        figures = []
+
+        latency_output = chart_directory(output, "latency")
+        latency_values = {
+            model: _sample_values(rows, model, "elapsed_ms") for model in models
+        }
+        if any(latency_values.values()):
+            figure, axis = plt.subplots(figsize=(max(7, len(models) * 1.8), 5))
+            _plot_distributions(axis, models, latency_values, colors, "Latência (ms)")
+            axis.set_title(f'{entry["label"]} · latência por imagem')
+            figure.text(
+                0.01,
+                0.01,
+                "Pontos: medianas por imagem entre repetições; caixas: quartis. "
+                "Amostras sem erro; carga e warm-up excluídos.",
+                fontsize=8,
             )
-            ax.set_ylim(bottom=0)
-            ax.grid(axis="y", alpha=0.2)
-        axes[0].set_ylabel("Mediana intraimagem da latência (s)")
-        axes[1].set_ylabel("Mediana intraimagem de CPU-s (escopo por modelo)")
-        axes[0].set_title("Evento completo, com pré e pós-processamento")
-        axes[1].set_title("HTTP sem PID mede somente o cliente")
-        fig.text(
-            0.06,
-            0.025,
-            "Pontos: medianas por evento, não repetições independentes. Caixas: quartis; sem IC populacional para esta amostra.\nCarga e warm-up excluídos. Recursos remotos, energia e custo monetário não estão incluídos nos recursos do cliente.",
-            fontsize=8,
-        )
-        fig.subplots_adjust(left=0.09, right=0.97, bottom=0.30, top=0.82, wspace=0.35)
-        for ext in ["png", "svg", "pdf"]:
-            fig.savefig(chart_output / f"comparison_{index}.{ext}", dpi=300)
-        plt.close(fig)
-        lines += [
-            f'![{entry["label"]}](charts/performance/comparison_{index}.png)',
-            "",
-            f"[PDF](charts/performance/comparison_{index}.pdf) · [SVG](charts/performance/comparison_{index}.svg)",
-            "",
-        ]
+            figure.subplots_adjust(bottom=0.25, top=0.88)
+            _save_figure(figure, latency_output, f"latency_{index}")
+            plt.close(figure)
+            figures.append(
+                f'![Latência — {entry["label"]}](charts/latency/latency_{index}.png)'
+            )
+
+        memory_output = chart_directory(output, "memory")
+        memory_rows = {
+            model: _resource_rows(rows, model) for model in models
+        }
+        memory_values = {
+            model: [
+                float(row["peak_rss_bytes"]) / 2**20
+                for row in memory_rows[model]
+                if row.get("peak_rss_bytes") is not None
+            ]
+            for model in models
+        }
+        if any(memory_values.values()):
+            figure, axis = plt.subplots(figsize=(max(7, len(models) * 1.8), 5))
+            _plot_distributions(axis, models, memory_values, colors, "Pico de RAM (MiB)")
+            axis.set_title(f'{entry["label"]} · memória RAM')
+            figure.text(
+                0.01,
+                0.01,
+                "RSS amostrado por imagem; lotes concorrentes contam uma medição por lote. "
+                "Servidores HTTP externos não estão incluídos.",
+                fontsize=8,
+            )
+            figure.subplots_adjust(bottom=0.25, top=0.88)
+            _save_figure(figure, memory_output, f"ram_{index}")
+            plt.close(figure)
+            figures.append(
+                f'![Memória RAM — {entry["label"]}](charts/memory/ram_{index}.png)'
+            )
+
+        gpu_memory_values = {
+            model: [
+                float(row["gpu_peak_allocated_bytes"]) / 2**20
+                for row in _resource_rows(rows, model)
+                if row.get("gpu_peak_allocated_bytes")
+            ]
+            for model in models
+        }
+        batch_values: dict[str, list[float]] = {model: [] for model in models}
+        seen_batches = set()
+        for row in rows:
+            batch_id = row.get("batch_id")
+            if not batch_id or batch_id in seen_batches:
+                continue
+            seen_batches.add(batch_id)
+            elapsed_ms = row.get("batch_elapsed_ms")
+            if elapsed_ms and row.get("batch_size"):
+                batch_values[row["model"]].append(
+                    row["batch_size"] * 1000 / elapsed_ms
+                )
+
+        has_gpu_data = any(gpu_memory_values.values()) or any(batch_values.values())
+        if has_gpu_data:
+            gpu_output = chart_directory(output, "gpu")
+            figure, axes = plt.subplots(
+                1,
+                2,
+                figsize=(max(10, len(models) * 2.4), 5),
+                squeeze=False,
+            )
+            _plot_distributions(
+                axes[0, 0], models, gpu_memory_values, colors, "VRAM alocada (MiB)"
+            )
+            axes[0, 0].set_title("Pico de VRAM do processo medido")
+            _plot_distributions(
+                axes[0, 1], models, batch_values, colors, "Requisições por segundo"
+            )
+            axes[0, 1].set_title("Throughput observado por lote")
+            figure.suptitle(entry["label"])
+            figure.text(
+                0.01,
+                0.01,
+                "VRAM é registrada somente para adapters PyTorch locais. "
+                "Throughput é medido pelo cliente; GPU de servidor externo não é amostrada.",
+                fontsize=8,
+            )
+            figure.subplots_adjust(bottom=0.27, top=0.82, wspace=0.3)
+            _save_figure(figure, gpu_output, f"gpu_{index}")
+            plt.close(figure)
+            figures.append(
+                f'![GPU — {entry["label"]}](charts/gpu/gpu_{index}.png)'
+            )
+
+        lines.extend(figures)
+        lines.append("")

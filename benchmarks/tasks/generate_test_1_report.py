@@ -215,7 +215,6 @@ O teste foi executado estritamente conforme as regras do plano:
 
 ## 3. Desempenho Detalhado por Classe de Cor
 
-![Acurácia por Classe de Cor](../../../charts/accuracy/test_1_color_accuracy.svg)
 
 | Classe de Cor | Amostras | Acertos Laya | Acurácia Laya | F1 Laya | Acertos BLIP | Acurácia BLIP | F1 BLIP |
 |---|---:|---:|---:|---:|---:|---:|---:|
@@ -248,7 +247,6 @@ O teste foi executado estritamente conforme as regras do plano:
 
 ## 5. Robustez em Condições Visuais Difíceis
 
-![Robustez e Latência](../../../charts/latency/test_1_color_latency_difficulty.svg)
 
 As 120 imagens foram auditadas automaticamente com YOLO e análise de densidade de luminância:
 - **`multiple_vehicles`:** Cenas com múltiplos carros no quadro.
@@ -296,14 +294,8 @@ def main() -> None:
     with open(RESULTS_FILE, encoding="utf-8") as f:
         data = json.load(f)
 
-    p1 = build_accuracy_svg(data)
-    print(f"Generated accuracy chart: {p1}")
-
-    p2 = build_difficulty_latency_svg(data)
-    print(f"Generated latency & difficulty chart: {p2}")
-
-    p3 = generate_markdown_report(data)
-    print(f"Generated empirical report: {p3}")
+    report = generate_markdown_report(data)
+    print(f"Generated empirical report: {report}")
 
 
 if __name__ == "__main__":

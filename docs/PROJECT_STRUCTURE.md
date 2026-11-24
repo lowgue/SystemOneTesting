@@ -72,8 +72,8 @@ to a focused storage module in the infrastructure layer.
 | `benchmarks/datasets/` | Portable and historical datasets grouped by domain. |
 | `benchmarks/tasks/` | Historical benchmark runners, preparation tools, and report generators. |
 | `benchmarks/results/` | Historical result data and reports. |
-| `charts/` | Historical figures organized by chart characteristic. |
-| `charts/runs/` | Provenance, tables, and supporting files for chart runs. |
+| `charts/` | Scientific figures for accuracy, latency, RAM, and GPU. |
+| `charts/runs/` | Provenance, tables, and supporting data for chart runs. |
 | `models/` | Per-model experiments and the shared legacy model-test framework. |
 | `models/laya/laya_vision/` | External Git submodule; its contents are maintained upstream. |
 | `scripts/` | Installation, model download, dataset preparation, and report commands. |
@@ -96,29 +96,17 @@ benchmarks/datasets/
     └── mixed/
 ```
 
-## Historical chart categories
+## Scientific chart categories
 
 ```text
 charts/
 ├── accuracy/
-├── sampling/
-├── classes/
-├── synthetic_controls/
-├── performance/
-├── runs/
-├── queue/
-├── history/
 ├── latency/
 ├── memory/
-├── multiple_objects/
-├── budget/
-├── model_profiles/
-├── prompts/
-├── reports/
-├── repeatability/
-├── robustness/
-└── vehicles/
+└── gpu/
 ```
+
+Only scientific figures for accuracy, latency, RAM, and GPU measurements are generated. Raw results and provenance remain in their run directories.
 
 New model request logic belongs in the matching module under
 `vision_bench/adapters/`. Request and prompt definitions belong in

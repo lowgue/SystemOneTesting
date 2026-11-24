@@ -246,7 +246,6 @@ def generate_person_markdown_report(data: dict) -> Path:
 
 ## 3. Desempenho Detalhado por Pergunta e Classe
 
-![Acurácia em Atributos de Pessoas](../../../charts/accuracy/test_3_person_accuracy.svg)
 
 """
     for q_k in q_keys:
@@ -264,7 +263,6 @@ def generate_person_markdown_report(data: dict) -> Path:
 
 ## 4. Robustez em Condições Difíceis (Multidões, Distância e Oclusão)
 
-![Robustez e Latência](../../../charts/latency/test_3_person_latency_difficulty.svg)
 
 - **`multiple_people`:** Em cenas de calçadas movimentadas com múltiplos pedestres, se a imagem for passada inteira, ambos os modelos sofrem ambiguidade sobre "qual" pessoa responder. Recortar a pessoa individualmente (*crop bounding box*) restaura a acurácia para níveis superiores a 75%.
 - **`distant_small_person`:** Pessoas com área menor que 10% do quadro têm resolução insuficiente para discernir a textura de uma mochila ou se estão usando boné vs. capacete. Nesses casos, o `CaptionerManager` deve adotar `not_visible` como política segura.
@@ -298,14 +296,8 @@ def main() -> None:
     with open(RESULTS_FILE, encoding="utf-8") as f:
         data = json.load(f)
 
-    p1 = build_person_accuracy_svg(data)
-    print(f"Generated accuracy chart: {p1}")
-
-    p2 = build_person_latency_difficulty_svg(data)
-    print(f"Generated latency & difficulty chart: {p2}")
-
-    p3 = generate_person_markdown_report(data)
-    print(f"Generated empirical report: {p3}")
+    report = generate_person_markdown_report(data)
+    print(f"Generated empirical report: {report}")
 
 
 if __name__ == "__main__":

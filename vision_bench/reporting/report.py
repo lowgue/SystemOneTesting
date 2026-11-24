@@ -22,6 +22,7 @@ def generate(runs, output):
         "",
     ]
     plot_inputs = []
+    quality_summaries = []
     for run in map(Path, runs):
         meta = load_json(run / "run.json")
         status = load_json(run / "status.json")
@@ -115,8 +116,18 @@ def generate(runs, output):
                 simulated=meta["simulated"],
             )
         )
-    from .charts.comparison import generate_performance_charts
+        from .dataset_metrics import evaluate
 
+        quality_summaries.append((label, evaluate(frozen, rows)))
+    from .charts.comparison import generate_performance_charts
+    from .charts.quality import generate_quality_charts
+
+    for index, (label, quality_summary) in enumerate(quality_summaries, 1):
+        chart = generate_quality_charts(quality_summary, out, index)
+        if chart:
+            lines.extend(
+                [f'![Acurácia — {label}](charts/accuracy/accuracy_{index}.png)', ""]
+            )
     generate_performance_charts(plot_inputs, lines, out)
     write_json(out / "metrics.json", summary)
     with (out / "metrics.csv").open("w", newline="") as f:

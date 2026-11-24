@@ -445,10 +445,8 @@ def generate(run, output):
                 )
                 writer.writerow(row)
     from .charts.quality import generate_quality_charts
-    from .charts.summary import generate_summary_charts
 
     generate_quality_charts(summary, output)
-    summary["charts"] = generate_summary_charts(summary, output) + summary["charts"]
     write_json(output / "evaluation.json", summary)
     with (output / "comparisons.csv").open(
         "w", encoding="utf-8-sig", newline=""

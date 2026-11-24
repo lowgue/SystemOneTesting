@@ -41,7 +41,6 @@
 
 ## 3. Acurácia por Estrato de Degradação
 
-![Acurácia por Estrato](../../../charts/robustness/test_4_robustness_accuracy.svg)
 
 | Estrato | N | Laya Acc | BLIP Acc | Laya Δ | BLIP Δ | Laya Unk% | BLIP Unk% |
 |---|---:|---:|---:|---:|---:|---:|---:|
@@ -57,7 +56,6 @@
 
 ## 4. Acurácia por Tarefa × Estrato
 
-![Tarefa × Estrato](../../../charts/robustness/test_4_robustness_task_breakdown.svg)
 
 
 #### Cor do Veículo

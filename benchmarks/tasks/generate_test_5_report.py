@@ -216,13 +216,11 @@ Cada variante foi executada em **3 repetições** com consenso por voto majorit�
 
 ## 3. Comparação de Acurácia: Recorte Isolado vs Imagem Completa
 
-![Recorte vs Completa](../../../charts/multiple_objects/test_5_multi_object_crop_vs_highlighted.svg)
 
 ---
 
 ## 4. Decomposição de Erros na Imagem Completa (Associação vs Classificação)
 
-![Distribuição de Erros](../../../charts/multiple_objects/test_5_multi_object_error_distribution.svg)
 
 Quando o modelo erra na imagem completa, distinguimos:
 - **Erro de Associação:** O modelo respondeu exatamente o atributo do objeto concorrente presente na mesma cena.
@@ -265,14 +263,8 @@ def main():
     with open(RESULTS_FILE, encoding="utf-8") as f:
         data = json.load(f)
 
-    p1 = build_crop_vs_highlighted_svg(data)
-    print(f"Generated comparison chart: {p1}")
-
-    p2 = build_error_distribution_svg(data)
-    print(f"Generated error distribution chart: {p2}")
-
-    p3 = generate_markdown_report(data)
-    print(f"Generated report: {p3}")
+    report = generate_markdown_report(data)
+    print(f"Generated report: {report}")
 
 
 if __name__ == "__main__":

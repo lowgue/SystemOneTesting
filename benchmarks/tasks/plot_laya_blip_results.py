@@ -8,7 +8,6 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_INPUT = ROOT / "benchmarks/results/model_comparisons/laya-blip-car-color.json"
-HISTORY_INPUT = ROOT / "benchmarks/results/model_comparisons/laya-blip-history.json"
 OUT_DIR = ROOT / "charts"
 BLUE, ORANGE = "#3478f6", "#f28e2b"
 MODELS = (("laya", "Laya Vision", BLUE), ("blip", "BLIP VQA", ORANGE))
@@ -32,8 +31,6 @@ def save(name, lines):
     categories = {
         "laya-blip-accuracy.svg": "accuracy",
         "laya-blip-latency.svg": "latency",
-        "laya-blip-color-classes.svg": "classes",
-        "laya-blip-history.svg": "history",
     }
     p = OUT_DIR / categories[name] / name
     p.parent.mkdir(parents=True, exist_ok=True)
@@ -130,6 +127,6 @@ def history_chart(h):
 
 def main():
     """Run main."""
-    p=argparse.ArgumentParser(description=__doc__); p.add_argument("--input",type=Path,default=DEFAULT_INPUT); p.add_argument("--history",type=Path,default=HISTORY_INPUT); args=p.parse_args(); d=json.loads(args.input.read_text(encoding="utf-8")); h=json.loads(args.history.read_text(encoding="utf-8"))
-    accuracy_chart(d); latency_chart(d); color_chart(d); history_chart(h)
+    p=argparse.ArgumentParser(description=__doc__); p.add_argument("--input",type=Path,default=DEFAULT_INPUT); args=p.parse_args(); d=json.loads(args.input.read_text(encoding="utf-8"))
+    accuracy_chart(d); latency_chart(d)
 if __name__=="__main__": main()

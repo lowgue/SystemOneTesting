@@ -147,5 +147,3 @@ O parser estrito foi congelado antes das novas inferências. Reprocessando as sa
 - [Orçamento de opções do Laya](../laya_option_budget_20261026/report.md)
 
 - [Simulação de poder e tamanho da amostra](../paired_power_20261026/report.md)
-
-![Latência por conjunto completo](../../../../charts/performance/automated_pilot_20261026_summary.svg)

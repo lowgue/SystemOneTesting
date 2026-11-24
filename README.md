@@ -22,7 +22,7 @@ Depois de clonar o repositório, rode um comando para criar `.venv`, instalar as
 python3 scripts/test_all.py
 ```
 
-No Windows, use `py -3.12 scripts/test_all.py`. Os relatórios e gráficos ficam em `charts/reports/AAAAmmdd-HHMMSS/`; cada execução tem gráficos de desempenho e avaliação em PNG/PDF, com os dados CSV/JSON correspondentes. O script não baixa pesos nem executa inferência. Para gerar gráficos a partir de execuções específicas:
+No Windows, use `py -3.12 scripts/test_all.py`. Os relatórios e gráficos científicos de acurácia, latência, RAM e GPU ficam em `charts/reports/AAAAmmdd-HHMMSS/`, com os dados CSV/JSON correspondentes. O script não baixa pesos nem executa inferência. Para gerar gráficos a partir de execuções específicas:
 
 ```bash
 .venv/bin/python scripts/report_runs.py .artifacts/runs/minha-execucao
@@ -73,7 +73,7 @@ O `report` gera `README.md`, `metrics.csv`, `metrics.json` e gráficos PNG (300 
 ```text
 vision_bench/   Motor de benchmarks (CLI, execução, adapters e protocolos)
   reporting/    Relatórios e métricas
-    charts/     Gráficos por categoria: qualidade, desempenho, atributos, classes e confusão
+    charts/     Gráficos científicos de acurácia, latência, RAM e GPU
 benchmarks/     Configurações, tarefas, datasets e resultados
   configs/      Configuração de modelos e endpoints
   contracts/    Tipos de request, prompts e critérios de resposta
@@ -82,7 +82,7 @@ benchmarks/     Configurações, tarefas, datasets e resultados
   results/      Resultados e evidências por execução
 models/        Experimentos e bibliotecas organizados por modelo
   laya/laya_vision/  Submódulo do código Laya Vision
-charts/       Figuras e PDFs históricos, organizados por característica
+charts/       Gráficos científicos de acurácia, latência, RAM e GPU
 scripts/        Instalação, download de modelos e preparação de datasets
 requirements/   Dependências Python por backend
 docs/           Guias de comparação e metodologia
@@ -95,6 +95,5 @@ tests/          Testes do motor e dos benchmarks
 - [Datasets e métricas](docs/DATASETS.md)
 - [Metodologia das comparações](docs/PROMPT_COMPARISONS.md)
 - [Modelos e início rápido](docs/QUICK_START_MODELS.md)
-- [Atlas estatístico anterior](charts/runs/scientific_20261026_final/README.md)
 
 Os gabaritos existentes são exploratórios; o benchmark separa execuções e computadores. Recursos do cliente HTTP não medem o consumo de GPU do servidor vLLM ou de outro serviço externo.

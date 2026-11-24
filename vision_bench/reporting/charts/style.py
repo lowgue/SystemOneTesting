@@ -2,28 +2,43 @@
 
 LAYA = "#3378FF"
 BLIP = "#F78C25"
+D1_OMNI = "#8B5CF6"
+CLEF_FLASH = "#10B981"
 
 
-def model_color(model):
+def model_color(model: dict | str) -> str:
     """Select a stable display color from a model adapter or identifier."""
     name = (
         (model.get("adapter", "") + " " + model.get("model", model.get("id", "")))
         if isinstance(model, dict)
         else str(model)
-    )
-    if "laya" in name.lower():
+    ).lower()
+    if "laya" in name:
         return LAYA
-    if "blip" in name.lower():
+    if "blip" in name:
         return BLIP
+    if "d1" in name or "omni" in name:
+        return D1_OMNI
+    if "clef" in name:
+        return CLEF_FLASH
     return "#64748B"
 
 
-def model_label(model):
+def model_label(model: dict | str) -> str:
     """Build a readable model and prompt-profile label for chart legends."""
-    name = model["model"]
-    base = (
-        "Laya" if "laya" in name.lower() else "BLIP" if "blip" in name.lower() else name
-    )
+    name = model["model"] if isinstance(model, dict) else str(model)
+    name_lower = name.lower()
+    if "laya" in name_lower:
+        base = "Laya"
+    elif "blip" in name_lower:
+        base = "BLIP"
+    elif "d1" in name_lower or "omni" in name_lower:
+        base = "D1-Omni"
+    elif "clef" in name_lower:
+        base = "Clef-Flash"
+    else:
+        base = name
+
     variant = {
         "short_open": "pergunta curta",
         "short_options": "com alternativas",
@@ -33,7 +48,7 @@ def model_label(model):
         "native_short": "alternativas curtas",
         "native_descriptive": "alternativas descritivas",
         "native_serial": "perguntas separadas",
-    }.get(model.get("profile"))
+    }.get(model.get("profile") if isinstance(model, dict) else None)
     return base + (f" · {variant}" if variant else "")
 
 
@@ -63,19 +78,20 @@ LABELS = {
 }
 
 
-def label(value):
+def label(value: str) -> str:
     """Return the display label for a field or taxonomy value."""
     return LABELS.get(value, value.replace("_", " "))
 
 
-def baseline_models(models):
+def baseline_models(models: list[dict]) -> list[dict]:
     """Select one baseline profile per available reference adapter."""
     selected = []
-    for adapter in ["laya", "blip"]:
+    adapters = ["blip", "laya", "d1", "clef"]
+    for key in adapters:
         candidates = [
             m
             for m in models
-            if m.get("adapter") == adapter or adapter in m["model"].lower()
+            if key in m.get("adapter", "").lower() or key in m.get("model", "").lower()
         ]
         if candidates:
             selected.append(
@@ -89,4 +105,4 @@ def baseline_models(models):
                     candidates[0],
                 )
             )
-    return selected or models[:2]
+    return selected if selected else models
