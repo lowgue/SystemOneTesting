@@ -24,14 +24,25 @@ def run(command: list[str]) -> None:
     subprocess.run(command, cwd=ROOT, check=True)
 
 
+def find_free_port() -> int:
+    """Reserve an available local TCP port number for the temporary vLLM server."""
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as listener:
+        listener.bind(("127.0.0.1", 0))
+        return int(listener.getsockname()[1])
+
+
 def start_clef_server(
-    executable: Path, model: str, concurrency: int
+    executable: Path, model: str, concurrency: int, port: int
 ) -> subprocess.Popen:
     """Start the local vLLM Clef server and wait for its model API."""
     command = [
         str(executable),
         "serve",
         model,
+        "--host",
+        "127.0.0.1",
+        "--port",
+        str(port),
         "--max-model-len",
         "4096",
         "--gpu-memory-utilization",
@@ -39,13 +50,6 @@ def start_clef_server(
         "--max-num-seqs",
         str(concurrency),
     ]
-    try:
-        with socket.create_connection(("127.0.0.1", 8000), timeout=0.2):
-            raise RuntimeError(
-                "A server already uses port 8000; stop it before test_all starts vLLM"
-            )
-    except OSError:
-        pass
     server = subprocess.Popen(command, cwd=ROOT)
     try:
         deadline = time.monotonic() + 1800
@@ -54,7 +58,7 @@ def start_clef_server(
                 raise RuntimeError("vLLM exited before the Clef API became ready")
             try:
                 with urllib.request.urlopen(
-                    "http://127.0.0.1:8000/v1/models", timeout=3
+                    f"http://127.0.0.1:{port}/v1/models", timeout=3
                 ):
                     return server
             except (urllib.error.URLError, TimeoutError):
@@ -238,10 +242,16 @@ def main() -> int:
             ]
         )
         run([str(PYTHON), str(ROOT / "scripts" / "report_runs.py"), str(run_path)])
+        server_port = find_free_port()
         server = start_clef_server(
-            args.vllm_executable, "Cloudflare/clef-flash", args.concurrency
+            args.vllm_executable,
+            "Cloudflare/clef-flash",
+            args.concurrency,
+            server_port,
         )
-        os.environ["VLLM_SYSTEMONE_URL"] = "http://127.0.0.1:8000/v1/systemone"
+        os.environ["VLLM_SYSTEMONE_URL"] = (
+            f"http://127.0.0.1:{server_port}/v1/systemone"
+        )
         gpu_log = None
         monitor = None
         try:
