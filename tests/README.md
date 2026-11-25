@@ -8,4 +8,4 @@ python3 scripts/test_all.py
 
 No Windows: `py -3.12 scripts/test_all.py`. Para rodar a suíte num ambiente já instalado, use `python3 scripts/test_all.py --no-install`. A suíte cobre o motor, as métricas de dataset e as tarefas históricas migradas. O fluxo não baixa pesos nem usa APIs pagas. Os gráficos dos relatórios são salvos em `charts/reports/`.
 
-Em uma máquina NVIDIA com o driver instalado, `python3.12 scripts/test_all.py --gpu` instala a build CUDA do PyTorch, verifica a placa, executa a mesma suíte e roda BLIP/Laya/D1. Depois, inicia Clef-Flash pelo vLLM e envia requisições em paralelo (padrão: 4) para gerar gráficos. Instale vLLM em `~/venvs/systemone-vllm` antes; `--skip-benchmark` pula todas as inferências.
+Em uma máquina Linux com NVIDIA, `python3.12 scripts/test_all.py --gpu` executa a suíte e o benchmark do Clef-Flash pelo vLLM, enviando quatro imagens simultaneamente por padrão. Instale vLLM em `~/venvs/systemone-vllm` antes. `--include-local-benchmarks` também roda BLIP/Laya/D1, que permanecem seriais; `--skip-benchmark` pula todas as inferências.

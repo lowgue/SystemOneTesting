@@ -38,14 +38,14 @@ python3.12 scripts/setup_benchmark.py --backend cpu
 
 O setup cria/reutiliza `.venv` e instala o projeto. Não baixa pesos nem inicia inferência. No Windows, use `py -3.12` para o setup e `.venv\Scripts\python.exe` nos comandos seguintes. O launcher Python do Clef também funciona no Windows; o wrapper `run_clef_local.sh` exige Bash/WSL.
 
-Para GPU, `python3.12 scripts/test_all.py --gpu` instala o PyTorch CUDA, roda os testes, mede BLIP/Laya/D1 e, por último, inicia Clef-Flash pelo vLLM com concorrência 4. O servidor é encerrado ao terminar a rodada. Instale uma versão atual do vLLM em um ambiente separado em `~/venvs/systemone-vllm`; o vLLM recente oferece o endpoint System One usado pelo Clef:
+Para GPU, o fluxo padrão `python3.12 scripts/test_all.py --gpu` roda a suíte e mede o conjunto de imagens com Clef-Flash pelo vLLM, em batches concorrentes de 4. Ele não roda os benchmarks BLIP/Laya/D1 serialmente antes do Clef. Para incluí-los, acrescente `--include-local-benchmarks`; esses adaptadores locais não oferecem uma interface comum segura para batch de imagens. Instale uma versão atual do vLLM em um ambiente separado em `~/venvs/systemone-vllm`; o vLLM recente oferece o endpoint System One usado pelo Clef:
 
 ```bash
 uv venv --python 3.12 --seed --managed-python ~/venvs/systemone-vllm
 uv pip install --python ~/venvs/systemone-vllm/bin/python --upgrade vllm --torch-backend=auto
 ```
 
-O driver NVIDIA precisa estar instalado. A build pip do PyTorch inclui o runtime CUDA necessário para os modelos locais; para selecionar outra build compatível, use `--torch-index-url` ou consulte o [seletor oficial do PyTorch](https://pytorch.org/get-started/locally/).
+O driver NVIDIA precisa estar instalado. A build pip do PyTorch inclui o runtime CUDA necessário para os modelos locais opcionais; para selecionar outra build compatível, use `--torch-index-url` ou consulte o [seletor oficial do PyTorch](https://pytorch.org/get-started/locally/).
 
 ```bash
 .venv/bin/python -m pip install -r requirements/models.txt -e . -e ./models/laya/laya_vision
@@ -309,11 +309,10 @@ Na máquina remota, com o repositório atualizado e o driver NVIDIA funcionando:
 ```bash
 cd ~/ProjetosJev/Luan/SystemOneTesting
 git pull
-git submodule update --init --recursive
 python3.12 scripts/test_all.py --gpu --repetitions 1 --concurrency 4
 ```
 
-Esse fluxo verifica CUDA, executa os testes automatizados, roda BLIP/Laya/D1 e inicia `Cloudflare/clef-flash` no vLLM para processar quatro imagens simultaneamente. Requer o executável `~/venvs/systemone-vllm/bin/vllm` e internet no primeiro download do modelo. O Clef roda depois dos modelos locais para não manter todos os pesos na GPU ao mesmo tempo. O script escolhe uma porta local livre para o servidor vLLM, então não precisa liberar a porta 8000. Os resultados ficam em `.artifacts/runs/` e `charts/reports/`; `clef-gpu.csv` registra amostras de utilização, memória e potência obtidas pelo `nvidia-smi`. Se o ambiente `.venv` e as dependências já estiverem instalados, acrescente `--no-install` para pular a instalação do projeto. Aumente `--concurrency` para medir mais solicitações simultâneas; reduza para 2 se houver erro de memória CUDA.
+Esse fluxo verifica CUDA, executa os testes automatizados e mede o Clef-Flash no vLLM com quatro imagens simultâneas. Requer o executável `~/venvs/systemone-vllm/bin/vllm` e internet no primeiro download do modelo. O script escolhe uma porta local livre, sem exigir que a porta 8000 esteja livre. Os resultados ficam em `.artifacts/runs/` e `charts/reports/`; `clef-gpu.csv` registra amostras de utilização, memória e potência obtidas pelo `nvidia-smi`. Se o ambiente `.venv` e as dependências já estiverem instalados, acrescente `--no-install` para pular a instalação do projeto. Aumente `--concurrency` para medir mais solicitações simultâneas; reduza para 2 se houver erro de memória CUDA. Acrescente `--include-local-benchmarks` para também rodar BLIP/Laya/D1 serialmente.
 
 Para rodar o dataset maior e diverso documentado acima, use o downloader e o runner em vez do benchmark padrão de 22 imagens:
 

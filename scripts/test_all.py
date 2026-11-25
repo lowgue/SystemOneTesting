@@ -82,7 +82,7 @@ def stop_server(server: subprocess.Popen) -> None:
 
 
 def main() -> int:
-    """Install dependencies, run tests, and benchmark local and vLLM models."""
+    """Install dependencies, run tests, and batch benchmark Clef through vLLM."""
     parser = argparse.ArgumentParser(
         description="Prepara o ambiente, executa os testes e gera gráficos de benchmark."
     )
@@ -94,12 +94,17 @@ def main() -> int:
     parser.add_argument(
         "--gpu",
         action="store_true",
-        help="Instala PyTorch CUDA, roda os modelos locais na GPU e gera gráficos.",
+        help="Roda o Clef no vLLM com requisições em batch.",
+    )
+    parser.add_argument(
+        "--include-local-benchmarks",
+        action="store_true",
+        help="Também roda BLIP, Laya e D1; esses benchmarks locais são seriais.",
     )
     parser.add_argument(
         "--torch-index-url",
         default="https://download.pytorch.org/whl/cu128",
-        help="Índice oficial do PyTorch para CUDA (padrão: cu128).",
+        help="Índice do PyTorch CUDA para --include-local-benchmarks (padrão: cu128).",
     )
     parser.add_argument(
         "--repetitions",
@@ -122,7 +127,7 @@ def main() -> int:
     parser.add_argument(
         "--skip-benchmark",
         action="store_true",
-        help="Com --gpu, prepara CUDA e roda testes unitários sem inferência.",
+        help="Roda só a suíte unitária; não inicia inferências.",
     )
     args = parser.parse_args()
     if args.repetitions < 1:
@@ -161,7 +166,7 @@ def main() -> int:
         shutil.rmtree(VENV, ignore_errors=True)
         venv.EnvBuilder(with_pip=True).create(VENV)
     if not args.no_install:
-        if args.gpu:
+        if args.gpu and args.include_local_benchmarks:
             run(["git", "submodule", "update", "--init", "--recursive"])
             run(
                 [
@@ -204,7 +209,7 @@ def main() -> int:
                     str(ROOT),
                 ]
             )
-    if args.gpu:
+    if args.gpu and args.include_local_benchmarks:
         run(
             [
                 str(PYTHON),
@@ -215,33 +220,53 @@ def main() -> int:
                 "'CUDA runtime:', torch.version.cuda)",
             ]
         )
+    elif args.gpu and not args.skip_benchmark:
+        vllm_python = args.vllm_executable.parent / "python"
+        run(
+            [
+                str(vllm_python),
+                "-c",
+                "import torch; assert torch.cuda.is_available(), "
+                "'PyTorch do vLLM não encontrou CUDA; confira driver e instalação.'; "
+                "print('GPU:', torch.cuda.get_device_name(0), "
+                "'CUDA runtime:', torch.version.cuda)",
+            ]
+        )
     run([str(PYTHON), "-m", "unittest", "discover", "-s", "tests", "-v"])
     if args.gpu and not args.skip_benchmark:
         timestamp = datetime.now().strftime("%Y%m%d-%H%M%S")
         run_path = ROOT / ".artifacts" / "runs" / f"gpu-{timestamp}"
-        run(
-            [
-                str(PYTHON),
-                "-m",
-                "vision_bench",
-                "run",
-                "--config",
-                str(ROOT / "benchmarks" / "configs" / "local.json"),
-                "--models",
-                "blip-vqa",
-                "laya-vision-head512",
-                "d1-omni-600M",
-                "--device",
-                "auto",
-                "--threads",
-                "auto",
-                "--repetitions",
-                str(args.repetitions),
-                "--output",
-                str(run_path),
-            ]
-        )
-        run([str(PYTHON), str(ROOT / "scripts" / "report_runs.py"), str(run_path)])
+        run_path.mkdir(parents=True, exist_ok=True)
+        if args.include_local_benchmarks:
+            run(
+                [
+                    str(PYTHON),
+                    "-m",
+                    "vision_bench",
+                    "run",
+                    "--config",
+                    str(ROOT / "benchmarks" / "configs" / "local.json"),
+                    "--models",
+                    "blip-vqa",
+                    "laya-vision-head512",
+                    "d1-omni-600M",
+                    "--device",
+                    "auto",
+                    "--threads",
+                    "auto",
+                    "--repetitions",
+                    str(args.repetitions),
+                    "--output",
+                    str(run_path / "local-models"),
+                ]
+            )
+            run(
+                [
+                    str(PYTHON),
+                    str(ROOT / "scripts" / "report_runs.py"),
+                    str(run_path / "local-models"),
+                ]
+            )
         server_port = find_free_port()
         server = start_clef_server(
             args.vllm_executable,

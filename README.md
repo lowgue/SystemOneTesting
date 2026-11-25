@@ -38,7 +38,7 @@ Com driver NVIDIA instalado e `nvidia-smi` funcionando, rode:
 python3 scripts/test_all.py --gpu
 ```
 
-No Linux, use `python3.12 scripts/test_all.py --gpu`. Esse fluxo instala a build CUDA oficial do PyTorch, executa a suíte unitária, mede BLIP/Laya/D1 e depois inicia Clef-Flash pelo vLLM. O Clef processa quatro imagens simultaneamente por padrão; `--concurrency` ajusta esse número. Instale o vLLM separadamente em `~/venvs/systemone-vllm`. O script inicia e encerra o servidor para não manter os modelos locais e o Clef ocupando VRAM ao mesmo tempo. Os pesos são baixados quando necessário e os resultados ficam em `.artifacts/runs/` e `charts/reports/`. O servidor vLLM requer Linux.
+No Linux, use `python3.12 scripts/test_all.py --gpu`. Esse fluxo executa a suíte e mede Clef-Flash pelo vLLM, enviando quatro imagens simultaneamente por padrão; `--concurrency` ajusta esse número. Instale o vLLM separadamente em `~/venvs/systemone-vllm`. O script inicia e encerra o servidor, baixa os pesos se necessário e salva resultados em `.artifacts/runs/` e `charts/reports/`. O servidor vLLM requer Linux. Para acrescentar BLIP/Laya/D1, use `--include-local-benchmarks`; esses benchmarks continuam seriais.
 
 ## Uso
 
