@@ -76,10 +76,15 @@ class SystemOneHTTP(MockAdapter):
         else:
             image_value = f"data:image/png;base64,{encoded_image}"
 
+        model_questions = questions(self.spec, self.contract, domain)
+        if self.spec.get("omit_question_instructions"):
+            for question in model_questions.values():
+                question.pop("instructions", None)
+
         payload: dict[str, Any] = {
             "state": "Describe only the visible attributes of the target in this image.",
             "images": [image_value],
-            "questions": questions(self.spec, self.contract, domain),
+            "questions": model_questions,
         }
         if model_name := self.spec.get("request_model"):
             payload["model"] = model_name
@@ -102,8 +107,8 @@ class SystemOneHTTP(MockAdapter):
             raise self._http_error(error) from None
         except urllib.error.URLError:
             raise RuntimeError(
-                "Não foi possível conectar ao servidor. Verifique o serviço "
-                "Ollama/llama-server e a configuração do endpoint."
+                "Não foi possível conectar ao servidor HTTP configurado; "
+                "verifique o serviço e o endpoint."
             ) from None
 
         raw = self._unwrap_response(raw)

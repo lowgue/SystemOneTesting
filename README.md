@@ -38,9 +38,7 @@ Com driver NVIDIA instalado e `nvidia-smi` funcionando, rode:
 python3 scripts/test_all.py --gpu
 ```
 
-No Windows, use `py -3.12 scripts/test_all.py --gpu`. Esse fluxo instala a build CUDA oficial do PyTorch, verifica que a GPU está acessível, executa toda a suíte unitária e roda o benchmark completo das 22 imagens portáteis com BLIP, Laya e D1. O device é selecionado automaticamente; `--threads auto` usa os núcleos físicos reportados pelo sistema, pois os modelos são executados um por vez. TF32 fica habilitado na GPU NVIDIA para acelerar operações de ponto flutuante. A rodada real baixa os pesos dos três modelos quando necessário e salva execução, dados e gráficos em `.artifacts/runs/` e `charts/reports/`.
-
-O Clef não entra nessa rodada: ele roda em um servidor externo e precisa de configuração própria de `llama-server`/CUDA. Para preparar esse caminho separado, use `scripts/setup_quick.sh --gpu` no Linux/macOS ou `scripts/setup_quick.ps1 -Gpu` no Windows. O índice CUDA pode ser trocado pela variável `PYTORCH_INDEX_URL`.
+No Linux, use `python3.12 scripts/test_all.py --gpu`. Esse fluxo instala a build CUDA oficial do PyTorch, executa a suíte unitária, mede BLIP/Laya/D1 e depois inicia Clef-Flash pelo vLLM. O Clef processa quatro imagens simultaneamente por padrão; `--concurrency` ajusta esse número. Instale o vLLM separadamente em `~/venvs/systemone-vllm`. O script inicia e encerra o servidor para não manter os modelos locais e o Clef ocupando VRAM ao mesmo tempo. Os pesos são baixados quando necessário e os resultados ficam em `.artifacts/runs/` e `charts/reports/`. O servidor vLLM requer Linux.
 
 ## Uso
 

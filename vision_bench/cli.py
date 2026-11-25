@@ -55,7 +55,7 @@ def _build_parser():
         "--concurrency",
         type=int,
         default=1,
-        help="Parallel requests for vLLM; requests are grouped by the server.",
+        help="Parallel requests for HTTP models; the server may group them.",
     )
     run.add_argument("--threads", type=_parse_threads, default="auto")
     run.add_argument("--device", default="auto", help="auto, cpu, cuda, or cuda:N")

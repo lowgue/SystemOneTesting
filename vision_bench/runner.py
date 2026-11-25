@@ -714,7 +714,9 @@ def _run_model_block(
 
             random.Random(args.seed + block).shuffle(pending_items)
             concurrency = (
-                args.concurrency if spec['adapter'] == 'vllm_openai' else 1
+                args.concurrency
+                if spec['adapter'] in {'systemone_http', 'vllm_openai'}
+                else 1
             )
             batches = (
                 [
@@ -826,10 +828,12 @@ def run(args):
     args.device = resolve_device(args.device, has_local_torch_models)
     args.threads = resolve_thread_count(args.threads)
     if args.concurrency > 1 and any(
-        spec['adapter'] != 'vllm_openai' for spec in specs
+        spec['adapter'] not in {'systemone_http', 'vllm_openai'}
+        for spec in specs
     ):
         raise ValueError(
-            '--concurrency greater than 1 requires only vllm_openai models'
+            '--concurrency greater than 1 requires only HTTP models '
+            '(systemone_http or vllm_openai)'
         )
     print(
         f"Runtime selecionado: dispositivo={args.device}, "

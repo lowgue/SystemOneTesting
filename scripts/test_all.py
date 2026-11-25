@@ -1,10 +1,16 @@
-"""Set up the lightweight test environment, run every test, and save available charts."""
+"""Run unit tests and GPU benchmarks, including batched Clef through vLLM."""
 
 import argparse
 from datetime import datetime
+import os
 from pathlib import Path
+import shutil
+import socket
 import subprocess
 import sys
+import time
+import urllib.error
+import urllib.request
 import venv
 
 
@@ -18,8 +24,61 @@ def run(command: list[str]) -> None:
     subprocess.run(command, cwd=ROOT, check=True)
 
 
+def start_clef_server(
+    executable: Path, model: str, concurrency: int
+) -> subprocess.Popen:
+    """Start the local vLLM Clef server and wait for its model API."""
+    command = [
+        str(executable),
+        "serve",
+        model,
+        "--max-model-len",
+        "4096",
+        "--gpu-memory-utilization",
+        "0.90",
+        "--max-num-seqs",
+        str(concurrency),
+    ]
+    try:
+        with socket.create_connection(("127.0.0.1", 8000), timeout=0.2):
+            raise RuntimeError(
+                "A server already uses port 8000; stop it before test_all starts vLLM"
+            )
+    except OSError:
+        pass
+    server = subprocess.Popen(command, cwd=ROOT)
+    try:
+        deadline = time.monotonic() + 1800
+        while time.monotonic() < deadline:
+            if server.poll() is not None:
+                raise RuntimeError("vLLM exited before the Clef API became ready")
+            try:
+                with urllib.request.urlopen(
+                    "http://127.0.0.1:8000/v1/models", timeout=3
+                ):
+                    return server
+            except (urllib.error.URLError, TimeoutError):
+                time.sleep(2)
+        raise TimeoutError("Timed out waiting for the vLLM Clef server")
+    except BaseException:
+        stop_server(server)
+        raise
+
+
+def stop_server(server: subprocess.Popen) -> None:
+    """Stop the vLLM server started for the benchmark and wait for cleanup."""
+    if server.poll() is not None:
+        return
+    server.terminate()
+    try:
+        server.wait(timeout=30)
+    except subprocess.TimeoutExpired:
+        server.kill()
+        server.wait()
+
+
 def main() -> int:
-    """Install dependencies, run tests, and optionally benchmark local CUDA models."""
+    """Install dependencies, run tests, and benchmark local and vLLM models."""
     parser = argparse.ArgumentParser(
         description="Prepara o ambiente, executa os testes e gera gráficos de benchmark."
     )
@@ -45,6 +104,18 @@ def main() -> int:
         help="Repetições por imagem no benchmark GPU (padrão: 3).",
     )
     parser.add_argument(
+        "--concurrency",
+        type=int,
+        default=4,
+        help="Imagens simultâneas enviadas ao vLLM para batching (padrão: 4).",
+    )
+    parser.add_argument(
+        "--vllm-executable",
+        type=Path,
+        default=Path.home() / "venvs" / "systemone-vllm" / "bin" / "vllm",
+        help="Executável vLLM instalado no ambiente dedicado.",
+    )
+    parser.add_argument(
         "--skip-benchmark",
         action="store_true",
         help="Com --gpu, prepara CUDA e roda testes unitários sem inferência.",
@@ -52,11 +123,38 @@ def main() -> int:
     args = parser.parse_args()
     if args.repetitions < 1:
         parser.error("--repetitions precisa ser positivo.")
+    if args.concurrency < 1:
+        parser.error("--concurrency precisa ser positivo.")
     if sys.version_info < (3, 12):
         parser.error("Python 3.12 ou superior é necessário.")
-    if args.no_install and not PYTHON.is_file():
-        parser.error("O ambiente .venv não existe; rode sem --no-install para criá-lo.")
-    if not PYTHON.is_file():
+    if (
+        args.gpu
+        and not args.skip_benchmark
+        and not args.vllm_executable.is_file()
+    ):
+        parser.error(
+            f"vLLM não encontrado em {args.vllm_executable}; "
+            "instale-o no ambiente dedicado ou informe --vllm-executable."
+        )
+    venv_usable = PYTHON.is_file()
+    if venv_usable:
+        try:
+            subprocess.run(
+                [str(PYTHON), "-c", "import encodings"],
+                cwd=ROOT,
+                check=True,
+                stdout=subprocess.DEVNULL,
+                stderr=subprocess.DEVNULL,
+            )
+        except (OSError, subprocess.CalledProcessError):
+            venv_usable = False
+    if args.no_install and not venv_usable:
+        parser.error(
+            "O ambiente .venv está ausente ou quebrado; remova .venv e rode "
+            "novamente sem --no-install para recriá-lo."
+        )
+    if not venv_usable:
+        shutil.rmtree(VENV, ignore_errors=True)
         venv.EnvBuilder(with_pip=True).create(VENV)
     if not args.no_install:
         if args.gpu:
@@ -140,6 +238,79 @@ def main() -> int:
             ]
         )
         run([str(PYTHON), str(ROOT / "scripts" / "report_runs.py"), str(run_path)])
+        server = start_clef_server(
+            args.vllm_executable, "Cloudflare/clef-flash", args.concurrency
+        )
+        os.environ["VLLM_SYSTEMONE_URL"] = "http://127.0.0.1:8000/v1/systemone"
+        gpu_log = None
+        monitor = None
+        try:
+            clef_run = run_path / "clef-vllm"
+            if shutil.which("nvidia-smi"):
+                gpu_log = (run_path / "clef-gpu.csv").open("w", encoding="utf-8")
+                gpu_log.write(
+                    "timestamp,utilization_gpu_pct,memory_used_MiB,"
+                    "memory_total_MiB,power_W\n"
+                )
+                monitor = subprocess.Popen(
+                    [
+                        "nvidia-smi",
+                        "--id=0",
+                        "--query-gpu=timestamp,utilization.gpu,memory.used,"
+                        "memory.total,power.draw",
+                        "--format=csv,noheader,nounits",
+                        "--loop=1",
+                    ],
+                    stdout=gpu_log,
+                    stderr=subprocess.DEVNULL,
+                )
+            run(
+                [
+                    str(PYTHON),
+                    "-m",
+                    "vision_bench",
+                    "run",
+                    "--config",
+                    str(ROOT / "benchmarks" / "configs" / "vllm-systemone.json"),
+                    "--contract",
+                    str(
+                        ROOT
+                        / "benchmarks"
+                        / "contracts"
+                        / "description_ollama_v1.json"
+                    ),
+                    "--models",
+                    "clef-flash-vllm",
+                    "--device",
+                    "cpu",
+                    "--threads",
+                    "auto",
+                    "--repetitions",
+                    str(args.repetitions),
+                    "--concurrency",
+                    str(args.concurrency),
+                    "--output",
+                    str(clef_run),
+                ]
+            )
+            run(
+                [
+                    str(PYTHON),
+                    str(ROOT / "scripts" / "report_runs.py"),
+                    str(clef_run),
+                ]
+            )
+        finally:
+            if monitor is not None:
+                monitor.terminate()
+                try:
+                    monitor.wait(timeout=10)
+                except subprocess.TimeoutExpired:
+                    monitor.kill()
+                    monitor.wait()
+            if gpu_log is not None:
+                gpu_log.close()
+            stop_server(server)
     else:
         run([str(PYTHON), str(ROOT / "scripts" / "report_runs.py")])
     return 0

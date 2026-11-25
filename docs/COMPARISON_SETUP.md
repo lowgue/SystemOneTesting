@@ -38,7 +38,14 @@ python3.12 scripts/setup_benchmark.py --backend cpu
 
 O setup cria/reutiliza `.venv` e instala o projeto. Não baixa pesos nem inicia inferência. No Windows, use `py -3.12` para o setup e `.venv\Scripts\python.exe` nos comandos seguintes. O launcher Python do Clef também funciona no Windows; o wrapper `run_clef_local.sh` exige Bash/WSL.
 
-Para GPU, o fluxo recomendado para testar e medir os três modelos locais está em `python3 scripts/test_all.py --gpu`: ele instala PyTorch pelo índice CUDA 12.8 oficial, identifica a GPU, usa `--device auto --threads auto`, roda os testes e salva gráficos. O driver NVIDIA precisa estar instalado. A build pip do PyTorch inclui o runtime CUDA necessário; não é preciso instalar o CUDA Toolkit para usar os wheels oficiais. Para selecionar outra build compatível, use `PYTORCH_INDEX_URL` ou consulte o [seletor oficial do PyTorch](https://pytorch.org/get-started/locally/).
+Para GPU, `python3.12 scripts/test_all.py --gpu` instala o PyTorch CUDA, roda os testes, mede BLIP/Laya/D1 e, por último, inicia Clef-Flash pelo vLLM com concorrência 4. O servidor é encerrado ao terminar a rodada. Instale uma versão atual do vLLM em um ambiente separado em `~/venvs/systemone-vllm`; o vLLM recente oferece o endpoint System One usado pelo Clef:
+
+```bash
+uv venv --python 3.12 --seed --managed-python ~/venvs/systemone-vllm
+uv pip install --python ~/venvs/systemone-vllm/bin/python --upgrade vllm --torch-backend=auto
+```
+
+O driver NVIDIA precisa estar instalado. A build pip do PyTorch inclui o runtime CUDA necessário para os modelos locais; para selecionar outra build compatível, use `--torch-index-url` ou consulte o [seletor oficial do PyTorch](https://pytorch.org/get-started/locally/).
 
 ```bash
 .venv/bin/python -m pip install -r requirements/models.txt -e . -e ./models/laya/laya_vision
@@ -156,7 +163,26 @@ export VLLM_MODEL=nome-do-modelo-servido
   --output .artifacts/runs/vllm-smoke
 ```
 
-O valor de `--concurrency` limita quantas imagens são enviadas em paralelo; cada imagem continua sendo uma requisição independente e o servidor vLLM pode agrupá-las durante a inferência. O padrão é `1`. A concorrência maior que `1` só é aceita no perfil vLLM. As linhas registram `batch_size`, `batch_elapsed_ms` e `batch_id`; o relatório calcula throughput pelo tempo total de cada lote. CPU e RSS são compartilhados pelo lote e identificados como `client_batch_shared`. O uso de GPU do servidor continua fora dos contadores CUDA do cliente.
+O valor de `--concurrency` limita quantas imagens são enviadas em paralelo; cada imagem continua sendo uma requisição independente e o servidor pode agrupá-las durante a inferência. O padrão é `1`. A concorrência maior que `1` só é aceita para adaptadores HTTP (`systemone_http` e `vllm_openai`). As linhas registram `batch_size`, `batch_elapsed_ms` e `batch_id`; o relatório calcula throughput pelo tempo total de cada lote. CPU e RSS são compartilhados pelo lote e identificados como `client_batch_shared`. O uso de GPU do servidor continua fora dos contadores CUDA do cliente.
+
+Para o endpoint System One nativo do vLLM, o perfil `benchmarks/configs/vllm-systemone.json` usa `Cloudflare/clef-flash`:
+
+```bash
+vllm serve Cloudflare/clef-flash --max-model-len 8192
+```
+
+Em outro terminal:
+
+```bash
+export VLLM_SYSTEMONE_URL=http://127.0.0.1:8000/v1/systemone
+.venv/bin/python -m vision_bench run \
+  --config benchmarks/configs/vllm-systemone.json \
+  --contract benchmarks/contracts/description_ollama_v1.json \
+  --models clef-flash-vllm --limit 2 --repetitions 1 --concurrency 2 \
+  --output .artifacts/runs/vllm-systemone-smoke
+```
+
+O Clef-Flash usa um schema fixo e o endpoint vLLM rejeita `instructions` por pergunta; o perfil remove esse campo e mantém as opções do contrato. O vLLM documenta esse modelo no endpoint `/v1/systemone` e entrada de imagens. Reduza `--concurrency` ou `--max-model-len` se a GPU ficar sem memória.
 
 Para autenticação, defina `token_env` no arquivo de configuração e exporte a variável correspondente. Não inclua credenciais na URL ou no JSON. O runner registra a URL e o nome de modelo resolvidos no snapshot congelado da execução.
 
@@ -284,10 +310,10 @@ Na máquina remota, com o repositório atualizado e o driver NVIDIA funcionando:
 cd ~/ProjetosJev/Luan/SystemOneTesting
 git pull
 git submodule update --init --recursive
-python3.12 scripts/test_all.py --gpu
+python3.12 scripts/test_all.py --gpu --repetitions 1 --concurrency 4
 ```
 
-Esse fluxo verifica CUDA, executa os testes automatizados e roda o benchmark padrão de 22 imagens. Ao terminar, também gera um relatório em `charts/reports/`. Se o ambiente `.venv` e as dependências já estiverem instalados, acrescente `--no-install` para pular a instalação.
+Esse fluxo verifica CUDA, executa os testes automatizados, roda BLIP/Laya/D1 e inicia `Cloudflare/clef-flash` no vLLM para processar quatro imagens simultaneamente. Requer o executável `~/venvs/systemone-vllm/bin/vllm` e internet no primeiro download do modelo. O Clef roda depois dos modelos locais para não manter todos os pesos na GPU ao mesmo tempo. Os resultados ficam em `.artifacts/runs/` e `charts/reports/`; `clef-gpu.csv` registra amostras de utilização, memória e potência obtidas pelo `nvidia-smi`. Se o ambiente `.venv` e as dependências já estiverem instalados, acrescente `--no-install` para pular a instalação do projeto. Aumente `--concurrency` para medir mais solicitações simultâneas; reduza para 2 se houver erro de memória CUDA.
 
 Para rodar o dataset maior e diverso documentado acima, use o downloader e o runner em vez do benchmark padrão de 22 imagens:
 
