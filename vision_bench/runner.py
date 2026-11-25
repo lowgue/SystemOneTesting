@@ -727,6 +727,12 @@ def _run_model_block(
                 else [[item] for item in pending_items]
             )
             for batch_number, batch in enumerate(batches):
+                if concurrency > 1:
+                    print(
+                        f'Batch {batch_number + 1}/{len(batches)} '
+                        f'{spec["id"]}: {len(batch)} imagens concorrentes',
+                        flush=True,
+                    )
                 batch_started = time.perf_counter()
                 batch_resource = Resources() if concurrency > 1 else nullcontext()
                 with batch_resource as resources:
