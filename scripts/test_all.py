@@ -1,7 +1,8 @@
-"""Run unit tests and GPU benchmarks, including batched Clef through vLLM."""
+"""Run unit tests and batch GPU benchmarks for every configured vLLM model."""
 
 import argparse
 from datetime import datetime
+import json
 import os
 from pathlib import Path
 import shutil
@@ -12,11 +13,15 @@ import time
 import urllib.error
 import urllib.request
 import venv
+from typing import Any
 
 
 ROOT = Path(__file__).resolve().parents[1]
 VENV = ROOT / ".venv"
 PYTHON = VENV / ("Scripts/python.exe" if sys.platform == "win32" else "bin/python")
+sys.path.insert(0, str(ROOT))
+
+from vision_bench.gpu import resolve_concurrency  # noqa: E402
 
 
 def run(command: list[str]) -> None:
@@ -25,37 +30,74 @@ def run(command: list[str]) -> None:
 
 
 def find_free_port() -> int:
-    """Reserve an available local TCP port number for the temporary vLLM server."""
+    """Reserve an available local TCP port number for a temporary vLLM server."""
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as listener:
         listener.bind(("127.0.0.1", 0))
         return int(listener.getsockname()[1])
 
 
-def start_clef_server(
-    executable: Path, model: str, concurrency: int, port: int
+def load_vllm_manifest(path: Path) -> dict:
+    """Validate the manifest that describes models served by temporary vLLM processes."""
+    manifest = json.loads(path.read_text(encoding="utf-8"))
+    if manifest.get("schema_version") != 1:
+        raise ValueError(f"Versão de schema não suportada em {path}")
+    models = manifest.get("models")
+    if not isinstance(models, list) or not models:
+        raise ValueError(f"Nenhum modelo definido em {path}")
+    identifiers = set()
+    for entry in models:
+        for field in (
+            "id",
+            "adapter",
+            "model",
+            "served_model",
+            "route",
+            "contract",
+            "url_env",
+        ):
+            if not entry.get(field):
+                raise ValueError(f"Modelo vLLM sem {field}: {entry}")
+        if entry["id"] in identifiers:
+            raise ValueError(f"ID de modelo vLLM duplicado: {entry['id']}")
+        if entry["route"] not in {"systemone", "chat/completions"}:
+            raise ValueError(f"Rota vLLM desconhecida: {entry['route']}")
+        identifiers.add(entry["id"])
+    return manifest
+
+
+def start_vllm_server(
+    executable: Path,
+    entry: dict,
+    manifest: dict,
+    concurrency: int,
+    port: int,
+    log_stream: Any,
 ) -> subprocess.Popen:
-    """Start the local vLLM Clef server and wait for its model API."""
+    """Start one vLLM model server and wait for its model API to answer."""
     command = [
         str(executable),
         "serve",
-        model,
+        entry["served_model"],
         "--host",
         "127.0.0.1",
         "--port",
         str(port),
         "--max-model-len",
-        "4096",
+        str(manifest.get("max_model_len", 4096)),
         "--gpu-memory-utilization",
-        "0.90",
+        str(manifest.get("gpu_memory_utilization", 0.9)),
         "--max-num-seqs",
         str(concurrency),
+        "--trust-remote-code",
     ]
-    server = subprocess.Popen(command, cwd=ROOT)
+    if entry.get("revision"):
+        command.extend(["--revision", entry["revision"]])
+    server = subprocess.Popen(command, cwd=ROOT, stdout=log_stream, stderr=log_stream)
     try:
         deadline = time.monotonic() + 1800
         while time.monotonic() < deadline:
             if server.poll() is not None:
-                raise RuntimeError("vLLM exited before the Clef API became ready")
+                raise RuntimeError("vLLM saiu antes da API ficar pronta")
             try:
                 with urllib.request.urlopen(
                     f"http://127.0.0.1:{port}/v1/models", timeout=3
@@ -63,14 +105,14 @@ def start_clef_server(
                     return server
             except (urllib.error.URLError, TimeoutError):
                 time.sleep(2)
-        raise TimeoutError("Timed out waiting for the vLLM Clef server")
+        raise TimeoutError("Tempo esgotado esperando o servidor vLLM")
     except BaseException:
         stop_server(server)
         raise
 
 
 def stop_server(server: subprocess.Popen) -> None:
-    """Stop the vLLM server started for the benchmark and wait for cleanup."""
+    """Stop a server started for the benchmark and wait for cleanup."""
     if server.poll() is not None:
         return
     server.terminate()
@@ -81,8 +123,123 @@ def stop_server(server: subprocess.Popen) -> None:
         server.wait()
 
 
+def start_gpu_monitor(csv_path: Path) -> subprocess.Popen | None:
+    """Start nvidia-smi telemetry writing one CSV row per second."""
+    if not shutil.which("nvidia-smi"):
+        return None
+    stream = csv_path.open("w", encoding="utf-8")
+    stream.write(
+        "timestamp,utilization_gpu_pct,memory_used_MiB,memory_total_MiB,power_W\n"
+    )
+    stream.flush()
+    return subprocess.Popen(
+        [
+            "nvidia-smi",
+            "--id=0",
+            "--query-gpu=timestamp,utilization.gpu,memory.used,"
+            "memory.total,power.draw",
+            "--format=csv,noheader,nounits",
+            "--loop=1",
+        ],
+        stdout=stream,
+        stderr=subprocess.DEVNULL,
+    )
+
+
+def stop_gpu_monitor(monitor: subprocess.Popen | None) -> None:
+    """Stop an nvidia-smi monitor and close its CSV output."""
+    if monitor is None:
+        return
+    if monitor.poll() is None:
+        monitor.terminate()
+        try:
+            monitor.wait(timeout=10)
+        except subprocess.TimeoutExpired:
+            monitor.kill()
+            monitor.wait()
+    if monitor.stdout is not None:
+        monitor.stdout.close()
+
+
+def write_model_config(path: Path, entry: dict) -> None:
+    """Write the temporary single-model configuration consumed by the runner."""
+    serving_fields = {"served_model", "route", "contract"}
+    spec = {
+        key: value for key, value in entry.items() if key not in serving_fields
+    }
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(
+        json.dumps({"schema_version": 1, "models": [spec]}, indent=2, ensure_ascii=False)
+        + "\n",
+        encoding="utf-8",
+    )
+
+
+def benchmark_model(
+    args: argparse.Namespace,
+    entry: dict,
+    manifest: dict,
+    concurrency: int,
+    run_root: Path,
+) -> Path:
+    """Serve one model with vLLM, benchmark it in batches, and return its run path."""
+    config_path = run_root / "configs" / f"{entry['id']}.json"
+    write_model_config(config_path, entry)
+    port = find_free_port()
+    os.environ[entry["url_env"]] = (
+        f"http://127.0.0.1:{port}/v1/{entry['route']}"
+    )
+    log_path = run_root / f"{entry['id']}-vllm.log"
+    with log_path.open("w", encoding="utf-8") as log_stream:
+        server = start_vllm_server(
+            args.vllm_executable, entry, manifest, concurrency, port, log_stream
+        )
+        monitor = None
+        try:
+            monitor = start_gpu_monitor(
+                run_root / f"{entry['id']}-gpu.csv"
+            )
+            output = run_root / entry["id"]
+            run(
+                [
+                    str(PYTHON),
+                    "-m",
+                    "vision_bench",
+                    "run",
+                    "--config",
+                    str(config_path),
+                    "--contract",
+                    str(
+                        ROOT
+                        / "benchmarks"
+                        / "contracts"
+                        / entry["contract"]
+                    ),
+                    "--models",
+                    entry["id"],
+                    "--device",
+                    "cpu",
+                    "--threads",
+                    "auto",
+                    "--repetitions",
+                    str(args.repetitions),
+                    "--concurrency",
+                    str(concurrency),
+                    "--output",
+                    str(output),
+                ]
+            )
+            status = json.loads((output / "status.json").read_text(encoding="utf-8"))
+            if status.get("status") != "complete":
+                raise RuntimeError(f"Execução incompleta: {output}")
+            return output
+        finally:
+            stop_gpu_monitor(monitor)
+            stop_server(server)
+
+
 def main() -> int:
-    """Install dependencies, run tests, and batch benchmark Clef through vLLM."""
+    """Install dependencies, run tests, and batch benchmark every selected model."""
     parser = argparse.ArgumentParser(
         description="Prepara o ambiente, executa os testes e gera gráficos de benchmark."
     )
@@ -94,12 +251,12 @@ def main() -> int:
     parser.add_argument(
         "--gpu",
         action="store_true",
-        help="Roda o Clef no vLLM com requisições em batch.",
+        help="Roda todos os modelos do manifesto vLLM com requisições em batch.",
     )
     parser.add_argument(
         "--include-local-benchmarks",
         action="store_true",
-        help="Também roda BLIP, Laya e D1; esses benchmarks locais são seriais.",
+        help="Também roda BLIP, Laya e D1 em processo como baseline serial.",
     )
     parser.add_argument(
         "--torch-index-url",
@@ -114,9 +271,25 @@ def main() -> int:
     )
     parser.add_argument(
         "--concurrency",
+        default="auto",
+        help="Imagens simultâneas no vLLM: inteiro positivo ou auto (padrão: auto).",
+    )
+    parser.add_argument(
+        "--max-concurrency",
         type=int,
-        default=4,
-        help="Imagens simultâneas enviadas ao vLLM para batching (padrão: 4).",
+        default=64,
+        help="Teto da concorrência automática calculada pela GPU (padrão: 64).",
+    )
+    parser.add_argument(
+        "--models",
+        nargs="+",
+        help="IDs do manifesto vLLM; sem este argumento, roda todos os modelos.",
+    )
+    parser.add_argument(
+        "--vllm-models-config",
+        type=Path,
+        default=ROOT / "benchmarks" / "configs" / "vllm-models.json",
+        help="Manifesto com os modelos servidos pelo vLLM.",
     )
     parser.add_argument(
         "--vllm-executable",
@@ -130,12 +303,26 @@ def main() -> int:
         help="Roda só a suíte unitária; não inicia inferências.",
     )
     args = parser.parse_args()
+
     if args.repetitions < 1:
         parser.error("--repetitions precisa ser positivo.")
-    if args.concurrency < 1:
-        parser.error("--concurrency precisa ser positivo.")
+    if args.max_concurrency < 1:
+        parser.error("--max-concurrency precisa ser positivo.")
+    try:
+        concurrency = resolve_concurrency(args.concurrency, args.max_concurrency)
+    except ValueError as error:
+        parser.error(str(error))
     if sys.version_info < (3, 12):
         parser.error("Python 3.12 ou superior é necessário.")
+    manifest = load_vllm_manifest(args.vllm_models_config)
+    known_models = {entry["id"] for entry in manifest["models"]}
+    selected = set(args.models or [])
+    unknown_models = selected - known_models
+    if unknown_models:
+        parser.error(
+            f"Modelos desconhecidos: {', '.join(sorted(unknown_models))}. "
+            f"Disponíveis: {', '.join(sorted(known_models))}"
+        )
     if (
         args.gpu
         and not args.skip_benchmark
@@ -235,117 +422,78 @@ def main() -> int:
     run([str(PYTHON), "-m", "unittest", "discover", "-s", "tests", "-v"])
     if args.gpu and not args.skip_benchmark:
         timestamp = datetime.now().strftime("%Y%m%d-%H%M%S")
-        run_path = ROOT / ".artifacts" / "runs" / f"gpu-{timestamp}"
-        run_path.mkdir(parents=True, exist_ok=True)
+        run_root = ROOT / ".artifacts" / "runs" / f"gpu-{timestamp}"
+        run_root.mkdir(parents=True, exist_ok=True)
+        print(
+            f"Batch automático: {concurrency} imagens simultâneas "
+            f"(limite configurado: {args.max_concurrency}).",
+            flush=True,
+        )
+        completed_runs = []
+        contract_path = (
+            ROOT / "benchmarks" / "contracts" / "description_ollama_v1.json"
+        )
         if args.include_local_benchmarks:
-            run(
-                [
-                    str(PYTHON),
-                    "-m",
-                    "vision_bench",
-                    "run",
-                    "--config",
-                    str(ROOT / "benchmarks" / "configs" / "local.json"),
-                    "--models",
-                    "blip-vqa",
-                    "laya-vision-head512",
-                    "d1-omni-600M",
-                    "--device",
-                    "auto",
-                    "--threads",
-                    "auto",
-                    "--repetitions",
-                    str(args.repetitions),
-                    "--output",
-                    str(run_path / "local-models"),
-                ]
-            )
-            run(
-                [
-                    str(PYTHON),
-                    str(ROOT / "scripts" / "report_runs.py"),
-                    str(run_path / "local-models"),
-                ]
-            )
-        server_port = find_free_port()
-        server = start_clef_server(
-            args.vllm_executable,
-            "Cloudflare/clef-flash",
-            args.concurrency,
-            server_port,
-        )
-        os.environ["VLLM_SYSTEMONE_URL"] = (
-            f"http://127.0.0.1:{server_port}/v1/systemone"
-        )
-        gpu_log = None
-        monitor = None
-        try:
-            clef_run = run_path / "clef-vllm"
-            if shutil.which("nvidia-smi"):
-                gpu_log = (run_path / "clef-gpu.csv").open("w", encoding="utf-8")
-                gpu_log.write(
-                    "timestamp,utilization_gpu_pct,memory_used_MiB,"
-                    "memory_total_MiB,power_W\n"
-                )
-                monitor = subprocess.Popen(
+            local_output = run_root / "local-models"
+            try:
+                run(
                     [
-                        "nvidia-smi",
-                        "--id=0",
-                        "--query-gpu=timestamp,utilization.gpu,memory.used,"
-                        "memory.total,power.draw",
-                        "--format=csv,noheader,nounits",
-                        "--loop=1",
-                    ],
-                    stdout=gpu_log,
-                    stderr=subprocess.DEVNULL,
+                        str(PYTHON),
+                        "-m",
+                        "vision_bench",
+                        "run",
+                        "--config",
+                        str(ROOT / "benchmarks" / "configs" / "local.json"),
+                        "--contract",
+                        str(contract_path),
+                        "--models",
+                        "blip-vqa",
+                        "laya-vision-head512",
+                        "d1-omni-600M",
+                        "--device",
+                        "auto",
+                        "--threads",
+                        "auto",
+                        "--repetitions",
+                        str(args.repetitions),
+                        "--output",
+                        str(local_output),
+                    ]
                 )
-            run(
-                [
-                    str(PYTHON),
-                    "-m",
-                    "vision_bench",
-                    "run",
-                    "--config",
-                    str(ROOT / "benchmarks" / "configs" / "vllm-systemone.json"),
-                    "--contract",
-                    str(
-                        ROOT
-                        / "benchmarks"
-                        / "contracts"
-                        / "description_ollama_v1.json"
-                    ),
-                    "--models",
-                    "clef-flash-vllm",
-                    "--device",
-                    "cpu",
-                    "--threads",
-                    "auto",
-                    "--repetitions",
-                    str(args.repetitions),
-                    "--concurrency",
-                    str(args.concurrency),
-                    "--output",
-                    str(clef_run),
-                ]
-            )
+                completed_runs.append(local_output)
+            except subprocess.CalledProcessError as error:
+                print(f"Baseline local falhou: {error}", file=sys.stderr)
+        for entry in manifest["models"]:
+            if selected and entry["id"] not in selected:
+                continue
+            print(f"Iniciando vLLM para {entry['id']}...", flush=True)
+            try:
+                completed_runs.append(
+                    benchmark_model(args, entry, manifest, concurrency, run_root)
+                )
+            except (
+                OSError,
+                RuntimeError,
+                subprocess.SubprocessError,
+                TimeoutError,
+                ValueError,
+                KeyError,
+            ) as error:
+                print(
+                    f"Benchmark {entry['id']} falhou: {error}; "
+                    f"detalhes em {run_root / (entry['id'] + '-vllm.log')}",
+                    file=sys.stderr,
+                )
+        if completed_runs:
             run(
                 [
                     str(PYTHON),
                     str(ROOT / "scripts" / "report_runs.py"),
-                    str(clef_run),
+                    *(str(path) for path in completed_runs),
                 ]
             )
-        finally:
-            if monitor is not None:
-                monitor.terminate()
-                try:
-                    monitor.wait(timeout=10)
-                except subprocess.TimeoutExpired:
-                    monitor.kill()
-                    monitor.wait()
-            if gpu_log is not None:
-                gpu_log.close()
-            stop_server(server)
+        else:
+            print("Nenhuma execução GPU terminou; não há gráficos para gerar.")
     else:
         run([str(PYTHON), str(ROOT / "scripts" / "report_runs.py")])
     return 0

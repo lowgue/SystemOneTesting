@@ -33,6 +33,19 @@ def _parse_threads(value):
     return thread_count
 
 
+def _parse_concurrency(value):
+    """Accept automatic GPU sizing or a positive explicit request count."""
+    if value == "auto":
+        return value
+    try:
+        concurrency = int(value)
+    except ValueError:
+        raise argparse.ArgumentTypeError("use 'auto' or a positive integer") from None
+    if concurrency < 1:
+        raise argparse.ArgumentTypeError("concurrency must be positive")
+    return concurrency
+
+
 def _build_parser():
     """Define the command-line interface and its command-specific options."""
     parser = argparse.ArgumentParser(description=__doc__)
@@ -53,9 +66,9 @@ def _build_parser():
     run.add_argument("--repetitions", type=int, default=3)
     run.add_argument(
         "--concurrency",
-        type=int,
+        type=_parse_concurrency,
         default=1,
-        help="Parallel requests for HTTP models; the server may group them.",
+        help="Parallel HTTP requests, a positive integer, or 'auto' for GPU-based sizing.",
     )
     run.add_argument("--threads", type=_parse_threads, default="auto")
     run.add_argument("--device", default="auto", help="auto, cpu, cuda, or cuda:N")

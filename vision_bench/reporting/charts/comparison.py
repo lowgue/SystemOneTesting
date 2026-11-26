@@ -84,6 +84,40 @@ def _save_figure(figure: Any, output: Path, stem: str) -> None:
         )
 
 
+def _plot_min_mean_max(
+    axis: Any,
+    models: list[str],
+    samples: dict[str, list[float]],
+    colors: dict[str, str],
+    unit: str,
+) -> None:
+    """Compare each model's observed minimum, mean, and maximum."""
+    positions = []
+    labels = []
+    for position, model in enumerate(models, 1):
+        values = samples[model]
+        if not values:
+            continue
+        low, mean, high = min(values), float(np.mean(values)), max(values)
+        axis.plot([low, high], [position, position], color=colors[model], linewidth=3)
+        axis.scatter([low, high], [position, position], color=colors[model], s=24)
+        axis.scatter([mean], [position], color="black", marker="D", s=28, zorder=3)
+        positions.append(position)
+        labels.append(model_label(model))
+        axis.annotate(
+            f"mín {low:.2f} · média {mean:.2f} · máx {high:.2f}",
+            (high, position),
+            xytext=(5, 0),
+            textcoords="offset points",
+            va="center",
+            fontsize=8,
+        )
+    axis.set_yticks(positions, labels)
+    axis.set_xlabel(unit)
+    axis.grid(axis="x", alpha=0.25)
+    axis.set_axisbelow(True)
+
+
 def generate_performance_charts(
     plot_inputs: list[dict[str, Any]], lines: list[str], output: Path
 ) -> None:
@@ -121,6 +155,64 @@ def generate_performance_charts(
                 f'![Latência — {entry["label"]}](charts/latency/latency_{index}.png)'
             )
 
+            figure, axes = plt.subplots(1, 2, figsize=(12, 5))
+            _plot_min_mean_max(
+                axes[0], models, latency_values, colors, "Latência (ms)"
+            )
+            axes[0].set_title("Mínimo, média e máximo")
+            for model in models:
+                values = latency_values[model]
+                if values:
+                    axes[1].hist(
+                        values,
+                        bins="auto",
+                        alpha=0.45,
+                        label=model_label(model),
+                        color=colors[model],
+                    )
+            axes[1].set(
+                title="Distribuição da latência",
+                xlabel="Latência (ms)",
+                ylabel="Observações",
+            )
+            axes[1].legend()
+            axes[1].grid(axis="y", alpha=0.25)
+            figure.suptitle(f'{entry["label"]} · estatísticas e histograma')
+            figure.tight_layout()
+            _save_figure(figure, latency_output, f"latency_summary_{index}")
+            plt.close(figure)
+            figures.append(
+                f'![Resumo e histograma de latência — {entry["label"]}]'
+                f'(charts/latency/latency_summary_{index}.png)'
+            )
+
+            figure, axis = plt.subplots(figsize=(8, 5))
+            for model in models:
+                values = latency_values[model]
+                if values:
+                    axis.plot(
+                        range(1, len(values) + 1),
+                        values,
+                        marker="o",
+                        linewidth=1,
+                        label=model_label(model),
+                        color=colors[model],
+                    )
+            axis.set(
+                title="Latência cartesiana por observação",
+                xlabel="Observação bem-sucedida",
+                ylabel="Latência (ms)",
+            )
+            axis.grid(alpha=0.25)
+            axis.legend()
+            figure.tight_layout()
+            _save_figure(figure, latency_output, f"latency_series_{index}")
+            plt.close(figure)
+            figures.append(
+                f'![Série de latência — {entry["label"]}]'
+                f'(charts/latency/latency_series_{index}.png)'
+            )
+
         memory_output = chart_directory(output, "memory")
         memory_rows = {
             model: _resource_rows(rows, model) for model in models
@@ -150,6 +242,16 @@ def generate_performance_charts(
             figures.append(
                 f'![Memória RAM — {entry["label"]}](charts/memory/ram_{index}.png)'
             )
+            figure, axis = plt.subplots(figsize=(8, 4.5))
+            _plot_min_mean_max(axis, models, memory_values, colors, "RSS (MiB)")
+            axis.set_title("RAM: mínimo, média e máximo")
+            figure.tight_layout()
+            _save_figure(figure, memory_output, f"ram_summary_{index}")
+            plt.close(figure)
+            figures.append(
+                f'![Resumo de RAM — {entry["label"]}]'
+                f'(charts/memory/ram_summary_{index}.png)'
+            )
 
         gpu_memory_values = {
             model: [
@@ -160,16 +262,21 @@ def generate_performance_charts(
             for model in models
         }
         batch_values: dict[str, list[float]] = {model: [] for model in models}
-        seen_batches = set()
+        batch_latency_values: dict[str, list[float]] = {model: [] for model in models}
+        seen_batches: set[tuple[str, str]] = set()
         for row in rows:
             batch_id = row.get("batch_id")
-            if not batch_id or batch_id in seen_batches:
+            batch_key = (row["model"], batch_id)
+            if not batch_id or batch_key in seen_batches:
                 continue
-            seen_batches.add(batch_id)
+            seen_batches.add(batch_key)
             elapsed_ms = row.get("batch_elapsed_ms")
             if elapsed_ms and row.get("batch_size"):
                 batch_values[row["model"]].append(
                     row["batch_size"] * 1000 / elapsed_ms
+                )
+                batch_latency_values[row["model"]].append(
+                    elapsed_ms / row["batch_size"]
                 )
 
         has_gpu_data = any(gpu_memory_values.values()) or any(batch_values.values())
@@ -202,6 +309,118 @@ def generate_performance_charts(
             plt.close(figure)
             figures.append(
                 f'![GPU — {entry["label"]}](charts/gpu/gpu_{index}.png)'
+            )
+
+            figure, axes = plt.subplots(1, 2, figsize=(11, 4.5))
+            _plot_min_mean_max(axes[0], models, batch_values, colors, "req/s")
+            axes[0].set_title("Throughput: mínimo, média e máximo")
+            _plot_min_mean_max(axes[1], models, gpu_memory_values, colors, "MiB")
+            axes[1].set_title("VRAM: mínimo, média e máximo")
+            figure.tight_layout()
+            _save_figure(figure, gpu_output, f"gpu_summary_{index}")
+            plt.close(figure)
+            figures.append(
+                f'![Resumo de throughput e VRAM — {entry["label"]}]'
+                f'(charts/gpu/gpu_summary_{index}.png)'
+            )
+
+            figure, axis = plt.subplots(figsize=(8, 5))
+            for model in models:
+                x = batch_latency_values[model]
+                y = batch_values[model]
+                if x and y:
+                    axis.scatter(
+                        x,
+                        y,
+                        color=colors[model],
+                        label=model_label(model),
+                        alpha=0.8,
+                    )
+            axis.set(
+                title="Latência × throughput",
+                xlabel="Latência média do lote por imagem (ms)",
+                ylabel="Throughput por lote (req/s)",
+            )
+            axis.grid(alpha=0.25)
+            axis.legend()
+            figure.tight_layout()
+            _save_figure(figure, gpu_output, f"latency_throughput_{index}")
+            plt.close(figure)
+            figures.append(
+                f'![Latência e throughput — {entry["label"]}]'
+                f'(charts/gpu/latency_throughput_{index}.png)'
+            )
+
+        gpu_samples = entry.get("gpu_samples", [])
+        utilization = []
+        gpu_memory = []
+        power = []
+        timestamps = []
+        for sample in gpu_samples:
+            try:
+                utilization_value = float(sample["utilization_gpu_pct"])
+                memory_value = float(sample["memory_used_MiB"])
+                power_value = float(sample["power_W"])
+                timestamp = sample["timestamp"]
+            except (KeyError, TypeError, ValueError):
+                continue
+            utilization.append(utilization_value)
+            gpu_memory.append(memory_value)
+            power.append(power_value)
+            timestamps.append(timestamp)
+        if timestamps:
+            gpu_output = chart_directory(output, "gpu")
+            figure, axes = plt.subplots(3, 1, figsize=(10, 8), sharex=True)
+            x = range(len(timestamps))
+            axes[0].plot(x, utilization, color="#2b6cb0", marker=".")
+            axes[0].axhline(
+                np.mean(utilization),
+                color="#2b6cb0",
+                linestyle="--",
+                label=f"Média: {np.mean(utilization):.1f}%",
+            )
+            axes[0].set(ylabel="Utilização GPU (%)", ylim=(0, 100))
+            axes[0].legend()
+            axes[1].plot(x, gpu_memory, color="#805ad5", marker=".")
+            axes[1].axhline(
+                np.mean(gpu_memory),
+                color="#805ad5",
+                linestyle="--",
+                label=f"Média: {np.mean(gpu_memory):.1f} MiB",
+            )
+            axes[1].set(ylabel="Memória GPU (MiB)")
+            axes[1].legend()
+            axes[2].plot(x, power, color="#dd6b20", marker=".")
+            axes[2].axhline(
+                np.mean(power),
+                color="#dd6b20",
+                linestyle="--",
+                label=f"Média: {np.mean(power):.1f} W",
+            )
+            axes[2].set(ylabel="Potência (W)", xlabel="Amostra nvidia-smi")
+            axes[2].legend()
+            tick_step = max(1, len(timestamps) // 8)
+            axes[2].set_xticks(
+                list(x)[::tick_step], timestamps[::tick_step], rotation=20, ha="right"
+            )
+            for axis in axes:
+                axis.grid(alpha=0.25)
+            batch = entry.get("concurrency")
+            batch_text = f" · batch {batch}" if batch else ""
+            figure.suptitle(f'{entry["label"]} · telemetria da GPU{batch_text}')
+            figure.text(
+                0.01,
+                0.005,
+                "Amostras sequenciais de nvidia-smi; em execuções com vários modelos, "
+                "cada bloco corresponde a um modelo servido por vez.",
+                fontsize=8,
+            )
+            figure.tight_layout(rect=(0, 0.03, 1, 1))
+            _save_figure(figure, gpu_output, f"gpu_telemetry_{index}")
+            plt.close(figure)
+            figures.append(
+                f'![Telemetria da GPU — {entry["label"]}]'
+                f'(charts/gpu/gpu_telemetry_{index}.png)'
             )
 
         lines.extend(figures)

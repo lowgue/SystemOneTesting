@@ -19,6 +19,46 @@ def ratio(correct, total):
     return correct / total if total else None
 
 
+def numeric_summary(values: list[float]) -> dict[str, float | int | None]:
+    """Summarize measured values with count, mean, minimum, maximum, and median."""
+    if not values:
+        return dict(n=0, mean=None, minimum=None, maximum=None, median=None)
+    return dict(
+        n=len(values),
+        mean=statistics.mean(values),
+        minimum=min(values),
+        maximum=max(values),
+        median=statistics.median(values),
+    )
+
+
+def _unique_resource_rows(rows: list[dict]) -> list[dict]:
+    """Count shared-resource samples once per concurrent batch."""
+    unique = {}
+    for row in rows:
+        if row.get("error"):
+            continue
+        unique.setdefault(row.get("batch_id", row["request_key"]), row)
+    return list(unique.values())
+
+
+def _throughput_samples(rows: list[dict]) -> list[float]:
+    """Calculate successful request throughput for each measured batch."""
+    batches = {}
+    for row in rows:
+        batch_id = row.get("batch_id", row["request_key"])
+        batch = batches.setdefault(
+            batch_id,
+            {"elapsed_ms": row.get("batch_elapsed_ms", row["elapsed_ms"]), "ok": 0},
+        )
+        batch["ok"] += not bool(row.get("error"))
+    return [
+        batch["ok"] * 1000 / batch["elapsed_ms"]
+        for batch in batches.values()
+        if batch["elapsed_ms"]
+    ]
+
+
 def field_scores(pairs):
     """Invalid predictions remain errors. Macro F1 uses classes with truth support."""
     classes = sorted({truth for truth, _ in pairs})
@@ -80,7 +120,7 @@ def evaluate(frozen, rows, loads=None):
             exact="Todos os atributos corretos na mesma foto, somente em fotos com gabarito completo.",
             latency="Chamadas medidas com sucesso, incluindo pré/pós-processamento; carga e aquecimento excluídos.",
             macro_f1="Média por classe com suporte no gabarito; divisão por zero = 0.",
-            resources="HTTP sem PID mede o cliente, não o consumo do servidor Ollama.",
+            resources="CPU/RAM/VRAM do cliente HTTP não medem o servidor remoto; amostras de recurso compartilhadas são contadas uma vez por lote.",
         ),
     )
     for spec in frozen["models"]:
@@ -181,6 +221,24 @@ def evaluate(frozen, rows, loads=None):
         )
         successful = sum(not bool(r.get("error")) for r in rs)
         resources = sorted({r.get("resource_scope", "unknown") for r in rs})
+        resource_rows = _unique_resource_rows(rs)
+        performance_stats = dict(
+            latency_ms=numeric_summary(times),
+            throughput_requests_s=numeric_summary(_throughput_samples(rs)),
+            cpu_s=numeric_summary(
+                [float(r["cpu_s"]) for r in resource_rows if r.get("cpu_s") is not None]
+            ),
+            peak_rss_mib=numeric_summary(
+                [float(r["peak_rss_bytes"]) / 2**20 for r in resource_rows if r.get("peak_rss_bytes") is not None]
+            ),
+            gpu_peak_allocated_mib=numeric_summary(
+                [
+                    float(r["gpu_peak_allocated_bytes"]) / 2**20
+                    for r in resource_rows
+                    if r.get("gpu_peak_allocated_bytes") is not None
+                ]
+            ),
+        )
         model_loads = [row for row in (loads or []) if row["model"] == model]
         protocols = []
         for row in rs:
@@ -214,6 +272,7 @@ def evaluate(frozen, rows, loads=None):
             field_accuracy=ratio(field_correct, field_n),
             fields=field_results,
             photo_results=photos,
+            performance_stats=performance_stats,
             errors=len(rs) - successful,
             success_rate=ratio(successful, len(rs)),
             schema_valid_rate=ratio(
@@ -375,6 +434,18 @@ def generate(run, output):
         "warmup_failures",
         "mean_cpu_s",
         "peak_rss_mib",
+        "mean_throughput_requests_s",
+        "min_throughput_requests_s",
+        "max_throughput_requests_s",
+        "mean_cpu_sample_s",
+        "min_cpu_sample_s",
+        "max_cpu_sample_s",
+        "mean_rss_mib",
+        "min_rss_mib",
+        "max_rss_mib",
+        "mean_vram_mib",
+        "min_vram_mib",
+        "max_vram_mib",
         "resource_scope",
     ]
     with (output / "models.csv").open("w", encoding="utf-8-sig", newline="") as stream:
@@ -382,9 +453,22 @@ def generate(run, output):
         writer.writeheader()
         for model in summary["models"]:
             row = {key: model["latency"].get(key, model.get(key)) for key in columns}
+            stats = model["performance_stats"]
             row.update(
                 repetitions=summary["repetitions"],
                 resource_scope=",".join(model["resource_scope"]),
+                mean_throughput_requests_s=stats["throughput_requests_s"]["mean"],
+                min_throughput_requests_s=stats["throughput_requests_s"]["minimum"],
+                max_throughput_requests_s=stats["throughput_requests_s"]["maximum"],
+                mean_cpu_sample_s=stats["cpu_s"]["mean"],
+                min_cpu_sample_s=stats["cpu_s"]["minimum"],
+                max_cpu_sample_s=stats["cpu_s"]["maximum"],
+                mean_rss_mib=stats["peak_rss_mib"]["mean"],
+                min_rss_mib=stats["peak_rss_mib"]["minimum"],
+                max_rss_mib=stats["peak_rss_mib"]["maximum"],
+                mean_vram_mib=stats["gpu_peak_allocated_mib"]["mean"],
+                min_vram_mib=stats["gpu_peak_allocated_mib"]["minimum"],
+                max_vram_mib=stats["gpu_peak_allocated_mib"]["maximum"],
             )
             writer.writerow(row)
     with (output / "photos.csv").open("w", encoding="utf-8-sig", newline="") as stream:

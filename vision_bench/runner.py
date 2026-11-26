@@ -30,6 +30,7 @@ from .core import (
     validate_manifest,
     write_json,
 )
+from .gpu import resolve_concurrency
 from .protocols import describe, item_contract, output_diagnostics
 from .runtime import resolve_device, resolve_thread_count
 
@@ -313,8 +314,7 @@ def _validate_run_arguments(args):
         raise ValueError('threads and repetitions must be positive')
     if args.limit is not None and args.limit < 1:
         raise ValueError('limit must be positive')
-    if args.concurrency < 1:
-        raise ValueError('concurrency must be positive')
+    args.concurrency = resolve_concurrency(args.concurrency)
 
 
 def _items_for_run(manifest, limit):

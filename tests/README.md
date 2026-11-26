@@ -1,5 +1,7 @@
 # Testes
 
+Para o inventário de cada experimento e o setup completo do servidor GPU, veja [Guia de testes e setup do servidor](../docs/GUIA_TESTES_SERVIDOR.md).
+
 Ambiente Python 3.12 ou superior. Do clone, o comando recomendado cria um ambiente virtual local, instala só as dependências necessárias à suíte, executa todos os testes e gera relatórios para execuções completas já salvas:
 
 ```bash

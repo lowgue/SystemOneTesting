@@ -110,6 +110,25 @@ class PortableTests(unittest.TestCase):
         code,_,error=self.invoke(['report',str(target),'--output',str(self.root/'three-report')])
         self.assertEqual(code,0,error)
         self.assertEqual(len(load_json(self.root/'three-report/metrics.json')),3)
+    def test_report_combines_comparable_runs_for_all_model_charts(self):
+        """Generate combined charts when runs share machine, dataset, and contract."""
+        runs=[]
+        for suffix in ('a','b'):
+            self.config.write_text(json.dumps(dict(models=[dict(id=f'SIMULATED-{suffix}',adapter='mock')])))
+            target=self.root/f'run-{suffix}'
+            code,_,error=self.invoke(['run',*self.common(),'--output',str(target),'--repetitions','1'])
+            self.assertEqual(code,0,error)
+            (self.root/f'run-{suffix}-gpu.csv').write_text(
+                'timestamp,utilization_gpu_pct,memory_used_MiB,memory_total_MiB,power_W\n'
+                '12:00:00,50,1000,24000,250\n'
+            )
+            runs.append(target)
+        report=self.root/'combined-report'
+        code,_,error=self.invoke(['report',*(str(run) for run in runs),'--output',str(report)])
+        self.assertEqual(code,0,error)
+        readme=(report/'README.md').read_text()
+        self.assertIn('Todos os modelos · mesmo hardware',readme)
+        self.assertIn('charts/gpu/gpu_telemetry_3.png',readme)
     def test_parser_and_gate_preserve_errors(self):
         """Verify that parser and gate preserve errors."""
         self.assertEqual(normalize_text(self.contract,'vehicle','body','car'),'parse_error')

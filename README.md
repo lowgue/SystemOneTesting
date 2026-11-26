@@ -38,7 +38,7 @@ Com driver NVIDIA instalado e `nvidia-smi` funcionando, rode:
 python3 scripts/test_all.py --gpu
 ```
 
-No Linux, use `python3.12 scripts/test_all.py --gpu`. Esse fluxo executa a suíte e mede Clef-Flash pelo vLLM, enviando quatro imagens simultaneamente por padrão; `--concurrency` ajusta esse número. Instale o vLLM separadamente em `~/venvs/systemone-vllm`. O script inicia e encerra o servidor, baixa os pesos se necessário e salva resultados em `.artifacts/runs/` e `charts/reports/`. O servidor vLLM requer Linux. Para acrescentar BLIP/Laya/D1, use `--include-local-benchmarks`; esses benchmarks continuam seriais.
+No Linux, use `python3.12 scripts/test_all.py --gpu`. Esse fluxo executa a suíte e mede os quatro modelos de `benchmarks/configs/vllm-models.json` pelo vLLM, um por vez. Por padrão, `--concurrency auto` calcula o maior batch seguro a partir da VRAM livre, com teto de 64; use `--concurrency 8` ou `--max-concurrency` para ajustar. Instale o vLLM separadamente em `~/venvs/systemone-vllm`. O script inicia e encerra o servidor de cada modelo, baixa os pesos se necessário e salva resultados em `.artifacts/runs/` e `charts/reports/`, incluindo gráficos agregados dos modelos comparáveis. O servidor vLLM requer Linux. Para acrescentar um baseline serial de BLIP/Laya/D1 em processo, use `--include-local-benchmarks`.
 
 ## Uso
 
@@ -89,6 +89,7 @@ tests/          Testes do motor e dos benchmarks
 
 ## Documentação
 
+- [Setup do servidor GPU e passo a passo de cada teste](docs/GUIA_TESTES_SERVIDOR.md)
 - [Comparações reproduzíveis](docs/COMPARISON_SETUP.md)
 - [Datasets e métricas](docs/DATASETS.md)
 - [Metodologia das comparações](docs/PROMPT_COMPARISONS.md)

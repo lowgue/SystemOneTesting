@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "max_model_len": 4096,
+  "gpu_memory_utilization": 0.9,
+  "models": [
+    {
+      "id": "clef-flash-vllm",
+      "adapter": "systemone_http",
+      "served_model": "Cloudflare/clef-flash",
+      "route": "systemone",
+      "contract": "description_ollama_v1.json",
+      "url_env": "VLLM_SYSTEMONE_URL",
+      "url": "http://127.0.0.1:8000/v1/systemone",
+      "request_model": "Cloudflare/clef-flash",
+      "model": "Cloudflare/clef-flash",
+      "runtime": "vLLM structured decisions",
+      "omit_question_instructions": true,
+      "max_choices": 26,
+      "timeout_s": 300
+    },
+    {
+      "id": "blip-vqa-vllm",
+      "adapter": "vllm_openai",
+      "served_model": "Salesforce/blip-vqa-base",
+      "revision": "787b3d35d57e49572baabd22884b3d5a05acf072",
+      "route": "chat/completions",
+      "contract": "description_ollama_v1.json",
+      "url_env": "VLLM_CHAT_COMPLETIONS_URL",
+      "url": "http://127.0.0.1:8000/v1/chat/completions",
+      "model": "Salesforce/blip-vqa-base",
+      "timeout_s": 300
+    },
+    {
+      "id": "laya-vllm",
+      "adapter": "vllm_openai",
+      "served_model": "thaitea/laya-vision",
+      "revision": "f2fe3c12cb6d04c59d8a190250bf3fb40fc828dc",
+      "route": "chat/completions",
+      "contract": "description_ollama_v1.json",
+      "url_env": "VLLM_CHAT_COMPLETIONS_URL",
+      "url": "http://127.0.0.1:8000/v1/chat/completions",
+      "model": "thaitea/laya-vision",
+      "timeout_s": 300
+    },
+    {
+      "id": "d1-omni-vllm",
+      "adapter": "vllm_openai",
+      "served_model": "LiquidAI/d1-omni-600M",
+      "revision": "414f8d6438174f5b2133a9c21a478fc42625e308",
+      "route": "chat/completions",
+      "contract": "description_ollama_v1.json",
+      "url_env": "VLLM_CHAT_COMPLETIONS_URL",
+      "url": "http://127.0.0.1:8000/v1/chat/completions",
+      "model": "LiquidAI/d1-omni-600M",
+      "timeout_s": 300
+    }
+  ]
+}

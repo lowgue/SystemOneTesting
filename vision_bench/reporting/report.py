@@ -5,7 +5,27 @@ import json
 from pathlib import Path
 import statistics
 from ..core import load_json, write_json
-from .charts.style import model_color
+
+
+def _format_range(stats: dict, digits: int = 2) -> str:
+    """Format mean, minimum, and maximum for a report table cell."""
+    if stats["mean"] is None:
+        return "—"
+    return " / ".join(f'{stats[key]:.{digits}f}' for key in ("mean", "minimum", "maximum"))
+
+
+def _read_gpu_samples(run: Path) -> list[dict[str, str]]:
+    """Read nvidia-smi samples stored beside or inside a completed run."""
+    candidates = [
+        run.parent / f"{run.name}-gpu.csv",
+        run.parent / "clef-gpu.csv",
+        run / "gpu.csv",
+    ]
+    for csv_path in candidates:
+        if csv_path.is_file():
+            with csv_path.open(newline="", encoding="utf-8") as stream:
+                return list(csv.DictReader(stream))
+    return []
 
 
 def generate(runs, output):
@@ -23,6 +43,7 @@ def generate(runs, output):
     ]
     plot_inputs = []
     quality_summaries = []
+    comparable_runs = []
     for run in map(Path, runs):
         meta = load_json(run / "run.json")
         status = load_json(run / "status.json")
@@ -37,6 +58,11 @@ def generate(runs, output):
         ) != len(rows):
             raise ValueError("Missing or duplicate records")
         label = f'{meta["machine_id"]} / {run.name}'
+        gpu_samples = _read_gpu_samples(run)
+        from .dataset_metrics import evaluate
+
+        evaluation = evaluate(frozen, rows)
+        evaluation_by_model = {item["model"]: item for item in evaluation["models"]}
         lines += [
             f"## {label}",
             "",
@@ -50,8 +76,8 @@ def generate(runs, output):
                 "",
             ]
         lines += [
-            "| Modelo | Eventos / requisições | p50 / p95 (s) | Throughput (req/s) | CPU média (s) | RSS pico amostrado (MiB) | Escopo CPU/RSS | Esquema válido (1ª repetição) | Positivos completos corretos* | Erros |",
-            "|---|---:|---:|---:|---:|---:|---|---:|---:|---:|",
+            "| Modelo | Eventos / requisições | Latência média / mín / máx (ms) | Throughput médio / mín / máx (req/s) | CPU média / mín / máx (s) | RSS média / mín / máx (MiB) | VRAM média / mín / máx (MiB) | Esquema válido | Positivos corretos* | Erros |",
+            "|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|",
         ]
         for spec in frozen["models"]:
             model = spec["id"]
@@ -76,6 +102,12 @@ def generate(runs, output):
                 else sum(record["elapsed_ms"] for record in rs)
             )
             throughput = len(ok) / (measured_ms / 1000) if measured_ms else None
+            stats = evaluation_by_model[model]["performance_stats"]
+            latency_stats = stats["latency_ms"]
+            throughput_stats = stats["throughput_requests_s"]
+            cpu_stats = stats["cpu_s"]
+            rss_stats = stats["peak_rss_mib"]
+            vram_stats = stats["gpu_peak_allocated_mib"]
             row = dict(
                 run=run.name,
                 machine=meta["machine_id"],
@@ -92,6 +124,21 @@ def generate(runs, output):
                 measured_s=measured_ms / 1000,
                 mean_cpu_s=statistics.mean(r["cpu_s"] for r in rs),
                 peak_rss_mib=max(r["peak_rss_bytes"] for r in rs) / 2**20,
+                mean_latency_ms=latency_stats["mean"],
+                min_latency_ms=latency_stats["minimum"],
+                max_latency_ms=latency_stats["maximum"],
+                mean_throughput_requests_s=throughput_stats["mean"],
+                min_throughput_requests_s=throughput_stats["minimum"],
+                max_throughput_requests_s=throughput_stats["maximum"],
+                mean_cpu_sample_s=cpu_stats["mean"],
+                min_cpu_sample_s=cpu_stats["minimum"],
+                max_cpu_sample_s=cpu_stats["maximum"],
+                mean_rss_mib=rss_stats["mean"],
+                min_rss_mib=rss_stats["minimum"],
+                max_rss_mib=rss_stats["maximum"],
+                mean_vram_mib=vram_stats["mean"],
+                min_vram_mib=vram_stats["minimum"],
+                max_vram_mib=vram_stats["maximum"],
                 resource_scope=",".join(scopes),
                 first_valid=sum(r["valid"] for r in first),
                 positive_n=len(positive),
@@ -99,9 +146,8 @@ def generate(runs, output):
                 errors=sum(bool(r["error"]) for r in rs),
             )
             summary.append(row)
-            timing = f"{med:.3f} / {p95:.3f}" if times else "sem sucesso"
             lines.append(
-                f'| {model} | {len(first)} / {len(rs)} | {timing} | {throughput:.2f} | {row["mean_cpu_s"]:.3f} | {row["peak_rss_mib"]:.0f} | {row["resource_scope"]} | {row["first_valid"]}/{len(first)} | {correct}/{len(positive)} | {row["errors"]} |'
+                f'| {model} | {len(first)} / {len(rs)} | {_format_range(latency_stats)} | {_format_range(throughput_stats)} | {_format_range(cpu_stats, 3)} | {_format_range(rss_stats, 1)} | {_format_range(vram_stats, 1)} | {row["first_valid"]}/{len(first)} | {correct}/{len(positive)} | {row["errors"]} |'
             )
         lines += [
             "",
@@ -114,11 +160,75 @@ def generate(runs, output):
                 rows=rows,
                 models=[s["id"] for s in frozen["models"]],
                 simulated=meta["simulated"],
+                concurrency=frozen.get("concurrency"),
+                gpu_samples=gpu_samples,
             )
         )
-        from .dataset_metrics import evaluate
-
-        quality_summaries.append((label, evaluate(frozen, rows)))
+        quality_summaries.append((label, evaluation))
+        comparable_runs.append(
+            dict(
+                machine=meta["machine_id"],
+                contract=meta["contract_hash"],
+                dataset=meta["dataset_hash"],
+                simulated=meta["simulated"],
+                frozen=frozen,
+                models=[s["id"] for s in frozen["models"]],
+                rows=rows,
+                gpu_samples=gpu_samples,
+            )
+        )
+    if len(comparable_runs) > 1:
+        reference = comparable_runs[0]
+        comparable = [
+            item
+            for item in comparable_runs
+            if (
+                item["machine"] == reference["machine"]
+                and item["contract"] == reference["contract"]
+                and item["dataset"] == reference["dataset"]
+            )
+        ]
+        if len(comparable) > 1:
+            combined_frozen = dict(reference["frozen"])
+            combined_frozen["models"] = [
+                spec
+                for item in comparable
+                for spec in item["frozen"]["models"]
+            ]
+            combined_rows = [row for item in comparable for row in item["rows"]]
+            combined_models = [
+                model for item in comparable for model in item["models"]
+            ]
+            plot_inputs.append(
+                dict(
+                    label="Todos os modelos · mesmo hardware",
+                    rows=combined_rows,
+                    models=combined_models,
+                    simulated=any(item["simulated"] for item in comparable),
+                    concurrency=max(
+                        int(item["frozen"].get("concurrency", 0))
+                        for item in comparable
+                    ),
+                    gpu_samples=[
+                        sample
+                        for item in comparable
+                        for sample in item["gpu_samples"]
+                    ],
+                )
+            )
+            from .dataset_metrics import evaluate
+            quality_summaries.append(
+                (
+                    "Todos os modelos · mesmo hardware",
+                    evaluate(combined_frozen, combined_rows),
+                )
+            )
+            lines += [
+                "## Todos os modelos · mesmo hardware",
+                "",
+                "Gráficos agregados apenas entre execuções com o mesmo contrato, dataset e máquina.",
+                "",
+            ]
     from .charts.comparison import generate_performance_charts
     from .charts.quality import generate_quality_charts
 
