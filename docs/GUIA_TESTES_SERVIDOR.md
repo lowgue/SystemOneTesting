@@ -67,10 +67,11 @@ Coloque o clone, os ambientes Python e os caches na partição grande. Neste ser
 ```bash
 df -h / /models
 nvidia-smi
+nvidia-smi --query-compute-apps=pid,used_memory,process_name --format=csv
 git --version
 ```
 
-`nvidia-smi` precisa listar a RTX 3090 sem erro. O setup deste guia usa Python 3.12, `uv` e um driver NVIDIA funcional. O vLLM inclui seu runtime CUDA via pacotes Python; o teste normal não exige instalar o CUDA Toolkit do sistema.
+`nvidia-smi` precisa listar a RTX 3090 sem erro. A segunda consulta mostra processos que já ocupam VRAM, como um modelo carregado pelo Ollama; libere-os antes do benchmark. O setup deste guia usa Python 3.12, `uv` e um driver NVIDIA funcional. O vLLM inclui seu runtime CUDA via pacotes Python; o teste normal não exige instalar o CUDA Toolkit do sistema.
 
 ### 2.2. Obter o repositório
 
@@ -184,7 +185,15 @@ Depois do smoke, rode as três repetições padrão. O padrão é `--concurrency
   --vllm-executable "$VLLM_ENV/bin/vllm"
 ```
 
-Use `--concurrency 8` para fixar um valor ou `--max-concurrency 128` para erguer o teto automático. O mesmo número controla as threads HTTP do cliente e o `--max-num-seqs` do servidor vLLM. Use `--models clef-flash-vllm d1-omni-vllm` para limitar a execução a alguns IDs do manifesto. Repetições não aumentam o número de imagens independentes.
+O script aborta antes de iniciar o vLLM se outro processo já ocupar mais de 1 GiB de VRAM. Nesse caso, identifique e encerre o serviço, por exemplo:
+
+```bash
+ollama ps
+sudo systemctl stop ollama
+nvidia-smi --query-compute-apps=pid,used_memory,process_name --format=csv
+```
+
+Use `--allow-busy-gpu` apenas se você intencionalmente quiser dividir a GPU com outro processo; com um modelo grande carregado, isso ainda pode causar OOM. Use `--concurrency 8` para fixar um valor ou `--max-concurrency 128` para erguer o teto automático. O mesmo número controla as threads HTTP do cliente e o `--max-num-seqs` do servidor vLLM. Use `--models clef-flash-vllm d1-omni-vllm` para limitar a execução a alguns IDs do manifesto. Repetições não aumentam o número de imagens independentes.
 
 Para executar apenas a suíte automatizada sem benchmark de modelo:
 
@@ -334,7 +343,7 @@ O primeiro setup precisa obter Python/`uv`, pacotes Python e o snapshot `Cloudfl
 | `No space left on device` | Rode `df -h / /models`; confirme que `UV_CACHE_DIR`, `UV_PYTHON_INSTALL_DIR`, `PIP_CACHE_DIR`, `HF_HOME`, o clone e `VLLM_ENV` estão em `/models`. |
 | `No virtual environment ... .venv` ou `No module named encodings` | Não reaproveite/copiei `.venv` de outro Python ou computador. Rode `scripts/test_all.py` sem `--no-install` para o script criar um ambiente válido. |
 | PyTorch diz que CUDA não está disponível | Rode `nvidia-smi` e o teste Python do ambiente vLLM da seção 2.5. O driver precisa funcionar antes da instalação do vLLM. |
-| Erro de memória CUDA | Pare outros processos GPU e reduza o batch com `--concurrency 8` ou `--max-concurrency 16`. |
+| Erro de memória CUDA ou aviso de GPU ocupada | Rode `nvidia-smi --query-compute-apps=pid,used_memory,process_name --format=csv`; pare o serviço ocupante (por exemplo, `sudo systemctl stop ollama` ou `ollama stop <modelo>`) e reduza o batch com `--concurrency 8` ou `--max-concurrency 16`. |
 | O primeiro start do vLLM não termina | Aguarde o download/carregamento inicial; confira `.artifacts/runs/gpu-*/<id>-vllm.log` e o espaço em `/models`. |
 | Um modelo customizado não inicia no vLLM | Confira o log dele; arquiteturas sem chat multimodal compatível exigem o baseline serial (`--include-local-benchmarks`). |
 | `/v1/models` responde `Not Found` | A porta consultada pode pertencer a outro serviço. No fluxo recomendado, deixe `test_all.py` escolher a porta e iniciar o vLLM. |

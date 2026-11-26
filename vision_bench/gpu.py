@@ -11,8 +11,8 @@ MIN_SEQUENCE_MEMORY_MIB = 512
 RESERVED_MEMORY_MIB = 512
 
 
-def free_gpu_memory_mib(device: int = 0) -> int | None:
-    """Return free VRAM in MiB for one NVIDIA device, or None if unavailable.
+def gpu_memory_usage_mib(device: int = 0) -> tuple[int, int] | None:
+    """Return total and used VRAM in MiB for one NVIDIA device, or None.
 
     The query uses ``nvidia-smi`` so the result reflects memory visible to the
     vLLM server process. A missing driver, a parsing failure, or a timed-out
@@ -46,7 +46,16 @@ def free_gpu_memory_mib(device: int = 0) -> int | None:
         )
     except (TypeError, ValueError):
         return None
-    return max(0, int(total_mib - used_mib))
+    return int(total_mib), max(0, int(used_mib))
+
+
+def free_gpu_memory_mib(device: int = 0) -> int | None:
+    """Return free VRAM in MiB for one NVIDIA device, or None if unavailable."""
+    usage = gpu_memory_usage_mib(device)
+    if usage is None:
+        return None
+    total_mib, used_mib = usage
+    return max(0, total_mib - used_mib)
 
 
 def resolve_concurrency(

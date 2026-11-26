@@ -6,6 +6,7 @@ import json
 import os
 from pathlib import Path
 import shutil
+import signal
 import socket
 import subprocess
 import sys
@@ -19,14 +20,41 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[1]
 VENV = ROOT / ".venv"
 PYTHON = VENV / ("Scripts/python.exe" if sys.platform == "win32" else "bin/python")
+BUSY_GPU_THRESHOLD_MIB = 1024
 sys.path.insert(0, str(ROOT))
 
-from vision_bench.gpu import resolve_concurrency  # noqa: E402
+from vision_bench.gpu import (  # noqa: E402
+    gpu_memory_usage_mib,
+    resolve_concurrency,
+)
 
 
 def run(command: list[str]) -> None:
     """Run a command from the repository root and stop when it fails."""
     subprocess.run(command, cwd=ROOT, check=True)
+
+
+def check_gpu_availability(allow_busy: bool = False) -> None:
+    """Abort when another service already holds meaningful GPU memory.
+
+    Raising early avoids four consecutive vLLM startup failures when a service
+    such as Ollama is occupying VRAM. ``allow_busy`` keeps the old behavior for
+    operators who intentionally share the GPU.
+    """
+    usage = gpu_memory_usage_mib(0)
+    if usage is None or allow_busy or usage[1] <= BUSY_GPU_THRESHOLD_MIB:
+        return
+    print(
+        f"ERRO: a GPU já está com {usage[1]} MiB em uso. "
+        "Encerre outros serviços antes do benchmark, por exemplo com "
+        "`sudo systemctl stop ollama` ou `ollama stop <modelo>`. "
+        "Para verificar: "
+        "`nvidia-smi --query-compute-apps=pid,used_memory,process_name --format=csv`. "
+        "Se quiser continuar mesmo assim, use --allow-busy-gpu.",
+        file=sys.stderr,
+        flush=True,
+    )
+    raise SystemExit(2)
 
 
 def find_free_port() -> int:
@@ -92,7 +120,13 @@ def start_vllm_server(
     ]
     if entry.get("revision"):
         command.extend(["--revision", entry["revision"]])
-    server = subprocess.Popen(command, cwd=ROOT, stdout=log_stream, stderr=log_stream)
+    server = subprocess.Popen(
+        command,
+        cwd=ROOT,
+        stdout=log_stream,
+        stderr=log_stream,
+        start_new_session=True,
+    )
     try:
         deadline = time.monotonic() + 1800
         while time.monotonic() < deadline:
@@ -111,16 +145,46 @@ def start_vllm_server(
         raise
 
 
-def stop_server(server: subprocess.Popen) -> None:
-    """Stop a server started for the benchmark and wait for cleanup."""
-    if server.poll() is not None:
-        return
-    server.terminate()
+def _signal_process_group(process_id: int, signal_number: int) -> None:
+    """Send a signal to a process group, ignoring groups that already exited."""
     try:
-        server.wait(timeout=30)
+        os.killpg(process_id, signal_number)
+    except (ProcessLookupError, PermissionError):
+        pass
+
+
+def _process_group_exists(process_id: int) -> bool:
+    """Report whether a process group created by this script still exists."""
+    try:
+        os.killpg(process_id, 0)
+    except ProcessLookupError:
+        return False
+    except PermissionError:
+        return True
+    return True
+
+
+def stop_process_tree(process: subprocess.Popen, timeout: int = 30) -> None:
+    """Terminate a child process and every worker it spawned in its own group."""
+    _signal_process_group(process.pid, signal.SIGTERM)
+    try:
+        process.wait(timeout=timeout)
     except subprocess.TimeoutExpired:
-        server.kill()
-        server.wait()
+        pass
+    deadline = time.monotonic() + 5
+    while time.monotonic() < deadline and _process_group_exists(process.pid):
+        time.sleep(0.2)
+    if _process_group_exists(process.pid):
+        _signal_process_group(process.pid, signal.SIGKILL)
+        try:
+            process.wait(timeout=5)
+        except subprocess.TimeoutExpired:
+            pass
+
+
+def stop_server(server: subprocess.Popen) -> None:
+    """Stop the vLLM server and its EngineCore workers after a benchmark."""
+    stop_process_tree(server)
 
 
 def start_gpu_monitor(csv_path: Path) -> subprocess.Popen | None:
@@ -143,6 +207,7 @@ def start_gpu_monitor(csv_path: Path) -> subprocess.Popen | None:
         ],
         stdout=stream,
         stderr=subprocess.DEVNULL,
+        start_new_session=True,
     )
 
 
@@ -150,13 +215,7 @@ def stop_gpu_monitor(monitor: subprocess.Popen | None) -> None:
     """Stop an nvidia-smi monitor and close its CSV output."""
     if monitor is None:
         return
-    if monitor.poll() is None:
-        monitor.terminate()
-        try:
-            monitor.wait(timeout=10)
-        except subprocess.TimeoutExpired:
-            monitor.kill()
-            monitor.wait()
+    stop_process_tree(monitor, timeout=10)
     if monitor.stdout is not None:
         monitor.stdout.close()
 
@@ -281,6 +340,11 @@ def main() -> int:
         help="Teto da concorrência automática calculada pela GPU (padrão: 64).",
     )
     parser.add_argument(
+        "--allow-busy-gpu",
+        action="store_true",
+        help="Continua mesmo se outro processo já ocupar memória da GPU.",
+    )
+    parser.add_argument(
         "--models",
         nargs="+",
         help="IDs do manifesto vLLM; sem este argumento, roda todos os modelos.",
@@ -308,6 +372,8 @@ def main() -> int:
         parser.error("--repetitions precisa ser positivo.")
     if args.max_concurrency < 1:
         parser.error("--max-concurrency precisa ser positivo.")
+    if args.gpu and not args.skip_benchmark:
+        check_gpu_availability(args.allow_busy_gpu)
     try:
         concurrency = resolve_concurrency(args.concurrency, args.max_concurrency)
     except ValueError as error:
