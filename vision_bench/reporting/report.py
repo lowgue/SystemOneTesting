@@ -76,8 +76,8 @@ def generate(runs, output):
                 "",
             ]
         lines += [
-            "| Modelo | Eventos / requisições | Latência média / mín / máx (ms) | Throughput médio / mín / máx (req/s) | CPU média / mín / máx (s) | RSS média / mín / máx (MiB) | VRAM média / mín / máx (MiB) | Esquema válido | Positivos corretos* | Erros |",
-            "|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|",
+            "| Modelo | Eventos / requisições | Latência média / mín / máx (ms) | Throughput médio / mín / máx (req/s) | CPU média / mín / máx (s) | RSS média / mín / máx (MiB) | VRAM média / mín / máx (MiB) | CPU média (%) | GPU média (%) / VRAM usada (MiB) | Pré-processo médio (ms) | Esquema válido | Positivos corretos* | Erros |",
+            "|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|",
         ]
         for spec in frozen["models"]:
             model = spec["id"]
@@ -108,6 +108,10 @@ def generate(runs, output):
             cpu_stats = stats["cpu_s"]
             rss_stats = stats["peak_rss_mib"]
             vram_stats = stats["gpu_peak_allocated_mib"]
+            cpu_pct_stats = stats["cpu_pct"]
+            gpu_util_stats = stats["gpu_util_pct"]
+            gpu_mem_stats = stats["gpu_mem_used_mib"]
+            preproc_stats = stats["preproc_ms"]
             row = dict(
                 run=run.name,
                 machine=meta["machine_id"],
@@ -139,6 +143,10 @@ def generate(runs, output):
                 mean_vram_mib=vram_stats["mean"],
                 min_vram_mib=vram_stats["minimum"],
                 max_vram_mib=vram_stats["maximum"],
+                mean_cpu_pct=cpu_pct_stats["mean"],
+                mean_gpu_util_pct=gpu_util_stats["mean"],
+                mean_gpu_mem_used_mib=gpu_mem_stats["mean"],
+                mean_preproc_ms=preproc_stats["mean"],
                 resource_scope=",".join(scopes),
                 first_valid=sum(r["valid"] for r in first),
                 positive_n=len(positive),
@@ -147,7 +155,7 @@ def generate(runs, output):
             )
             summary.append(row)
             lines.append(
-                f'| {model} | {len(first)} / {len(rs)} | {_format_range(latency_stats)} | {_format_range(throughput_stats)} | {_format_range(cpu_stats, 3)} | {_format_range(rss_stats, 1)} | {_format_range(vram_stats, 1)} | {row["first_valid"]}/{len(first)} | {correct}/{len(positive)} | {row["errors"]} |'
+                f'| {model} | {len(first)} / {len(rs)} | {_format_range(latency_stats)} | {_format_range(throughput_stats)} | {_format_range(cpu_stats, 3)} | {_format_range(rss_stats, 1)} | {_format_range(vram_stats, 1)} | {_format_range(cpu_pct_stats, 1)} | {_format_range(gpu_util_stats, 1)} / {_format_range(gpu_mem_stats, 1)} | {_format_range(preproc_stats, 1)} | {row["first_valid"]}/{len(first)} | {correct}/{len(positive)} | {row["errors"]} |'
             )
         lines += [
             "",

@@ -4,9 +4,12 @@ from __future__ import annotations
 
 import importlib.util
 import io
+import os
 from pathlib import Path
 import signal
 import subprocess
+from tempfile import TemporaryDirectory
+from types import SimpleNamespace
 from unittest import TestCase
 from unittest.mock import MagicMock, patch
 
@@ -92,3 +95,50 @@ class GpuAvailabilityTests(TestCase):
             patch("sys.stderr", io.StringIO()),
         ):
             test_all.check_gpu_availability(True)
+
+
+class ExternalServerTests(TestCase):
+    """Check that an already warmed vLLM server is reused without takeover."""
+
+    def test_metrics_url_from_endpoint(self) -> None:
+        """The Prometheus endpoint keeps only the served host and port."""
+        self.assertEqual(
+            test_all.metrics_url_from_endpoint("http://127.0.0.1:8123/v1/systemone"),
+            "http://127.0.0.1:8123/metrics",
+        )
+
+    def test_benchmark_model_reuses_external_server(self) -> None:
+        """External mode neither starts nor stops a server nor rewrites its URL."""
+        entry = {
+            "id": "clef-flash-vllm",
+            "url_env": "VLLM_SYSTEMONE_URL",
+            "route": "systemone",
+            "contract": "description_ollama_v1.json",
+        }
+        url = "http://127.0.0.1:8123/v1/systemone"
+        os.environ["VLLM_SYSTEMONE_URL"] = url
+        args = SimpleNamespace(repetitions=1, vllm_executable=Path("/missing/vllm"))
+
+        def complete_run(command: list[str]) -> None:
+            """Create the status file that the benchmark expects after a run."""
+            output = Path(command[-1])
+            output.mkdir(parents=True, exist_ok=True)
+            (output / "status.json").write_text('{"status":"complete"}', encoding="utf-8")
+
+        with TemporaryDirectory() as directory:
+            with (
+                patch.object(test_all, "write_model_config"),
+                patch.object(test_all, "start_vllm_server") as start,
+                patch.object(test_all, "stop_server") as stop,
+                patch.object(test_all, "start_gpu_monitor", return_value=None),
+                patch.object(test_all, "run", side_effect=complete_run),
+            ):
+                output = test_all.benchmark_model(
+                    args, entry, {}, 22, Path(directory), external=True
+                )
+
+            self.assertTrue(output.is_dir())
+            start.assert_not_called()
+            stop.assert_not_called()
+
+        self.assertEqual(os.environ["VLLM_SYSTEMONE_URL"], url)

@@ -12,6 +12,8 @@ from pathlib import Path
 import platform
 import random
 import re
+import shutil
+import subprocess
 import sys
 import threading
 import time
@@ -219,10 +221,38 @@ def preflight(
     return specs, document, issues
 
 
+def gpu_sample(device: int = 0) -> tuple[float | None, float | None]:
+    """Return GPU utilization percentage and used MiB from one nvidia-smi query."""
+    executable = shutil.which("nvidia-smi")
+    if not executable:
+        return None, None
+    command = [
+        executable,
+        f"--id={device}",
+        "--query-gpu=utilization.gpu,memory.used",
+        "--format=csv,noheader,nounits",
+    ]
+    try:
+        result = subprocess.run(
+            command,
+            check=True,
+            capture_output=True,
+            text=True,
+            timeout=2,
+        )
+        values = [float(value.strip()) for value in result.stdout.split(",", maxsplit=1)]
+    except (OSError, subprocess.SubprocessError, TypeError, ValueError):
+        return None, None
+    return values[0], values[1]
+
+
 class Resources:
-    """Sample CPU time and resident memory for the client and optional local server processes."""
-    def __init__(self, server_pid=None):
-        """Initialize the object and store the configuration it needs."""
+    """Sample CPU, resident memory, and GPU use during one measured operation."""
+
+    def __init__(
+        self, server_pid: int | None = None, sample_gpu: bool = True, device: int = 0
+    ) -> None:
+        """Initialize the process set and optional GPU sampler for one operation."""
         self.processes = [psutil.Process()]
         if server_pid is not None:
             server_process = psutil.Process(int(server_pid))
@@ -231,9 +261,22 @@ class Resources:
             )
         self.stop = threading.Event()
         self.peak = 0
+        self.samples: list[dict] = []
+        self._device = device
+        self._gpu_sampler = shutil.which("nvidia-smi") if sample_gpu else None
+        self._last_gpu_sample = 0.0
+        self._last_cpu = 0.0
+        self._last_sample_at = 0.0
+        self._started_at = 0.0
+        self.cpu_s = 0.0
+        self.cpu_pct_mean = 0.0
+        self.cpu_pct_peak = 0.0
+        self.gpu_util_mean = None
+        self.gpu_util_peak = None
+        self.gpu_mem_peak_mib = None
         self.thread = threading.Thread(target=self.poll, daemon=True)
 
-    def cpu(self):
+    def cpu(self) -> float:
         """Return accumulated CPU time for the monitored processes."""
         total_cpu_seconds = 0
         for process in self.processes:
@@ -244,7 +287,7 @@ class Resources:
                 pass
         return total_cpu_seconds
 
-    def rss(self):
+    def rss(self) -> int:
         """Return the combined resident memory of the monitored processes."""
         total_rss_bytes = 0
         for process in self.processes:
@@ -254,25 +297,68 @@ class Resources:
                 pass
         return total_rss_bytes
 
-    def poll(self):
-        """Sample the monitored processes until the stop signal is set."""
+    def poll(self) -> None:
+        """Sample process and GPU use until the stop signal is set."""
         while not self.stop.is_set():
+            now = time.perf_counter()
             self.peak = max(self.peak, self.rss())
+            cpu_total = self.cpu()
+            if self._last_sample_at:
+                elapsed = now - self._last_sample_at
+                cpu_pct = ((cpu_total - self._last_cpu) / elapsed) * 100 if elapsed else 0
+                gpu_util, gpu_mem = None, None
+                if self._gpu_sampler and now - self._last_gpu_sample >= .25:
+                    gpu_util, gpu_mem = gpu_sample(self._device)
+                    self._last_gpu_sample = now
+                self.samples.append(
+                    dict(
+                        ts_rel_ms=(now - self._started_at) * 1000,
+                        cpu_pct_total=cpu_pct,
+                        cpu_cores_equiv=cpu_pct / 100,
+                        gpu_util_pct=gpu_util,
+                        gpu_mem_used_mib=gpu_mem,
+                    )
+                )
+            self._last_cpu = cpu_total
+            self._last_sample_at = now
             self.stop.wait(.05)
 
-    def __enter__(self):
-        """Start the managed operation and return its active resource."""
+    def _summarize(self) -> None:
+        """Reduce collected samples to scalar fields for one benchmark row."""
+        cpu_values = [sample["cpu_pct_total"] for sample in self.samples]
+        gpu_values = [
+            sample["gpu_util_pct"]
+            for sample in self.samples
+            if sample["gpu_util_pct"] is not None
+        ]
+        memory_values = [
+            sample["gpu_mem_used_mib"]
+            for sample in self.samples
+            if sample["gpu_mem_used_mib"] is not None
+        ]
+        self.cpu_pct_mean = sum(cpu_values) / len(cpu_values) if cpu_values else 0
+        self.cpu_pct_peak = max(cpu_values, default=0)
+        self.gpu_util_mean = sum(gpu_values) / len(gpu_values) if gpu_values else None
+        self.gpu_util_peak = max(gpu_values, default=None)
+        self.gpu_mem_peak_mib = max(memory_values, default=None)
+
+    def __enter__(self) -> Resources:
+        """Start sampling and return the active resource object."""
         self.peak = self.rss()
         self.before = self.cpu()
+        self._last_cpu = self.before
+        self._started_at = time.perf_counter()
+        self._last_sample_at = self._started_at
         self.thread.start()
         return self
 
-    def __exit__(self, *args):
-        """Release resources and finalize the managed operation."""
+    def __exit__(self, *args: object) -> None:
+        """Stop sampling and publish final scalar resource metrics."""
         self.stop.set()
         self.thread.join()
         self.peak = max(self.peak, self.rss())
         self.cpu_s = max(0, self.cpu() - self.before)
+        self._summarize()
 
 
 def server_metadata(spec):
@@ -585,12 +671,15 @@ def _run_measured_request(
 
     adapter.synchronize()
     timer_start = time.perf_counter()
+    preproc_start = timer_start
+    preproc_ms = 0.0
     with (nullcontext(None) if shared_batch else Resources(server_pid)) as resources:
         try:
             image_path = resolve_image(args.data_root, item['rel_path'])
             with Image.open(image_path) as source:
                 image = source.convert('RGB')
             image.thumbnail((args.max_edge, args.max_edge))
+            preproc_ms = (time.perf_counter() - preproc_start) * 1000
             answers, raw = adapter.predict(image, item['domain'])
             result = finalize(effective_contract, item['domain'], answers)
             adapter.synchronize()
@@ -609,7 +698,14 @@ def _run_measured_request(
         domain=item['domain'],
         image_sha256=item['sha256'],
         elapsed_ms=(time.perf_counter() - timer_start) * 1000,
+        preproc_ms=preproc_ms,
         cpu_s=resources.cpu_s if resources else 0,
+        cpu_pct_mean=resources.cpu_pct_mean if resources else 0,
+        cpu_pct_peak=resources.cpu_pct_peak if resources else 0,
+        gpu_util_mean=resources.gpu_util_mean if resources else None,
+        gpu_util_peak=resources.gpu_util_peak if resources else None,
+        gpu_mem_peak_mib=resources.gpu_mem_peak_mib if resources else None,
+        resource_samples=len(resources.samples) if resources else 0,
         peak_rss_bytes=resources.peak if resources else 0,
         resource_scope=resource_scope,
         error=error,
@@ -779,6 +875,12 @@ def _run_model_block(
                     if concurrency > 1:
                         row.update(
                             cpu_s=resources.cpu_s,
+                            cpu_pct_mean=resources.cpu_pct_mean,
+                            cpu_pct_peak=resources.cpu_pct_peak,
+                            gpu_util_mean=resources.gpu_util_mean,
+                            gpu_util_peak=resources.gpu_util_peak,
+                            gpu_mem_peak_mib=resources.gpu_mem_peak_mib,
+                            resource_samples=len(resources.samples),
                             peak_rss_bytes=resources.peak,
                             resource_scope='client_batch_shared',
                             batch_id=f'{block}/{spec["id"]}/{batch_number}',

@@ -12,6 +12,7 @@ import subprocess
 import sys
 import time
 import urllib.error
+import urllib.parse
 import urllib.request
 import venv
 from typing import Any
@@ -62,6 +63,14 @@ def find_free_port() -> int:
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as listener:
         listener.bind(("127.0.0.1", 0))
         return int(listener.getsockname()[1])
+
+
+def metrics_url_from_endpoint(url: str) -> str:
+    """Derive the vLLM Prometheus ``/metrics`` URL from a served endpoint."""
+    parsed = urllib.parse.urlsplit(url)
+    if parsed.scheme not in {"http", "https"} or not parsed.netloc:
+        raise ValueError(f"Endpoint vLLM inválido para métricas: {url}")
+    return urllib.parse.urlunsplit((parsed.scheme, parsed.netloc, "/metrics", "", ""))
 
 
 def load_vllm_manifest(path: Path) -> dict:
@@ -118,6 +127,14 @@ def start_vllm_server(
         str(concurrency),
         "--trust-remote-code",
     ]
+    if manifest.get("kv_cache_dtype"):
+        command.extend(["--kv-cache-dtype", str(manifest["kv_cache_dtype"])])
+    if manifest.get("enable_prefix_caching"):
+        command.append("--enable-prefix-caching")
+    if manifest.get("per_request_metrics"):
+        command.append("--enable-per-request-metrics")
+    if entry.get("logprobs_mode"):
+        command.extend(["--logprobs-mode", str(entry["logprobs_mode"])])
     if entry.get("revision"):
         command.extend(["--revision", entry["revision"]])
     server = subprocess.Popen(
@@ -240,19 +257,28 @@ def benchmark_model(
     manifest: dict,
     concurrency: int,
     run_root: Path,
+    external: bool = False,
 ) -> Path:
-    """Serve one model with vLLM, benchmark it in batches, and return its run path."""
+    """Benchmark one model, using a warmed external server when requested."""
     config_path = run_root / "configs" / f"{entry['id']}.json"
     write_model_config(config_path, entry)
-    port = find_free_port()
-    os.environ[entry["url_env"]] = (
-        f"http://127.0.0.1:{port}/v1/{entry['route']}"
-    )
     log_path = run_root / f"{entry['id']}-vllm.log"
     with log_path.open("w", encoding="utf-8") as log_stream:
-        server = start_vllm_server(
-            args.vllm_executable, entry, manifest, concurrency, port, log_stream
-        )
+        if external:
+            print(
+                f"Reutilizando servidor vLLM externo: {os.environ.get(entry['url_env'], '')}",
+                file=log_stream,
+                flush=True,
+            )
+            server = None
+        else:
+            port = find_free_port()
+            os.environ[entry["url_env"]] = (
+                f"http://127.0.0.1:{port}/v1/{entry['route']}"
+            )
+            server = start_vllm_server(
+                args.vllm_executable, entry, manifest, concurrency, port, log_stream
+            )
         monitor = None
         try:
             monitor = start_gpu_monitor(
@@ -294,7 +320,8 @@ def benchmark_model(
             return output
         finally:
             stop_gpu_monitor(monitor)
-            stop_server(server)
+            if server is not None:
+                stop_server(server)
 
 
 def main() -> int:
@@ -362,6 +389,14 @@ def main() -> int:
         help="Executável vLLM instalado no ambiente dedicado.",
     )
     parser.add_argument(
+        "--external-model",
+        help="ID do manifesto já servido por um vLLM externo aquecido; não inicia nem encerra servidor.",
+    )
+    parser.add_argument(
+        "--external-url",
+        help="URL do servidor externo; preenche a variável url_env do modelo selecionado.",
+    )
+    parser.add_argument(
         "--skip-benchmark",
         action="store_true",
         help="Roda só a suíte unitária; não inicia inferências.",
@@ -372,12 +407,8 @@ def main() -> int:
         parser.error("--repetitions precisa ser positivo.")
     if args.max_concurrency < 1:
         parser.error("--max-concurrency precisa ser positivo.")
-    if args.gpu and not args.skip_benchmark:
-        check_gpu_availability(args.allow_busy_gpu)
-    try:
-        concurrency = resolve_concurrency(args.concurrency, args.max_concurrency)
-    except ValueError as error:
-        parser.error(str(error))
+    if args.external_model and args.models:
+        parser.error("--external-model não pode ser combinado com --models.")
     if sys.version_info < (3, 12):
         parser.error("Python 3.12 ou superior é necessário.")
     manifest = load_vllm_manifest(args.vllm_models_config)
@@ -389,9 +420,44 @@ def main() -> int:
             f"Modelos desconhecidos: {', '.join(sorted(unknown_models))}. "
             f"Disponíveis: {', '.join(sorted(known_models))}"
         )
+
+    external = bool(args.external_model)
+    metrics_url = None
+    server_max_num_seqs = manifest.get("max_num_seqs")
+    if external:
+        if args.external_model not in known_models:
+            parser.error(
+                f"Modelo externo desconhecido: {args.external_model}. "
+                f"Disponíveis: {', '.join(sorted(known_models))}"
+            )
+        selected = {args.external_model}
+        external_entry = next(
+            entry for entry in manifest["models"] if entry["id"] == args.external_model
+        )
+        if args.external_url:
+            os.environ[external_entry["url_env"]] = args.external_url
+        endpoint = os.environ.get(external_entry["url_env"], "")
+        if not endpoint:
+            parser.error(
+                f"Defina {external_entry['url_env']} ou use --external-url para o servidor externo."
+            )
+        metrics_url = metrics_url_from_endpoint(endpoint)
+    elif args.gpu and not args.skip_benchmark:
+        check_gpu_availability(args.allow_busy_gpu)
+
+    try:
+        concurrency = resolve_concurrency(
+            args.concurrency,
+            args.max_concurrency,
+            metrics_url=metrics_url,
+            server_max_num_seqs=server_max_num_seqs,
+        )
+    except ValueError as error:
+        parser.error(str(error))
     if (
         args.gpu
         and not args.skip_benchmark
+        and not external
         and not args.vllm_executable.is_file()
     ):
         parser.error(
@@ -473,7 +539,7 @@ def main() -> int:
                 "'CUDA runtime:', torch.version.cuda)",
             ]
         )
-    elif args.gpu and not args.skip_benchmark:
+    elif args.gpu and not args.skip_benchmark and not external:
         vllm_python = args.vllm_executable.parent / "python"
         run(
             [
@@ -492,7 +558,8 @@ def main() -> int:
         run_root.mkdir(parents=True, exist_ok=True)
         print(
             f"Batch automático: {concurrency} imagens simultâneas "
-            f"(limite configurado: {args.max_concurrency}).",
+            f"(limite configurado: {args.max_concurrency}; "
+            f"servidor: {'externo aquecido' if external else 'gerenciado'}).",
             flush=True,
         )
         completed_runs = []
@@ -532,10 +599,16 @@ def main() -> int:
         for entry in manifest["models"]:
             if selected and entry["id"] not in selected:
                 continue
-            print(f"Iniciando vLLM para {entry['id']}...", flush=True)
+            print(
+                f"{'Reutilizando vLLM externo' if external else 'Iniciando vLLM'} "
+                f"para {entry['id']}...",
+                flush=True,
+            )
             try:
                 completed_runs.append(
-                    benchmark_model(args, entry, manifest, concurrency, run_root)
+                    benchmark_model(
+                        args, entry, manifest, concurrency, run_root, external
+                    )
                 )
             except (
                 OSError,

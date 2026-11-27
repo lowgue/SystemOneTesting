@@ -1,6 +1,10 @@
 {
   "schema_version": 1,
   "max_model_len": 4096,
+  "max_num_seqs": 32,
+  "kv_cache_dtype": "fp8",
+  "enable_prefix_caching": true,
+  "per_request_metrics": true,
   "gpu_memory_utilization": 0.9,
   "models": [
     {
@@ -16,6 +20,7 @@
       "runtime": "vLLM structured decisions",
       "omit_question_instructions": true,
       "max_choices": 26,
+      "logprobs_mode": "raw_logprobs",
       "timeout_s": 300
     },
     {

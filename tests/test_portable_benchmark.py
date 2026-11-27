@@ -159,7 +159,7 @@ class PortableTests(unittest.TestCase):
                 """Handle a test HTTP request and return the configured fixture response."""
                 body=json.loads(self.rfile.read(int(self.headers['Content-Length'])))
                 observed.update(body)
-                answers={k:{'type':'choice','choice':next(iter(q['criteria']))} for k,q in body['questions'].items()}
+                answers={k:{'type':'choice','choice':next(iter(q['criteria'])),'logprob':-0.25} for k,q in body['questions'].items()}
                 payload=json.dumps(dict(success=True,result=dict(answers=answers,usage={'input_tokens':12}))).encode()
                 self.send_response(200);self.send_header('Content-Length',str(len(payload)));self.end_headers();self.wfile.write(payload)
         server=ThreadingHTTPServer(('127.0.0.1',0),Handler);thread=threading.Thread(target=server.serve_forever,daemon=True);thread.start()
@@ -170,6 +170,7 @@ class PortableTests(unittest.TestCase):
             self.assertEqual(set(answers),set(contract['domains']['vehicle']['questions']))
             self.assertTrue(observed['images'][0].startswith('data:image/png;base64,'))
             self.assertEqual(len(observed['questions']),4);self.assertEqual(raw['usage']['input_tokens'],12)
+            self.assertTrue(all(value == -0.25 for value in adapter.last_metrics['logprobs'].values()))
             ollama=SystemOneHTTP({**spec,'image_encoding':'base64','request_model':'clef-flash:9b'},contract)
             ollama.predict(Image.new('RGB',(16,16)),'vehicle')
             self.assertEqual(observed['model'],'clef-flash:9b')

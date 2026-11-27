@@ -113,8 +113,26 @@ class SystemOneHTTP(MockAdapter):
 
         raw = self._unwrap_response(raw)
         answers = self._extract_answers(raw, domain)
-        self.last_metrics = {"inference_calls": 1, "attribute_ms": {}}
+        self.last_metrics = {
+            "inference_calls": 1,
+            "attribute_ms": {},
+            "logprobs": self._extract_logprobs(raw),
+        }
         return answers, raw
+
+    @staticmethod
+    def _extract_logprobs(raw: dict[str, Any]) -> dict[str, float]:
+        """Collect numeric logprobs returned alongside System One choices."""
+        collected: dict[str, float] = {}
+        for key, answer in raw.get("answers", {}).items():
+            if not isinstance(answer, dict):
+                continue
+            for field in ("logprob", "log_probability", "score"):
+                candidate = answer.get(field)
+                if isinstance(candidate, (int, float)) and not isinstance(candidate, bool):
+                    collected[str(key)] = float(candidate)
+                    break
+        return collected
 
     def _http_error(self, error: urllib.error.HTTPError) -> RuntimeError:
         """Return detailed errors only for unauthenticated local endpoints."""

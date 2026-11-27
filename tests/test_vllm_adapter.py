@@ -127,6 +127,15 @@ class VLLMAdapterTests(unittest.TestCase):
                 self.assertTrue(all(row["batch_size"] == 2 for row in rows[:2]))
                 self.assertTrue(
                     all(
+                        "preproc_ms" in row
+                        and "cpu_pct_mean" in row
+                        and "resource_samples" in row
+                        and row["cpu_pct_mean"] >= 0
+                        for row in rows
+                    )
+                )
+                self.assertTrue(
+                    all(
                         "image_url" in str(request["messages"])
                         for request in server.requests
                     )

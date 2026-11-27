@@ -38,11 +38,16 @@ python3.12 scripts/setup_benchmark.py --backend cpu
 
 O setup cria/reutiliza `.venv` e instala o projeto. Não baixa pesos nem inicia inferência. No Windows, use `py -3.12` para o setup e `.venv\Scripts\python.exe` nos comandos seguintes. O launcher Python do Clef também funciona no Windows; o wrapper `run_clef_local.sh` exige Bash/WSL.
 
-Para GPU, o fluxo padrão `python3.12 scripts/test_all.py --gpu` roda a suíte e mede o conjunto de imagens com os quatro modelos de `benchmarks/configs/vllm-models.json` servidos pelo vLLM. O batch é dimensionado por `--concurrency auto` a partir da VRAM livre, com teto padrão de 64 requisições. Os modelos são servidos um de cada vez na mesma GPU. Para acrescentar um baseline serial em processo de BLIP/Laya/D1, use `--include-local-benchmarks`. Instale uma versão atual do vLLM em um ambiente separado em `~/venvs/systemone-vllm`; o vLLM recente oferece o endpoint System One usado pelo Clef:
+Para GPU, o fluxo padrão `python3.12 scripts/test_all.py --gpu` roda a suíte e mede o conjunto de imagens com os quatro modelos de `benchmarks/configs/vllm-models.json` servidos pelo vLLM. No fluxo gerenciado, o batch é dimensionado por `--concurrency auto` a partir da VRAM livre, com teto padrão de 64 requisições. Para Clef, o fluxo recomendado é um servidor externo aquecido: o auto passa a usar `--max-num-seqs 32` e as métricas reais de KV cache (`kv_cache_usage_perc` e `num_requests_running`), evitando o custo de startup a cada rodada. Os demais modelos continuam servidos um de cada vez na mesma GPU. Para acrescentar um baseline serial em processo de BLIP/Laya/D1, use `--include-local-benchmarks`.
+
+Instale o vLLM 0.34 com CUDA 12.8 em um ambiente separado; a URL do release fixa versão e backend, e o vLLM oferece o endpoint System One usado pelo Clef:
 
 ```bash
-uv venv --python 3.12 --seed --managed-python ~/venvs/systemone-vllm
-uv pip install --python ~/venvs/systemone-vllm/bin/python --upgrade vllm --torch-backend=auto
+uv venv --python 3.12 --seed --managed-python ~/venvs/systemone-vllm-cu128
+uv pip install --python ~/venvs/systemone-vllm-cu128/bin/python \
+  "https://github.com/vllm-project/vllm/releases/download/v0.34.0/vllm-0.34.0+cu128-cp38-abi3-manylinux_2_28_x86_64.whl" \
+  --extra-index-url https://download.pytorch.org/whl/cu128
+~/venvs/systemone-vllm-cu128/bin/vllm download-kernels
 ```
 
 O driver NVIDIA precisa estar instalado. A build pip do PyTorch inclui o runtime CUDA necessário para os modelos locais opcionais; para selecionar outra build compatível, use `--torch-index-url` ou consulte o [seletor oficial do PyTorch](https://pytorch.org/get-started/locally/).
@@ -163,7 +168,7 @@ export VLLM_MODEL=nome-do-modelo-servido
   --output .artifacts/runs/vllm-smoke
 ```
 
-O valor de `--concurrency` limita quantas imagens são enviadas em paralelo; cada imagem continua sendo uma requisição independente e o servidor pode agrupá-las durante a inferência. O padrão do runner é `1`; `auto` calcula o valor pela memória livre da GPU. A concorrência maior que `1` só é aceita para adaptadores HTTP (`systemone_http` e `vllm_openai`). As linhas registram `batch_size`, `batch_elapsed_ms` e `batch_id`; o relatório calcula throughput pelo tempo total de cada lote. CPU e RSS são compartilhados pelo lote e identificados como `client_batch_shared`. O uso de GPU do servidor continua fora dos contadores CUDA do cliente.
+O valor de `--concurrency` limita quantas imagens são enviadas em paralelo; cada imagem continua sendo uma requisição independente e o servidor pode agrupá-las durante a inferência. O padrão do runner é `1`; `auto` calcula o valor pela memória livre da GPU ou, quando recebe um limite de sequências e `/metrics` de um servidor vLLM aquecido, pelas métricas reais de KV cache. A concorrência maior que `1` só é aceita para adaptadores HTTP (`systemone_http` e `vllm_openai`). As linhas registram `batch_size`, `batch_elapsed_ms`, `batch_id`, `cpu_pct_mean`/`cpu_pct_peak`, `gpu_util_mean`/`gpu_util_peak`, `gpu_mem_peak_mib` e `preproc_ms`; o relatório calcula throughput pelo tempo total de cada lote. CPU e RSS são compartilhados pelo lote e identificados como `client_batch_shared`. A amostragem de GPU usa `nvidia-smi` em paralelo ao cliente, então mede o servidor remoto/local sem depender do contador CUDA do processo Python.
 
 Para o endpoint System One nativo do vLLM, o perfil `benchmarks/configs/vllm-systemone.json` usa `Cloudflare/clef-flash`:
 
@@ -312,7 +317,7 @@ git pull
 python3.12 scripts/test_all.py --gpu --repetitions 1
 ```
 
-Esse fluxo verifica CUDA, executa os testes automatizados e mede os quatro modelos do manifesto vLLM com o maior batch que a GPU permite. Requer o executável `~/venvs/systemone-vllm/bin/vllm` e internet no primeiro download dos pesos. O script escolhe uma porta local livre por modelo, sem exigir que a porta 8000 esteja livre. Os resultados ficam em `.artifacts/runs/` e `charts/reports/`; `<id>-gpu.csv` registra utilização, memória e potência obtidas pelo `nvidia-smi`. Se o ambiente `.venv` e as dependências já estiverem instalados, acrescente `--no-install` para pular a instalação do projeto. Use `--concurrency 8` para fixar o lote ou `--max-concurrency` para alterar o teto automático; reduza o valor se houver erro de memória CUDA. O script aborta no início se outro serviço já ocupar mais de 1 GiB de VRAM; encerre o serviço (por exemplo, `sudo systemctl stop ollama`) ou use `--allow-busy-gpu` apenas se quiser dividir a GPU intencionalmente. Acrescente `--include-local-benchmarks` para também rodar BLIP/Laya/D1 serialmente como baseline.
+Esse fluxo verifica CUDA, executa os testes automatizados e mede os quatro modelos do manifesto vLLM com o maior batch que a GPU permite. No modo gerenciado, requer o executável `~/venvs/systemone-vllm-cu128/bin/vllm` e internet no primeiro download dos pesos; o script escolhe uma porta local livre por modelo. Para Clef com servidor externo aquecido, inicie `scripts/start_vllm_clef.sh` em um terminal e rode `python3.12 scripts/test_all.py --gpu --external-model clef-flash-vllm --external-url http://127.0.0.1:8000/v1/systemone` em outro: não há preflight de GPU ocupada e o servidor não é encerrado. Os resultados ficam em `.artifacts/runs/` e `charts/reports/`; `<id>-gpu.csv` registra utilização, memória e potência do `nvidia-smi`, e `metrics.csv` inclui CPU %, GPU %, VRAM usada e pré-processamento por lote. Se `.venv` e dependências já estiverem instalados, acrescente `--no-install`. Use `--concurrency 8` para fixar o lote ou `--max-concurrency` para alterar o teto automático; reduza o valor se houver erro de memória CUDA. Acrescente `--include-local-benchmarks` para também rodar BLIP/Laya/D1 serialmente como baseline.
 
 Para rodar o dataset maior e diverso documentado acima, use o downloader e o runner em vez do benchmark padrão de 22 imagens:
 

@@ -139,15 +139,20 @@ export HF_HOME=/models/cache/huggingface
 
 Repita os `export` após cada nova sessão SSH. Para torná-los permanentes, adicione essas quatro linhas ao `~/.bashrc` do usuário que executará os testes.
 
-### 2.5. Criar ambiente dedicado do vLLM
+### 2.5. Criar ambiente dedicado do vLLM com CUDA 12.8
 
-O vLLM fica separado do ambiente do projeto. Isso evita conflito entre as dependências do servidor e as dos relatórios:
+O vLLM fica separado do ambiente do projeto. Isso evita conflito entre as dependências do servidor e as dos relatórios. O wheel oficial é `manylinux_2_28_x86_64` e já traz binaries CUDA; ele não é específico por distro Ubuntu, mas a variante `cu128` fixa o backend desejado. Crie um ambiente novo e preserve o antigo como fallback:
 
 ```bash
-export VLLM_ENV=/models/venvs/systemone-vllm
+export VLLM_ENV=/models/venvs/systemone-vllm-cu128
 uv venv --python "$PYTHON312" --seed "$VLLM_ENV"
-uv pip install --python "$VLLM_ENV/bin/python" --upgrade vllm --torch-backend=auto
+uv pip install --python "$VLLM_ENV/bin/python" \
+  "https://github.com/vllm-project/vllm/releases/download/v0.34.0/vllm-0.34.0+cu128-cp38-abi3-manylinux_2_28_x86_64.whl" \
+  --extra-index-url https://download.pytorch.org/whl/cu128
+"$VLLM_ENV/bin/vllm" download-kernels
 ```
+
+O comando acima fixa versão e backend. Se preferir deixar o `uv` escolher o backend a partir do driver, use `uv pip install --python "$VLLM_ENV/bin/python" --upgrade vllm --torch-backend=cu128` — mas isso é menos determinístico que a URL do release. Para RTX 3090, a GPU reporta compute capability `(8, 6)`, coberta pelo wheel.
 
 Valide que o PyTorch desse ambiente enxerga a GPU:
 
@@ -176,7 +181,7 @@ Na primeira execução, os pacotes Python e os pesos precisam estar disponíveis
 
 ### 3.2. Benchmark completo com o maior batch que a GPU permite
 
-Depois do smoke, rode as três repetições padrão. O padrão é `--concurrency auto`: a concorrência é calculada como `(VRAM livre - reserva) / 512 MiB`, com teto de 64 por padrão. Em uma RTX 3090 com 22 imagens no dataset, o runner forma um lote com todas as imagens; o número exato aparece no início da saída e fica registrado em `frozen_config.json`.
+Depois do smoke, rode as três repetições padrão. No fluxo gerenciado (sem `--external-model`), `--concurrency auto` calcula `(VRAM livre - reserva) / 512 MiB`, com teto de 64 por padrão. No fluxo com servidor externo aquecido, o auto usa o `--max-num-seqs` do manifesto (32) e as métricas ao vivo do vLLM: se `kv_cache_usage_perc` e `num_requests_running` indicarem pressão no KV cache, a concorrência é reduzida e uma slot fica em reserva. O número exato aparece no início da saída e fica registrado em `frozen_config.json`.
 
 ```bash
 "$PYTHON312" scripts/test_all.py \
@@ -193,7 +198,7 @@ sudo systemctl stop ollama
 nvidia-smi --query-compute-apps=pid,used_memory,process_name --format=csv
 ```
 
-Use `--allow-busy-gpu` apenas se você intencionalmente quiser dividir a GPU com outro processo; com um modelo grande carregado, isso ainda pode causar OOM. Use `--concurrency 8` para fixar um valor ou `--max-concurrency 128` para erguer o teto automático. O mesmo número controla as threads HTTP do cliente e o `--max-num-seqs` do servidor vLLM. Use `--models clef-flash-vllm d1-omni-vllm` para limitar a execução a alguns IDs do manifesto. Repetições não aumentam o número de imagens independentes.
+Use `--allow-busy-gpu` apenas se você intencionalmente quiser dividir a GPU com outro processo; com um modelo grande carregado, isso ainda pode causar OOM. Use `--concurrency 8` para fixar um valor ou `--max-concurrency 128` para erguer o teto automático. No fluxo gerenciado, o mesmo número controla as threads HTTP do cliente e o `--max-num-seqs` do servidor vLLM; no fluxo externo, o servidor já está fixo em 32 e o cliente é dimensionado a partir dele. Use `--models clef-flash-vllm d1-omni-vllm` para limitar a execução a alguns IDs do manifesto. Repetições não aumentam o número de imagens independentes.
 
 Para executar apenas a suíte automatizada sem benchmark de modelo:
 
@@ -210,7 +215,59 @@ Para pular instalação depois que `.venv` já estiver funcional:
 
 Não use `--no-install` no primeiro uso, nem com `.venv` ausente, copiado ou quebrado.
 
-### 3.3. Baseline serial em processo (opcional)
+### 3.3. Servidor externo aquecido (recomendado para Clef)
+
+Para evitar o custo de inicialização a cada rodada, mantenha um único vLLM de Clef ativo. O script `scripts/start_vllm_clef.sh` usa BF16 oficial, `--kv-cache-dtype fp8`, `--enable-prefix-caching`, `--enable-per-request-metrics`, `--max-model-len 4096`, `--max-num-seqs 32` e `--logprobs-mode raw_logprobs`. O `--kv-cache-dtype fp8` quantiza apenas o cache KV, não os pesos: no vLLM, Q8_0 GGUF não é o caminho suportado para Clef.
+
+No primeiro terminal, deixe o servidor rodando:
+
+```bash
+export VLLM_ENV=/models/venvs/systemone-vllm-cu128
+cd /models/SystemOneTests/SystemOneTesting
+scripts/start_vllm_clef.sh
+```
+
+No segundo terminal, aponte o benchmark para ele:
+
+```bash
+export VLLM_ENV=/models/venvs/systemone-vllm-cu128
+export PYTHON312="$(uv python find 3.12)"
+cd /models/SystemOneTests/SystemOneTesting
+"$PYTHON312" scripts/test_all.py --gpu --no-install --repetitions 3 \
+  --external-model clef-flash-vllm \
+  --external-url http://127.0.0.1:8000/v1/systemone
+```
+
+No modo externo, `test_all.py` não verifica GPU ocupada, não sobe/deruba vLLM e não sobrescreve `VLLM_SYSTEMONE_URL`. O log `clef-flash-vllm-vllm.log` registra a URL reutilizada. Use `--external-url` ou exporte `VLLM_SYSTEMONE_URL` antes de chamar o script.
+
+### 3.4. Smoke de equivalência (answers + logprobs)
+
+Antes de adotar uma mudança de ambiente ou precisão, rode um smoke de duas imagens com `VLLM_BATCH_INVARIANT=1` no servidor e compare contra o baseline. O comparador exige as mesmas classes e logprobs dentro da tolerância; ausência de logprobs falha o teste.
+
+```bash
+export VLLM_BATCH_INVARIANT=1
+scripts/start_vllm_clef.sh
+```
+
+```bash
+export VLLM_SYSTEMONE_URL=http://127.0.0.1:8000/v1/systemone
+.venv/bin/python -m vision_bench run \
+  --config benchmarks/configs/vllm-systemone.json \
+  --contract benchmarks/contracts/description_ollama_v1.json \
+  --models clef-flash-vllm --limit 2 --repetitions 1 --concurrency 2 \
+  --output .artifacts/runs/smoke-base
+
+# troque a configuração candidata e repita com --output .artifacts/runs/smoke-candidato
+
+.venv/bin/python scripts/smoke_compare.py \
+  --baseline .artifacts/runs/smoke-base \
+  --candidate .artifacts/runs/smoke-candidato \
+  --tolerance 1e-3
+```
+
+O comparador imprime um JSON com `ok`, divergências de resposta, divergências de logprob, maior delta e imagens presentes em apenas uma das execuções. Use `VLLM_BATCH_INVARIANT=1` apenas no smoke: ele reduz variabilidade, mas custa throughput. Para a rodada de velocidade, reinicie o servidor sem essa variável.
+
+### 3.5. Baseline serial em processo (opcional)
 
 O modo `--include-local-benchmarks` acrescenta uma execução com BLIP, Laya e D1 carregados diretamente no `.venv`, serialmente, usando o mesmo contrato dos modelos servidos. Ele instala PyTorch CUDA, inicializa o submódulo Laya e serve como controle metodológico; não substitui a rodada padrão com vLLM.
 
@@ -225,7 +282,7 @@ git submodule update --init --recursive
 
 BLIP, Laya e D1 são carregados pelo vLLM com `--trust-remote-code`. Nem toda versão do vLLM expõe chat multimodal para arquiteturas customizadas; se algum modelo falhar, o erro aparece na saída e o log completo fica em `.artifacts/runs/gpu-*/<id>-vllm.log`. O script continua com os demais modelos e gera os gráficos das execuções concluídas. Nesse caso, use o baseline serial desta seção para não perder a comparação do modelo.
 
-### 3.4. Rodar outro modelo multimodal servido pelo vLLM
+### 3.6. Rodar outro modelo multimodal servido pelo vLLM
 
 Esse é um fluxo separado do teste Clef padrão. Inicie um modelo que aceite imagens no API OpenAI do vLLM em um terminal:
 
@@ -319,8 +376,8 @@ Ou comparar várias execuções sem misturar as máquinas. O relatório gera gr�
 - Execuções brutas e snapshots de configuração: `.artifacts/runs/gpu-*/<id>/`.
 - Logs de inicialização e telemetria por modelo: `.artifacts/runs/gpu-*/<id>-vllm.log` e `<id>-gpu.csv`.
 - Relatórios, gráficos e tabelas de cada rodada de `test_all.py`: `charts/reports/execucao-*/`.
-- `README.md`: resumo de qualidade e desempenho, com tabelas de latência, throughput, CPU, RAM e VRAM (média / mínimo / máximo).
-- `metrics.csv` / `metrics.json`: métricas tabulares por modelo e por lote.
+- `README.md`: resumo de qualidade e desempenho, com tabelas de latência, throughput, CPU em segundos e %, RAM, utilização/memória da GPU e pré-processamento (média / mínimo / máximo).
+- `metrics.csv` / `metrics.json`: métricas tabulares por modelo e por lote, incluindo `mean_cpu_pct`, `peak_cpu_pct`, `mean_gpu_util_pct`, `peak_gpu_util_pct`, `mean_gpu_mem_used_mib`, `peak_gpu_mem_used_mib`, `mean_preproc_ms` e `max_preproc_ms`.
 - PNG, PDF e SVG: box plots com pontos por imagem, histogramas, séries cartesianas, mínimo/média/máximo, latência × throughput, acurácia por atributo com IC 95% de Wilson e telemetria `nvidia-smi` com utilização, memória e potência.
 
 Copie resultados para seu computador depois de identificar o diretório exato da execução. Rode isto no computador local:
@@ -347,4 +404,6 @@ O primeiro setup precisa obter Python/`uv`, pacotes Python e o snapshot `Cloudfl
 | O primeiro start do vLLM não termina | Aguarde o download/carregamento inicial; confira `.artifacts/runs/gpu-*/<id>-vllm.log` e o espaço em `/models`. |
 | Um modelo customizado não inicia no vLLM | Confira o log dele; arquiteturas sem chat multimodal compatível exigem o baseline serial (`--include-local-benchmarks`). |
 | `/v1/models` responde `Not Found` | A porta consultada pode pertencer a outro serviço. No fluxo recomendado, deixe `test_all.py` escolher a porta e iniciar o vLLM. |
-| Benchmark não encontra vLLM | Passe `--vllm-executable /models/venvs/systemone-vllm/bin/vllm` e confira se o arquivo existe. |
+| Benchmark não encontra vLLM | Passe `--vllm-executable /models/venvs/systemone-vllm-cu128/bin/vllm` e confira se o arquivo existe. No modo externo, use `--external-model` e `--external-url`; o executável não é necessário. |
+| `auto` escolhe poucas imagens com servidor externo | Confira `curl -s http://127.0.0.1:8000/metrics | grep -E 'num_requests_running|kv_cache_usage_perc'`. Se o servidor estiver ocioso, o auto usa `--max-num-seqs 32` do manifesto; com pressão real, reduz e reserva uma slot. |
+| Quer usar Q8_0 no vLLM | Não: Q8_0 é GGUF de llama.cpp/Ollama. No vLLM 0.34, use BF16 oficial com `--kv-cache-dtype fp8` e valide answers/logprobs com `scripts/smoke_compare.py`. |

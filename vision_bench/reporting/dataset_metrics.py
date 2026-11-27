@@ -238,6 +238,26 @@ def evaluate(frozen, rows, loads=None):
                     if r.get("gpu_peak_allocated_bytes") is not None
                 ]
             ),
+            cpu_pct=numeric_summary(
+                [float(r["cpu_pct_mean"]) for r in resource_rows if r.get("cpu_pct_mean") is not None]
+            ),
+            gpu_util_pct=numeric_summary(
+                [
+                    float(r["gpu_util_mean"])
+                    for r in resource_rows
+                    if r.get("gpu_util_mean") is not None
+                ]
+            ),
+            gpu_mem_used_mib=numeric_summary(
+                [
+                    float(r["gpu_mem_peak_mib"])
+                    for r in resource_rows
+                    if r.get("gpu_mem_peak_mib") is not None
+                ]
+            ),
+            preproc_ms=numeric_summary(
+                [float(r["preproc_ms"]) for r in rs if r.get("preproc_ms") is not None]
+            ),
         )
         model_loads = [row for row in (loads or []) if row["model"] == model]
         protocols = []
@@ -447,6 +467,14 @@ def generate(run, output):
         "min_vram_mib",
         "max_vram_mib",
         "resource_scope",
+        "mean_cpu_pct",
+        "peak_cpu_pct",
+        "mean_gpu_util_pct",
+        "peak_gpu_util_pct",
+        "mean_gpu_mem_used_mib",
+        "peak_gpu_mem_used_mib",
+        "mean_preproc_ms",
+        "max_preproc_ms",
     ]
     with (output / "models.csv").open("w", encoding="utf-8-sig", newline="") as stream:
         writer = csv.DictWriter(stream, fieldnames=columns)
@@ -469,6 +497,14 @@ def generate(run, output):
                 mean_vram_mib=stats["gpu_peak_allocated_mib"]["mean"],
                 min_vram_mib=stats["gpu_peak_allocated_mib"]["minimum"],
                 max_vram_mib=stats["gpu_peak_allocated_mib"]["maximum"],
+                mean_cpu_pct=stats["cpu_pct"]["mean"],
+                peak_cpu_pct=stats["cpu_pct"]["maximum"],
+                mean_gpu_util_pct=stats["gpu_util_pct"]["mean"],
+                peak_gpu_util_pct=stats["gpu_util_pct"]["maximum"],
+                mean_gpu_mem_used_mib=stats["gpu_mem_used_mib"]["mean"],
+                peak_gpu_mem_used_mib=stats["gpu_mem_used_mib"]["maximum"],
+                mean_preproc_ms=stats["preproc_ms"]["mean"],
+                max_preproc_ms=stats["preproc_ms"]["maximum"],
             )
             writer.writerow(row)
     with (output / "photos.csv").open("w", encoding="utf-8-sig", newline="") as stream:
